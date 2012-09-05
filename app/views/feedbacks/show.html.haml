@@ -1,0 +1,29 @@
+- model_class = @feedback.class
+.row
+  .span12
+    %h1=t '.title', default: model_class.model_name.human
+
+    %p
+      %strong= model_class.human_attribute_name(:user_id) + ':'
+      %br
+      - if @feedback.user
+        = @feedback.user_name
+      - else
+        %i
+          \#Former User #{@feedback.user_id}
+    %p
+      %strong= model_class.human_attribute_name(:type) + ':'
+      %br
+      = @feedback.type
+    %p.pre-line><
+      %strong><= model_class.human_attribute_name(:message) + ':'
+      %br
+      ~ @feedback.message.strip.gsub(/\r/,"")
+    %p
+      %strong= model_class.human_attribute_name(:url) + ':'
+      %br
+      = link_to @feedback.url, @feedback.url
+
+    .form-actions
+      = link_to t('.back', default: t("helpers.links.back")), feedbacks_path, class: 'btn'
+      = link_to t('.edit', default: t("helpers.links.edit")), edit_feedback_path(@feedback), class: 'btn'

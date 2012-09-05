@@ -1,0 +1,13 @@
+%li{ class: message_classes(alternate, message, current_user) }
+  .message-avatar
+    = user_profile_picture message.sender, size: [50, 50], thumbnail: false
+  .message
+    .message-header
+      = message_timestamp message
+      %span
+        %strong= link_to message.sender, user_path(message.sender)
+    %p.message-body
+      #{message.body}
+      - if (message.sender == current_user && !message.unread?)
+        %br
+        = message_readat message

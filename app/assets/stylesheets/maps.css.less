@@ -1,0 +1,108 @@
+@import "twitter/bootstrap/mixins";
+@import "twitter/bootstrap/variables";
+
+.google-maps-fix {
+  label {
+    display:inline;
+    width: auto;
+  }
+
+  img {
+    max-width: none;
+  }
+  .box-sizing(border-box);
+}
+
+#index-itineraries-map,
+#new-itinerary-map {
+  .size(300px, 100%);
+  border: 1px solid #ddd;
+}
+
+#error,
+#result {
+  display: none;
+}
+
+.gmaps-popup {
+  height: 100px; //needed by firefox
+}
+
+.gmaps-popup-image,
+.gmaps-popup-text {
+  display: table-cell;
+}
+
+.gmaps-popup-image {
+  padding-right: 10px;
+}
+
+.gmaps-popup-image img {
+  display: block;
+  height: 50px;
+  width: 50px;
+}
+
+.gmaps-popup-text {
+  vertical-align: top;
+  font-size: 12px;
+}
+
+.gmaps-popup-p-title {
+  margin: 0 0 2px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.gmaps-popup-p-content {
+  margin: 0;
+  color: #666;
+}
+
+.gmaps-popup-div-details {
+  margin: 10px 0 0;
+  span {
+    display: inline-block;
+    margin-right: 12px;
+    text-align: center;
+  }
+}
+
+.arrow_box {
+  display: block;
+  border: 1px solid @grayLight;
+  background: @white;
+  .border-radius(4px);
+  .box-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+  cursor: pointer;
+
+  img {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+  }
+}
+
+.arrow_box:after, .arrow_box:before {
+  position: absolute;
+  top: 100%;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  content: " ";
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  left: 50%;
+  margin-left: -6px;
+  border-top-color: @white;
+  border-width: 6px;
+}
+
+.arrow_box:before {
+  border-top-color: @grayLight;
+  border-width: 7px;
+  left: 50%;
+  margin-left: -7px;
+}

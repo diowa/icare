@@ -1,0 +1,66 @@
+- title APPNAME
+#fb-root
+= render "shared/flash_messages"
+.row
+  .span12
+    .hero-unit#home-hero
+      .row-fluid
+        .span4#home-picture
+          .thumbnail
+            = link_to "#" do
+              = image_tag 'http://placehold.it/640x480/2d7489/&text=how+it+works'
+        .span8
+          %h1.pacifico
+            = image_tag "turtle_black.svg", class: "home-hero-logo"
+            = APPNAME
+            - if APP_CONFIG.demo_mode
+              %small
+                (demo)
+          %p
+            %b= t('.tagline', appname: APPNAME)
+      .row-fluid
+        .span6
+          .fb-facepile{ data: { size: "medium", :"max-rows" => "1" } }
+        .span6
+          %p
+            = link_to auth_at_provider_path(provider: :facebook), class: "btn btn-large btn-facebook" do
+              %i.icon-facebook-sign.icon-large
+              = t("login_with_facebook")
+            %small.why-facebook
+              = link_to t("why_facebook"), "#why-facebook", data: { toggle: "modal" }
+          %p.signin-terms
+            %b= t("we_will_never_post")
+            %br
+            - if APP_CONFIG.demo_mode
+              = t(".demo_mode", demo_terms_link: link_to(t("demo_terms"), :demo_terms)).html_safe
+            - else
+              = t(".signin_terms", appname: APPNAME, terms_link: link_to(t("terms"), :terms), policy_link: link_to(t("policy"), :policy)).html_safe
+.row
+  .span4
+    %h2.home-h2
+      %i.icon-road
+      = t('.share_itinerary_title')
+    %p= t('.share_itinerary_content')
+  .span4
+    %h2.home-h2
+      %i.icon-group
+      = t('.make_new_connections_title')
+    %p= t('.make_new_connections_content')
+  .span4
+    %h2.home-h2
+      %i.icon-money
+      = t('.save_money_title')
+    %p= t('.save_money_content')
+.row
+  .span4
+    %h2.home-h2
+      %i.icon-magic
+      = t('.thats_easy_title')
+    %p= t('.thats_easy_content')
+  .span4
+    %h2.home-h2
+      %i.icon-leaf
+      = t('.help_environment_title')
+    %p= t('.help_environment_content')
+
+= render "shared/modal_why_facebook"

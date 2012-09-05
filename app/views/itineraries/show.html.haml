@@ -1,0 +1,89 @@
+- title @itinerary.title
+= content_for :head do
+  = tag :meta, property: "fb:app_id", content: APP_CONFIG.facebook.app_id
+  = tag :meta, property: "og:url", content: itinerary_url(@itinerary)
+  = tag :meta, property: "og:site_name", content: APPNAME
+  = tag :meta, property: "og:type", content: "codenameicare:itinerary"
+  = tag :meta, property: "og:title", content: @itinerary.title
+  = tag :meta, property: "og:image", content: @itinerary.static_map
+  = tag :meta, property: "og:description", content: @itinerary.description
+  = tag :meta, property: "codenameicare:route_start_location:latitude", content: @itinerary.start_location["lat"]
+  = tag :meta, property: "codenameicare:route_start_location:longitude", content: @itinerary.start_location["lng"]
+  = tag :meta, property: "codenameicare:route_end_location:latitude", content: @itinerary.end_location["lat"]
+  = tag :meta, property: "codenameicare:route_end_location:longitude", content: @itinerary.end_location["lng"]
+  - @itinerary.sample_path.each do |point|
+    = tag :meta, property: "codenameicare:route_sample_path:latitude", content: point[0]
+    = tag :meta, property: "codenameicare:route_sample_path:longitude", content: point[1]
+.row
+  .span3
+    = image_tag @itinerary.static_map, class: "thumbnail border-box", alt: ""
+  .span9
+    %h1.pacifico
+      = @itinerary.title || Itinerary.model_name.human
+    %table
+      %tbody
+        %tr
+          %td.profile-picture-cell.vertical-align-top
+            - if logged_in?
+              = user_profile_picture @itinerary.user, class: "inline-block"
+            - else
+              = image_tag "http://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif", width: 50, height: 50, class: "inline-block thumbnail", alt: ""
+          %td.vertical-align-top
+            .balloon.for-profile-picture
+              - if logged_in?
+                %h5.no-margin= link_to @itinerary.user, user_path(@itinerary.user)
+                %p.pre-line= @itinerary.description
+              - else
+                %h4= t(".app_user", appname: APPNAME)
+                = @itinerary.description
+    .spacer
+    .row-fluid
+      .span6
+        %dl.dl-horizontal
+          %dt= Itinerary.human_attribute_name(:vehicle)
+          %dd= Itinerary.human_attribute_name("vehicle_#{@itinerary.vehicle}")
+          %dt= Itinerary.human_attribute_name(:smoking_allowed)
+          %dd= t("boolean.#{@itinerary.smoking_allowed}")
+          %dt= Itinerary.human_attribute_name(:pets_allowed)
+          %dd= t("boolean.#{@itinerary.pets_allowed}")
+          %dt= Itinerary.human_attribute_name(:fuel_cost)
+          %dd
+            %span= @itinerary.fuel_cost
+            %span>< .00 &euro;
+          %dt= Itinerary.human_attribute_name(:tolls)
+          %dd
+            %span= @itinerary.tolls
+            %span>< .00 &euro;
+      .span6
+        %dl.dl-horizontal
+          %dt= Itinerary.human_attribute_name(:round_trip)
+          %dd= t("boolean.#{@itinerary.round_trip}")
+          %dt= Itinerary.human_attribute_name(:leave_date)
+          %dd= l(@itinerary.leave_date, format: :long)
+          - if @itinerary.round_trip
+            %dt.itinerary-preview-return= Itinerary.human_attribute_name(:return_date)
+            %dd.itinerary-preview-return= l(@itinerary.return_date, format: :long)
+    .row-fluid
+      .span12
+        - if logged_in?
+          - if current_user != @itinerary.user
+            .btn-toolbar
+              = link_to new_conversation_path(itinerary_id: @itinerary.id), class: "btn btn-primary" do
+                %i.icon-comment
+                = t(".contact", user: @itinerary.user_first_name)
+              = link_to "#", class: "btn mock" do
+                %i.icon-thumbs-up
+                = t(".leave_reference")
+              .btn-group
+                %button.btn.btn-warning
+                  %i.icon-flag
+                %button.btn.btn-warning.dropdown-toggle{ data: { toggle: "dropdown" } }
+                  %span.caret
+                %ul.dropdown-menu
+                  %li
+                    %a{ href: "#" }
+                      = t(".report_itinerary")
+        - else
+          = link_to root_path, class: "btn btn-facebook" do
+            %i.icon-facebook-sign.icon-large
+            = t(".login_to_contact")

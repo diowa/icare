@@ -1,0 +1,19 @@
+# Using UTC as default (yes, UTC)
+defaults: &defaults
+  use_utc: false
+  use_activesupport_time_zone: true
+  allow_dynamic_fields: false
+
+development:
+  host: localhost
+  database: icare_development
+
+test:
+  host: localhost
+  database: icare_test
+
+staging:
+  uri: <%= ENV['MONGOLAB_URI'] %>
+
+production:
+  uri: <%= ENV['MONGOLAB_URI'] %>

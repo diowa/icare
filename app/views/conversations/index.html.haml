@@ -1,0 +1,16 @@
+- title t(".title")
+.row
+  .span12
+    %h1= yield :title
+  .span12
+    %table.table.table-striped
+      %thead
+        %th Index
+        %th ID
+        %th{ colspan: "3" } Actions
+      %tbody
+        - @conversations.each_with_index do |conversation, index|
+          %tr
+            %td= index.next
+            %td= conversation.id
+            %td= link_to t("helpers.links.show"), conversation_path(conversation)

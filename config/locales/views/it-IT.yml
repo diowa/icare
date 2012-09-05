@@ -1,0 +1,268 @@
+it-IT:
+  date:
+    formats:
+      full_day: ! '%A %e %B'
+      birthday: ! '%-d %B %Y'
+
+  boolean:
+    "true": "Sì"
+    "false": "No"
+
+  helpers:
+    form:
+      error: Correggi i seguenti errori
+    actions: Azioni
+    titles:
+      new: "Nuovo %{model}"
+      edit: "Modifica %{model}"
+    links:
+      new: Nuovo
+      confirm: Sei sicuro?
+      show: Mostra
+      edit: Modifica
+      destroy: Elimina
+      user:
+        ban: Sospendi
+        unban: Rimuovi sospensione
+
+  views:
+    pagination:
+      first: "&laquo; Prima"
+      last: "Ultima &raquo;"
+      previous: "&lsaquo; Precedente"
+      next: "Successiva &rsaquo;"
+      truncate: "&hellip;"
+
+  templates:
+    itineraries:
+      read_more: Leggi tutto
+      show_on_map: Mostra sulla mappa
+
+  login: Accedi
+  login_with_facebook: Accedi con Facebook
+  logout: Esci
+  we_will_never_post: Non posteremo mai nulla senza il tuo esplicito permesso.
+  why_facebook: "Perché Facebook?"
+
+  about: Su di noi
+  how_it_works: Come funziona
+  policy: "Normativa sull'utilizzo dei dati"
+  terms: "Condizioni d'uso"
+  demo_terms: "Condizioni d'uso della versione dimostrativa"
+
+  last_modified: "Ultima modifica: %{date}"
+
+  save: Salva
+  close: Chiudi
+
+  delete_account: Elimina profilo
+  demo_mode: Questa è un'applicazione dimostrativa
+
+  user_mailer:
+    activation_needed_email:
+      subject: "Benvenuto su %{website}"
+      welcome: "Benvenuto su %{website}, %{username}"
+      successfully_signed_up: "Ti sei correttamente registrato a %{website},"
+      your_username: "il tuo nome utente è: %{username}."
+      to_login_follow_link: "Per accedere al sito, segui semplicemente questo collegamento: %{url}"
+      thanks_for_joining: Grazie per esserti registrato e buona giornata!
+    activation_success_email:
+      subject: Account attivato
+      congratulations: "Congratulazioni, %{username}"
+      successfully_activated: "Hai correttamente attivato il tuo account su %{website},"
+      your_username: "il tuo nome utente è: %{username}."
+      to_login_follow_link: "Per accedere al sito, segui semplicemente questo collegamento: %{url}"
+      thanks_for_joining: Grazie per esserti registrato e buona giornata!
+    reset_password_email:
+      subject: Richiesta di cambio password
+      hello: "Ciao, %{username}"
+      request: "Hai richiesto di ripristinare la tua password."
+      new_password_follow_link: "Per scegliere una nuova password, segui semplicemente questo collegamento: %{url}"
+      have_a_great_day: "Buona giornata!"
+
+  recaptcha:
+    errors:
+      incorrect-captcha-sol: Fail
+    enter_words: Inserisci le parole sopra
+
+  flash:
+    user:
+      success:
+        update: Utente aggiornato con successo.
+        destroy: Utente eliminato con successo.
+        ban: Utente sospeso con successo.
+        unban: Utente riabilitato con successo.
+      error:
+        update: Si è verificato un errore durante l'aggiornamento dell'utente.
+        ban: Si è verificato un errore durante la sospensione dell'utente.
+        unban: Si è verificato un errore durante la riabilitazione dell'utente.
+    feedback:
+      success:
+        create: Feedback creato con successo.
+        update: Feedback aggiornato con successo.
+      error:
+        create: Si è verificato un errore durante la creazione del feedback.
+        update: Si è verificato un errore durante l'aggiornamento del feedback.
+    itinerary:
+      success:
+        destroy: Itinerario eliminato con successo.
+      error:
+        destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.
+    error:
+      not_authenticated: Effettua prima l'accesso.
+      not_allowed: Non hai i permessi per accedere a questa pagina
+
+  shared:
+    navbar:
+      language: Lingua
+      user_settings: Impostazioni utente
+    footer:
+      message: La riservatezza non è garantita in questo stato di sviluppo
+
+  pages:
+    home:
+      tagline: "Dividi le spese di viaggio con chi percorre la tua stessa strada."
+      share_itinerary_title: Condividi itinerari
+      share_itinerary_content: "Ti sposti in automobile quotidianamente o saltuariamente? Condividi l'itinerario e dai la possibilità ad altre persone interessate allo stesso tipo di percorso di contattarti."
+      make_new_connections_title: Nuove conoscenze
+      make_new_connections_content: "Il tragitto sarà più divertente in compagnia. Ti aiuterermo a scegliere i compagni di viaggio più affini ai tuoi interessi."
+      save_money_title: Risparmia
+      save_money_content: "Spostarsi diventa sempre più costoso? Dividi le spese di viaggio con i tuoi nuovi amici."
+      thats_easy_title: "È semplicissimo"
+      thats_easy_content: "La familiarità di Google Maps e il processo di creazione guidata permettono a chiunque di condividere un percorso in pochi minuti."
+      help_environment_title: "Ecosostenibile"
+      help_environment_content: "Meno auto, meno traffico, meno stress e nuovi compagni di avventure! Rendi più piacevoli i tuoi spostamenti e nel contempo aiuti l'ambiente."
+      signin_terms: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
+      demo_mode: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."
+    policy:
+      title: Normativa sull'utilizzo dei dati
+    terms:
+      title: Condizioni d'uso
+    demo_terms:
+      title: Condizioni d'uso della versione dimostrativa
+  users:
+    calculator:
+      fuel_type: Carburante
+      fuel_diesel: Diesel
+      fuel_petrol: Benzina
+      fuel_lpg: GPL
+      fuel_methane: Metano
+      fuel_price: Prezzo carburante
+      vehicle_type: Veicolo
+      vehicle_compact: Compatto
+      vehicle_standard: Tradizionale
+      vehicle_high_consumption: Alti consumi
+      per_liter: al litro
+      fuel_cost_estimate: Consumo stimato
+    show:
+      language: "Lingua %{language}"
+    banned:
+      title: Account sospeso
+      you_were_banned: Sei stato sospeso!
+    dashboard:
+      title: Cruscotto
+      reminder: Promemoria
+      new_itinerary: Nuovo itinerario
+      search_itineraries: Cerca itinerari
+      your_itineraries: I tuoi itinerari
+      new_messages:
+        zero: Nessun nuovo messaggio
+        one: "%{count} nuovo messaggio"
+        other: "%{count} nuovi messaggi"
+      new_notifications:
+        zero: Nessuna notifica
+        one: "%{count} notifica"
+        other: "%{count} notifiche"
+    settings:
+      user_settings: Impostazioni utente
+      general_information: Informazioni generali
+      vehicle_information: Informazioni sul veicolo
+      user_profile_details: I dettagli del profilo vengono aggiornati da Facebook dopo ogni accesso.
+      vehicle_avg_consumption_help: Utilizza il punto per separare i decimali. Questo valore viene usato nella stima del costo carburante quando si crea un nuovo itinerario.
+      vehicle_avg_consumption_note: "Nota: Riporta in questo modulo il valore %{fuel} della tabella %{proportional_costs}"
+      fuel: Carburante
+      proportional_costs: "COSTI PROPORZIONALI €/km"
+      km_costs_calculation_link: Calcola il costo chilometrico del tuo veicolo sul sito ACI
+      send_email: Invia e-mail quando
+      application_settings: Impostazioni dell'applicazione
+
+  itineraries:
+    mine:
+      title: I miei itinerari
+    search:
+      advanced_search: Ricerca avanzata
+      the_same: È indifferente
+      search: Cerca
+    index:
+      title: Cerca itinerari
+      no_itineraries_found: Nessun itinerario trovato
+      an_error_occurred: Ops! Si è verificato un errore nella ricerca degli itinerari
+    show:
+      app_user: "Un utente di %{appname}"
+      contact: "Contatta %{user}"
+      leave_reference: Lascia una referenza
+      report_itinerary: "Segnala questo itinerario"
+      login_to_contact: "Accedi per contattare questo utente"
+    edit:
+      title: "Modifica itinerario"
+    new:
+      title: Nuovo itinerario
+      step_1: Passo 1
+      step_2: Passo 2
+      step_3: Passo 3
+      plan_route: Pianifica il percorso
+      insert_itinerary_details: "Inserisci i dettagli sull'itinerario"
+      confirm_and_share: "Conferma e condividi"
+      satisfied_next_step: "Sono soddisfatto, continua"
+      next_step: "Passo successivo"
+      previous_step: "Torna indietro"
+    route_step:
+      not_found_text: Percorso non trovato
+      zero_results_text: Nessun risultato
+      get_route_before: Calcola prima il percorso
+      get_route: Calcola percorso
+      distance: Distanza
+      duration: Durata
+      itinerary_hints: Consigli per un percorso ottimale
+      hint_privacy_title: "Un po' di privacy"
+      hint_privacy_content: "Temi sguardi indiscreti? Non essere troppo specifico nell'impostare il percorso. Indica le strade più importanti vicino al punto di partenza e a quello di arrivo."
+      hint_customize_title: "Personalizza il percorso"
+      hint_customize_content: "Utilizzi una strada alternativa perché devi passare da tua suocera? Trascina il percorso per ottenere l'itinerario desiderato."
+      hint_search_before_title: "...e se esistesse già?"
+      hint_search_before_content: "Sei sicuro di voler pianificare un nuovo percorso? %{search_before_link} tra quelli disponibili se ne è presente uno adatto alle tue esigenze."
+      search_before_link: "Cerca prima"
+    details_step:
+      description_help: "Inserisci una breve descrizione del tuo itinerario. Se ci sono cose che i tuoi compagni di viaggio devono necessariamente sapere prima di contattarti, aggiungile qui (esempio: \"ascolto musica al massimo del volume\")."
+      day: Giorno
+      leave_time: Ora andata
+      return_time: Ora ritorno
+      edit_all_times: Modifica tutti gli orari insieme
+      fuel_help_text: "Il percorso è di {km} km. Considerando un consumo medio di %{avg_consumption} €/km, il costo stimato è di {est}.00 €."
+      more_accurate_data: "Vuoi dati più accurati per il tuo veicolo?"
+    confirm_and_share_step:
+      preview: Anteprima
+      missing_publish_stream_permission: "L'applicazione non ha il permesso di pubblicare sul tuo diario."
+      share_on_timeline_unavailable: "Siamo spiacenti. Al momento l'applicazione non può condividere l'itinerario sul diario di Facebook."
+
+  feedbacks:
+    index:
+      new: Nuovo
+      hide_fixed: Nascondi corretti
+      show_fixed: Mostra corretti
+
+  notifications:
+    index:
+      title: Notifiche
+
+  conversations:
+    index:
+      title: Conversazioni
+    show:
+      title: Conversazione
+      conversation_about: "Conversazione su %{itinerary_link} di %{user_link}"
+    new:
+      title: Nuova conversazione
+      start_conversation_about: "Inizia una conversazione su %{itinerary_link} di %{user_link}"
+    messages:
+      seen: "Visualizzato il %{date}"
+      time_ago: "%{time} fa"

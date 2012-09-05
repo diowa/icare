@@ -1,0 +1,69 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      - unless logged_in?
+        %a.btn.btn-navbar{ data: { toggle: "collapse", target: ".nav-collapse" } }
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+      = link_to root_path, class: "brand" do
+        = image_tag "turtle.svg", class: "brand-logo"
+        %span.hidden-phone= APPNAME
+      - if logged_in?
+        %ul.nav
+          %li.divider-vertical
+          %li.notifications.mock
+            = link_to "#", rel: "popover", data: { placement: 'bottom', content: "<b>Test</b>", title: "Messages", trigger: "manual", html: true }, id: "navbar-notifications-messages" do
+              %span.label.label-important.count
+                3
+              %i.icon-comments
+          %li.notifications.mock
+            = link_to "#", rel: "popover", data: { placement: 'bottom', content: "Test", title: "Notifications", trigger: "manual", html: true }, id: "navbar-notifications-notifications" do
+              %span.label.label-important.count
+                2
+              %i.icon-globe
+          - if current_user.admin?
+            %li.notifications.mock
+              = link_to "#", rel: "popover", data: { placement: 'bottom', content: "Test", title: "Reports", trigger: "manual", html: true }, id: "navbar-notifications-report" do
+                %span.label.label-important.count
+                  10
+                %i.icon-warning-sign
+        %ul.nav.pull-right
+          %li#user-navbar-info
+            = link_to user_path(current_user), class: "navbar-profile-picture" do
+              = user_profile_picture current_user, size: [], thumbnail: false
+            = link_to user_path(current_user), class: "navbar-profile-name hidden-phone" do
+              = current_user
+          %li.dropdown
+            = link_to "#", data: { toggle: "dropdown" }, class: "dropdown-toggle" do
+              %i.icon-chevron-down
+            %ul.dropdown-menu
+              %li
+                = link_to :settings do
+                  %i.icon-cog
+                  = t(".user_settings")
+              %li
+                = link_to :logout do
+                  %i.icon-signout
+                  = t("logout")
+      - else
+        %ul.nav.pull-right
+          %li
+            = link_to auth_at_provider_path(provider: :facebook) do
+              %i.icon-facebook-sign
+              = t("login_with_facebook")
+        .nav-collapse
+          %ul.nav
+            %li.divider-vertical
+            %li= link_to t("how_it_works"), :how_it_works
+            %li= link_to t("about"), :about
+          %ul.nav.pull-right
+            %li.dropdown.pull-right
+              = link_to "#", data: { toggle: "dropdown" }, class: "dropdown-toggle" do
+                = AVAILABLE_LOCALES[I18n.locale]
+                %b.caret
+              %ul.dropdown-menu
+                - AVAILABLE_LOCALES.each do |code, native_name|
+                  - if code != I18n.locale
+                    %li
+                      =link_to native_name, "?locale=#{code}"

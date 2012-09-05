@@ -1,0 +1,61 @@
+=# true_text NOT converted to true-text
+#itinerary-preview{ data: { true_text: t("boolean.true"), false_text: t("boolean.false") }}
+  .row
+    .span3
+      =# static_map_url_builder converted to static-map-url-builder
+      = image_tag transparent_gif_image_data, class: "thumbnail", id: "itinerary-preview-image", alt: "", data: { static_map_url_builder: "http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=false&markers=color:green|label:B|%{end_location}&markers=color:green|label:A|%{start_location}&path=enc:%{overview_polyline}" }
+    .span9
+      %h1.pacifico#itinerary-preview-title
+      %table
+        %tbody
+          %tr
+            %td.profile-picture-cell.vertical-align-top
+              = user_profile_picture current_user, class: "inline-block"
+            %td.vertical-align-top
+              .balloon.for-profile-picture
+                %h5.no-margin= current_user
+                %p.pre-line#itinerary-preview-description
+      .spacer
+      .row-fluid
+        .span6
+          %dl.dl-horizontal
+            %dt= Itinerary.human_attribute_name(:vehicle)
+            %dd#itinerary-preview-vehicle
+            %dt= Itinerary.human_attribute_name(:smoking_allowed)
+            %dd#itinerary-preview-smoking_allowed
+            %dt= Itinerary.human_attribute_name(:pets_allowed)
+            %dd#itinerary-preview-pets_allowed
+            %dt= Itinerary.human_attribute_name(:fuel_cost)
+            %dd
+              %span#itinerary-preview-fuel_cost<
+              %span>< .00 &euro;
+            %dt= Itinerary.human_attribute_name(:tolls)
+            %dd
+              %span#itinerary-preview-tolls<
+              %span>< .00 &euro;
+        .span6
+          %dl.dl-horizontal
+            %dt= Itinerary.human_attribute_name(:round_trip)
+            %dd#itinerary-preview-round_trip
+            %dt= Itinerary.human_attribute_name(:leave_date)
+            %dd#itinerary-preview-leave_date
+            %dt.itinerary-preview-return.hide= Itinerary.human_attribute_name(:return_date)
+            %dd.itinerary-preview-return.hide#itinerary-preview-return_date
+.row
+  .span12.align-center
+    .spacer
+    - if share_on_timeline_available
+      .control-group
+        .controls
+          = f.label :share_on_timeline, class: "checkbox inline" do
+            = f.default_tag :check_box, :share_on_timeline, disabled: !current_user.has_facebook_permission(:publish_stream), checked: current_user.has_facebook_permission(:publish_stream)
+            %i.icon-facebook-sign.facebook-color.icon-large
+            = Itinerary.human_attribute_name :share_on_timeline
+          - unless current_user.has_facebook_permission(:publish_stream)
+            %p.shy
+              %small
+                %i.icon-ban-circle
+                = t(".missing_publish_stream_permission")
+    - else
+      %i.icon-ban-circle
+      = t(".share_on_timeline_unavailable")

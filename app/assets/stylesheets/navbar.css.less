@@ -1,0 +1,91 @@
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
+
+.navbar {
+  .divider-vertical {
+    .opacity(70);
+  }
+
+  .brand {
+    font-family: "Pacifico";
+    color: @grayLighter;
+    font-size: 20px;
+    line-height: 20px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    .transition(text-shadow .4s ease-out);
+
+    &:hover {
+      color: white;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25),
+                   0 0 25px rgba(222, 231, 238, 0.8);
+    }
+  }
+}
+
+.brand-logo {
+  position: relative;
+  display: inline-block;
+  top: 4px;
+  .size(15px, 38px);
+  vertical-align: top;
+}
+
+#user-navbar-info {
+  a {
+    display: inline-block;
+  }
+
+  .navbar-profile-picture {
+    position: relative;
+    border: 1px solid @grayLighter;
+    padding: 0;
+    .square(25px);
+
+    &:hover {
+      border: 1px solid @white;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  #user-navbar-info {
+    .navbar-profile-picture {
+      top: -1px;
+    }
+
+    .navbar-profile-name {
+      padding-left: 5px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #user-navbar-info {
+    .navbar-profile-picture {
+      top: 3px;
+      .square(30px);
+    }
+  }
+}
+
+.notifications {
+  position: relative;
+  line-height: 17px;
+
+  a {
+    padding: 10px 10px 9px !important;
+  }
+
+  i {
+    margin-top: 2px;
+    font-size: 20px;
+  }
+
+  .count {
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    height: 12px;
+    background: rgba(205, 0, 0, 0.8);
+  }
+}

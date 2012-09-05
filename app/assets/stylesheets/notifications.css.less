@@ -1,0 +1,22 @@
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
+
+@background: lighten(@successBackground, 5%);
+
+.notification-unread {
+  background-color: @background;
+}
+
+.table-striped {
+  tbody {
+    tr:nth-child(odd) td.notification-unread {
+      background-color: darken(@background, 1%);
+    }
+  }
+}
+
+.table {
+  tbody tr:hover td.notification-unread {
+    background-color: darken(@background, 3%);
+  }
+}

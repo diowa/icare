@@ -1,0 +1,16 @@
+!!!
+%html
+  %head
+    %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+  %body
+    %h1
+      =t(".congratulations", username: @user.email)
+    %p
+      =t(".successfully_activated", website: "minstrels.com")
+      %br
+      =t(".your_username", username: @user.email)
+      %br
+    %p
+      =t(".to_login_follow_link", url: @url)
+    %p
+      =t(".thanks_for_joining")

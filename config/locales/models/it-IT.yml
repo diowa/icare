@@ -1,0 +1,84 @@
+it-IT:
+  mongoid:
+    models:
+      user:
+        one: Utente
+        other: Utenti
+      reference:
+        one: Referenza
+        other: Referenze
+      itinerary:
+        one: Itinerario
+        other: Itinerari
+      feedback:
+        one: Feedback
+        other: Feedback
+      notification:
+        one: Notifica
+        other: Notifiche
+      conversation:
+        one: Conversazione
+        other: Conversazioni
+      message:
+        one: Messaggio
+        other: Messaggi
+    attributes:
+      user:
+        email: E-mail
+        name: Nome
+        about: Su di te
+        username: Nome utente
+        gender: Sesso
+        age: Età
+        locale: Localizzazione
+        gender_male: Uomo
+        gender_female: Donna
+        birthday: Data di nascita
+        nationality: Nazionalità
+        education: Educazione
+        work: Occupazione
+        time_zone: Fuso orario
+        vehicle_avg_consumption: Costo carburante
+        send_email_messages: Si riceve un messaggio
+        send_email_references: Si riceve una referenza
+      feedback:
+        type: Tipo
+        status: Stato
+        message: Messaggio
+        updated_at: Ultima modifica
+        url: Indirizzo
+      itinerary:
+        title: Titolo
+        description: Descrizione
+        vehicle: Veicolo
+        vehicle_car: Automobile
+        vehicle_motorcycle: Motocicletta
+        vehicle_van: Furgone
+        smoking_allowed: Si fuma a bordo
+        pets_allowed: Animali a bordo
+        fuel_cost: Costo carburante
+        tolls: Pedaggi
+        round_trip: Andata e ritorno
+        leave_date: Data andata
+        return_date: Data ritorno
+        share_on_timeline: Condividi su Facebook
+        driver_gender: Sesso del guidatore
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: non è una e-mail valida
+  activemodel:
+    attributes:
+      itinerary_route:
+        from: Partenza
+        to: Arrivo
+        avoid_highways: Evita autostrade
+        avoid_tolls: Evita strade a pedaggio
+    errors:
+      models:
+        login:
+          attributes:
+            email:
+              invalid: non è una e-mail valida

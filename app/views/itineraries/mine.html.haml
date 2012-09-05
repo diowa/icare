@@ -1,0 +1,26 @@
+- title t(".title")
+.row
+  .span12
+    = render "shared/flash_messages"
+    %h1= yield :title
+  .span12
+    %table.table.table-striped
+      %thead
+        %th #
+        %th= Itinerary.human_attribute_name(:title)
+        %th= t("helpers.actions")
+      %tbody
+        - @itineraries.each_with_index do |itinerary, index|
+          %tr.vertical-align-middle
+            %td
+              = index.next
+            %td
+              = link_to itinerary, itinerary_path(itinerary)
+            %td
+              = link_to edit_itinerary_path(itinerary), class: "btn btn-small mock" do
+                %i.icon-edit
+                = t("helpers.links.edit")
+              &nbsp;
+              = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t("helpers.links.confirm") }, class: "btn btn-small btn-danger" do
+                %i.icon-trash
+                = t("helpers.links.destroy")

@@ -1,0 +1,20 @@
+- model_class = BetaInvite.new.class
+.page-header
+  %h1=t '.title', default: model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
+    %tr
+      %th= model_class.human_attribute_name(:email)
+      %th=t '.actions', default: t("helpers.actions")
+  %tbody
+    - @beta_invites.each do |beta_invite|
+      %tr
+        %td
+          %p
+            = beta_invite.email
+            - if User.where(email: beta_invite.email).first
+              %i.icon-ok
+        %td
+          = link_to t('.destroy', default: t("helpers.links.destroy")), beta_invite_path(beta_invite), method: :delete, data: { confirm: t("helpers.links.confirm") }, class: 'btn btn-mini btn-danger'
+
+= link_to t('.new', default: t("helpers.links.new")), new_beta_invite_path, class: 'btn btn-primary'

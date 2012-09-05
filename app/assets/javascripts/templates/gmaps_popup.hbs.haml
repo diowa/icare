@@ -1,0 +1,14 @@
+.gmaps-popup
+  .gmaps-popup-image
+    %img{ width: 50, height: 50, alt: "", src: "{{user.image}}" }
+  .gmaps-popup-text
+    %p.gmaps-popup-p-title
+      %a{ href: "{{url}}" }
+        {{title}}
+    %p.gmaps-popup-p-content
+      {{#if user.nationality}}
+      %i{ class: "flag-{{toLowerCase user.nationality}}" }
+      {{/if}}
+      {{user.name}}
+  .gmaps-popup-div-details
+    {{content}}

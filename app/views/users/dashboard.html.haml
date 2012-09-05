@@ -1,0 +1,32 @@
+- title t(".title")
+.row
+  .span6
+    #hero-user.hero-unit
+      .attribution
+        db9_dash.jpg by xmatt, on Flickr
+      .pacifico.dashboard-title= t(".reminder")
+      %p
+        = link_to :conversations, class: "btn btn-large btn-block disabled" do
+          %i.icon-comments.icon-large
+          = t(".new_messages", count: 0)
+      %p
+        = link_to :notifications, class: "btn btn-large btn-block" do
+          %i.icon-globe.icon-large
+          2 notifiche
+  .span6
+    #hero-itineraries.hero-unit
+      .attribution
+        _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
+      .pacifico.dashboard-title= Itinerary.model_name.human(count: 42)
+      %p
+        = link_to itineraries_path, class: "btn btn-large btn-block" do
+          %i.icon-search.icon-large
+          = t(".search_itineraries")
+      %p
+        = link_to new_itinerary_path, class: "btn btn-large btn-block " do
+          %i.icon-road.icon-large
+          = t(".new_itinerary")
+      %p
+        = link_to my_itineraries_path, class: "btn btn-large btn-block " do
+          %i.icon-heart.icon-large
+          = t(".your_itineraries")

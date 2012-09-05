@@ -1,0 +1,21 @@
+- model_class = @reference.experience_class.constantize
+.row
+  .span6
+    %h1.legend-like= t('.send_reference')
+    = render "form"
+  .span6
+    %h1.legend-like= @reference.referencing_user
+    - if @reference.filled_up?
+      %h1
+        = make_thumbs(@reference.rating)
+      .div{ style: "display: table-cell; width: 80px; vertical-align: middle" }
+        = small_user_avatar @reference.referencing_user, true, "small"
+      .div{ style: "display: table-cell;" }
+        %p.balloon
+          = @reference.message
+    - elsif !@reference.relevant
+      %p.grayed-out
+        = t(".other_not_relevant", name: @reference.referencing_user)
+    - else
+      %p.grayed-out
+        = t(".other_did_not_write", name: @reference.referencing_user)

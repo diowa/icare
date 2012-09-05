@@ -1,0 +1,31 @@
+- unless @reference.outgoing_reference.relevant
+  .alert.alert-warning.fade.in
+    %a.close{"data-dismiss" => "alert", href: "#"} &times;
+    %h4= t(".warning")
+    %p= t(".marked_as_not_relevant", mark_as_relevant: t(".mark_as_relevant"))
+%p
+  = reference_status_for(@reference)
+%p.help
+  = reference_help_text_for(@reference)
+= bootstrap_form_for @reference, validate: true, html: { class: 'form-vertical' } do |f|
+  = f.fields_for :outgoing_reference do |outgoing_reference|
+    = outgoing_reference.error_messages
+    = outgoing_reference.text_area :message, class: 'text_field', rows: 10, help: true, class: "width-max border-box", disabled: ("disabled" unless @reference.outgoing_reference.relevant)
+    .control-group
+      .controls
+        = outgoing_reference.hidden_field :rating, value: @reference.outgoing_reference.rating
+        .btn-group{ data: { toggle: "buttons-radio" } }
+          %button.btn.reference-rating{ type: "button", data: { rating: "-1" }, class: ("active" if @reference.outgoing_reference.rating == -1) }
+            %i.icon-thumbs-down
+            = t(".negative")
+          %button.btn.reference-rating{ type: "button", data: { rating: "0" }, class: ("active" if @reference.outgoing_reference.rating == 0) }
+            = t(".neutral")
+          %button.btn.reference-rating{ type: "button", data: { rating: "1" }, class: ("active" if @reference.outgoing_reference.rating == 1) }
+            %i.icon-thumbs-up
+            = t(".positive")
+    .form-actions
+      - if @reference.outgoing_reference.relevant
+        = f.submit t(".send_reference"), class: 'btn btn-primary'
+        = link_to t(".mark_as_not_relevant"), not_relevant_incoming_reference_path(@reference), class: "btn", method: :put
+      - else
+        = link_to t(".mark_as_relevant"), relevant_incoming_reference_path(@reference), class: "btn btn-primary", method: :put

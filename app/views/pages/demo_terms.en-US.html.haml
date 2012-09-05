@@ -1,0 +1,33 @@
+- title t(".title")
+.row
+  .span12
+    %h1= yield(:title)
+    %h5.shy= t("last_modified", date: l(Date.parse("2012-09-01"), format: :long))
+
+    %h3 Welcome to #{APPNAME}
+    %p
+      This is a demo application of the open source
+      = link_to "carpooling", "http://en.wikipedia.org/wiki/Carpool"
+      platform #{APPNAME}.
+    %p
+      The source code is available at
+      = link_to "http://github.com/diowa/icare", "http://github.com/diowa/icare"
+
+    %h3 Our Warranties and Disclaimers
+    %p
+      WE PROVIDE THIS DEMO "AS IS", WITHOUT ANY WARRANTY.
+
+    %h3 Privacy policy
+    %p
+      We cache the following Facebook data on our local database for performance reasons:
+      %ul
+        %li
+          Email, name, birthday, work, education, about, total number of friends, known languages.
+      We get your public profile picture, likes and common friends with other #{APPNAME}'s members without
+      storing them in any way. Your username on #{APPNAME} will be the same of Facebook.
+    %p
+      We will not send you any email.
+    %p
+      The "Share on Facebook Timeline" feature is not available in this demo.
+    %p
+      You can permanently delete your data by logging in and clicking the "Delete account" button on the footer.
