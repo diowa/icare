@@ -1,0 +1,111 @@
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
+
+.itinerary-step {
+  border-bottom: 2px solid @grayDark;
+  &:not(.active) {
+    border-color: @grayLight;
+    color: @grayLight;
+  }
+  &.done {
+    border-color: @successText;
+    color: @successText;
+  }
+}
+
+select.date-time {
+  width: auto;
+}
+
+#table-daily-itinerary th {
+  text-align: left;
+}
+
+.profile-picture-cell {
+  width: 60px;
+}
+
+#validation-error {
+  color: @errorText;
+}
+
+#itinerary-preview {
+  background: @warningBackground;
+}
+
+.itinerary-thumb-stroke {
+  border: 0;
+  border-top: 3px solid #ff0000;
+}
+
+.itinerary-thumbnail {
+  display: block;
+  padding: 4px;
+  border: 1px solid #ddd;
+  margin-bottom: @baseLineHeight;
+  .border-radius(4px);
+  .box-shadow(0 1px 1px rgba(0,0,0,.075));
+  background: @white;
+
+  table {
+    margin-bottom: 2px;
+  }
+
+  td {
+    padding-top: 3px;
+    vertical-align: top;
+  }
+
+  td.user-profile-picture {
+    width: 50px;
+    padding-right: 5px;
+  }
+
+  .it-title,
+  .it-user {
+    display: block;
+    height: @baseLineHeight;
+    overflow: hidden;
+  }
+
+  .btn-toolbar {
+    text-align: right;
+    margin: 0;
+  }
+}
+
+#itineraries-spinner {
+  margin-left: 10px;
+}
+
+#search-form-advanced {
+  margin-bottom: 10px;
+
+  label,
+  input,
+  button,
+  select,
+  textarea {
+    font-size: 12px;
+    line-height: 14px;
+  }
+
+  select,
+  input[type="file"] {
+    height: 26px;
+  }
+
+  .control-group {
+    margin-bottom: 0;
+  }
+
+  select, textarea, input, .uneditable-input {
+    width: auto !important;
+    padding: 3px 5px;
+    margin-bottom: 4px;
+  }
+
+  td.select-field {
+    padding-left: 5px;
+  }
+}

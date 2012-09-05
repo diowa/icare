@@ -1,0 +1,28 @@
+.span6.itinerary-thumbnail.border-box
+  .caption.itinerary-thumb-stroke{ style: "border-color: {{borderColor}}" }
+    %table
+      %tbody
+        %tr
+          %td.user-profile-picture
+            %img{ src: "{{user.profile_picture}}", width: 50, height: 50, alt: "" }
+          %td
+            %strong.it-title
+              %a.pre-line{ href: "{{url}}" }><
+                {{title}}
+            %p.it-user
+              {{#if user.nationality}}
+              %i{ class: "flag-{{toLowerCase user.nationality}}" }
+              {{/if}}
+              {{user.name}}
+    %p
+      %i.icon-arrow-up
+      {{leave_date}}
+      {{#if round_trip}}
+      %i.icon-arrow-down
+      {{return_date}}
+      {{/if}}
+    .btn-toolbar
+      %a.btn.btn-mini{ href: "#" }
+        {{translate "show_on_map"}}
+      %a.btn.btn-mini.btn-primary{ href: "{{url}}" }
+        {{translate "read_more"}}

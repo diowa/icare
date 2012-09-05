@@ -1,0 +1,9 @@
+= bootstrap_form_for @login, validate: true, url: user_sessions_path, method: :post, html: { class: "form-horizontal" } do |f|
+
+  = f.text_field :email
+  = f.text_field :password
+  .control-group
+    .controls
+      = f.check_box :remember_me
+  .form-actions
+    = f.submit t('login'), class: "btn btn-primary"

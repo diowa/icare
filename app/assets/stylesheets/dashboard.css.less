@@ -1,0 +1,54 @@
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
+
+.dashboard-title {
+  margin-bottom: @baseLineHeight;
+  font-size: 40px;
+  line-height: 44px;
+  text-align: center;
+  color: @white;
+  text-shadow: 2px 2px 2px @black;
+  .opacity(95);
+}
+
+#hero-user,
+#hero-itineraries {
+  position: relative;
+  padding: 30px 20px;
+
+  @media (max-width: 979px) and (min-width: 768px) {
+  }
+
+  @media (min-width: 980px) {
+  }
+
+  p {
+    .opacity(95);
+    margin-left: 30px;
+    margin-right: 30px;
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: default;
+    .user-select(none);
+  }
+}
+
+#hero-itineraries {
+  /* background: url('/assets/road.jpg'); */ /* CC 3.0 http://www.flickr.com/photos/joanet/2994421437/ */
+  background: #336688 url('/assets/dash_road.jpg'); /* CC 3.0 http://www.flickr.com/photos/xjrlokix/2542767294/ */
+  .background-size(140% auto);
+  background-position: center bottom;
+}
+
+#hero-user {
+  /* background: url('/assets/blank-black-chalkboard.jpg'); */
+  background: #222222 url('/assets/dash_dashboard.jpg'); /* http://www.flickr.com/photos/hine/316920241/ */
+  .background-size(140% auto);
+  background-position: center;
+}

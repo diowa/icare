@@ -1,0 +1,45 @@
+- title t(".user_settings")
+.row
+  .span12
+    = render "shared/flash_messages"
+    %h1= yield(:title)
+.row
+  .span12
+    = bootstrap_form_for @user, validate: true, html: {  class: "form-horizontal" } do |f|
+      = f.error_messages
+      %fieldset
+        .control-group
+          .controls
+            %p.help-block
+              %i.icon-info-sign.icon-large
+              = t(".user_profile_details")
+        = f.select :nationality, Country.sorted.collect {|c| [ c._name, c.code ] }, { include_blank: true }, help: false
+      %legend= t(".vehicle_information")
+      %fieldset
+      .control-group{ class: ("error" if @user.errors.include?(:vehicle_avg_consumption)) }
+        = f.label :vehicle_avg_consumption, class: "control-label"
+        .controls
+          .input-append
+            = f.default_tag :text_field, :vehicle_avg_consumption, class: "input-mini align-right"
+            %span.add-on>
+              &euro; / km
+          - if @user.errors.include?(:vehicle_avg_consumption)
+            %span.help-inline
+              = @user.errors.messages[:vehicle_avg_consumption].join(", ")
+          %p.help-block
+            = t(".vehicle_avg_consumption_help")
+            = link_to t(".km_costs_calculation_link"), "http://servizi.aci.it/CKInternet/", target: "_blank"
+            %br
+            %small
+              = t(".vehicle_avg_consumption_note", fuel: content_tag(:u, t(".fuel")), proportional_costs: content_tag(:u, t(".proportional_costs"))).html_safe
+      %legend= t(".application_settings")
+      %fieldset
+        = f.select :locale, options_for_select(AVAILABLE_LOCALES.map { |code, native_name| [ native_name, code] }, @user.locale), {}, disabled: (AVAILABLE_LOCALES.size == 1)
+        = f.time_zone_select :time_zone
+        .control-group
+          = label_tag :notification_group, t(".send_email"), class: "control-label"
+          .controls
+            = f.check_box :send_email_messages
+            = f.check_box :send_email_references
+      .form-actions
+        = f.submit class: "btn btn-primary"

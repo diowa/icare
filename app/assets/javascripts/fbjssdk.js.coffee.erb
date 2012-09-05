@@ -1,0 +1,27 @@
+###global FB:false###
+
+"use strict"
+
+window.fbAsyncInit = ->
+  FB.init
+    appId      : '<%= defined?(APP_CONFIG) ? APP_CONFIG.facebook.app_id : ENV["FACEBOOK_APP_ID"] %>' # App ID
+    channelUrl : '/fbjssdk_channel' # Channel File
+    status     : true # check login status
+    cookie     : true # enable cookies to allow the server to access the session
+    xfbml      : true
+
+  # Additional initialization code here
+  return
+
+# Load the SDK Asynchronously
+((d) ->
+  id = "facebook-jssdk"
+  ref = d.getElementsByTagName("script")[0]
+  return if d.getElementById(id)
+  js = d.createElement("script")
+  js.id = id
+  js.async = true
+  js.src = "http://connect.facebook.net/en_US/all.js"
+  ref.parentNode.insertBefore js, ref
+  return
+) document if $("#fb-root")[0]?

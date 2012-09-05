@@ -1,0 +1,42 @@
+@import "twitter/bootstrap/variables";
+@import "twitter/bootstrap/mixins";
+
+.conversation-title {
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.conversation {
+  li {
+    display: table;
+    width: 100%;
+    padding: 12px 0;
+    .transition(background 4s ease-out);
+
+    &.alternate {
+      background: darken(@white, 5%);
+    }
+
+    &.unread {
+      background: @warningBackground;
+    }
+  }
+
+  li + li {
+    border-top: 1px solid #ccc;
+  }
+
+  .message-avatar,
+  .message {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .message-avatar {
+    width: 60px;
+  }
+
+  .message-body {
+    margin-bottom: 0;
+  }
+}

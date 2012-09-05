@@ -1,0 +1,155 @@
+/* ==========================================================================
+   Bootstrap and overrides
+   ========================================================================== */
+
+@import "twitter/bootstrap/bootstrap";
+
+body {
+  padding-top: 60px;
+  padding-bottom: @baseLineHeight * 1.5;
+}
+
+@import "twitter/bootstrap/responsive";
+
+@blueFacebook: #3b5998;
+
+/* Icons
+   ========================================================================== */
+
+@fontAwesomeEotPath:  'fontawesome-webfont.eot';
+@fontAwesomeWoffPath: 'fontawesome-webfont.woff';
+@fontAwesomeTtfPath:  'fontawesome-webfont.ttf';
+@fontAwesomeSvgzPath: 'fontawesome-webfont.svgz';
+@fontAwesomeSvgPath:  'fontawesome-webfont.svg';
+@import "fontawesome";
+
+/* Overriding default variables
+   ========================================================================== */
+
+@sansFontFamily: "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@linkColor: lighten(#16576b, 10%);
+
+@navbarBackground: rgba(22, 87, 107, 0.7); /*#16576b*/
+@navbarBackgroundHighlight: lighten(@navbarBackground, 10%);
+
+@navbarText: @grayLighter;
+@navbarLinkColor: @grayLighter;
+@navbarLinkColorHover: @white;
+@navbarLinkColorActive: @white;
+
+/* ==========================================================================
+   Google Places Autocompletion
+   ========================================================================== */
+
+.pac-container {
+  z-index: @zindexFixedNavbar + 1 !important;
+  min-width: 200px;
+  .border-radius(4px);
+  margin-top: 2px; // give it some space to breathe
+
+  .pac-item {
+    padding: 3px 15px;
+    line-height: 18px;
+    &:hover {
+      color: @white;
+      background-color: @linkColor;
+    }
+  }
+
+  &::after {
+    padding-right: 3px;
+  }
+}
+
+/* ==========================================================================
+   Carousel fade effect
+   ========================================================================== */
+
+&.carousel-fade {
+  .item {
+   .transition(opacity 1s ease-in-out);
+  }
+  .active {
+    &.left, &.right {
+      z-index: 2;
+      left: 0;
+      .opacity(0);
+    }
+  }
+  .next, .prev {
+    z-index: 1;
+    left: 0;
+  }
+  .carousel-control {
+    z-index: 3;
+  }
+}
+
+/* ==========================================================================
+   Global styles
+   ========================================================================== */
+
+.legend-like {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: @baseLineHeight / 2;
+  font-weight: normal;
+  border: 0;
+  border-bottom: 1px solid #eee;
+
+  small {
+    font-size: @baseLineHeight * .75;
+    color: @grayLight;
+  }
+}
+
+.tooltip {
+  z-index: 100000;
+}
+
+.facebook-bg {
+  background: @blueFacebook;
+}
+
+.facebook-color {
+  color: @blueFacebook;
+}
+
+.btn-facebook {
+  color: @white;
+  .buttonBackground(lighten(@blueFacebook, 10%), @blueFacebook);
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+
+  &:hover {
+    color: @white;
+  }
+}
+
+/* Icon Button Fix */
+.btn {
+  i.icon-large[class^=icon-] {
+    margin-right: 3px;
+  }
+}
+
+.spacer {
+  height: @baseLineHeight;
+}
+
+/* Thumbnail background fix */
+.thumbnail {
+  background: @white;
+}
+
+/* Lighter modal backdrop */
+.modal-backdrop,
+.modal-backdrop.fade.in {
+  .opacity(60);
+}
+
+.modal-header {
+  background-color: #f5f5f5;
+  .border-radius(6px 6px 0 0);
+}

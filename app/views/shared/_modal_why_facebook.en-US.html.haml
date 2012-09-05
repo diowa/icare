@@ -1,0 +1,24 @@
+.modal.fade.in.hide#why-facebook
+  .modal-header
+    %button.close{ type: "button", data: { dismiss: "modal" } }
+      &times;
+    %h3= t("why_facebook")
+  .modal-body
+    %p
+      We know that some people do not use Facebook or do not allow permissions to third party applications.
+    %p
+      Anyway, the creation of a new profile will you solve a captcha, wait for an activation email, insert
+      personal data, upload at least one picture, select an user name, remember a new password, etc.
+      Logging in by Facebook you can skip this boring process.
+    %p
+      Personal identity matters for our application. You can trust in any way your new travel companions and Facebook provides
+      a first verification through friends, friends of friends, uploaded photos...
+    %p
+      Moreover, on Facebook we can find travel companions who share your same interests.
+    %p
+      %i.icon-info-sign.icon-large
+      %u
+        %strong
+          NOTE: We will never post anything without your explicit consent.
+  .modal-footer
+    = link_to t("close"), "#", data: { dismiss: "modal" }, class: "btn"

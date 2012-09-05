@@ -1,0 +1,40 @@
+- title t(".title")
+- if @itinerary.errors.any?
+  .row
+    .span12
+      .alert.alert-block.alert-error.fade.in
+        %button{ type: "button", class: "close", data: { dismiss: "alert" } } &times;
+        %h4.alert-heading= t("errors.template.header", model: Itinerary.model_name.human, count: @itinerary.errors.size)
+        = t("errors.template.body")
+        %ul
+          - @itinerary.errors.full_messages.each do |message|
+            %li= message
+.row
+  #wizard-step-1-title.span4.itinerary-step.active
+    %h2.no-margin
+      %i.icon-check-empty.hidden-phone
+      = t(".step_1")
+    %p= t(".plan_route")
+  #wizard-step-2-title.span4.itinerary-step.hidden-phone
+    %h2.no-margin
+      %i.icon-check-empty.hidden-phone
+      = t(".step_2")
+    %p= t(".insert_itinerary_details")
+  #wizard-step-3-title.span4.itinerary-step.hidden-phone
+    %h2.no-margin
+      %i.icon-check-empty.hidden-phone
+      = t(".step_3")
+    %p= t(".confirm_and_share")
+.spacer
+#wizard-step-1-content
+  = render "route_step"
+= bootstrap_form_for @itinerary, validate: true, html: { data: { step: 1, :"last-step" => 3 } } do |f|
+  #wizard-step-2-content.hide
+    = render "details_step", f: f
+  #wizard-step-3-content.hide
+    = render "confirm_and_share_step", f: f
+  .form-actions.pagination-centered
+    = f.hidden_field :route_json_object
+    = f.submit t(".confirm_and_share"), class: "btn btn-large btn-success hide", id: "new_itinerary_submit", disabled: true
+    = f.submit t(".next_step"), type: "button", class: "btn btn-large btn-primary", name: "next_button", id: "wizard-next-step-button", disabled: false
+    = button_tag t(".previous_step"), type: "button", class: "btn btn-large hide", name: "back_button", id: "wizard-prev-step-button", disabled: true

@@ -1,0 +1,85 @@
+en-US:
+  mongoid:
+    models:
+      user:
+        one: User
+        other: Users
+      reference:
+        one: Reference
+        other: References
+      itinerary:
+        one: Itinerary
+        other: Itineraries
+      feedback:
+        one: Feedback
+        other: Feedbacks
+      notification:
+        one: Notification
+        other: Notifications
+      conversation:
+        one: Conversation
+        other: Conversations
+      message:
+        one: Message
+        other: Messages
+    attributes:
+      user:
+        email: Email
+        name: Name
+        about: About
+        username: Username
+        gender: Gender
+        age: Age
+        locale: Localization
+        gender_male: Male
+        gender_female: Female
+        birthday: Birthday
+        nationality: Nationality
+        education: Education
+        work: Work
+        time_zone: Time zone
+        vehicle_avg_consumption: Fuel cost
+        send_email_messages: You receive a message
+        send_email_references: You receive a reference
+      feedback:
+        type: Type
+        status: Status
+        message: Message
+        updated_at: Last modified
+        url: URL
+      itinerary:
+        title: Title
+        description: Description
+        vehicle: Vehicle
+        vehicle_car: Car
+        vehicle_motorcycle: Motorcycle
+        vehicle_van: Van
+        smoking_allowed: Smoking allowed
+        pets_allowed: Pets allowed
+        fuel_cost: Fuel cost
+        tolls: Tolls
+        round_trip: Round trip
+        leave_date: Leave date
+        return_date: Return date
+        share_on_timeline: Share on Facebook
+        driver_gender: Driver's gender
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: is not a valid email
+
+  activemodel:
+    attributes:
+      itinerary_route:
+        from: From
+        to: To
+        avoid_highways: Avoid highways
+        avoid_tolls: Avoid tolls
+    errors:
+      models:
+        login:
+          attributes:
+            email:
+              invalid: is not a valid email

@@ -1,0 +1,9 @@
+= bootstrap_form_for @feedback, validate: true, html: { class: 'form-horizontal' } do |f|
+  = f.error_messages
+  = f.select :type, Feedback::TYPE
+  - if current_user.admin?
+    = f.select :status, Feedback::STATUS
+  = f.text_area :message, class: 'full-width border-box', rows: 8
+  = f.text_field :url, class: 'full-width width-max'
+  .form-actions
+    = f.submit class: 'btn btn-primary'

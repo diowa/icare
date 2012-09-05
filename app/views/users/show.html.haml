@@ -1,0 +1,75 @@
+- title @user
+.row
+  .span3
+    = user_profile_picture @user, size: [], type: :large, class: "border-box"
+  .span9
+    %h1.pacifico
+      = @user
+    - if @user.bio?
+      %blockquote
+        %p= @user.bio
+    %dl.dl-horizontal.tag-list
+      %dt
+        %span Referenze
+      %dd
+        %span><
+          0 positive
+        %span><
+          0 neutre
+        %span><
+          0 negative
+        = link_to "leggi tutte", "#"
+      %dt
+        %span.description-facebook Informazioni di base
+      %dd
+        %span><
+          #{@facebook_details[:friends]} amici
+        %span{ class: ("common" if @user != current_user && @user.age == current_user.age) }><
+          #{@user.age} anni
+        - if @user.nationality?
+          %span{ class: ("common" if @user != current_user && @user.nationality == current_user.nationality) }><
+            = @user.nationality_name
+        %span{ class: ("common" if @user != current_user && @user.gender == current_user.gender) }><
+          #{User.human_attribute_name("gender_#{@user.gender}")}
+        - if @user.languages?
+          - common_languages = @user.languages.map{ |lang| lang["id"] } & current_user.languages.map{ |lang| lang["id"] }
+          - @user.languages.each do |language|
+            %span{ class: ("common" if @user != current_user && common_languages.include?(language["id"])) }><
+              = t(".language", language: language["name"])
+      - if current_user != @user
+        - if (mutual_friends = @facebook_details[:mutualfriends] || {}).any?
+          %dt
+            %span.description-facebook Amici in comune
+          %dd.friends
+            - mutual_friends.sample(5).each do |friend|
+              %span><
+                = user_profile_picture friend["id"], size: [25,25], thumbnail: false
+                = friend["name"]
+            - if mutual_friends.size - 5 > 0
+              = link_to "e altri #{mutual_friends.size - 5}", "#"
+      - if @user.education? && @user.education.any?
+        %dt
+          %span.description-facebook Educazione
+        %dd
+          - common_education = @user.education.map{ |edu| edu.first.second["id"] } & current_user.education.map{ |edu| edu.first.second["id"] }
+          - @user.education.each do |element|
+            %span{ class: ("common" if @user != current_user && common_education.include?(element.first.second["id"])) }><
+              = element.first.second["name"]
+      - if @user.work? && @user.work.any?
+        %dt
+          %span.description-facebook Lavoro
+        %dd
+          - common_work = @user.work.map{ |w| w.first.second["id"] } & current_user.work.map{ |w| w.first.second["id"] }
+          - @user.work.each do |work|
+            %span{ class: ("common" if @user != current_user && common_work.include?(work.first.second["id"])) }><
+              = work.first.second["name"]
+      %dt
+        %span.description-facebook Mi piace
+      %dd
+        - user_likes = @facebook_details[:likes]
+        - if @user != current_user
+          - my_likes = current_user.facebook_likes
+          - common_likes = user_likes.map{ |like| like["id"] } & my_likes.map{ |like| like["id"] }
+        - user_likes.each do |like|
+          %span{ class: ("common" if @user != current_user && common_likes.include?(like["id"])) }><
+            = like["name"]
