@@ -3,6 +3,9 @@ icare
 
 **icare** is an open source [carpooling](http://en.wikipedia.org/wiki/Carpool) platform.
 
+Carpooling (also known as car-sharing, ride-sharing, lift-sharing and covoiturage), is the sharing of car journeys so that more than one person travels in a car.
+By having more people using one vehicle, carpooling reduces each person’s travel costs such as fuel costs, tolls, and the stress of driving. Carpooling is also seen as a more environmentally friendly and sustainable way to travel as sharing journeys reduces carbon emissions, traffic congestion on the roads, and the need for parking spaces. Authorities often encourage carpooling, especially during high pollution periods and high fuel prices. (From Wikipedia)
+
 **icare** uses the following technologies:
 
 * [Ruby on Rails][1]
@@ -31,6 +34,8 @@ icare
  [10]: http://cukes.info/
  [11]: http://www.heroku.com/
  [12]: http://github.com/lukeredpath/simpleconfig
+
+A working demo is available at http://icaredemo.herokuapp.com/
 
 
 Name and logo
@@ -107,4 +112,4 @@ Donations
 If you like this project or you are considering to use it (or any part of it) for commercial purposes, please make
 a donation to the authors.
 
-[![Click here to lend your support to: icare: Ruby on Rails open source carpooling platform and make a donation at www.pledgie.com !](www.pledgie.com/campaigns/18177.png?skin_name=chrome)](http://www.pledgie.com/campaigns/18177)
+[![Click here to lend your support to: icare: Ruby on Rails open source carpooling platform and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/18177.png?skin_name=chrome)](http://www.pledgie.com/campaigns/18177)
