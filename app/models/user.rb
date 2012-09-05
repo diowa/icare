@@ -99,8 +99,8 @@ class User
 
     # Extras (extra permissions required)
     self.birthday = Date.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").at_midnight
-    self.work = auth.extra.raw_info.work
-    self.education = auth.extra.raw_info.education
+    self.work = auth.extra.raw_info.work if auth.extra.raw_info.work
+    self.education = auth.extra.raw_info.education if auth.extra.raw_info.education
 
     # Cache permissions
     facebook do |fb|
