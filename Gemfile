@@ -25,6 +25,7 @@ gem 'resque', require: 'resque/server'
 gem 'kaminari'
 gem 'rabl'
 gem 'simpleconfig'
+gem 'google-analytics-rails'
 
 group :development, :test do
   gem "bullet"

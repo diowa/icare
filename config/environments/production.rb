@@ -83,4 +83,7 @@ Icare::Application.configure do
     user_name: APP_CONFIG.mailer.user_name,
     password: APP_CONFIG.mailer.password
   }
+
+  # Google Analytics
+  GA.tracker = APP_CONFIG.google_analytics_id if APP_CONFIG.exists? :google_analytics_id
 end
