@@ -117,6 +117,7 @@ GEM
     fssm (0.2.9)
     gherkin (2.11.2)
       json (>= 1.4.6)
+    google-analytics-rails (0.0.3)
     haml (3.1.7)
     haml_assets (0.1.0)
       haml
@@ -329,6 +330,7 @@ DEPENDENCIES
   email_spec
   factory_girl_rails
   faker
+  google-analytics-rails
   haml
   haml_assets
   handlebars_assets
