@@ -5,6 +5,8 @@ SimpleConfig.for :application do
   set :base_url, ENV["APP_BASE_URL"]
   set :secret_token, ENV["SECRET_TOKEN"]
 
+  set :google_analytics_id, ENV["GOOGLE_ANALYTICS_ID"]
+
   group :facebook do
     # NOTE: If you don't want to use "FACEBOOK_APP_ID" as variable name,
     # edit 'assets/javascripts/fbjssdk.js.coffee' too
