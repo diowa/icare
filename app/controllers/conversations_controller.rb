@@ -7,6 +7,11 @@ class ConversationsController < ApplicationController
 
   after_filter :mark_as_read, only: [:show]
 
+  def index
+    # TODO nested eager loading
+    @conversations = current_user.conversations
+  end
+
   def new
     @itinerary = Itinerary.includes(:user).find(params[:itinerary_id])
     @conversation = Conversation.new
@@ -37,10 +42,6 @@ class ConversationsController < ApplicationController
       @itinerary = Itinerary.find(@conversation.conversable_id)
       render :show
     end
-  end
-
-  def index
-    @conversations = current_user.conversations
   end
 
   def show

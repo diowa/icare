@@ -6,13 +6,13 @@
         db9_dash.jpg by xmatt, on Flickr
       .pacifico.dashboard-title= t(".reminder")
       %p
-        = link_to :conversations, class: "btn btn-large btn-block disabled" do
+        = link_to :conversations, class: "btn btn-large btn-block" do
           %i.icon-comments.icon-large
-          = t(".new_messages", count: 0)
+          = t(".new_messages", count: current_user.unread_conversations_count)
       %p
-        = link_to :notifications, class: "btn btn-large btn-block" do
+        = link_to :notifications, class: "btn btn-large btn-block mock" do
           %i.icon-globe.icon-large
-          2 notifiche
+          = t(".new_notifications", count: 0)
   .span6
     #hero-itineraries.hero-unit
       .attribution
@@ -30,3 +30,13 @@
         = link_to my_itineraries_path, class: "btn btn-large btn-block " do
           %i.icon-heart.icon-large
           = t(".your_itineraries")
+.row
+  .span6.offset6
+    %h3.pacifico= t(".latest_itineraries")
+    %table.table.table-condensed.table-striped
+      - @last_itineraries.each do |itinerary|
+        %tr
+          %td
+            = link_to itinerary, itinerary_path(itinerary)
+            = t(".by")
+            = link_to itinerary.user, user_path(itinerary.user)

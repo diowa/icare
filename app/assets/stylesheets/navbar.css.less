@@ -79,13 +79,28 @@
   i {
     margin-top: 2px;
     font-size: 20px;
+    text-shadow: 0 1px 0px rgba(5, 18, 22, 0.85); /* darken(#16576b, 20%); */
+  }
+
+  &.read {
+    i {
+      color: rgba(5, 18, 22, 0.45);
+      text-shadow: none;
+    }
+  }
+
+  &.active i {
+    color: @white;
   }
 
   .count {
     position: absolute;
-    top: 2px;
+    top: 3px;
     right: 4px;
     height: 12px;
+    padding: 2px 5px;
+    font-weight: bold;
+    font-size: 10px;
     background: rgba(205, 0, 0, 0.8);
   }
 }
