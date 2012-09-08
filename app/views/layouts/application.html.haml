@@ -1,6 +1,6 @@
 !!!
 %html{lang: I18n.locale.to_s}
-  %head{ prefix: "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# codenameicare: http://ogp.me/ns/fb/codenameicare#" }
+  %head{ prefix: "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# #{APP_CONFIG.facebook.namespace}: http://ogp.me/ns/fb/#{APP_CONFIG.facebook.namespace}#" }
     %meta{ charset: "utf-8" }
     %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
     %title= yield_or_default :title, controller.action_name.titlecase

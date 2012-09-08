@@ -34,8 +34,8 @@
                 %h5.no-margin= link_to @itinerary.user, user_path(@itinerary.user)
                 %p.pre-line= @itinerary.description
               - else
-                %h4= t(".app_user", appname: APPNAME)
-                = @itinerary.description
+                %h5.no-margin= t(".app_user", appname: APPNAME)
+                %p.pre-line= @itinerary.description
     .spacer
     .row-fluid
       .span6
@@ -68,13 +68,13 @@
         - if logged_in?
           - if current_user != @itinerary.user
             .btn-toolbar
-              = link_to new_conversation_path(itinerary_id: @itinerary.id), class: "btn btn-primary" do
+              = link_to new_or_show_conversation_path(@conversation), class: "btn btn-primary" do
                 %i.icon-comment
                 = t(".contact", user: @itinerary.user_first_name)
               = link_to "#", class: "btn mock" do
                 %i.icon-thumbs-up
                 = t(".leave_reference")
-              .btn-group
+              .btn-group.mock
                 %button.btn.btn-warning
                   %i.icon-flag
                 %button.btn.btn-warning.dropdown-toggle{ data: { toggle: "dropdown" } }

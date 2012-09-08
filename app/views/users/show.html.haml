@@ -1,3 +1,4 @@
+-# TODO clean all this mess!!!
 - title @user
 .row
   .span3
@@ -8,68 +9,76 @@
     - if @user.bio?
       %blockquote
         %p= @user.bio
+    - if @user.facebook_verified?
+      %p
+        %span.facebook-verified
+          %i.icon-ok
+          = User.human_attribute_name(:facebook_verified)
+        %br
+        %small.muted= t(".facebook_verified")
     %dl.dl-horizontal.tag-list
       %dt
-        %span Referenze
+        %span= Reference.model_name.human(count: :lot)
       %dd
         %span><
-          0 positive
+          0 positives
         %span><
-          0 neutre
+          0 neutral
         %span><
-          0 negative
-        = link_to "leggi tutte", "#"
+          0 negatives
+        = link_to t(".see_all"), "#"
       %dt
-        %span.description-facebook Informazioni di base
+        %span.description-facebook= t(".basic_info")
       %dd
         %span><
-          #{@facebook_details[:friends]} amici
+          = t(".friends", count: @facebook_details[:friends])
         %span{ class: ("common" if @user != current_user && @user.age == current_user.age) }><
-          #{@user.age} anni
+          = t(".age", count: @user.age)
         - if @user.nationality?
           %span{ class: ("common" if @user != current_user && @user.nationality == current_user.nationality) }><
             = @user.nationality_name
         %span{ class: ("common" if @user != current_user && @user.gender == current_user.gender) }><
           #{User.human_attribute_name("gender_#{@user.gender}")}
         - if @user.languages?
-          - common_languages = @user.languages.map{ |lang| lang["id"] } & current_user.languages.map{ |lang| lang["id"] }
+          - common_languages = @user.languages.map{ |lang| lang["id"] } & ((current_user.languages.map{ |lang| lang["id"] } if current_user.languages?) || [])
           - @user.languages.each do |language|
             %span{ class: ("common" if @user != current_user && common_languages.include?(language["id"])) }><
               = t(".language", language: language["name"])
       - if current_user != @user
         - if (mutual_friends = @facebook_details[:mutualfriends] || {}).any?
           %dt
-            %span.description-facebook Amici in comune
+            %span.description-facebook= t(".common_friends")
           %dd.friends
             - mutual_friends.sample(5).each do |friend|
               %span><
                 = user_profile_picture friend["id"], size: [25,25], thumbnail: false
                 = friend["name"]
             - if mutual_friends.size - 5 > 0
-              = link_to "e altri #{mutual_friends.size - 5}", "#"
+              = link_to t(".and_others", count: mutual_friends.size - 5), "#"
       - if @user.education? && @user.education.any?
         %dt
-          %span.description-facebook Educazione
+          %span.description-facebook= User.human_attribute_name(:education)
         %dd
-          - common_education = @user.education.map{ |edu| edu.first.second["id"] } & current_user.education.map{ |edu| edu.first.second["id"] }
+          - common_education = @user.education.map{ |edu| edu.first.second["id"] } & ((current_user.education.map{ |edu| edu.first.second["id"] } if current_user.education?) || [])
           - @user.education.each do |element|
             %span{ class: ("common" if @user != current_user && common_education.include?(element.first.second["id"])) }><
               = element.first.second["name"]
       - if @user.work? && @user.work.any?
         %dt
-          %span.description-facebook Lavoro
+          %span.description-facebook= User.human_attribute_name(:work)
         %dd
-          - common_work = @user.work.map{ |w| w.first.second["id"] } & current_user.work.map{ |w| w.first.second["id"] }
+          - common_work = @user.work.map{ |w| w.first.second["id"] } & ((current_user.work.map{ |w| w.first.second["id"] } if current_user.work?) || [])
           - @user.work.each do |work|
             %span{ class: ("common" if @user != current_user && common_work.include?(work.first.second["id"])) }><
               = work.first.second["name"]
-      %dt
-        %span.description-facebook Mi piace
-      %dd
-        - user_likes = @facebook_details[:likes]
-        - if @user != current_user
-          - my_likes = current_user.facebook_likes
-          - common_likes = user_likes.map{ |like| like["id"] } & my_likes.map{ |like| like["id"] }
-        - user_likes.each do |like|
-          %span{ class: ("common" if @user != current_user && common_likes.include?(like["id"])) }><
-            = like["name"]
+      - user_likes = @facebook_details[:likes]
+      - if user_likes.any?
+        %dt
+          %span.description-facebook= t(".likes")
+        %dd
+          - if @user != current_user
+            - my_likes = current_user.facebook_likes
+            - common_likes = user_likes.map{ |like| like["id"] } & my_likes.map{ |like| like["id"] }
+          - user_likes.each do |like|
+            %span{ class: ("common" if @user != current_user && common_likes.include?(like["id"])) }><
+              = like["name"]

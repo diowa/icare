@@ -49,6 +49,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def dashboard
+    @last_itineraries = Itinerary.includes(:user).sorted_by_creation.limit(10)
+  end
+
   def banned
     redirect_to root_path unless current_user.banned?
   end
