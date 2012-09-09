@@ -26,4 +26,8 @@ class Conversation
   def mark_as_read(user)
     messages.unread.where(:sender_id.ne => user.id).update_all(read: Time.now.utc)
   end
+
+  def last_unread_message(user)
+    messages.unread.where(:sender_id.ne => user.id).desc(:created_at).limit(1).first
+  end
 end

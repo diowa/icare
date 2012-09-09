@@ -1,0 +1,12 @@
+%li
+  %a{ href: "{{url}}" }
+    .popover-element-avatar
+      %img{ src:"{{message.sender.profile_picture}}", width: 50, height: 50, alt: "" }
+    .popover-element-content
+      %strong.text-ellipsis
+        {{message.sender.name}}
+      %span.text-ellipsis
+        {{message.body}}
+      %p
+        %small.muted
+          {{message.date_sent}}

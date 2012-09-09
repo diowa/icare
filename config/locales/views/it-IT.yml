@@ -119,6 +119,7 @@ it-IT:
       language: Lingua
       user_settings: Impostazioni utente
       see_all_messages: Mostra tutti
+      no_new_messages: Non ci sono nuovi messaggi
     footer:
       message: La riservatezza non è garantita in questo stato di sviluppo
 

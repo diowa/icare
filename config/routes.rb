@@ -17,6 +17,7 @@ Icare::Application.routes.draw do
   end
 
   resources :conversations, only: [:show, :new, :create, :update, :index] do
+    get :unread, on: :collection
     resources :messages, only: [:create]
   end
 
