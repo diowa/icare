@@ -27,11 +27,12 @@ class User
   # Info
   field :email
   field :name
+  field :facebook_verified, type: Boolean, default: false
   # Extra
   field :username
   field :gender
   field :bio
-  field :languages, type: Hash
+  field :languages, type: Hash, default: {}
 
   # More info requiring special permissions
   field :birthday, type: Date
@@ -87,20 +88,21 @@ class User
     # Info
     self.email = auth.info.email
     self.name = auth.info.name
+    self.facebook_verified = auth.info.verified || false
 
     # Extra
     self.username = auth.extra.raw_info.username
     self.gender = auth.extra.raw_info.gender
     self.bio = auth.extra.raw_info.bio
-    self.languages = auth.extra.raw_info.languages
+    self.languages = auth.extra.raw_info.languages || {}
 
     # Locale (with priority to icare)
     self.locale = auth.extra.raw_info.locale.gsub(/_/,"-") unless self.locale?
 
     # Extras (extra permissions required)
     self.birthday = Date.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").at_midnight
-    self.work = auth.extra.raw_info.work if auth.extra.raw_info.work
-    self.education = auth.extra.raw_info.education if auth.extra.raw_info.education
+    self.work = auth.extra.raw_info.work || {}
+    self.education = auth.extra.raw_info.education || {}
 
     # Cache permissions
     facebook do |fb|
@@ -205,6 +207,10 @@ class User
 
   def profile_picture
     "http://graph.facebook.com/#{uid}/picture?type=square"
+  end
+
+  def unread_conversations_count
+    conversations.unread(self).size
   end
 
   protected

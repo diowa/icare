@@ -37,6 +37,8 @@ body {
 @navbarLinkColor: @grayLighter;
 @navbarLinkColorHover: @white;
 @navbarLinkColorActive: @white;
+@navbarLinkBackgroundHover: rgba(255, 255, 255, 0.05);
+@navbarLinkBackgroundActive: darken(@navbarBackground, 5%);
 
 /* ==========================================================================
    Google Places Autocompletion
@@ -132,6 +134,12 @@ body {
   i.icon-large[class^=icon-] {
     margin-right: 3px;
   }
+}
+
+/* Icon background fix */
+i[class*=" icon-"],
+i[class^="icon-"], {
+  background-image: none !important;
 }
 
 .spacer {

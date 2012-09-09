@@ -1,12 +1,29 @@
-"use strict"
+'use strict'
 
-$("a[id^=navbar-notifications-]").popover().click (e) ->
-  e.preventDefault()
-  $me = $(this)
-  $("a[id^=navbar-notifications-]").each ->
-    $this = $(this)
-    if $me.attr("id") is $this.attr("id")
-      $(this).popover('toggle')
-    else
-      $(this).popover('hide')
-    return
+$ ->
+  $('.notifications').on 'click', (e) ->
+    e.preventDefault()
+    $me = $(this)
+    $(".notifications").not("##{$me.attr('id')}").removeClass('active').find('a').popover 'hide'
+    $popoverElement = $me.toggleClass('active').find('a')
+    $popoverElement.popover 'toggle'
+    if $('.popover.in')[0]? and $popoverElement.data("load")?
+      $.ajax
+        url: $popoverElement.data('load')
+        success: (data) ->
+          messages = ''
+          for message in data
+            messages += HandlebarsTemplates['message'](message)
+          if data.length > 0
+            $popoverElement.find('span.count').text data.length
+            $('.popover-ajax-content').html """
+              <ul class="unstyled popover-elements">
+                #{messages}
+              </ul>
+            """
+          else
+            $popoverElement.find('span.count').remove()
+            $('.popover-ajax-content').html """
+              #{$('#navbar-translations').data('no_new_messages')}
+            """
+    false

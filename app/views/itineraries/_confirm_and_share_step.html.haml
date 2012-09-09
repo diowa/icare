@@ -52,7 +52,7 @@
             %i.icon-facebook-sign.facebook-color.icon-large
             = Itinerary.human_attribute_name :share_on_timeline
           - unless current_user.has_facebook_permission(:publish_stream)
-            %p.shy
+            %p.muted
               %small
                 %i.icon-ban-circle
                 = t(".missing_publish_stream_permission")

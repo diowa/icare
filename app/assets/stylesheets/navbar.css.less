@@ -62,9 +62,26 @@
 @media (max-width: 767px) {
   #user-navbar-info {
     .navbar-profile-picture {
-      top: 3px;
+      top: 5px;
       .square(30px);
     }
+  }
+
+  #navbar-notifications-list {
+    margin: 0;
+  }
+
+  .navbar .nav,
+  .navbar .nav > li {
+      float:none;
+      display:inline-block;
+      *display:inline; /* ie7 fix */
+      *zoom:1; /* hasLayout ie7 trigger */
+      vertical-align: top;
+  }
+
+   .navbar-inner {
+      text-align:center;
   }
 }
 
@@ -79,13 +96,71 @@
   i {
     margin-top: 2px;
     font-size: 20px;
+    text-shadow: 0 1px 0px rgba(5, 18, 22, 0.85); /* darken(#16576b, 20%); */
+  }
+
+  &.read {
+    i {
+      color: rgba(5, 18, 22, 0.45);
+      text-shadow: none;
+    }
+  }
+
+  &.active i {
+    color: @white;
   }
 
   .count {
     position: absolute;
-    top: 2px;
+    top: 3px;
     right: 4px;
     height: 12px;
+    padding: 2px 5px;
+    font-weight: bold;
+    font-size: 10px;
     background: rgba(205, 0, 0, 0.8);
+  }
+}
+
+.popover-ajax-content,
+.popover-static-content {
+  margin-bottom: 9px;
+}
+
+.popover-elements {
+  font-size: 12px;
+
+  a {
+    display: table;
+    width: 100%;
+    color: @grayDark;
+    text-decoration: none;
+
+    &:hover {
+      background: @grayLighter;
+    }
+  }
+
+  li + li {
+    margin-top: 5px;
+    border-top: 1px solid #ccc;
+    padding-top: 5px;
+  }
+
+  .popover-element-avatar,
+  .popover-element-content {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .popover-element-avatar {
+    width: 50px;
+    padding-right: 5px;
+  }
+
+  .popover-element-content {
+    max-width: 150px;
+    overflow: hidden;
+    line-height: 16px;
   }
 }

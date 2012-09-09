@@ -26,6 +26,7 @@ en-US:
       user:
         email: Email
         name: Name
+        facebook_verified: Verified on Facebook
         about: About
         username: Username
         gender: Gender

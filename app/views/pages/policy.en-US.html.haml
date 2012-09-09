@@ -2,7 +2,7 @@
 .row
   .span12
     %h1= yield(:title)
-    %h5.shy= t("last_modified", date: l(Date.parse("2012-09-01"), format: :long))
+    %h5.muted= t("last_modified", date: l(Date.parse("2012-09-01"), format: :long))
 
     %h3 Information we collect
     %p

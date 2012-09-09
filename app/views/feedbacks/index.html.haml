@@ -2,6 +2,12 @@
   .span12
     = render "shared/flash_messages"
     %h1=t '.title', default: Feedback.model_name.human(count: :lot)
+    .btn-toolbar
+      = link_to t("helpers.links.new"), new_feedback_path(url: @url), class: 'btn btn-primary'
+      - if params[:hide_fixed]
+        = link_to t('.show_fixed'), feedbacks_path, class: 'btn'
+      - else
+        = link_to t('.hide_fixed'), feedbacks_path(hide_fixed: true), class: 'btn'
     %table.table.table-striped
       %thead
         %tr
@@ -16,15 +22,15 @@
           %tr{ class: ("success" if feedback.fixed?) }
             %td= feedback.type
             %td= feedback.status.upcase
-            %td= link_to feedback.user_name, feedback_path(feedback)
-            %td<
-              = feedback.short_message
+            %td= link_to feedback.user_name, user_path(feedback.user)
+            %td= link_to feedback.short_message, feedback_path(feedback)
             %td= l feedback.updated_at, format: :long
-            %td
-              = link_to edit_feedback_path(feedback), class: 'btn btn-mini' do
+            %td.btn-toolbar
+              = link_to edit_feedback_path(feedback), class: 'btn btn-small' do
+                %i.icon-edit
                 = t("helpers.links.edit")
-    = link_to t("helpers.links.new"), new_feedback_path(url: @url), class: 'btn btn-primary'
-    - if params[:hide_fixed]
-      = link_to t('.show_fixed'), feedbacks_path, class: 'btn'
-    - else
-      = link_to t('.hide_fixed'), feedbacks_path(hide_fixed: true), class: 'btn'
+              - if current_user.admin?
+                = link_to feedback_path(feedback), method: :delete, data: { confirm: t("helpers.links.confirm") }, class: 'btn btn-small btn-danger' do
+                  %i.icon-trash
+                  = t("helpers.links.destroy")
+    = paginate @feedbacks

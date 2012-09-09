@@ -1,3 +1,5 @@
+- content_for :footer do
+  #navbar-translations{ data: { no_new_messages: t(".no_new_messages") } }
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
@@ -10,24 +12,21 @@
         = image_tag "turtle.svg", class: "brand-logo"
         %span.hidden-phone= APPNAME
       - if logged_in?
-        %ul.nav
-          %li.divider-vertical
-          %li.notifications.mock
-            = link_to "#", rel: "popover", data: { placement: 'bottom', content: "<b>Test</b>", title: "Messages", trigger: "manual", html: true }, id: "navbar-notifications-messages" do
-              %span.label.label-important.count
-                3
-              %i.icon-comments
-          %li.notifications.mock
-            = link_to "#", rel: "popover", data: { placement: 'bottom', content: "Test", title: "Notifications", trigger: "manual", html: true }, id: "navbar-notifications-notifications" do
-              %span.label.label-important.count
-                2
-              %i.icon-globe
+        %ul#navbar-notifications-list.nav
+          %li.divider-vertical.hidden-phone
+          = navbar_notifications Message.model_name.human(count: :lot),
+                                 id: "messages",
+                                 icon: "comments",
+                                 unread: current_user.unread_conversations_count,
+                                 link: link_to(t(".see_all_messages"), :conversations),
+                                 ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0),
+                                 content: t(".no_new_messages")
+          = navbar_notifications Notification.model_name.human(count: :lot),
+                                 id: "notifications",
+                                 icon: "globe",
+                                 mock: true
           - if current_user.admin?
-            %li.notifications.mock
-              = link_to "#", rel: "popover", data: { placement: 'bottom', content: "Test", title: "Reports", trigger: "manual", html: true }, id: "navbar-notifications-report" do
-                %span.label.label-important.count
-                  10
-                %i.icon-warning-sign
+            = navbar_notifications "Reports", id: "reports", icon: "flag", mock: true
         %ul.nav.pull-right
           %li#user-navbar-info
             = link_to user_path(current_user), class: "navbar-profile-picture" do

@@ -17,6 +17,7 @@ Icare::Application.routes.draw do
   end
 
   resources :conversations, only: [:show, :new, :create, :update, :index] do
+    get :unread, on: :collection
     resources :messages, only: [:create]
   end
 
@@ -35,7 +36,7 @@ Icare::Application.routes.draw do
 
   match 'fbjssdk_channel', to: 'pages#fbjssdk_channel', as: :fbjssdk_channel
 
-  resources :feedbacks, only: [:show, :new, :create, :edit, :update, :index]
+  resources :feedbacks, only: [:show, :new, :create, :edit, :update, :destroy, :index]
 
   resources :beta_invites, only: [:new, :create, :destroy, :index]
 

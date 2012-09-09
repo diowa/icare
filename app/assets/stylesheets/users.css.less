@@ -95,7 +95,7 @@ dl.tag-list {
     white-space: pre;
     text-align: center;
     vertical-align: middle;
-    .buttonBackground(@btnBackground, @btnBackgroundHighlight);
+    .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
     .border-radius(4px);
     .ie7-restore-left-whitespace(); // Give IE7 some love
     /* .box-shadow(~"inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05)"); */
@@ -145,9 +145,9 @@ dl.tag-list {
     @blueFacebook: #3b5998;
     .buttonBackground(@blueFacebook, darken(@blueFacebook, 10%));
   }
+}
 
-  dd > span:not(.common) {
-    color: @grayDark;
-    text-shadow: 0 1px 1px rgba(255,255,255,.75);
-  }
+.facebook-verified {
+  color: @successText;
+  font-size: 1.2em;
 }
