@@ -7,7 +7,7 @@
       %span
         %strong= link_to message.sender, user_path(message.sender)
     %p.message-body
-      #{message.body}
+      %span.pre-line><= message.body.strip
       - if (message.sender == current_user && !message.unread?)
         %br
         = message_readat message

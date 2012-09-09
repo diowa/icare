@@ -119,6 +119,7 @@ en-US:
       language: Language
       user_settings: User settings
       see_all_messages: See All
+      no_new_messages: No new messages
     footer:
       message: Privacy is not guaranteed at this stage of development
 

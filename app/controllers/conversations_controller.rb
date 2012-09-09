@@ -9,7 +9,19 @@ class ConversationsController < ApplicationController
 
   def index
     # TODO nested eager loading
-    @conversations = current_user.conversations
+    @conversations = current_user.conversations.desc(:updated_at).page params[:page]
+  end
+
+  def unread
+    # TODO nested eager loading
+    respond_to do |format|
+      format.json do
+        @conversations = current_user.conversations.unread(current_user).desc(:updated_at).limit(5)
+      end
+      format.html do
+        redirect_to :conversations
+      end
+    end
   end
 
   def new
