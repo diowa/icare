@@ -1,5 +1,6 @@
 class Itinerary
   include Mongoid::Document
+  include Mongoid::Timestamps
   include Mongoid::Paranoia
   include Mongoid::Geospatial
   include Mongoid::MultiParameterAttributes
