@@ -5,6 +5,7 @@ Changelog
 ---
 * Moved Facebook's Open Graph namespace in configuration files
 * Working Conversations
+* Added timestamps to Itinerary model
 * Improved dashboard and navbar styles
 * Latest itineraries on dashboard
 * Mocked features are more evident
