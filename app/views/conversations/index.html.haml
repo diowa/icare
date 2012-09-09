@@ -5,12 +5,11 @@
   .span12
     %table.table.table-striped
       %thead
-        %th Index
-        %th ID
-        %th{ colspan: "3" } Actions
+        %th= User.model_name.human
+        %th= t("helpers.actions")
       %tbody
-        - @conversations.each_with_index do |conversation, index|
-          %tr
-            %td= index.next
-            %td= conversation.id
+        - @conversations.each do |conversation|
+          %tr{ class: ("unread" if conversation.unread?(current_user)) }
+            %td= link_to conversation.users_except(current_user).join(" - "), conversation_path(conversation)
             %td= link_to t("helpers.links.show"), conversation_path(conversation)
+    = paginate @conversations

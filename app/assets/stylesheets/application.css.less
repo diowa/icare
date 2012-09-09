@@ -65,6 +65,13 @@ input.width-max {
   vertical-align: middle !important;
 }
 
+.text-ellipsis {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .no-margin {
   margin: 0;
 }
@@ -94,7 +101,7 @@ input.width-max {
 }
 
 .mock {
-  .opacity(80);
+  .opacity(60);
 }
 
 .balloon {
@@ -187,10 +194,6 @@ body {
   margin-bottom: 0;
   padding-left: 5px;
   vertical-align: middle;
-}
-
-.shy {
-  color: @grayLight;
 }
 
 footer {

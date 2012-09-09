@@ -47,6 +47,7 @@ class Itinerary
   spatial_index :end_location
 
   #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { recurrent: true }) }
+  scope :sorted_by_creation, desc(:created_at)
 
   validates :title, length: { maximum: 40 }, presence: true
   validates :description, length: { maximum: 1000 }, presence: true

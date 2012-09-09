@@ -100,9 +100,11 @@ en-US:
       success:
         create: Feedback successfully created.
         update: Feedback successfully updated.
+        destroy: Feedback successfully destroyed.
       error:
         create: An error occurred while creating this feedback.
         update: An error occurred while updating this feedback.
+        destroy: An error occurred while destroying this feedback.
     itinerary:
       success:
         destroy: Itinerary successfully destroyed.
@@ -116,6 +118,8 @@ en-US:
     navbar:
       language: Language
       user_settings: User settings
+      see_all_messages: See All
+      no_new_messages: No new messages
     footer:
       message: Privacy is not guaranteed at this stage of development
 
@@ -156,7 +160,17 @@ en-US:
       per_liter: per liter
       fuel_cost_estimate: Fuel cost estimate
     show:
+      see_all: See All
+      facebook_verified: "A Facebook user is considered verified if he takes any of the following actions: registers for mobile; confirms his account via SMS; enters a valid credit card."
+      basic_info: Basic info
+      friends: "%{count} friends"
+      age: "%{count} years"
       language: "%{language} language"
+      common_friends: Common friends
+      likes: Likes
+      and_others:
+        one: and one other
+        other: "and %{count} others"
     banned:
       title: Suspended account
       you_were_banned: You were banned!
@@ -174,6 +188,8 @@ en-US:
         zero: No notificatins
         one: "%{count} notification"
         other: "%{count} notifications"
+      latest_itineraries: Latest Itineraries
+      by: by
     settings:
       user_settings: User settings
       general_information: General info

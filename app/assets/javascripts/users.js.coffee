@@ -2,7 +2,7 @@
 
 $ ->
   setTimeout ->
-    $(".unread").removeClass "unread"
+    $("li.unread").removeClass "unread"
   , 5000
 
   if $("#fuel-cost-calculator")[0]?

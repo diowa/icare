@@ -100,9 +100,11 @@ it-IT:
       success:
         create: Feedback creato con successo.
         update: Feedback aggiornato con successo.
+        destroy: Feedback eliminato con successo.
       error:
         create: Si è verificato un errore durante la creazione del feedback.
         update: Si è verificato un errore durante l'aggiornamento del feedback.
+        destroy: Si è verificato un errore durante l'eliminazione del feedback.
     itinerary:
       success:
         destroy: Itinerario eliminato con successo.
@@ -116,6 +118,8 @@ it-IT:
     navbar:
       language: Lingua
       user_settings: Impostazioni utente
+      see_all_messages: Mostra tutti
+      no_new_messages: Non ci sono nuovi messaggi
     footer:
       message: La riservatezza non è garantita in questo stato di sviluppo
 
@@ -155,7 +159,17 @@ it-IT:
       per_liter: al litro
       fuel_cost_estimate: Consumo stimato
     show:
+      see_all: Mostra tutte
+      facebook_verified: "Un utente di Facebook viene considerato verificato se esegue una delle seguenti azioni: si registra per i cellulari; conferma il suo account tramite SMS; inserisce un numero di carta di credito valido."
+      basic_info: Informazioni di base
+      friends: "%{count} amici"
+      age: "%{count} anni"
       language: "Lingua %{language}"
+      common_friends: Amici in comune
+      likes: Mi piace
+      and_others:
+        one: e un altro
+        other: "e atri %{count}"
     banned:
       title: Account sospeso
       you_were_banned: Sei stato sospeso!
@@ -173,6 +187,8 @@ it-IT:
         zero: Nessuna notifica
         one: "%{count} notifica"
         other: "%{count} notifiche"
+      latest_itineraries: Itinerari recenti
+      by: di
     settings:
       user_settings: Impostazioni utente
       general_information: Informazioni generali
