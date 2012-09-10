@@ -36,8 +36,8 @@ it-IT:
         gender_female: Donna
         birthday: Data di nascita
         nationality: Nazionalità
-        education: Educazione
-        work: Occupazione
+        education: Istruzione
+        work: Lavoro
         time_zone: Fuso orario
         vehicle_avg_consumption: Costo carburante
         send_email_messages: Si riceve un messaggio
