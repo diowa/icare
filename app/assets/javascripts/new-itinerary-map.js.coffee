@@ -130,7 +130,7 @@ lastStepInit = ->
   else
     $(".itinerary-preview-return").hide()
 
-  route = window.itinerary_route_json_object.route
+  route = window.icare.itinerary_route_json_object
   url_builder = $("#itinerary-preview-image")
     .data("staticMapUrlBuilder")
     .replace("%{end_location}", "#{route.end_location.lat},#{route.end_location.lng}")
@@ -210,7 +210,7 @@ createRouteMapInit = (id) ->
     $("#from-helper").text route.legs[0].start_address
     $("#to-helper").text route.legs[0].end_address
     $("#itinerary_route_json_object").val JSON.stringify(route_json_object)
-    window.itinerary_route_json_object.route = route_json_object
+    window.icare.itinerary_route_json_object = route_json_object
     $("#new_itinerary_submit").removeAttr "disabled"
     $("#distance").text route.legs[0].distance.text
     $("#duration").text route.legs[0].duration.text

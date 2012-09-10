@@ -11,6 +11,7 @@ Changelog
 * Mocked features are more evident
 * Added facebook verification to users
 * New favicon
+* Fixed routes generation in IE and Opera
 * A lot of minor bug fix and improvements
 
 0.2
