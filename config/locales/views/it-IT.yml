@@ -200,7 +200,7 @@ it-IT:
       proportional_costs: "COSTI PROPORZIONALI €/km"
       km_costs_calculation_link: Calcola il costo chilometrico del tuo veicolo sul sito ACI
       send_email: Invia e-mail quando
-      send_email_at_address: "Invieremo e-mail al seguente indirizzo: %{email}"
+      send_email_at_address: "Invieremo le e-mail al seguente indirizzo: %{email}"
       application_settings: Impostazioni dell'applicazione
 
   itineraries:
@@ -245,9 +245,9 @@ it-IT:
       hint_privacy_content: "Temi sguardi indiscreti? Non essere troppo specifico nell'impostare il percorso. Indica le strade più importanti vicino al punto di partenza e a quello di arrivo."
       hint_customize_title: "Personalizza il percorso"
       hint_customize_content: "Utilizzi una strada alternativa perché devi passare da tua suocera? Trascina il percorso per ottenere l'itinerario desiderato."
-      hint_search_before_title: "...e se esistesse già?"
-      hint_search_before_content: "Sei sicuro di voler pianificare un nuovo percorso? %{search_before_link} tra quelli disponibili se ne è presente uno adatto alle tue esigenze."
-      search_before_link: "Cerca prima"
+      hint_search_before_title: "Cerca prima"
+      hint_search_before_content: "E se il tuo percorso esistesse già? %{search_link} tra quelli disponibili se ne è presente uno adatto alle tue esigenze."
+      search_link: "Cerca"
     details_step:
       description_help: "Inserisci una breve descrizione del tuo itinerario. Se ci sono cose che i tuoi compagni di viaggio devono necessariamente sapere prima di contattarti, aggiungile qui (esempio: \"ascolto musica al massimo del volume\")."
       day: Giorno
