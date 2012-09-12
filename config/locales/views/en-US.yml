@@ -201,6 +201,7 @@ en-US:
       proportional_costs: "COSTI PROPORZIONALI €/km"
       km_costs_calculation_link: Calculate the kilometrical cost of your vehicle on the ACI website (Italian)
       send_email: Send an email when
+      send_email_at_address: "We will send emails at the following address: %{email}"
       application_settings: Application settings
 
   itineraries:
