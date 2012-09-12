@@ -41,5 +41,7 @@
           .controls
             = f.check_box :send_email_messages
             = f.check_box :send_email_references
+            %p.help-block
+              = t(".send_email_at_address", email: content_tag(:b,current_user.email)).html_safe
       .form-actions
         = f.submit class: "btn btn-primary"
