@@ -241,12 +241,13 @@ en-US:
       get_route: Get route
       distance: Distance
       duration: Duration
+      hint_privacy_title: "A little bit of privacy"
       hint_privacy_content: "Are you concerned of your privacy? Do not be too specific in setting the path. Select major streets near the point of departure and the point of destination."
       hint_customize_title: "Customize your itinerary"
       hint_customize_content: "You use an alternative route because you have to go to your mother-in-law? Drag the path to achieve the desired route."
-      hint_search_before_title: "...and if it was already present?"
-      hint_search_before_content: "Are you sure you want to set a new itinerary? %{search_before_link} available itineraries to see if there is one that matches your desired one."
-      search_before_link: "Search before"
+      hint_search_before_title: "Search before"
+      hint_search_before_content: "And if your itinerary was already there? %{search_link} among the available itineraries and check if there is one that matches your needs."
+      search_link: "Search"
     details_step:
       description_help: "Enter a brief description of your itinerary. If there are things that your fellow travelers need to know, add them here (example: \"loud music in the car!\")."
       day: Day
