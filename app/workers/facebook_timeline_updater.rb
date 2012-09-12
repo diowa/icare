@@ -7,7 +7,7 @@ class FacebookTimelineUpdater
     user.facebook do |fb|
       permissions = fb.get_connections("me", "permissions")
       if permissions[0]["publish_stream"].to_i == 1
-        fb.put_connections("me", "codenameicare:plan", itinerary: itinerary_url)
+        fb.put_connections("me", "#{APP_CONFIG.facebook.namespace}:plan", itinerary: itinerary_url)
       end
     end
   end
