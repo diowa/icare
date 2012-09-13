@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.4
+* Share on Facebook Timeline feature
+* A lot of minor bug fix and improvements
+
 0.3
 ---
 * Moved Facebook's Open Graph namespace in configuration files

@@ -44,18 +44,4 @@
 .row
   .span12.align-center
     .spacer
-    - if share_on_timeline_available
-      .control-group
-        .controls
-          = f.label :share_on_timeline, class: "checkbox inline" do
-            = f.default_tag :check_box, :share_on_timeline, disabled: !current_user.has_facebook_permission(:publish_stream), checked: current_user.has_facebook_permission(:publish_stream)
-            %i.icon-facebook-sign.facebook-color.icon-large
-            = Itinerary.human_attribute_name :share_on_timeline
-          - unless current_user.has_facebook_permission(:publish_stream)
-            %p.muted
-              %small
-                %i.icon-ban-circle
-                = t(".missing_publish_stream_permission")
-    - else
-      %i.icon-ban-circle
-      = t(".share_on_timeline_unavailable")
+    = share_on_facebook_timeline_checkbutton(f)

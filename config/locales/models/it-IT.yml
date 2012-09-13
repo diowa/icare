@@ -62,7 +62,6 @@ it-IT:
         round_trip: Andata e ritorno
         leave_date: Data andata
         return_date: Data ritorno
-        share_on_timeline: Condividi su Facebook
         driver_gender: Sesso del guidatore
     errors:
       models:

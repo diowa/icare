@@ -21,7 +21,7 @@ gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'client_side_validations'
 #gem 'wicked'
-gem 'resque', require: 'resque/server'
+gem 'resque', require: 'resque/server' # Resque web interface
 gem 'kaminari'
 gem 'rabl'
 gem 'simpleconfig'

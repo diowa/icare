@@ -44,7 +44,7 @@ module ApplicationHelper
     "(#{collection.size})" if collection.any?
   end
 
-  def share_on_timeline_available
+  def share_on_facebook_timeline_available
     Resque.workers.any?
   rescue
     false
