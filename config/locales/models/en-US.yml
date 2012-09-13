@@ -62,7 +62,6 @@ en-US:
         round_trip: Round trip
         leave_date: Leave date
         return_date: Return date
-        share_on_timeline: Share on Facebook
         driver_gender: Driver's gender
     errors:
       models:

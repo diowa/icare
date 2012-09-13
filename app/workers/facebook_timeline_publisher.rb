@@ -1,4 +1,4 @@
-class FacebookTimelineUpdater
+class FacebookTimelinePublisher
   @queue = :facebook_timeline_queue
   def self.perform(itinerary_id)
     itinerary = Itinerary.find(itinerary_id)

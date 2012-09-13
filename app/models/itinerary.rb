@@ -10,7 +10,7 @@ class Itinerary
 
   attr_accessible :title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls
   attr_accessible :round_trip, :leave_date, :return_date
-  attr_accessible :share_on_timeline
+  attr_accessible :share_on_facebook_timeline
 
   belongs_to :user
   delegate :name, to: :user, prefix: true
@@ -42,7 +42,7 @@ class Itinerary
   # Cached user details (for filtering purposes)
   field :driver_gender
 
-  attr_accessor :route_json_object, :share_on_timeline
+  attr_accessor :route_json_object, :share_on_facebook_timeline
 
   spatial_index :start_location
   spatial_index :end_location

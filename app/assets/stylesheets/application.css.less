@@ -218,3 +218,21 @@ footer {
 .errorText {
   color: @errorText;
 }
+
+.facebook-timeline-checkbutton {
+  .user-select(none);
+
+  i.check {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-size: 1.15em;
+  }
+
+  input[type=checkbox] {
+    display: none;
+    &:checked ~ i.check:before {
+      content: "\f046";
+    }
+  }
+}
