@@ -1,7 +1,8 @@
 Changelog
 =========
 
-0.4
+0.4.1
+-----
 * Share on Facebook Timeline feature
 * A lot of minor bug fix and improvements
 

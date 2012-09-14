@@ -18,7 +18,7 @@ module ItinerariesHelper
       tag(:meta, property: "#{fb_namespace}:route_end_location:latitude", content: itinerary.end_location["lat"]) +
       tag(:meta, property: "#{fb_namespace}:route_end_location:longitude", content: itinerary.end_location["lng"]) +
       itinerary.sample_path.map do |point|
-        tag(:meta, property: "#{fb_namespace}:route_sample_path:latitude", content: point[0])
+        tag(:meta, property: "#{fb_namespace}:route_sample_path:latitude", content: point[0]) +
         tag(:meta, property: "#{fb_namespace}:route_sample_path:longitude", content: point[1])
       end.join.html_safe
     end
