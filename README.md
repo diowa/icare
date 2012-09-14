@@ -61,9 +61,9 @@ Internationalization (i18n)
 Contributing
 ------------
 
-Please make all pull requests against develop branch. Also, if your unit test contains new features, you must include relevant unit tests. Thanks!
+Please make all pull requests against develop branch. Also, if your pull request contains new features, you must include relevant unit tests. Thanks!
 
-If you are interested in features development, we have priorities. Check out our [To Do](/diowa/icare/wiki/To-Do) list
+If you are interested in feature development, we have priorities. Check out our [To Do](/diowa/icare/wiki/To-Do) list.
 
 
 Unit tests
@@ -89,7 +89,8 @@ Authors
 Roadmap
 --------
 
-TODO
+Immediate: Check out our [To Do](/diowa/icare/wiki/To-Do) list.
+Long-term: TODO
 
 
 Copyright and license
