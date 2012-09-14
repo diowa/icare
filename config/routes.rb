@@ -47,5 +47,5 @@ Icare::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: :logout
 
-  mount Resque::Server, at: "/resque"
+  mount Resque::Server, at: "/resque" if defined?(Resque::Server)
 end

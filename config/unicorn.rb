@@ -1,19 +1,29 @@
+# From Diaspora
+
 worker_processes 3
 timeout 30
 preload_app true
 
+@resque_pid = nil
+
 before_fork do |server, worker|
-  # If you are using Redis but not Resque, change this
-  if defined?(Resque)
-    Resque.redis.quit
-    Rails.logger.info('Disconnected from Redis')
+  if true # TODO !AppConfig.single_process_mode?
+    # Clean up Resque workers killed by previous deploys/restarts
+    Resque.workers.each { |w| w.unregister_worker }
+    @resque_pid ||= spawn('bundle exec rake resque:work QUEUE=*')
+  end
+
+  # disconnect redis if in use
+  if true # TODO !AppConfig.single_process_mode?
+    Resque.redis.client.disconnect
   end
 end
 
 after_fork do |server, worker|
-  # If you are using Redis but not Resque, change this
-  if defined?(Resque)
-    Resque.redis = APP_CONFIG.redis.url
-    Rails.logger.info('Connected to Redis')
+  # copy pasta from resque.rb because i'm a bad person
+  if true # TODO !AppConfig.single_process_mode?
+    uri = URI.parse(APP_CONFIG.redis.url)
+    REDIS = Redis.new(host: uri.host, port: uri.port, password: uri.password)
+    Resque.redis = REDIS if defined?(Resque)
   end
 end
