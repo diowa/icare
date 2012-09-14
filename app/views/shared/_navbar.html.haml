@@ -8,7 +8,7 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-      = link_to root_path, class: "brand" do
+      = link_to logged_in? ? :dashboard : root_path, class: "brand" do
         = image_tag "turtle.svg", class: "brand-logo"
         %span.hidden-phone= APPNAME
       - if logged_in?
