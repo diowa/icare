@@ -1,5 +1,5 @@
+@import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
-@import "twitter/bootstrap/variables";
 
 .google-maps-fix {
   label {
@@ -73,7 +73,7 @@
   border: 1px solid @grayLight;
   background: @white;
   .border-radius(4px);
-  .box-shadow(2px 2px 1px rgba(0, 0, 0, 0.2));
+  .box-shadow(2px 2px 1px fade(@black, 20%));
   cursor: pointer;
 
   img {

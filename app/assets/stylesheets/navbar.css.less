@@ -1,4 +1,4 @@
-@import "twitter/bootstrap/variables";
+@import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
 
 .navbar {
@@ -11,13 +11,13 @@
     color: @grayLighter;
     font-size: 20px;
     line-height: 20px;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 -1px 0 fade(@black, 25%);
     .transition(text-shadow .4s ease-out);
 
     &:hover {
       color: white;
-      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25),
-                   0 0 25px rgba(222, 231, 238, 0.8);
+      text-shadow: 0 -1px 0 fade(@black, 25%),
+                   0 0 25px fade(@white, 90%);
     }
   }
 }
@@ -83,12 +83,12 @@
   i {
     margin-top: 2px;
     font-size: 20px;
-    text-shadow: 0 1px 0px rgba(5, 18, 22, 0.85); /* darken(#16576b, 20%); */
+    text-shadow: 0 1px 0px fade(darken(@blueIcare, 20%), 85%);
   }
 
   &.read {
     i {
-      color: rgba(5, 18, 22, 0.45);
+      color: fade(darken(@blueIcare, 20%), 45%);
       text-shadow: none;
     }
   }
@@ -105,7 +105,7 @@
     padding: 2px 5px;
     font-weight: bold;
     font-size: 10px;
-    background: rgba(205, 0, 0, 0.8);
+    background: fade(@red, 80%);
   }
 }
 

@@ -11,9 +11,8 @@ body {
 
 @import "twitter/bootstrap/responsive";
 
-@blueFacebook: #3b5998;
 
-/* Icons
+/* Fontawesome Icons
    ========================================================================== */
 
 @fontAwesomeEotPath:  'fontawesome-webfont.eot';
@@ -23,22 +22,12 @@ body {
 @fontAwesomeSvgPath:  'fontawesome-webfont.svg';
 @import "fontawesome";
 
-/* Overriding default variables
+
+/* Overriding default variables and loading new ones
    ========================================================================== */
 
-@sansFontFamily: "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@import "stubs/variables_overrides.css.less";
 
-@linkColor: lighten(#16576b, 10%);
-
-@navbarBackground: rgba(22, 87, 107, 0.7); /*#16576b*/
-@navbarBackgroundHighlight: lighten(@navbarBackground, 10%);
-
-@navbarText: @grayLighter;
-@navbarLinkColor: @grayLighter;
-@navbarLinkColorHover: @white;
-@navbarLinkColorActive: @white;
-@navbarLinkBackgroundHover: rgba(255, 255, 255, 0.05);
-@navbarLinkBackgroundActive: darken(@navbarBackground, 5%);
 
 /* ==========================================================================
    Google Places Autocompletion
@@ -64,6 +53,7 @@ body {
   }
 }
 
+
 /* ==========================================================================
    Carousel fade effect
    ========================================================================== */
@@ -88,6 +78,25 @@ body {
   }
 }
 
+
+/* ==========================================================================
+   Fixes
+   ========================================================================== */
+
+/* Icon Button Fix */
+.btn {
+  i.icon-large[class^=icon-] {
+    margin-right: 3px;
+  }
+}
+
+/* Icon background fix */
+i[class*=" icon-"],
+i[class^="icon-"], {
+  background-image: none !important;
+}
+
+
 /* ==========================================================================
    Global styles
    ========================================================================== */
@@ -107,10 +116,6 @@ body {
   }
 }
 
-.tooltip {
-  z-index: 100000;
-}
-
 .facebook-bg {
   background: @blueFacebook;
 }
@@ -120,26 +125,7 @@ body {
 }
 
 .btn-facebook {
-  color: @white;
   .buttonBackground(lighten(@blueFacebook, 10%), @blueFacebook);
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
-
-  &:hover {
-    color: @white;
-  }
-}
-
-/* Icon Button Fix */
-.btn {
-  i.icon-large[class^=icon-] {
-    margin-right: 3px;
-  }
-}
-
-/* Icon background fix */
-i[class*=" icon-"],
-i[class^="icon-"], {
-  background-image: none !important;
 }
 
 .spacer {
