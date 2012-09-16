@@ -34,9 +34,14 @@
   .span6.offset6
     %h3.pacifico= t(".latest_itineraries")
     %table.table.table-condensed.table-striped
-      - @last_itineraries.each do |itinerary|
+      %thead
         %tr
-          %td
-            = link_to itinerary, itinerary_path(itinerary)
-            = t(".by")
-            = link_to itinerary.user, user_path(itinerary.user)
+          %th= Itinerary.human_attribute_name(:title)
+          %th= User.model_name.human
+          %th= Itinerary.human_attribute_name(:leave_date)
+      %tbody  
+        - @last_itineraries.each do |itinerary|
+          %tr
+            %td= link_to itinerary, itinerary_path(itinerary)
+            %td= link_to itinerary.user, user_path(itinerary.user)
+            %td= l(itinerary.leave_date.in_time_zone, format: :short)

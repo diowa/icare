@@ -4,24 +4,20 @@
 .row
   .span12
     .hero-unit#home-hero
+      .attribution
+        Asfalto by Daquella manera, on Flickr
+      .transform
+        %h1.pacifico
+          = APPNAME
+          - if APP_CONFIG.demo_mode
+            %small
+              demo
+      .tagline
+        %b= t('.tagline', appname: APPNAME)
       .row-fluid
-        .span4#home-picture
-          .thumbnail
-            = link_to "#" do
-              = image_tag 'http://placehold.it/640x480/2d7489/&text=how+it+works'
-        .span8
-          %h1.pacifico
-            = image_tag "turtle_black.svg", class: "home-hero-logo"
-            = APPNAME
-            - if APP_CONFIG.demo_mode
-              %small
-                (demo)
-          %p
-            %b= t('.tagline', appname: APPNAME)
-      .row-fluid
-        .span6
+        .span6.white-container
           .fb-facepile{ data: { size: "medium", :"max-rows" => "1" } }
-        .span6
+        .span6.white-container
           %p
             = link_to auth_at_provider_path(provider: :facebook), class: "btn btn-large btn-facebook" do
               %i.icon-facebook-sign.icon-large
