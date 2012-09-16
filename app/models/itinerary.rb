@@ -35,9 +35,9 @@ class Itinerary
   field :fuel_cost, type: Integer
   field :tolls, type: Integer
   field :round_trip, type: Boolean, default: false
-  field :leave_date, type: DateTime, default: -> { (Time.now).change(min: (Time.now.min / 10) * 10) + 10.minutes }
-  field :return_date, type: DateTime, default: -> { (Time.now).change(min: (Time.now.min / 10) * 10) + 70.minutes }
-  field :recurrent, type: Boolean, default: false
+  field :leave_date, type: DateTime
+  field :return_date, type: DateTime
+  field :daily, type: Boolean, default: false
 
   # Cached user details (for filtering purposes)
   field :driver_gender
@@ -47,7 +47,7 @@ class Itinerary
   spatial_index :start_location
   spatial_index :end_location
 
-  #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { recurrent: true }) }
+  #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
   scope :sorted_by_creation, desc(:created_at)
 
   validates :title, length: { maximum: 40 }, presence: true

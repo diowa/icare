@@ -63,6 +63,7 @@ en-US:
         leave_date: Leave date
         return_date: Return date
         driver_gender: Driver's gender
+        daily: Daily
     errors:
       models:
         user:

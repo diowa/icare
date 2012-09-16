@@ -60,9 +60,10 @@ it-IT:
         fuel_cost: Costo carburante
         tolls: Pedaggi
         round_trip: Andata e ritorno
-        leave_date: Data andata
+        leave_date: Data partenza
         return_date: Data ritorno
         driver_gender: Sesso del guidatore
+        daily: Giornaliero
     errors:
       models:
         user:

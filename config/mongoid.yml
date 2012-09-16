@@ -5,15 +5,19 @@ defaults: &defaults
   allow_dynamic_fields: false
 
 development:
+  <<: *defaults
   host: localhost
   database: icare_development
 
 test:
+  <<: *defaults
   host: localhost
   database: icare_test
 
 staging:
+  <<: *defaults
   uri: <%= ENV['MONGOLAB_URI'] %>
 
 production:
+  <<: *defaults
   uri: <%= ENV['MONGOLAB_URI'] %>
