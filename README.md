@@ -15,12 +15,13 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [Font Awesome][5] (retina ready vectorial icons)
 * [Mongoid][6] (ODM for MongoDB)
 * Asynchronous tasks with [Resque][7] - Redis
-* [Handlebars][8] (JavaScript semantic templates)
+* [RABL][8] API Builder
+* [Handlebars][9] (JavaScript semantic templates)
 * Facebook Open Graph / Rest API
 * Google Maps API
-* [RSpec][9] and [Cucumber][10]
-* [Heroku][11] Cloud Application Platform
-* [Multi environment configuration][12]
+* [RSpec][10] and [Cucumber][11]
+* [Heroku][12] Cloud Application Platform
+* [Multi environment configuration][13]
 
  [1]: http://rubyonrails.org/
  [2]: http://coffeescript.org/
@@ -29,11 +30,11 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [5]: http://fortawesome.github.com/Font-Awesome/
  [6]: http://mongoid.org/en/mongoid/index.html
  [7]: http://github.com/defunkt/resque
- [8]: http://handlebarsjs.com/
- [9]: http://rspec.info/
- [10]: http://cukes.info/
- [11]: http://www.heroku.com/
- [12]: http://github.com/lukeredpath/simpleconfig
+ [9]: http://handlebarsjs.com/
+ [10]: http://rspec.info/
+ [11]: http://cukes.info/
+ [12]: http://www.heroku.com/
+ [13]: http://github.com/lukeredpath/simpleconfig
 
 A working demo is available at http://icaredemo.herokuapp.com/
 
