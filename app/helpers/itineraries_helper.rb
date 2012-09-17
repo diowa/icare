@@ -3,6 +3,10 @@ module ItinerariesHelper
     @boolean_options_for_select ||= options_for_select([[t("boolean.true"),true], [t("boolean.false"),false]])
   end
 
+  def default_leave_date
+    @default_leave_date ||= ((Time.now).change(min: (Time.now.min / 10) * 10) + 10.minutes).in_time_zone
+  end
+
   def opengraph_header_content(itinerary)
     fb_namespace = APP_CONFIG.facebook.namespace
     content_for :head do

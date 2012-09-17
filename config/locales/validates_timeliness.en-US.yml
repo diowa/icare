@@ -13,4 +13,4 @@ en-US:
     error_value_formats:
       date: '%Y-%m-%d'
       time: '%H:%M:%S'
-      datetime: '%Y-%m-%d %H:%M:%S'
+      datetime: '%Y-%m-%d %H:%M:%S %Z'

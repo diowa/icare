@@ -143,7 +143,7 @@ $ ->
     createRouteMapInit("#new-itinerary-map")
     $("#wizard-next-step-button").on "click", wizardNextStep
     $("#wizard-prev-step-button").on "click", wizardPrevStep
-    $('input[name="itinerary[recurrent]"]').change ->
+    $('input[name="itinerary[daily]"]').change ->
       if (Boolean) $(this).val() is "true"
         $("#single").fadeOut ->
           $("#daily").fadeIn()

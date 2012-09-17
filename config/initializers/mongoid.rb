@@ -23,7 +23,7 @@ end
 module Mongoid #:nodoc:
   module MultiParameterAttributes #:nodoc:
 
-  #TODO understand what TO DO (multiparameters validation)
+  #TODO needs to be updated
 
   protected
     def invalid_multiparameter_date_or_time_as_string(values)

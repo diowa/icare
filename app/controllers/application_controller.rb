@@ -3,16 +3,21 @@ class ApplicationController < ActionController::Base
 
   before_filter :require_login
   before_filter :set_locale
-  before_filter :set_user_time_zone
   before_filter :check_banned, except: [ :banned ]
   before_filter :check_admin, only: [ :index ] # whitelist approach
+
+  around_filter :set_user_time_zone
 
   helper_method :current_user, :logged_in?
 
 protected
 
   def set_user_time_zone
-    Time.zone = current_user.time_zone if logged_in?
+    old_time_zone = Time.zone
+    Time.zone = current_user.time_zone if (logged_in? && current_user.time_zone?)
+    yield
+  ensure
+    Time.zone = old_time_zone
   end
 
   def set_locale
