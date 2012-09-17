@@ -22,7 +22,7 @@
       {{return_date}}
       {{/if}}
     .btn-toolbar
-      %a.btn.btn-mini.mock{ href: "#" }
+      %a.btn.btn-mini.show-itinerary-on-map{ href: "#", data: { id: "{{id}}" } }
         {{translate "show_on_map"}}
       %a.btn.btn-mini.btn-primary{ href: "{{url}}" }
         {{translate "read_more"}}
