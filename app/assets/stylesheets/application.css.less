@@ -198,12 +198,22 @@ body {
 }
 
 #footer {
-  position: relative;
-  bottom: 0;
   border-top: 1px solid @grayLighter;
   padding: @baseLineHeight 0;
   #gradient > .vertical(fade(@black, 0%), fade(@black, 10%));
   background-color: transparent !important;
+
+  @media(max-width: 767px) {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 10px;
+  }
+
+  &.fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
 }
 
 footer {
