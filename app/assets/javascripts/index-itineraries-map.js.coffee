@@ -97,11 +97,14 @@ $ ->
           $("#itineraries-thumbs").html ""
           index = 0
           icare.latLngBounds = new google.maps.LatLngBounds()
+          row_template = $("""<div class="row-fluid"></div>""")
+          row = row_template
           $(data).each ->
+            $("#itineraries-thumbs").append(row = row_template.clone(true)) if (index % 2) is 0
             color = routeColoursArray[index++ % routeColoursArray.length]
             drawPath this, color
             this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
-            $("#itineraries-thumbs").append HandlebarsTemplates["itinerary"](this)
+            row.append HandlebarsTemplates["itinerary"](this)
           icare.map.fitBounds icare.latLngBounds
     $('#itineraries-thumbs').on 'click', '.show-itinerary-on-map', (e) ->
       e.preventDefault()
