@@ -4,6 +4,7 @@
 SimpleConfig.for :application do
   set :base_url, ENV["APP_BASE_URL"]
   set :secret_token, ENV["SECRET_TOKEN"]
+  set :single_process_mode, false
 
   set :google_analytics_id, ENV["GOOGLE_ANALYTICS_ID"]
 

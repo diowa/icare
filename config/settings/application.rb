@@ -8,6 +8,7 @@ SimpleConfig.for :application do
   set :demo_mode, true
   set :base_url, '127.0.0.1:5000'
   set :secret_token, 'SECRET_TOKEN'
+  set :single_process_mode, true
 
   group :facebook do
     set :app_id, 'FACEBOOK_APP_ID'
