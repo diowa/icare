@@ -3,6 +3,10 @@ en-US:
     formats:
       full_day: ! '%A %B %e'
       birthday: ! '%B %-d, %Y'
+  time:
+    ampm: true
+    formats:
+      time_only: '%I:%M %p'
 
   boolean:
     "true": "Yes"
@@ -214,8 +218,6 @@ en-US:
       search: Search
     index:
       title: Search itineraries
-      no_itineraries_found: No itineraries found
-      an_error_occurred: Ops! An error occurred while searching for itineraries.
     show:
       app_user: "An user of %{appname}"
       contact: "Contact %{user}"
@@ -284,3 +286,7 @@ en-US:
     messages:
       time_ago: "%{time} ago"
       seen: "Seen %{date}"
+
+  javascript:
+    no_itineraries_found: No itineraries found
+    an_error_occurred: Ops! An error occurred while searching for itineraries.

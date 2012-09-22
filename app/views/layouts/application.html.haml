@@ -33,5 +33,6 @@
       \==================================================
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry", "application"
+    = yield :scripts
     - if APP_CONFIG.exists?(:google_analytics_id) && APP_CONFIG.google_analytics_id
       = analytics_init

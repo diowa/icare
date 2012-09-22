@@ -39,7 +39,7 @@
           %th= Itinerary.human_attribute_name(:title)
           %th= User.model_name.human
           %th= Itinerary.human_attribute_name(:leave_date)
-      %tbody  
+      %tbody
         - @last_itineraries.each do |itinerary|
           %tr
             %td= link_to itinerary, itinerary_path(itinerary)

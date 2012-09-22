@@ -61,4 +61,5 @@ group :assets do
   gem 'compass-rails'
   gem 'haml_assets'
   gem 'handlebars_assets'
+  gem 'i18n-js'
 end

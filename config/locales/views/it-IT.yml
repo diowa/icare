@@ -3,6 +3,10 @@ it-IT:
     formats:
       full_day: ! '%A %e %B'
       birthday: ! '%-d %B %Y'
+  time:
+    ampm: false
+    formats:
+      time_only: '%H:%M'
 
   boolean:
     "true": "Sì"
@@ -213,8 +217,6 @@ it-IT:
       search: Cerca
     index:
       title: Cerca itinerari
-      no_itineraries_found: Nessun itinerario trovato
-      an_error_occurred: Ops! Si è verificato un errore nella ricerca degli itinerari
     show:
       app_user: "Un utente di %{appname}"
       contact: "Contatta %{user}"
@@ -284,3 +286,7 @@ it-IT:
     messages:
       seen: "Visualizzato il %{date}"
       time_ago: "%{time} fa"
+
+  javascript:
+    no_itineraries_found: Nessun itinerario trovato
+    an_error_occurred: Ops! Si è verificato un errore nella ricerca degli itinerari

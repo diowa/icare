@@ -30,10 +30,10 @@ Handlebars.registerHelper 'toLowerCase', (string) ->
     ''
 
 Handlebars.registerHelper 'translate', (key) ->
-  if translation = $("#translations").data(key)
-    new Handlebars.SafeString translation
-  else
-    ''
+  new Handlebars.SafeString I18n.t(key)
+
+Handlebars.registerHelper 'localize', (scope, key) ->
+  new Handlebars.SafeString I18n.l(scope, key)
 
 $ ->
   if $("#index-itineraries-map")[0]?
@@ -85,13 +85,13 @@ $ ->
         $("#itineraries-spinner").hide()
       .bind "ajax:error", (evt, xhr, settings) ->
         $("#itineraries-thumbs").html """
-          <h4 class="errorText">#{$("#translations").data("no_itineraries_found")}</h3>
+          <h4 class="errorText">#{I18n.t("javascript.an_error_occurred")}</h4>
           """
         false
       .bind "ajax:success", (evt, data, status, xhr) ->
         if data.length is 0
           $("#itineraries-thumbs").html """
-            <h4>#{$("#translations").data("no_itineraries_found")}</h3>
+            <h4>#{I18n.t("javascript.no_itineraries_found")}</h4>
             """
         else
           $("#itineraries-thumbs").html ""
