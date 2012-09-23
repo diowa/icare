@@ -20,12 +20,9 @@
       %dt
         %span= Reference.model_name.human(count: :lot)
       %dd
-        %span><
-          0 positives
-        %span><
-          0 neutral
-        %span><
-          0 negatives
+        %span= t("references.snippet.positives", count: @user.references.positives.count)
+        %span= t("references.snippet.neutrals", count: @user.references.neutrals.count)
+        %span= t("references.snippet.negatives", count: @user.references.negatives.count)
         = link_to t(".see_all"), "#"
       %dt
         %span.description-facebook= t(".basic_info")

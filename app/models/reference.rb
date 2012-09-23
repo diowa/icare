@@ -17,11 +17,19 @@ class Reference
 
   scope :unread, where(read: nil)
 
-  scope :positive, where(:"incoming_reference.rating" => 1)
-  scope :neutral, where(:"incoming_reference.rating" => 0)
-  scope :negative, where(:"incoming_referenc.rating" => -1)
+  scope :positives, where(:"references_incoming.rating" => 1)
+  scope :neutrals, where(:"references_incoming.rating" => 0)
+  scope :negatives, where(:"references_incoming.rating" => -1)
 
   validates :itinerary, uniqueness: { scope: :referencing_user_id }
+
+  def self.build_from_params(params, user, itinerary)
+    reference = user.references.build(params)
+    reference.itinerary = itinerary
+    reference.referencing_user_id = itinerary.user.id
+    reference.read = Time.now.utc
+    reference
+  end
 
   def unread?
     !read

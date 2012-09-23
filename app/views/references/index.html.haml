@@ -13,12 +13,12 @@
       %tbody
         - @references.each do |reference|
           - if reference.references_incoming
-            %tr
+            %tr{ class: ("unread" if reference.unread?) }
               %td.align-center
                 %i.icon-download-alt
               %td= link_to reference.referencing_user, user_path(reference.referencing_user)
               %td= reference.references_incoming.rating
-              %td= reference.references_incoming.body
+              %td= link_to reference.references_incoming.body, reference_path(reference)
               %td
           - if reference.references_outgoing
             %tr
@@ -26,6 +26,6 @@
                 %i.icon-upload-alt
               %td= link_to reference.itinerary.user, user_path(reference.itinerary.user)
               %td= reference.references_outgoing.rating
-              %td= reference.references_outgoing.body
+              %td= link_to reference.references_outgoing.body, reference_path(reference)
               %td
     = paginate @references

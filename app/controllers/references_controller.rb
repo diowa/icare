@@ -18,9 +18,7 @@ class ReferencesController < ApplicationController
 
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @reference = current_user.references.build(params[:reference])
-    @reference.itinerary = @itinerary
-    @reference.referencing_user_id = @itinerary.user.id
+    @reference = Reference.build_from_params(params[:reference], current_user, @itinerary)
     if current_user.save
       redirect_to reference_path(@reference)
     else
