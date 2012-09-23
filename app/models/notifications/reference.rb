@@ -1,4 +1,5 @@
 class Notifications::Reference < Notification
+=begin
   field :actor_id, type: BSON::ObjectId
   field :reference_id, type: BSON::ObjectId
   field :relevant, type: Boolean
@@ -15,4 +16,5 @@ class Notifications::Reference < Notification
       end
     end
   end
+=end
 end

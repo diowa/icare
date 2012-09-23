@@ -83,4 +83,7 @@ module ReferencesHelper
       end
     end
   end
+  def new_or_show_reference_path(reference, itinerary)
+    reference && reference.persisted? ? reference_path(reference) : new_reference_path(itinerary_id: itinerary.id)
+  end
 end

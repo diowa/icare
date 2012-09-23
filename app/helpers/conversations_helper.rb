@@ -19,4 +19,5 @@ module ConversationsHelper
   def new_or_show_conversation_path(conversation)
     conversation && conversation.persisted? ? conversation_path(conversation) : new_conversation_path(itinerary_id: conversation.conversable_id)
   end
+
 end

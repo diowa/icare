@@ -1,15 +1,45 @@
 class Reference
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Mongoid::Paranoia
 
-  attr_accessible :message, :rating
+  belongs_to :itinerary
 
-  belongs_to :referencing_user, class_name: User.model_name
+  attr_accessible :references_outgoing
 
-  field :message
-  field :rating, type: Integer
+  embedded_in :user
 
-  validates :message, presence: true
-  validates :rating, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: -1, less_than_or_equal_to: 1 }
+  embeds_one :references_incoming, class_name: References::Incoming.model_name, cascade_callbacks: true
+  embeds_one :references_outgoing, class_name: References::Outgoing.model_name, cascade_callbacks: true
+  accepts_nested_attributes_for :references_outgoing
+
+  field :referencing_user_id
+  field :read, type: DateTime, default: nil
+
+  scope :unread, where(read: nil)
+
+  scope :positives, where(:"references_incoming.rating" => 1)
+  scope :neutrals, where(:"references_incoming.rating" => 0)
+  scope :negatives, where(:"references_incoming.rating" => -1)
+
+  validates :itinerary, uniqueness: { scope: :referencing_user_id }
+
+  def self.build_from_params(params, user, itinerary)
+    reference = user.references.build(params)
+    reference.itinerary = itinerary
+    reference.referencing_user_id = itinerary.user.id
+    reference.read = Time.now.utc
+    reference
+  end
+
+  def unread?
+    !read
+  end
+
+  def driver?
+    itinerary.user.id == referencing_user_id
+  end
+
+  def referencing_user
+    User.where(_id: referencing_user_id).first
+  end
 end

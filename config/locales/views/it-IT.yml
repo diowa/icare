@@ -192,6 +192,10 @@ it-IT:
         zero: Nessuna notifica
         one: "%{count} notifica"
         other: "%{count} notifiche"
+      new_references:
+        zero: Nessuna nuova referenza
+        one: "%{count} nuova referenza"
+        other: "%{count} nuove referenze"
       latest_itineraries: Itinerari recenti
       by: di
     settings:
@@ -286,6 +290,29 @@ it-IT:
     messages:
       seen: "Visualizzato il %{date}"
       time_ago: "%{time} fa"
+
+  references:
+    index:
+      title: Referenze
+    show:
+      title: Referenza
+      reference_about: "Referenza su %{itinerary_link} inviata da %{user_link}"
+    new:
+      title: New reference
+      send_reference_to: "Invia una referenza a %{user_link} su %{itinerary_link}"
+    snippet:
+      positives:
+        zero: 0 positive
+        one: "%{count} positiva"
+        other: "%{count} positive"
+      neutrals:
+        zero: 0 neutrali
+        one: "%{count} neutrale"
+        other: "%{count} neutrali"
+      negatives:
+        zero: 0 negative
+        one: "%{count} negativa"
+        other: "%{count} negative"
 
   javascript:
     no_itineraries_found: Nessun itinerario trovato

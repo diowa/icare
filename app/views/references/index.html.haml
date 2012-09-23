@@ -1,0 +1,31 @@
+- title t(".title")
+.row
+  .span12
+    %h1= yield :title
+  .span12
+    %table.table.table-striped
+      %thead
+        %th
+        %th= User.model_name.human
+        %th= References::Base.human_attribute_name(:rating)
+        %th= References::Base.human_attribute_name(:body)
+        %th= t("helpers.actions")
+      %tbody
+        - @references.each do |reference|
+          - if reference.references_incoming
+            %tr{ class: ("unread" if reference.unread?) }
+              %td.align-center
+                %i.icon-download-alt
+              %td= link_to reference.referencing_user, user_path(reference.referencing_user)
+              %td= reference.references_incoming.rating
+              %td= link_to reference.references_incoming.body, reference_path(reference)
+              %td
+          - if reference.references_outgoing
+            %tr
+              %td.align-center
+                %i.icon-upload-alt
+              %td= link_to reference.itinerary.user, user_path(reference.itinerary.user)
+              %td= reference.references_outgoing.rating
+              %td= link_to reference.references_outgoing.body, reference_path(reference)
+              %td
+    = paginate @references

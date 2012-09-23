@@ -1,0 +1,9 @@
+- title t(".title")
+.row
+  .span12
+    %h1.reference-title= t(".reference_about", itinerary_link: link_to(@reference.itinerary, itinerary_path(@reference.itinerary)), user_link: link_to(current_user, user_path(current_user))).html_safe
+    = @reference.inspect
+    %br
+    = @reference.references_incoming.inspect
+    %br
+    = @reference.references_outgoing.inspect
