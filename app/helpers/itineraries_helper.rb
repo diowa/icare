@@ -17,10 +17,10 @@ module ItinerariesHelper
       tag(:meta, property: "og:title", content: itinerary.title) +
       tag(:meta, property: "og:image", content: itinerary.static_map) +
       tag(:meta, property: "og:description", content: itinerary.description) +
-      tag(:meta, property: "#{fb_namespace}:route_start_location:latitude", content: itinerary.start_location["lat"]) +
-      tag(:meta, property: "#{fb_namespace}:route_start_location:longitude", content: itinerary.start_location["lng"]) +
-      tag(:meta, property: "#{fb_namespace}:route_end_location:latitude", content: itinerary.end_location["lat"]) +
-      tag(:meta, property: "#{fb_namespace}:route_end_location:longitude", content: itinerary.end_location["lng"]) +
+      tag(:meta, property: "#{fb_namespace}:route_start_location:latitude", content: itinerary.start_location.lat) +
+      tag(:meta, property: "#{fb_namespace}:route_start_location:longitude", content: itinerary.start_location.lng) +
+      tag(:meta, property: "#{fb_namespace}:route_end_location:latitude", content: itinerary.end_location.lat) +
+      tag(:meta, property: "#{fb_namespace}:route_end_location:longitude", content: itinerary.end_location.lng) +
       itinerary.sample_path.map do |point|
         tag(:meta, property: "#{fb_namespace}:route_sample_path:latitude", content: point[0]) +
         tag(:meta, property: "#{fb_namespace}:route_sample_path:longitude", content: point[1])
