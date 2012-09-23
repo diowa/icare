@@ -1,19 +1,5 @@
 - title @itinerary.title
-= content_for :head do
-  = tag :meta, property: "fb:app_id", content: APP_CONFIG.facebook.app_id
-  = tag :meta, property: "og:url", content: itinerary_url(@itinerary)
-  = tag :meta, property: "og:site_name", content: APPNAME
-  = tag :meta, property: "og:type", content: "codenameicare:itinerary"
-  = tag :meta, property: "og:title", content: @itinerary.title
-  = tag :meta, property: "og:image", content: @itinerary.static_map
-  = tag :meta, property: "og:description", content: @itinerary.description
-  = tag :meta, property: "codenameicare:route_start_location:latitude", content: @itinerary.start_location["lat"]
-  = tag :meta, property: "codenameicare:route_start_location:longitude", content: @itinerary.start_location["lng"]
-  = tag :meta, property: "codenameicare:route_end_location:latitude", content: @itinerary.end_location["lat"]
-  = tag :meta, property: "codenameicare:route_end_location:longitude", content: @itinerary.end_location["lng"]
-  - @itinerary.sample_path.each do |point|
-    = tag :meta, property: "codenameicare:route_sample_path:latitude", content: point[0]
-    = tag :meta, property: "codenameicare:route_sample_path:longitude", content: point[1]
+- opengraph_header_content @itinerary
 .row
   .span3
     = image_tag @itinerary.static_map, class: "thumbnail border-box", alt: ""
@@ -71,7 +57,7 @@
               = link_to new_or_show_conversation_path(@conversation), class: "btn btn-primary" do
                 %i.icon-comment
                 = t(".contact", user: @itinerary.user_first_name)
-              = link_to "#", class: "btn mock" do
+              = link_to new_or_show_reference_path(@reference, @itinerary), class: "btn" do
                 %i.icon-thumbs-up
                 = t(".leave_reference")
               .btn-group.mock

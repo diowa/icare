@@ -1,9 +1,4 @@
 - title t(".title")
-- content_for :footer do
-  #translations{ data: { no_itineraries_found: t(".no_itineraries_found"),
-    an_error_occurred: t(".an_error_occurred"),
-    read_more: t("templates.itineraries.read_more"),
-    show_on_map: t("templates.itineraries.show_on_map") } }
 .row
   .span3
     %h3= yield :title
@@ -12,5 +7,4 @@
   .span9
     #index-itineraries-map.google-maps-fix
     .spacer
-    .row-fluid
-      #itineraries-thumbs
+    #itineraries-thumbs

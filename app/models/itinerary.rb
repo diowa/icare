@@ -5,22 +5,25 @@ class Itinerary
   include Mongoid::Geospatial
   include Mongoid::MultiParameterAttributes
 
+  index({ start_location: 1 }, { background: true })
+  index({ end_location: 1 }, { background: true })
+
   VEHICLE = %w(car motorcycle van)
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 
   attr_accessible :title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls
   attr_accessible :round_trip, :leave_date, :return_date
-  attr_accessible :share_on_timeline
+  attr_accessible :share_on_facebook_timeline
 
   belongs_to :user
   delegate :name, to: :user, prefix: true
   delegate :first_name, to: :user, prefix: true
 
-  has_many :conversations, as: :conversable
+  has_many :conversations, as: :conversable, dependent: :destroy
 
   # Route
-  field :start_location, type: Point, spatial: true
-  field :end_location, type: Point, spatial: true
+  field :start_location, type: Point
+  field :end_location, type: Point
   field :via_waypoints, type: Array
   field :overview_path, type: Array
   field :overview_polyline, type: String
@@ -35,19 +38,16 @@ class Itinerary
   field :fuel_cost, type: Integer
   field :tolls, type: Integer
   field :round_trip, type: Boolean, default: false
-  field :leave_date, type: DateTime, default: -> { (Time.now).change(min: (Time.now.min / 10) * 10) + 10.minutes }
-  field :return_date, type: DateTime, default: -> { (Time.now).change(min: (Time.now.min / 10) * 10) + 70.minutes }
-  field :recurrent, type: Boolean, default: false
+  field :leave_date, type: DateTime
+  field :return_date, type: DateTime
+  field :daily, type: Boolean, default: false
 
   # Cached user details (for filtering purposes)
   field :driver_gender
 
-  attr_accessor :route_json_object, :share_on_timeline
+  attr_accessor :route_json_object, :share_on_facebook_timeline
 
-  spatial_index :start_location
-  spatial_index :end_location
-
-  #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { recurrent: true }) }
+  #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
   scope :sorted_by_creation, desc(:created_at)
 
   validates :title, length: { maximum: 40 }, presence: true
@@ -83,22 +83,25 @@ class Itinerary
 
   def self.search(params)
     # TODO: Optimization
-    itineraries = Itinerary.where(get_boolean_filters(params))
+    itineraries = Itinerary.where(get_boolean_filters(params)).includes(:user)
 
-    itineraries_start = itineraries.includes(:user).where(:start_location.near(:sphere) => { point: [params[:start_location_lat], params[:start_location_lng]],
-                                                                                             max: 5,
-                                                                                             unit: :km })
-    itineraries_end = Itinerary.where(:end_location.near(:sphere) => { point: [params[:end_location_lat], params[:end_location_lng]],
-                                                                       max: 5,
-                                                                       unit: :km })
+    itineraries_start = itineraries.where(:start_location.near_sphere => { point: [params[:start_location_lat], params[:start_location_lng]],
+                                                                                           max: 5,
+                                                                                           unit: :km })
+    itineraries_end = Itinerary.where(:end_location.near_sphere => { point: [params[:end_location_lat], params[:end_location_lng]],
+                                                                     max: 5,
+                                                                     unit: :km })
 
     itineraries_start & itineraries_end
   rescue
   end
 
   def to_latlng_array(field)
-    return unless [:start_location, :end_location].include?(field)
-    [ self[field]["lat"], self[field]["lng"] ]
+    self[field].to_a.reverse if self[field]
+  end
+
+  def to_latlng_hash(field)
+    { lat: self.send(field).lat, lng: self.send(field).lng } if self[field]
   end
 
   def sample_path(precision = 10)
@@ -107,16 +110,6 @@ class Itinerary
 
   def static_map
     URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=false&markers=color:green|label:B|#{to_latlng_array(:end_location).join(",")}&markers=color:green|label:A|#{to_latlng_array(:start_location).join(",")}&path=enc:#{overview_polyline}")
-  end
-
-  def start_location
-    # GOD(DAMN) mongoid_geospatial
-    @start_location ||= self[:start_location]
-  end
-
-  def end_location
-    # GOD(DAMN) mongoid_geospatial
-    @end_location ||= self[:end_location]
   end
 
   def random_close_location(max_dist = 0.5, km = true)

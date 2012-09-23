@@ -1,5 +1,6 @@
 .row
   .span3
+    %h3= yield :title
     = bootstrap_form_for ItineraryRoute.new, url: "#", method: "get", validate: true, html: { data: { not_found_text: t(".not_found_text"), zero_results_text: t(".zero_results_text"), get_route_before_text: t(".get_route_before") } } do |f|
       = f.text_field :from, class: "input-xlarge width-max"
       = f.text_field :to, class: "input-xlarge width-max"
@@ -42,4 +43,4 @@
       %i.icon-search
       = t(".hint_search_before_title")
     %p
-      = t(".hint_search_before_content", search_before_link: (link_to t(".search_before_link"), itineraries_path)).html_safe
+      = t(".hint_search_before_content", search_link: (link_to t(".search_link"), itineraries_path)).html_safe

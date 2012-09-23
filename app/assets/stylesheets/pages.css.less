@@ -1,7 +1,73 @@
+@import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
 
+.transform {
+  position: absolute;
+  display: block;
+  padding-left: 60px;
+  padding-right: 40px;
+  background: rgba(0, 0, 0, 0.4);
+
+  @media (max-width: 767px) {
+    top: 10px;
+    left: 0;
+  }
+
+  @media (min-width: 768px) {
+    top: -12px;
+    left: -38px;
+    min-width: 320px;
+    .rotate(-16deg);
+  }
+
+  h1 {
+    color: @white;
+    padding-bottom: 10px;
+    text-shadow: 2px 2px 1px @black;
+    line-height: 30px;
+
+    small {
+      color: @grayLighter;
+    }
+  }
+}
+
 #home-hero {
-  background-color: #dee7ee;
+  position: relative;
+  overflow: hidden;
+  background: @grayLight url('/assets/home-bg3.jpg'); /* http://www.flickr.com/photos/daquellamanera/166284715/ or http://www.flickr.com/photos/stevenfernandez/2816184724/sizes/o/in/photostream/ */
+  min-height: 200px;
+  .box-shadow(inset 0 0 50px fade(@black, 45%));
+
+  .tagline {
+    position: relative;
+    margin-bottom: 18px;
+    line-height: 26px;
+    font-size: 24px;
+    color: @white;
+    text-shadow: 1px 1px 1px @black;
+  }
+
+  @media (max-width: 767px) {
+    .background-size(auto 125%);
+    .tagline {
+      margin-top: 18px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .background-size(1170px auto);
+    .tagline {
+      top: -20px;
+      margin-left: 160px;
+    }
+  }
+
+  .white-container {
+    padding: 5px;
+    background: fade(@white, 50%);
+    .box-shadow(1px 1px 2px fade(@black, 25%));
+  }
 }
 
 .home-hero-logo {
@@ -35,7 +101,7 @@ p.signin-terms {
 
   .thumbnail {
     background-position: center;
-    .box-shadow(3px 3px 3px rgba(0, 0, 0, 0.25));
+    .box-shadow(3px 3px 3px fade(@black, 25%));
   }
 
   img {

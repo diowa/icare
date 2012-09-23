@@ -31,7 +31,7 @@
         .input-prepend.input-append
           %span.add-on>
             &euro;
-          = f.default_tag :text_field, :tolls, class: "input-mini align-right"
+          = f.default_tag :text_field, :tolls, class: "span1 align-right"
           %span.add-on>
             \.00
         - if @itinerary.errors.include?(:tolls)
@@ -42,16 +42,16 @@
     .control-group.hide
       .controls
         = label_tag nil, class: "radio inline" do
-          = f.radio_button :recurrent, false, class: "inline", checked: true
+          = f.radio_button :daily, false, class: "inline", checked: true
           = t(".single_itinerary")
         &nbsp;
         = label_tag nil, class: "radio inline mock" do
-          = f.radio_button :recurrent, true, class: "inline"
+          = f.radio_button :daily, true, class: "inline"
           = t(".daily_itinerary")
     %fieldset#single
       = f.check_box :round_trip
-      = f.datetime_select :leave_date, { start_year: Date.today.year, end_year: 1.year.from_now.year, prompt: true, minute_step: 10 }, class: "date-time"
-      = f.datetime_select :return_date, { start_year: Time.now.year, end_year: 1.year.from_now.year, prompt: true, minute_step: 10 }, class: "date-time", disabled: !@itinerary.round_trip
+      = f.datetime_select :leave_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t("time.ampm") }, class: "date-time"
+      = f.datetime_select :return_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t("time.ampm") }, class: "date-time", disabled: !@itinerary.round_trip
     %fieldset#daily.hide.mock
       .control-group
         .controls
@@ -75,9 +75,9 @@
                     %p
                       = label_tag "day-#{index}", t("date.day_names")[index]
                   %td
-                    = time_select "uni", "dye", { minute_step: 10, default: { hour: 8 } }, class: "date-time", disabled: (index > 0)
+                    = time_select "uni", "dye", { minute_step: 10, default: { hour: 8 }, ampm: t("time.ampm") }, class: "date-time", disabled: (index > 0)
                   %td
-                    = time_select "uni", "due", { minute_step: 10, default: { hour: 18 } }, class: "date-time", disabled: (index > 0)
+                    = time_select "uni", "due", { minute_step: 10, default: { hour: 18 }, ampm: t("time.ampm") }, class: "date-time", disabled: (index > 0)
             %tfoot
               %tr
                 %td{ colspan: 2 }

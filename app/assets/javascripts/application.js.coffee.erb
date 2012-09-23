@@ -10,10 +10,19 @@
 #= require twitter/bootstrap
 #= require handlebars
 
+# I18n
+#= require i18n
+#= require i18n/translations
+
 # ALL THE REST
 #= require_tree .
 
+###global I18n:false###
+
 'use strict'
+
+I18n.defaultLocale = "<%= I18n.default_locale %>"
+I18n.locale = $("html").attr "lang"
 
 String::capitalize = ->
   this.replace /(?:^|\s)\S/g, (c) ->

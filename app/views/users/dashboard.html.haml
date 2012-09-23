@@ -13,6 +13,10 @@
         = link_to :notifications, class: "btn btn-large btn-block mock" do
           %i.icon-globe.icon-large
           = t(".new_notifications", count: 0)
+      %p
+        = link_to :references, class: "btn btn-large btn-block" do
+          %i.icon-thumbs-up.icon-large
+          = t(".new_references", count: current_user.unread_references_count)
   .span6
     #hero-itineraries.hero-unit
       .attribution
@@ -34,9 +38,14 @@
   .span6.offset6
     %h3.pacifico= t(".latest_itineraries")
     %table.table.table-condensed.table-striped
-      - @last_itineraries.each do |itinerary|
+      %thead
         %tr
-          %td
-            = link_to itinerary, itinerary_path(itinerary)
-            = t(".by")
-            = link_to itinerary.user, user_path(itinerary.user)
+          %th= Itinerary.human_attribute_name(:title)
+          %th= User.model_name.human
+          %th= Itinerary.human_attribute_name(:leave_date)
+      %tbody
+        - @last_itineraries.each do |itinerary|
+          %tr
+            %td= link_to itinerary, itinerary_path(itinerary)
+            %td= link_to itinerary.user, user_path(itinerary.user)
+            %td= l(itinerary.leave_date.in_time_zone, format: :short)

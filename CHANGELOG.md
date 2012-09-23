@@ -1,6 +1,18 @@
 Changelog
 =========
 
+0.5
+-----
+* References draft
+* Mongoid 3 and new geospatial gem
+* New home, new footer
+* A lot of minor bug fix and improvements
+
+0.4.1
+-----
+* Share on Facebook Timeline feature
+* A lot of minor bug fix and improvements
+
 0.3
 ---
 * Moved Facebook's Open Graph namespace in configuration files

@@ -1,0 +1,28 @@
+@import "twitter/bootstrap/variables";
+
+/* ==========================================================================
+   Variables and overrides
+   ========================================================================== */
+
+/* New variables
+   ========================================================================== */
+
+@blueFacebook: #3b5998;
+@blueIcare: #16576b;
+
+/* Bootstrap variables override
+   ========================================================================== */
+
+@sansFontFamily: "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+@linkColor: lighten(@blueIcare, 10%);
+
+@navbarBackground: fade(@blueIcare, 70%);
+@navbarBackgroundHighlight: lighten(@navbarBackground, 10%);
+
+@navbarText: @grayLighter;
+@navbarLinkColor: @grayLighter;
+@navbarLinkColorHover: @white;
+@navbarLinkColorActive: @white;
+@navbarLinkBackgroundHover: fade(@white, 5%);
+@navbarLinkBackgroundActive: darken(@navbarBackground, 5%);

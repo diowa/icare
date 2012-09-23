@@ -2,7 +2,7 @@
 .row
   .span12
     %h1= yield(:title)
-    %h5.muted= t("last_modified", date: l(Date.parse("2012-09-01"), format: :long))
+    %h5.muted= t("last_modified", date: l(Date.parse("2012-09-14"), format: :long))
 
     %h3 Welcome to #{APPNAME}
     %p
@@ -28,6 +28,8 @@
     %p
       We will not send you any email.
     %p
-      The "Share on Facebook Timeline" feature is not available in this demo.
+      The "Share on Facebook Timeline" feature is available, but the Open Graph actions
+      were not submitted via the App Dashboard for review. It means that only developers
+      and testers of this app will be able to see your activity.
     %p
       You can permanently delete your data by logging in and clicking the "Delete account" button on the footer.

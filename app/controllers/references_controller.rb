@@ -1,9 +1,34 @@
 class ReferencesController < ApplicationController
 
-  before_filter :set_and_check_reference, except: :index
+  skip_before_filter :check_admin, only: [:index]
+
+  after_filter :mark_as_read, only: [:show]
 
   def index
-    @references = current_user.references.visible
+    # TODO nested eager loading
+    @references = current_user.references.desc(:updated_at).page params[:page]
+  end
+
+  def new
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @reference = current_user.references.build
+    @reference.itinerary = @itinerary
+    @reference.build_references_outgoing
+  end
+
+  def create
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @reference = Reference.build_from_params(params[:reference], current_user, @itinerary)
+    if current_user.save
+      redirect_to reference_path(@reference)
+    else
+      flash.now[:error] = @reference.errors.full_messages
+      render :new
+    end
+  end
+
+  def show
+    @reference = current_user.references.find(params[:id])
   end
 
   def edit
@@ -20,28 +45,9 @@ class ReferencesController < ApplicationController
     end
   end
 
-  def not_relevant
-    @reference.outgoing_reference.content_required = false
-    if @reference.outgoing_reference.update_attributes(relevant: false)
-      redirect_to calendar_path, flash: { success: t('flash.success.reference_updated') }
-    else
-      flash.now[:error] = @reference.errors.full_messages
-      render "edit"
-    end
-  end
+private
 
-  def relevant
-    @reference.outgoing_reference.content_required = false
-    if @reference.outgoing_reference.update_attributes(relevant: true)
-      flash.now[:success] = t('flash.success.reference_updated')
-    else
-      flash.now[:error] = @reference.errors.full_messages
-    end
-    render "edit"
-  end
-
-  def set_and_check_reference
-    @reference = current_user.references.find(params[:id])
-    redirect_to calendar_path, flash: { error: t('flash.error.reference_updated') } unless @reference.visible?
+  def mark_as_read
+    @reference.update_attribute(:read, Time.now.utc)
   end
 end

@@ -20,9 +20,7 @@ class Feedback
   validates :message, presence: true
 
   def short_message(max = 100)
-    return message if !message? || message.size < (max-3)
-    last_space = message[0...(max-3)].rindex(" ") || (max-3)
-    message[0...last_space] << "..."
+    message.truncate(max) if message?
   end
 
   def fixed?

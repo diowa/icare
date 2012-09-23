@@ -1,4 +1,5 @@
-class Notifications::HospitalityRequest < Notification
+class Notifications::JoinRequest < Notification
+=begin
   field :actor_id, type: BSON::ObjectId
   field :request_id, type: BSON::ObjectId
   field :incoming_invite_id, type: BSON::ObjectId
@@ -31,4 +32,5 @@ class Notifications::HospitalityRequest < Notification
   def incoming_invite
     @incoming_invite ||= @request.incoming_invites.find(incoming_invite_id)
   end
+=end
 end

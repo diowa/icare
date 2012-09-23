@@ -190,7 +190,7 @@ class User
   end
 
   def short_about
-    shorten(about, 500, true)
+    about.truncate(500) if about?
   end
 
   def first_name
@@ -213,11 +213,9 @@ class User
     conversations.unread(self).size
   end
 
-  protected
-
-  def shorten(text, max = 500, ellipsis = true)
-    return text if !text || text.size <= max
-    last_space = text[0...max].rindex(" ") || max
-    [text[0...last_space],("..." if ellipsis)].join()
+  def unread_references_count
+    references.unread.size
   end
+
+  protected
 end

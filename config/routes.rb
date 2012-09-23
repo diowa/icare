@@ -21,7 +21,7 @@ Icare::Application.routes.draw do
     resources :messages, only: [:create]
   end
 
-  resources :references, only: [:edit, :update, :index]
+  resources :references, only: [:show, :new, :create, :edit, :update, :index]
 
   resources :notifications, only: :index
 
@@ -47,5 +47,5 @@ Icare::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: :logout
 
-  mount Resque::Server, at: "/resque"
+  mount Resque::Server, at: "/resque" if defined?(Resque::Server)
 end

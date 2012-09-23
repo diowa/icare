@@ -1,3 +1,5 @@
+###global I18n:false###
+
 'use strict'
 
 $ ->
@@ -23,7 +25,5 @@ $ ->
             """
           else
             $popoverElement.find('span.count').remove()
-            $('.popover-ajax-content').html """
-              #{$('#navbar-translations').data('no_new_messages')}
-            """
+            $('.popover-ajax-content').html I18n.t("shared.navbar.no_new_messages")
     false

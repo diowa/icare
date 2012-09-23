@@ -7,19 +7,19 @@
       %li= link_to t("how_it_works"), :how_it_works
       - unless APP_CONFIG.demo_mode
         %li= link_to t("terms"), :terms
-      %li
-        = link_to feedbacks_url, class: "btn btn-info btn-mini" do
-          %i.icon-bullhorn
-          = Feedback.model_name.human(count: :lot)
-      %li
-        = link_to user_path(current_user), method: :delete, class: "btn btn-danger btn-mini", data: { confirm: t("helpers.links.confirm") } do
-          %i.icon-remove
-          = t("delete_account")
     %li
       %i.icon-github
       = link_to "diowa/icare", "http://github.com/diowa/icare"
+    - if logged_in?
+      %li
+        %i.icon-bullhorn
+        = link_to Feedback.model_name.human(count: :lot), feedbacks_url
+      - if APP_CONFIG.demo_mode
+        %li
+          = link_to user_path(current_user), method: :delete, class: "btn btn-danger btn-mini", data: { confirm: t("helpers.links.confirm") } do
+            %i.icon-remove
+            = t("delete_account")
     - if APP_CONFIG.demo_mode
       %li
         %i.icon-warning-sign
         = t("demo_mode")
-  = yield :footer

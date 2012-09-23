@@ -3,6 +3,10 @@ en-US:
     formats:
       full_day: ! '%A %B %e'
       birthday: ! '%B %-d, %Y'
+  time:
+    ampm: true
+    formats:
+      time_only: '%I:%M %p'
 
   boolean:
     "true": "Yes"
@@ -16,6 +20,7 @@ en-US:
       new: "New %{model}"
       edit: "Edit %{model}"
     links:
+      share_on_facebook_timeline: Share on Facebook
       new: New
       confirm: Are you sure?
       show: Show
@@ -125,8 +130,7 @@ en-US:
 
   pages:
     home:
-      signin_terms: "By clicking \"Sign In\", you agree to %{terms_link} of %{appname} and that you have read and understand our %{policy_link}."
-      tagline: "Share travel expenses with people going where you are going to."
+      tagline: "Street to share, money to save."
       share_itinerary_title: Share itineraries
       share_itinerary_content: "You travel by car daily or occasionally? Share your itinerary and give the chance to other people interested in the same type of path to reach you."
       make_new_connections_title: Make new friends
@@ -137,6 +141,7 @@ en-US:
       thats_easy_content: "The simplicity of Google Maps and the wizard process allow anyone to share a path in a few minutes."
       help_environment_title: "Eco-friendly"
       help_environment_content: "Less cars, less traffic, less stress and new companions of adventures! Make your travel more enjoyable and help the environment at the same time."
+      signin_terms: "By clicking \"Sign In\", you agree to %{terms_link} of %{appname} and that you have read and understand our %{policy_link}."
       demo_mode: "This is a demo application. By clicking on \"Sign In\" you agree to our %{demo_terms_link}."
     policy:
       title: Privacy Policy
@@ -185,9 +190,13 @@ en-US:
         one: "%{count} new message"
         other: "%{count} new messages"
       new_notifications:
-        zero: No notificatins
+        zero: No notifications
         one: "%{count} notification"
         other: "%{count} notifications"
+      new_references:
+        zero: No new references
+        one: "%{count} new reference"
+        other: "%{count} new references"
       latest_itineraries: Latest Itineraries
       by: by
     settings:
@@ -201,6 +210,7 @@ en-US:
       proportional_costs: "COSTI PROPORZIONALI €/km"
       km_costs_calculation_link: Calculate the kilometrical cost of your vehicle on the ACI website (Italian)
       send_email: Send an email when
+      send_email_at_address: "We will send emails at the following address: %{email}"
       application_settings: Application settings
 
   itineraries:
@@ -212,8 +222,6 @@ en-US:
       search: Search
     index:
       title: Search itineraries
-      no_itineraries_found: No itineraries found
-      an_error_occurred: Ops! An error occurred while searching for itineraries.
     show:
       app_user: "An user of %{appname}"
       contact: "Contact %{user}"
@@ -240,12 +248,13 @@ en-US:
       get_route: Get route
       distance: Distance
       duration: Duration
+      hint_privacy_title: "A little bit of privacy"
       hint_privacy_content: "Are you concerned of your privacy? Do not be too specific in setting the path. Select major streets near the point of departure and the point of destination."
       hint_customize_title: "Customize your itinerary"
       hint_customize_content: "You use an alternative route because you have to go to your mother-in-law? Drag the path to achieve the desired route."
-      hint_search_before_title: "...and if it was already present?"
-      hint_search_before_content: "Are you sure you want to set a new itinerary? %{search_before_link} available itineraries to see if there is one that matches your desired one."
-      search_before_link: "Search before"
+      hint_search_before_title: "Search before"
+      hint_search_before_content: "And if your itinerary was already there? %{search_link} among the available itineraries and check if there is one that matches your needs."
+      search_link: "Search"
     details_step:
       description_help: "Enter a brief description of your itinerary. If there are things that your fellow travelers need to know, add them here (example: \"loud music in the car!\")."
       day: Day
@@ -256,8 +265,8 @@ en-US:
       more_accurate_data: "Need more accurate data for your vehicle?"
     confirm_and_share_step:
       preview: Preview
-      missing_publish_stream_permission: "This application doesn't have permissions to publish on your timeline."
-      share_on_timeline_unavailable: "We apologize. We can't share on Facebook's Timeline right now."
+      missing_publish_stream_permission: "%{appname} doesn't have permissions to publish on your timeline."
+      share_on_timeline_unavailable: "We apologize. %{appname} can't share on Facebook's Timeline right now."
 
   feedbacks:
     index:
@@ -281,3 +290,30 @@ en-US:
     messages:
       time_ago: "%{time} ago"
       seen: "Seen %{date}"
+
+  references:
+    index:
+      title: References
+    show:
+      title: Reference
+      reference_about: "Reference about %{itinerary_link} sent by %{user_link}"
+    new:
+      title: New reference
+      send_reference_to: "Send a reference to %{user_link} about %{itinerary_link}"
+    snippet:
+      positives:
+        zero: 0 positives
+        one: "%{count} positive"
+        other: "%{count} positives"
+      neutrals:
+        zero: 0 neutrals
+        one: "%{count} neutral"
+        other: "%{count} neutrals"
+      negatives:
+        zero: 0 negatives
+        one: "%{count} negative"
+        other: "%{count} negatives"
+
+  javascript:
+    no_itineraries_found: No itineraries found
+    an_error_occurred: Ops! An error occurred while searching for itineraries.

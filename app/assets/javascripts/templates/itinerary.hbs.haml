@@ -16,13 +16,18 @@
               {{user.name}}
     %p
       %i.icon-arrow-up
-      {{leave_date}}
+      {{localize "date.formats.long" leave_date}}
+      %i.icon-time
+      {{localize "time.formats.time_only" leave_date}}
       {{#if round_trip}}
+      %br
       %i.icon-arrow-down
-      {{return_date}}
+      {{localize "date.formats.long" return_date}}
+      %i.icon-time
+      {{localize "time.formats.time_only" return_date}}
       {{/if}}
     .btn-toolbar
-      %a.btn.btn-mini.mock{ href: "#" }
-        {{translate "show_on_map"}}
+      %a.btn.btn-mini.show-itinerary-on-map{ href: "#", data: { id: "{{id}}" } }
+        {{translate "templates.itineraries.show_on_map"}}
       %a.btn.btn-mini.btn-primary{ href: "{{url}}" }
-        {{translate "read_more"}}
+        {{translate "templates.itineraries.read_more"}}
