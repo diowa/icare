@@ -57,7 +57,7 @@
               = link_to new_or_show_conversation_path(@conversation), class: "btn btn-primary" do
                 %i.icon-comment
                 = t(".contact", user: @itinerary.user_first_name)
-              = link_to "#", class: "btn mock" do
+              = link_to new_or_show_reference_path(@reference, @itinerary), class: "btn" do
                 %i.icon-thumbs-up
                 = t(".leave_reference")
               .btn-group.mock

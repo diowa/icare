@@ -1,15 +1,20 @@
 class Reference
   include Mongoid::Document
-  include Mongoid::Timestamps
-  include Mongoid::Paranoia
 
-  attr_accessible :message, :rating
+  belongs_to :itinerary
 
   belongs_to :referencing_user, class_name: User.model_name
 
-  field :message
-  field :rating, type: Integer
+  embedded_in :user
 
-  validates :message, presence: true
-  validates :rating, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: -1, less_than_or_equal_to: 1 }
+  embeds_one :incoming_reference
+  embeds_one :outgoing_reference
+
+  scope :positive, where(:"incoming_reference.rating" => 1)
+  scope :neutral, where(:"incoming_reference.rating" => 0)
+  scope :negative, where(:"incoming_referenc.rating" => -1)
+
+  def driver?
+    itinerary.user_id == user.id
+  end
 end
