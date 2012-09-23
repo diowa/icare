@@ -35,6 +35,14 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
+  def radio_button(name, group, *args)
+    opts = args.clone.extract_options!
+    label = opts.delete(:label)
+    content_tag(:label, nil, class: ["radio",opts.delete(:class)].join(" ")) do
+      super(name, group, opts) + " " + (label || object.class.human_attribute_name(name))
+    end
+  end
+
   def collection_check_boxes(attribute, records, record_id, record_name)
     content_tag :div, class: "field" do
       @template.hidden_field_tag("#{object_name}[#{attribute}][]") +

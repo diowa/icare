@@ -213,5 +213,9 @@ class User
     conversations.unread(self).size
   end
 
+  def unread_references_count
+    references.unread.size
+  end
+
   protected
 end

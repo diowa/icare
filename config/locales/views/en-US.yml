@@ -190,9 +190,13 @@ en-US:
         one: "%{count} new message"
         other: "%{count} new messages"
       new_notifications:
-        zero: No notificatins
+        zero: No notifications
         one: "%{count} notification"
         other: "%{count} notifications"
+      new_references:
+        zero: No new references
+        one: "%{count} new reference"
+        other: "%{count} new references"
       latest_itineraries: Latest Itineraries
       by: by
     settings:
@@ -283,6 +287,19 @@ en-US:
     new:
       title: New conversation
       start_conversation_about: "Start a conversation about %{itinerary_link} by %{user_link}"
+    messages:
+      time_ago: "%{time} ago"
+      seen: "Seen %{date}"
+
+  references:
+    index:
+      title: References
+    show:
+      title: Reference
+      reference_about: "Reference about %{itinerary_link} sent by %{user_link}"
+    new:
+      title: New reference
+      send_reference_to: "Send a reference to %{user_link} about %{itinerary_link}"
     messages:
       time_ago: "%{time} ago"
       seen: "Seen %{date}"
