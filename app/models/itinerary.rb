@@ -86,16 +86,21 @@ class Itinerary
 
   def self.search(params)
     # TODO: Optimization
+    start_location = [params[:start_location_lng].to_f, params[:start_location_lat].to_f]
+    end_location = [params[:end_location_lng].to_f, params[:end_location_lat].to_f]
+    sphere_radius = 5.fdiv(Mongoid::Geospatial.earth_radius[:km])
+
     itineraries = Itinerary.where(get_boolean_filters(params)).includes(:user)
+    # From start to end
+    itineraries_start_start = itineraries.within_spherical_circle(start_location: [ start_location, sphere_radius ])
+    itineraries_end_end = itineraries.within_spherical_circle(end_location: [ end_location, sphere_radius ])
 
-    itineraries_start = itineraries.where(:start_location.near_sphere => { point: [params[:start_location_lat], params[:start_location_lng]],
-                                                                                           max: 5,
-                                                                                           unit: :km })
-    itineraries_end = Itinerary.where(:end_location.near_sphere => { point: [params[:end_location_lat], params[:end_location_lng]],
-                                                                     max: 5,
-                                                                     unit: :km })
+    # From end to start
+    itineraries_start_end = itineraries.within_spherical_circle(start_location: [ end_location, sphere_radius ])
+    itineraries_end_start = itineraries.within_spherical_circle(end_location: [ start_location, sphere_radius ])
 
-    itineraries_start & itineraries_end
+    # Intersect and join
+    (itineraries_start_start & itineraries_end_end) + (itineraries_start_end & itineraries_end_start) 
   rescue
   end
 
