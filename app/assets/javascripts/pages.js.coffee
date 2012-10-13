@@ -1,14 +1,13 @@
-###global clientSideValidations:false###
+###global ClientSideValidations:false###
 'use strict'
 
 # Prevent disabled links from being clicked
 $('a.disabled').on 'click', (e) ->
   e.preventDefault()
 
-$ ->
-  # Client Side Validations
+if ClientSideValidations?
   ClientSideValidations.callbacks.element.fail = (element, message, callback, eventData) ->
-    if (!element.data('valid'))
+    unless element.data('valid')
       element.closest('div.control-group').addClass 'error'
 
       if element.closest('form').hasClass 'form-inline'

@@ -110,7 +110,15 @@ wizardNextStep = ->
 
 dateFieldToString = (field_id) ->
   values = $("select[id^=#{field_id}] option:selected")
-  "#{$(values[0]).text()} #{$(values[1]).text()} #{$(values[2]).text()} \u2014 #{$(values[3]).text()}:#{$(values[4]).text()}"
+  year = $("##{field_id}_1i").val()
+  month = $("##{field_id}_2i").val()
+  day = $("##{field_id}_3i").val()
+  hour = $("##{field_id}_4i").val()
+  minute = $("##{field_id}_5i").val()
+  if I18n? 
+    I18n.l "time.formats.long", "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
+  else
+    "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
 
 lastStepInit = ->
   $("#itinerary-preview-title").text $("#itinerary_title").val()

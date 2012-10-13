@@ -66,8 +66,6 @@ class CustomMarker
       @_div = null
     return
 
-window.icare.CustomMarker = CustomMarker
-
 random_nearby_position = (latLng, maxDist = 0.5, km = true) ->
   #very very very very special thanks to http://www.geomidpoint.com/random/calculation.html
   DEG_TO_RAD = Math.PI / 180
@@ -88,3 +86,5 @@ random_nearby_position = (latLng, maxDist = 0.5, km = true) ->
   else if (lng > Math.PI)
     lng = lng - 2 * Math.PI
   [lat * RAD_TO_DEG, lng * RAD_TO_DEG]
+
+window.icare.CustomMarker = CustomMarker
