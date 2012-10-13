@@ -30,8 +30,10 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def check_box(name, *args)
+    opts = args.clone.extract_options!
+    l = opts.delete(:label)
     label(name, *args, class: "checkbox") do
-      super(name) + " " + object.class.human_attribute_name(name)
+      super(name) + " " + (l || object.class.human_attribute_name(name))
     end
   end
 

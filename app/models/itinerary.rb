@@ -90,17 +90,23 @@ class Itinerary
     end_location = [params[:end_location_lng].to_f, params[:end_location_lat].to_f]
     sphere_radius = 5.fdiv(Mongoid::Geospatial.earth_radius[:km])
 
+    # Apply filters
     itineraries = Itinerary.where(get_boolean_filters(params)).includes(:user)
+
     # From start to end
-    itineraries_start_start = itineraries.within_spherical_circle(start_location: [ start_location, sphere_radius ])
-    itineraries_end_end = itineraries.within_spherical_circle(end_location: [ end_location, sphere_radius ])
+    itineraries_start_end = itineraries.within_spherical_circle(start_location: [ start_location, sphere_radius ]) &
+                            itineraries.within_spherical_circle(end_location: [ end_location, sphere_radius ])
 
-    # From end to start
-    itineraries_start_end = itineraries.within_spherical_circle(start_location: [ end_location, sphere_radius ])
-    itineraries_end_start = itineraries.within_spherical_circle(end_location: [ start_location, sphere_radius ])
+    # From end to start, unless passenger searched for a round trip
+    # NOTE: Think about it, because driver may need a travelmate for the whole trip
+    itineraries_end_start = []
+    unless params[:filter_round_trip] == "1"
+      itineraries_end_start = itineraries.where(round_trip: true).within_spherical_circle(start_location: [ end_location, sphere_radius ]) &
+                              itineraries.within_spherical_circle(end_location: [ start_location, sphere_radius ])
+    end
 
-    # Intersect and join
-    (itineraries_start_start & itineraries_end_end) + (itineraries_start_end & itineraries_end_start) 
+    # Sum results
+    itineraries_start_end + itineraries_end_start
   rescue
   end
 
@@ -169,7 +175,8 @@ class Itinerary
 private
   def self.get_boolean_filters(params = {})
     filters = {}
-    [:smoking_allowed, :pets_allowed, :round_trip].each do |boolean_field|
+    filters.merge!(round_trip: true) if params[:filter_round_trip] == "1"
+    [:smoking_allowed, :pets_allowed].each do |boolean_field|
       param = params["filter_#{boolean_field}".to_sym]
       filters.merge!(boolean_field => (param == "true")) unless param.blank?
     end

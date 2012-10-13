@@ -28,8 +28,8 @@ class CustomMarker
     switch @options.type
       when "user_profile_picture"
         div.setAttribute "class", "#{@options.css_classes} arrow_box"
-        div.style.width = '31px'
-        div.style.height = '31px'
+        div.style.width = '27px'
+        div.style.height = '27px'
         img = document.createElement 'img'
         img.setAttribute "width", "25px"
         img.setAttribute "height", "25px"
@@ -38,7 +38,7 @@ class CustomMarker
         div.appendChild img
       when "sprite"
         div.setAttribute "class", @options.css_classes
-        div.style.border = "0px solid none"
+        div.style.border = "none"
         div.style.width = '32px'
         div.style.height = '37px'
         div.style.cursor = 'pointer'

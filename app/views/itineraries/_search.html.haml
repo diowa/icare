@@ -7,7 +7,10 @@
       = t(".advanced_search")
   #search-form-advanced.hide.form-inline
     %table
-      - [:smoking_allowed, :pets_allowed, :round_trip].each do |boolean_field|
+      %tr
+        %td{ colspan: 2 }
+          = f.check_box :filter_round_trip, class: "", label: Itinerary.human_attribute_name(:round_trip)
+      - [:smoking_allowed, :pets_allowed].each do |boolean_field|
         %tr
           %td><
             = f.label "filter_#{boolean_field}".to_sym, Itinerary.human_attribute_name(boolean_field)
