@@ -64,6 +64,10 @@ en-US:
         return_date: Return date
         driver_gender: Driver's gender
         daily: Daily
+      reference:
+        rating_negative: Negative
+        rating_neutral: Neutral
+        rating_positive: Positive
     errors:
       models:
         user:

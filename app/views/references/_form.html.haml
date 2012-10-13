@@ -4,9 +4,14 @@
   = f.fields_for @reference.references_outgoing do |outgoing_f|
     = outgoing_f.text_area :body, rows: 5, class: "input-xxlarge"
     .control-group
+      = outgoing_f.label nil, Reference.human_attribute_name(:rating), class: "control-label"
       .controls
-        = outgoing_f.radio_button :rating, -1, class: "inline", label: "negative"
-        = outgoing_f.radio_button :rating, 0, class: "inline", label: "neutral"
-        = outgoing_f.radio_button :rating, 1, class: "inline", label: "positive"
+        .btn-group.btn-group-radio
+          = outgoing_f.default_tag :radio_button, :rating, -1
+          = f.label "references_outgoing_rating_-1", Reference.human_attribute_name(:rating_negative), class: "btn"
+          = outgoing_f.default_tag :radio_button, :rating, 0
+          = f.label :references_outgoing_rating_0, Reference.human_attribute_name(:rating_neutral), class: "btn"
+          = outgoing_f.default_tag :radio_button, :rating, 1
+          = f.label :references_outgoing_rating_1, Reference.human_attribute_name(:rating_positive), class: "btn"
   .form-actions
     = f.submit class: 'btn btn-primary'

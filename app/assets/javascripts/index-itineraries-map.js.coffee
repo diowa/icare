@@ -23,18 +23,6 @@ routeColoursArray = [
   "#ffff00"
   ]
 
-Handlebars.registerHelper 'toLowerCase', (string) ->
-  if string
-    new Handlebars.SafeString string.toLowerCase()
-  else
-    ''
-
-Handlebars.registerHelper 'translate', (key) ->
-  new Handlebars.SafeString I18n.t(key)
-
-Handlebars.registerHelper 'localize', (scope, key) ->
-  new Handlebars.SafeString I18n.l(scope, key)
-
 $ ->
   if $("#index-itineraries-map")[0]?
     indexItinerariesMapInit("#index-itineraries-map")
@@ -42,7 +30,7 @@ $ ->
     icare.itineraries = []
     # TODO clean this mess... directions service again?
     $("#itineraries-search").on "click", ->
-      return false unless $("#new_itinerary_search").isValid(window.new_itinerary_search.validators)
+      return false unless $("#new_itinerary_search").isValid(window.ClientSideValidations.forms["new_itinerary_search"].validators)
       $("#error").hide()
       geocoder = new google.maps.Geocoder()
       address = $("#itinerary_search_from").val()

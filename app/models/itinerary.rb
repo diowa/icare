@@ -4,6 +4,7 @@ class Itinerary
   include Mongoid::Paranoia
   include Mongoid::Geospatial
   include Mongoid::MultiParameterAttributes
+  include Mongoid::Slug
 
   index({ start_location: 1 }, { background: true })
   index({ end_location: 1 }, { background: true })
@@ -46,6 +47,8 @@ class Itinerary
   field :driver_gender
 
   attr_accessor :route_json_object, :share_on_facebook_timeline
+
+  slug :title
 
   #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
   scope :sorted_by_creation, desc(:created_at)

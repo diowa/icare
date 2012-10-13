@@ -78,7 +78,7 @@ wizardNextStep = ->
 
   valid = true
   $('#new_itinerary [data-validate]:input:visible').each ->
-    settings = window.new_itinerary
+    settings = window.ClientSideValidations.forms["new_itinerary"]
     unless $(this).isValid(settings.validators)
       valid = false
     return
@@ -225,7 +225,7 @@ createRouteMapInit = (id) ->
     map.fitBounds(dr.directions.routes[0].bounds)
 
   $("#new_itinerary_route").submit ->
-    return false unless $("#new_itinerary_route").isValid window.new_itinerary_route.validators # Don't know why!
+    return false unless $("#new_itinerary_route").isValid window.ClientSideValidations.forms["new_itinerary_route"].validators # Don't know why!
     $("#itineraries-spinner").show()
     $("#error").hide()
     $("#result").hide()
