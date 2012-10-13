@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/bcardarella/client_side_validations.git
+  revision: f81515678d4dadef3ee1e4b61276c8ca0c4e7c12
+  branch: 3-2-stable
+  specs:
+    client_side_validations (3.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -46,7 +53,6 @@ GEM
       ffi (~> 1.0, >= 1.0.6)
     chronic (0.8.0)
     chunky_png (1.2.6)
-    client_side_validations (3.2.0)
     coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -316,7 +322,7 @@ PLATFORMS
 DEPENDENCIES
   action_mailer_cache_delivery
   bullet
-  client_side_validations
+  client_side_validations!
   coffee-rails
   compass-rails
   cucumber-rails

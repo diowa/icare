@@ -30,7 +30,6 @@ if ClientSideValidations?
     callback
 
   ClientSideValidations.callbacks.element.pass = (element, callback, eventData) ->
-    return if element.attr("type") is "submit"
     element.closest('div.control-group').removeClass 'error'
     element.parent().find('label.message').hide()
     if element.parent().hasClass('input-prepend') or element.parent().hasClass('input-append')

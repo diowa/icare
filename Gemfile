@@ -12,13 +12,13 @@ gem 'thin'
 gem 'haml'
 gem 'therubyracer'
 gem 'omniauth-facebook'
-gem "koala"
+gem 'koala'
 gem 'validates_timeliness'
 gem 'rest-client'
 gem 'nokogiri'
 gem 'http_accept_language'
 gem 'jquery-rails'
-gem 'client_side_validations'
+gem 'client_side_validations', git: 'https://github.com/bcardarella/client_side_validations.git', branch: '3-2-stable'
 #gem 'wicked'
 gem 'resque', require: 'resque/server' # Resque web interface
 gem 'kaminari'
@@ -28,7 +28,7 @@ gem 'google-analytics-rails'
 gem 'rgeo'
 
 group :development, :test do
-  gem "bullet"
+  gem 'bullet'
   gem 'debugger'
   gem 'pry'
   gem 'pry-rails'
