@@ -59,6 +59,7 @@ en-US:
         pets_allowed: Pets allowed
         fuel_cost: Fuel cost
         tolls: Tolls
+        pink: Pink Itinerary
         round_trip: Round trip
         leave_date: Leave date
         return_date: Return date
@@ -74,6 +75,10 @@ en-US:
           attributes:
             email:
               invalid: is not a valid email
+        itinerary:
+          attributes:
+            pink:
+              driver_must_be_female: only women can create pink itineraries
 
   activemodel:
     attributes:

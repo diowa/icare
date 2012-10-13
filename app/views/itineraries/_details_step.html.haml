@@ -37,6 +37,17 @@
         - if @itinerary.errors.include?(:tolls)
           %span.help-inline
             = @itinerary.errors.messages[:tolls].join(", ")
+    - if current_user.female?
+      .control-group
+        .controls
+          = f.label :pink, class: "btn btn-pink btn-checkbox#{" disabled" if current_user.male?}" do
+            = f.default_tag :check_box, :pink, disabled: (current_user.male?)
+            %i.icon-check-empty.check
+            = Itinerary.human_attribute_name(:pink)
+          %p.help-block
+            %i.icon-lock
+            = t(".pink_help")
+
   .span7
     = f.text_area :description, rows: 5, class: "full-width border-box", help: true
     .control-group.hide

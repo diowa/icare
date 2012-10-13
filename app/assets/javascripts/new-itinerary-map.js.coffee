@@ -115,7 +115,7 @@ dateFieldToString = (field_id) ->
   day = $("##{field_id}_3i").val()
   hour = $("##{field_id}_4i").val()
   minute = $("##{field_id}_5i").val()
-  if I18n? 
+  if I18n?
     I18n.l "time.formats.long", "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
   else
     "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
@@ -126,6 +126,7 @@ lastStepInit = ->
   $("#itinerary-preview-vehicle").text $("#itinerary_vehicle option:selected").text()
   $("#itinerary-preview-smoking_allowed").text if $("#itinerary_smoking_allowed").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
   $("#itinerary-preview-pets_allowed").text if $("#itinerary_pets_allowed").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
+  $("#itinerary-preview-pink").text if $("#itinerary_pink").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
   $("#itinerary-preview-fuel_cost").text $("#itinerary_fuel_cost").val()
   $("#itinerary-preview-tolls").text $("#itinerary_tolls").val()
 

@@ -3,6 +3,8 @@ class ItinerariesController < ApplicationController
   skip_before_filter :check_admin, only: [:index]
   skip_before_filter :require_login, only: [:index, :show, :search]
 
+  before_filter :check_gender, only: [:show]
+
   before_filter :check_permissions
   # TODO proper edit methods
 
@@ -19,7 +21,6 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @itinerary = Itinerary.find(params[:id])
     @conversation = @itinerary.conversations.find_or_initialize_by(user_ids: [current_user.id, @itinerary.user.id]) if current_user
     @reference = @itinerary.user.references.find_or_initialize_by(referencing_user: current_user) if current_user
   end
@@ -54,7 +55,7 @@ class ItinerariesController < ApplicationController
     respond_to do |format|
       format.json do
         if request.xhr?
-          @itineraries = Itinerary.search(params[:itinerary_search])
+          @itineraries = Itinerary.search(params[:itinerary_search], current_user.male?)
         else
           redirect_to root_path
         end
@@ -70,5 +71,15 @@ class ItinerariesController < ApplicationController
 protected
 
   def check_permissions
+  end
+
+  def check_gender
+    @itinerary = Itinerary.find(params[:id])
+    return unless @itinerary.pink?
+    if !logged_in?
+      redirect_to root_path
+    elsif current_user.male?
+      redirect_to :dashboard, flash: { error: t('flash.itinerary.error.pink') }
+    end
   end
 end

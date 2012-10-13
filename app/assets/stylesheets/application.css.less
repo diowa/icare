@@ -255,8 +255,9 @@ footer {
   color: @errorText;
 }
 
-.facebook-timeline-checkbutton {
+.btn-checkbox {
   .user-select(none);
+  margin-bottom: @baseLineHeight/2 !important;
 
   i.check {
     position: relative;
@@ -266,7 +267,9 @@ footer {
   }
 
   input[type=checkbox] {
-    display: none;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
     &:checked ~ i.check:before {
       content: "\f046";
     }
@@ -281,4 +284,8 @@ footer {
   color: fade(@white, 50%);
   cursor: default;
   .user-select(none);
+}
+
+.pinkText {
+  color: @pink;
 }

@@ -59,6 +59,7 @@ it-IT:
         pets_allowed: Animali a bordo
         fuel_cost: Costo carburante
         tolls: Pedaggi
+        pink: Itinerario Rosa
         round_trip: Andata e ritorno
         leave_date: Data partenza
         return_date: Data ritorno
@@ -74,6 +75,11 @@ it-IT:
           attributes:
             email:
               invalid: non è una e-mail valida
+        itinerary:
+          attributes:
+            pink:
+              driver_must_be_female: solo le donne possono creare itinerari rosa
+
   activemodel:
     attributes:
       itinerary_route:

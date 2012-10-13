@@ -51,6 +51,9 @@ class UsersController < ApplicationController
 
   def dashboard
     @last_itineraries = Itinerary.includes(:user).sorted_by_creation.limit(10)
+
+    # Gender filter
+    @last_itineraries = @last_itineraries.where(pink: false) if current_user.male?
   end
 
   def banned

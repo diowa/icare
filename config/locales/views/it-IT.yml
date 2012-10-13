@@ -115,6 +115,7 @@ it-IT:
         destroy: Itinerario eliminato con successo.
       error:
         destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.
+        pink: Gli itinerari rosa sono visibili solo dalle donne.
     error:
       not_authenticated: Effettua prima l'accesso.
       not_allowed: Non hai i permessi per accedere a questa pagina
@@ -263,6 +264,7 @@ it-IT:
       edit_all_times: Modifica tutti gli orari insieme
       fuel_help_text: "Il percorso è di {km} km. Considerando un consumo medio di %{avg_consumption} €/km, il costo stimato è di {est}.00 €."
       more_accurate_data: "Vuoi dati più accurati per il tuo veicolo?"
+      pink_help: Gli itinerari rosa possono essere creati solo dalle donne e sono visibili solo alle donne.
     confirm_and_share_step:
       preview: Anteprima
       missing_publish_stream_permission: "%{appname} non ha il permesso di pubblicare sul tuo diario."

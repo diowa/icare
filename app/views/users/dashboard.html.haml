@@ -1,5 +1,7 @@
 - title t(".title")
 .row
+  .span12
+    = render "shared/flash_messages"
   .span6
     #hero-user.hero-unit
       .attribution
@@ -46,6 +48,9 @@
       %tbody
         - @last_itineraries.each do |itinerary|
           %tr
-            %td= link_to itinerary, itinerary_path(itinerary)
+            %td
+              - if itinerary.pink?
+                %i.icon-lock.pinkText{ rel: "tooltip", title: Itinerary.human_attribute_name(:pink) }
+              = link_to itinerary, itinerary_path(itinerary)
             %td= link_to itinerary.user, user_path(itinerary.user)
             %td= l(itinerary.leave_date.in_time_zone, format: :short)
