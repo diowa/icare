@@ -7,7 +7,7 @@ $('a.disabled').on 'click', (e) ->
 
 $ ->
   # Client Side Validations
-  ClientSideValidations.callbacks.element.fail = (element, message, callback) ->
+  ClientSideValidations.callbacks.element.fail = (element, message, callback, eventData) ->
     if (!element.data('valid'))
       element.closest('div.control-group').addClass 'error'
 
@@ -28,9 +28,10 @@ $ ->
           element.parent().after error_message
         else
           element.parent().find("#{element[0].tagName}:last").after error_message
-    return
+    callback
 
-  ClientSideValidations.callbacks.element.pass = (element, callback) ->
+  ClientSideValidations.callbacks.element.pass = (element, callback, eventData) ->
+    return if element.attr("type") is "submit"
     element.closest('div.control-group').removeClass 'error'
     element.parent().find('label.message').hide()
     if element.parent().hasClass('input-prepend') or element.parent().hasClass('input-append')

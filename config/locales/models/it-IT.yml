@@ -64,6 +64,10 @@ it-IT:
         return_date: Data ritorno
         driver_gender: Sesso del guidatore
         daily: Giornaliero
+      reference:
+        rating_negative: Negativa
+        rating_neutral: Neutrale
+        rating_positive: Positiva
     errors:
       models:
         user:

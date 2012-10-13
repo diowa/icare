@@ -78,7 +78,7 @@ wizardNextStep = ->
 
   valid = true
   $('#new_itinerary [data-validate]:input:visible').each ->
-    settings = window.ClientSideValidations.forms["new_itinerary"]
+    settings = window.ClientSideValidations.forms[this.form.id]
     unless $(this).isValid(settings.validators)
       valid = false
     return
@@ -97,7 +97,8 @@ wizardNextStep = ->
     if step is last_step
       lastStepInit()
     $("#wizard-step-#{step}-title").removeClass("hidden-phone").addClass "active"
-    $("#wizard-step-#{step}-content").fadeIn()
+    $("#wizard-step-#{step}-content").fadeIn ->
+      $("#new_itinerary").enableClientSideValidations() # Enable validation for new fields
     if step > 1
       $("#wizard-prev-step-button").removeAttr "disabled"
       $("#wizard-prev-step-button").show()
@@ -224,8 +225,7 @@ createRouteMapInit = (id) ->
     path = route.overview_path
     map.fitBounds(dr.directions.routes[0].bounds)
 
-  $("#new_itinerary_route").submit ->
-    return false unless $("#new_itinerary_route").isValid window.ClientSideValidations.forms["new_itinerary_route"].validators # Don't know why!
+  $("#new_itinerary_route").on "submit", ->
     $("#itineraries-spinner").show()
     $("#error").hide()
     $("#result").hide()
