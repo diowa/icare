@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.5.1
+-----
+* Pink itineraries (itineraries only for women)
+* Turbolinks
+* Fixed itineraries search
+* A lot of minor bug fix and improvements
+
 0.5
 -----
 * References draft
