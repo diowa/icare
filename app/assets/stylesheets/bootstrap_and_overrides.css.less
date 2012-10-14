@@ -89,12 +89,8 @@ body {
   }
 }
 
-/* Icon background fix */
-i[class*=" icon-"],
-i[class^="icon-"], {
-  background-image: none !important;
-}
-
+/* Modal focus fix */
+.modal-open .modal, a[data-toggle=modal] { outline: none; }
 
 /* ==========================================================================
    Global styles

@@ -15,11 +15,12 @@
       .tagline
         %b= t('.tagline', appname: APPNAME)
       .row-fluid
-        .span6.white-container
-          .fb-facepile{ data: { size: "medium", :"max-rows" => "1" } }
+        .span6
+          #facepile-container.white-container.hide
+            .fb-facepile{ data: { size: "medium", :"max-rows" => "1" } }
         .span6.white-container
           %p
-            = link_to auth_at_provider_path(provider: :facebook), class: "btn btn-large btn-facebook" do
+            = link_to auth_at_provider_path(provider: :facebook), class: "btn btn-large btn-facebook", data: { :"no-turbolink" => true } do
               %i.icon-facebook-sign.icon-large
               = t("login_with_facebook")
             %small.why-facebook

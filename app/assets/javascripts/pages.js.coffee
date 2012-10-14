@@ -2,7 +2,8 @@
 'use strict'
 
 # Prevent disabled links from being clicked
-$('a.disabled').on 'click', (e) ->
+# Bind to document, so this is compatible with turbolinks
+$(document).on 'click', 'a.disabled', (e) ->
   e.preventDefault()
 
 if ClientSideValidations?

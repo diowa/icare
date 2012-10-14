@@ -148,23 +148,6 @@ lastStepInit = ->
     .replace("%{overview_polyline}", "#{route.overview_polyline}")
   $("#itinerary-preview-image").attr "src", url_builder
 
-$ ->
-  if $("#new_itinerary")[0]?
-    createRouteMapInit("#new-itinerary-map")
-    $("#wizard-next-step-button").on "click", wizardNextStep
-    $("#wizard-prev-step-button").on "click", wizardPrevStep
-    $('input[name="itinerary[daily]"]').change ->
-      if (Boolean) $(this).val() is "true"
-        $("#single").fadeOut ->
-          $("#daily").fadeIn()
-      else
-        $("#daily").fadeOut ->
-          $("#single").fadeIn()
-    $('#itinerary_round_trip').change ->
-      status = $(this).attr("checked")
-      $('select[id^=itinerary_return_date]').each ->
-        $(this).attr "disabled", (if status then null else "disabled")
-
 createRouteMapInit = (id) ->
   recalcHeight = ->
     $("#map").height $(window).height() - $("form").height() - $("#elevation").height()
@@ -316,3 +299,27 @@ createRouteMapInit = (id) ->
 
   $(".share").click ->
     $(this).find("input").focus().select()
+
+initItineraryNew = ->
+  createRouteMapInit("#new-itinerary-map")
+  $("#wizard-next-step-button").on "click", wizardNextStep
+  $("#wizard-prev-step-button").on "click", wizardPrevStep
+  $('input[name="itinerary[daily]"]').change ->
+    if (Boolean) $(this).val() is "true"
+      $("#single").fadeOut ->
+        $("#daily").fadeIn()
+    else
+      $("#daily").fadeOut ->
+        $("#single").fadeIn()
+  $('#itinerary_round_trip').change ->
+    status = $(this).attr("checked")
+    $('select[id^=itinerary_return_date]').each ->
+      $(this).attr "disabled", (if status then null else "disabled")
+
+do_on_load = ->
+  if $("#new_itinerary")[0]?
+    initItineraryNew()
+
+# Turbolinks
+$(document).ready do_on_load
+$(window).bind 'page:change', do_on_load

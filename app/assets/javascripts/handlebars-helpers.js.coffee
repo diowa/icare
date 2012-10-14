@@ -1,8 +1,6 @@
 Handlebars.registerHelper 'toLowerCase', (string) ->
-  if string
-    new Handlebars.SafeString string.toLowerCase()
-  else
-    ''
+  return '' unless string
+  new Handlebars.SafeString string.toLowerCase()
 
 Handlebars.registerHelper 'translate', (key) ->
   new Handlebars.SafeString I18n.t(key)

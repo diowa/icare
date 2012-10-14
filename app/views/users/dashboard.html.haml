@@ -50,7 +50,7 @@
           %tr
             %td
               - if itinerary.pink?
-                %i.icon-lock.pinkText{ rel: "tooltip", title: Itinerary.human_attribute_name(:pink) }
+                %i.icon-lock.pink-text{ rel: "tooltip", title: Itinerary.human_attribute_name(:pink) }
               = link_to itinerary, itinerary_path(itinerary)
             %td= link_to itinerary.user, user_path(itinerary.user)
             %td= l(itinerary.leave_date.in_time_zone, format: :short)
