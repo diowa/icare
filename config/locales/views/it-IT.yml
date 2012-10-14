@@ -116,6 +116,9 @@ it-IT:
       error:
         destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.
         pink: Gli itinerari rosa sono visibili solo dalle donne.
+    message:
+      error:
+        create: Si è verificato un errore durante la creazione del messaggio.
     error:
       not_authenticated: Effettua prima l'accesso.
       not_allowed: Non hai i permessi per accedere a questa pagina
