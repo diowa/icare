@@ -57,7 +57,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', git: 'git://github.com/diowa/twitter-bootstrap-rails.git', branch: 'no-glyphicons'
   gem 'compass-rails'
   gem 'haml_assets'
   gem 'handlebars_assets'
