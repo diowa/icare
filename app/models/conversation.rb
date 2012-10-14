@@ -16,7 +16,7 @@ class Conversation
   validates :user_ids, uniqueness: { scope: [ :conversable_id, :conversable_type ] }
 
   def unread?(user)
-    messages.where(read: nil, :sender_id.ne => user.id).size > 0
+    messages.unread.where(:sender_id.ne => user.id).size > 0
   end
 
   def users_except(user)
