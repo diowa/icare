@@ -62,4 +62,5 @@ group :assets do
   gem 'haml_assets'
   gem 'handlebars_assets'
   gem 'i18n-js'
+  gem 'turbolinks'
 end
