@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 
 gem 'unicorn'
 
-gem 'mongoid'
+gem 'mongoid', '3.0.6'
 gem 'mongoid_slug'
 gem 'mongoid_geospatial'
 gem 'thin'
