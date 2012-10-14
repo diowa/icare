@@ -13,10 +13,10 @@ class Conversation
 
   scope :unread, ->(user) { where(messages: { "$elemMatch" => { read: nil, sender_id: { "$ne" => user.id } } }) }
 
-  validates :user_ids, uniqueness: { scope: [ :conversable_id, :conversable_type ] }
+  validates :user_ids, uniqueness: { scope: [ :conversable_id, :conversable_type ], message: :already_exists }
 
   def unread?(user)
-    messages.where(read: nil, :sender_id.ne => user.id).size > 0
+    messages.unread.where(:sender_id.ne => user.id).size > 0
   end
 
   def users_except(user)
@@ -24,7 +24,13 @@ class Conversation
   end
 
   def mark_as_read(user)
-    messages.unread.where(:sender_id.ne => user.id).update_all(read: Time.now.utc)
+    # TODO use the following line when mongoid issue #2472 will be fixed
+    # messages.unread.where(:sender_id.ne => user.id).update_all(read: Time.now.utc)
+
+    my_unread_messages = messages.unread.where(:sender_id.ne => user.id)
+    my_unread_messages.each do |unread_message|
+      unread_message.update_attributes(read: Time.now.utc)
+    end
   end
 
   def last_unread_message(user)

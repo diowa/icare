@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/diowa/twitter-bootstrap-rails.git
+  revision: 25a4e6dcd292c5aaa0dc597c0984e530bef91042
+  branch: no-glyphicons
+  specs:
+    twitter-bootstrap-rails (2.1.3)
+      actionpack (>= 3.1)
+      less-rails (~> 2.2.3)
+      railties (>= 3.1)
+      therubyracer (>= 0.10.2)
+
+GIT
   remote: https://github.com/bcardarella/client_side_validations.git
   revision: f81515678d4dadef3ee1e4b61276c8ca0c4e7c12
   branch: 3-2-stable
@@ -109,7 +120,7 @@ GEM
       multipart-post (~> 1.1)
     ffi (1.1.5)
     fssm (0.2.9)
-    gherkin (2.11.4)
+    gherkin (2.11.5)
       json (>= 1.4.6)
     google-analytics-rails (0.0.3)
     haml (3.1.7)
@@ -157,7 +168,7 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8)
     mime-types (1.19)
-    mongoid (3.0.9)
+    mongoid (3.0.6)
       activemodel (~> 3.1)
       moped (~> 1.1)
       origin (~> 1.0)
@@ -248,7 +259,7 @@ GEM
     rspec-expectations (2.11.3)
       diff-lcs (~> 1.1.3)
     rspec-mocks (2.11.3)
-    rspec-rails (2.11.0)
+    rspec-rails (2.11.4)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
@@ -292,11 +303,7 @@ GEM
     treetop (1.4.11)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.1.3)
-      actionpack (>= 3.1)
-      less-rails (~> 2.2.3)
-      railties (>= 3.1)
-      therubyracer (~> 0.10.2)
+    turbolinks (0.5.1)
     tzinfo (0.3.33)
     uglifier (1.3.0)
       execjs (>= 0.3.0)
@@ -343,7 +350,7 @@ DEPENDENCIES
   koala
   launchy
   less-rails
-  mongoid
+  mongoid (= 3.0.6)
   mongoid-rspec
   mongoid_geospatial
   mongoid_slug
@@ -363,7 +370,8 @@ DEPENDENCIES
   spork (~> 1.0rc)
   therubyracer
   thin
-  twitter-bootstrap-rails
+  turbolinks
+  twitter-bootstrap-rails!
   uglifier
   unicorn
   validates_timeliness

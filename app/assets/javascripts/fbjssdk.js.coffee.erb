@@ -2,6 +2,28 @@
 
 "use strict"
 
+checkFBLoginStatus = ->
+  FB.getLoginStatus (response) ->
+    if response.status is 'connected'
+      # the user is logged in and has authenticated your
+      # app, and response.authResponse supplies
+      # the user's ID, a valid access token, a signed
+      # request, and the time the access token
+      # and signed request each expire
+
+      #uid = response.authResponse.userID;
+      #accessToken = response.authResponse.accessToken;
+      #document.getElementById('fb-login').innerHTML = 'Logout';
+
+      $("#facepile-container").fadeIn()
+    else if response.status is 'not_authorized'
+      # the user is logged in to Facebook,
+      # but has not authenticated your app
+
+      $("#facepile-container").fadeIn()
+    else
+      #the user isn't logged in to Facebook. so don't show the facepile
+
 window.fbAsyncInit = ->
   FB.init
     appId      : '<%= defined?(APP_CONFIG) ? APP_CONFIG.facebook.app_id : ENV["FACEBOOK_APP_ID"] %>' # App ID
@@ -11,17 +33,30 @@ window.fbAsyncInit = ->
     xfbml      : true
 
   # Additional initialization code here
-  return
+  checkFBLoginStatus()
 
-# Load the SDK Asynchronously
-((d) ->
-  id = "facebook-jssdk"
-  ref = d.getElementsByTagName("script")[0]
-  return if d.getElementById(id)
-  js = d.createElement("script")
-  js.id = id
-  js.async = true
-  js.src = "http://connect.facebook.net/en_US/all.js"
-  ref.parentNode.insertBefore js, ref
-  return
-) document if $("#fb-root")[0]?
+loadFBsdk = ->
+  # Load the SDK Asynchronously
+  ((d) ->
+    id = "facebook-jssdk"
+    ref = d.getElementsByTagName("script")[0]
+    return if d.getElementById(id)
+    js = d.createElement("script")
+    js.id = id
+    js.async = true
+    js.src = "http://connect.facebook.net/en_US/all.js"
+    ref.parentNode.insertBefore js, ref
+    return
+  ) document
+
+do_on_load = ->
+  if $("#fb-root")[0]?
+    if FB?
+      # TODO fix
+      FB.XFBML.parse($("body")[0], checkFBLoginStatus)
+    else
+      loadFBsdk()
+
+# Turbolinks
+$(document).ready do_on_load
+$(window).bind 'page:load', do_on_load

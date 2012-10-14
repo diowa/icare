@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery_ujs
+#= require turbolinks
 
 # VENDOR ASSETS
 #= require jquery.ba-throttle-debounce
@@ -20,6 +21,9 @@
 ###global I18n:false###
 
 'use strict'
+
+window.icare = window.icare || {}
+icare = window.icare
 
 I18n.defaultLocale = "<%= I18n.default_locale %>"
 I18n.locale = $("html").attr "lang"

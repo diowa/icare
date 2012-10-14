@@ -79,6 +79,10 @@ it-IT:
           attributes:
             pink:
               driver_must_be_female: solo le donne possono creare itinerari rosa
+        conversation:
+          attributes:
+            user_ids:
+              already_exists: hai già una conversazione su questo itinerario
 
   activemodel:
     attributes:

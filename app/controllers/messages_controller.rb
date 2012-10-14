@@ -1,19 +1,11 @@
 class MessagesController < ApplicationController
 
-  before_filter :check_user
-
   def create
-    @message = conversation.messages.create(params[:message].merge(sender: current_user))
-    redirect_to conversation_path(conversation)
-  end
-
-  protected
-
-  def conversation
-    @conversation ||= Conversation.find(params[:conversation_id])
-  end
-
-  def check_user
-    redirect_back_or_to root_path, flash: { error: t('flash.error.not_authenticated') } unless current_user.conversations.include?(conversation)
+    conversation = current_user.conversations.find(params[:conversation_id])
+    if conversation.messages.create(params[:message].merge(sender: current_user))
+      redirect_to conversation_path(conversation)
+    else
+      redirect_to conversation_path(conversation), flash: { error: t('flash.message.error.create') }
+    end
   end
 end
