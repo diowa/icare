@@ -1,28 +1,14 @@
-###global clientSideValidations:false###
+###global ClientSideValidations:false###
 'use strict'
 
 # Prevent disabled links from being clicked
-$('a.disabled').on 'click', (e) ->
+# Bind to document, so this is compatible with turbolinks
+$(document).on 'click', 'a.disabled', (e) ->
   e.preventDefault()
 
-$ ->
-  # Dynamic append footer to bottom
-  positionFooter =  ->
-    obj = $("#footer")
-    height = $("body").outerHeight(true) + (if obj.hasClass("fixed") then obj.outerHeight(true) else 0)
-    if height > $(window).height()
-      obj.removeClass "fixed"
-    else
-      obj.addClass "fixed"
-    return
-  positionFooter()
-
-  $(window).bind "resize", $.debounce(100, positionFooter)
-  $(document).ajaxComplete positionFooter
-
-  # Client Side Validations
-  clientSideValidations.callbacks.element.fail = (element, message, callback) ->
-    if (!element.data('valid'))
+if ClientSideValidations?
+  ClientSideValidations.callbacks.element.fail = (element, message, callback, eventData) ->
+    unless element.data('valid')
       element.closest('div.control-group').addClass 'error'
 
       if element.closest('form').hasClass 'form-inline'
@@ -42,9 +28,9 @@ $ ->
           element.parent().after error_message
         else
           element.parent().find("#{element[0].tagName}:last").after error_message
-    return
+    callback
 
-  clientSideValidations.callbacks.element.pass = (element, callback) ->
+  ClientSideValidations.callbacks.element.pass = (element, callback, eventData) ->
     element.closest('div.control-group').removeClass 'error'
     element.parent().find('label.message').hide()
     if element.parent().hasClass('input-prepend') or element.parent().hasClass('input-append')

@@ -5,16 +5,6 @@
 window.icare = window.icare || {}
 icare = window.icare
 
-$("#search-form-advanced-link").on 'click', (e) ->
-  e.preventDefault()
-  me = this
-  $("#search-form-advanced").slideToggle ->
-    $icon = $(me).find("i")
-    if $icon.hasClass "icon-chevron-up"
-      $icon.removeClass("icon-chevron-up").addClass "icon-chevron-down"
-    else
-      $icon.removeClass("icon-chevron-down").addClass "icon-chevron-up"
-
 routeColoursArray = [
   "#0000ff"
   "#ff0000"
@@ -22,94 +12,6 @@ routeColoursArray = [
   "#ff00ff"
   "#ffff00"
   ]
-
-Handlebars.registerHelper 'toLowerCase', (string) ->
-  if string
-    new Handlebars.SafeString string.toLowerCase()
-  else
-    ''
-
-Handlebars.registerHelper 'translate', (key) ->
-  new Handlebars.SafeString I18n.t(key)
-
-Handlebars.registerHelper 'localize', (scope, key) ->
-  new Handlebars.SafeString I18n.l(scope, key)
-
-$ ->
-  if $("#index-itineraries-map")[0]?
-    indexItinerariesMapInit("#index-itineraries-map")
-    icare.customMarkers = {}
-    icare.itineraries = []
-    # TODO clean this mess... directions service again?
-    $("#itineraries-search").on "click", ->
-      return false unless $("#new_itinerary_search").isValid(window.new_itinerary_search.validators)
-      $("#error").hide()
-      geocoder = new google.maps.Geocoder()
-      address = $("#itinerary_search_from").val()
-      geocoder.geocode
-        address: address
-      , (results, status) ->
-        if status is google.maps.GeocoderStatus.OK
-          $("#itinerary_search_from").val results[0].formatted_address
-          location = results[0].geometry.location
-          icare.search_center = location
-          $("#itinerary_search_start_location_lat").val results[0].geometry.location.lat()
-          $("#itinerary_search_start_location_lng").val results[0].geometry.location.lng()
-          geocoder = new google.maps.Geocoder()
-          address = $("#itinerary_search_to").val()
-          geocoder.geocode
-            address: address
-          , (results, status) ->
-            if status is google.maps.GeocoderStatus.OK
-              $("#itinerary_search_to").val results[0].formatted_address
-              location = results[0].geometry.location
-              $("#itinerary_search_end_location_lat").val results[0].geometry.location.lat()
-              $("#itinerary_search_end_location_lng").val results[0].geometry.location.lng()
-              $("#new_itinerary_search").submit()
-    $("#new_itinerary_search").on "keypress", (e) ->
-      if e and e.keyCode is 13
-        e.preventDefault()
-        $("#itineraries-search").click()
-    $("#new_itinerary_search")
-      .bind "submit", (evt) ->
-        $(icare.itineraries).each ->
-          this.setMap null
-        icare.itineraries = []
-        for key of icare.customMarkers
-          if icare.customMarkers.hasOwnProperty key
-            icare.customMarkers[key].setMap null
-        icare.customMarkers = {}
-      .bind "ajax:beforeSend", (evt, xhr, settings) ->
-        $("#itineraries-spinner").show()
-      .bind "ajax:complete", (evt, xhr, settings) ->
-        $("#itineraries-spinner").hide()
-      .bind "ajax:error", (evt, xhr, settings) ->
-        $("#itineraries-thumbs").html """
-          <h4 class="errorText">#{I18n.t("javascript.an_error_occurred")}</h4>
-          """
-        false
-      .bind "ajax:success", (evt, data, status, xhr) ->
-        if data.length is 0
-          $("#itineraries-thumbs").html """
-            <h4>#{I18n.t("javascript.no_itineraries_found")}</h4>
-            """
-        else
-          $("#itineraries-thumbs").html ""
-          index = 0
-          icare.latLngBounds = new google.maps.LatLngBounds()
-          row_template = $("""<div class="row-fluid"></div>""")
-          row = row_template
-          $(data).each ->
-            $("#itineraries-thumbs").append(row = row_template.clone(true)) if (index % 2) is 0
-            color = routeColoursArray[index++ % routeColoursArray.length]
-            drawPath this, color
-            this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
-            row.append HandlebarsTemplates["itinerary"](this)
-          icare.map.fitBounds icare.latLngBounds
-    $('#itineraries-thumbs').on 'click', '.show-itinerary-on-map', (e) ->
-      e.preventDefault()
-      google.maps.event.trigger icare.customMarkers[$(this).data("id")], 'click'
-      false
 
 hexToRgba = (color, alpha = 1) ->
   if color.charAt(0) is "#" then (h = color.substring(1,7)) else (h = color)
@@ -188,3 +90,108 @@ drawPath = (itinerary, strokeColor = "#0000FF", strokeOpacity = 0.45) ->
   directionsPath.setMap icare.map
   icare.customMarkers[itinerary.id] = customMarker
   icare.itineraries.push directionsPath
+
+clearItineraries = ->
+  if icare.itineraries?
+    $(icare.itineraries).each ->
+      this.setMap null
+
+  if icare.customMarkers?
+    for key of icare.customMarkers
+      if icare.customMarkers.hasOwnProperty key
+        icare.customMarkers[key].setMap null
+
+  icare.itineraries = []
+  icare.customMarkers = {}
+
+initItineraryIndex = ->
+  indexItinerariesMapInit("#index-itineraries-map")
+
+  clearItineraries()
+
+  # TODO clean this mess... directions service again?
+  $("#itineraries-search").on "click", ->
+    return false unless $("#new_itinerary_search").isValid(window.ClientSideValidations.forms["new_itinerary_search"].validators)
+    $("#error").hide()
+    geocoder = new google.maps.Geocoder()
+    address = $("#itinerary_search_from").val()
+    geocoder.geocode
+      address: address
+    , (results, status) ->
+      if status is google.maps.GeocoderStatus.OK
+        $("#itinerary_search_from").val results[0].formatted_address
+        location = results[0].geometry.location
+        icare.search_center = location
+        $("#itinerary_search_start_location_lat").val results[0].geometry.location.lat()
+        $("#itinerary_search_start_location_lng").val results[0].geometry.location.lng()
+        geocoder = new google.maps.Geocoder()
+        address = $("#itinerary_search_to").val()
+        geocoder.geocode
+          address: address
+        , (results, status) ->
+          if status is google.maps.GeocoderStatus.OK
+            $("#itinerary_search_to").val results[0].formatted_address
+            location = results[0].geometry.location
+            $("#itinerary_search_end_location_lat").val results[0].geometry.location.lat()
+            $("#itinerary_search_end_location_lng").val results[0].geometry.location.lng()
+            $("#new_itinerary_search").submit()
+
+  $("#new_itinerary_search").on "keypress", (e) ->
+    if e and e.keyCode is 13
+      e.preventDefault()
+      $("#itineraries-search").click()
+
+  $("#new_itinerary_search")
+    .bind "submit", (evt) ->
+      clearItineraries()
+    .bind "ajax:beforeSend", (evt, xhr, settings) ->
+      $("#itineraries-spinner").show()
+    .bind "ajax:complete", (evt, xhr, settings) ->
+      $("#itineraries-spinner").hide()
+    .bind "ajax:error", (evt, xhr, settings) ->
+      $("#itineraries-thumbs").html """
+        <h4 class="error-text">#{I18n.t("javascript.an_error_occurred")}</h4>
+        """
+      false
+    .bind "ajax:success", (evt, data, status, xhr) ->
+      # TODO fix browser back, it calls ajax:success many times
+      if data.length is 0
+        $("#itineraries-thumbs").html """
+          <h4>#{I18n.t("javascript.no_itineraries_found")}</h4>
+          """
+      else
+        $("#itineraries-thumbs").html ""
+        index = 0
+        icare.latLngBounds = new google.maps.LatLngBounds()
+        row_template = $("""<div class="row-fluid"></div>""")
+        row = row_template
+        $(data).each ->
+          $("#itineraries-thumbs").append(row = row_template.clone(true)) if (index % 2) is 0
+          color = routeColoursArray[index++ % routeColoursArray.length]
+          drawPath this, color
+          this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
+          row.append HandlebarsTemplates["itinerary"](this)
+        icare.map.fitBounds icare.latLngBounds
+
+  $('#itineraries-thumbs').on 'click', '.show-itinerary-on-map', (e) ->
+    e.preventDefault()
+    google.maps.event.trigger icare.customMarkers[$(this).data("id")], 'click'
+    false
+
+  $("#search-form-advanced-link").on 'click', (e) ->
+    e.preventDefault()
+    me = this
+    $("#search-form-advanced").slideToggle ->
+      $icon = $(me).find("i")
+      if $icon.hasClass "icon-chevron-up"
+        $icon.removeClass("icon-chevron-up").addClass "icon-chevron-down"
+      else
+        $icon.removeClass("icon-chevron-down").addClass "icon-chevron-up"
+
+do_on_load = ->
+  if $("#index-itineraries-map")[0]?
+    initItineraryIndex()
+
+# Turbolinks
+$(document).ready do_on_load
+$(window).bind 'page:load', do_on_load

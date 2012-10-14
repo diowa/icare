@@ -115,6 +115,10 @@ en-US:
         destroy: Itinerary successfully destroyed.
       error:
         destroy: An error occurred while destroying this itinerary.
+        pink: Pink itineraries are visible only to women.
+    message:
+      error:
+        create: An error occurred while creating this message.
     error:
       not_authenticated: Please login first.
       not_allowed: You don't have permissions to access this page.
@@ -263,6 +267,7 @@ en-US:
       edit_all_times: Edit all times
       fuel_help_text: "The route is {km} km long. Considering an average consumption of %{avg_consumption} €/km, the estimate cost is {est}.00 €."
       more_accurate_data: "Need more accurate data for your vehicle?"
+      pink_help: Pink itineraries can be created only by women and are visible only to women.
     confirm_and_share_step:
       preview: Preview
       missing_publish_stream_permission: "%{appname} doesn't have permissions to publish on your timeline."

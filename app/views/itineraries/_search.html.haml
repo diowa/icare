@@ -7,7 +7,15 @@
       = t(".advanced_search")
   #search-form-advanced.hide.form-inline
     %table
-      - [:smoking_allowed, :pets_allowed, :round_trip].each do |boolean_field|
+      - if current_user.female?
+        %tr
+          %td{ colspan: 2 }
+            = f.check_box :filter_pink, class: "", label: Itinerary.human_attribute_name(:pink)
+            %i.icon-question-sign{ rel: "tooltip", title: t("itineraries.details_step.pink_help") }
+      %tr
+        %td{ colspan: 2 }
+          = f.check_box :filter_round_trip, class: "", label: Itinerary.human_attribute_name(:round_trip)
+      - [:smoking_allowed, :pets_allowed].each do |boolean_field|
         %tr
           %td><
             = f.label "filter_#{boolean_field}".to_sym, Itinerary.human_attribute_name(boolean_field)

@@ -46,7 +46,7 @@
       - else
         %ul.nav.pull-right
           %li
-            = link_to auth_at_provider_path(provider: :facebook) do
+            = link_to auth_at_provider_path(provider: :facebook), data: { :"no-turbolink" => true } do
               %i.icon-facebook-sign
               = t("login_with_facebook")
         .nav-collapse

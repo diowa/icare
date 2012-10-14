@@ -4,6 +4,7 @@ class Itinerary
   include Mongoid::Paranoia
   include Mongoid::Geospatial
   include Mongoid::MultiParameterAttributes
+  include Mongoid::Slug
 
   index({ start_location: 1 }, { background: true })
   index({ end_location: 1 }, { background: true })
@@ -11,7 +12,7 @@ class Itinerary
   VEHICLE = %w(car motorcycle van)
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 
-  attr_accessible :title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls
+  attr_accessible :title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls, :pink
   attr_accessible :round_trip, :leave_date, :return_date
   attr_accessible :share_on_facebook_timeline
 
@@ -37,6 +38,7 @@ class Itinerary
   field :pets_allowed, type: Boolean, default: false
   field :fuel_cost, type: Integer
   field :tolls, type: Integer
+  field :pink, type: Boolean, default: false
   field :round_trip, type: Boolean, default: false
   field :leave_date, type: DateTime
   field :return_date, type: DateTime
@@ -47,6 +49,8 @@ class Itinerary
 
   attr_accessor :route_json_object, :share_on_facebook_timeline
 
+  slug :title
+
   #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
   scope :sorted_by_creation, desc(:created_at)
 
@@ -56,12 +60,17 @@ class Itinerary
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
   validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
   validates :tolls, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
+  validate :driver_is_female, if: -> { pink }
 
   validates :leave_date, timeliness: { on_or_after: -> { Time.now } }, on: :create
   validate :return_date_validator, if: -> { round_trip }
 
   def return_date_validator
     self.errors.add(:return_date, I18n.t("mongoid.errors.messages.after", restriction: leave_date.strftime(I18n.t("validates_timeliness.error_value_formats.datetime")))) if return_date <= leave_date
+  end
+
+  def driver_is_female
+    self.errors.add(:pink, :driver_must_be_female) unless user.female?
   end
 
   def self.build_with_route_json_object(params, user)
@@ -81,19 +90,32 @@ class Itinerary
     end
   end
 
-  def self.search(params)
+  def self.search(params, gender_filter)
     # TODO: Optimization
+    start_location = [params[:start_location_lng].to_f, params[:start_location_lat].to_f]
+    end_location = [params[:end_location_lng].to_f, params[:end_location_lat].to_f]
+    sphere_radius = 5.fdiv(Mongoid::Geospatial.earth_radius[:km])
+
+    # Apply filters
     itineraries = Itinerary.where(get_boolean_filters(params)).includes(:user)
 
-    itineraries_start = itineraries.where(:start_location.near_sphere => { point: [params[:start_location_lat], params[:start_location_lng]],
-                                                                                           max: 5,
-                                                                                           unit: :km })
-    itineraries_end = Itinerary.where(:end_location.near_sphere => { point: [params[:end_location_lat], params[:end_location_lng]],
-                                                                     max: 5,
-                                                                     unit: :km })
+    # Gender filter. NOTE: it must be applied AFTER user filters
+    itineraries = itineraries.where(pink: false) if gender_filter
 
-    itineraries_start & itineraries_end
-  rescue
+    # From start to end
+    itineraries_start_end = itineraries.within_spherical_circle(start_location: [ start_location, sphere_radius ]) &
+                            itineraries.within_spherical_circle(end_location: [ end_location, sphere_radius ])
+
+    # From end to start, unless passenger searched for a round trip
+    # NOTE: Think about it, because driver may need a travelmate for the whole trip
+    itineraries_end_start = []
+    unless params[:filter_round_trip] == "1"
+      itineraries_end_start = itineraries.where(round_trip: true).within_spherical_circle(start_location: [ end_location, sphere_radius ]) &
+                              itineraries.within_spherical_circle(end_location: [ start_location, sphere_radius ])
+    end
+
+    # Sum results
+    itineraries_start_end + itineraries_end_start
   end
 
   def to_latlng_array(field)
@@ -161,7 +183,9 @@ class Itinerary
 private
   def self.get_boolean_filters(params = {})
     filters = {}
-    [:smoking_allowed, :pets_allowed, :round_trip].each do |boolean_field|
+    filters.merge!(round_trip: true) if params[:filter_round_trip] == "1"
+    filters.merge!(pink: true) if params[:filter_pink] == "1"
+    [:smoking_allowed, :pets_allowed].each do |boolean_field|
       param = params["filter_#{boolean_field}".to_sym]
       filters.merge!(boolean_field => (param == "true")) unless param.blank?
     end

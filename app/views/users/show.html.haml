@@ -10,7 +10,7 @@
       %blockquote
         %p= @user.bio
     - if @user.facebook_verified?
-      %p
+      %p.well
         %span.facebook-verified
           %i.icon-ok
           = User.human_attribute_name(:facebook_verified)

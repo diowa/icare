@@ -100,6 +100,7 @@ it-IT:
     messages:
       accepted: deve essere accettata
       blank: non può essere lasciato in bianco
+      presence: non può essere lasciato in bianco
       confirmation: non coincide con la conferma
       empty: non può essere vuoto
       equal_to: deve essere uguale a %{count}

@@ -59,17 +59,31 @@ it-IT:
         pets_allowed: Animali a bordo
         fuel_cost: Costo carburante
         tolls: Pedaggi
+        pink: Itinerario Rosa
         round_trip: Andata e ritorno
         leave_date: Data partenza
         return_date: Data ritorno
         driver_gender: Sesso del guidatore
         daily: Giornaliero
+      reference:
+        rating_negative: Negativa
+        rating_neutral: Neutrale
+        rating_positive: Positiva
     errors:
       models:
         user:
           attributes:
             email:
               invalid: non è una e-mail valida
+        itinerary:
+          attributes:
+            pink:
+              driver_must_be_female: solo le donne possono creare itinerari rosa
+        conversation:
+          attributes:
+            user_ids:
+              already_exists: hai già una conversazione su questo itinerario
+
   activemodel:
     attributes:
       itinerary_route:

@@ -78,7 +78,7 @@ wizardNextStep = ->
 
   valid = true
   $('#new_itinerary [data-validate]:input:visible').each ->
-    settings = window.new_itinerary
+    settings = window.ClientSideValidations.forms[this.form.id]
     unless $(this).isValid(settings.validators)
       valid = false
     return
@@ -97,7 +97,8 @@ wizardNextStep = ->
     if step is last_step
       lastStepInit()
     $("#wizard-step-#{step}-title").removeClass("hidden-phone").addClass "active"
-    $("#wizard-step-#{step}-content").fadeIn()
+    $("#wizard-step-#{step}-content").fadeIn ->
+      $("#new_itinerary").enableClientSideValidations() # Enable validation for new fields
     if step > 1
       $("#wizard-prev-step-button").removeAttr "disabled"
       $("#wizard-prev-step-button").show()
@@ -109,7 +110,15 @@ wizardNextStep = ->
 
 dateFieldToString = (field_id) ->
   values = $("select[id^=#{field_id}] option:selected")
-  "#{$(values[0]).text()} #{$(values[1]).text()} #{$(values[2]).text()} \u2014 #{$(values[3]).text()}:#{$(values[4]).text()}"
+  year = $("##{field_id}_1i").val()
+  month = $("##{field_id}_2i").val()
+  day = $("##{field_id}_3i").val()
+  hour = $("##{field_id}_4i").val()
+  minute = $("##{field_id}_5i").val()
+  if I18n?
+    I18n.l "time.formats.long", "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
+  else
+    "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
 
 lastStepInit = ->
   $("#itinerary-preview-title").text $("#itinerary_title").val()
@@ -117,6 +126,7 @@ lastStepInit = ->
   $("#itinerary-preview-vehicle").text $("#itinerary_vehicle option:selected").text()
   $("#itinerary-preview-smoking_allowed").text if $("#itinerary_smoking_allowed").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
   $("#itinerary-preview-pets_allowed").text if $("#itinerary_pets_allowed").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
+  $("#itinerary-preview-pink").text if $("#itinerary_pink").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
   $("#itinerary-preview-fuel_cost").text $("#itinerary_fuel_cost").val()
   $("#itinerary-preview-tolls").text $("#itinerary_tolls").val()
 
@@ -137,23 +147,6 @@ lastStepInit = ->
     .replace("%{start_location}", "#{route.start_location.lat},#{route.start_location.lng}")
     .replace("%{overview_polyline}", "#{route.overview_polyline}")
   $("#itinerary-preview-image").attr "src", url_builder
-
-$ ->
-  if $("#new_itinerary")[0]?
-    createRouteMapInit("#new-itinerary-map")
-    $("#wizard-next-step-button").on "click", wizardNextStep
-    $("#wizard-prev-step-button").on "click", wizardPrevStep
-    $('input[name="itinerary[daily]"]').change ->
-      if (Boolean) $(this).val() is "true"
-        $("#single").fadeOut ->
-          $("#daily").fadeIn()
-      else
-        $("#daily").fadeOut ->
-          $("#single").fadeIn()
-    $('#itinerary_round_trip').change ->
-      status = $(this).attr("checked")
-      $('select[id^=itinerary_return_date]').each ->
-        $(this).attr "disabled", (if status then null else "disabled")
 
 createRouteMapInit = (id) ->
   recalcHeight = ->
@@ -224,8 +217,7 @@ createRouteMapInit = (id) ->
     path = route.overview_path
     map.fitBounds(dr.directions.routes[0].bounds)
 
-  $("#new_itinerary_route").submit ->
-    return false unless $("#new_itinerary_route").isValid window.new_itinerary_route.validators # Don't know why!
+  $("#new_itinerary_route").on "submit", ->
     $("#itineraries-spinner").show()
     $("#error").hide()
     $("#result").hide()
@@ -307,3 +299,27 @@ createRouteMapInit = (id) ->
 
   $(".share").click ->
     $(this).find("input").focus().select()
+
+initItineraryNew = ->
+  createRouteMapInit("#new-itinerary-map")
+  $("#wizard-next-step-button").on "click", wizardNextStep
+  $("#wizard-prev-step-button").on "click", wizardPrevStep
+  $('input[name="itinerary[daily]"]').change ->
+    if (Boolean) $(this).val() is "true"
+      $("#single").fadeOut ->
+        $("#daily").fadeIn()
+    else
+      $("#daily").fadeOut ->
+        $("#single").fadeIn()
+  $('#itinerary_round_trip').change ->
+    status = $(this).attr("checked")
+    $('select[id^=itinerary_return_date]').each ->
+      $(this).attr "disabled", (if status then null else "disabled")
+
+do_on_load = ->
+  if $("#new_itinerary")[0]?
+    initItineraryNew()
+
+# Turbolinks
+$(document).ready do_on_load
+$(window).bind 'page:load', do_on_load

@@ -72,14 +72,13 @@
   display: block;
   border: 1px solid @grayLight;
   background: @white;
-  .border-radius(4px);
   .box-shadow(2px 2px 1px fade(@black, 20%));
   cursor: pointer;
 
   img {
-    position: absolute;
-    top: 3px;
-    left: 3px;
+    position: relative;
+    top: 1px;
+    left: 1px;
   }
 }
 
@@ -95,14 +94,14 @@
 
 .arrow_box:after {
   left: 50%;
-  margin-left: -6px;
+  margin-left: -4px;
   border-top-color: @white;
-  border-width: 6px;
+  border-width: 4px;
 }
 
 .arrow_box:before {
   border-top-color: @grayLight;
-  border-width: 7px;
+  border-width: 5px;
   left: 50%;
-  margin-left: -7px;
+  margin-left: -5px;
 }

@@ -108,6 +108,7 @@ input.width-max {
 .balloon {
   position: relative;
   display: inline-block;
+  width: 100%;
   border: 1px solid #ddd;
   .border-radius(4px);
   padding: 8px 10px;
@@ -198,9 +199,9 @@ body {
 }
 
 #footer {
-  border-top: 1px solid @grayLighter;
+  border-top: 1px solid @white;
   padding: @baseLineHeight 0;
-  #gradient > .vertical(fade(@black, 0%), fade(@black, 10%));
+  #gradient > .vertical(fade(@black, 5%), fade(@black, 0%));
   background-color: transparent !important;
 
   @media(max-width: 767px) {
@@ -250,12 +251,9 @@ footer {
   }
 }
 
-.errorText {
-  color: @errorText;
-}
-
-.facebook-timeline-checkbutton {
+.btn-checkbox {
   .user-select(none);
+  margin-bottom: @baseLineHeight/2 !important;
 
   i.check {
     position: relative;
@@ -265,7 +263,9 @@ footer {
   }
 
   input[type=checkbox] {
-    display: none;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
     &:checked ~ i.check:before {
       content: "\f046";
     }
@@ -280,4 +280,8 @@ footer {
   color: fade(@white, 50%);
   cursor: default;
   .user-select(none);
+}
+
+.pink-text {
+  color: @pink;
 }

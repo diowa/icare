@@ -59,17 +59,30 @@ en-US:
         pets_allowed: Pets allowed
         fuel_cost: Fuel cost
         tolls: Tolls
+        pink: Pink Itinerary
         round_trip: Round trip
         leave_date: Leave date
         return_date: Return date
         driver_gender: Driver's gender
         daily: Daily
+      reference:
+        rating_negative: Negative
+        rating_neutral: Neutral
+        rating_positive: Positive
     errors:
       models:
         user:
           attributes:
             email:
               invalid: is not a valid email
+        itinerary:
+          attributes:
+            pink:
+              driver_must_be_female: only women can create pink itineraries
+        conversation:
+          attributes:
+            user_ids:
+              already_exists: you already have a conversation about this itinerary
 
   activemodel:
     attributes:

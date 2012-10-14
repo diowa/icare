@@ -217,5 +217,13 @@ class User
     references.unread.size
   end
 
+  def male?
+    gender == "male"
+  end
+
+  def female?
+    gender == "female"
+  end
+
   protected
 end

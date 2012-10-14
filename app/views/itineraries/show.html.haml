@@ -24,6 +24,14 @@
                 %p.pre-line= @itinerary.description
     .spacer
     .row-fluid
+      - if @itinerary.pink?
+        .span12
+          %p.well
+            %span.pink-itinerary
+              %i.icon-lock
+              = Itinerary.human_attribute_name(:pink)
+            %br
+            %small.muted= t("itineraries.details_step.pink_help")
       .span6
         %dl.dl-horizontal
           %dt= Itinerary.human_attribute_name(:vehicle)
