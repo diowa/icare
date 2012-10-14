@@ -91,10 +91,24 @@ drawPath = (itinerary, strokeColor = "#0000FF", strokeOpacity = 0.45) ->
   icare.customMarkers[itinerary.id] = customMarker
   icare.itineraries.push directionsPath
 
+clearItineraries = ->
+  if icare.itineraries?
+    $(icare.itineraries).each ->
+      this.setMap null
+
+  if icare.customMarkers?
+    for key of icare.customMarkers
+      if icare.customMarkers.hasOwnProperty key
+        icare.customMarkers[key].setMap null
+
+  icare.itineraries = []
+  icare.customMarkers = {}
+
 initItineraryIndex = ->
   indexItinerariesMapInit("#index-itineraries-map")
-  icare.customMarkers = {}
-  icare.itineraries = []
+
+  clearItineraries()
+
   # TODO clean this mess... directions service again?
   $("#itineraries-search").on "click", ->
     return false unless $("#new_itinerary_search").isValid(window.ClientSideValidations.forms["new_itinerary_search"].validators)
@@ -121,19 +135,15 @@ initItineraryIndex = ->
             $("#itinerary_search_end_location_lat").val results[0].geometry.location.lat()
             $("#itinerary_search_end_location_lng").val results[0].geometry.location.lng()
             $("#new_itinerary_search").submit()
+
   $("#new_itinerary_search").on "keypress", (e) ->
     if e and e.keyCode is 13
       e.preventDefault()
       $("#itineraries-search").click()
+
   $("#new_itinerary_search")
     .bind "submit", (evt) ->
-      $(icare.itineraries).each ->
-        this.setMap null
-      icare.itineraries = []
-      for key of icare.customMarkers
-        if icare.customMarkers.hasOwnProperty key
-          icare.customMarkers[key].setMap null
-      icare.customMarkers = {}
+      clearItineraries()
     .bind "ajax:beforeSend", (evt, xhr, settings) ->
       $("#itineraries-spinner").show()
     .bind "ajax:complete", (evt, xhr, settings) ->
@@ -144,6 +154,7 @@ initItineraryIndex = ->
         """
       false
     .bind "ajax:success", (evt, data, status, xhr) ->
+      # TODO fix browser back, it calls ajax:success many times
       if data.length is 0
         $("#itineraries-thumbs").html """
           <h4>#{I18n.t("javascript.no_itineraries_found")}</h4>
@@ -183,4 +194,4 @@ do_on_load = ->
 
 # Turbolinks
 $(document).ready do_on_load
-$(window).bind 'page:change', do_on_load
+$(window).bind 'page:load', do_on_load

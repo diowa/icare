@@ -322,4 +322,4 @@ do_on_load = ->
 
 # Turbolinks
 $(document).ready do_on_load
-$(window).bind 'page:change', do_on_load
+$(window).bind 'page:load', do_on_load
