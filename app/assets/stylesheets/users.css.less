@@ -42,13 +42,16 @@ dl.tag-list {
 
   span {
     display: inline-block;
+    max-width: 100%;
     .ie7-inline-block();
+    overflow: hidden;
     border: 1px solid @btnBorder;
     /* border-bottom-color: darken(@btnBorder, 10%); */
     padding: 2px 6px;
     line-height: 14px;
     white-space: pre;
     text-align: center;
+    text-overflow: ellipsis;
     vertical-align: middle;
     .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px fade(@white, 75%));
     .border-radius(4px);
