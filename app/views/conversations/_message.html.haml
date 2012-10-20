@@ -1,6 +1,6 @@
 %li{ class: message_classes(alternate, message, current_user) }
   .message-avatar
-    = user_profile_picture message.sender, size: [50, 50], thumbnail: false
+    = user_profile_picture message.sender, size: [50, 50], style: nil
   .message
     .message-header
       = message_timestamp message

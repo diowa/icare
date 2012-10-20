@@ -7,7 +7,7 @@ module UsersHelper
   def user_profile_picture(user, opts = {})
     options = { size: [50, 50],
                 type: :square,
-                thumbnail: true,
+                style: "img-polaroid",
                 html: {}
               }.merge(opts)
     tag(:img,
@@ -15,7 +15,7 @@ module UsersHelper
         height: ("#{options[:size][1]}px" if options[:size][1]),
         src: facebook_profile_picture(user, options[:type]),
         alt: "",
-        class: [("verified" if user.class == User.model_name && user.facebook_verified?), ("thumbnail" if options[:thumbnail]), options[:class]].compact.join(" ") }.merge(options[:html]))
+        class: [("verified" if user.class == User.model_name && user.facebook_verified?), options[:style], options[:class]].compact.join(" ") }.merge(options[:html]))
   end
 
   def nationality_flag(user, tooltip = true, tooltip_placement = "bottom")

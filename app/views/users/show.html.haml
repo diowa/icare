@@ -48,7 +48,7 @@
           %dd.friends
             - mutual_friends.sample(5).each do |friend|
               %span><
-                = user_profile_picture friend["id"], size: [25,25], thumbnail: false
+                = user_profile_picture friend["id"], size: [25,25], style: nil
                 = friend["name"]
             - if mutual_friends.size - 5 > 0
               = link_to t(".and_others", count: mutual_friends.size - 5), "#"

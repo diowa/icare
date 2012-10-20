@@ -30,7 +30,7 @@
         %ul.nav.pull-right
           %li#user-navbar-info
             = link_to user_path(current_user), class: "navbar-profile-picture" do
-              = user_profile_picture current_user, size: [], thumbnail: false
+              = user_profile_picture current_user, size: [], style: nil
             = link_to user_path(current_user), class: "navbar-profile-name hidden-phone" do
               = current_user
           %li.dropdown
