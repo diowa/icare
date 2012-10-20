@@ -31,3 +31,13 @@ I18n.locale = $("html").attr "lang"
 String::capitalize = ->
   this.replace /(?:^|\s)\S/g, (c) ->
     c.toUpperCase()
+
+setLoadingStatus = ->
+  $("#loading-spinner").show()
+
+unsetLoadingStatus = ->
+  $("#loading-spinner").fadeOut()
+
+# Turbolinks
+$(window).bind 'page:fetch', setLoadingStatus
+$(window).bind 'page:change', unsetLoadingStatus

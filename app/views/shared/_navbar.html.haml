@@ -25,6 +25,8 @@
                                  mock: true
           - if current_user.admin?
             = navbar_notifications "Reports", id: "reports", icon: "flag", mock: true
+          %li.loading
+            #loading-spinner
         %ul.nav.pull-right
           %li#user-navbar-info
             = link_to user_path(current_user), class: "navbar-profile-picture" do
@@ -54,6 +56,8 @@
             %li.divider-vertical
             %li= link_to t("how_it_works"), :how_it_works
             %li= link_to t("about"), :about
+            %li.loading
+              #loading-spinner
           %ul.nav.pull-right
             %li.dropdown.pull-right
               = link_to "#", data: { toggle: "dropdown" }, class: "dropdown-toggle" do
