@@ -10,10 +10,11 @@
       %tbody
         %tr
           %td.profile-picture-cell.vertical-align-top
-            - if logged_in?
-              = user_profile_picture @itinerary.user, class: "inline-block"
-            - else
-              = image_tag "http://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif", width: 50, height: 50, class: "inline-block thumbnail", alt: ""
+            .img-emboss.img-emboss-50x50
+              - if logged_in?
+                = user_profile_picture @itinerary.user, style: nil
+              - else
+                = image_tag "http://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif", width: 50, height: 50, style: nil
           %td.vertical-align-top
             .balloon.for-profile-picture
               - if logged_in?
