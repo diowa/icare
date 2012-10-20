@@ -12,3 +12,6 @@ end
 ActiveSupport.on_load(:active_record) do
   self.include_root_in_json = false
 end
+
+# Escape html entities in JSON, to avoid potential security issues
+ActiveSupport.escape_html_entities_in_json = true
