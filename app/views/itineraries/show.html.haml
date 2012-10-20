@@ -2,7 +2,7 @@
 - opengraph_header_content @itinerary
 .row
   .span3
-    = image_tag @itinerary.static_map, class: "thumbnail border-box", alt: ""
+    = image_tag @itinerary.static_map, class: "img-polaroid border-box", alt: ""
   .span9
     %h1.pacifico
       = @itinerary.title || Itinerary.model_name.human
