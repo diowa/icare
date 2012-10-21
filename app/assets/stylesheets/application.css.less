@@ -16,6 +16,28 @@
 @import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
 
+/* Some browser fixes
+   ========================================================================== */
+
+/* Prevent Firefox outlines */
+
+a { 
+  outline:none !important;
+}
+
+::-moz-focus-inner {
+  border:0;
+}
+
+/* Disable text shadow on highlighting */
+::-moz-selection,
+::-webkit-selection,
+::selection {
+  color: #fff;
+  background: @linkColorHover;
+  text-shadow:none;
+}
+
 .pacifico {
   font-family: "Pacifico";
   font-weight: 400;
@@ -301,3 +323,4 @@ footer {
     .square(50px);
   }
 }
+
