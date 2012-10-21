@@ -67,8 +67,26 @@
     }
   }
 
-  #navbar-notifications-list {
-    margin-left: 80px;
+  .navbar .container .brand,
+  .navbar .container .nav {
+    position: relative;
+    z-index: 1;
+  }
+
+  .center-notifications {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    .center-notifications-container {
+      display: inline-block;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+  .navbar {
+    position: relative;
+    z-index: 1;
   }
 }
 

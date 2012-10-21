@@ -10,23 +10,25 @@
         = image_tag "turtle.svg", class: "brand-logo"
         %span.hidden-phone= APPNAME
       - if logged_in?
-        %ul#navbar-notifications-list.nav
-          %li.divider-vertical.hidden-phone
-          = navbar_notifications Message.model_name.human(count: :lot),
-                                 id: "messages",
-                                 icon: "comments",
-                                 unread: current_user.unread_conversations_count,
-                                 link: link_to(t(".see_all_messages"), :conversations),
-                                 ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0),
-                                 content: t(".no_new_messages")
-          = navbar_notifications Notification.model_name.human(count: :lot),
-                                 id: "notifications",
-                                 icon: "globe",
-                                 mock: true
-          - if current_user.admin?
-            = navbar_notifications "Reports", id: "reports", icon: "flag", mock: true
-          %li.loading
-            #loading-spinner
+        .center-notifications
+          .center-notifications-container
+            %ul#navbar-notifications-list.nav
+              %li.divider-vertical.hidden-phone
+              = navbar_notifications Message.model_name.human(count: :lot),
+                                     id: "messages",
+                                     icon: "comments",
+                                     unread: current_user.unread_conversations_count,
+                                     link: link_to(t(".see_all_messages"), :conversations),
+                                     ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0),
+                                     content: t(".no_new_messages")
+              = navbar_notifications Notification.model_name.human(count: :lot),
+                                     id: "notifications",
+                                     icon: "globe",
+                                     mock: true
+              - if current_user.admin?
+                = navbar_notifications "Reports", id: "reports", icon: "flag", mock: true
+              %li.loading
+                #loading-spinner
         %ul.nav.pull-right
           %li#user-navbar-info
             = link_to user_path(current_user), class: "navbar-profile-picture" do
