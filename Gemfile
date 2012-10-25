@@ -18,7 +18,9 @@ gem 'rest-client'
 gem 'nokogiri'
 gem 'http_accept_language'
 gem 'jquery-rails'
-gem 'client_side_validations', git: 'https://github.com/bcardarella/client_side_validations.git', branch: '3-2-stable'
+gem 'client_side_validations'
+gem 'client_side_validations-turbolinks'
+
 #gem 'wicked'
 gem 'resque', require: 'resque/server' # Resque web interface
 gem 'kaminari'
