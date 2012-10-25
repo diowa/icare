@@ -42,6 +42,7 @@ en-US:
     itineraries:
       read_more: Read more
       show_on_map: Show on map
+      facebook_verified: Verified on Facebook
 
   login: Log in
   login_with_facebook: Login with Facebook
@@ -224,6 +225,7 @@ en-US:
       advanced_search: Advanced search
       the_same: Not specified
       search: Search
+      verified_users: Verified users
     index:
       title: Search itineraries
     show:

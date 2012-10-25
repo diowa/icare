@@ -10,5 +10,5 @@ node(:end_location) { |itinerary| itinerary.to_latlng_hash(:end_location) }
 node(:url) { |itinerary| itinerary_url(itinerary) }
 
 child :user do
-  attributes :name, :uid, :nationality, :to_param, :profile_picture
+  attributes :name, :uid, :nationality, :to_param, :profile_picture, :facebook_verified
 end

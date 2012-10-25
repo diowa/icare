@@ -61,6 +61,7 @@ body {
   .item {
    .transition(opacity 1s ease-in-out);
   }
+
   .active {
     &.left, &.right {
       z-index: 2;
@@ -68,10 +69,12 @@ body {
       .opacity(0);
     }
   }
+
   .next, .prev {
     z-index: 1;
     left: 0;
   }
+
   .carousel-control {
     z-index: 3;
   }
@@ -92,6 +95,16 @@ body {
 /* Modal focus fix */
 .modal-open .modal, a[data-toggle=modal] { outline: none; }
 
+/* Collapse dropdown */
+@media(max-width: 979px) {
+  .nav-collapse .dropdown-menu:before,
+  .nav-collapse .dropdown-menu:after,
+  .nav-collapse li.dropdown > .dropdown-toggle .caret {
+    display: none !important;
+  }
+}
+
+
 /* ==========================================================================
    Global styles
    ========================================================================== */
@@ -111,27 +124,6 @@ body {
   }
 }
 
-.facebook-bg {
-  background: @blueFacebook;
-}
-
-.facebook-color {
-  color: @blueFacebook;
-}
-
-.btn-facebook {
-  .buttonBackground(lighten(@blueFacebook, 10%), @blueFacebook);
-}
-
-.spacer {
-  height: @baseLineHeight;
-}
-
-/* Thumbnail background fix */
-.thumbnail {
-  background: @white;
-}
-
 /* Lighter modal backdrop */
 .modal-backdrop,
 .modal-backdrop.fade.in {
@@ -143,14 +135,28 @@ body {
   .border-radius(6px 6px 0 0);
 }
 
-.btn-pink.active {
-  color: rgba(255,255,255,.75);
+.form-actions {
+  background: none;
 }
+
+h1,
+h2,
+h3 {
+  color: desaturate(darken(@blueIcare, 5%), 30%);
+}
+
+
+/* New Buttons
+   ========================================================================== */
 
 .btn-pink {
   .buttonBackground(lighten(@pink, 5%), @pink);
 }
 
-.form-actions {
-  background: none;
+.btn-pink.active {
+  color: rgba(255,255,255,.75);
+}
+
+.btn-facebook {
+  .buttonBackground(lighten(@blueFacebook, 10%), @blueFacebook);
 }

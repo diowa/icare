@@ -14,6 +14,9 @@
             %i.icon-question-sign{ rel: "tooltip", title: t("itineraries.details_step.pink_help") }
       %tr
         %td{ colspan: 2 }
+          = f.check_box :filter_verified, class: "", label: t(".verified_users")
+      %tr
+        %td{ colspan: 2 }
           = f.check_box :filter_round_trip, class: "", label: Itinerary.human_attribute_name(:round_trip)
       - [:smoking_allowed, :pets_allowed].each do |boolean_field|
         %tr

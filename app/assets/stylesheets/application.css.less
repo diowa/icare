@@ -19,14 +19,13 @@
 /* Some browser fixes
    ========================================================================== */
 
-/* Prevent Firefox outlines */
-
+/* Prevent Firefox outline */
 a { 
-  outline:none !important;
+  outline: none !important;
 }
 
 ::-moz-focus-inner {
-  border:0;
+  border: 0;
 }
 
 /* Disable text shadow on highlighting */
@@ -264,36 +263,6 @@ footer {
   }
 }
 
-/* Twitter Bootstrap FIX */
-@media(max-width: 979px) {
-  .nav-collapse .dropdown-menu:before,
-  .nav-collapse .dropdown-menu:after,
-  .nav-collapse li.dropdown > .dropdown-toggle .caret {
-    display: none !important;
-  }
-}
-
-.btn-checkbox {
-  .user-select(none);
-  margin-bottom: @baseLineHeight/2 !important;
-
-  i.check {
-    position: relative;
-    top: 1px;
-    display: inline-block;
-    font-size: 1.15em;
-  }
-
-  input[type=checkbox] {
-    position: absolute !important;
-    top: -9999px !important;
-    left: -9999px !important;
-    &:checked ~ i.check:before {
-      content: "\f046";
-    }
-  }
-}
-
 .attribution {
   position: absolute;
   bottom: 5px;
@@ -324,3 +293,35 @@ footer {
   }
 }
 
+.btn-checkbox {
+  .user-select(none);
+  margin-bottom: @baseLineHeight/2 !important;
+
+  i.check {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-size: 1.15em;
+  }
+
+  input[type=checkbox] {
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+    &:checked ~ i.check:before {
+      content: "\f046";
+    }
+  }
+}
+
+.facebook-bg {
+  background: @blueFacebook;
+}
+
+.facebook-color {
+  color: @blueFacebook;
+}
+
+.spacer {
+  height: @baseLineHeight;
+}

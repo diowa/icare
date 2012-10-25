@@ -3,7 +3,7 @@
     %table
       %tbody
         %tr
-          %td.user-profile-picture
+          %td.user-profile-picture.verified
             %img{ src: "{{user.profile_picture}}", width: 50, height: 50, alt: "" }
           %td
             %strong.it-title
@@ -14,6 +14,9 @@
               %i{ class: "flag-{{toLowerCase user.nationality}}" }
               {{/if}}
               {{user.name}}
+              {{#if user.facebook_verified}}
+              %i.icon-ok.text-success.facebook-verified-tooltip.inline-block{ rel: "tooltip", title: "{{translate \"templates.itineraries.facebook_verified\"}}" }
+              {{/if}}
     %p
       %i.icon-arrow-up
       {{localize "date.formats.long" leave_date}}

@@ -42,6 +42,7 @@ it-IT:
     itineraries:
       read_more: Leggi tutto
       show_on_map: Mostra sulla mappa
+      facebook_verified: Verificato su Facebook
 
   login: Accedi
   login_with_facebook: Accedi con Facebook
@@ -223,6 +224,7 @@ it-IT:
       advanced_search: Ricerca avanzata
       the_same: È indifferente
       search: Cerca
+      verified_users: Utenti verificati
     index:
       title: Cerca itinerari
     show:

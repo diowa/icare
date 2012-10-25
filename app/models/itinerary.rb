@@ -46,6 +46,7 @@ class Itinerary
 
   # Cached user details (for filtering purposes)
   field :driver_gender
+  field :verified
 
   attr_accessor :route_json_object, :share_on_facebook_timeline
 
@@ -87,6 +88,7 @@ class Itinerary
       itinerary.user = user
 
       itinerary.driver_gender = user.gender
+      itinerary.verified = user.facebook_verified
     end
   end
 
@@ -183,12 +185,17 @@ class Itinerary
 private
   def self.get_boolean_filters(params = {})
     filters = {}
-    filters.merge!(round_trip: true) if params[:filter_round_trip] == "1"
-    filters.merge!(pink: true) if params[:filter_pink] == "1"
+
+    [:round_trip, :pink, :verified].each do |checkbox_field|
+      param = params["filter_#{checkbox_field}".to_sym]
+      filters.merge!(checkbox_field => true) if param == "1"
+    end
+
     [:smoking_allowed, :pets_allowed].each do |boolean_field|
       param = params["filter_#{boolean_field}".to_sym]
       filters.merge!(boolean_field => (param == "true")) unless param.blank?
     end
+
     filter_driver_gender_param = params[:filter_driver_gender]
     filters.merge!(driver_gender: filter_driver_gender_param) if User::GENDER.include?(filter_driver_gender_param)
     filters

@@ -172,6 +172,7 @@ initItineraryIndex = ->
           this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
           row.append HandlebarsTemplates["itinerary"](this)
         icare.map.fitBounds icare.latLngBounds
+        $(".facebook-verified-tooltip").tooltip()
 
   $('#itineraries-thumbs').on 'click', '.show-itinerary-on-map', (e) ->
     e.preventDefault()
