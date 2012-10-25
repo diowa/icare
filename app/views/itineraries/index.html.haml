@@ -1,9 +1,10 @@
 - title t(".title")
 .row
   .span3
-    %h3= yield :title
-    = render "search"
-    #error.alert.alert-error
+    .search-sidenav
+      %h3= yield :title
+      = render "search"
+      #error.alert.alert-error
   .span9
     #index-itineraries-map.google-maps-fix
     .spacer
