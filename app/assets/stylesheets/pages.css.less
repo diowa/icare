@@ -35,9 +35,13 @@
 #home-hero {
   position: relative;
   overflow: hidden;
-  background: @grayLight url('/assets/home-bg3.jpg'); /* http://www.flickr.com/photos/daquellamanera/166284715/ or http://www.flickr.com/photos/stevenfernandez/2816184724/sizes/o/in/photostream/ */
   min-height: 200px;
-  .box-shadow(inset 0 0 50px fade(@black, 45%));
+  margin-bottom: @baseLineHeight;
+  padding: 60px;
+  background: @grayLight url('/assets/home-bg3.jpg'); /* http://www.flickr.com/photos/daquellamanera/166284715/ or http://www.flickr.com/photos/stevenfernandez/2816184724/sizes/o/in/photostream/ */
+  @shadow: inset 0 0 50px fade(@black, 45%), 0 1px 3px fade(@black, 15%);
+  .box-shadow(@shadow);
+  .border-radius(4px);
 
   .tagline {
     position: relative;
@@ -68,14 +72,12 @@
     background: fade(@white, 50%);
     .box-shadow(1px 1px 2px fade(@black, 25%));
   }
-}
 
-.home-hero-logo {
-  position: relative;
-  display: inline-block;
-  top: 7px;
-  .size(50px, 127px);
-  vertical-align: top;
+  h1 {
+    margin: 10px 0;
+    padding: 0;
+    font-size: 60px;
+  }
 }
 
 p.signin-terms {
