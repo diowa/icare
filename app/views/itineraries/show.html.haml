@@ -4,7 +4,7 @@
   .span3
     = image_tag @itinerary.static_map, class: "img-polaroid border-box", alt: ""
   .span9
-    %h1.pacifico
+    %h1
       = @itinerary.title || Itinerary.model_name.human
     %table
       %tbody

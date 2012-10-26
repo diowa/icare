@@ -1,7 +1,9 @@
 @import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
 
-.google-maps-fix {
+.google-maps {
+  .box-sizing(border-box);
+
   label {
     display:inline;
     width: auto;
@@ -10,7 +12,6 @@
   img {
     max-width: none;
   }
-  .box-sizing(border-box);
 }
 
 #index-itineraries-map,

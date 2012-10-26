@@ -6,7 +6,7 @@
     #hero-user.hero-unit
       .attribution
         db9_dash.jpg by xmatt, on Flickr
-      .pacifico.dashboard-title= t(".reminder")
+      .dashboard-title= t(".reminder")
       %p
         = link_to :conversations, class: "btn btn-large btn-block" do
           %i.icon-comments.icon-large
@@ -23,7 +23,7 @@
     #hero-itineraries.hero-unit
       .attribution
         _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
-      .pacifico.dashboard-title= Itinerary.model_name.human(count: 42)
+      .dashboard-title= Itinerary.model_name.human(count: 42)
       %p
         = link_to itineraries_path, class: "btn btn-large btn-block" do
           %i.icon-search.icon-large
@@ -38,7 +38,7 @@
           = t(".your_itineraries")
 .row
   .span6.offset6
-    %h3.pacifico= t(".latest_itineraries")
+    %h3= t(".latest_itineraries")
     %table.table.table-condensed.table-striped
       %thead
         %tr

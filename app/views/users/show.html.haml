@@ -4,10 +4,10 @@
   .span3
     = user_profile_picture @user, size: [], type: :large, class: "border-box"
   .span9
-    %h1.pacifico
+    %h1
       = @user
     - if @user.bio?
-      %blockquote
+      %blockquote.user-blockquote
         %p= @user.bio
     - if @user.facebook_verified?
       %p.well

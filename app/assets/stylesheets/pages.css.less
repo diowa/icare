@@ -46,10 +46,11 @@
   .tagline {
     position: relative;
     margin-bottom: 18px;
-    line-height: 26px;
-    font-size: 24px;
+    line-height: 30px;
+    font-family: 'Open Sans Condensed';
+    font-size: 28px;
     color: @white;
-    text-shadow: 1px 1px 1px @black;
+    text-shadow: 2px 2px 1px @black;
   }
 
   @media (max-width: 767px) {
@@ -101,25 +102,6 @@ p.signin-terms {
 
   iframe {
     height: auto !important;
-  }
-}
-
-#home-picture {
-  max-width: 300px;
-  padding: 0 20px 40px 0;
-  .rotate(-3deg);
-
-  .thumbnail {
-    background-position: center;
-    .box-shadow(3px 3px 3px fade(@black, 25%));
-  }
-
-  img {
-    .transition(opacity .2s ease-in);
-    .opacity(80);
-    &:hover {
-      .opacity(100);
-    }
   }
 }
 

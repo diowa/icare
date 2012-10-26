@@ -1,26 +1,6 @@
 @import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
 
-@media (min-width: 768px) {
-  .profilenav-fixed {
-    z-index: 1;
-    position: fixed;
-    top: 10px;
-    background: @white;
-    .transition(top .2s linear);
-  }
-
-  .profilenav-helper {
-    display: block;
-  }
-}
-
-@media (min-width: 980px) {
-  .profilenav-fixed {
-    top: 60px;
-  }
-}
-
 #flag[class^=flag-] {
   margin-right: 5px;
 }
@@ -30,9 +10,9 @@ dl.tag-list {
 
   dt,
   dd {
+    margin-bottom: 13px;
     font-weight: normal;
     line-height: 26px;
-    margin-bottom: 13px;
   }
 
   a {
@@ -98,4 +78,10 @@ dl.tag-list {
 .facebook-verified {
   color: @successText;
   font-size: 1.2em;
+}
+
+.user-blockquote {
+  position: relative;
+  border: none;
+  padding: 0;
 }
