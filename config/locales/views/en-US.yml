@@ -44,6 +44,8 @@ en-US:
       show_on_map: Show on map
       facebook_verified: Verified on Facebook
 
+  meta_description: "%{appname} is an open source carpooling platform. Share your itineraries, save money and earn friends."
+
   login: Log in
   login_with_facebook: Login with Facebook
   logout: Log out

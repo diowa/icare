@@ -1,3 +1,5 @@
+- content_for :head do
+  = tag :meta, name: "description", content: t('meta_description', appname: APPNAME)
 - title APPNAME
 #fb-root
 = render "shared/flash_messages"
