@@ -35,9 +35,16 @@ class ItinerariesController < ApplicationController
   end
 
   def edit
+    @itinerary = current_user.itineraries.find(params[:id])
   end
 
   def update
+    @itinerary = current_user.itineraries.find(params[:id])
+    if @itinerary.update_attributes(params[:itinerary])
+      redirect_to my_itineraries_path, flash: { success: t('flash.itinerary.success.update') }
+    else
+      render :edit
+    end
   end
 
   def destroy

@@ -1,0 +1,5 @@
+= bootstrap_form_for @itinerary, validate: true do |f|
+  = f.error_messages
+  = render "details_step", f: f
+  .form-actions
+    = f.submit class: "btn btn-primary"

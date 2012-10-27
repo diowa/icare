@@ -115,6 +115,7 @@ it-IT:
         destroy: Si è verificato un errore durante l'eliminazione del feedback.
     itinerary:
       success:
+        update: Itinerario aggiornato con successo.
         destroy: Itinerario eliminato con successo.
       error:
         destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.

@@ -115,6 +115,7 @@ en-US:
         destroy: An error occurred while destroying this feedback.
     itinerary:
       success:
+        update: Itinerary successfully updated.
         destroy: Itinerary successfully destroyed.
       error:
         destroy: An error occurred while destroying this itinerary.
