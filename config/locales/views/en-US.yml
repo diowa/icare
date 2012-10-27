@@ -289,17 +289,20 @@ en-US:
       title: Notifications
 
   conversations:
+    commons:
+      about: "About %{itinerary_link} by %{user_link}"
     index:
       title: Conversations
     show:
       title: Conversation
-      conversation_about: "Conversation about %{itinerary_link} by %{user_link}"
     new:
       title: New conversation
-      start_conversation_about: "Start a conversation about %{itinerary_link} by %{user_link}"
     messages:
       time_ago: "%{time} ago"
       seen: "Seen %{date}"
+    form:
+      write_a_message: Write a message...
+      send: Send
 
   references:
     index:

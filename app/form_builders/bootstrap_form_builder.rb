@@ -76,6 +76,7 @@ private
 
   def label_field(name, *args)
     options = args.extract_options!
+    return "".html_safe if options[:skip_label]
     required = object.class.validators_on(name).any? { |v| v.kind_of? ActiveModel::Validations::PresenceValidator }
     label(name, options[:label], class: "control-label#{" required" if required}")
   end

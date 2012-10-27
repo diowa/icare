@@ -99,6 +99,10 @@ input.width-max {
   margin: 0;
 }
 
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
 .diowa-logo {
   position: relative;
   display: inline-block;
@@ -279,7 +283,12 @@ footer {
 }
 
 .img-emboss {
-  background: @white;
+  position: relative;
+  background: @grayLighter;
+
+  &.img-emboss-50x50 {
+    .square(50px);
+  }
 
   &:before {
     position: absolute;
@@ -287,10 +296,7 @@ footer {
     content: "";
     border: 1px solid fade(@black, 10%);
     .box-sizing(border-box);
-  }
-
-  &.img-emboss-50x50:before {
-    .square(50px);
+    .square(100%);
   }
 }
 

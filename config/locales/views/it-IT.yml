@@ -289,17 +289,20 @@ it-IT:
       title: Notifiche
 
   conversations:
+    commons:
+      about: "Su %{itinerary_link} di %{user_link}"
     index:
       title: Conversazioni
     show:
       title: Conversazione
-      conversation_about: "Conversazione su %{itinerary_link} di %{user_link}"
     new:
       title: Nuova conversazione
-      start_conversation_about: "Inizia una conversazione su %{itinerary_link} di %{user_link}"
     messages:
       seen: "Visualizzato il %{date}"
       time_ago: "%{time} fa"
+    form:
+      write_a_message: Scrivi un messaggio...
+      send: Invia
 
   references:
     index:
