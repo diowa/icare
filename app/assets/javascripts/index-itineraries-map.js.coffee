@@ -150,14 +150,14 @@ initItineraryIndex = ->
       $("#itineraries-spinner").hide()
     .bind "ajax:error", (evt, xhr, settings) ->
       $("#itineraries-thumbs").html """
-        <h4 class="error-text">#{I18n.t("javascript.an_error_occurred")}</h4>
+        <h3 class="error-text no-margin">#{I18n.t("javascript.an_error_occurred")}</h3>
         """
       false
     .bind "ajax:success", (evt, data, status, xhr) ->
       # TODO fix browser back, it calls ajax:success many times
       if data.length is 0
         $("#itineraries-thumbs").html """
-          <h4>#{I18n.t("javascript.no_itineraries_found")}</h4>
+          <h3 class="no-margin">#{I18n.t("javascript.no_itineraries_found")}</h3>
           """
       else
         $("#itineraries-thumbs").html ""

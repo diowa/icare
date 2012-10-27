@@ -7,6 +7,9 @@ it-IT:
     ampm: false
     formats:
       time_only: '%H:%M'
+  datetime:
+    formats:
+      message: ! '%A %e %B, %H:%M'
 
   boolean:
     "true": "Sì"
@@ -221,6 +224,8 @@ it-IT:
       application_settings: Impostazioni dell'applicazione
 
   itineraries:
+    commons:
+      about: "su %{itinerary_link} di %{user_link}"
     mine:
       title: I miei itinerari
     search:
@@ -289,8 +294,6 @@ it-IT:
       title: Notifiche
 
   conversations:
-    commons:
-      about: "Su %{itinerary_link} di %{user_link}"
     index:
       title: Conversazioni
     show:
@@ -309,10 +312,9 @@ it-IT:
       title: Referenze
     show:
       title: Referenza
-      reference_about: "Referenza su %{itinerary_link} inviata da %{user_link}"
+      didnt_write_yet: "%{name} non ha ancora scritto"
     new:
       title: New reference
-      send_reference_to: "Invia una referenza a %{user_link} su %{itinerary_link}"
     snippet:
       positives:
         zero: 0 positive
@@ -326,6 +328,8 @@ it-IT:
         zero: 0 negative
         one: "%{count} negativa"
         other: "%{count} negative"
+    form:
+      write_a_reference: Scrivi una referenza...
 
   javascript:
     no_itineraries_found: Nessun itinerario trovato

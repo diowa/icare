@@ -1,23 +1,21 @@
 class ReferencesController < ApplicationController
 
   skip_before_filter :check_admin, only: [:index]
+  before_filter :check_not_myself, only: [:new, :create, :edit, :update]
 
   after_filter :mark_as_read, only: [:show]
 
   def index
-    # TODO nested eager loading
     @references = current_user.references.desc(:updated_at).page params[:page]
   end
 
   def new
-    @itinerary = Itinerary.find(params[:itinerary_id])
     @reference = current_user.references.build
     @reference.itinerary = @itinerary
     @reference.build_references_outgoing
   end
 
   def create
-    @itinerary = Itinerary.find(params[:itinerary_id])
     @reference = Reference.build_from_params(params[:reference], current_user, @itinerary)
     if current_user.save
       redirect_to reference_path(@reference)
@@ -29,6 +27,7 @@ class ReferencesController < ApplicationController
 
   def show
     @reference = current_user.references.find(params[:id])
+    @itinerary = @reference.itinerary
   end
 
   def edit
@@ -46,6 +45,11 @@ class ReferencesController < ApplicationController
   end
 
 private
+
+  def check_not_myself
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    redirect_to root_path if @itinerary.user == current_user
+  end
 
   def mark_as_read
     @reference.update_attribute(:read, Time.now.utc)

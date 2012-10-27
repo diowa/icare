@@ -122,6 +122,7 @@
     height: 12px;
     padding: 2px 5px;
     font-weight: bold;
+    line-height: 13px;
     font-size: 10px;
     background: fade(@red, 80%);
   }
@@ -130,11 +131,16 @@
 .popover-ajax-content,
 .popover-static-content {
   margin-bottom: 9px;
+  padding: 10px 10px 9px !important;
 }
 
 .popover-title {
   font-family: @sansFontFamily;
   color: @grayDark;
+}
+
+.popover-content {
+  padding: 0 0 @baseLineHeight/2 0;
 }
 
 .popover-elements {
@@ -153,9 +159,7 @@
   }
 
   li + li {
-    margin-top: 5px;
-    border-top: 1px solid #ccc;
-    padding-top: 5px;
+    border-top: 1px solid @grayLighter;
   }
 
   .popover-element-avatar,
@@ -165,7 +169,7 @@
   }
 
   .popover-element-avatar {
-    width: 50px;
+    width: 30px;
     padding-right: 5px;
   }
 

@@ -21,7 +21,12 @@ class Reference
   scope :neutrals, where(:"references_incoming.rating" => 0)
   scope :negatives, where(:"references_incoming.rating" => -1)
 
-  validates :itinerary, uniqueness: { scope: :referencing_user_id }
+  validates :itinerary, uniqueness: { scope: :referencing_user_id, message: :already_present }
+  validate :not_by_myself
+
+  def not_by_myself
+    self.errors.add(:user, :yourself) if user.id == referencing_user_id
+  end
 
   def self.build_from_params(params, user, itinerary)
     reference = user.references.build(params)

@@ -78,6 +78,8 @@
                     %a{ href: "#" }
                       = t(".report_itinerary")
         - else
-          = link_to root_path, class: "btn btn-facebook" do
-            %i.icon-facebook-sign.icon-large
-            = t(".login_to_contact")
+          .btn-toolbar
+            - session[:redirect_to] = itinerary_path(@itinerary)
+            = link_to auth_at_provider_path(provider: :facebook), class: "btn btn-facebook", data: { :"no-turbolink" => true } do
+              %i.icon-facebook-sign.icon-large
+              = t(".login_to_contact")

@@ -2,7 +2,7 @@
   = hidden_field_tag :itinerary_id, @itinerary.id
   = f.error_messages
   = f.fields_for @reference.references_outgoing do |outgoing_f|
-    = outgoing_f.text_area :body, rows: 5, class: "input-xxlarge"
+    = outgoing_f.text_area :body, rows: 5, class: "input-xxlarge", placeholder: t(".write_a_reference"), skip_label: true
     .control-group
       = outgoing_f.label nil, Reference.human_attribute_name(:rating), class: "control-label"
       .controls

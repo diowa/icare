@@ -23,4 +23,4 @@
 
 translations:
   - file: "app/assets/javascripts/i18n/translations.js"
-    only: [ "*.date", "*.time", "*.javascript", "*.shared.navbar", "*.templates", "*.mongoid.attributes.itinerary" ]
+    only: [ "*.date", "*.time", "*.datetime", "*.javascript", "*.shared.navbar", "*.templates", "*.mongoid.attributes.itinerary" ]
