@@ -5,7 +5,7 @@ gem 'rails', '3.2.8'
 
 gem 'unicorn'
 
-gem 'mongoid', '3.0.6'
+gem 'mongoid'
 gem 'mongoid_slug'
 gem 'mongoid_geospatial'
 gem 'thin'
@@ -59,7 +59,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'twitter-bootstrap-rails', git: 'git://github.com/diowa/twitter-bootstrap-rails.git', branch: 'no-glyphicons'
+  gem 'twitter-bootstrap-rails'
   gem 'compass-rails'
   gem 'haml_assets'
   gem 'handlebars_assets'
