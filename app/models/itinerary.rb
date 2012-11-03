@@ -6,9 +6,6 @@ class Itinerary
   include Mongoid::MultiParameterAttributes
   include Mongoid::Slug
 
-  index({ start_location: 1 }, { background: true })
-  index({ end_location: 1 }, { background: true })
-
   VEHICLE = %w(car motorcycle van)
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 
@@ -23,8 +20,8 @@ class Itinerary
   has_many :conversations, as: :conversable, dependent: :destroy
 
   # Route
-  field :start_location, type: Point
-  field :end_location, type: Point
+  field :start_location, type: Point, spatial: true
+  field :end_location, type: Point, spatial: true
   field :via_waypoints, type: Array
   field :overview_path, type: Array
   field :overview_polyline, type: String
