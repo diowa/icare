@@ -60,8 +60,8 @@
     .row-fluid
       .span12
         - if logged_in?
-          - if current_user != @itinerary.user
-            .btn-toolbar
+          .btn-toolbar
+            - if current_user != @itinerary.user
               = link_to new_or_show_conversation_path(@conversation), class: "btn btn-primary" do
                 %i.icon-comment
                 = t(".contact", user: @itinerary.user_first_name)
@@ -77,6 +77,10 @@
                   %li
                     %a{ href: "#" }
                       = t(".report_itinerary")
+            - else
+              = link_to edit_itinerary_path(@itinerary), class: "btn" do
+                %i.icon-edit
+                = t("helpers.titles.edit", model: Itinerary.model_name.human)
         - else
           .btn-toolbar
             - session[:redirect_to] = itinerary_path(@itinerary)
