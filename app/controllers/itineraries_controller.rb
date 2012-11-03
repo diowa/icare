@@ -1,7 +1,7 @@
 class ItinerariesController < ApplicationController
 
   skip_before_filter :check_admin, only: [:index]
-  skip_before_filter :require_login, only: [:index, :show, :search]
+  skip_before_filter :require_login, only: [:show, :search]
 
   before_filter :check_gender, only: [:show]
 
