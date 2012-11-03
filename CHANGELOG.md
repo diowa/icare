@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.5.2
+-----
+* Automatically add 2d indexes
+
 0.5.1
 -----
 * Pink itineraries (itineraries only for women)
