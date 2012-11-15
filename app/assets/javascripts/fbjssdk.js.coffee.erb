@@ -49,14 +49,11 @@ loadFBsdk = ->
     return
   ) document
 
-do_on_load = ->
+# jQuery Turbolinks
+$ ->
   if $("#fb-root")[0]?
     if FB?
       # TODO fix
       FB.XFBML.parse($("body")[0], checkFBLoginStatus)
     else
       loadFBsdk()
-
-# Turbolinks
-$(document).ready do_on_load
-$(window).bind 'page:load', do_on_load

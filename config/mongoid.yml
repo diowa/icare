@@ -69,7 +69,7 @@ development:
         <<: *defaults_sessions_default_options
   options:
     <<: *defaults_options
-    
+
 test:
   <<: *defaults
   sessions:

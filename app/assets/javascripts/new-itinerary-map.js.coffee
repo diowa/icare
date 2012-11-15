@@ -316,10 +316,7 @@ initItineraryNew = ->
     $('select[id^=itinerary_return_date]').each ->
       $(this).attr "disabled", (if status then null else "disabled")
 
-do_on_load = ->
+# jQuery Turbolinks
+$ ->
   if $("#new_itinerary")[0]?
     initItineraryNew()
-
-# Turbolinks
-$(document).ready do_on_load
-$(window).bind 'page:load', do_on_load

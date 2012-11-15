@@ -189,10 +189,7 @@ initItineraryIndex = ->
       else
         $icon.removeClass("icon-chevron-down").addClass "icon-chevron-up"
 
-do_on_load = ->
+# jQuery Turbolinks
+$ ->
   if $("#index-itineraries-map")[0]?
     initItineraryIndex()
-
-# Turbolinks
-$(document).ready do_on_load
-$(window).bind 'page:load', do_on_load

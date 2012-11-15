@@ -59,7 +59,7 @@ module UsersHelper
           user_profile_picture(mutual_friend["id"], size: [25,25], style: nil) +
           mutual_friend["name"]
         end
-      end.join.html_safe + 
+      end.join.html_safe +
       if mutual_friends_list.size - 5 > 0
         link_to t(".and_others", count: mutual_friends_list.size - 5), "#", class: "disabled"
       else

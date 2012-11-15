@@ -65,4 +65,5 @@ group :assets do
   gem 'handlebars_assets'
   gem 'i18n-js'
   gem 'turbolinks'
+  gem 'jquery-turbolinks'
 end
