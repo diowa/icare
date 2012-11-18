@@ -1,5 +1,5 @@
-icare
-==============
+icare [![Build Status](http://secure.travis-ci.org/diowa/icare.png)](http://travis-ci.org/diowa/icare)
+=====
 
 **icare** is an open source [carpooling](http://en.wikipedia.org/wiki/Carpool) platform.
 
