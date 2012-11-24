@@ -22,7 +22,7 @@ $(document).on 'click', '.notifications', (e) ->
       success: (data) ->
         messages = ''
         for message in data
-          messages += HandlebarsTemplates['message'](message)
+          messages += HandlebarsTemplates['messages/show_in_popup'](message)
         if data.length > 0
           $popoverElement.find('span.count').text data.length
           $('.popover-ajax-content').html """

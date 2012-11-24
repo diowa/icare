@@ -27,8 +27,6 @@
                                      mock: true
               - if current_user.admin?
                 = navbar_notifications "Reports", id: "reports", icon: "flag", mock: true
-              %li.loading
-                #loading-spinner
         %ul.nav.pull-right
           %li#user-navbar-info
             = link_to user_path(current_user), class: "navbar-profile-picture" do
@@ -71,3 +69,6 @@
                   - if code != I18n.locale
                     %li
                       =link_to native_name, "?locale=#{code}"
+      %ul.nav.pull-right
+        %li.loading
+          #loading-spinner

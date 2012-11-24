@@ -1,5 +1,5 @@
-"use strict"
+'use strict'
 
 # jQuery Turbolinks
 $ ->
-  $("a[rel~=tooltip],i[rel~=tooltip]").tooltip()
+  $('a[rel~="tooltip"],i[rel~="tooltip"]').tooltip()

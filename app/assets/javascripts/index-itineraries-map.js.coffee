@@ -170,7 +170,7 @@ initItineraryIndex = ->
           color = routeColoursArray[index++ % routeColoursArray.length]
           drawPath this, color
           this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
-          row.append HandlebarsTemplates["itinerary"](this)
+          row.append HandlebarsTemplates['itineraries/thumbnail'](this)
         icare.map.fitBounds icare.latLngBounds
         $(".facebook-verified-tooltip").tooltip()
 

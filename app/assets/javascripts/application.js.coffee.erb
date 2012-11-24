@@ -31,18 +31,18 @@
 window.icare = window.icare || {}
 icare = window.icare
 
-I18n.defaultLocale = "<%= I18n.default_locale %>"
-I18n.locale = $("html").attr "lang"
+I18n.defaultLocale = '<%= I18n.default_locale %>'
+I18n.locale = $('html').attr 'lang'
 
 String::capitalize = ->
   this.replace /(?:^|\s)\S/g, (c) ->
     c.toUpperCase()
 
 setLoadingStatus = ->
-  $("#loading-spinner").show()
+  $('#loading-spinner').show()
 
 unsetLoadingStatus = ->
-  $("#loading-spinner").fadeOut()
+  $('#loading-spinner').fadeOut()
 
 # Turbolinks
 $(window).bind 'page:fetch', setLoadingStatus
