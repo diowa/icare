@@ -4,14 +4,17 @@
   = f.fields_for @reference.references_outgoing do |outgoing_f|
     = outgoing_f.text_area :body, rows: 5, class: "input-xxlarge", placeholder: t(".write_a_reference"), skip_label: true
     .control-group
-      = outgoing_f.label nil, Reference.human_attribute_name(:rating), class: "control-label"
       .controls
         .btn-group.btn-group-radio
           = outgoing_f.default_tag :radio_button, :rating, -1
-          = f.label "references_outgoing_rating_-1", Reference.human_attribute_name(:rating_negative), class: "btn"
+          = f.label "references_outgoing_rating_-1", class: "btn" do
+            %i.icon-thumbs-down
+            = Reference.human_attribute_name(:rating_negative)
           = outgoing_f.default_tag :radio_button, :rating, 0
           = f.label :references_outgoing_rating_0, Reference.human_attribute_name(:rating_neutral), class: "btn"
           = outgoing_f.default_tag :radio_button, :rating, 1
-          = f.label :references_outgoing_rating_1, Reference.human_attribute_name(:rating_positive), class: "btn"
+          = f.label :references_outgoing_rating_1, class: "btn" do
+            %i.icon-thumbs-up
+            = Reference.human_attribute_name(:rating_positive)
   .form-actions
     = f.submit class: 'btn btn-primary'

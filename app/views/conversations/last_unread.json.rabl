@@ -10,8 +10,9 @@ node(:message) do |conversation|
     read: m.read,
     sender:
       {
-        profile_picture: m.sender.profile_picture,
-        name: m.sender.name
+        # TODO Ex user object
+        profile_picture: m.sender ? m.sender.profile_picture : 'http://placehold.it/25x25',
+        name: m.sender ? m.sender.name : 'Ex user'
       }
   }
 end
