@@ -15,9 +15,6 @@
             %td= link_to user, user_path(user)
             %td= user.email
             %td.btn-toolbar
-              = link_to edit_user_path(user), class: "btn btn-small" do
-                %i.icon-edit
-                = t("helpers.links.edit")
               - if user.banned?
                 = link_to unban_user_path(user), method: :post, data: { confirm: t("helpers.links.confirm") }, class: "btn btn-small btn-warning" do
                   = t("helpers.links.user.unban")
