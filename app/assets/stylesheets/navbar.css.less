@@ -30,40 +30,43 @@
   vertical-align: top;
 }
 
-#user-navbar-info {
-  a {
-    display: inline-block;
-  }
-
-  .navbar-profile-picture {
+#navbar-user-info {
+  .navbar-profile-link {
     position: relative;
-    border: 1px solid @grayLighter;
-    padding: 0;
-    .square(25px);
 
-    &:hover {
-      border: 1px solid @white;
+    img {
+      position: absolute;
+      border: 1px solid @grayLighter;
+    }
+
+    span {
+      margin-left: 35px;
     }
   }
 }
 
 @media (min-width: 768px) {
-  #user-navbar-info {
-    .navbar-profile-picture {
-      top: -1px;
-    }
-
-    .navbar-profile-name {
-      padding-left: 5px;
+  #navbar-user-info {
+    .navbar-profile-link {
+      img {
+        top: 7px;
+        left: 15px;
+        .square(25px);
+      }
     }
   }
 }
 
 @media (max-width: 767px) {
-  #user-navbar-info {
-    .navbar-profile-picture {
-      top: 5px;
-      .square(30px);
+  #navbar-user-info {
+    .navbar-profile-link {
+      .size(21px, 18px);
+
+      img {
+        top: 5px;
+        left: 9px;
+        .square(30px);
+      }
     }
   }
 

@@ -28,11 +28,10 @@
               - if current_user.admin?
                 = navbar_notifications "Reports", id: "reports", icon: "flag", mock: true
         %ul.nav.pull-right
-          %li#user-navbar-info
-            = link_to user_path(current_user), class: "navbar-profile-picture" do
+          %li#navbar-user-info
+            = link_to user_path(current_user), class: "navbar-profile-link" do
               = user_profile_picture current_user, size: [], style: nil
-            = link_to user_path(current_user), class: "navbar-profile-name hidden-phone" do
-              = current_user
+              %span.hidden-phone= current_user
           %li.dropdown
             = link_to "#", data: { toggle: "dropdown" }, class: "dropdown-toggle" do
               %i.icon-chevron-down
