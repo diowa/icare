@@ -156,7 +156,7 @@ class User
 
   def facebook_profile_batch(other_user = nil)
     fb_favorites = ["music", "books", "movies", "television", "games", "activities", "interests"] #"athletes", "sports_teams", "sports", "inspirational_people"
-    batch = [{}, {}] 
+    batch = [{}, {}]
     facebook do |fb|
       batch = fb.batch do |batch_api|
         batch_api.get_connections('me', "friends", limit: 1001)
