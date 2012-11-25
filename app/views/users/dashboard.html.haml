@@ -16,7 +16,7 @@
           %i.icon-globe.icon-large
           = t(".new_notifications", count: 0)
       %p
-        = link_to :references, class: "btn btn-large btn-block" do
+        = link_to user_references_path(current_user), class: "btn btn-large btn-block" do
           %i.icon-thumbs-up.icon-large
           = t(".new_references", count: current_user.unread_references_count)
   .span6

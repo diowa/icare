@@ -1,19 +1,20 @@
-= bootstrap_form_for @reference, validate: true, html: { class: 'form-vertical' } do |f|
+= bootstrap_form_for [current_user, @reference], validate: true, html: { class: 'form-vertical' } do |f|
   = hidden_field_tag :itinerary_id, @itinerary.id
   = f.error_messages
-  = f.fields_for @reference.references_outgoing do |outgoing_f|
+  = f.fields_for :outgoing do |outgoing_f|
+    - outgoing_f.object = @reference.outgoing
     = outgoing_f.text_area :body, rows: 5, class: "input-xxlarge", placeholder: t(".write_a_reference"), skip_label: true
     .control-group
       .controls
         .btn-group.btn-group-radio
           = outgoing_f.default_tag :radio_button, :rating, -1
-          = f.label "references_outgoing_rating_-1", class: "btn" do
+          = f.label "outgoing_attributes_rating_-1", class: "btn" do
             %i.icon-thumbs-down
             = Reference.human_attribute_name(:rating_negative)
           = outgoing_f.default_tag :radio_button, :rating, 0
-          = f.label :references_outgoing_rating_0, Reference.human_attribute_name(:rating_neutral), class: "btn"
+          = f.label :outgoing_attributes_rating_0, Reference.human_attribute_name(:rating_neutral), class: "btn"
           = outgoing_f.default_tag :radio_button, :rating, 1
-          = f.label :references_outgoing_rating_1, class: "btn" do
+          = f.label :outgoing_attributes_rating_1, class: "btn" do
             %i.icon-thumbs-up
             = Reference.human_attribute_name(:rating_positive)
   .form-actions

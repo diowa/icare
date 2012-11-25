@@ -23,7 +23,7 @@
         %span= t("references.snippet.positives", count: @user.references.positives.count)
         %span= t("references.snippet.neutrals", count: @user.references.neutrals.count)
         %span= t("references.snippet.negatives", count: @user.references.negatives.count)
-        = link_to t(".see_all"), "#", class: "disabled"
+        = link_to t(".see_all"), user_references_path(@user)
       %dt
         %span.description-facebook= t(".basic_info")
       %dd

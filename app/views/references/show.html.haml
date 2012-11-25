@@ -3,30 +3,8 @@
   .span12
     %h1.no-margin-bottom= yield :title
     %p= t("itineraries.commons.about", itinerary_link: link_to(@itinerary, itinerary_path(@itinerary)), user_link: link_to(@itinerary.user, user_path(@itinerary.user))).html_safe
-    %table
-      %tbody
-        %tr
-          - if @reference.references_incoming
-            %td.profile-picture-cell.vertical-align-top
-              .img-outset= user_profile_picture @reference.referencing_user, style: nil
-            %td.vertical-align-top
-              .balloon.for-profile-picture
-                %h5.no-margin= link_to @reference.referencing_user, user_path(@reference.referencing_user)
-                %p.pre-line= @reference.references_incoming.body
-          - else
-            %td{ colspan: 2 }
-              %p.muted= t(".didnt_write_yet", name: @reference.referencing_user.first_name)
-        %tr
-          %td
-            .spacer
-        %tr
-          - if @reference.references_outgoing && @reference.references_outgoing.body?
-            %td.profile-picture-cell.vertical-align-top
-              .img-outset= user_profile_picture @reference.user, style: nil
-            %td.vertical-align-top
-              .balloon.for-profile-picture
-                %h5.no-margin= link_to @reference.user, user_path(@reference.user)
-                %p.pre-line= @reference.references_outgoing.body
-    - unless @reference.references_outgoing && @reference.references_outgoing.body?
-      - @reference.build_references_outgoing
+    = render '_reference', reference: @reference
+    - unless @reference.outgoing && @reference.outgoing.body?
+      .spacer
+      - @reference.build_outgoing
       = render 'form'

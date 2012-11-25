@@ -52,6 +52,6 @@ module ReferencesHelper
   end
 
   def new_or_show_reference_path(reference, itinerary)
-    reference && reference.persisted? ? reference_path(reference) : new_reference_path(itinerary_id: itinerary.id)
+    reference && reference.persisted? ? user_reference_path(current_user, reference) : new_user_reference_path(current_user, itinerary_id: itinerary.id)
   end
 end
