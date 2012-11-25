@@ -308,11 +308,12 @@ en-US:
       send: Send
 
   references:
+    _reference:
+      didnt_write_yet: "%{name} didn't write yet"
     index:
       title: References
     show:
       title: Reference
-      didnt_write_yet: "%{name} didn't write yet"
     new:
       title: New reference
     snippet:

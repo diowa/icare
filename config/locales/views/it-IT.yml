@@ -308,11 +308,12 @@ it-IT:
       send: Invia
 
   references:
+    _reference:
+      didnt_write_yet: "%{name} non ha ancora scritto"
     index:
       title: Referenze
     show:
       title: Referenza
-      didnt_write_yet: "%{name} non ha ancora scritto"
     new:
       title: New reference
     snippet:
