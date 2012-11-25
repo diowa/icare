@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.5.4
+-----
+* Fixed missing string in reference partial
+
 0.5.3
 -----
 * Rails 3.2.9
