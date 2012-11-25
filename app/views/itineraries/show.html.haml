@@ -9,7 +9,7 @@
       %tbody
         %tr
           %td.profile-picture-cell.vertical-align-top
-            .img-emboss.img-emboss-50x50
+            .img-outset
               - if logged_in?
                 = user_profile_picture @itinerary.user, style: nil
               - else

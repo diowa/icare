@@ -8,11 +8,11 @@
         %tr
           - if @reference.references_incoming
             %td.profile-picture-cell.vertical-align-top
-              .img-emboss.img-emboss-50x50= user_profile_picture @reference.referencing_user, style: nil
+              .img-outset= user_profile_picture @reference.referencing_user, style: nil
             %td.vertical-align-top
               .balloon.for-profile-picture
                 %h5.no-margin= link_to @reference.referencing_user, user_path(@reference.referencing_user)
-                %p.pre-line=# @reference.references_incoming.body
+                %p.pre-line= @reference.references_incoming.body
           - else
             %td{ colspan: 2 }
               %p.muted= t(".didnt_write_yet", name: @reference.referencing_user.first_name)
@@ -22,7 +22,7 @@
         %tr
           - if @reference.references_outgoing && @reference.references_outgoing.body?
             %td.profile-picture-cell.vertical-align-top
-              .img-emboss.img-emboss-50x50= user_profile_picture @reference.user, style: nil
+              .img-outset= user_profile_picture @reference.user, style: nil
             %td.vertical-align-top
               .balloon.for-profile-picture
                 %h5.no-margin= link_to @reference.user, user_path(@reference.user)

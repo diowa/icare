@@ -284,22 +284,21 @@ footer {
   color: @pink;
 }
 
-.img-emboss {
+.img-outset {
+  display: inline-block;
   position: relative;
-  background: @grayLighter;
-
-  &.img-emboss-50x50 {
-    .square(50px);
-  }
 
   &:before {
     position: absolute;
-    display: block;
-    content: "";
-    border: 1px solid fade(@black, 10%);
-    .box-sizing(border-box);
     .square(100%);
+    border: 1px solid fade(@black, 10%);
+    content: "";
+    .box-sizing(border-box);
   }
+}
+
+.img-outset-dark:before {
+  border: 1px solid fade(@black, 50%);
 }
 
 .btn-checkbox {
