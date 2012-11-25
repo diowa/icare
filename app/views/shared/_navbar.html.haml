@@ -45,12 +45,18 @@
                 = link_to :logout do
                   %i.icon-signout
                   = t("logout")
+        %ul.nav.pull-right
+          %li.loading
+            #loading-spinner
       - else
         %ul.nav.pull-right
           %li
             = link_to auth_at_provider_path(provider: :facebook), data: { :"no-turbolink" => true } do
               %i.icon-facebook-sign
               = t("login_with_facebook")
+        %ul.nav.pull-right
+          %li.loading
+            #loading-spinner
         .nav-collapse
           %ul.nav
             %li.divider-vertical
@@ -68,6 +74,3 @@
                   - if code != I18n.locale
                     %li
                       =link_to native_name, "?locale=#{code}"
-      %ul.nav.pull-right
-        %li.loading
-          #loading-spinner
