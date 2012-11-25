@@ -7,6 +7,9 @@ en-US:
     ampm: true
     formats:
       time_only: '%I:%M %p'
+  datetime:
+    formats:
+      message: ! '%A %B %e, %I:%M'
 
   boolean:
     "true": "Yes"
@@ -42,6 +45,9 @@ en-US:
     itineraries:
       read_more: Read more
       show_on_map: Show on map
+      facebook_verified: Verified on Facebook
+
+  meta_description: "%{appname} is an open source carpooling platform. Share your itineraries, save money and earn friends."
 
   login: Log in
   login_with_facebook: Login with Facebook
@@ -112,6 +118,7 @@ en-US:
         destroy: An error occurred while destroying this feedback.
     itinerary:
       success:
+        update: Itinerary successfully updated.
         destroy: Itinerary successfully destroyed.
       error:
         destroy: An error occurred while destroying this itinerary.
@@ -218,12 +225,15 @@ en-US:
       application_settings: Application settings
 
   itineraries:
+    commons:
+      about: "about %{itinerary_link} by %{user_link}"
     mine:
       title: My itineraries
     search:
       advanced_search: Advanced search
       the_same: Not specified
       search: Search
+      verified_users: Verified users
     index:
       title: Search itineraries
     show:
@@ -288,23 +298,23 @@ en-US:
       title: Conversations
     show:
       title: Conversation
-      conversation_about: "Conversation about %{itinerary_link} by %{user_link}"
     new:
       title: New conversation
-      start_conversation_about: "Start a conversation about %{itinerary_link} by %{user_link}"
     messages:
       time_ago: "%{time} ago"
       seen: "Seen %{date}"
+    form:
+      write_a_message: Write a message...
+      send: Send
 
   references:
     index:
       title: References
     show:
       title: Reference
-      reference_about: "Reference about %{itinerary_link} sent by %{user_link}"
+      didnt_write_yet: "%{name} didn't write yet"
     new:
       title: New reference
-      send_reference_to: "Send a reference to %{user_link} about %{itinerary_link}"
     snippet:
       positives:
         zero: 0 positives
@@ -318,6 +328,8 @@ en-US:
         zero: 0 negatives
         one: "%{count} negative"
         other: "%{count} negatives"
+    form:
+      write_a_reference: Write a reference...
 
   javascript:
     no_itineraries_found: No itineraries found

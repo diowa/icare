@@ -2,18 +2,18 @@
 - opengraph_header_content @itinerary
 .row
   .span3
-    = image_tag @itinerary.static_map, class: "thumbnail border-box", alt: ""
+    = image_tag @itinerary.static_map, class: "img-polaroid border-box", alt: ""
   .span9
-    %h1.pacifico
-      = @itinerary.title || Itinerary.model_name.human
+    %h1= @itinerary.title || Itinerary.model_name.human
     %table
       %tbody
         %tr
           %td.profile-picture-cell.vertical-align-top
-            - if logged_in?
-              = user_profile_picture @itinerary.user, class: "inline-block"
-            - else
-              = image_tag "http://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif", width: 50, height: 50, class: "inline-block thumbnail", alt: ""
+            .img-outset
+              - if logged_in?
+                = user_profile_picture @itinerary.user, style: nil
+              - else
+                = image_tag "http://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif", width: 50, height: 50, style: nil
           %td.vertical-align-top
             .balloon.for-profile-picture
               - if logged_in?
@@ -60,8 +60,8 @@
     .row-fluid
       .span12
         - if logged_in?
-          - if current_user != @itinerary.user
-            .btn-toolbar
+          .btn-toolbar
+            - if current_user != @itinerary.user
               = link_to new_or_show_conversation_path(@conversation), class: "btn btn-primary" do
                 %i.icon-comment
                 = t(".contact", user: @itinerary.user_first_name)
@@ -77,7 +77,13 @@
                   %li
                     %a{ href: "#" }
                       = t(".report_itinerary")
+            - else
+              = link_to edit_itinerary_path(@itinerary), class: "btn" do
+                %i.icon-edit
+                = t("helpers.titles.edit", model: Itinerary.model_name.human)
         - else
-          = link_to root_path, class: "btn btn-facebook" do
-            %i.icon-facebook-sign.icon-large
-            = t(".login_to_contact")
+          .btn-toolbar
+            - session[:redirect_to] = itinerary_path(@itinerary)
+            = link_to auth_at_provider_path(provider: :facebook), class: "btn btn-facebook", data: { :"no-turbolink" => true } do
+              %i.icon-facebook-sign.icon-large
+              = t(".login_to_contact")

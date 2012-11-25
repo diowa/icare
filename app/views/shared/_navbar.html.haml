@@ -10,27 +10,28 @@
         = image_tag "turtle.svg", class: "brand-logo"
         %span.hidden-phone= APPNAME
       - if logged_in?
-        %ul#navbar-notifications-list.nav
-          %li.divider-vertical.hidden-phone
-          = navbar_notifications Message.model_name.human(count: :lot),
-                                 id: "messages",
-                                 icon: "comments",
-                                 unread: current_user.unread_conversations_count,
-                                 link: link_to(t(".see_all_messages"), :conversations),
-                                 ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0),
-                                 content: t(".no_new_messages")
-          = navbar_notifications Notification.model_name.human(count: :lot),
-                                 id: "notifications",
-                                 icon: "globe",
-                                 mock: true
-          - if current_user.admin?
-            = navbar_notifications "Reports", id: "reports", icon: "flag", mock: true
+        .center-notifications
+          .center-notifications-container
+            %ul#navbar-notifications-list.nav
+              %li.divider-vertical.hidden-phone
+              = navbar_notifications Message.model_name.human(count: :lot),
+                                     id: "messages",
+                                     icon: "comments",
+                                     unread: current_user.unread_conversations_count,
+                                     link: link_to(t(".see_all_messages"), :conversations),
+                                     ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0),
+                                     content: t(".no_new_messages")
+              = navbar_notifications Notification.model_name.human(count: :lot),
+                                     id: "notifications",
+                                     icon: "globe",
+                                     mock: true
+              - if current_user.admin?
+                = navbar_notifications "Reports", id: "reports", icon: "flag", mock: true
         %ul.nav.pull-right
-          %li#user-navbar-info
-            = link_to user_path(current_user), class: "navbar-profile-picture" do
-              = user_profile_picture current_user, size: [], thumbnail: false
-            = link_to user_path(current_user), class: "navbar-profile-name hidden-phone" do
-              = current_user
+          %li#navbar-user-info
+            = link_to user_path(current_user), class: "navbar-profile-link" do
+              = user_profile_picture current_user, size: [], style: nil
+              %span.hidden-phone= current_user
           %li.dropdown
             = link_to "#", data: { toggle: "dropdown" }, class: "dropdown-toggle" do
               %i.icon-chevron-down
@@ -39,21 +40,30 @@
                 = link_to :settings do
                   %i.icon-cog
                   = t(".user_settings")
+              %li.divider
               %li
                 = link_to :logout do
                   %i.icon-signout
                   = t("logout")
+        %ul.nav.pull-right
+          %li.loading
+            #loading-spinner
       - else
         %ul.nav.pull-right
           %li
             = link_to auth_at_provider_path(provider: :facebook), data: { :"no-turbolink" => true } do
               %i.icon-facebook-sign
               = t("login_with_facebook")
+        %ul.nav.pull-right
+          %li.loading
+            #loading-spinner
         .nav-collapse
           %ul.nav
             %li.divider-vertical
             %li= link_to t("how_it_works"), :how_it_works
             %li= link_to t("about"), :about
+            %li.loading
+              #loading-spinner
           %ul.nav.pull-right
             %li.dropdown.pull-right
               = link_to "#", data: { toggle: "dropdown" }, class: "dropdown-toggle" do

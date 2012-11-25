@@ -5,14 +5,10 @@
     %h1= yield(:title)
 .row
   .span12
+    %p.lead= t(".user_profile_details")
     = bootstrap_form_for @user, validate: true, html: {  class: "form-horizontal" } do |f|
       = f.error_messages
       %fieldset
-        .control-group
-          .controls
-            %p.help-block
-              %i.icon-info-sign.icon-large
-              = t(".user_profile_details")
         = f.select :nationality, Country.sorted.collect {|c| [ c._name, c.code ] }, { include_blank: true }, help: false
       %legend= t(".vehicle_information")
       %fieldset

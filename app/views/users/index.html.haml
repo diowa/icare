@@ -6,21 +6,15 @@
   .span12
     %table.table.table-striped
       %thead
-        %th ID
         %th Name
         %th Email
         %th Actions
       %tbody
         - @users.sorted.each do |user, index|
           %tr.vertical-align-middle
-            %td= user.id
-            %td
-              = link_to user, user_path(user)
+            %td= link_to user, user_path(user)
             %td= user.email
             %td.btn-toolbar
-              = link_to edit_user_path(user), class: "btn btn-small" do
-                %i.icon-edit
-                = t("helpers.links.edit")
               - if user.banned?
                 = link_to unban_user_path(user), method: :post, data: { confirm: t("helpers.links.confirm") }, class: "btn btn-small btn-warning" do
                   = t("helpers.links.user.unban")

@@ -8,16 +8,58 @@
    ========================================================================== */
 
 @blueFacebook: #3b5998;
-@blueIcare: #16576b;
+@icareMainColor: #16576b;
+
+/* Desaturating some colours
+   ========================================================================== */
+
+@amount: 10%;
+
+@blue:                  desaturate(#049cdb, @amount);
+@blueDark:              desaturate(#0064cd, @amount);
+@green:                 desaturate(#46a546, @amount);
+@red:                   desaturate(#9d261d, @amount);
+@yellow:                desaturate(#ffc40d, @amount);
+@orange:                desaturate(#f89406, @amount);
+@pink:                  desaturate(#c3325f, @amount);
+@purple:                desaturate(#7a43b6, @amount);
+
+@btnInfoBackground:                 desaturate(#5bc0de, @amount);
+@btnInfoBackgroundHighlight:        desaturate(#2f96b4, @amount);
+
+@btnSuccessBackground:              desaturate(#62c462, @amount);
+@btnSuccessBackgroundHighlight:     desaturate(#51a351, @amount);
+
+@btnWarningBackground:              desaturate(lighten(@orange, 15%), @amount);
+@btnWarningBackgroundHighlight:     desaturate(@orange, @amount);
+
+@btnDangerBackground:               desaturate(#ee5f5b, @amount);
+@btnDangerBackgroundHighlight:      desaturate(#bd362f, @amount);
+
+@warningText:             desaturate(#c09853, @amount);
+@warningBackground:       desaturate(#fcf8e3, @amount);
+@warningBorder:           desaturate(darken(spin(@warningBackground, -10), 3%), @amount);
+
+@errorText:               desaturate(#b94a48, @amount);
+@errorBackground:         desaturate(#f2dede, @amount);
+@errorBorder:             desaturate(darken(spin(@errorBackground, -10), 3%), @amount);
+
+@successText:             desaturate(#468847, @amount);
+@successBackground:       desaturate(#dff0d8, @amount);
+@successBorder:           desaturate(darken(spin(@successBackground, -10), 5%), @amount);
+
+@infoText:                desaturate(#3a87ad, @amount);
+@infoBackground:          desaturate(#d9edf7, @amount);
+@infoBorder:              desaturate(darken(spin(@infoBackground, -10), 7%), @amount);
 
 /* Bootstrap variables override
    ========================================================================== */
 
-@sansFontFamily: "Oxygen", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-@linkColor: lighten(@blueIcare, 10%);
+@linkColor: lighten(@icareMainColor, 10%);
 
-@navbarBackground: fade(@blueIcare, 70%);
+@navbarBackground: fade(@icareMainColor, 70%);
 @navbarBackgroundHighlight: lighten(@navbarBackground, 10%);
 
 @navbarText: @grayLighter;
@@ -26,3 +68,4 @@
 @navbarLinkColorActive: @white;
 @navbarLinkBackgroundHover: fade(@white, 5%);
 @navbarLinkBackgroundActive: darken(@navbarBackground, 5%);
+

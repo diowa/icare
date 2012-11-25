@@ -1,26 +1,25 @@
 class ReferencesController < ApplicationController
 
   skip_before_filter :check_admin, only: [:index]
+  before_filter :check_not_myself, only: [:new, :create]
 
   after_filter :mark_as_read, only: [:show]
 
   def index
-    # TODO nested eager loading
-    @references = current_user.references.desc(:updated_at).page params[:page]
+    @user = User.any_of({ username: params[:user_id] }, { uid: params[:user_id] }, { _id: params[:user_id] }).first
+    @references = @user.references.desc(:updated_at).page params[:page]
   end
 
   def new
-    @itinerary = Itinerary.find(params[:itinerary_id])
     @reference = current_user.references.build
     @reference.itinerary = @itinerary
-    @reference.build_references_outgoing
+    @reference.build_outgoing
   end
 
   def create
-    @itinerary = Itinerary.find(params[:itinerary_id])
     @reference = Reference.build_from_params(params[:reference], current_user, @itinerary)
     if current_user.save
-      redirect_to reference_path(@reference)
+      redirect_to user_reference_path(current_user, @reference)
     else
       flash.now[:error] = @reference.errors.full_messages
       render :new
@@ -28,17 +27,19 @@ class ReferencesController < ApplicationController
   end
 
   def show
-    @reference = current_user.references.find(params[:id])
+    @user = User.any_of({ username: params[:user_id] }, { uid: params[:user_id] }, { _id: params[:user_id] }).first
+    @reference = @user.references.find(params[:id])
+    @itinerary = @reference.itinerary
   end
 
   def edit
-    @reference.outgoing_reference.content_required = true
+    @reference = current_user.references.find(params[:id])
   end
 
   def update
-    @reference.outgoing_reference.content_required = true
-    if @reference.outgoing_reference.update_attributes(params[:incoming_reference][:outgoing_reference_attributes])
-      redirect_to calendar_path, flash: { success: t('flash.success.reference_updated') }
+    @reference = current_user.references.find(params[:id])
+    if @reference.update_attributes(params[:reference])
+      redirect_to user_reference_path(current_user, @reference)
     else
       flash.now[:error] = @reference.errors.full_messages
       render "edit"
@@ -46,6 +47,11 @@ class ReferencesController < ApplicationController
   end
 
 private
+
+  def check_not_myself
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    redirect_to root_path if @itinerary.user == current_user
+  end
 
   def mark_as_read
     @reference.update_attribute(:read, Time.now.utc)

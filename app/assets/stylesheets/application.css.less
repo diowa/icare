@@ -10,11 +10,32 @@
  *
  *= require_self
  *= require_tree .
- *= stub ./stubs
+ *= stub /stubs
 */
 
 @import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
+
+/* Some browser fixes
+   ========================================================================== */
+
+/* Prevent Firefox outline */
+a {
+  outline: none !important;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+/* Disable text shadow on highlighting */
+::-moz-selection,
+::-webkit-selection,
+::selection {
+  color: #fff;
+  background: @linkColorHover;
+  text-shadow:none;
+}
 
 .pacifico {
   font-family: "Pacifico";
@@ -23,6 +44,7 @@
 
 h1.pacifico {
   line-height: 44px;
+  margin: 10px 0 @baseLineHeight;
 }
 
 .width-max {
@@ -77,6 +99,10 @@ input.width-max {
   margin: 0;
 }
 
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
 .diowa-logo {
   position: relative;
   display: inline-block;
@@ -110,10 +136,10 @@ input.width-max {
   display: inline-block;
   width: 100%;
   border: 1px solid #ddd;
-  .border-radius(4px);
   padding: 8px 10px;
-  background: white;
+  background: @white;
   .box-shadow(0 1px 1px fade(@black, 7.5%));
+  .box-sizing(border-box);
 
   &:after, &:before {
     position: absolute;
@@ -154,7 +180,7 @@ input.width-max {
 
       &:after,
       &:before {
-        top: 30px;
+        top: 25px;
       }
     }
   }
@@ -187,8 +213,9 @@ input[type=text] {
 }
 
 body {
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGAgMAAACdogfbAAAACVBMVEX////8/Pz39/eV2hHsAAAAGUlEQVR4XiXCAQkAAADCsOe0nz3lOEZwfQMXNwH/qkrDbwAAAABJRU5ErkJggg%3D%3D');
-  .background-size(3px 3px);
+  /* background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGAgMAAACdogfbAAAACVBMVEX////8/Pz39/eV2hHsAAAAGUlEQVR4XiXCAQkAAADCsOe0nz3lOEZwfQMXNwH/qkrDbwAAAABJRU5ErkJggg%3D%3D'); */
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAjCAMAAABM6rEUAAAAGFBMVEX5+fn39/f19fX9/f37+/v+/v74+Pj09PTHGNTzAAAAU0lEQVR42s2RUQrAMAhDY7Xt/W+82eS7UIpj+VCeoIQIWEt5WMpJCKzefaQ66a0zNYyNVDaVJciSSJZkMEjQqg41UsF04+wPmZ1887PM7r9ZmtkDfVYOC3QmDyYAAAAASUVORK5CYII=');
+  .background-size(11px 17px);
 }
 
 .inline-flag {
@@ -199,7 +226,8 @@ body {
 }
 
 #footer {
-  border-top: 1px solid @white;
+  margin-top: @baseLineHeight;
+  border-top: 1px solid fade(@black, 15%);
   padding: @baseLineHeight 0;
   #gradient > .vertical(fade(@black, 5%), fade(@black, 0%));
   background-color: transparent !important;
@@ -242,13 +270,35 @@ footer {
   }
 }
 
-/* Twitter Bootstrap FIX */
-@media(max-width: 979px) {
-  .nav-collapse .dropdown-menu:before,
-  .nav-collapse .dropdown-menu:after,
-  .nav-collapse li.dropdown > .dropdown-toggle .caret {
-    display: none !important;
+.attribution {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 10px;
+  color: fade(@white, 50%);
+  cursor: default;
+  .user-select(none);
+}
+
+.pink-text {
+  color: @pink;
+}
+
+.img-outset {
+  display: inline-block;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    .square(100%);
+    border: 1px solid fade(@black, 10%);
+    content: "";
+    .box-sizing(border-box);
   }
+}
+
+.img-outset-dark:before {
+  border: 1px solid fade(@black, 50%);
 }
 
 .btn-checkbox {
@@ -272,16 +322,26 @@ footer {
   }
 }
 
-.attribution {
-  position: absolute;
-  bottom: 5px;
-  right: 10px;
-  font-size: 10px;
-  color: fade(@white, 50%);
-  cursor: default;
-  .user-select(none);
+.facebook-bg {
+  background: @blueFacebook;
 }
 
-.pink-text {
-  color: @pink;
+.facebook-color {
+  color: @blueFacebook;
+}
+
+.spacer {
+  height: @baseLineHeight;
+}
+
+.div-table {
+  display: table;
+  .box-sizing(border-box);
+  width: auto;
+
+  .div-table-cell {
+    display: table-cell;
+    vertical-align: top;
+    text-align: left;
+  }
 }

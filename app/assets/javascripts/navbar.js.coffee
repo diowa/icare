@@ -11,14 +11,18 @@ $(document).on 'click', '.notifications', (e) ->
   $me = $(this)
   $(".notifications").not("##{$me.attr('id')}").removeClass('active').find('a').popover 'hide'
   $popoverElement = $me.toggleClass('active').find('a')
-  $popoverElement.popover 'toggle'
+  # TODO use toggle when bootstrap will be updated to 2.2.2
+  if $me.find(".popover")[0]?
+    $popoverElement.popover 'hide'
+  else
+    $popoverElement.popover 'show'
   if $('.popover.in')[0]? and $popoverElement.data("load")?
     $.ajax
       url: $popoverElement.data('load')
       success: (data) ->
         messages = ''
         for message in data
-          messages += HandlebarsTemplates['message'](message)
+          messages += HandlebarsTemplates['messages/show_in_popup'](message)
         if data.length > 0
           $popoverElement.find('span.count').text data.length
           $('.popover-ajax-content').html """

@@ -7,7 +7,7 @@ module UsersHelper
   def user_profile_picture(user, opts = {})
     options = { size: [50, 50],
                 type: :square,
-                thumbnail: true,
+                style: "img-polaroid",
                 html: {}
               }.merge(opts)
     tag(:img,
@@ -15,7 +15,7 @@ module UsersHelper
         height: ("#{options[:size][1]}px" if options[:size][1]),
         src: facebook_profile_picture(user, options[:type]),
         alt: "",
-        class: [("verified" if user.class == User.model_name && user.facebook_verified?), ("thumbnail" if options[:thumbnail]), options[:class]].compact.join(" ") }.merge(options[:html]))
+        class: [("verified" if user.class == User.model_name && user.facebook_verified?), options[:style], options[:class]].compact.join(" ") }.merge(options[:html]))
   end
 
   def nationality_flag(user, tooltip = true, tooltip_placement = "bottom")
@@ -45,6 +45,59 @@ module UsersHelper
                   href: "#",
                   rel: "popover",
                   data: { placement: 'bottom', content: content, title: title, html: true, trigger: "manual", load: (options[:ajax]) })
+    end
+  end
+
+  def mutual_friends(mutual_friends_list, limit = 5)
+    return unless mutual_friends_list.any?
+    content_tag(:dt) do
+      content_tag(:span, t(".common_friends"), class: "description-facebook")
+    end +
+    content_tag(:dd, class: "friends") do
+      mutual_friends_list.sample(limit).map do |mutual_friend|
+        content_tag(:span) do
+          user_profile_picture(mutual_friend["id"], size: [25,25], style: nil) +
+          mutual_friend["name"]
+        end
+      end.join.html_safe +
+      if mutual_friends_list.size - 5 > 0
+        link_to t(".and_others", count: mutual_friends_list.size - 5), "#", class: "disabled"
+      else
+        "".html_safe
+      end
+    end
+  end
+
+  def work_and_education_tags(user, field)
+    return unless user[field] && user[field].any?
+    user_work_or_edu = user[field].map{ |field| { "name" => field.first.second["name"], "id" => field.first.second["id"] } }
+    my_field = current_user[field]
+    if (render_common_work_or_edu = (user != current_user) && my_field && my_field.any?)
+      my_work_or_edu = my_field.map{ |field| { "name" => field.first.second["name"], "id" => field.first.second["id"] } }
+    end
+    render_tags user_work_or_edu, my_work_or_edu, render_common_tags: render_common_work_or_edu, content: User.human_attribute_name(field), class: "description-facebook"
+  end
+
+  def likes_tags(user, user_likes)
+    return unless user_likes && user_likes.any?
+    if (render_common_tags = (user != current_user))
+      my_likes = current_user.facebook_likes
+    end
+    render_tags user_likes, my_likes, render_common_tags: render_common_tags, content: t(".likes"), class: "description-facebook"
+  end
+
+  def render_tags(user_tags, my_tags, opts = {})
+    options = { render_common_tags: false }.merge(opts)
+    if options[:render_common_tags]
+      common_tags = user_tags.map{ |user_tag| user_tag["id"] } & my_tags.map{ |my_tag| my_tag["id"] }
+    end
+    content_tag(:dt) do
+      content_tag(:span, options[:content], class: options[:class])
+    end +
+    content_tag(:dd) do
+      user_tags.map do |user_tag|
+        content_tag(:span, user_tag["name"], class: ("common" if options[:render_common_tags] && common_tags.include?(user_tag["id"])))
+      end.join.html_safe
     end
   end
 end

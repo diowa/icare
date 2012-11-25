@@ -7,6 +7,9 @@ it-IT:
     ampm: false
     formats:
       time_only: '%H:%M'
+  datetime:
+    formats:
+      message: ! '%A %e %B, %H:%M'
 
   boolean:
     "true": "Sì"
@@ -42,6 +45,9 @@ it-IT:
     itineraries:
       read_more: Leggi tutto
       show_on_map: Mostra sulla mappa
+      facebook_verified: Verificato su Facebook
+
+  meta_description: "%{appname} è una piattaforma open source per il carpooling. Condividi i tuoi itinerari, risparmia soldi e guadagna amici."
 
   login: Accedi
   login_with_facebook: Accedi con Facebook
@@ -112,6 +118,7 @@ it-IT:
         destroy: Si è verificato un errore durante l'eliminazione del feedback.
     itinerary:
       success:
+        update: Itinerario aggiornato con successo.
         destroy: Itinerario eliminato con successo.
       error:
         destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.
@@ -217,12 +224,15 @@ it-IT:
       application_settings: Impostazioni dell'applicazione
 
   itineraries:
+    commons:
+      about: "su %{itinerary_link} di %{user_link}"
     mine:
       title: I miei itinerari
     search:
       advanced_search: Ricerca avanzata
       the_same: È indifferente
       search: Cerca
+      verified_users: Utenti verificati
     index:
       title: Cerca itinerari
     show:
@@ -288,23 +298,23 @@ it-IT:
       title: Conversazioni
     show:
       title: Conversazione
-      conversation_about: "Conversazione su %{itinerary_link} di %{user_link}"
     new:
       title: Nuova conversazione
-      start_conversation_about: "Inizia una conversazione su %{itinerary_link} di %{user_link}"
     messages:
       seen: "Visualizzato il %{date}"
       time_ago: "%{time} fa"
+    form:
+      write_a_message: Scrivi un messaggio...
+      send: Invia
 
   references:
     index:
       title: Referenze
     show:
       title: Referenza
-      reference_about: "Referenza su %{itinerary_link} inviata da %{user_link}"
+      didnt_write_yet: "%{name} non ha ancora scritto"
     new:
       title: New reference
-      send_reference_to: "Invia una referenza a %{user_link} su %{itinerary_link}"
     snippet:
       positives:
         zero: 0 positive
@@ -318,6 +328,8 @@ it-IT:
         zero: 0 negative
         one: "%{count} negativa"
         other: "%{count} negative"
+    form:
+      write_a_reference: Scrivi una referenza...
 
   javascript:
     no_itineraries_found: Nessun itinerario trovato

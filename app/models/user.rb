@@ -132,11 +132,15 @@ class User
     # TODO cache!!!!!
     #@facebook_likes ||= facebook_connections(:likes)
     fb_favorites = ["music", "books", "movies", "television", "games", "activities", "interests"] #"athletes", "sports_teams", "sports", "inspirational_people"
-    facebook.batch do |batch_api|
-      fb_favorites.each do |favorite|
-        batch_api.get_connections('me', favorite)
-      end
-    end.flatten
+    batch = []
+    facebook do |fb|
+      batch = facebook.batch do |batch_api|
+        fb_favorites.each do |favorite|
+          batch_api.get_connections('me', favorite)
+        end
+      end.flatten
+    end
+    batch
   end
 
   def friends_with_privacy(friends = 0)
@@ -156,11 +160,14 @@ class User
 
   def facebook_profile_batch(other_user = nil)
     fb_favorites = ["music", "books", "movies", "television", "games", "activities", "interests"] #"athletes", "sports_teams", "sports", "inspirational_people"
-    batch = facebook.batch do |batch_api|
-      batch_api.get_connections('me', "friends", limit: 1001)
-      batch_api.get_connections('me', "mutualfriends/#{other_user.uid}") if other_user
-      fb_favorites.each do |favorite|
-        batch_api.get_connections('me', favorite)
+    batch = [{}, {}]
+    facebook do |fb|
+      batch = fb.batch do |batch_api|
+        batch_api.get_connections('me', "friends", limit: 1001)
+        batch_api.get_connections('me', "mutualfriends/#{other_user.uid}") if other_user
+        fb_favorites.each do |favorite|
+          batch_api.get_connections('me', favorite)
+        end
       end
     end
     if other_user

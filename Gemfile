@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 ruby '1.9.3'
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
 gem 'unicorn'
 
-gem 'mongoid', '3.0.6'
+gem 'mongoid'
 gem 'mongoid_slug'
 gem 'mongoid_geospatial'
 gem 'thin'
@@ -18,7 +18,9 @@ gem 'rest-client'
 gem 'nokogiri'
 gem 'http_accept_language'
 gem 'jquery-rails'
-gem 'client_side_validations', git: 'https://github.com/bcardarella/client_side_validations.git', branch: '3-2-stable'
+gem 'client_side_validations'
+gem 'client_side_validations-turbolinks'
+
 #gem 'wicked'
 gem 'resque', require: 'resque/server' # Resque web interface
 gem 'kaminari'
@@ -57,10 +59,11 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'twitter-bootstrap-rails', git: 'git://github.com/diowa/twitter-bootstrap-rails.git', branch: 'no-glyphicons'
+  gem 'twitter-bootstrap-rails'
   gem 'compass-rails'
   gem 'haml_assets'
   gem 'handlebars_assets'
   gem 'i18n-js'
   gem 'turbolinks'
+  gem 'jquery-turbolinks'
 end

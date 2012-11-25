@@ -51,39 +51,7 @@ module ReferencesHelper
    ].join.html_safe
   end
 
-  def references_summary_tags(user)
-    content_tag(:p, class: "tags") do
-      content_tag(:span, "#{user.references.visible.filled_up.positive.size} positive") +
-      content_tag(:span, "#{user.references.visible.filled_up.neutral.size} neutral") +
-      content_tag(:span, "#{user.references.visible.filled_up.negative.size} negative")
-    end
-  end
-
-  def reference_status_for(reference)
-    if reference.hospitality?
-      if reference.is_host
-        invites = current_user.hospitality_outgoing_invite_days.where(outgoing_invite_id: reference.experience_id)
-        cancelled_invites = invites.where(state: "cancelled")
-        accepted_invites = invites.where(state: "accepted")
-        declined_invites = invites.where(state: "declined")
-        "#{t(".outgoing_invite_status", count: invites.size, name: reference.referencing_user.name)} #{t(".host_outgoing_invites_cancelled", count: cancelled_invites.size)}
-         #{t(".host_incoming_invites_accepted", count: accepted_invites.size)} #{t(".host_incoming_invites_declined", count: declined_invites.size)}"
-      elsif reference.is_guest
-        invites = current_user.hospitality_request_days.where(request_id: reference.experience_id,
-                                                              :"incoming_invite_days.inviting_user_id" => reference.referencing_user.id)
-        accepted_invites = invites.where(:"incoming_invite_days.inviting_user_id" => reference.referencing_user.id,
-                                         :"incoming_invite_days.state" => "accepted")
-        declined_invites = invites.where(:"incoming_invite_days.inviting_user_id" => reference.referencing_user.id,
-                                         :"incoming_invite_days.state" => "declined")
-        cancelled_invites = invites.where(:"incoming_invite_days.inviting_user_id" => reference.referencing_user.id,
-                                          :"incoming_invite_days.state" => "cancelled")
-
-        "#{t(".incoming_invite_status", count: invites.size, name: reference.referencing_user.name)} #{t(".guest_incoming_invites_accepted", count: accepted_invites.size)}
-         #{t(".guest_incoming_invites_declined", count: declined_invites.size)} #{t(".guest_outgoing_invites_cancelled", count: cancelled_invites.size)}"
-      end
-    end
-  end
   def new_or_show_reference_path(reference, itinerary)
-    reference && reference.persisted? ? reference_path(reference) : new_reference_path(itinerary_id: itinerary.id)
+    reference && reference.persisted? ? user_reference_path(current_user, reference) : new_user_reference_path(current_user, itinerary_id: itinerary.id)
   end
 end

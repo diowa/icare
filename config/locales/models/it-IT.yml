@@ -66,6 +66,7 @@ it-IT:
         driver_gender: Sesso del guidatore
         daily: Giornaliero
       reference:
+        user: Utente
         rating_negative: Negativa
         rating_neutral: Neutrale
         rating_positive: Positiva
@@ -83,6 +84,12 @@ it-IT:
           attributes:
             user_ids:
               already_exists: hai già una conversazione su questo itinerario
+        reference:
+          attributes:
+            user:
+              yourself: non puoi lasciare una referenza a te stesso
+            itinerary_id:
+              already_present: hai già lasciato una referenza per questo itinerario
 
   activemodel:
     attributes:

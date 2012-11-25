@@ -66,6 +66,7 @@ en-US:
         driver_gender: Driver's gender
         daily: Daily
       reference:
+        user: Utente
         rating_negative: Negative
         rating_neutral: Neutral
         rating_positive: Positive
@@ -83,6 +84,12 @@ en-US:
           attributes:
             user_ids:
               already_exists: you already have a conversation about this itinerary
+        reference:
+          attributes:
+            user:
+              yourself: you cannot leave a reference for yourself
+            itinerary_id:
+              already_present: you already left a reference for this itinerary
 
   activemodel:
     attributes:

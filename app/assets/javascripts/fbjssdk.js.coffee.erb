@@ -1,6 +1,6 @@
 ###global FB:false###
 
-"use strict"
+'use strict'
 
 checkFBLoginStatus = ->
   FB.getLoginStatus (response) ->
@@ -15,12 +15,12 @@ checkFBLoginStatus = ->
       #accessToken = response.authResponse.accessToken;
       #document.getElementById('fb-login').innerHTML = 'Logout';
 
-      $("#facepile-container").fadeIn()
+      $('#facepile-container').fadeIn()
     else if response.status is 'not_authorized'
       # the user is logged in to Facebook,
       # but has not authenticated your app
 
-      $("#facepile-container").fadeIn()
+      $('#facepile-container').fadeIn()
     else
       #the user isn't logged in to Facebook. so don't show the facepile
 
@@ -38,25 +38,22 @@ window.fbAsyncInit = ->
 loadFBsdk = ->
   # Load the SDK Asynchronously
   ((d) ->
-    id = "facebook-jssdk"
-    ref = d.getElementsByTagName("script")[0]
+    id = 'facebook-jssdk'
+    ref = d.getElementsByTagName('script')[0]
     return if d.getElementById(id)
-    js = d.createElement("script")
+    js = d.createElement('script')
     js.id = id
     js.async = true
-    js.src = "http://connect.facebook.net/en_US/all.js"
+    js.src = 'http://connect.facebook.net/en_US/all.js'
     ref.parentNode.insertBefore js, ref
     return
   ) document
 
-do_on_load = ->
-  if $("#fb-root")[0]?
+# jQuery Turbolinks
+$ ->
+  if $('#fb-root')[0]?
     if FB?
       # TODO fix
-      FB.XFBML.parse($("body")[0], checkFBLoginStatus)
+      FB.XFBML.parse($('body')[0], checkFBLoginStatus)
     else
       loadFBsdk()
-
-# Turbolinks
-$(document).ready do_on_load
-$(window).bind 'page:load', do_on_load

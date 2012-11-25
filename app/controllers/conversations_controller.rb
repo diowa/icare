@@ -8,14 +8,14 @@ class ConversationsController < ApplicationController
 
   def index
     # TODO nested eager loading
-    @conversations = current_user.conversations.desc(:updated_at).page params[:page]
+    @conversations = current_user.conversations.includes(:users).desc(:updated_at).page params[:page]
   end
 
   def unread
     # TODO nested eager loading
     respond_to do |format|
       format.json do
-        @conversations = current_user.conversations.unread(current_user).desc(:updated_at).limit(5)
+        @conversations = current_user.conversations.includes(:users).unread(current_user).desc(:updated_at).limit(5)
       end
       format.html do
         redirect_to :conversations
@@ -56,7 +56,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = current_user.conversations.find(params[:id])
+    @conversation = current_user.conversations.includes(:users).find(params[:id])
     @itinerary = Itinerary.find(@conversation.conversable_id)
   end
 

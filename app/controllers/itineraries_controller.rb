@@ -1,7 +1,7 @@
 class ItinerariesController < ApplicationController
 
   skip_before_filter :check_admin, only: [:index]
-  skip_before_filter :require_login, only: [:index, :show, :search]
+  skip_before_filter :require_login, only: [:show, :search]
 
   before_filter :check_gender, only: [:show]
 
@@ -22,7 +22,7 @@ class ItinerariesController < ApplicationController
 
   def show
     @conversation = @itinerary.conversations.find_or_initialize_by(user_ids: [current_user.id, @itinerary.user.id]) if current_user
-    @reference = @itinerary.user.references.find_or_initialize_by(referencing_user: current_user) if current_user
+    @reference = current_user.references.find_or_initialize_by(itinerary_id: @itinerary.id) if current_user
   end
 
   def create
@@ -35,9 +35,16 @@ class ItinerariesController < ApplicationController
   end
 
   def edit
+    @itinerary = current_user.itineraries.find(params[:id])
   end
 
   def update
+    @itinerary = current_user.itineraries.find(params[:id])
+    if @itinerary.update_attributes(params[:itinerary])
+      redirect_to my_itineraries_path, flash: { success: t('flash.itinerary.success.update') }
+    else
+      render :edit
+    end
   end
 
   def destroy

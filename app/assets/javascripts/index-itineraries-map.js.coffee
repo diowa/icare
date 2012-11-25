@@ -150,14 +150,14 @@ initItineraryIndex = ->
       $("#itineraries-spinner").hide()
     .bind "ajax:error", (evt, xhr, settings) ->
       $("#itineraries-thumbs").html """
-        <h4 class="error-text">#{I18n.t("javascript.an_error_occurred")}</h4>
+        <h3 class="error-text no-margin">#{I18n.t("javascript.an_error_occurred")}</h3>
         """
       false
     .bind "ajax:success", (evt, data, status, xhr) ->
       # TODO fix browser back, it calls ajax:success many times
       if data.length is 0
         $("#itineraries-thumbs").html """
-          <h4>#{I18n.t("javascript.no_itineraries_found")}</h4>
+          <h3 class="no-margin">#{I18n.t("javascript.no_itineraries_found")}</h3>
           """
       else
         $("#itineraries-thumbs").html ""
@@ -170,8 +170,9 @@ initItineraryIndex = ->
           color = routeColoursArray[index++ % routeColoursArray.length]
           drawPath this, color
           this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
-          row.append HandlebarsTemplates["itinerary"](this)
+          row.append HandlebarsTemplates['itineraries/thumbnail'](this)
         icare.map.fitBounds icare.latLngBounds
+        $(".facebook-verified-tooltip").tooltip()
 
   $('#itineraries-thumbs').on 'click', '.show-itinerary-on-map', (e) ->
     e.preventDefault()
@@ -188,10 +189,7 @@ initItineraryIndex = ->
       else
         $icon.removeClass("icon-chevron-down").addClass "icon-chevron-up"
 
-do_on_load = ->
+# jQuery Turbolinks
+$ ->
   if $("#index-itineraries-map")[0]?
     initItineraryIndex()
-
-# Turbolinks
-$(document).ready do_on_load
-$(window).bind 'page:load', do_on_load

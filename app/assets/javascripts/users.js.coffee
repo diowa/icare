@@ -12,13 +12,10 @@ initUserEdit = ->
     flag = if code isnt '' then "flag-#{code.toLowerCase()}" else ''
     $('#flag').attr 'class', flag
 
-do_on_load = ->
+# jQuery Turbolinks
+$ ->
   setTimeout ->
     $('li.unread').removeClass 'unread'
   , 5000
   if $('form[id^=edit_user]')[0]?
     new initUserEdit()
-
-# Turbolinks
-$(document).ready do_on_load
-$(window).bind 'page:load', do_on_load

@@ -1,15 +1,21 @@
 #= require jquery
 #= require jquery_ujs
 #= require turbolinks
+#= require jquery.turbolinks
 
 # VENDOR ASSETS
 #= require jquery.ba-throttle-debounce
 #= require waypoints
 
-# GEMS
+# CLIENT SIDE VALIDATIONS
 #= require rails.validations
+#= require rails.validations.turbolinks
+
+# FRONT END
 #= require twitter/bootstrap
-#= require handlebars
+
+# JS TEMPLATES
+#= require handlebars.runtime
 
 # I18n
 #= require i18n
@@ -25,9 +31,19 @@
 window.icare = window.icare || {}
 icare = window.icare
 
-I18n.defaultLocale = "<%= I18n.default_locale %>"
-I18n.locale = $("html").attr "lang"
+I18n.defaultLocale = '<%= I18n.default_locale %>'
+I18n.locale = $('html').attr 'lang'
 
 String::capitalize = ->
   this.replace /(?:^|\s)\S/g, (c) ->
     c.toUpperCase()
+
+setLoadingStatus = ->
+  $('#loading-spinner').show()
+
+unsetLoadingStatus = ->
+  $('#loading-spinner').fadeOut()
+
+# Turbolinks
+$(window).bind 'page:fetch', setLoadingStatus
+$(window).bind 'page:change', unsetLoadingStatus
