@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.5.3
+-----
+* Rails 3.2.9
+* Added support for Travis CI and Gemnasium
+* Improved references
+* A lot of minor bug fix and improvements
+
 0.5.2
 -----
 * Automatically add 2d indexes
