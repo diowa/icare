@@ -11,7 +11,7 @@
         %tr
           %td{ colspan: 2 }
             = f.check_box :filter_pink, class: "", label: Itinerary.human_attribute_name(:pink)
-            %i.icon-question-sign{ rel: "tooltip", title: t("itineraries.details_step.pink_help") }
+            %i.icon-question-sign.tooltipable{ rel: "tooltip", title: t("itineraries.details_step.pink_help") }
       %tr
         %td{ colspan: 2 }
           = f.check_box :filter_verified, class: "", label: t(".verified_users")

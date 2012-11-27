@@ -85,15 +85,20 @@ body {
    Fixes
    ========================================================================== */
 
+/* Icon antialiasing fix */
+i[class^="icon-"] {
+  -webkit-font-smoothing: antialiased
+}
+
 /* Icon Button Fix */
 .btn {
-  i.icon-large[class^=icon-] {
+  i.icon-large[class^="icon-"] {
     margin-right: 3px;
   }
 }
 
 /* Modal focus fix */
-.modal-open .modal, a[data-toggle=modal] { outline: none; }
+.modal-open .modal, a[data-toggle="modal"] { outline: none; }
 
 /* Collapse dropdown */
 @media(max-width: 979px) {
@@ -179,4 +184,11 @@ h1 {
 
 .btn-facebook {
   .buttonBackground(lighten(@blueFacebook, 10%), @blueFacebook);
+}
+
+/* New Text colours
+   ========================================================================== */
+
+.text-pink {
+  color: @pink;
 }

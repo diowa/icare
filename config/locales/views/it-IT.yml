@@ -226,6 +226,7 @@ it-IT:
   itineraries:
     commons:
       about: "su %{itinerary_link} di %{user_link}"
+      features: Caratteristiche
     mine:
       title: I miei itinerari
     search:
@@ -271,6 +272,8 @@ it-IT:
       search_link: "Cerca"
     details_step:
       description_help: "Inserisci una breve descrizione del tuo itinerario. Se ci sono cose che i tuoi compagni di viaggio devono necessariamente sapere prima di contattarti, aggiungile qui (esempio: \"ascolto musica al massimo del volume\")."
+      single_itinerary: Itinerario Singolo
+      daily_itinerary: Itinerario Giornaliero
       day: Giorno
       leave_time: Ora andata
       return_time: Ora ritorno
