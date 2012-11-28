@@ -1,6 +1,15 @@
 Changelog
 =========
 
+0.5.5
+-----
+* Checkbox for daily itineraries (beta)
+* Improved icons antialiasing (-webkit-font-smoothing)
+* User itineraries sorted by creation time
+* Improved itineraries index
+* Fixed dropdown menu for touch devices
+* Minor bug fix and improvements
+
 0.5.4
 -----
 * Fixed missing string in reference partial
