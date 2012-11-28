@@ -50,17 +50,19 @@
 
   .span7
     = f.text_area :description, rows: 5, class: "full-width border-box", help: true
+    = f.check_box :daily, class: "checkbox inline"
     .control-group.hide
       .controls
         = label_tag nil, class: "radio inline" do
-          = f.radio_button :daily, false, class: "inline", checked: true
+          = f.default_tag :radio_button, :daily, false, class: "inline", checked: true
           = t(".single_itinerary")
         &nbsp;
         = label_tag nil, class: "radio inline mock" do
-          = f.radio_button :daily, true, class: "inline"
+          = f.default_tag :radio_button, :daily, true, class: "inline"
           = t(".daily_itinerary")
     %fieldset#single
-      = f.check_box :round_trip
+      .control-group
+        .controls= f.check_box :round_trip, class: "checkbox inline"
       = f.datetime_select :leave_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t("time.ampm") }, class: "date-time"
       = f.datetime_select :return_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t("time.ampm") }, class: "date-time", disabled: !@itinerary.round_trip
     %fieldset#daily.hide.mock
@@ -70,21 +72,16 @@
             %thead
               %tr
                 %th
-                %th
-                  = t(".day")
-                %th
-                  = t(".leave_time")
-                %th
-                  = t(".return_time")
+                %th= t(".day")
+                %th= t(".leave_time")
+                %th= t(".return_time")
             %tbody
               - (0..6).each_with_index do |index|
                 %tr
-                  %td{ style: "vertical-align: middle" }
+                  %td
                     %p.align-center
                       = check_box_tag "day-#{index}"
-                  %td{ style: "vertical-align: middle" }
-                    %p
-                      = label_tag "day-#{index}", t("date.day_names")[index]
+                  %td= label_tag "day-#{index}", t("date.day_names")[index]
                   %td
                     = time_select "uni", "dye", { minute_step: 10, default: { hour: 8 }, ampm: t("time.ampm") }, class: "date-time", disabled: (index > 0)
                   %td
@@ -93,7 +90,6 @@
               %tr
                 %td{ colspan: 2 }
                 %td{ colspan: 2 }
-                  %p
-                    = label_tag "edit-all-times" do
-                      = check_box_tag "edit-all-times", nil, checked: true
-                      = t(".edit_all_times")
+                  = label_tag "edit-all-times", class: "checkbox inline" do
+                    = check_box_tag "edit-all-times", nil, checked: true
+                    = t(".edit_all_times")

@@ -1,7 +1,7 @@
 object @itinerary
 
 attributes :id, :description, :fuel_cost, :leave_date, :num_people, :overview_polyline,
-           :pets_allowed, :daily, :return_date, :round_trip, :smoking_allowed,
+           :pets_allowed, :daily, :return_date, :round_trip, :smoking_allowed, :pink,
            :title, :tolls, :vehicle, :via_waypoints
 
 node(:start_location) { |itinerary| itinerary.to_latlng_hash(:start_location) }

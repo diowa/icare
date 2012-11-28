@@ -17,7 +17,7 @@ class ItinerariesController < ApplicationController
   end
 
   def mine
-    @itineraries = current_user.itineraries
+    @itineraries = current_user.itineraries.sorted_by_creation
   end
 
   def show

@@ -8,6 +8,7 @@
       %thead
         %th #
         %th= Itinerary.human_attribute_name(:title)
+        %th= t("itineraries.commons.features")
         %th= t("helpers.actions")
       %tbody
         - @itineraries.each_with_index do |itinerary, index|
@@ -16,6 +17,13 @@
               = index.next
             %td
               = link_to itinerary, itinerary_path(itinerary)
+            %td
+              - if itinerary.pink
+                %i.text-pink.icon-lock.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
+              - if itinerary.daily
+                %i.icon-repeat.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:daily) }
+              - if itinerary.round_trip
+                %i.icon-retweet.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:round_trip) }
             %td.btn-toolbar
               = link_to edit_itinerary_path(itinerary), class: "btn btn-small mock" do
                 %i.icon-edit

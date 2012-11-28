@@ -5,7 +5,7 @@ gem 'rails', '3.2.9'
 
 gem 'unicorn'
 
-gem 'mongoid'
+gem 'mongoid', '3.0.13' # Can't update to 3.0.14: See Issue #2587
 gem 'mongoid_slug'
 gem 'mongoid_geospatial'
 gem 'thin'

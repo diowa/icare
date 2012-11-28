@@ -227,6 +227,7 @@ en-US:
   itineraries:
     commons:
       about: "about %{itinerary_link} by %{user_link}"
+      features: Features
     mine:
       title: My itineraries
     search:
@@ -271,6 +272,8 @@ en-US:
       search_link: "Search"
     details_step:
       description_help: "Enter a brief description of your itinerary. If there are things that your fellow travelers need to know, add them here (example: \"loud music in the car!\")."
+      single_itinerary: Single Itinerary
+      daily_itinerary: Daily Itinerary
       day: Day
       leave_time: Leave time
       return_time: Return time

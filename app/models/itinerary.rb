@@ -10,7 +10,7 @@ class Itinerary
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
 
   attr_accessible :title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls, :pink
-  attr_accessible :round_trip, :leave_date, :return_date
+  attr_accessible :round_trip, :leave_date, :return_date, :daily
   attr_accessible :share_on_facebook_timeline
 
   belongs_to :user

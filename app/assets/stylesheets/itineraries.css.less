@@ -17,8 +17,14 @@ select.date-time {
   width: auto;
 }
 
-#table-daily-itinerary th {
-  text-align: left;
+#table-daily-itinerary {
+  td {
+    vertical-align: middle;
+  }
+
+  select {
+    margin-bottom: 0;
+  }
 }
 
 .profile-picture-cell {
@@ -125,4 +131,9 @@ select.date-time {
   @media (min-width: 1200px) {
     width: 270px;
   }
+}
+
+.itinerary-details {
+  font-size: 13px;
+  line-height: 15px;
 }

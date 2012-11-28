@@ -18,7 +18,20 @@
               {{#if user.facebook_verified}}
               %i.icon-ok.text-success.facebook-verified-tooltip.inline-block{ rel: "tooltip", title: "{{translate \"templates.itineraries.facebook_verified\"}}" }
               {{/if}}
-    %p
+    %p.itinerary-details
+      {{#if pink}}
+      %span.text-pink
+        %i.icon-lock
+        = Itinerary.human_attribute_name(:pink)
+      %br
+      {{/if}}
+      {{#if daily}}
+      %br
+      %i.icon-repeat
+      {{translate "mongoid.attributes.itinerary.daily"}}
+      %i.icon-time
+      {{localize "time.formats.time_only" leave_date}}
+      {{else}}
       {{translate "mongoid.attributes.itinerary.leave_date"}}:
       {{localize "date.formats.long" leave_date}}
       %i.icon-time
@@ -29,6 +42,7 @@
       {{localize "date.formats.long" return_date}}
       %i.icon-time
       {{localize "time.formats.time_only" return_date}}
+      {{/if}}
       {{/if}}
       %br
       {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
