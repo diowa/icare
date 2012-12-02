@@ -313,6 +313,10 @@ en-US:
       send: Send
 
   references:
+    commons:
+      role: Role
+      driver: Driver
+      passenger: Passenger
     _reference:
       didnt_write_yet: "%{name} didn't write yet"
     index:

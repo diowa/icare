@@ -313,6 +313,10 @@ it-IT:
       send: Invia
 
   references:
+    commons:
+      role: Ruolo
+      driver: Guidatore
+      passenger: Passeggero
     _reference:
       didnt_write_yet: "%{name} non ha ancora scritto"
     index:

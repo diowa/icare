@@ -66,7 +66,8 @@ it-IT:
         driver_gender: Sesso del guidatore
         daily: Giornaliero
       reference:
-        user: Utente
+        body: Messaggio
+        rating: Valutazione
         rating_negative: Negativa
         rating_neutral: Neutrale
         rating_positive: Positiva

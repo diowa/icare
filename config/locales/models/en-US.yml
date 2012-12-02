@@ -66,7 +66,8 @@ en-US:
         driver_gender: Driver's gender
         daily: Daily
       reference:
-        user: Utente
+        body: Message
+        rating: Rating
         rating_negative: Negative
         rating_neutral: Neutral
         rating_positive: Positive
