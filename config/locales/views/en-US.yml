@@ -3,6 +3,7 @@ en-US:
     formats:
       full_day: ! '%A %B %e'
       birthday: ! '%B %-d, %Y'
+      month_year: ! '%B %Y'
   time:
     ampm: true
     formats:
@@ -176,6 +177,7 @@ en-US:
       per_liter: per liter
       fuel_cost_estimate: Fuel cost estimate
     show:
+      member_since: "Member since %{date}"
       see_all: See All
       facebook_verified: "A Facebook user is considered verified if he takes any of the following actions: registers for mobile; confirms his account via SMS; enters a valid credit card."
       basic_info: Basic info

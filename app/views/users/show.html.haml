@@ -1,11 +1,11 @@
--# TODO clean all this mess!!!
 - title @user
 .row
   .span3
-    = user_profile_picture @user, size: [], type: :large, class: "border-box"
+    = user_profile_picture @user, size: [], type: :large, class: 'border-box'
   .span9
-    %h1
-      = @user
+    %h1.no-margin-bottom= @user
+    %p.muted
+      %small= t('.member_since', date: l(@user.created_at.to_date, format: :month_year))
     - if @user.bio?
       %blockquote.user-blockquote
         %p= @user.bio
@@ -15,34 +15,23 @@
           %i.icon-ok
           = User.human_attribute_name(:facebook_verified)
         %br
-        %small.muted= t(".facebook_verified")
+        %small.muted= t('.facebook_verified')
     %dl.dl-horizontal.tag-list
       %dt
         %span= Reference.model_name.human(count: :lot)
       %dd
-        %span= t("references.snippet.positives", count: @user.references.positives.count)
-        %span= t("references.snippet.neutrals", count: @user.references.neutrals.count)
-        %span= t("references.snippet.negatives", count: @user.references.negatives.count)
-        = link_to t(".see_all"), user_references_path(@user)
+        = reference_snippet @user
+        = link_to t('.see_all'), user_references_path(@user)
       %dt
-        %span.description-facebook= t(".basic_info")
+        %span.description-facebook= t('.basic_info')
       %dd
-        %span><
-          = t(".friends", count: @facebook_details[:friends])
-        %span{ class: ("common" if @user != current_user && @user.age == current_user.age) }><
-          = t(".age", count: @user.age)
+        %span= t('.friends', count: friends_with_privacy(@user.facebook_friends.size))
+        %span{ class: check_common_field(@user, :age) }= t('.age', count: @user.age)
         - if @user.nationality?
-          %span{ class: ("common" if @user != current_user && @user.nationality == current_user.nationality) }><
-            = @user.nationality_name
-        %span{ class: ("common" if @user != current_user && @user.gender == current_user.gender) }><
-          #{User.human_attribute_name("gender_#{@user.gender}")}
-        - if @user.languages?
-          - common_languages = @user.languages.map{ |lang| lang["id"] } & ((current_user.languages.map{ |lang| lang["id"] } if current_user.languages?) || [])
-          - @user.languages.each do |language|
-            %span{ class: ("common" if @user != current_user && common_languages.include?(language["id"])) }><
-              = t(".language", language: language["name"])
-      - if current_user != @user
-        = mutual_friends @facebook_details[:mutualfriends]
+          %span{ class: check_common_field(@user, :nationality) }= @user.nationality_name
+        %span{ class: check_common_field(@user, :gender) }= User.human_attribute_name "gender_#{@user.gender}"
+        = language_tags @user
+      = mutual_friends @user, current_user
       = work_and_education_tags @user, :education
       = work_and_education_tags @user, :work
-      = likes_tags @user, @facebook_details[:likes]
+      = favorite_tags @user, @user.facebook_favorites

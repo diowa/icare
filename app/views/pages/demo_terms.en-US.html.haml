@@ -2,7 +2,7 @@
 .row
   .span12
     %h1= yield(:title)
-    %h5.muted= t("last_modified", date: l(Date.parse("2012-09-14"), format: :long))
+    %h5.muted= t("last_modified", date: l(Date.parse("2012-12-01"), format: :long))
 
     %h3 Welcome to #{APPNAME}
     %p
@@ -22,9 +22,9 @@
       We cache the following Facebook data on our local database for performance reasons:
       %ul
         %li
-          Email, name, birthday, work, education, about, total number of friends, known languages.
-      We get your public profile picture, likes and common friends with other #{APPNAME}'s members without
-      storing them in any way. Your username on #{APPNAME} will be the same of Facebook.
+          Email, name, birthday, work, education, about, friends, favorites, known languages.
+      We do not store your public profile picture.
+      Your username on #{APPNAME} will be the same of Facebook.
     %p
       We will not send you any email.
     %p

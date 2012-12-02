@@ -17,22 +17,28 @@ class User
   embeds_many :notifications
   embeds_many :references, cascade_callbacks: true
 
-  # Auth / Credentials
+  # Auth / Credentials / Permissions
   field :provider
   field :uid
   field :oauth_token
   field :oauth_expires_at
-  # Cache Permissions
-  field :facebook_permissions
+  field :facebook_permissions, type: Array, default: []
+
+  # Cached Facebook data
+  field :facebook_friends, type: Array, default: []
+  field :facebook_favorites, type: Array, default: []
+  field :facebook_data_updated_at, type: DateTime
+
   # Info
   field :email
   field :name
   field :facebook_verified, type: Boolean, default: false
+
   # Extra
   field :username
   field :gender
   field :bio
-  field :languages, type: Hash, default: {}
+  field :languages, type: Array, default: []
 
   # More info requiring special permissions
   field :birthday, type: Date
@@ -45,9 +51,10 @@ class User
 
   # Account
   field :locale
-  field :time_zone, default: "UTC" # NOTE think about it
+  field :time_zone, default: 'UTC' # NOTE think about it
   field :telephone
   field :admin, type: Boolean, default: false
+
   #field :access_level, type: Integer, default: 0
   field :banned, type: Boolean, default: false
 
@@ -59,11 +66,17 @@ class User
   validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map.map{ |zone| zone.first }, allow_blank: true
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
   #validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+
   scope :sorted, asc(:name)
 
+
+  #
+  # Omniauth
+  #
+
   def self.from_omniauth(auth)
-    if user = where(auth.slice("provider", "uid")).first
-      user.update_fields_from_omniauth(auth)
+    if user = where(auth.slice('provider', 'uid')).first
+      user.update_fields_from_omniauth auth
       user.save!
       user
     else
@@ -73,18 +86,17 @@ class User
 
   def self.create_from_omniauth(auth)
     create! do |user|
-
-      # Auth / Credentials
       user.provider = auth.provider
       user.uid = auth.uid
-      user.oauth_token = auth.credentials.token
-      user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-
-      user.update_fields_from_omniauth(auth)
+      user.update_fields_from_omniauth auth
     end
   end
 
   def update_fields_from_omniauth(auth)
+    # Auth / Credentials
+    self.oauth_token = auth.credentials.token
+    self.oauth_expires_at = Time.at auth.credentials.expires_at
+
     # Info
     self.email = auth.info.email
     self.name = auth.info.name
@@ -96,10 +108,10 @@ class User
     self.bio = auth.extra.raw_info.bio
     self.languages = auth.extra.raw_info.languages || {}
 
-    # Locale (with priority to icare)
-    self.locale = auth.extra.raw_info.locale.gsub(/_/,"-") unless self.locale?
+    # Locale (gives priority to application setting)
+    self.locale = auth.extra.raw_info.locale.gsub(/_/,'-') unless self.locale?
 
-    # Extras (extra permissions required)
+    # Extras (extra permissions are required)
     self.birthday = Date.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").at_midnight
     self.work = auth.extra.raw_info.work || {}
     self.education = auth.extra.raw_info.education || {}
@@ -108,7 +120,15 @@ class User
     facebook do |fb|
       self.facebook_permissions = fb.get_connections("me", "permissions")[0]
     end
+
+    # Schedule facebook data cache
+    Resque.enqueue(FacebookDataCacher, id)
   end
+
+
+  #
+  # Facebook
+  #
 
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
@@ -128,60 +148,22 @@ class User
     facebook { |fb| fb.get_connections("me", connection.to_s) }
   end
 
-  def facebook_likes
-    # TODO cache!!!!!
-    #@facebook_likes ||= facebook_connections(:likes)
-    fb_favorites = ["music", "books", "movies", "television", "games", "activities", "interests"] #"athletes", "sports_teams", "sports", "inspirational_people"
-    batch = []
+  def cache_facebook_data
+    favorites = %w(music books movies television games activities interests) #athletes sports_teams sports inspirational_people
     facebook do |fb|
-      batch = facebook.batch do |batch_api|
-        fb_favorites.each do |favorite|
-          batch_api.get_connections('me', favorite)
-        end
-      end.flatten
-    end
-    batch
-  end
-
-  def friends_with_privacy(friends = 0)
-    case friends
-      when 0...10
-        "10-"
-      when 10...100
-        "#{friends/10}0+"
-      when 100...1000
-        "#{friends/100}00+"
-      when 1000...5000
-        "#{friends/1000}000+"
-      else
-        "5000"
-    end
-  end
-
-  def facebook_profile_batch(other_user = nil)
-    fb_favorites = ["music", "books", "movies", "television", "games", "activities", "interests"] #"athletes", "sports_teams", "sports", "inspirational_people"
-    batch = [{}, {}]
-    facebook do |fb|
-      batch = fb.batch do |batch_api|
-        batch_api.get_connections('me', "friends", limit: 1001)
-        batch_api.get_connections('me', "mutualfriends/#{other_user.uid}") if other_user
-        fb_favorites.each do |favorite|
+      result = fb.batch do |batch_api|
+        batch_api.get_connections('me', 'friends')
+        favorites.each do |favorite|
           batch_api.get_connections('me', favorite)
         end
       end
+      if result.any?
+        self.facebook_friends = result[0] ? result[0] : []
+        self.facebook_favorites = result[1] ? result[1..-1].flatten : []
+        return true
+      end
     end
-    if other_user
-      { friends: friends_with_privacy(batch[0].size), mutualfriends: batch[1], likes: batch[2..-1].flatten }
-    else
-      { friends: friends_with_privacy(batch[0].size), likes: batch[1..-1].flatten }
-    end
-  end
-
-  def email_inclusion
-    return if Rails.env.development? || Rails.env.test? || email =~ /@cs\.fake$/
-    unless BetaInvite.where(email: email).first
-      self.errors.add(:email, "Sorry, minstrels is in private beta. You are not authorized to register.")
-    end
+    false
   end
 
   def age
@@ -197,7 +179,7 @@ class User
   end
 
   def short_about
-    about.truncate(500) if about?
+    @short_about ||= about.truncate(500) if about?
   end
 
   def first_name
