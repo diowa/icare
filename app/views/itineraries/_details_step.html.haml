@@ -51,15 +51,16 @@
   .span7
     = f.text_area :description, rows: 5, class: "full-width border-box", help: true
     = f.check_box :daily, class: "checkbox inline"
-    .control-group.hide
-      .controls
-        = label_tag nil, class: "radio inline" do
-          = f.default_tag :radio_button, :daily, false, class: "inline", checked: true
-          = t(".single_itinerary")
-        &nbsp;
-        = label_tag nil, class: "radio inline mock" do
-          = f.default_tag :radio_button, :daily, true, class: "inline"
-          = t(".daily_itinerary")
+    /
+      .control-group.hide
+        .controls
+          = label_tag nil, class: "radio inline" do
+            = f.default_tag :radio_button, :daily, false, class: "inline", checked: true
+            = t(".single_itinerary")
+          &nbsp;
+          = label_tag nil, class: "radio inline mock" do
+            = f.default_tag :radio_button, :daily, true, class: "inline"
+            = t(".daily_itinerary")
     %fieldset#single
       .control-group
         .controls= f.check_box :round_trip, class: "checkbox inline"
