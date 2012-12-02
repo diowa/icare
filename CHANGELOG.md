@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.2
+-----
+* Fixed daily itineraries
+
 0.6.1
 -----
 * Fixed common age bug
