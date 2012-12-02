@@ -39,6 +39,11 @@ protected
     end
   end
 
+  def find_user(user_id)
+    # TODO Optimization. Indexed array with multiple values?
+    User.any_of({ username: user_id }, { uid: user_id }, { _id: :user_id }).first
+  end
+
 private
 
   def current_user

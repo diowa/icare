@@ -6,7 +6,7 @@ class ReferencesController < ApplicationController
   after_filter :mark_as_read, only: [:show]
 
   def index
-    @user = User.any_of({ username: params[:user_id] }, { uid: params[:user_id] }, { _id: params[:user_id] }).first
+    @user = find_user params[:user_id]
     @references = @user.references.desc(:updated_at).page params[:page]
   end
 
@@ -27,7 +27,7 @@ class ReferencesController < ApplicationController
   end
 
   def show
-    @user = User.any_of({ username: params[:user_id] }, { uid: params[:user_id] }, { _id: params[:user_id] }).first
+    @user = find_user params[:user_id]
     @reference = @user.references.find(params[:id])
     @itinerary = @reference.itinerary
   end
