@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.6
+---
+* Cached user facebook data
+* Updated Demo TOS
+* Minor bug fixes and improvements
+
 0.5.5
 -----
 * Checkbox for daily itineraries (beta)
