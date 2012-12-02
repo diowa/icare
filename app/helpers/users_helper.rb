@@ -63,7 +63,14 @@ module UsersHelper
     end
   end
 
+  def reference_snippet(user)
+    content_tag(:span, t("references.snippet.positives", count: @user.references.positives.count)) +
+    content_tag(:span, t("references.snippet.neutrals", count: @user.references.neutrals.count)) +
+    content_tag(:span, t("references.snippet.negatives", count: @user.references.negatives.count))
+  end
+
   def mutual_friends(user1, user2, limit = 5)
+    return if user1 == user2
     mutual_friends_list = user1.facebook_friends & user2.facebook_friends
     return unless mutual_friends_list.any?
     content_tag(:dt) do
@@ -82,6 +89,23 @@ module UsersHelper
         "".html_safe
       end
     end
+  end
+
+  def check_common_field(user, field)
+    'common' if user != current_user && @user[field.to_s] == current_user[field.to_s]
+  end
+
+  def language_tags(user)
+    return unless user.languages && user.languages.any?
+    if (render_common_tags = (user != current_user))
+      my_languages = current_user.languages.map{ |lang| lang['id'] }
+      common_languages = user.languages.map{ |lang| lang['id'] } & my_languages
+    end
+    user.languages.map do |language|
+      content_tag :span,
+                  t('.language', language: language['name']),
+                  class: ('common' if render_common_tags && common_languages.include?(language['id']))
+    end.join.html_safe
   end
 
   def work_and_education_tags(user, field)

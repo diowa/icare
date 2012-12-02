@@ -3,6 +3,7 @@ it-IT:
     formats:
       full_day: ! '%A %e %B'
       birthday: ! '%-d %B %Y'
+      month_year: ! '%B %Y'
   time:
     ampm: false
     formats:
@@ -175,6 +176,7 @@ it-IT:
       per_liter: al litro
       fuel_cost_estimate: Consumo stimato
     show:
+      member_since: "Iscritto da %{date}"
       see_all: Mostra tutte
       facebook_verified: "Un utente di Facebook viene considerato verificato se esegue una delle seguenti azioni: si registra per i cellulari; conferma il suo account tramite SMS; inserisce un numero di carta di credito valido."
       basic_info: Informazioni di base

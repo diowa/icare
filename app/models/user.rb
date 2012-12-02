@@ -38,7 +38,7 @@ class User
   field :username
   field :gender
   field :bio
-  field :languages, type: Hash, default: {}
+  field :languages, type: Array, default: []
 
   # More info requiring special permissions
   field :birthday, type: Date
