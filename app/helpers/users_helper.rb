@@ -92,7 +92,7 @@ module UsersHelper
   end
 
   def check_common_field(user, field)
-    'common' if user != current_user && @user[field.to_s] == current_user[field.to_s]
+    'common' if user != current_user && user.send(field) == current_user.send(field)
   end
 
   def language_tags(user)

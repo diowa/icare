@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.1
+-----
+* Fixed common age bug
+
 0.6
 ---
 * Cached user facebook data
