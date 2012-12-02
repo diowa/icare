@@ -27,8 +27,7 @@
       %dt
         %span.description-facebook= t(".basic_info")
       %dd
-        %span><
-          = t(".friends", count: @facebook_details[:friends])
+        %span= t(".friends", count: friends_with_privacy(@user.facebook_friends.size))
         %span{ class: ("common" if @user != current_user && @user.age == current_user.age) }><
           = t(".age", count: @user.age)
         - if @user.nationality?
@@ -42,7 +41,7 @@
             %span{ class: ("common" if @user != current_user && common_languages.include?(language["id"])) }><
               = t(".language", language: language["name"])
       - if current_user != @user
-        = mutual_friends @facebook_details[:mutualfriends]
+        = mutual_friends current_user, @user
       = work_and_education_tags @user, :education
       = work_and_education_tags @user, :work
-      = likes_tags @user, @facebook_details[:likes]
+      = favorite_tags @user, @user.facebook_favorites

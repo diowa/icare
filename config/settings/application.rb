@@ -14,6 +14,7 @@ SimpleConfig.for :application do
     set :app_id, 'FACEBOOK_APP_ID'
     set :secret, 'FACEBOOK_SECRET'
     set :scope, 'email, publish_stream, user_birthday, user_about_me, user_education_history, user_interests, user_likes, user_religion_politics, user_work_history'
+    set :cache_expiry_time, 7.days
   end
 
   group :mailer do

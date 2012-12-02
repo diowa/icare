@@ -48,7 +48,23 @@ module UsersHelper
     end
   end
 
-  def mutual_friends(mutual_friends_list, limit = 5)
+  def friends_with_privacy(friends)
+    case friends
+      when 0...10
+        "10-"
+      when 10...100
+        "#{friends/10}0+"
+      when 100...1000
+        "#{friends/100}00+"
+      when 1000...5000
+        "#{friends/1000}000+"
+      else
+        "5000"
+    end
+  end
+
+  def mutual_friends(user1, user2, limit = 5)
+    mutual_friends_list = user1.facebook_friends & user2.facebook_friends
     return unless mutual_friends_list.any?
     content_tag(:dt) do
       content_tag(:span, t(".common_friends"), class: "description-facebook")
@@ -78,12 +94,12 @@ module UsersHelper
     render_tags user_work_or_edu, my_work_or_edu, render_common_tags: render_common_work_or_edu, content: User.human_attribute_name(field), class: "description-facebook"
   end
 
-  def likes_tags(user, user_likes)
-    return unless user_likes && user_likes.any?
+  def favorite_tags(user, user_favorites)
+    return unless user_favorites && user_favorites.any?
     if (render_common_tags = (user != current_user))
-      my_likes = current_user.facebook_likes
+      my_favorites = current_user.facebook_favorites
     end
-    render_tags user_likes, my_likes, render_common_tags: render_common_tags, content: t(".likes"), class: "description-facebook"
+    render_tags user_favorites, my_favorites, render_common_tags: render_common_tags, content: t(".likes"), class: "description-facebook"
   end
 
   def render_tags(user_tags, my_tags, opts = {})

@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.any_of({ username: params[:id] }, { uid: params[:id] }, { _id: params[:id] }).first
-    @facebook_details = @user.facebook_profile_batch(current_user != @user ? current_user : nil)
   end
 
   def create
