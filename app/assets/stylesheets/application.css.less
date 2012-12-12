@@ -19,13 +19,12 @@
 /* Some browser fixes
    ========================================================================== */
 
-/* Prevent Firefox outline */
-a {
+/* Prevent Firefox outlines */
+:focus {
   outline: none !important;
 }
-
 ::-moz-focus-inner {
-  border: 0;
+  border: 0 !important;
 }
 
 /* Disable text shadow on highlighting */
@@ -36,6 +35,7 @@ a {
   background: @linkColorHover;
   text-shadow:none;
 }
+
 
 .pacifico {
   font-family: "Pacifico";
