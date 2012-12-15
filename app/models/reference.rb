@@ -4,16 +4,15 @@ class Reference
 
   belongs_to :itinerary
 
-  attr_accessible :outgoing_attributes
-
   embedded_in :user
 
   embeds_one :incoming, class_name: References::Incoming.model_name, cascade_callbacks: true
   embeds_one :outgoing, class_name: References::Outgoing.model_name, cascade_callbacks: true
-  accepts_nested_attributes_for :outgoing
 
   field :referencing_user_id
   field :read, type: DateTime, default: nil
+
+  attr_accessor :body, :rating
 
   scope :unread, where(read: nil)
 
@@ -29,10 +28,11 @@ class Reference
   end
 
   def self.build_from_params(params, user, itinerary)
-    reference = user.references.build(params)
+    reference = user.references.new
     reference.itinerary = itinerary
     reference.referencing_user_id = itinerary.user.id
     reference.read = Time.now.utc
+    reference.outgoing = References::Outgoing.new body: params[:body], rating: params[:rating]
     reference
   end
 

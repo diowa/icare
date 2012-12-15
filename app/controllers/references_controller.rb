@@ -18,7 +18,7 @@ class ReferencesController < ApplicationController
 
   def create
     @reference = Reference.build_from_params(params[:reference], current_user, @itinerary)
-    if current_user.save
+    if @reference.save
       redirect_to user_reference_path(current_user, @reference)
     else
       flash.now[:error] = @reference.errors.full_messages
@@ -28,21 +28,19 @@ class ReferencesController < ApplicationController
 
   def show
     @user = find_user params[:user_id]
-    @reference = @user.references.find(params[:id])
+    @reference = @user.references.find params[:id]
     @itinerary = @reference.itinerary
   end
 
-  def edit
-    @reference = current_user.references.find(params[:id])
-  end
-
   def update
-    @reference = current_user.references.find(params[:id])
-    if @reference.update_attributes(params[:reference])
+    @reference = current_user.references.find params[:id]
+    if @reference.build_outgoing(params[:reference]) && @reference.save
       redirect_to user_reference_path(current_user, @reference)
     else
+      @user = find_user params[:user_id]
+      @itinerary = @reference.itinerary
       flash.now[:error] = @reference.errors.full_messages
-      render "edit"
+      render :show
     end
   end
 
@@ -53,6 +51,6 @@ class ReferencesController < ApplicationController
   end
 
   def mark_as_read
-    @reference.update_attribute(:read, Time.now.utc)
+    @reference.update_attribute :read, Time.now.utc
   end
 end
