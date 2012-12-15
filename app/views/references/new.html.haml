@@ -1,6 +1,6 @@
-- title t(".title")
+- title t('.title')
 .row
   .span12
     %h1.no-margin-bottom= yield :title
-    %p= t("itineraries.commons.about", itinerary_link: link_to(@itinerary, itinerary_path(@itinerary)), user_link: link_to(@itinerary.user, user_path(@itinerary.user))).html_safe
-    = render "form"
+    %p= t('itineraries.commons.about', itinerary_link: link_to(@itinerary, itinerary_path(@itinerary)), user_link: link_to(@itinerary.user, user_path(@itinerary.user))).html_safe
+    = render 'form'

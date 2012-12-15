@@ -1,19 +1,19 @@
 .row
   .span3
     %h3= yield :title
-    = bootstrap_form_for ItineraryRoute.new, url: "#", method: "get", validate: true, html: { data: { not_found_text: t(".not_found_text"), zero_results_text: t(".zero_results_text"), get_route_before_text: t(".get_route_before") } } do |f|
-      = f.text_field :from, class: "input-xlarge width-max"
-      = f.text_field :to, class: "input-xlarge width-max"
+    = bootstrap_form_for ItineraryRoute.new, url: '#', method: 'get', validate: true do |f|
+      = f.text_field :from, class: 'input-xlarge width-max'
+      = f.text_field :to, class: 'input-xlarge width-max'
       = f.check_box :avoid_highways
       = f.check_box :avoid_tolls
-      = f.submit t(".get_route"), class: "btn btn-primary"
-      = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: "...", id: "itineraries-spinner", class: "hide"
+      = f.submit t('.get_route'), class: 'btn btn-primary'
+      = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...', id: 'itineraries-spinner', class: 'hide'
     #error.alert.alert-error
     #result.alert.alert-info
-      #{t(".distance")}:
+      #{t('.distance')}:
       %b#distance
       %br
-      #{t(".duration")}:
+      #{t('.duration')}:
       %b#duration
   .span9
     #new-itinerary-map.google-maps
@@ -29,18 +29,18 @@
   .span4
     %h3.no-margin
       %i.icon-eye-close
-      = t(".hint_privacy_title")
+      = t('.hint_privacy_title')
     %p
-      = t(".hint_privacy_content")
+      = t('.hint_privacy_content')
   .span4
     %h3.no-margin
       %i.icon-wrench
-      = t(".hint_customize_title")
+      = t('.hint_customize_title')
     %p
-      = t(".hint_customize_content")
+      = t('.hint_customize_content')
   .span4
     %h3.no-margin
       %i.icon-search
-      = t(".hint_search_before_title")
+      = t('.hint_search_before_title')
     %p
-      = t(".hint_search_before_content", search_link: (link_to t(".search_link"), itineraries_path)).html_safe
+      = t('.hint_search_before_content', search_link: (link_to t('.search_link'), itineraries_path)).html_safe

@@ -12,7 +12,7 @@
               = make_thumbs(reference.incoming.rating)
             %p.pre-line= reference.incoming.body
         - else
-          %p.muted.didntwrite= t(".didnt_write_yet", name: reference.referencing_user.first_name)
+          %p.muted.didntwrite= t('.didnt_write_yet', name: reference.referencing_user.first_name)
   .div-table.outgoing-reference-cell
     .div-table-cell
       .div-table
@@ -26,4 +26,4 @@
                 =make_thumbs(reference.outgoing.rating)
               %p.pre-line= reference.outgoing.body
           - else
-            %p.muted.didntwrite= t(".didnt_write_yet", name: reference.user.first_name)
+            %p.muted.didntwrite= t('.didnt_write_yet', name: reference.user.first_name)

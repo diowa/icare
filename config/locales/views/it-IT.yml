@@ -258,9 +258,6 @@ it-IT:
       next_step: "Passo successivo"
       previous_step: "Torna indietro"
     route_step:
-      not_found_text: Percorso non trovato
-      zero_results_text: Nessun risultato
-      get_route_before: Calcola prima il percorso
       get_route: Calcola percorso
       distance: Distanza
       duration: Durata
@@ -344,3 +341,6 @@ it-IT:
   javascript:
     no_itineraries_found: Nessun itinerario trovato
     an_error_occurred: Ops! Si è verificato un errore nella ricerca degli itinerari
+    not_found: Percorso non trovato
+    zero_results: Nessun risultato
+    setup_route_first: Calcola prima il percorso

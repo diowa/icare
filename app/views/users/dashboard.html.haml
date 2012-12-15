@@ -1,44 +1,44 @@
-- title t(".title")
+- title t('.title')
 .row
   .span12
-    = render "shared/flash_messages"
+    = render 'shared/flash_messages'
   .span6
     #hero-user.hero-unit
       .attribution
         db9_dash.jpg by xmatt, on Flickr
-      .dashboard-title= t(".reminder")
+      .dashboard-title= t('.reminder')
       %p
-        = link_to :conversations, class: "btn btn-large btn-block" do
+        = link_to :conversations, class: 'btn btn-large btn-block' do
           %i.icon-comments.icon-large
-          = t(".new_messages", count: current_user.unread_conversations_count)
+          = t('.new_messages', count: current_user.unread_conversations_count)
       %p
-        = link_to :notifications, class: "btn btn-large btn-block mock disabled" do
+        = link_to :notifications, class: 'btn btn-large btn-block mock disabled' do
           %i.icon-globe.icon-large
-          = t(".new_notifications", count: 0)
+          = t('.new_notifications', count: 0)
       %p
-        = link_to user_references_path(current_user), class: "btn btn-large btn-block" do
+        = link_to user_references_path(current_user), class: 'btn btn-large btn-block' do
           %i.icon-thumbs-up.icon-large
-          = t(".new_references", count: current_user.unread_references_count)
+          = t('.new_references', count: current_user.unread_references_count)
   .span6
     #hero-itineraries.hero-unit
       .attribution
         _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
       .dashboard-title= Itinerary.model_name.human(count: 42)
       %p
-        = link_to itineraries_path, class: "btn btn-large btn-block" do
+        = link_to itineraries_path, class: 'btn btn-large btn-block' do
           %i.icon-search.icon-large
-          = t(".search_itineraries")
+          = t('.search_itineraries')
       %p
-        = link_to new_itinerary_path, class: "btn btn-large btn-block " do
+        = link_to new_itinerary_path, class: 'btn btn-large btn-block' do
           %i.icon-road.icon-large
-          = t(".new_itinerary")
+          = t('.new_itinerary')
       %p
-        = link_to my_itineraries_path, class: "btn btn-large btn-block " do
+        = link_to my_itineraries_path, class: 'btn btn-large btn-block' do
           %i.icon-heart.icon-large
-          = t(".your_itineraries")
+          = t('.your_itineraries')
 .row
   .span6.offset6
-    %h3= t(".latest_itineraries")
+    %h3= t('.latest_itineraries')
     %table.table.table-condensed.table-striped
       %thead
         %tr
@@ -50,7 +50,7 @@
           %tr
             %td
               - if itinerary.pink?
-                %i.icon-lock.pink-text{ rel: "tooltip", title: Itinerary.human_attribute_name(:pink) }
+                %i.icon-lock.pink-text{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
               = link_to itinerary, itinerary_path(itinerary)
             %td= link_to itinerary.user, user_path(itinerary.user)
             %td= l(itinerary.leave_date.in_time_zone, format: :short)

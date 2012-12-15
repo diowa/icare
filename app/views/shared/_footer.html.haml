@@ -1,25 +1,25 @@
 %footer
   %ul.unstyled
     %li
-      = image_tag transparent_gif_image_data, alt: "diowa", height: 25, width: 80, title: "diowa", class: "diowa-logo"
+      = image_tag transparent_gif_image_data, alt: 'diowa', height: 25, width: 80, title: 'diowa', class: 'diowa-logo'
     - if logged_in?
-      %li= link_to t("about"), :about
-      %li= link_to t("how_it_works"), :how_it_works
+      %li= link_to t('about'), :about
+      %li= link_to t('how_it_works'), :how_it_works
       - unless APP_CONFIG.demo_mode
-        %li= link_to t("terms"), :terms
+        %li= link_to t('terms'), :terms
     %li
       %i.icon-github
-      = link_to "diowa/icare", "http://github.com/diowa/icare"
+      = link_to 'diowa/icare', 'http://github.com/diowa/icare'
     - if logged_in?
       %li
         %i.icon-bullhorn
         = link_to Feedback.model_name.human(count: :lot), feedbacks_url
       - if APP_CONFIG.demo_mode
         %li
-          = link_to user_path(current_user), method: :delete, class: "btn btn-danger btn-mini", data: { confirm: t("helpers.links.confirm") } do
+          = link_to user_path(current_user), method: :delete, class: 'btn btn-danger btn-mini', data: { confirm: t('helpers.links.confirm') } do
             %i.icon-remove
-            = t("delete_account")
+            = t('delete_account')
     - if APP_CONFIG.demo_mode
       %li
         %i.icon-warning-sign
-        = t("demo_mode")
+        = t('demo_mode')

@@ -10,6 +10,8 @@ SimpleConfig.for :application do
   set :secret_token, '197241fc4c041de6402aa732e0004c5401536237a1c39178005ddf9994695cfc71fb32b543f8fb216f272b416974e3ea3cece241278a40a8516291aec598a948'
   set :single_process_mode, true
 
+  set :costs_calculation_service_link, 'http://servizi.aci.it/CKInternet/'
+
   group :facebook do
     set :app_id, 'FACEBOOK_APP_ID'
     set :secret, 'FACEBOOK_SECRET'

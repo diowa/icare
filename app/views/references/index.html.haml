@@ -1,4 +1,4 @@
-- title t(".title")
+- title t('.title')
 .row
   .span12
     %h1= yield :title
@@ -10,7 +10,6 @@
         %th= t('references.commons.role')
         %th= Reference.human_attribute_name(:rating)
         %th= Reference.human_attribute_name(:body)
-        %th= t('helpers.actions')
       %tbody
         - @references.each do |reference|
           - if reference.incoming
@@ -20,7 +19,7 @@
               %td= link_to reference.referencing_user, user_path(reference.referencing_user)
               %td= driver_or_passenger reference
               %td= make_thumbs reference.incoming.rating
-              %td= link_to reference.incoming.body, user_reference_path(@user, reference)
+              %td= link_to reference.incoming.body.truncate(50), user_reference_path(@user, reference)
               %td
           - if reference.outgoing && reference.outgoing.body?
             %tr
@@ -30,5 +29,4 @@
               %td= driver_or_passenger reference
               %td= make_thumbs reference.outgoing.rating
               %td= link_to reference.outgoing.body, user_reference_path(@user, reference)
-              %td
     = paginate @references

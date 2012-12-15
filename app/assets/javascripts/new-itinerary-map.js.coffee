@@ -66,7 +66,7 @@ wizardPrevStep = ->
 wizardNextStep = ->
   # Run validations
   if $('#itinerary_route_json_object').val() is ''
-    $('#error').text($('#new_itinerary_route').data 'getRouteBeforeText').show()
+    $('#error').text(I18n.t 'javascript.setup_route_first').show()
     return false
 
   valid = true
@@ -237,9 +237,9 @@ createRouteMapInit = (id) ->
       else
         switch status
           when "NOT_FOUND"
-            message = $("#new_itinerary_route").data "notFoundText"
+            message = I18n.t 'javascript.not_found'
           when "ZERO_RESULTS"
-            message = $("#new_itinerary_route").data "zeroResultsText"
+            message = I18n.t 'javascript.zero_results'
           else
             message = status
         $("#error").text(message).show()
