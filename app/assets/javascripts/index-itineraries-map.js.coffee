@@ -1,37 +1,31 @@
 ###global google:false###
 
-"use strict"
+'use strict'
 
 window.icare = window.icare || {}
 icare = window.icare
 
-routeColoursArray = [
-  "#0000ff"
-  "#ff0000"
-  "#00ffff"
-  "#ff00ff"
-  "#ffff00"
-  ]
+routeColoursArray = ['#0000ff', '#ff0000', '#00ffff', '#ff00ff', '#ffff00']
 
 hexToRgba = (color, alpha = 1) ->
-  if color.charAt(0) is "#" then (h = color.substring(1,7)) else (h = color)
+  if color.charAt(0) is '#' then (h = color.substring(1,7)) else (h = color)
   "rgba(#{parseInt(h.substring(0,2),16)}, #{parseInt(h.substring(2,4),16)}, #{parseInt(h.substring(4,6),16)}, #{alpha})"
 
 indexItinerariesMapInit = (id) ->
   styleArray = [
-      featureType: "all"
+      featureType: 'all'
       stylers: [
       ]
     ,
-      featureType: "road"
-      elementType: "geometry"
+      featureType: 'road'
+      elementType: 'geometry'
       stylers: [
       ]
     ,
-      featureType: "poi"
-      elementType: "labels"
+      featureType: 'poi'
+      elementType: 'labels'
       stylers: [
-        visibility: "off"
+        visibility: 'off'
       ]
   ]
 
@@ -50,14 +44,14 @@ indexItinerariesMapInit = (id) ->
       width: 0
       height: -35
 
-drawPath = (itinerary, strokeColor = "#0000FF", strokeOpacity = 0.45) ->
+drawPath = (itinerary, strokeColor = '#0000FF', strokeOpacity = 0.45) ->
   icare.latLngBounds.extend new google.maps.LatLng(itinerary.start_location.lat, itinerary.start_location.lng)
   icare.latLngBounds.extend new google.maps.LatLng(itinerary.end_location.lat, itinerary.end_location.lng)
   overview_path = google.maps.geometry.encoding.decodePath(itinerary.overview_polyline)
   return unless overview_path
   new_path = []
   customMarker = new icare.CustomMarker overview_path[0], icare.map,
-    infoWindowContent: HandlebarsTemplates["gmaps_popup"]
+    infoWindowContent: HandlebarsTemplates['gmaps_popup']
       title: itinerary.title
       user:
         image: itinerary.user.profile_picture
@@ -65,7 +59,7 @@ drawPath = (itinerary, strokeColor = "#0000FF", strokeOpacity = 0.45) ->
         nationality: itinerary.user.nationality
       url: itinerary.url
       content: itinerary.description
-    type: "user_profile_picture"
+    type: 'user_profile_picture'
     image: itinerary.user.profile_picture
   google.maps.event.addListener customMarker, 'click', ->
     icare.infoWindow.setContent customMarker.options.infoWindowContent
@@ -105,12 +99,12 @@ clearItineraries = ->
   icare.customMarkers = {}
 
 initItineraryIndex = ->
-  indexItinerariesMapInit("#index-itineraries-map")
+  indexItinerariesMapInit('#index-itineraries-map')
 
   clearItineraries()
 
   # TODO clean this mess... directions service again?
-  $("#itineraries-search").on "click", ->
+  $('#itineraries-search').on 'click', ->
     return false unless $("#new_itinerary_search").isValid(window.ClientSideValidations.forms["new_itinerary_search"].validators)
     $("#error").hide()
     geocoder = new google.maps.Geocoder()
@@ -136,60 +130,58 @@ initItineraryIndex = ->
             $("#itinerary_search_end_location_lng").val results[0].geometry.location.lng()
             $("#new_itinerary_search").submit()
 
-  $("#new_itinerary_search").on "keypress", (e) ->
+  $('#new_itinerary_search').on 'keypress', (e) ->
     if e and e.keyCode is 13
       e.preventDefault()
-      $("#itineraries-search").click()
+      $('#itineraries-search').click()
 
-  $("#new_itinerary_search")
-    .bind "submit", (evt) ->
+  $('#new_itinerary_search')
+    .on 'submit', (evt) ->
       clearItineraries()
-    .bind "ajax:beforeSend", (evt, xhr, settings) ->
+    .on 'ajax:beforeSend', (evt, xhr, settings) ->
       $("#itineraries-spinner").show()
-    .bind "ajax:complete", (evt, xhr, settings) ->
+    .on 'ajax:complete', (evt, xhr, settings) ->
       $("#itineraries-spinner").hide()
-    .bind "ajax:error", (evt, xhr, settings) ->
+    .on 'ajax:error', (evt, xhr, settings) ->
       $("#itineraries-thumbs").html """
         <h3 class="error-text no-margin">#{I18n.t("javascript.an_error_occurred")}</h3>
         """
       false
-    .bind "ajax:success", (evt, data, status, xhr) ->
+    .on 'ajax:success', (evt, data, status, xhr) ->
       # TODO fix browser back, it calls ajax:success many times
       if data.length is 0
-        $("#itineraries-thumbs").html """
+        $('#itineraries-thumbs').html """
           <h3 class="no-margin">#{I18n.t("javascript.no_itineraries_found")}</h3>
           """
       else
-        $("#itineraries-thumbs").html ""
+        $('#itineraries-thumbs').html ''
         index = 0
         icare.latLngBounds = new google.maps.LatLngBounds()
         row_template = $("""<div class="row-fluid"></div>""")
         row = row_template
         $(data).each ->
-          $("#itineraries-thumbs").append(row = row_template.clone(true)) if (index % 2) is 0
+          $('#itineraries-thumbs').append(row = row_template.clone(true)) if (index % 2) is 0
           color = routeColoursArray[index++ % routeColoursArray.length]
           drawPath this, color
           this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
           row.append HandlebarsTemplates['itineraries/thumbnail'](this)
         icare.map.fitBounds icare.latLngBounds
-        $(".facebook-verified-tooltip").tooltip()
+        $('.facebook-verified-tooltip').tooltip()
 
   $('#itineraries-thumbs').on 'click', '.show-itinerary-on-map', (e) ->
     e.preventDefault()
-    google.maps.event.trigger icare.customMarkers[$(this).data("id")], 'click'
+    google.maps.event.trigger icare.customMarkers[$(this).data('id')], 'click'
     false
 
-  $("#search-form-advanced-link").on 'click', (e) ->
+  $('#search-form-advanced-link').on 'click', (e) ->
     e.preventDefault()
     me = this
-    $("#search-form-advanced").slideToggle ->
-      $icon = $(me).find("i")
-      if $icon.hasClass "icon-chevron-up"
-        $icon.removeClass("icon-chevron-up").addClass "icon-chevron-down"
-      else
-        $icon.removeClass("icon-chevron-down").addClass "icon-chevron-up"
+    $('#search-form-advanced').slideToggle ->
+      $(me).find('i')
+        .toggleClass('icon-chevron-up')
+        .toggleClass('icon-chevron-down')
 
 # jQuery Turbolinks
 $ ->
-  if $("#index-itineraries-map")[0]?
+  if $('#index-itineraries-map')[0]?
     initItineraryIndex()

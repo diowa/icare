@@ -1,3 +1,5 @@
+###global $:false###
+
 'use strict'
 
 # jQuery Turbolinks

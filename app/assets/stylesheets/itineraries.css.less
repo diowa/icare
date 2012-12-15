@@ -3,13 +3,23 @@
 
 .itinerary-step {
   border-bottom: 2px solid @grayDark;
+
   &:not(.active) {
     border-color: @grayLight;
-    color: @grayLight;
+
+    &,
+    h2 {
+      color: @grayLight;
+    }
   }
+
   &.done {
     border-color: @successText;
-    color: @successText;
+
+    &,
+    h2 {
+      color: @successText;
+    }
   }
 }
 

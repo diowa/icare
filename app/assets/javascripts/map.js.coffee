@@ -1,7 +1,7 @@
 ###global google:false###
 ###jshint shadow:true###
 
-"use strict"
+'use strict'
 
 window.icare = window.icare || {}
 icare = window.icare
@@ -14,31 +14,31 @@ class CustomMarker
     @setMap map
     $.extend true, @options =
      infoWindowContent: null
-     image: "http://placehold.it/50x50"
-     css_classes: "markers-home"
-     type: "sprite"
-     image_overlay: null
+     image: 'http://placehold.it/50x50'
+     cssClasses: 'markers-home'
+     type: 'sprite'
+     imageOverlay: null
     , opts
 
   onAdd: ->
     me = @
     div = document.createElement 'div'
-    div.style.position = "absolute"
+    div.style.position = 'absolute'
 
     switch @options.type
-      when "user_profile_picture"
-        div.setAttribute "class", "#{@options.css_classes} arrow_box"
+      when 'user_profile_picture'
+        div.setAttribute 'class', "#{@options.cssClasses} arrow_box"
         div.style.width = '27px'
         div.style.height = '27px'
         img = document.createElement 'img'
-        img.setAttribute "width", "25px"
-        img.setAttribute "height", "25px"
-        img.setAttribute "alt", ""
+        img.setAttribute 'width', '25px'
+        img.setAttribute 'height', '25px'
+        img.setAttribute 'alt', ''
         img.src = @options.image
         div.appendChild img
-      when "sprite"
-        div.setAttribute "class", @options.css_classes
-        div.style.border = "none"
+      when 'sprite'
+        div.setAttribute 'class', @options.cssClasses
+        div.style.border = 'none'
         div.style.width = '32px'
         div.style.height = '37px'
         div.style.cursor = 'pointer'
@@ -54,7 +54,7 @@ class CustomMarker
     point = @getProjection().fromLatLngToDivPixel @position
     width = parseInt @_div.style.width, 10
     height = parseInt @_div.style.height, 10
-    height += 5 if @type is "user_profile_picture"
+    height += 5 if @type is 'user_profile_picture'
     if point
       @_div.style.left = "#{point.x - width/2}px"
       @_div.style.top = "#{point.y - height}px"

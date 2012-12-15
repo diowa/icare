@@ -1,4 +1,4 @@
-###global I18n:false###
+###global $:false, I18n:false, HandlebarsTemplates:false###
 
 'use strict'
 
@@ -9,16 +9,15 @@ $(document).on 'click', '.popover a', (e) ->
 $(document).on 'click', '.notifications', (e) ->
   e.preventDefault()
   $me = $(this)
-  $(".notifications").not("##{$me.attr('id')}").removeClass('active').find('a').popover 'hide'
-  $popoverElement = $me.toggleClass('active').find('a')
-  # TODO use toggle when bootstrap will be updated to 2.2.2
-  if $me.find(".popover")[0]?
+  $('.notifications').not("##{$me.attr('id')}").removeClass('active').find('a').popover 'hide'
+  $popoverElement = $me.toggleClass('active').find 'a'
+  if $me.find('.popover')[0]?
     $popoverElement.popover 'hide'
   else
     $popoverElement.popover 'show'
-  if $('.popover.in')[0]? and $popoverElement.data("load")?
+  if $('.popover.in')[0]? and $popoverElement.data('load')?
     $.ajax
-      url: $popoverElement.data('load')
+      url: $popoverElement.data 'load'
       success: (data) ->
         messages = ''
         for message in data
@@ -32,5 +31,5 @@ $(document).on 'click', '.notifications', (e) ->
           """
         else
           $popoverElement.find('span.count').remove()
-          $('.popover-ajax-content').html I18n.t("shared.navbar.no_new_messages")
+          $('.popover-ajax-content').html I18n.t('shared.navbar.no_new_messages')
   false

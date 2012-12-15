@@ -1,23 +1,15 @@
 ###
-Codename Icare
-
-Microdonations
-
-100% facebook, interests, friends, ecc.
-
-after mutual friends
-
 Itineraries
   people in the car: bool
   visibility: friends, friends of friends, public
-  periodicity: think about it
+  daily: think about it
 ###
 
 # From https://google-developers.appspot.com/maps/customize_ae458c7692ac994187feb6f58834b6af.frame
 
-###global google:false###
+###global $:false, google:false, I18n:false###
 
-"use strict"
+'use strict'
 
 window.icare = window.icare || {}
 icare = window.icare
@@ -51,29 +43,30 @@ getJSONRoute = (route) ->
   data
 
 wizardPrevStep = ->
-  step = (Number) $("#new_itinerary").data "step"
+  step = (Number) $('#new_itinerary').data 'step'
   return if step <= 1
 
-  last_step = (Number) $("#new_itinerary").data "lastStep"
+  lastStep = (Number) $('#new_itinerary').data 'lastStep'
 
   $("#wizard-step-#{step}-content").fadeOut ->
-    $("#wizard-next-step-button").removeAttr "disabled"
-    $("#wizard-next-step-button").show()
-    $("#new_itinerary_submit").attr "disabled", "disabled"
-    $("#new_itinerary_submit").hide()
-    $("#wizard-step-#{step}-title").addClass("hidden-phone").removeClass "active"
-    $("#new_itinerary").data "step", --step
-    $("#wizard-step-#{step}-title").find(".icon-check").addClass("icon-check-empty").toggleClass "icon-check"
-    $("#wizard-step-#{step}-title").removeClass("done").removeClass("hidden-phone").addClass "active"
+    $('#wizard-next-step-button').removeAttr('disabled').show()
+    $('#new_itinerary_submit').attr('disabled', 'disabled').hide()
+
+    $("#wizard-step-#{step}-title").addClass('hidden-phone').removeClass 'active'
+
+    $("#new_itinerary").data 'step', --step
+    $("#wizard-step-#{step}-title")
+      .removeClass('done').removeClass('hidden-phone').addClass('active')
+      .find('.icon-check').addClass('icon-check-empty').toggleClass('icon-check')
+
     $("#wizard-step-#{step}-content").fadeIn()
     if step is 1
-      $("#wizard-prev-step-button").attr "disabled", "disabled"
-      $("#wizard-prev-step-button").hide()
+      $("#wizard-prev-step-button").attr('disabled', 'disabled').hide()
 
 wizardNextStep = ->
   # Run validations
-  if $("#itinerary_route_json_object").val() is ""
-    $("#error").text($("#new_itinerary_route").data "getRouteBeforeText").show()
+  if $('#itinerary_route_json_object').val() is ''
+    $('#error').text($('#new_itinerary_route').data 'getRouteBeforeText').show()
     return false
 
   valid = true
@@ -84,29 +77,27 @@ wizardNextStep = ->
     return
   return false unless valid
 
-  step = (Number) $("#new_itinerary").data "step"
-  last_step = (Number) $("#new_itinerary").data "lastStep"
+  step = (Number) $('#new_itinerary').data 'step'
+  lastStep = (Number) $('#new_itinerary').data 'lastStep'
 
-  if step is last_step
+  if step is lastStep
     return false
 
   $("#wizard-step-#{step}-content").fadeOut ->
-    $("#wizard-step-#{step}-title").removeClass("active").addClass("done").addClass "hidden-phone"
-    $("#wizard-step-#{step}-title").find(".icon-check-empty").addClass("icon-check").toggleClass "icon-check-empty"
-    $("#new_itinerary").data "step", ++step
-    if step is last_step
+    $("#wizard-step-#{step}-title")
+      .removeClass('active').addClass('done').addClass('hidden-phone')
+      .find('.icon-check-empty').addClass('icon-check').toggleClass('icon-check-empty')
+    $('#new_itinerary').data 'step', ++step
+    if step is lastStep
       lastStepInit()
-    $("#wizard-step-#{step}-title").removeClass("hidden-phone").addClass "active"
+    $("#wizard-step-#{step}-title").removeClass('hidden-phone').addClass 'active'
     $("#wizard-step-#{step}-content").fadeIn ->
-      $("#new_itinerary").enableClientSideValidations() # Enable validation for new fields
+      $('#new_itinerary').enableClientSideValidations() # Enable validation for new fields
     if step > 1
-      $("#wizard-prev-step-button").removeAttr "disabled"
-      $("#wizard-prev-step-button").show()
-      if step is last_step
-        $("#wizard-next-step-button").attr "disabled", "disabled"
-        $("#wizard-next-step-button").hide()
-        $("#new_itinerary_submit").removeAttr "disabled"
-        $("#new_itinerary_submit").show()
+      $("#wizard-prev-step-button").removeAttr('disabled').show()
+      if step is lastStep
+        $('#wizard-next-step-button').attr('disabled', 'disabled').hide()
+        $('#new_itinerary_submit').removeAttr('disabled').show()
 
 dateFieldToString = (field_id) ->
   values = $("select[id^=#{field_id}] option:selected")
@@ -116,14 +107,15 @@ dateFieldToString = (field_id) ->
   hour = $("##{field_id}_4i").val()
   minute = $("##{field_id}_5i").val()
   if I18n?
-    I18n.l "time.formats.long", "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
+    I18n.l 'time.formats.long', "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
   else
     "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
 
 lastStepInit = ->
-  $("#itinerary-preview-title").text $("#itinerary_title").val()
-  $("#itinerary-preview-description").text $("#itinerary_description").val()
-  $("#itinerary-preview-vehicle").text $("#itinerary_vehicle option:selected").text()
+  # TODO handlebars template
+  $('#itinerary-preview-title').text $('#itinerary_title').val()
+  $('#itinerary-preview-description').text $('#itinerary_description').val()
+  $('#itinerary-preview-vehicle').text $('#itinerary_vehicle option:selected').text()
   $("#itinerary-preview-smoking_allowed").text if $("#itinerary_smoking_allowed").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
   $("#itinerary-preview-pets_allowed").text if $("#itinerary_pets_allowed").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
   $("#itinerary-preview-pink").text if $("#itinerary_pink").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")

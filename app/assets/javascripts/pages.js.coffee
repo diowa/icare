@@ -1,4 +1,4 @@
-###global ClientSideValidations:false###
+###global $:false, ClientSideValidations:false###
 'use strict'
 
 # Prevent disabled links from being clicked
