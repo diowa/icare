@@ -5,7 +5,7 @@
 
 # VENDOR ASSETS
 #= require jquery.ba-throttle-debounce
-#= require waypoints
+# require waypoints
 
 # CLIENT SIDE VALIDATIONS
 #= require rails.validations
@@ -45,5 +45,5 @@ unsetLoadingStatus = ->
   $('#loading-spinner').fadeOut()
 
 # Turbolinks
-$(window).bind 'page:fetch', setLoadingStatus
-$(window).bind 'page:change', unsetLoadingStatus
+$(window).on 'page:fetch', setLoadingStatus
+$(window).on 'page:change', unsetLoadingStatus

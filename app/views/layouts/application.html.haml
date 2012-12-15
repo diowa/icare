@@ -1,8 +1,8 @@
 !!!
-%html{lang: I18n.locale.to_s}
+%html{ lang: I18n.locale.to_s }
   %head{ prefix: "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# #{APP_CONFIG.facebook.namespace}: http://ogp.me/ns/fb/#{APP_CONFIG.facebook.namespace}#" }
-    %meta{ charset: "utf-8" }
-    %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" }
+    %meta{ charset: 'utf-8' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' }
     %title= yield_or_default :title, controller.action_name.titlecase
     = csrf_meta_tags
     = yield :head
@@ -11,32 +11,31 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
 
     / Le styles
-    = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Open+Sans:400,700",
-                          "http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700",
-                          "http://fonts.googleapis.com/css?family=Pacifico",
-                          "application",
-                          media: "all"
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700',
+                          'http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700',
+                          'http://fonts.googleapis.com/css?family=Pacifico',
+                          'application',
+                          media: 'all'
 
     / Le fav and touch icons
-    %link{ href: "/assets/favicon.ico", rel: "shortcut icon" }
-    %link{ href: "/assets/apple-touch-icon.png", rel: "apple-touch-icon" }
-    %link{ href: "/assets/apple-touch-icon-72x72.png", rel: "apple-touch-icon", sizes: "72x72" }
-    %link{ href: "/assets/apple-touch-icon-114x114.png", rel: "apple-touch-icon", sizes: "114x114" }
+    %link{ href: '/assets/favicon.ico', rel: 'shortcut icon' }
+    %link{ href: '/assets/apple-touch-icon.png', rel: 'apple-touch-icon' }
+    %link{ href: '/assets/apple-touch-icon-72x72.png', rel: 'apple-touch-icon', sizes: '72x72' }
+    %link{ href: '/assets/apple-touch-icon-114x114.png', rel: 'apple-touch-icon', sizes: '114x114' }
 
-  %body
-    = render "shared/navbar"
-    #main-container.container
-      .content
-        = yield
-    #footer
-      .container
-        = render "shared/footer"
-    / /container
     /
       Le javascript
       \==================================================
-    / Placed at the end of the document so the pages load faster
-    = javascript_include_tag "http://maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry", "application"
-    = yield :scripts
+    / Placed at the top of the document 'cause of turbolinks
+    = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry', 'application'
     - if APP_CONFIG.exists?(:google_analytics_id) && APP_CONFIG.google_analytics_id
       = analytics_init
+
+  %body
+    = render 'shared/navbar'
+
+    #main-container.container
+      .content= yield
+
+    #footer
+      .container= render 'shared/footer'
