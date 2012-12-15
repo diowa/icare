@@ -98,8 +98,8 @@ module UsersHelper
   def language_tags(user)
     return unless user.languages && user.languages.any?
     if (render_common_tags = (user != current_user))
-      my_languages = current_user.languages.map{ |lang| lang['id'] }
-      common_languages = user.languages.map{ |lang| lang['id'] } & my_languages
+      my_languages = current_user.languages.map { |lang| lang['id'] }
+      common_languages = user.languages.map { |lang| lang['id'] } & my_languages
     end
     user.languages.map do |language|
       content_tag :span,
@@ -110,10 +110,10 @@ module UsersHelper
 
   def work_and_education_tags(user, field)
     return unless user[field] && user[field].any?
-    user_work_or_edu = user[field].map{ |field| { "name" => field.first.second["name"], "id" => field.first.second["id"] } }
+    user_work_or_edu = user[field].map { |field| { "name" => field.first.second["name"], "id" => field.first.second["id"] } }
     my_field = current_user[field]
     if (render_common_work_or_edu = (user != current_user) && my_field && my_field.any?)
-      my_work_or_edu = my_field.map{ |field| { "name" => field.first.second["name"], "id" => field.first.second["id"] } }
+      my_work_or_edu = my_field.map { |field| { "name" => field.first.second["name"], "id" => field.first.second["id"] } }
     end
     render_tags user_work_or_edu, my_work_or_edu, render_common_tags: render_common_work_or_edu, content: User.human_attribute_name(field), class: "description-facebook"
   end
@@ -129,7 +129,7 @@ module UsersHelper
   def render_tags(user_tags, my_tags, opts = {})
     options = { render_common_tags: false }.merge(opts)
     if options[:render_common_tags]
-      common_tags = user_tags.map{ |user_tag| user_tag["id"] } & my_tags.map{ |my_tag| my_tag["id"] }
+      common_tags = user_tags.map { |user_tag| user_tag["id"] } & my_tags.map { |my_tag| my_tag["id"] }
     end
     content_tag(:dt) do
       content_tag(:span, options[:content], class: options[:class])

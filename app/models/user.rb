@@ -62,7 +62,7 @@ class User
   field :send_email_references, type: Boolean, default: true
 
   validates :gender, inclusion: GENDER, allow_blank: true
-  validates :nationality, inclusion: Country.all.map{ |c| c.code }, allow_blank: true
+  validates :nationality, inclusion: Country.all.map { |c| c.code }, allow_blank: true
   validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map(&:name).keys, allow_blank: true
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
   #validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }

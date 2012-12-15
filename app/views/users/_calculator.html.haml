@@ -8,11 +8,11 @@
       .control-group
         = label_tag :fuel_type, t(".fuel_type"), class: "control-label"
         .controls
-          = select_tag :fuel_type, options_for_select(%w(diesel petrol lpg methane).map{ |f| [t(".fuel_#{f}"), f] })
+          = select_tag :fuel_type, options_for_select(%w(diesel petrol lpg methane).map { |f| [t(".fuel_#{f}"), f] })
       .control-group
         = label_tag :vehicle_type, t(".vehicle_type"), class: "control-label"
         .controls
-          = select_tag :vehicle_type, options_for_select(%w(compact standard high_consumption).map{ |f| [t(".vehicle_#{f}"), f] }, selected: "standard")
+          = select_tag :vehicle_type, options_for_select(%w(compact standard high_consumption).map { |f| [t(".vehicle_#{f}"), f] }, selected: "standard")
       .control-group
         = label_tag :fuel_price, t(".fuel_price"), class: "control-label"
         .controls
