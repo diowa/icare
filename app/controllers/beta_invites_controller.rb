@@ -25,5 +25,4 @@ class BetaInvitesController < ApplicationController
     @beta_invite.destroy
     redirect_to beta_invites_path
   end
-
 end

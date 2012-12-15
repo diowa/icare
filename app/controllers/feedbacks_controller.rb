@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
 
   def index
     @feedbacks = Feedback.includes(:user).all.desc(:updated_at).page params[:page]
-    @feedbacks = @feedbacks.where(:status.ne => "fixed") if params[:hide_fixed]
+    @feedbacks = @feedbacks.where(:status.ne => 'fixed') if params[:hide_fixed]
     @url = request.env['HTTP_REFERER']
   end
 

@@ -46,8 +46,7 @@ class ReferencesController < ApplicationController
     end
   end
 
-private
-
+  private
   def check_not_myself
     @itinerary = Itinerary.find(params[:itinerary_id])
     redirect_to root_path if @itinerary.user == current_user

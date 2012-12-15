@@ -48,6 +48,13 @@ Name and logo
 **icare** name and logo are temporary. **icare** is a summary of "I care", "Car" and "Environment". No copyright violation is intended.
 
 
+Styleguides
+-----------
+* Ruby: https://github.com/styleguide/ruby
+* CoffeeScript: https://github.com/styleguide/javascript
+* CSS: https://github.com/necolas/idiomatic-css
+
+
 Bug tracker
 -----------
 
