@@ -142,7 +142,7 @@ class Itinerary
   end
 
   def static_map
-    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=false&markers=color:green|label:B|#{to_latlng_array(:end_location).join(",")}&markers=color:green|label:A|#{to_latlng_array(:start_location).join(",")}&path=enc:#{overview_polyline}")
+    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|#{to_latlng_array(:end_location).join(",")}&markers=color:green|label:A|#{to_latlng_array(:start_location).join(",")}&path=enc:#{overview_polyline}")
   end
 
   def random_close_location(max_dist = 0.5, km = true)

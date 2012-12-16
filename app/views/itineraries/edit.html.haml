@@ -1,7 +1,7 @@
 - title t('.title')
 .row
   .span3
-    = image_tag @itinerary.static_map, class: "img-polaroid border-box", alt: ""
+    = image_tag @itinerary.static_map, class: 'img-polaroid border-box', alt: '', width: 200, height: 200
   .span9
     %h1= yield :title
-    = render "edit_form"
+    = render 'edit_form'
