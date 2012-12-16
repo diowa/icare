@@ -20,7 +20,6 @@
               %td= driver_or_passenger reference
               %td= make_thumbs reference.incoming.rating
               %td= link_to reference.incoming.body.truncate(50), user_reference_path(@user, reference)
-              %td
           - if reference.outgoing && reference.outgoing.body?
             %tr
               %td
@@ -28,5 +27,5 @@
               %td= link_to reference.referencing_user, user_path(reference.referencing_user)
               %td= driver_or_passenger reference
               %td= make_thumbs reference.outgoing.rating
-              %td= link_to reference.outgoing.body, user_reference_path(@user, reference)
+              %td= link_to reference.outgoing.body.truncate(50), user_reference_path(@user, reference)
     = paginate @references
