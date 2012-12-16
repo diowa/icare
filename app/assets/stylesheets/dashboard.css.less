@@ -19,12 +19,6 @@
   padding: 30px 20px;
   .border-radius(4px);
 
-  @media (max-width: 979px) and (min-width: 768px) {
-  }
-
-  @media (min-width: 980px) {
-  }
-
   p {
     .opacity(95);
     margin-left: 30px;
@@ -44,4 +38,20 @@
   background: #222222 url('/assets/dash_dashboard.jpg'); /* http://www.flickr.com/photos/hine/316920241/ */
   .background-size(142% auto);
   background-position: center;
+}
+
+/* ==========================================================================
+   Degrade at low screen sizes
+   ========================================================================== */
+
+@media (max-width: 479px) {
+  #hero-user,
+  #hero-itineraries {
+    padding: 20px 0;
+    .background-size(auto 100%);
+    p {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
 }
