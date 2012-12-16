@@ -12,31 +12,7 @@ hexToRgba = (color, alpha = 1) ->
   "rgba(#{parseInt(h.substring(0,2),16)}, #{parseInt(h.substring(2,4),16)}, #{parseInt(h.substring(4,6),16)}, #{alpha})"
 
 indexItinerariesMapInit = (id) ->
-  styleArray = [
-      featureType: 'all'
-      stylers: [
-      ]
-    ,
-      featureType: 'road'
-      elementType: 'geometry'
-      stylers: [
-      ]
-    ,
-      featureType: 'poi'
-      elementType: 'labels'
-      stylers: [
-        visibility: 'off'
-      ]
-  ]
-
-  country_bounds = new google.maps.LatLngBounds new google.maps.LatLng(35.49292010, 6.62672010), new google.maps.LatLng(47.0920, 18.52050150)
-  icare.map = new google.maps.Map $(id)[0],
-    center: new google.maps.LatLng 41.87194, 12.567379999999957
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-    scrollwheel: false
-    styles: styleArray
-    zoom: 8
-  icare.map.fitBounds(country_bounds)
+  icare.map = icare.initGoogleMaps id
 
   icare.infoWindow = new google.maps.InfoWindow
     maxWidth: 400

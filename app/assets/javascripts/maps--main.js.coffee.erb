@@ -87,4 +87,33 @@ random_nearby_position = (latLng, maxDist = 0.5, km = true) ->
     lng = lng - 2 * Math.PI
   [lat * RAD_TO_DEG, lng * RAD_TO_DEG]
 
+initGoogleMaps = (id) ->
+  styleArray = [
+      featureType: 'all'
+      stylers: [
+      ]
+    ,
+      featureType: 'road'
+      elementType: 'geometry'
+      stylers: [
+      ]
+    ,
+      featureType: 'poi'
+      elementType: 'labels'
+      stylers: [
+        visibility: 'off'
+      ]
+  ]
+
+  mapBounds = new google.maps.LatLngBounds new google.maps.LatLng(<%= APP_CONFIG.map.bounds.sw %>), new google.maps.LatLng(<%= APP_CONFIG.map.bounds.ne %>)
+  map = new google.maps.Map $(id)[0],
+    center: new google.maps.LatLng <%= APP_CONFIG.map.center %>
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+    scrollwheel: false
+    styles: styleArray
+    zoom: <%= APP_CONFIG.map.zoom %>
+  map.fitBounds mapBounds
+  map
+
 window.icare.CustomMarker = CustomMarker
+window.icare.initGoogleMaps = initGoogleMaps

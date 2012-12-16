@@ -16,6 +16,7 @@ icare = window.icare
 
 getJSONRoute = (route) ->
   # TODO server side, basing on start location, end location and via waypoints
+  # NOTE server side is limited to 2.500 requests per day. Are we sure?
 
   data =
     start_location: null
@@ -24,19 +25,19 @@ getJSONRoute = (route) ->
     overview_path: []
     overview_polyline: null
 
-  rleg = route.legs[0];
+  rleg = route.legs[0]
   data.start_location =
     'lat': rleg.start_location.lat()
     'lng': rleg.start_location.lng()
   data.end_location =
-    'lat': rleg.end_location.lat(),
+    'lat': rleg.end_location.lat()
     'lng': rleg.end_location.lng()
 
   for waypoint in rleg.via_waypoints
-    data.via_waypoints.push [ waypoint.lat(), waypoint.lng() ]
+    data.via_waypoints.push [waypoint.lat(), waypoint.lng()]
 
   for point in route.overview_path
-    data.overview_path.push [point.lat(), point.lng() ]
+    data.overview_path.push [point.lat(), point.lng()]
 
   data.overview_polyline = route.overview_polyline.points
 
@@ -133,48 +134,24 @@ lastStepInit = ->
     $(".itinerary-preview-return").hide()
 
   route = window.icare.itinerary_route_json_object
-  url_builder = $("#itinerary-preview-image")
-    .data("staticMapUrlBuilder")
+  url_builder = $('#itinerary-preview-image')
+    .data('staticMapUrlBuilder')
     .replace("%{end_location}", "#{route.end_location.lat},#{route.end_location.lng}")
     .replace("%{start_location}", "#{route.start_location.lat},#{route.start_location.lng}")
     .replace("%{overview_polyline}", "#{route.overview_polyline}")
-  $("#itinerary-preview-image").attr "src", url_builder
+  $('#itinerary-preview-image').attr 'src', url_builder
 
 createRouteMapInit = (id) ->
   recalcHeight = ->
-    $("#map").height $(window).height() - $("form").height() - $("#elevation").height()
-    map and google.maps.event.trigger map, "resize"
+    $('#map').height $(window).height() - $('form').height() - $('#elevation').height()
+    map and google.maps.event.trigger map, 'resize'
   $(window).resize recalcHeight
   recalcHeight()
 
   # for o of google.maps.DirectionsTravelMode
   #  $("#mode").append new Option(o)
 
-  styleArray = [
-      featureType: "all"
-      stylers: [
-      ]
-    ,
-      featureType: "road"
-      elementType: "geometry"
-      stylers: [
-      ]
-    ,
-      featureType: "poi"
-      elementType: "labels"
-      stylers: [
-        visibility: "off"
-      ]
-  ]
-
-  country_bounds = new google.maps.LatLngBounds new google.maps.LatLng(35.49292010, 6.62672010), new google.maps.LatLng(47.0920, 18.52050150)
-  map = new google.maps.Map $(id)[0],
-    center: new google.maps.LatLng 41.87194, 12.567379999999957
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-    scrollwheel: false
-    styles: styleArray
-    zoom: 8
-  map.fitBounds(country_bounds)
+  map = icare.initGoogleMaps id
 
   dr = new google.maps.DirectionsRenderer
     map: map
@@ -183,52 +160,52 @@ createRouteMapInit = (id) ->
 
   hoverMarker = new google.maps.Marker(map: map)
 
-  $("#elevation").mouseleave ->
+  $('#elevation').mouseleave ->
     hoverMarker.setVisible false
-    $("#elevation-hover").hide()
+    $('#elevation-hover').hide()
 
   ds = new google.maps.DirectionsService()
 
-  google.maps.event.addListener dr, "directions_changed", ->
+  google.maps.event.addListener dr, 'directions_changed', ->
     route = dr.getDirections().routes[0]
     route_json_object = getJSONRoute route
-    $("#from-helper").text route.legs[0].start_address
-    $("#to-helper").text route.legs[0].end_address
-    $("#itinerary_route_json_object").val JSON.stringify(route_json_object)
+    $('#from-helper').text route.legs[0].start_address
+    $('#to-helper').text route.legs[0].end_address
+    $('#itinerary_route_json_object').val JSON.stringify(route_json_object)
     window.icare.itinerary_route_json_object = route_json_object
-    $("#new_itinerary_submit").removeAttr "disabled"
-    $("#distance").text route.legs[0].distance.text
-    $("#duration").text route.legs[0].duration.text
-    $("#route-helper").show()
-    $("#result").show()
-    $("#itinerary_title").val "#{$("#itinerary_route_from").val()} - #{$("#itinerary_route_to").val()}".substr(0, 40).capitalize()
+    $('#new_itinerary_submit').removeAttr 'disabled'
+    $('#distance').text route.legs[0].distance.text
+    $('#duration').text route.legs[0].duration.text
+    $('#route-helper').show()
+    $('#result').show()
+    $('#itinerary_title').val "#{$("#itinerary_route_from").val()} - #{$("#itinerary_route_to").val()}".substr(0, 40).capitalize()
     route_km = route.legs[0].distance.value / 1000
-    route_gasoline = route_km * (Number) $("#fuel-help").data("avg_consumption")
-    $("#fuel-help-text").text $("#fuel-help").data("text").replace("{km}", route_km.toFixed(2)).replace("{est}", parseInt(route_gasoline, 10))
-    $("#fuel-help").show()
+    route_gasoline = route_km * (Number) $('#fuel-help').data('avg_consumption')
+    $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", parseInt(route_gasoline, 10))
+    $('#fuel-help').show()
     path = route.overview_path
     map.fitBounds(dr.directions.routes[0].bounds)
 
-  $("#new_itinerary_route").on "submit", ->
-    $("#itineraries-spinner").show()
-    $("#error").hide()
-    $("#result").hide()
-    $("#route-helper").hide()
-    $("#distance").text("")
-    $("#duration").text("")
+  $('#new_itinerary_route').on 'submit', ->
+    $('#itineraries-spinner').show()
+    $('#error').hide()
+    $('#result').hide()
+    $('#route-helper').hide()
+    $('#distance').text ''
+    $('#duration').text ''
     ds.route
-      origin: $("#itinerary_route_from").val()
-      destination: $("#itinerary_route_to").val()
-      travelMode: "DRIVING" #$("#mode").val()
-      avoidHighways: $("#itinerary_route_avoid_highways").attr("checked")?
-      avoidTolls: $("#itinerary_route_avoid_tolls").attr("checked")?
+      origin: $('#itinerary_route_from').val()
+      destination: $('#itinerary_route_to').val()
+      travelMode: 'DRIVING' #$("#mode").val()
+      avoidHighways: $('#itinerary_route_avoid_highways').attr('checked')?
+      avoidTolls: $('#itinerary_route_avoid_tolls').attr('checked')?
     , (result, status) ->
-      $("#itineraries-spinner").hide()
+      $('#itineraries-spinner').hide()
       if status is google.maps.DirectionsStatus.OK
         dr.setDirections result
         dr.setOptions
           polylineOptions:
-            strokeColor:"#0000ff"
+            strokeColor:'#0000ff'
             strokeWeight:5
             strokeOpacity:0.45
         dr.map.fitBounds(dr.directions.routes[0].bounds)
@@ -236,13 +213,13 @@ createRouteMapInit = (id) ->
         #  suppressMarkers: true
       else
         switch status
-          when "NOT_FOUND"
+          when 'NOT_FOUND'
             message = I18n.t 'javascript.not_found'
-          when "ZERO_RESULTS"
+          when 'ZERO_RESULTS'
             message = I18n.t 'javascript.zero_results'
           else
             message = status
-        $("#error").text(message).show()
+        $('#error').text(message).show()
       recalcHeight()
     false
 
@@ -267,48 +244,48 @@ createRouteMapInit = (id) ->
       max = r[i].elevation  if r[i].elevation > max
       i++
     max = Math.ceil(max)
-    $("#climb-drop").text "Climb: " + Math.round(climb) + "m Drop: " + Math.round(drop) + "m"
+    $('#climb-drop').text "Climb: #{Math.round(climb)}m Drop: #{Math.round(drop)}m"
     max
 
   drawGraph = (r, max) ->
-    ec = $("#elevation-chart").empty()
+    ec = $('#elevation-chart').empty()
     width = Math.max(1, Math.floor(Math.min(11, ec.width() / r.length)) - 1)
     height = 100
     $.each r, (i, e) ->
       barHeight = Math.round(e.elevation / max * height)
-      bar = $("<div style='width:" + width + "px'><div style='height:" + barHeight + "px;'></div></div>")
+      bar = $("<div style='width: #{width}px'><div style='height: #{barHeight}px;'></div></div>")
       ec.append bar
       bar.mouseenter(->
-        offset = bar.find("div").offset()
+        offset = bar.find('div').offset()
         offset.top -= 25
         offset.left -= 3
         hoverMarker.setVisible true
         hoverMarker.setPosition e.location
-        $("#elevation-hover").show().text(Math.round(e.elevation) + "m").offset offset
+        $('#elevation-hover').show().text("#{Math.round(e.elevation)}m").offset offset
         map.panTo e.location  unless map.getBounds().contains(e.location)
       ).click ->
         map.panTo e.location
 
-  $(".share").click ->
-    $(this).find("input").focus().select()
+  $('.share').click ->
+    $(this).find('input').focus().select()
 
 initItineraryNew = ->
-  createRouteMapInit("#new-itinerary-map")
-  $("#wizard-next-step-button").on "click", wizardNextStep
-  $("#wizard-prev-step-button").on "click", wizardPrevStep
+  createRouteMapInit('#new-itinerary-map')
+  $('#wizard-next-step-button').on 'click', wizardNextStep
+  $('#wizard-prev-step-button').on 'click', wizardPrevStep
   $('input[name="itinerary[daily]"]').change ->
-    if (Boolean) $(this).val() is "true"
-      $("#single").fadeOut ->
-        $("#daily").fadeIn()
+    if (Boolean) $(this).val() is 'true'
+      $('#single').fadeOut ->
+        $('#daily').fadeIn()
     else
-      $("#daily").fadeOut ->
-        $("#single").fadeIn()
+      $('#daily').fadeOut ->
+        $('#single').fadeIn()
   $('#itinerary_round_trip').change ->
-    status = $(this).attr("checked")
-    $('select[id^=itinerary_return_date]').each ->
-      $(this).attr "disabled", (if status then null else "disabled")
+    status = $(this).attr('checked')
+    $('select[id^="itinerary_return_date"]').each ->
+      $(this).attr 'disabled', (if status then null else 'disabled')
 
 # jQuery Turbolinks
 $ ->
-  if $("#new_itinerary")[0]?
+  if $('#new_itinerary')[0]?
     initItineraryNew()
