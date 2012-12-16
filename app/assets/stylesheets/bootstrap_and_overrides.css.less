@@ -152,13 +152,13 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Open Sans Condensed';
+  font-family: @headerFontFamily;
 }
 
 h1,
 h2,
 h3 {
-  color: desaturate(darken(@icareMainColor, 7%), 30%);
+  color: @headerColor;
 }
 
 h4,
@@ -179,7 +179,7 @@ h1 {
 }
 
 .btn-pink.active {
-  color: rgba(255,255,255,.75);
+  color: rgba(255, 255, 255, .75);
 }
 
 .btn-facebook {
