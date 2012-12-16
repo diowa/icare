@@ -29,6 +29,16 @@ SimpleConfig.for :application do
     end
   end
 
+  group :itineraries do
+    # Enable this option if you want to restrict itineraries inside a geographic area
+    set :geo_restricted, false
+    group :bounds do
+      # Island of Ischia
+      set :sw, [40.69205729999999, 13.850980400000026]
+      set :ne, [40.7615088, 13.966879699999936]
+    end
+  end
+
   group :mailer do
     set :address, '127.0.0.1'
     set :domain, '127.0.0.1'

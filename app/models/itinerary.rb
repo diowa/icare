@@ -8,6 +8,7 @@ class Itinerary
 
   VEHICLE = %w(car motorcycle van)
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
+  BOUNDARIES = [APP_CONFIG.itineraries.bounds.sw, APP_CONFIG.itineraries.bounds.ne]
 
   attr_accessible :title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls, :pink
   attr_accessible :round_trip, :leave_date, :return_date, :daily
@@ -61,6 +62,7 @@ class Itinerary
   validate :driver_is_female, if: -> { pink }
 
   validates :leave_date, timeliness: { on_or_after: -> { Time.now } }, on: :create
+  validate :inside_bounds, if: -> { APP_CONFIG.itineraries.geo_restricted }, on: :create
   validate :return_date_validator, if: -> { round_trip }
 
   def return_date_validator
@@ -71,6 +73,14 @@ class Itinerary
 
   def driver_is_female
     self.errors.add(:pink, :driver_must_be_female) unless user.female?
+  end
+
+  def inside_bounds
+    # TODO RGeo???
+    self.errors.add(:base, :out_of_boundaries) unless start_location.lat >= BOUNDARIES[0][0] && start_location.lat <= BOUNDARIES[1][0] &&
+                                                      start_location.lng >= BOUNDARIES[0][1] && start_location.lng <= BOUNDARIES[1][1] &&
+                                                      end_location.lat >= BOUNDARIES[0][0] && end_location.lat <= BOUNDARIES[1][0] &&
+                                                      end_location.lng >= BOUNDARIES[0][1] && end_location.lng <= BOUNDARIES[1][1]
   end
 
   def self.build_with_route_json_object(params, user)
