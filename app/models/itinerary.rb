@@ -23,7 +23,7 @@ class Itinerary
   field :start_location, type: Point, spatial: true
   field :end_location, type: Point, spatial: true
   field :via_waypoints, type: Array
-  field :overview_path, type: Array
+  field :overview_path, type: Line
   field :overview_polyline, type: String
 
   # Details
