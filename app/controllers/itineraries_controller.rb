@@ -75,8 +75,7 @@ class ItinerariesController < ApplicationController
     end
   end
 
-protected
-
+  protected
   def check_permissions
   end
 

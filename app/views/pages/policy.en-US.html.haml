@@ -1,8 +1,8 @@
-- title t(".title")
+- title t('.title')
 .row
   .span12
-    %h1= yield(:title)
-    %h5.muted= t("last_modified", date: l(Date.parse("2012-09-01"), format: :long))
+    %h1= yield :title
+    %h5.muted= t('last_modified', date: l(Date.parse('2012-09-01'), format: :long))
 
     %h3 Information we collect
     %p
@@ -33,7 +33,7 @@
       so that you can make meaningful choices about how it is used. For example, you can:
       %ul
         %li
-          = link_to_if logged_in?, "Delete", :settings
+          = link_to_if logged_in?, 'Delete', :settings
           your account
     You may also set your browser to block all cookies, including cookies associated with our services, or to indicate
     when a cookie is being set by us. However, it’s important to remember that many of our services may not function

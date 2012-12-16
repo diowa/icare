@@ -1,6 +1,14 @@
 Changelog
 =========
 
+0.6.3
+-----
+* Fixed outgoing references
+* Fixed css focus
+* Improved dashboard on small screen
+* Applying code styleguides
+* Minor bug fixes and improvements
+
 0.6.2
 -----
 * Fixed daily itineraries

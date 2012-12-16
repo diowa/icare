@@ -3,15 +3,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :require_login
   before_filter :set_locale
-  before_filter :check_banned, except: [ :banned ]
-  before_filter :check_admin, only: [ :index ] # whitelist approach
+  before_filter :check_banned, except: [:banned]
+  before_filter :check_admin, only: [:index] # whitelist approach
 
   before_filter :set_user_time_zone, if: :logged_in?
 
   helper_method :current_user, :logged_in?
 
-protected
-
+  protected
   def set_locale
     # TODO think about optimizing this
     I18n.locale = \
@@ -39,8 +38,12 @@ protected
     end
   end
 
-private
+  def find_user(user_id)
+    # TODO Optimization. Indexed array with multiple values?
+    User.any_of({ username: user_id }, { uid: user_id }, { _id: :user_id }).first
+  end
 
+  private
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   rescue

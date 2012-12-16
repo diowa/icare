@@ -259,9 +259,6 @@ en-US:
       next_step: "Next step"
       previous_step: "Back"
     route_step:
-      not_found_text: Route not found
-      zero_results_text: No results
-      get_route_before: Set up the route first
       get_route: Get route
       distance: Distance
       duration: Duration
@@ -313,6 +310,10 @@ en-US:
       send: Send
 
   references:
+    commons:
+      role: Role
+      driver: Driver
+      passenger: Passenger
     _reference:
       didnt_write_yet: "%{name} didn't write yet"
     index:
@@ -340,3 +341,6 @@ en-US:
   javascript:
     no_itineraries_found: No itineraries found
     an_error_occurred: Ops! An error occurred while searching for itineraries.
+    not_found: Route not found
+    zero_results: No results
+    setup_route_first: Setup the route first

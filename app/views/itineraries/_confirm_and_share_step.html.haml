@@ -1,9 +1,9 @@
 =# true_text NOT converted to true-text
-#itinerary-preview{ data: { true_text: t("boolean.true"), false_text: t("boolean.false") }}
+#itinerary-preview{ data: { true_text: t('boolean.true'), false_text: t('boolean.false') }}
   .row
     .span3
       =# static_map_url_builder converted to static-map-url-builder
-      = image_tag transparent_gif_image_data, class: "img-polaroid", id: "itinerary-preview-image", alt: "", data: { static_map_url_builder: "http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=false&markers=color:green|label:B|%{end_location}&markers=color:green|label:A|%{start_location}&path=enc:%{overview_polyline}" }
+      = image_tag transparent_gif_image_data, class: 'img-polaroid', id: 'itinerary-preview-image', alt: '', data: { static_map_url_builder: "http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|%{end_location}&markers=color:green|label:A|%{start_location}&path=enc:%{overview_polyline}" }, width: 200, height: 200
     .span9
       %h1#itinerary-preview-title
       %table

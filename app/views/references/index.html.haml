@@ -1,4 +1,4 @@
-- title t(".title")
+- title t('.title')
 .row
   .span12
     %h1= yield :title
@@ -7,25 +7,25 @@
       %thead
         %th
         %th= User.model_name.human
-        %th= References::Base.human_attribute_name(:rating)
-        %th= References::Base.human_attribute_name(:body)
-        %th= t("helpers.actions")
+        %th= t('references.commons.role')
+        %th= Reference.human_attribute_name(:rating)
+        %th= Reference.human_attribute_name(:body)
       %tbody
         - @references.each do |reference|
           - if reference.incoming
-            %tr{ class: ("unread" if reference.unread?) }
+            %tr{ class: ('unread' if reference.unread?) }
               %td
                 %i.icon-download-alt
-              %td= @user
+              %td= link_to reference.referencing_user, user_path(reference.referencing_user)
+              %td= driver_or_passenger reference
               %td= make_thumbs reference.incoming.rating
-              %td= link_to reference.incoming.body, user_reference_path(@user, reference)
-              %td
-          - if reference.outgoing
+              %td= link_to reference.incoming.body.truncate(50), user_reference_path(@user, reference)
+          - if reference.outgoing && reference.outgoing.body?
             %tr
               %td
                 %i.icon-upload-alt
               %td= link_to reference.referencing_user, user_path(reference.referencing_user)
+              %td= driver_or_passenger reference
               %td= make_thumbs reference.outgoing.rating
-              %td= link_to reference.outgoing.body, user_reference_path(@user, reference)
-              %td
+              %td= link_to reference.outgoing.body.truncate(50), user_reference_path(@user, reference)
     = paginate @references

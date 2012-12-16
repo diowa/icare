@@ -66,7 +66,8 @@ it-IT:
         driver_gender: Sesso del guidatore
         daily: Giornaliero
       reference:
-        user: Utente
+        body: Messaggio
+        rating: Valutazione
         rating_negative: Negativa
         rating_neutral: Neutrale
         rating_positive: Positiva
@@ -78,6 +79,8 @@ it-IT:
               invalid: non è una e-mail valida
         itinerary:
           attributes:
+            base:
+              out_of_boundaries: L'itinerario non è incluso nell'area geografica autorizzata.
             pink:
               driver_must_be_female: solo le donne possono creare itinerari rosa
         conversation:

@@ -1,8 +1,8 @@
-- title t(".title")
+- title t('.title')
 .row
   .span12
-    %h1= yield(:title)
-    %h5.muted= t("last_modified", date: l(Date.parse("2012-09-01"), format: :long))
+    %h1= yield :title
+    %h5.muted= t('last_modified', date: l(Date.parse('2012-09-01'), format: :long))
 
     %h3 Welcome to #{APPNAME}
     %p
@@ -15,7 +15,7 @@
       This is a demo application of the open source carpooling platform #{APPNAME}.
     %p
       The source code is available at
-      = link_to "http://github.com/diowa/icare", "http://github.com/diowa/icare"
+      = link_to 'http://github.com/diowa/icare', 'http://github.com/diowa/icare'
 
     %h3 Privacy Protection
     %p

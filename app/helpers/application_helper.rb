@@ -4,27 +4,20 @@ module ApplicationHelper
     content_for(:title) { page_title.to_s }
   end
 
-  def yield_or_default(section, default = "")
+  def yield_or_default(section, default = '')
     content_for?(section) ? content_for(section) + (" | #{APPNAME}" unless (logged_in? || content_for(section) == APPNAME)) : default
   end
 
   def twitterized_type(type)
     case type
-      when :alert
-        "warning"
-      when :error
-        "error"
-      when :notice
-        "info"
-      when :success
-        "success"
-      else
-        type.to_s
+    when :alert then 'warning'
+    when :notice then 'info'
+    else type.to_s
     end
   end
 
   def transparent_gif_image_data
-    "data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+    'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
   end
 
   def check_root
@@ -44,7 +37,7 @@ module ApplicationHelper
     "(#{collection.size})" if collection.any?
   end
 
-  def share_on_facebook_timeline_available
+  def background_jobs_available?
     Resque.workers.any?
   rescue
     false

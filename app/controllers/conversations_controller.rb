@@ -60,8 +60,7 @@ class ConversationsController < ApplicationController
     @itinerary = Itinerary.find(@conversation.conversable_id)
   end
 
-private
-
+  private
   def clean_message_params
     params[:conversation][:message]['sender'] = current_user
     params[:conversation][:message]['read'] = nil

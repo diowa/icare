@@ -9,9 +9,9 @@ class PagesController < ApplicationController
   end
 
   def fbjssdk_channel
-    response.headers["Pragma"] = "public"
-    response.headers["Cache-Control"] = "max-age=#{1.year.to_i}"
-    response.headers["Expires"] = 1.year.from_now.httpdate
+    response.headers['Pragma'] = 'public'
+    response.headers['Cache-Control'] = "max-age=#{1.year.to_i}"
+    response.headers['Expires'] = 1.year.from_now.httpdate
     render layout: false
   end
 end

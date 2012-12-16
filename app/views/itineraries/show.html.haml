@@ -2,7 +2,7 @@
 - opengraph_header_content @itinerary
 .row
   .span3
-    = image_tag @itinerary.static_map, class: "img-polaroid border-box", alt: ""
+    = image_tag @itinerary.static_map, class: 'img-polaroid border-box', alt: '', width: 200, height: 200
   .span9
     %h1= @itinerary.title || Itinerary.model_name.human
     %table
@@ -13,14 +13,14 @@
               - if logged_in?
                 = user_profile_picture @itinerary.user, style: nil
               - else
-                = image_tag "http://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif", width: 50, height: 50, style: nil
+                = image_tag 'http://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif', width: 50, height: 50, style: nil
           %td.vertical-align-top
             .balloon.for-profile-picture
               - if logged_in?
                 %h5.no-margin= link_to @itinerary.user, user_path(@itinerary.user)
                 %p.pre-line= @itinerary.description
               - else
-                %h5.no-margin= t(".app_user", appname: APPNAME)
+                %h5.no-margin= t('.app_user', appname: APPNAME)
                 %p.pre-line= @itinerary.description
     .spacer
     .row-fluid
@@ -31,7 +31,7 @@
               %i.icon-lock
               = Itinerary.human_attribute_name(:pink)
             %br
-            %small.muted= t("itineraries.details_step.pink_help")
+            %small.muted= t('itineraries.details_step.pink_help')
       .span6
         %dl.dl-horizontal
           %dt= Itinerary.human_attribute_name(:vehicle)
@@ -62,28 +62,28 @@
         - if logged_in?
           .btn-toolbar
             - if current_user != @itinerary.user
-              = link_to new_or_show_conversation_path(@conversation), class: "btn btn-primary" do
+              = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary' do
                 %i.icon-comment
-                = t(".contact", user: @itinerary.user_first_name)
-              = link_to new_or_show_reference_path(@reference, @itinerary), class: "btn" do
+                = t('.contact', user: @itinerary.user_first_name)
+              = link_to new_or_show_reference_path(@reference, @itinerary), class: 'btn' do
                 %i.icon-thumbs-up
-                = t(".leave_reference")
+                = t('.leave_reference')
               .btn-group.mock
                 %button.btn.btn-warning
                   %i.icon-flag
-                %button.btn.btn-warning.dropdown-toggle{ data: { toggle: "dropdown" } }
+                %button.btn.btn-warning.dropdown-toggle{ data: { toggle: 'dropdown' } }
                   %span.caret
                 %ul.dropdown-menu
                   %li
-                    %a{ href: "#" }
-                      = t(".report_itinerary")
+                    %a{ href: '#' }
+                      = t('.report_itinerary')
             - else
-              = link_to edit_itinerary_path(@itinerary), class: "btn" do
+              = link_to edit_itinerary_path(@itinerary), class: 'btn' do
                 %i.icon-edit
-                = t("helpers.titles.edit", model: Itinerary.model_name.human)
+                = t('helpers.titles.edit', model: Itinerary.model_name.human)
         - else
           .btn-toolbar
             - session[:redirect_to] = itinerary_path(@itinerary)
-            = link_to auth_at_provider_path(provider: :facebook), class: "btn btn-facebook", data: { :"no-turbolink" => true } do
+            = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
               %i.icon-facebook-sign.icon-large
-              = t(".login_to_contact")
+              = t('.login_to_contact')

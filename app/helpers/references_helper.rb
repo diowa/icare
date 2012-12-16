@@ -22,6 +22,10 @@ module ReferencesHelper
     end
   end
 
+  def driver_or_passenger(reference)
+    reference.itinerary.user == reference.referencing_user ? t('references.commons.driver') : t('references.commons.passenger')
+  end
+
   def reference_help_text_for(reference)
     if reference.hospitality?
       if reference.is_host

@@ -1,8 +1,7 @@
 .modal.fade.in.hide#why-facebook
   .modal-header
-    %button.close{ type: "button", data: { dismiss: "modal" } }
-      &times;
-    %h3= t("why_facebook")
+    %button.close{ type: 'button', data: { dismiss: 'modal' } } &times;
+    %h3= t('why_facebook')
   .modal-body
     %p
       We know that some people do not use Facebook or do not allow permissions to third party applications.
@@ -21,4 +20,4 @@
         %strong
           NOTE: We will never post anything without your explicit consent.
   .modal-footer
-    = link_to t("close"), "#", data: { dismiss: "modal" }, class: "btn"
+    = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn'

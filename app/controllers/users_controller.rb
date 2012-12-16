@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   skip_before_filter :require_login, only: [:new, :create, :activate]
 
+  before_filter :set_user, only: [:show, :ban, :unban]
   before_filter :set_user_as_current_user, only: [:dashboard, :settings]
   before_filter :check_admin, only: [:index, :ban, :unban]
 
@@ -12,7 +13,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.any_of({ username: params[:id] }, { uid: params[:id] }, { _id: params[:id] }).first
   end
 
   def create
@@ -31,9 +31,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if current_user.admin? && params[:id].present?
-      @user = User.any_of({ username: params[:id] }, { uid: params[:id] }, { _id: params[:id] }).first
-    else
+    unless current_user.admin?
       @user = current_user
     end
     if @user.destroy
@@ -60,8 +58,6 @@ class UsersController < ApplicationController
   end
 
   def ban
-    @user = User.any_of({ username: params[:id] }, { uid: params[:id] }, { _id: params[:id] }).first
-
     # Prevent autoban
     if @user == current_user
       redirect_to users_path, flash: { error: t('flash.user.error.ban') }
@@ -77,7 +73,6 @@ class UsersController < ApplicationController
   end
 
   def unban
-    @user = User.any_of({ username: params[:id] }, { uid: params[:id] }, { _id: params[:id] }).first
     @user.banned = false
     if @user.save
       redirect_to users_path, flash: { success: t('flash.user.success.unban') }
@@ -86,9 +81,12 @@ class UsersController < ApplicationController
     end
   end
 
-private
-
+  private
   def set_user_as_current_user
     @user = current_user
+  end
+
+  def set_user
+    @user = find_user params[:id]
   end
 end

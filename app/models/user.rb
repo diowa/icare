@@ -62,8 +62,8 @@ class User
   field :send_email_references, type: Boolean, default: true
 
   validates :gender, inclusion: GENDER, allow_blank: true
-  validates :nationality, inclusion: Country.all.map{ |c| c.code }, allow_blank: true
-  validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map.map{ |zone| zone.first }, allow_blank: true
+  validates :nationality, inclusion: Country.all.map { |c| c.code }, allow_blank: true
+  validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map(&:name).keys, allow_blank: true
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
   #validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 
@@ -118,7 +118,7 @@ class User
 
     # Cache permissions
     facebook do |fb|
-      self.facebook_permissions = fb.get_connections("me", "permissions")[0]
+      self.facebook_permissions = fb.get_connections('me', 'permissions')[0]
     end
 
     # Schedule facebook data cache
@@ -144,11 +144,7 @@ class User
     facebook_permissions? ? facebook_permissions[scope.to_s].to_i == 1 : false
   end
 
-  def facebook_connections(connection)
-    facebook { |fb| fb.get_connections("me", connection.to_s) }
-  end
-
-  def cache_facebook_data
+  def cache_facebook_data?
     favorites = %w(music books movies television games activities interests) #athletes sports_teams sports inspirational_people
     facebook do |fb|
       result = fb.batch do |batch_api|
@@ -171,7 +167,7 @@ class User
   end
 
   def age_sex_nationality
-    [age, (User.human_attribute_name("gender_#{gender}").downcase if gender?), nationality_name].compact.join(" / ")
+    [age, (User.human_attribute_name("gender_#{gender}").downcase if gender?), nationality_name].compact.join(' / ')
   end
 
   def nationality_name
@@ -187,7 +183,7 @@ class User
   end
 
   def to_s
-    name || ""
+    name || ''
   end
 
   def to_param
@@ -207,12 +203,10 @@ class User
   end
 
   def male?
-    gender == "male"
+    gender == 'male'
   end
 
   def female?
-    gender == "female"
+    gender == 'female'
   end
-
-  protected
 end

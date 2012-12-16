@@ -18,12 +18,12 @@
     %p.pre-line><
       %strong><= model_class.human_attribute_name(:message) + ':'
       %br
-      ~ @feedback.message.strip.gsub(/\r/,"")
+      ~ @feedback.message.strip.gsub(/\r/, '')
     %p
       %strong= model_class.human_attribute_name(:url) + ':'
       %br
       = link_to @feedback.url, @feedback.url
 
     .form-actions
-      = link_to t('.back', default: t("helpers.links.back")), feedbacks_path, class: 'btn'
-      = link_to t('.edit', default: t("helpers.links.edit")), edit_feedback_path(@feedback), class: 'btn'
+      = link_to t('.back', default: t('helpers.links.back')), feedbacks_path, class: 'btn'
+      = link_to t('.edit', default: t('helpers.links.edit')), edit_feedback_path(@feedback), class: 'btn'

@@ -3,5 +3,5 @@
   - prev_sender = nil
   - @conversation.messages.each do |message|
     - alternate = !alternate if prev_sender != message.sender && prev_sender
-    = render "message", message: message, alternate: alternate
+    = render 'message', message: message, alternate: alternate
     - prev_sender = message.sender

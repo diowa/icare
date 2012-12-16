@@ -4,7 +4,7 @@ Icare::Application.routes.draw do
 
   resources :users, constraints: { id: /[A-Za-z0-9\.]+/ }, only: [:show, :create, :edit, :update, :destroy, :index] do
     post :ban, :unban, on: :member
-    resources :references, only: [:show, :new, :create, :edit, :update, :index]
+    resources :references, only: [:show, :new, :create, :update, :index]
   end
 
   match 'dashboard', to: 'users#dashboard', as: :dashboard

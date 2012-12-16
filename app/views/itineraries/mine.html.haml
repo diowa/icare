@@ -1,22 +1,20 @@
-- title t(".title")
+- title t('.title')
 .row
   .span12
-    = render "shared/flash_messages"
+    = render 'shared/flash_messages'
     %h1= yield :title
   .span12
     %table.table.table-striped
       %thead
         %th #
         %th= Itinerary.human_attribute_name(:title)
-        %th= t("itineraries.commons.features")
-        %th= t("helpers.actions")
+        %th= t('itineraries.commons.features')
+        %th= t('helpers.actions')
       %tbody
         - @itineraries.each_with_index do |itinerary, index|
           %tr.vertical-align-middle
-            %td
-              = index.next
-            %td
-              = link_to itinerary, itinerary_path(itinerary)
+            %td= index.next
+            %td= link_to itinerary, itinerary_path(itinerary)
             %td
               - if itinerary.pink
                 %i.text-pink.icon-lock.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
@@ -25,9 +23,9 @@
               - if itinerary.round_trip
                 %i.icon-retweet.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:round_trip) }
             %td.btn-toolbar
-              = link_to edit_itinerary_path(itinerary), class: "btn btn-small mock" do
+              = link_to edit_itinerary_path(itinerary), class: 'btn btn-small mock' do
                 %i.icon-edit
-                = t("helpers.links.edit")
-              = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t("helpers.links.confirm") }, class: "btn btn-small btn-danger" do
+                = t('helpers.links.edit')
+              = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-small btn-danger' do
                 %i.icon-trash
-                = t("helpers.links.destroy")
+                = t('helpers.links.destroy')

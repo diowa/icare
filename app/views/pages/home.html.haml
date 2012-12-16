@@ -1,8 +1,8 @@
 - content_for :head do
-  = tag :meta, name: "description", content: t('meta_description', appname: APPNAME)
+  = tag :meta, name: 'description', content: t('meta_description', appname: APPNAME)
 - title APPNAME
 #fb-root
-= render "shared/flash_messages"
+= render 'shared/flash_messages'
 .row
   .span12
     #home-hero
@@ -19,21 +19,21 @@
       .row-fluid
         .span6
           #facepile-container.white-container.hide
-            .fb-facepile{ data: { size: "medium", :"max-rows" => "1" } }
+            .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
         .span6.white-container
           %p
-            = link_to auth_at_provider_path(provider: :facebook), class: "btn btn-large btn-facebook", data: { :"no-turbolink" => true } do
+            = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-large btn-facebook', data: { :"no-turbolink" => true } do
               %i.icon-facebook-sign.icon-large
-              = t("login_with_facebook")
+              = t('login_with_facebook')
             %small.why-facebook
-              = link_to t("why_facebook"), "#why-facebook", data: { toggle: "modal" }
+              = link_to t('why_facebook'), '#why-facebook', data: { toggle: 'modal' }
           %p.signin-terms
-            %b= t("we_will_never_post")
+            %b= t('we_will_never_post')
             %br
             - if APP_CONFIG.demo_mode
-              = t(".demo_mode", demo_terms_link: link_to(t("demo_terms"), :demo_terms)).html_safe
+              = t('.demo_mode', demo_terms_link: link_to(t('demo_terms'), :demo_terms)).html_safe
             - else
-              = t(".signin_terms", appname: APPNAME, terms_link: link_to(t("terms"), :terms), policy_link: link_to(t("policy"), :policy)).html_safe
+              = t('.signin_terms', appname: APPNAME, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy)).html_safe
 .home-text-snippets
   .row
     .span4
@@ -63,4 +63,4 @@
         = t('.help_environment_title')
       %p= t('.help_environment_content')
 
-= render "shared/modal_why_facebook"
+= render 'shared/modal_why_facebook'

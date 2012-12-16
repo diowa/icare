@@ -8,6 +8,7 @@ class Itinerary
 
   VEHICLE = %w(car motorcycle van)
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
+  BOUNDARIES = [APP_CONFIG.itineraries.bounds.sw, APP_CONFIG.itineraries.bounds.ne]
 
   attr_accessible :title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls, :pink
   attr_accessible :round_trip, :leave_date, :return_date, :daily
@@ -23,13 +24,13 @@ class Itinerary
   field :start_location, type: Point, spatial: true
   field :end_location, type: Point, spatial: true
   field :via_waypoints, type: Array
-  field :overview_path, type: Array
+  field :overview_path, type: Line
   field :overview_polyline, type: String
 
   # Details
   field :title
   field :description
-  field :vehicle, default: "car"
+  field :vehicle, default: 'car'
   field :num_people, type: Integer
   field :smoking_allowed, type: Boolean, default: false
   field :pets_allowed, type: Boolean, default: false
@@ -61,26 +62,37 @@ class Itinerary
   validate :driver_is_female, if: -> { pink }
 
   validates :leave_date, timeliness: { on_or_after: -> { Time.now } }, on: :create
+  validate :inside_bounds, if: -> { APP_CONFIG.itineraries.geo_restricted }, on: :create
   validate :return_date_validator, if: -> { round_trip }
 
   def return_date_validator
-    self.errors.add(:return_date, I18n.t("mongoid.errors.messages.after", restriction: leave_date.strftime(I18n.t("validates_timeliness.error_value_formats.datetime")))) if return_date <= leave_date
+    self.errors.add(:return_date,
+                    I18n.t('mongoid.errors.messages.after',
+                    restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime')))) if return_date <= leave_date
   end
 
   def driver_is_female
     self.errors.add(:pink, :driver_must_be_female) unless user.female?
   end
 
+  def inside_bounds
+    # TODO RGeo???
+    self.errors.add(:base, :out_of_boundaries) unless start_location.lat >= BOUNDARIES[0][0] && start_location.lat <= BOUNDARIES[1][0] &&
+                                                      start_location.lng >= BOUNDARIES[0][1] && start_location.lng <= BOUNDARIES[1][1] &&
+                                                      end_location.lat >= BOUNDARIES[0][0] && end_location.lat <= BOUNDARIES[1][0] &&
+                                                      end_location.lng >= BOUNDARIES[0][1] && end_location.lng <= BOUNDARIES[1][1]
+  end
+
   def self.build_with_route_json_object(params, user)
     new(params) do |itinerary|
       route_json_object = JSON.parse(params[:route_json_object])
-      itinerary.start_location = { lat: route_json_object["start_location"]["lat"],
-                                   lng: route_json_object["start_location"]["lng"] }
-      itinerary.end_location = { lat: route_json_object["end_location"]["lat"],
-                                 lng: route_json_object["end_location"]["lng"] }
-      itinerary.via_waypoints = route_json_object["via_waypoints"]
-      itinerary.overview_path = route_json_object["overview_path"]
-      itinerary.overview_polyline = route_json_object["overview_polyline"]
+      itinerary.start_location = { lat: route_json_object['start_location']['lat'],
+                                   lng: route_json_object['start_location']['lng'] }
+      itinerary.end_location = { lat: route_json_object['end_location']['lat'],
+                                 lng: route_json_object['end_location']['lng'] }
+      itinerary.via_waypoints = route_json_object['via_waypoints']
+      itinerary.overview_path = route_json_object['overview_path']
+      itinerary.overview_polyline = route_json_object['overview_polyline']
 
       itinerary.user = user
 
@@ -108,7 +120,7 @@ class Itinerary
     # From end to start, unless passenger searched for a round trip
     # NOTE: Think about it, because driver may need a travelmate for the whole trip
     itineraries_end_start = []
-    unless params[:filter_round_trip] == "1"
+    unless params[:filter_round_trip] == '1'
       itineraries_end_start = itineraries.where(round_trip: true).within_spherical_circle(start_location: [ end_location, sphere_radius ]) &
                               itineraries.within_spherical_circle(end_location: [ start_location, sphere_radius ])
     end
@@ -126,11 +138,11 @@ class Itinerary
   end
 
   def sample_path(precision = 10)
-    overview_path.in_groups(precision).map{ |g| g.first }.insert(-1,overview_path.last)
+    overview_path.in_groups(precision).map { |g| g.first }.insert(-1,overview_path.last)
   end
 
   def static_map
-    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&sensor=false&markers=color:green|label:B|#{to_latlng_array(:end_location).join(",")}&markers=color:green|label:A|#{to_latlng_array(:start_location).join(",")}&path=enc:#{overview_polyline}")
+    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|#{to_latlng_array(:end_location).join(",")}&markers=color:green|label:A|#{to_latlng_array(:start_location).join(",")}&path=enc:#{overview_polyline}")
   end
 
   def random_close_location(max_dist = 0.5, km = true)
@@ -179,18 +191,18 @@ class Itinerary
     title || super()
   end
 
-private
+  private
   def self.get_boolean_filters(params = {})
     filters = {}
 
     [:round_trip, :pink, :verified].each do |checkbox_field|
       param = params["filter_#{checkbox_field}".to_sym]
-      filters.merge!(checkbox_field => true) if param == "1"
+      filters.merge!(checkbox_field => true) if param == '1'
     end
 
     [:smoking_allowed, :pets_allowed].each do |boolean_field|
       param = params["filter_#{boolean_field}".to_sym]
-      filters.merge!(boolean_field => (param == "true")) unless param.blank?
+      filters.merge!(boolean_field => (param == 'true')) unless param.blank?
     end
 
     filter_driver_gender_param = params[:filter_driver_gender]
