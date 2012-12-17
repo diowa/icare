@@ -8,5 +8,4 @@ class Notification
   field :read, type: Boolean, default: false
 
   scope :unread, where(read: false)
-  scope :sorted, desc(:created_at)
 end

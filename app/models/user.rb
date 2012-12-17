@@ -27,7 +27,7 @@ class User
   # Cached Facebook data
   field :facebook_friends, type: Array, default: []
   field :facebook_favorites, type: Array, default: []
-  field :facebook_data_updated_at, type: DateTime
+  field :facebook_data_updated_at, type: DateTime, default: '2012-09-06'
 
   # Info
   field :email
@@ -66,8 +66,6 @@ class User
   validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map(&:name).keys, allow_blank: true
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
   #validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
-
-  scope :sorted, asc(:name)
 
 
   #
@@ -166,16 +164,8 @@ class User
     ((Time.now.at_midnight - birthday.at_midnight) / 1.year).floor if birthday?
   end
 
-  def age_sex_nationality
-    [age, (User.human_attribute_name("gender_#{gender}").downcase if gender?), nationality_name].compact.join(' / ')
-  end
-
   def nationality_name
     Country.where(code: nationality).first._name if nationality?
-  end
-
-  def short_about
-    @short_about ||= about.truncate(500) if about?
   end
 
   def first_name

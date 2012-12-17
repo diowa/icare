@@ -16,10 +16,6 @@ class ItinerariesController < ApplicationController
     #@itineraries = Itinerary.includes(:user).all
   end
 
-  def mine
-    @itineraries = current_user.itineraries.sorted_by_creation
-  end
-
   def show
     @conversation = @itinerary.conversations.find_or_initialize_by(user_ids: [current_user.id, @itinerary.user.id]) if current_user
     @reference = current_user.references.find_or_initialize_by(itinerary_id: @itinerary.id) if current_user

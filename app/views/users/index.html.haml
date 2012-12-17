@@ -10,7 +10,7 @@
         %th Email
         %th Actions
       %tbody
-        - @users.sorted.each do |user, index|
+        - @users.each do |user, index|
           %tr.vertical-align-middle
             %td= link_to user, user_path(user)
             %td= user.email

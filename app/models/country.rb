@@ -11,6 +11,6 @@ class Country
   scope :sorted, asc(:"name.en-US") #NOTE needed for development
 
   def _name
-    self.name_translations["en-US"] #NOTE needed for development
+    self.name_translations['en-US'] #NOTE needed for development
   end
 end
