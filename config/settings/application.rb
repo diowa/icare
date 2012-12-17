@@ -40,14 +40,18 @@ SimpleConfig.for :application do
   end
 
   group :mailer do
-    set :address, '127.0.0.1'
-    set :domain, '127.0.0.1'
     set :from, "\"Icare\" <no-reply@i.care>"
     set :host, '127.0.0.1'
-    set :port, 587
 
-    set :user_name, 'test'
-    set :password, 'test'
+    group :smtp_settings do
+      set :address, '127.0.0.1'
+      set :port, 587
+      set :authentication, :plain
+      set :domain, '127.0.0.1'
+
+      set :user_name, 'test'
+      set :password, 'test'
+    end
   end
 
   group :redis do
