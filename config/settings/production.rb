@@ -16,6 +16,11 @@ SimpleConfig.for :application do
     set :secret, ENV['FACEBOOK_SECRET']
   end
 
+  group :airbrake do
+    set :api_key, ENV['AIRBRAKE_API_KEY']
+    set :host, ENV['AIRBRAKE_HOST']
+  end
+
   group :mailer do
     set :from, "\"Icare\" <no-reply@i.care>"
     set :host, 'heroku.com'

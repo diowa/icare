@@ -30,7 +30,7 @@
               = t('.vehicle_avg_consumption_note', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs'))).html_safe
       %legend= t('.application_settings')
       %fieldset
-        = f.select :locale, options_for_select(AVAILABLE_LOCALES.map { |code, native_name| [ native_name, code] }, @user.locale), {}, disabled: (AVAILABLE_LOCALES.size == 1)
+        = f.select :locale, options_for_select(APP_CONFIG.available_locales.map { |code, native_name| [ native_name, code] }, @user.locale), {}, disabled: (APP_CONFIG.available_locales.size == 1)
         = f.time_zone_select :time_zone
         .control-group
           = label_tag :notification_group, t('.send_email'), class: 'control-label'

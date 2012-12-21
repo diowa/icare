@@ -4,7 +4,7 @@
     %h1= yield :title
     %h5.muted= t('last_modified', date: l(Date.parse('2012-09-01'), format: :long))
 
-    %h3 Welcome to #{APPNAME}
+    %h3 Welcome to #{APP_CONFIG.app_name}
     %p
       Thanks for using our service (“Service”).
     %p
@@ -12,18 +12,18 @@
 
     %h3 Using our Service
     %p
-      This is a demo application of the open source carpooling platform #{APPNAME}.
+      This is a demo application of the open source carpooling platform #{APP_CONFIG.app_name}.
     %p
       The source code is available at
       = link_to 'http://github.com/diowa/icare', 'http://github.com/diowa/icare'
 
     %h3 Privacy Protection
     %p
-      #{APPNAME}'s
+      #{APP_CONFIG.app_name}'s
       = link_to "privacy policy", :policy
       explain how we treat your personal data and protect your privacy when you use our Service.
     %p
-      By using our Service, you agree that #{APPNAME} can use such data in accordance with our privacy policy.
+      By using our Service, you agree that #{APP_CONFIG.app_name} can use such data in accordance with our privacy policy.
 
     %h3 Modifying and Terminating our Service
     %p

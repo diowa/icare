@@ -20,7 +20,7 @@
                 %h5.no-margin= link_to @itinerary.user, user_path(@itinerary.user)
                 %p.pre-line= @itinerary.description
               - else
-                %h5.no-margin= t('.app_user', appname: APPNAME)
+                %h5.no-margin= t('.app_user', appname: APP_CONFIG.app_name)
                 %p.pre-line= @itinerary.description
     .spacer
     .row-fluid

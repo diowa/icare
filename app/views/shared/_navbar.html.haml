@@ -8,7 +8,7 @@
           %span.icon-bar
       = link_to logged_in? ? :dashboard : root_path, class: 'brand' do
         = image_tag 'turtle.svg', class: 'brand-logo'
-        %span.hidden-phone= APPNAME
+        %span.hidden-phone= APP_CONFIG.app_name
       - if logged_in?
         .center-notifications
           .center-notifications-container
@@ -67,9 +67,9 @@
           %ul.nav.pull-right
             %li.dropdown.pull-right
               = link_to '#', data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do
-                = AVAILABLE_LOCALES[I18n.locale]
+                = APP_CONFIG.available_locales[I18n.locale]
                 %b.caret
               %ul.dropdown-menu
-                - AVAILABLE_LOCALES.each do |code, native_name|
+                - APP_CONFIG.available_locales.each do |code, native_name|
                   - if code != I18n.locale
                     %li=link_to native_name, "?locale=#{code}"

@@ -13,7 +13,7 @@ module ItinerariesHelper
       html = ''
       html << tag(:meta, property: 'fb:app_id', content: APP_CONFIG.facebook.app_id)
       html << tag(:meta, property: 'og:url', content: itinerary_url(itinerary))
-      html << tag(:meta, property: 'og:site_name', content: APPNAME)
+      html << tag(:meta, property: 'og:site_name', content: APP_CONFIG.app_name)
       html << tag(:meta, property: 'og:type', content: "#{fb_namespace}:itinerary")
       html << tag(:meta, property: 'og:title', content: itinerary.title)
       html << tag(:meta, property: 'og:image', content: itinerary.static_map)
@@ -42,12 +42,12 @@ module ItinerariesHelper
         content_tag(:p, class: 'muted') do
           content_tag(:small) do
             content_tag(:i, nil, class: 'icon-ban-circle') + ' ' +
-            t('.missing_publish_stream_permission', appname: APPNAME)
+            t('.missing_publish_stream_permission', appname: APP_CONFIG.app_name)
           end
         end
       end)
     else
-      t('.share_on_timeline_unavailable', appname: APPNAME)
+      t('.share_on_timeline_unavailable', appname: APP_CONFIG.app_name)
     end
   end
 end
