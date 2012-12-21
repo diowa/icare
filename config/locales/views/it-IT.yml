@@ -162,6 +162,31 @@ it-IT:
     demo_terms:
       title: Condizioni d'uso della versione dimostrativa
   users:
+    banned:
+      title: Account sospeso
+      you_were_banned: Sei stato sospeso!
+    itineraries:
+      title: I miei itinerari
+    dashboard:
+      title: Dashboard
+      reminder: Reminder
+      new_itinerary: New itinerary
+      search_itineraries: Search itineraries
+      your_itineraries: Your itineraries
+      new_messages:
+        zero: No new messages
+        one: "%{count} new message"
+        other: "%{count} new messages"
+      new_notifications:
+        zero: No notifications
+        one: "%{count} notification"
+        other: "%{count} notifications"
+      new_references:
+        zero: No new references
+        one: "%{count} new reference"
+        other: "%{count} new references"
+      latest_itineraries: Latest Itineraries
+      by: by
     calculator:
       fuel_type: Carburante
       fuel_diesel: Diesel
@@ -188,29 +213,6 @@ it-IT:
       and_others:
         one: e un altro
         other: "e atri %{count}"
-    banned:
-      title: Account sospeso
-      you_were_banned: Sei stato sospeso!
-    dashboard:
-      title: Cruscotto
-      reminder: Promemoria
-      new_itinerary: Nuovo itinerario
-      search_itineraries: Cerca itinerari
-      your_itineraries: I tuoi itinerari
-      new_messages:
-        zero: Nessun nuovo messaggio
-        one: "%{count} nuovo messaggio"
-        other: "%{count} nuovi messaggi"
-      new_notifications:
-        zero: Nessuna notifica
-        one: "%{count} notifica"
-        other: "%{count} notifiche"
-      new_references:
-        zero: Nessuna nuova referenza
-        one: "%{count} nuova referenza"
-        other: "%{count} nuove referenze"
-      latest_itineraries: Itinerari recenti
-      by: di
     settings:
       user_settings: Impostazioni utente
       general_information: Informazioni generali
@@ -229,8 +231,6 @@ it-IT:
     commons:
       about: "su %{itinerary_link} di %{user_link}"
       features: Caratteristiche
-    mine:
-      title: I miei itinerari
     search:
       advanced_search: Ricerca avanzata
       the_same: È indifferente

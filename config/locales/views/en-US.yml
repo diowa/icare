@@ -163,6 +163,9 @@ en-US:
       title: Terms of Service (Demo)
 
   users:
+    banned:
+      title: Suspended account
+      you_were_banned: You were banned!
     calculator:
       fuel_type: Fuel type
       fuel_diesel: Diesel
@@ -176,22 +179,6 @@ en-US:
       vehicle_high_consumption: High consumption
       per_liter: per liter
       fuel_cost_estimate: Fuel cost estimate
-    show:
-      member_since: "Member since %{date}"
-      see_all: See All
-      facebook_verified: "A Facebook user is considered verified if he takes any of the following actions: registers for mobile; confirms his account via SMS; enters a valid credit card."
-      basic_info: Basic info
-      friends: "%{count} friends"
-      age: "%{count} years"
-      language: "%{language} language"
-      common_friends: Common friends
-      likes: Likes
-      and_others:
-        one: and one other
-        other: "and %{count} others"
-    banned:
-      title: Suspended account
-      you_were_banned: You were banned!
     dashboard:
       title: Dashboard
       reminder: Reminder
@@ -212,6 +199,21 @@ en-US:
         other: "%{count} new references"
       latest_itineraries: Latest Itineraries
       by: by
+    itineraries:
+      title: My itineraries
+    show:
+      member_since: "Member since %{date}"
+      see_all: See All
+      facebook_verified: "A Facebook user is considered verified if he takes any of the following actions: registers for mobile; confirms his account via SMS; enters a valid credit card."
+      basic_info: Basic info
+      friends: "%{count} friends"
+      age: "%{count} years"
+      language: "%{language} language"
+      common_friends: Common friends
+      likes: Likes
+      and_others:
+        one: and one other
+        other: "and %{count} others"
     settings:
       user_settings: User settings
       general_information: General info
@@ -230,8 +232,6 @@ en-US:
     commons:
       about: "about %{itinerary_link} by %{user_link}"
       features: Features
-    mine:
-      title: My itineraries
     search:
       advanced_search: Advanced search
       the_same: Not specified
