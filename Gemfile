@@ -29,7 +29,8 @@ gem 'google-analytics-rails'
 gem 'rgeo'
 
 gem 'airbrake'
-
+gem 'newrelic_rpm'
+gem 'newrelic_moped'
 
 group :development, :test do
   gem 'bullet'

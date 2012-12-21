@@ -30,6 +30,11 @@ SimpleConfig.for :application do
     set :port, 80
   end
 
+  group :newrelic do
+    set :license_key, nil
+    set :app_name, nil
+  end
+
   group :map do
     # defaults to Italy
     set :center, '41.87194, 12.567379999999957'
