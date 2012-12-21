@@ -10,11 +10,11 @@ class Reference
   embeds_one :outgoing, class_name: References::Outgoing.model_name, cascade_callbacks: true
 
   field :referencing_user_id
-  field :read, type: DateTime, default: nil
+  field :read_at, type: DateTime
 
   attr_accessor :body, :rating
 
-  scope :unread, where(read: nil)
+  scope :unread, where(read_at: nil)
 
   scope :positives, where(:"incoming.rating" => 1)
   scope :neutrals, where(:"incoming.rating" => 0)
@@ -31,7 +31,7 @@ class Reference
     reference = user.references.new
     reference.itinerary = itinerary
     reference.referencing_user_id = itinerary.user.id
-    reference.read = Time.now.utc
+    reference.read_at = Time.now.utc
     reference.outgoing = References::Outgoing.new body: params[:body], rating: params[:rating]
     reference
   end

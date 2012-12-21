@@ -51,6 +51,6 @@ class ReferencesController < ApplicationController
   end
 
   def mark_as_read
-    @reference.update_attribute :read, Time.now.utc
+    @reference.update_attribute :read_at, Time.now.utc
   end
 end
