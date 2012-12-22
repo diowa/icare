@@ -2,6 +2,14 @@ require 'spec_helper'
 
 describe User do
 
+  describe 'factory' do
+    let(:user) { FactoryGirl.create :user }
+
+    it "returns a valid object" do
+      expect(user.valid?).to be_true
+    end
+  end
+
   describe '.age' do
     let(:born_on_1960_10_30) { FactoryGirl.create :user, birthday: '1960-10-30' }
     let(:born_on_1972_02_29) { FactoryGirl.create :user, birthday: '1972-02-29' }
