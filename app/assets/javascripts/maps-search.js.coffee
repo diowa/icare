@@ -39,7 +39,8 @@ drawPath = (itinerary, strokeColor = '#0000FF', strokeOpacity = 0.45) ->
     image: itinerary.user.profile_picture
   google.maps.event.addListener customMarker, 'click', ->
     icare.infoWindow.setContent customMarker.options.infoWindowContent
-    icare.infoWindow.open icare.map, customMarker
+    icare.infoWindow.setPosition customMarker.position
+    icare.infoWindow.open icare.map
   marker = new google.maps.Marker
     icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|FF0000|000000'
   directionsPath = new google.maps.Polyline
