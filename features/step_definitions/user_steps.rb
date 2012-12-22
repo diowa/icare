@@ -1,27 +1,54 @@
+# encoding: utf-8
 When /^a guest tries to access a protected page$/ do
-  @user = FactoryGirl.create(:user)
-  visit("/users/#{@user.id}/edit")
+  visit '/dashboard'
 end
 
-When /^a guest tries to access Icare through facebook$/ do
-  visit("/auth/facebook")
-end
-
-When /^he should be redirected on facebook's website$/ do
-  #page.current_url.should match /^https:\/\/www.facebook.com\/.+/
-  #page.should have_content("Facebook Login")
-end
-
-When /^a guest gives access permission to this application on facebook$/ do
-  #visit("/oauth/callback?provider=facebook&code=AQDA-6SZd_pAJFGZuzysxPZkPQKE5I9BdujhAp-2WJvnhqWIZiUwJG8gXdATUSxptzkBoOrkHsG-fjIS4zID-kEw55tUVWlxPacT3Tq2EOaiMB_quT7ZHf8bHjXpaSFzDQL0FILwJNC65B4SKabGfqiWYyL3l6bRwaIx5T1lJXei22DdBEKEW_TfbOl5wmuDuUA")
-end
-
-When /^he tries to logout$/ do
-  visit("/logout")
+When /^a guest gives access permission to this application on Facebook$/ do
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    provider: 'facebook',
+    uid: '123456',
+    info: {
+      email: 'test@127.0.0.1',
+      name: 'John Doe',
+      first_name: 'John',
+      last_name: 'Doe',
+      image: 'http://graph.facebook.com/123456/picture?type=square',
+      urls: { "Facebook" => "http://www.facebook.com/profile.php?id=123456" } },
+    credentials: {
+      token: "AAAGSwYCCrZCIBAFYjaLIVbD1ZCb2LqedQl4PWo8qBUTvWdi5uVSQM5uvLslz99mWRaYt9VHCa2ZCN8TtWZCZAYqeMr3hebVNmBFVVNAvT8gZDZD", 
+      expires_at: 1361304575,
+      expires: true },
+    extra: {
+      raw_info: {
+        id: '123456',
+        name: 'John Doe',
+        first_name: 'John',
+        last_name: 'Doe',
+        link: 'http://www.facebook.com/profile.php?id=123456',
+        birthday: '10/03/1981',
+        work: [
+          { employer: { id: '100', name: 'First Inc.' }, start_date: '0000-00' },
+          { employer: { id: '101', name: 'Second Ltd.' }, start_date: '0000-00' },
+          { employer: { id: '102', name: 'Third S.p.A.' }, start_date: '0000-00', end_date: '0000-00' }],
+        favorite_athletes: [
+          { id: '200', name: 'Fist Athlete' },
+          { id: '201', name: 'Second Athlete' }],
+        education: [
+          { school: { id: '300', name: 'A College' }, type: 'College' }],
+        gender: 'male',
+        email: 'test@127.0.0.1',
+        timezone: 1,
+        locale: 'en_US',
+        languages: [
+          { id: '113153272032690', name: 'Italian' },
+          { id: '106059522759137', name: 'English' },
+          { id: '108224912538348', name: 'French' }],
+        updated_time: '2012-12-16T08:49:27+0000' } } })
+  visit '/auth/facebook'
 end
 
 Then /^he should see an? "([^"]*)" message "([^"]*)"$/ do |css_class, message|
-  page.find(".alert-#{css_class}").should have_content(message)
+  expect(page.find(".alert-#{css_class}")).to have_content(message)
 end
 
 Then /^he should not see an? "([^"]*)" message "([^"]*)"$/ do |css_class, message|
@@ -34,9 +61,9 @@ Then /^he should fail to log in$/ do
 end
 
 Then /^he should be logged in$/ do
-  #within(".navbar-inner") do
-  #  page.find("a[href='/logout']").should be_present
-  #end
+  within(".navbar-inner") do
+    expect(page.find("a[href='/signout']")).to be_present
+  end
 end
 
 Then /^he should not be logged in$/ do
@@ -46,7 +73,15 @@ Then /^he should not be logged in$/ do
 end
 
 Then /^a new user should be added to database$/ do
-  #User.count.should_not eql 0
+  expect(User.count).to_not be_zero
+end
+
+Then /^he should be able to log out$/ do
+  visit '/signout'
+end
+
+Then /^he should see the log in button$/ do
+  expect(page).to have_content 'Login with Facebook'
 end
 
 Then /^he should receive an activation email$/ do
