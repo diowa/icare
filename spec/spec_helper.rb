@@ -30,10 +30,15 @@ Spork.prefork do
     # config.mock_with :rr
     # config.mock_with :rspec
     config.include Delorean
+
     config.expect_with :rspec do |c|
       c.syntax = :expect
     end
-    config.after(:each) { back_to_the_present }
+
+    config.before(:each) do
+      back_to_the_present
+      #load "#{Rails.root}/db/seeds.rb"
+    end
   end
 end
 

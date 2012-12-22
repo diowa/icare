@@ -4,30 +4,15 @@ FactoryGirl.define do
     "person#{n}@example.com"
   end
 
-  sequence :password do |n|
-    "person#{n}"
+  sequence :uid do |n|
+    "100{n}"
   end
 
   factory :user do
-
-=begin
-    factory :facebook_user do
-      ignore do
-        uid ""
-      end
-
-      after(:create) do |user, evaluator|
-        authentication = FactoryGirl.create(:authentication, user: user)
-        authentication[:provider] = :facebook
-        authentication[:uid] = evaluator.uid
-        authentication.save!
-        user.activate!
-      end
-    end
-
-    after(:create) do |user, evaluator|
-      FactoryGirl.create(:court, user: user)
-    end
-=end
+    email
+    uid
+    name 'John Doe'
+    gender 'male'
+    birthday '1980-08-27'
   end
 end

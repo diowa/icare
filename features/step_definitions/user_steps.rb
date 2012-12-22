@@ -13,9 +13,9 @@ When /^a guest gives access permission to this application on Facebook$/ do
       first_name: 'John',
       last_name: 'Doe',
       image: 'http://graph.facebook.com/123456/picture?type=square',
-      urls: { "Facebook" => "http://www.facebook.com/profile.php?id=123456" } },
+      urls: { "Facebook" => 'http://www.facebook.com/profile.php?id=123456' } },
     credentials: {
-      token: "AAAGSwYCCrZCIBAFYjaLIVbD1ZCb2LqedQl4PWo8qBUTvWdi5uVSQM5uvLslz99mWRaYt9VHCa2ZCN8TtWZCZAYqeMr3hebVNmBFVVNAvT8gZDZD", 
+      token: "facebook token", 
       expires_at: 1361304575,
       expires: true },
     extra: {
@@ -31,7 +31,7 @@ When /^a guest gives access permission to this application on Facebook$/ do
           { employer: { id: '101', name: 'Second Ltd.' }, start_date: '0000-00' },
           { employer: { id: '102', name: 'Third S.p.A.' }, start_date: '0000-00', end_date: '0000-00' }],
         favorite_athletes: [
-          { id: '200', name: 'Fist Athlete' },
+          { id: '200', name: 'First Athlete' },
           { id: '201', name: 'Second Athlete' }],
         education: [
           { school: { id: '300', name: 'A College' }, type: 'College' }],

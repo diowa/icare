@@ -1,31 +1,109 @@
 require 'spec_helper'
 
 describe User do
-  describe 'class'do
-    it 'should do the magic' do
-      expect(User).to have_and_belong_to_many :conversations
 
-      expect(User).to have_many :itineraries
-      expect(User).to have_many :feedbacks
+  describe '.age' do
+    let(:born_on_1960_10_30) { FactoryGirl.create :user, birthday: '1960-10-30' }
+    let(:born_on_1972_02_29) { FactoryGirl.create :user, birthday: '1972-02-29' }
+    let(:unknown_birthday) { FactoryGirl.create :user, birthday: nil }
 
-      expect(User).to embed_many :notifications
-      expect(User).to embed_many :references
+    it "returns user's age" do
+      Delorean.time_travel_to '2011-02-28'
+      expect(born_on_1972_02_29.age).to be 38
+      Delorean.time_travel_to '2011-03-01'
+      expect(born_on_1972_02_29.age).to be 39
+      Delorean.time_travel_to '2012-02-28'
+      expect(born_on_1972_02_29.age).to be 39
+      Delorean.time_travel_to '2012-02-29'
+      expect(born_on_1972_02_29.age).to be 40
 
-      expect(User).to validate_inclusion_of :gender
-      expect(User).to validate_inclusion_of :nationality
-      expect(User).to validate_inclusion_of :time_zone
-      expect(User).to validate_numericality_of(:vehicle_avg_consumption).greater_than(0).less_than(10)
-      #expect(User).to validate_numericality_of(:access_level).only_integer(true).greater_than_or_equal_to(0).less_than_or_equal_to(10)
+      Delorean.time_travel_to '2012-10-29'
+      expect(born_on_1960_10_30.age).to be 51
+      Delorean.time_travel_to '2012-10-30'
+      expect(born_on_1960_10_30.age).to be 52
+    end
+
+    it "does not raise exceptions if user has no name" do
+      expect(unknown_birthday.age).to be_nil
     end
   end
 
-  describe 'object' do
-    before do
-      load "#{Rails.root}/db/seeds.rb"
+  describe '.first_name' do
+    let(:jack_black) { FactoryGirl.create :user, name: 'Jack Black' }
+    let(:anonymous) { FactoryGirl.create :user, name: nil }
+
+    it "returns user's first name" do
+      expect(jack_black.first_name).to eq 'Jack'
     end
 
-    it 'should set the languages correctly' do
+    it "does not raise exceptions if user has no name" do
+      expect(anonymous.first_name).to be_nil
+    end
+  end
+
+  describe '.to_s' do
+    let(:jack_black) { FactoryGirl.create :user, name: 'Jack Black' }
+    let(:anonymous) { FactoryGirl.create :user, name: nil }
+
+    it "returns user's name when available" do
+      expect(jack_black.to_s).to eq 'Jack Black'
+      expect(anonymous.to_s).to eq anonymous.id
     end
 
+    it "does not raise exceptions if user has no name" do
+      expect(anonymous.first_name).to be_nil
+    end
+  end
+
+  describe '.to_param' do
+    let(:jackblack) { FactoryGirl.create :user, username: 'jackblack', uid: '123456' }
+    let(:uid123456) { FactoryGirl.create :user, username: nil, uid: '123456' }
+    let(:anonymous) { FactoryGirl.create :user, username: nil, uid: nil }
+
+    it "returns username when all fields are available" do
+      expect(jackblack.to_param).to eq jackblack.username
+    end
+
+    it "returns uid when username is not available" do
+      expect(uid123456.to_param).to eq uid123456.uid
+    end
+
+    it "fallbacks to id when neither username or uid are available" do
+      expect(anonymous.to_param).to eq anonymous.id
+    end
+  end
+
+  describe '.profile_picture' do
+    let(:user) { FactoryGirl.create :user, uid: '123456' }
+
+    it "returns facebook profile picture of type square (by default)" do
+      expect(user.profile_picture).to eq "http://graph.facebook.com/#{user.uid}/picture?type=square"
+    end
+  end
+
+  describe '.male?' do
+    let(:male) { FactoryGirl.create :user, gender: 'male' }
+    let(:female) { FactoryGirl.create :user, gender: 'female' }
+
+    it "answers true if user is male" do
+      expect(male.male?).to be_true
+    end
+
+    it "answers false if user is male" do
+      expect(female.male?).to be_false
+    end
+  end
+
+  describe '.female?' do
+    let(:male) { FactoryGirl.create :user, gender: 'male' }
+    let(:female) { FactoryGirl.create :user, gender: 'female' }
+
+    it "answers true if user is female" do
+      expect(female.female?).to be_true
+    end
+
+    it "answers false if user is male" do
+      expect(male.female?).to be_false
+    end
   end
 end

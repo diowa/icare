@@ -31,7 +31,7 @@ module ItinerariesHelper
   end
 
   def share_on_facebook_timeline_checkbutton(form)
-    has_publish_stream_permission = current_user.has_facebook_permission(:publish_stream)
+    has_publish_stream_permission = current_user.has_facebook_permission?(:publish_stream)
     if background_jobs_available?
       (form.label :share_on_facebook_timeline, class: "btn btn-facebook btn-checkbox#{' disabled' unless has_publish_stream_permission}" do
         form.default_tag(:check_box, :share_on_facebook_timeline, disabled: !has_publish_stream_permission, checked: has_publish_stream_permission) +

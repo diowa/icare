@@ -121,6 +121,7 @@ class User
 
     # Schedule facebook data cache
     Resque.enqueue(FacebookDataCacher, id)
+  rescue Redis::CannotConnectError
   end
 
 
@@ -138,7 +139,7 @@ class User
     # Koala::Facebook::APIError: OAuthException: Error validating access token: Session does not match current stored session. This may be because the user changed the password since the time the session was created or Facebook has changed the session for security reasons.
   end
 
-  def has_facebook_permission(scope)
+  def has_facebook_permission?(scope)
     facebook_permissions? ? facebook_permissions[scope.to_s].to_i == 1 : false
   end
 
@@ -161,7 +162,7 @@ class User
   end
 
   def age
-    ((Time.now.at_midnight - birthday.at_midnight) / 1.year).floor if birthday?
+    ((Time.now.to_s(:number).to_i - birthday.to_time.to_s(:number).to_i) / 10e9.to_i) if birthday?
   end
 
   def nationality_name
@@ -173,15 +174,15 @@ class User
   end
 
   def to_s
-    name || ''
+    name || id
   end
 
   def to_param
-    username || uid || _id
+    username || uid || id
   end
 
-  def profile_picture
-    "http://graph.facebook.com/#{uid}/picture?type=square"
+  def profile_picture(type = 'square')
+    "http://graph.facebook.com/#{uid}/picture?type=#{type}"
   end
 
   def unread_conversations_count
