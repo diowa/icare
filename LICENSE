@@ -22,6 +22,8 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
+airbrake is licensed by Airbrake
+
 client_side_validations is licensed under the MIT License
 
 FontAwesome is licensed under CC BY 3.0 License
@@ -49,6 +51,8 @@ mongoid is licensed under the MIT License
 #mongoid_geospatial: no license file provided
 
 mongoid_slug is licensed under the MIT License
+
+newrelic_rpm is licensed by New Relic
 
 nokogiri is licensed under the MIT License
 
