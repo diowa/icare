@@ -5,12 +5,13 @@ FactoryGirl.define do
   end
 
   sequence :uid do |n|
-    "100{n}"
+    "100#{n}"
   end
 
   factory :user do
     email
     uid
+    provider 'facebook'
     name 'John Doe'
     gender 'male'
     birthday '1980-08-27'

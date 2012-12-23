@@ -1,6 +1,6 @@
 @facebook
 Feature: Authentication
-  In order to use Icare
+  In order to use the application
   Users should be able to log in with Facebook
 
   Scenario: A guest should not be able to see protected pages
@@ -16,3 +16,7 @@ Feature: Authentication
     When a guest gives access permission to this application on Facebook
     Then he should be able to log out
     And he should see the log in button
+
+  Scenario: A guest should be redirected to the proper page if he logs in on itinerary pages
+    When a guest logs in on itinerary page
+    Then he should be redirected to the itinerary page
