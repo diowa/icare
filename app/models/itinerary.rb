@@ -129,14 +129,17 @@ class Itinerary
   end
 
   def to_latlng_array(field)
+    # TODO move outside model
     self[field].to_a.reverse if self[field]
   end
 
   def to_latlng_hash(field)
+    # TODO move outside model
     { lat: self.send(field).lat, lng: self.send(field).lng } if self[field]
   end
 
   def sample_path(precision = 10)
+    # TODO move outside model
     overview_path.in_groups(precision).map { |g| g.first }.insert(-1,overview_path.last)
   end
 
@@ -145,6 +148,8 @@ class Itinerary
   end
 
   def random_close_location(max_dist = 0.5, km = true)
+    # TODO move outside model
+
     # Thanks to http://www.geomidpoint.com/random/calculation.html
 
     return unless source && source[:lat] != nil && source[:lng] != nil
@@ -187,7 +192,7 @@ class Itinerary
   end
 
   def to_s
-    title || super()
+    title || id
   end
 
   private

@@ -1,14 +1,12 @@
 require 'spec_helper'
 
 describe User do
+  # Generic User
+  let(:user) { FactoryGirl.create :user }
 
-  describe 'factory' do
-    let(:user) { FactoryGirl.create :user }
-
-    it "returns a valid object" do
-      expect(user.valid?).to be_true
-    end
-  end
+  # Generic male and female users
+  let(:male_user) { FactoryGirl.create :user, gender: 'male' }
+  let(:female_user) { FactoryGirl.create :user, gender: 'female' }
 
   describe '.age' do
     let(:born_on_1960_10_30) { FactoryGirl.create :user, birthday: '1960-10-30' }
@@ -76,42 +74,34 @@ describe User do
       expect(uid123456.to_param).to eq uid123456.uid
     end
 
-    it "fallbacks to id when neither username or uid are available" do
+    it "fallbacks to id when neither the username nor the uid is available" do
       expect(anonymous.to_param).to eq anonymous.id
     end
   end
 
   describe '.profile_picture' do
-    let(:user) { FactoryGirl.create :user, uid: '123456' }
-
     it "returns facebook profile picture of type square (by default)" do
       expect(user.profile_picture).to eq "http://graph.facebook.com/#{user.uid}/picture?type=square"
     end
   end
 
   describe '.male?' do
-    let(:male) { FactoryGirl.create :user, gender: 'male' }
-    let(:female) { FactoryGirl.create :user, gender: 'female' }
-
     it "answers true if user is male" do
-      expect(male.male?).to be_true
+      expect(male_user.male?).to be_true
     end
 
     it "answers false if user is male" do
-      expect(female.male?).to be_false
+      expect(female_user.male?).to be_false
     end
   end
 
   describe '.female?' do
-    let(:male) { FactoryGirl.create :user, gender: 'male' }
-    let(:female) { FactoryGirl.create :user, gender: 'female' }
-
     it "answers true if user is female" do
-      expect(female.female?).to be_true
+      expect(female_user.female?).to be_true
     end
 
     it "answers false if user is male" do
-      expect(male.female?).to be_false
+      expect(male_user.female?).to be_false
     end
   end
 end
