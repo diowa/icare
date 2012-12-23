@@ -9,35 +9,40 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 **icare** uses the following technologies:
 
 * [Ruby on Rails][1]
-* [CoffeeScript][2]
-* [HAML][3]
-* [Twitter Bootstrap][4]
-* [Font Awesome][5] (retina ready vectorial icons)
-* [Turbolinks][6]
-* [Mongoid][7] (ODM for MongoDB)
-* Asynchronous tasks with [Resque][8] - Redis
-* [RABL][9] API Builder
-* [Handlebars][10] (JavaScript semantic templates)
-* Facebook Open Graph / Rest API
+* [Turbolinks][2]
+* [CoffeeScript][3]
+* [Handlebars][4] (JavaScript semantic templates)
+* [HAML][5]
+* [Twitter Bootstrap][6]
+* [Font Awesome][7] (retina ready vectorial icons)
+* [Mongoid][8] (ODM for MongoDB)
+* Asynchronous tasks with [Resque][9] - Redis
+* [RABL][10] API Builder
+* Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
-* [RSpec][11] and [Cucumber][12]
-* [Heroku][13] Cloud Application Platform
-* [Multi environment configuration][14]
+* [RSpec][12] and [Cucumber][13]
+* [Heroku][14] Cloud Application Platform
+* [Multi environment configuration][15]
+* [Airbrake][16] Exception Notification
+* [New Relic][17] Application Performance Management service
 
  [1]: http://rubyonrails.org/
- [2]: http://coffeescript.org/
- [3]: http://haml.info/
- [4]: http://twitter.github.com/bootstrap/
- [5]: http://fortawesome.github.com/Font-Awesome/
- [6]: http://github.com/rails/turbolinks
- [7]: http://mongoid.org/en/mongoid/index.html
- [8]: http://github.com/defunkt/resque
- [9]: http://github.com/nesquena/rabl
- [10]: http://handlebarsjs.com/
- [11]: http://rspec.info/
- [12]: http://cukes.info/
- [13]: http://www.heroku.com/
- [14]: http://github.com/lukeredpath/simpleconfig
+ [2]: http://github.com/rails/turbolinks
+ [3]: http://coffeescript.org/
+ [4]: http://handlebarsjs.com/
+ [5]: http://haml.info/
+ [6]: http://twitter.github.com/bootstrap/
+ [7]: http://fortawesome.github.com/Font-Awesome/
+ [8]: http://mongoid.org/en/mongoid/index.html
+ [9]: http://github.com/defunkt/resque
+ [10]: http://github.com/nesquena/rabl
+ [11]: http://github.com/arsduo/koala
+ [12]: http://rspec.info/
+ [13]: http://cukes.info/
+ [14]: http://www.heroku.com/
+ [15]: http://github.com/lukeredpath/simpleconfig
+ [16]: http://github.com/airbrake/airbrake
+ [17]: http://newrelic.com/
 
 A working demo is available at http://icaredemo.herokuapp.com/
 
