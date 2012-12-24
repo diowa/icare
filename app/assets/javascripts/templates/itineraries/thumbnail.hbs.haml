@@ -11,9 +11,6 @@
               %a.pre-line{ href: "{{url}}" }><
                 {{title}}
             %p.it-user
-              {{#if user.nationality}}
-              %i{ class: "flag-{{toLowerCase user.nationality}}" }
-              {{/if}}
               {{user.name}}
               {{#if user.facebook_verified}}
               %i.icon-ok.text-success.facebook-verified-tooltip.inline-block{ rel: "tooltip", title: "{{translate \"templates.itineraries.facebook_verified\"}}" }

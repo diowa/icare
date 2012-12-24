@@ -120,7 +120,7 @@ Check the LICENSE file for more information
 Thanks
 ------
 
-Special thanks to [Mark James](http://www.famfamfam.com/) for [FAMFAMFAM flag icons](http://www.famfamfam.com/lab/icons/flags/) and to all developers of open source libraries used in this project.
+Special thanks to all developers of open source libraries used in this project.
 
 
 Donations

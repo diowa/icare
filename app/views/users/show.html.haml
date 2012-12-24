@@ -27,8 +27,6 @@
       %dd
         %span= t('.friends', count: friends_with_privacy(@user.facebook_friends.size))
         %span{ class: check_common_field(@user, :age) }= t('.age', count: @user.age)
-        - if @user.nationality?
-          %span{ class: check_common_field(@user, :nationality) }= @user.nationality_name
         %span{ class: check_common_field(@user, :gender) }= User.human_attribute_name "gender_#{@user.gender}"
         = language_tags @user
       = mutual_friends @user, current_user

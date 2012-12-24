@@ -32,7 +32,6 @@ drawPath = (itinerary, strokeColor = '#0000FF', strokeOpacity = 0.45) ->
       user:
         image: itinerary.user.profile_picture
         name: itinerary.user.name
-        nationality: itinerary.user.nationality
       url: itinerary.url
       content: itinerary.description
     type: 'user_profile_picture'

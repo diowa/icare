@@ -8,8 +8,6 @@
     %p.lead= t('.user_profile_details')
     = bootstrap_form_for @user, validate: true, html: {  class: 'form-horizontal' } do |f|
       = f.error_messages
-      %fieldset
-        = f.select :nationality, Country.sorted.collect {|c| [ c._name, c.code ] }, { include_blank: true }, help: false
       %legend= t('.vehicle_information')
       %fieldset
       .control-group{ class: ('error' if @user.errors.include?(:vehicle_avg_consumption)) }

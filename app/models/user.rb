@@ -11,7 +11,7 @@ class User
 
   paginates_per 25
 
-  attr_accessible :nationality, :time_zone, :locale, :vehicle_avg_consumption
+  attr_accessible :time_zone, :locale, :vehicle_avg_consumption
 
   has_and_belongs_to_many :conversations
 
@@ -50,7 +50,6 @@ class User
   field :education, type: Hash, default: {}
 
   # Icare
-  field :nationality
   field :vehicle_avg_consumption, type: Float, default: (1.741*7.0/100.0).round(2)
 
   # Account
@@ -66,7 +65,6 @@ class User
   field :send_email_references, type: Boolean, default: true
 
   validates :gender, inclusion: GENDER, allow_blank: true
-  validates :nationality, inclusion: Country.all.map { |c| c.code }, allow_blank: true
   validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map(&:name).keys, allow_blank: true
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
   #validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
@@ -74,10 +72,6 @@ class User
 
   def age
     ((Time.now.to_s(:number).to_i - birthday.to_time.to_s(:number).to_i) / 10e9.to_i) if birthday?
-  end
-
-  def nationality_name
-    Country.where(code: nationality).first._name if nationality?
   end
 
   def first_name
