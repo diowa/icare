@@ -3,6 +3,10 @@ class User
   include Mongoid::Timestamps
   include Mongoid::Paranoia
 
+  # Concerns
+  include Authentication
+  include Facebook
+
   GENDER = %w(male female)
 
   paginates_per 25
@@ -67,99 +71,6 @@ class User
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
   #validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 
-
-  #
-  # Omniauth
-  #
-
-  def self.from_omniauth(auth)
-    if user = where(auth.slice('provider', 'uid')).first
-      user.update_fields_from_omniauth auth
-      user.save!
-      user
-    else
-      create_from_omniauth(auth)
-    end
-  end
-
-  def self.create_from_omniauth(auth)
-    create! do |user|
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.update_fields_from_omniauth auth
-    end
-  end
-
-  def update_fields_from_omniauth(auth)
-    # Auth / Credentials
-    self.oauth_token = auth.credentials.token
-    self.oauth_expires_at = Time.at auth.credentials.expires_at
-
-    # Info
-    self.email = auth.info.email
-    self.name = auth.info.name
-    self.facebook_verified = auth.info.verified || false
-
-    # Extra
-    self.username = auth.extra.raw_info.username
-    self.gender = auth.extra.raw_info.gender
-    self.bio = auth.extra.raw_info.bio
-    self.languages = auth.extra.raw_info.languages || {}
-
-    # Locale (gives priority to application setting)
-    self.locale = auth.extra.raw_info.locale.gsub(/_/,'-') unless self.locale?
-
-    # Extras (extra permissions are required)
-    self.birthday = Date.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").at_midnight
-    self.work = auth.extra.raw_info.work || {}
-    self.education = auth.extra.raw_info.education || {}
-
-    # Cache permissions
-    facebook do |fb|
-      self.facebook_permissions = fb.get_connections('me', 'permissions')[0]
-    end
-
-    # Schedule facebook data cache
-    Resque.enqueue(FacebookDataCacher, id)
-  rescue Redis::CannotConnectError
-  end
-
-
-  #
-  # Facebook
-  #
-
-  def facebook
-    @facebook ||= Koala::Facebook::API.new(oauth_token)
-    block_given? ? yield(@facebook) : @facebook
-  rescue Koala::Facebook::APIError => e
-    logger.info e.to_s
-    nil # or consider a custom null object
-    # TODO
-    # Koala::Facebook::APIError: OAuthException: Error validating access token: Session does not match current stored session. This may be because the user changed the password since the time the session was created or Facebook has changed the session for security reasons.
-  end
-
-  def has_facebook_permission?(scope)
-    facebook_permissions? ? facebook_permissions[scope.to_s].to_i == 1 : false
-  end
-
-  def cache_facebook_data?
-    favorites = %w(music books movies television games activities interests) #athletes sports_teams sports inspirational_people
-    facebook do |fb|
-      result = fb.batch do |batch_api|
-        batch_api.get_connections('me', 'friends')
-        favorites.each do |favorite|
-          batch_api.get_connections('me', favorite)
-        end
-      end
-      if result.any?
-        self.facebook_friends = result[0] ? result[0] : []
-        self.facebook_favorites = result[1] ? result[1..-1].flatten : []
-        return true
-      end
-    end
-    false
-  end
 
   def age
     ((Time.now.to_s(:number).to_i - birthday.to_time.to_s(:number).to_i) / 10e9.to_i) if birthday?

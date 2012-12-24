@@ -82,52 +82,6 @@ class Itinerary
                                                       end_location.lng >= BOUNDARIES[0][1] && end_location.lng <= BOUNDARIES[1][1]
   end
 
-  def self.build_with_route_json_object(params, user)
-    new(params) do |itinerary|
-      route_json_object = JSON.parse(params[:route_json_object])
-      itinerary.start_location = { lat: route_json_object['start_location']['lat'],
-                                   lng: route_json_object['start_location']['lng'] }
-      itinerary.end_location = { lat: route_json_object['end_location']['lat'],
-                                 lng: route_json_object['end_location']['lng'] }
-      itinerary.via_waypoints = route_json_object['via_waypoints']
-      itinerary.overview_path = route_json_object['overview_path']
-      itinerary.overview_polyline = route_json_object['overview_polyline']
-
-      itinerary.user = user
-
-      itinerary.driver_gender = user.gender
-      itinerary.verified = user.facebook_verified
-    end
-  end
-
-  def self.search(params, gender_filter)
-    # TODO: Optimization
-    start_location = [params[:start_location_lng].to_f, params[:start_location_lat].to_f]
-    end_location = [params[:end_location_lng].to_f, params[:end_location_lat].to_f]
-    sphere_radius = 5.fdiv(Mongoid::Geospatial.earth_radius[:km])
-
-    # Apply filters
-    itineraries = Itinerary.where(get_boolean_filters(params)).includes(:user)
-
-    # Gender filter. NOTE: it must be applied AFTER user filters
-    itineraries = itineraries.where(pink: false) if gender_filter
-
-    # From start to end
-    itineraries_start_end = itineraries.within_spherical_circle(start_location: [ start_location, sphere_radius ]) &
-                            itineraries.within_spherical_circle(end_location: [ end_location, sphere_radius ])
-
-    # From end to start, unless passenger searched for a round trip
-    # NOTE: Think about it, because driver may need a travelmate for the whole trip
-    itineraries_end_start = []
-    unless params[:filter_round_trip] == '1'
-      itineraries_end_start = itineraries.where(round_trip: true).within_spherical_circle(start_location: [ end_location, sphere_radius ]) &
-                              itineraries.within_spherical_circle(end_location: [ start_location, sphere_radius ])
-    end
-
-    # Sum results
-    itineraries_start_end + itineraries_end_start
-  end
-
   def sample_path(precision = 10)
     # TODO move outside model
     overview_path.in_groups(precision).map { |g| g.first }.insert(-1,overview_path.last)
@@ -137,6 +91,11 @@ class Itinerary
     URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|#{end_location.to_latlng_a.join(",")}&markers=color:green|label:A|#{start_location.to_latlng_a.join(",")}&path=enc:#{overview_polyline}")
   end
 
+  def to_s
+    title || id
+  end
+
+=begin
   def random_close_location(max_dist = 0.5, km = true)
     # TODO move outside model
 
@@ -180,27 +139,5 @@ class Itinerary
 
     [lat * rad_to_deg, lng * rad_to_deg]
   end
-
-  def to_s
-    title || id
-  end
-
-  private
-  def self.get_boolean_filters(params = {})
-    filters = {}
-
-    [:round_trip, :pink, :verified].each do |checkbox_field|
-      param = params["filter_#{checkbox_field}".to_sym]
-      filters.merge!(checkbox_field => true) if param == '1'
-    end
-
-    [:smoking_allowed, :pets_allowed].each do |boolean_field|
-      param = params["filter_#{boolean_field}".to_sym]
-      filters.merge!(boolean_field => (param == 'true')) unless param.blank?
-    end
-
-    filter_driver_gender_param = params[:filter_driver_gender]
-    filters.merge!(driver_gender: filter_driver_gender_param) if User::GENDER.include?(filter_driver_gender_param)
-    filters
-  end
+=end
 end

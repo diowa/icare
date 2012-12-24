@@ -22,9 +22,9 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = Itinerary.build_with_route_json_object(params[:itinerary], current_user)
+    @itinerary = ItineraryBuild.new(params[:itinerary], current_user).itinerary
     if @itinerary.save
-      redirect_to itinerary_path(@itinerary)
+      redirect_to itinerary_path @itinerary
     else
       render :new
     end
@@ -55,20 +55,7 @@ class ItinerariesController < ApplicationController
   end
 
   def search
-    respond_to do |format|
-      format.json do
-        if request.xhr?
-          @itineraries = Itinerary.search(params[:itinerary_search], current_user.male?)
-        else
-          redirect_to root_path
-        end
-      end
-      format.html do
-        render(layout: false , json: {success: true,
-                                      data: Itinerary.all.as_json(except: [:deleted_at,
-                                                                           :overview_path]) })
-      end
-    end
+    @itineraries = ItinerarySearchService.new(params[:itinerary_search], current_user).itineraries
   end
 
   protected
