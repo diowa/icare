@@ -128,23 +128,13 @@ class Itinerary
     itineraries_start_end + itineraries_end_start
   end
 
-  def to_latlng_array(field)
-    # TODO move outside model
-    self[field].to_a.reverse if self[field]
-  end
-
-  def to_latlng_hash(field)
-    # TODO move outside model
-    { lat: self.send(field).lat, lng: self.send(field).lng } if self[field]
-  end
-
   def sample_path(precision = 10)
     # TODO move outside model
     overview_path.in_groups(precision).map { |g| g.first }.insert(-1,overview_path.last)
   end
 
   def static_map
-    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|#{to_latlng_array(:end_location).join(",")}&markers=color:green|label:A|#{to_latlng_array(:start_location).join(",")}&path=enc:#{overview_polyline}")
+    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|#{end_location.to_latlng_a.join(",")}&markers=color:green|label:A|#{start_location.to_latlng_a.join(",")}&path=enc:#{overview_polyline}")
   end
 
   def random_close_location(max_dist = 0.5, km = true)

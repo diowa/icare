@@ -4,8 +4,8 @@ attributes :id, :description, :fuel_cost, :leave_date, :num_people, :overview_po
            :pets_allowed, :daily, :return_date, :round_trip, :smoking_allowed, :pink,
            :title, :tolls, :vehicle, :via_waypoints
 
-node(:start_location) { |itinerary| itinerary.to_latlng_hash(:start_location) }
-node(:end_location) { |itinerary| itinerary.to_latlng_hash(:end_location) }
+node(:start_location) { |itinerary| itinerary.start_location.to_latlng_hash }
+node(:end_location) { |itinerary| itinerary.end_location.to_latlng_hash }
 
 node(:url) { |itinerary| itinerary_url(itinerary) }
 

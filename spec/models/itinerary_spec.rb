@@ -84,23 +84,23 @@ describe Itinerary do
 
   describe 'to_latlng_array' do
     it "converts Point in latitude, longitude array" do
-      latlng_start_location = itinerary.to_latlng_array :start_location
-      expect(latlng_start_location.class).to be Array
-      expect(latlng_start_location.size).to be 2
-      expect(latlng_start_location.first).to be itinerary.start_location.lat
-      expect(latlng_start_location.last).to be itinerary.start_location.lng
+      latlng_start_location_a = itinerary.start_location.to_latlng_a
+      expect(itinerary.start_location.to_latlng_a.class).to be Array
+      expect(latlng_start_location_a.size).to be 2
+      expect(latlng_start_location_a.first).to be itinerary.start_location.lat
+      expect(latlng_start_location_a.last).to be itinerary.start_location.lng
     end
   end
 
   describe 'to_latlng_hash' do
     it "converts Point in lat: latitude, lng: longitude hash" do
-      latlng_start_location = itinerary.to_latlng_hash :start_location
-      expect(latlng_start_location.class).to be Hash
-      expect(latlng_start_location.size).to be 2
-      expect(latlng_start_location).to have_key :lat
-      expect(latlng_start_location).to have_key :lng
-      expect(latlng_start_location[:lat]).to be itinerary.start_location.lat
-      expect(latlng_start_location[:lng]).to be itinerary.start_location.lng
+      latlng_start_location_hash = itinerary.start_location.to_latlng_hash
+      expect(latlng_start_location_hash.class).to be Hash
+      expect(latlng_start_location_hash.size).to be 2
+      expect(latlng_start_location_hash).to have_key :lat
+      expect(latlng_start_location_hash).to have_key :lng
+      expect(latlng_start_location_hash[:lat]).to be itinerary.start_location.lat
+      expect(latlng_start_location_hash[:lng]).to be itinerary.start_location.lng
     end
   end
 
