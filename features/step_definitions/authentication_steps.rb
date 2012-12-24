@@ -13,17 +13,43 @@ When /^a guest logs in on itinerary page$/ do
   find('a', text: /Login with Facebook/i).click
 end
 
+When /^a user logs in$/ do
+  @user = FactoryGirl.create :user, uid: '123456'
+  visit '/auth/facebook'
+end
+
+When /^a banned user logs in$/ do
+  @banned_user = FactoryGirl.create :user, banned: true, uid: '123456'
+  visit '/auth/facebook'
+end
+
+Then /^current uri should be ([a-z_]+)$/ do |path|
+  uri = URI.parse current_url
+  expect(uri.path).to eq Rails.application.routes.url_helpers.send(path.to_sym)
+end
+
+Then /^he should be redirected to the banned page$/ do
+  step 'current uri should be banned_path'
+end
+
+Then /^he should not be able to view any other page$/ do
+  visit itineraries_path
+  step 'current uri should be banned_path'
+  visit new_itinerary_path
+  step 'current uri should be banned_path'
+end
+
 Then /^he should be redirected to the itinerary page$/ do
   expect(page).to have_xpath '//title', @itinerary.title
   expect(page).to have_content @itinerary.user_name
 end
 
 Then /^he should see an? "([^"]*)" message "([^"]*)"$/ do |css_class, message|
-  expect(page.find(".alert-#{css_class}")).to have_content message
+  expect(find(".alert-#{css_class}")).to have_content message
 end
 
 Then /^he should not see an? "([^"]*)" message "([^"]*)"$/ do |css_class, message|
-  -> { page.find(".alert-#{css_class}") }.should raise_error Capybara::ElementNotFound
+  expect(-> { find(".alert-#{css_class}") }).to raise_error Capybara::ElementNotFound
   page.should_not have_content message
 end
 
@@ -33,7 +59,7 @@ end
 
 Then /^he should be logged in$/ do
   within('.navbar-inner') do
-    expect(page.find("a[href='/signout']")).to be_present
+    expect(find("a[href='/signout']")).to be_present
   end
 end
 

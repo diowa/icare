@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :require_login
   before_filter :set_locale
   before_filter :check_banned, except: [:banned]
-  before_filter :check_admin, only: [:index] # whitelist approach
+  before_filter :check_admin, only: [:index] # whitelist approach on indexes
 
   before_filter :set_user_time_zone, if: :logged_in?
 
@@ -21,21 +21,15 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    if current_user.nil?
-      redirect_to root_path, flash: { error: t('flash.error.not_authenticated') }
-    end
+    redirect_to root_path, flash: { error: t('flash.error.not_authenticated') } unless logged_in?
   end
 
   def check_admin
-    unless current_user && current_user.admin?
-      redirect_to root_path, flash: { error: t('flash.error.not_allowed') }
-    end
+    redirect_to root_path, flash: { error: t('flash.error.not_allowed') } if logged_in? && !current_user.admin?
   end
 
   def check_banned
-    if current_user && current_user.banned?
-      redirect_to :banned
-    end
+    redirect_to :banned if logged_in? && current_user.banned?
   end
 
   def find_user(user_id)

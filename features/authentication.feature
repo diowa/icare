@@ -1,4 +1,3 @@
-@facebook
 Feature: Authentication
   In order to use the application
   Users should be able to log in with Facebook
@@ -20,3 +19,8 @@ Feature: Authentication
   Scenario: A guest should be redirected to the proper page if he logs in on itinerary pages
     When a guest logs in on itinerary page
     Then he should be redirected to the itinerary page
+
+  Scenario: A banned user should be always redirected to the banned page
+    When a banned user logs in
+    Then he should be redirected to the banned page
+    And he should not be able to view any other page
