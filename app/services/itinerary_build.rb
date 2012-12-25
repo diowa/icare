@@ -5,20 +5,13 @@ class ItineraryBuild
   end
 
   def itinerary
-    @itinerary ||= build_from_route_json_object @params, @user
+    @itinerary ||= build @params, @user
   end
 
   private
-  def build_from_route_json_object(params, user)
+  def build(params, user)
     Itinerary.new(params) do |itinerary|
-      route_json_object = JSON.parse(@params[:route_json_object])
-      itinerary.start_location    = { lat: route_json_object['start_location']['lat'],
-                                      lng: route_json_object['start_location']['lng'] }
-      itinerary.end_location      = { lat: route_json_object['end_location']['lat'],
-                                      lng: route_json_object['end_location']['lng'] }
-      itinerary.via_waypoints     = route_json_object['via_waypoints']
-      itinerary.overview_path     = route_json_object['overview_path']
-      itinerary.overview_polyline = route_json_object['overview_polyline']
+      set_route_fields itinerary
 
       itinerary.user = @user
 
@@ -26,5 +19,16 @@ class ItineraryBuild
       itinerary.driver_gender = @user.gender
       itinerary.verified = @user.facebook_verified
     end
+  end
+
+  def set_route_fields(itinerary)
+    route_json_object = JSON.parse(@params[:route_json_object]) rescue return
+    itinerary.start_location    = { lat: route_json_object['start_location']['lat'],
+                                    lng: route_json_object['start_location']['lng'] } if route_json_object['start_location']
+    itinerary.end_location      = { lat: route_json_object['end_location']['lat'],
+                                    lng: route_json_object['end_location']['lng'] } if route_json_object['end_location']
+    itinerary.via_waypoints     = route_json_object['via_waypoints']
+    itinerary.overview_path     = route_json_object['overview_path']
+    itinerary.overview_polyline = route_json_object['overview_polyline']
   end
 end

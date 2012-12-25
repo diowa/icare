@@ -18,6 +18,9 @@ FactoryGirl.define do
   factory :itinerary do
     user
 
+    driver_gender { user.gender }
+    verified { user.facebook_verified }
+
     start_location [45.46546, 9.186519999999973]
     end_location [45.06288000000001, 7.678470000000061]
     via_waypoints []

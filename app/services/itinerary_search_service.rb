@@ -12,9 +12,9 @@ class ItinerarySearchService
 
     # Apply filters
     filters = extract_filters_from_params
-    itineraries = Itinerary.where(filters).includes(:user)
+    itineraries = Itinerary.includes(:user).where(filters)
 
-    # Filter pink itineraries. NOTE: it must be applied AFTER other filters
+    # Overrides pink filter for malicious male users
     itineraries = itineraries.where(pink: false) if @user.male?
 
     # From start to end
@@ -32,7 +32,7 @@ class ItinerarySearchService
     # Sum results
     normal_itineraries + reversed_itineraries
   rescue
-    {}
+    []
   end
 
   private
