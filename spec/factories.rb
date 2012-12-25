@@ -10,9 +10,9 @@ FactoryGirl.define do
     email
     username_or_uid { |u| [u.username, u.uid] }
     provider 'facebook'
-    name 'John Doe'
+    name { Faker::Name.name }
     gender 'male'
-    birthday '1980-08-27'
+    birthday { Time.at(rand * (18.years.ago.to_f - 50.years.ago.to_f) + 50.years.ago.to_f).to_date }
   end
 
   factory :itinerary do

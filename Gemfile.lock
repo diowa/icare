@@ -47,7 +47,7 @@ GEM
       xpath (~> 1.0.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
-    chronic (0.8.0)
+    chronic (0.9.0)
     chunky_png (1.2.6)
     client_side_validations (3.2.1)
     client_side_validations-turbolinks (0.6.0)
@@ -120,7 +120,7 @@ GEM
     haml_assets (0.2.1)
       haml
       tilt
-    handlebars_assets (0.7.1)
+    handlebars_assets (0.7.2)
       execjs (>= 1.2.9)
       sprockets (>= 2.0.3)
       tilt
@@ -180,7 +180,7 @@ GEM
     mongoid_slug (2.0.1)
       mongoid (~> 3.0)
       stringex (~> 1.4)
-    moped (1.3.1)
+    moped (1.3.2)
     multi_json (1.5.0)
     multipart-post (1.1.5)
     newrelic_moped (0.0.4.1)
@@ -259,7 +259,7 @@ GEM
     rspec-core (2.12.2)
     rspec-expectations (2.12.1)
       diff-lcs (~> 1.1.3)
-    rspec-mocks (2.12.0)
+    rspec-mocks (2.12.1)
     rspec-rails (2.12.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -271,7 +271,7 @@ GEM
       rubinius-core-api
     rubinius-core-api (0.0.1)
     rubyzip (0.9.9)
-    sass (3.2.3)
+    sass (3.2.4)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
