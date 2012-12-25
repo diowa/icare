@@ -92,6 +92,7 @@ Spork.each_run do
     extra: {
       raw_info: {
         id: '123456',
+        username: 'johndoe',
         name: 'John Doe',
         first_name: 'John',
         last_name: 'Doe',

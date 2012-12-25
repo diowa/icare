@@ -1,16 +1,14 @@
 FactoryGirl.define do
 
-  sequence :email do |n|
-    "person#{n}@example.com"
-  end
-
-  sequence :uid do |n|
-    "100#{n}"
-  end
+  sequence(:uid)      { |n| "100#{n}" }
+  sequence(:username) { |n| "person#{n}" }
+  sequence(:email)    { |n| "person#{n}@127.0.0.1" }
 
   factory :user do
-    email
     uid
+    username
+    email
+    username_or_uid { |u| [u.username, u.uid] }
     provider 'facebook'
     name 'John Doe'
     gender 'male'

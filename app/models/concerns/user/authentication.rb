@@ -27,6 +27,9 @@ class User
         self.work = auth.extra.raw_info.work || {}
         self.education = auth.extra.raw_info.education || {}
 
+        # Username and uid array
+        self.username_or_uid = [ username, uid ]
+
         # Cache permissions
         facebook do |fb|
           self.facebook_permissions = fb.get_connections('me', 'permissions')[0]

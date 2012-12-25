@@ -11,6 +11,8 @@ class User
 
   paginates_per 25
 
+  index({ username_or_uid: 1 })
+
   attr_accessible :time_zone, :locale, :vehicle_avg_consumption
 
   has_and_belongs_to_many :conversations
@@ -50,6 +52,7 @@ class User
   field :education, type: Hash, default: {}
 
   # Icare
+  field :username_or_uid
   field :vehicle_avg_consumption, type: Float, default: (1.741*7.0/100.0).round(2)
 
   # Account

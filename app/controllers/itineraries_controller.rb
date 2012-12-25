@@ -31,11 +31,11 @@ class ItinerariesController < ApplicationController
   end
 
   def edit
-    @itinerary = current_user.itineraries.find(params[:id])
+    @itinerary = current_user.itineraries.find params[:id]
   end
 
   def update
-    @itinerary = current_user.itineraries.find(params[:id])
+    @itinerary = current_user.itineraries.find params[:id]
     if @itinerary.update_attributes(params[:itinerary])
       redirect_to my_itineraries_path, flash: { success: t('flash.itinerary.success.update') }
     else
@@ -44,7 +44,7 @@ class ItinerariesController < ApplicationController
   end
 
   def destroy
-    @itinerary = current_user.itineraries.find(params[:id])
+    @itinerary = current_user.itineraries.find params[:id]
     if @itinerary.destroy
       redirect_to my_itineraries_path, flash: { success: t('flash.itinerary.success.destroy') }
     else
@@ -63,7 +63,7 @@ class ItinerariesController < ApplicationController
   end
 
   def check_gender
-    @itinerary = Itinerary.find(params[:id])
+    @itinerary = Itinerary.find params[:id]
     return unless @itinerary.pink?
     if !logged_in?
       redirect_to root_path

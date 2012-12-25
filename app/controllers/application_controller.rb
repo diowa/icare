@@ -32,9 +32,9 @@ class ApplicationController < ActionController::Base
     redirect_to :banned if logged_in? && current_user.banned?
   end
 
-  def find_user(user_id)
-    # TODO Optimization. Indexed array with multiple values?
-    User.any_of({ username: user_id }, { uid: user_id }, { _id: :user_id }).first
+  def find_user(param)
+    # TODO Optimization?
+    User.find_by({ username_or_uid: param })
   end
 
   private

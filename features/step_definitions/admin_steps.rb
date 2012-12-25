@@ -1,5 +1,5 @@
 When /^an admin logs in$/ do
-  @admin = FactoryGirl.create :user, admin: true, uid: '123456'
+  @admin = FactoryGirl.create :user, admin: true, uid: '123456', username: 'johndoe'
   visit '/auth/facebook'
 end
 

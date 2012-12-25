@@ -37,7 +37,7 @@ class Reference
   end
 
   def unread?
-    !read
+    read_at.nil?
   end
 
   def driver?
