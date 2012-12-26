@@ -4,8 +4,8 @@ class User
   include Mongoid::Paranoia
 
   # Concerns
-  include Authentication
-  include Facebook
+  include ::Concerns::User::Authentication
+  include ::Concerns::User::Facebook
 
   GENDER = %w(male female)
 
