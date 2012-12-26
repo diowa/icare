@@ -33,7 +33,7 @@ class User
   # Cached Facebook data
   field :facebook_friends, type: Array, default: []
   field :facebook_favorites, type: Array, default: []
-  field :facebook_data_updated_at, type: DateTime, default: '2012-09-06'
+  field :facebook_data_cached_at, type: DateTime, default: '2012-09-06'
 
   # Info
   field :email
