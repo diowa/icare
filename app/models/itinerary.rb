@@ -46,7 +46,7 @@ class Itinerary
   field :driver_gender
   field :verified
 
-  attr_accessor :route_json_object, :share_on_facebook_timeline
+  attr_accessor :route, :share_on_facebook_timeline
 
   slug :title, reserve: %w(new)
 
@@ -76,10 +76,10 @@ class Itinerary
 
   def inside_bounds
     # TODO RGeo???
-    self.errors.add(:base, :out_of_boundaries) unless start_location.lat >= BOUNDARIES[0][0] && start_location.lat <= BOUNDARIES[1][0] &&
-                                                      start_location.lng >= BOUNDARIES[0][1] && start_location.lng <= BOUNDARIES[1][1] &&
-                                                      end_location.lat >= BOUNDARIES[0][0] && end_location.lat <= BOUNDARIES[1][0] &&
-                                                      end_location.lng >= BOUNDARIES[0][1] && end_location.lng <= BOUNDARIES[1][1]
+    self.errors.add(:route, :out_of_boundaries) unless start_location.lat >= BOUNDARIES[0][0] && start_location.lat <= BOUNDARIES[1][0] &&
+                                                       start_location.lng >= BOUNDARIES[0][1] && start_location.lng <= BOUNDARIES[1][1] &&
+                                                       end_location.lat >= BOUNDARIES[0][0] && end_location.lat <= BOUNDARIES[1][0] &&
+                                                       end_location.lng >= BOUNDARIES[0][1] && end_location.lng <= BOUNDARIES[1][1]
   end
 
   def sample_path(precision = 10)

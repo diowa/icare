@@ -1,4 +1,4 @@
-class ItinerarySearchService
+class ItinerarySearch
   def initialize(params, user)
     @params = params
     @user = user

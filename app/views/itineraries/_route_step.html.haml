@@ -1,7 +1,7 @@
 .row
   .span3
     %h3= yield :title
-    = bootstrap_form_for ItineraryRoute.new, url: '#', method: 'get', validate: true do |f|
+    = bootstrap_form_for Itineraries::Route.new, url: '#', method: 'get', validate: true do |f|
       = f.text_field :from, class: 'input-xlarge width-max'
       = f.text_field :to, class: 'input-xlarge width-max'
       = f.check_box :avoid_highways

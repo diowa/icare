@@ -10,18 +10,18 @@ describe ItineraryBuild do
     let(:female_user) { FactoryGirl.create :user, gender: 'female' }
 
     let(:params) {
-      { route_json_object: { start_location: { lat: itinerary.start_location.lat, lng: itinerary.start_location.lng },
-                             end_location: { lat: itinerary.end_location.lat, lng: itinerary.end_location.lng },
-                             via_waypoints: itinerary.via_waypoints,
-                             overview_path: itinerary.overview_path,
-                             overview_polyline: itinerary.overview_polyline }.to_json.to_s }
+      { route: { start_location: { lat: itinerary.start_location.lat, lng: itinerary.start_location.lng },
+                 end_location: { lat: itinerary.end_location.lat, lng: itinerary.end_location.lng },
+                 via_waypoints: itinerary.via_waypoints,
+                 overview_path: itinerary.overview_path,
+                 overview_polyline: itinerary.overview_polyline }.to_json.to_s }
     }
 
     it "does not fail if route json object is empty or malformed" do
       expect(ItineraryBuild.new({}, male_user).itinerary).to_not be_nil
-      expect(ItineraryBuild.new({ route_json_object: { } }, male_user).itinerary).to_not be_nil
-      expect(ItineraryBuild.new({ route_json_object: { bad: 'guy' } }, male_user).itinerary).to_not be_nil
-      expect(ItineraryBuild.new({ route_json_object: { start_location: 'bad' } }, male_user).itinerary).to_not be_nil
+      expect(ItineraryBuild.new({ route: { } }, male_user).itinerary).to_not be_nil
+      expect(ItineraryBuild.new({ route: { bad: 'guy' } }, male_user).itinerary).to_not be_nil
+      expect(ItineraryBuild.new({ route: { start_location: 'bad' } }, male_user).itinerary).to_not be_nil
     end
 
     it "builds itinerary from route json object" do

@@ -62,19 +62,19 @@ describe Itinerary do
     it "adds an error on the base objects if both start_position and end_position are outside bounds" do
       expect(start_end_outside_bounds_itinerary.valid?).to be_false
       expect(start_end_outside_bounds_itinerary.errors.size).to be 1
-      expect(start_end_outside_bounds_itinerary.errors.messages).to have_key :base
+      expect(start_end_outside_bounds_itinerary.errors.messages).to have_key :route
     end
 
     it "adds an error on the base objects if start_position is outside bounds" do
       expect(start_outside_bounds_itinerary.valid?).to be_false
       expect(start_outside_bounds_itinerary.errors.size).to be 1
-      expect(start_outside_bounds_itinerary.errors.messages).to have_key :base
+      expect(start_outside_bounds_itinerary.errors.messages).to have_key :route
     end
 
     it "adds an error on the base objects if end_position is outside bounds" do
       expect(end_outside_bounds_itinerary.valid?).to be_false
       expect(end_outside_bounds_itinerary.errors.size).to be 1
-      expect(end_outside_bounds_itinerary.errors.messages).to have_key :base
+      expect(end_outside_bounds_itinerary.errors.messages).to have_key :route
     end
 
     it "does not add errors if the itinerary is inside bounds" do

@@ -49,6 +49,7 @@ en-US:
         updated_at: Last modified
         url: URL
       itinerary:
+        route: Route
         title: Title
         description: Description
         vehicle: Vehicle
@@ -79,8 +80,8 @@ en-US:
               invalid: is not a valid email
         itinerary:
           attributes:
-            base:
-              out_of_boundaries: Itinerary is not included in the authorized geographic area.
+            route:
+              out_of_boundaries: is not included within the authorized geographic area.
             pink:
               driver_must_be_female: only women can create pink itineraries
         conversation:
@@ -96,7 +97,7 @@ en-US:
 
   activemodel:
     attributes:
-      itinerary_route:
+      itineraries/route:
         from: From
         to: To
         avoid_highways: Avoid highways

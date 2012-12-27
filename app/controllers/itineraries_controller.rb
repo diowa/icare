@@ -55,7 +55,7 @@ class ItinerariesController < ApplicationController
   end
 
   def search
-    @itineraries = ItinerarySearchService.new(params[:itinerary_search], current_user).itineraries
+    @itineraries = ItinerarySearch.new(params[:itineraries_search], current_user).itineraries
   end
 
   protected

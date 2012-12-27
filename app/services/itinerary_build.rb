@@ -22,13 +22,15 @@ class ItineraryBuild
   end
 
   def set_route_fields(itinerary)
-    route_json_object = JSON.parse(@params[:route_json_object]) rescue return
-    itinerary.start_location    = { lat: route_json_object['start_location']['lat'],
-                                    lng: route_json_object['start_location']['lng'] } if route_json_object['start_location']
-    itinerary.end_location      = { lat: route_json_object['end_location']['lat'],
-                                    lng: route_json_object['end_location']['lng'] } if route_json_object['end_location']
-    itinerary.via_waypoints     = route_json_object['via_waypoints']
-    itinerary.overview_path     = route_json_object['overview_path']
-    itinerary.overview_polyline = route_json_object['overview_polyline']
+    route = JSON.parse(@params[:route])
+    itinerary.start_location    = { lat: route['start_location']['lat'],
+                                    lng: route['start_location']['lng'] } if route['start_location']
+    itinerary.end_location      = { lat: route['end_location']['lat'],
+                                    lng: route['end_location']['lng'] } if route['end_location']
+    itinerary.via_waypoints     = route['via_waypoints']
+    itinerary.overview_path     = route['overview_path']
+    itinerary.overview_polyline = route['overview_polyline']
+  rescue
+    itinerary.errors.add :route, :invalid
   end
 end
