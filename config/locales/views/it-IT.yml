@@ -168,25 +168,25 @@ it-IT:
     itineraries:
       title: I miei itinerari
     dashboard:
-      title: Dashboard
-      reminder: Reminder
-      new_itinerary: New itinerary
-      search_itineraries: Search itineraries
-      your_itineraries: Your itineraries
+      title: Cruscotto
+      reminder: Promemoria
+      new_itinerary: Nuovo itinerario
+      search_itineraries: Cerca itinerari
+      your_itineraries: I tuoi itinerari
       new_messages:
-        zero: No new messages
-        one: "%{count} new message"
-        other: "%{count} new messages"
+        zero: Nessun nuovo messaggio
+        one: "%{count} nuovo messaggio"
+        other: "%{count} nuovi messaggi"
       new_notifications:
-        zero: No notifications
-        one: "%{count} notification"
-        other: "%{count} notifications"
+        zero: Nessuna notifica
+        one: "%{count} notifica"
+        other: "%{count} notifiche"
       new_references:
-        zero: No new references
-        one: "%{count} new reference"
-        other: "%{count} new references"
-      latest_itineraries: Latest Itineraries
-      by: by
+        zero: Nessuna nuova referenza
+        one: "%{count} nuova referenza"
+        other: "%{count} nuove referenze"
+      latest_itineraries: Itinerari recenti
+      by: di
     calculator:
       fuel_type: Carburante
       fuel_diesel: Diesel
