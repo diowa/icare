@@ -15,7 +15,7 @@ module Concerns
         end
 
         def has_facebook_permission?(scope)
-          facebook_permissions? ? facebook_permissions[scope.to_s].to_i == 1 : false
+           facebook_permissions[scope.to_s].to_i == 1 if facebook_permissions?
         end
 
         def cache_facebook_data?
