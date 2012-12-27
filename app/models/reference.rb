@@ -20,7 +20,7 @@ class Reference
   scope :neutrals, where(:"incoming.rating" => 0)
   scope :negatives, where(:"incoming.rating" => -1)
 
-  validates :itinerary, uniqueness: { scope: :referencing_user_id, message: :already_present }
+  validates :referencing_user_id, uniqueness: true, message: :already_present
   validate :not_by_myself
 
   def not_by_myself

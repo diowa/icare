@@ -91,8 +91,8 @@ it-IT:
           attributes:
             user:
               yourself: non puoi lasciare una referenza a te stesso
-            itinerary_id:
-              already_present: hai già lasciato una referenza per questo itinerario
+            referencing_user_id:
+              already_present: hai già lasciato una referenza per questo utente
 
   activemodel:
     attributes:
