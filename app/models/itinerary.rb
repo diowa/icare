@@ -52,6 +52,8 @@ class Itinerary
 
   #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
 
+  validates :start_location, presence: true
+  validates :end_location, presence: true
   validates :title, length: { maximum: 40 }, presence: true
   validates :description, length: { maximum: 1000 }, presence: true
   validates :vehicle, inclusion: VEHICLE

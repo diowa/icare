@@ -6,7 +6,6 @@ class ItinerariesController < ApplicationController
   before_filter :check_gender, only: [:show]
 
   before_filter :check_permissions
-  # TODO proper edit methods
 
   def new
     @itinerary = Itinerary.new

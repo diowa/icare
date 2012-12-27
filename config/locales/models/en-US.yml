@@ -50,6 +50,8 @@ en-US:
         url: URL
       itinerary:
         route: Route
+        start_location: From
+        end_location: To
         title: Title
         description: Description
         vehicle: Vehicle

@@ -18,10 +18,16 @@ describe ItineraryBuild do
     }
 
     it "does not fail if route json object is empty or malformed" do
-      expect(ItineraryBuild.new({}, male_user).itinerary).to_not be_nil
-      expect(ItineraryBuild.new({ route: { } }, male_user).itinerary).to_not be_nil
-      expect(ItineraryBuild.new({ route: { bad: 'guy' } }, male_user).itinerary).to_not be_nil
-      expect(ItineraryBuild.new({ route: { start_location: 'bad' } }, male_user).itinerary).to_not be_nil
+      invalid_itineraries = [ItineraryBuild.new({}, male_user).itinerary,
+                             ItineraryBuild.new({ route: { } }, male_user).itinerary,
+                             ItineraryBuild.new({ route: { bad: 'guy' } }, male_user).itinerary,
+                             ItineraryBuild.new({ route: { start_location: 'bad' } }, male_user).itinerary ]
+      invalid_itineraries.each do |invalid_itinerary|
+        expect(invalid_itinerary).to_not be_nil
+        expect(invalid_itinerary.valid?).to be_false
+        expect(invalid_itinerary.errors.messages).to have_key :start_location
+        expect(invalid_itinerary.errors.messages).to have_key :end_location
+      end
     end
 
     it "builds itinerary from route json object" do

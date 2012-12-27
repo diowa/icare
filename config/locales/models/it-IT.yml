@@ -50,6 +50,8 @@ it-IT:
         url: Indirizzo
       itinerary:
         route: Percorso
+        start_location: Partenza
+        end_location: Arrivo
         title: Titolo
         description: Descrizione
         vehicle: Veicolo
