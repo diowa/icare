@@ -91,7 +91,7 @@ describe ItinerarySearch do
       all_itineraries = ItinerarySearch.new(search_params.merge(filter_driver_gender: 'samurai'), male_user).itineraries
       expect(male_itineraries.count).to be 2
       expect(female_itineraries.count).to be 3
-      expect(all_itineraries.count).to be 5      
+      expect(all_itineraries.count).to be 5
     end
   end
 end
