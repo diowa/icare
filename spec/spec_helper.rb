@@ -28,6 +28,8 @@ Spork.prefork do
   # Load all railties files
   Rails.application.railties.all { |r| r.eager_load! }
 
+  require 'webmock/rspec'
+
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
   Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
