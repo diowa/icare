@@ -7,12 +7,12 @@ class ConversationsController < ApplicationController
   after_filter :mark_as_read, only: [:show]
 
   def index
-    # TODO nested eager loading
+    # NOTE nested eager loading is not available
     @conversations = current_user.conversations.includes(:users).desc(:updated_at).page params[:page]
   end
 
   def unread
-    # TODO nested eager loading
+    # NOTE nested eager loading is not available
     respond_to do |format|
       format.json do
         @conversations = current_user.conversations.includes(:users).unread(current_user).desc(:updated_at).limit(5)

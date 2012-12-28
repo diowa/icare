@@ -6,8 +6,6 @@ class UsersController < ApplicationController
   before_filter :set_user_as_current_user, only: [:dashboard, :settings, :itineraries]
   before_filter :check_admin, only: [:index, :ban, :unban]
 
-  # TODO proper edit methods
-
   def index
     @users = User.asc(:name).page params[:page]
   end

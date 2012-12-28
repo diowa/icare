@@ -10,7 +10,7 @@ module Concerns
         rescue Koala::Facebook::APIError => e
           logger.info e.to_s
           nil # or consider a custom null object
-          # TODO
+          # TODO Investigate this error:
           # Koala::Facebook::APIError: OAuthException: Error validating access token: Session does not match current stored session. This may be because the user changed the password since the time the session was created or Facebook has changed the session for security reasons.
         end
 

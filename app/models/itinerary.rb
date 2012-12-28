@@ -77,11 +77,7 @@ class Itinerary
   end
 
   def inside_bounds
-    # TODO RGeo???
-    self.errors.add(:route, :out_of_boundaries) unless start_location.lat >= BOUNDARIES[0][0] && start_location.lat <= BOUNDARIES[1][0] &&
-                                                       start_location.lng >= BOUNDARIES[0][1] && start_location.lng <= BOUNDARIES[1][1] &&
-                                                       end_location.lat >= BOUNDARIES[0][0] && end_location.lat <= BOUNDARIES[1][0] &&
-                                                       end_location.lng >= BOUNDARIES[0][1] && end_location.lng <= BOUNDARIES[1][1]
+    self.errors.add(:route, :out_of_boundaries) unless point_inside_bounds?(start_location) && point_inside_bounds?(end_location)
   end
 
   def sample_path(precision = 10)
@@ -95,6 +91,12 @@ class Itinerary
 
   def to_s
     title || id
+  end
+
+  private
+  def point_inside_bounds?(point)
+    # TODO RGeo???
+    point.lat.between?(BOUNDARIES[0][0], BOUNDARIES[1][0]) && point.lng.between?(BOUNDARIES[0][1], BOUNDARIES[1][1])
   end
 
 =begin
