@@ -12,12 +12,10 @@ class ApplicationController < ActionController::Base
 
   protected
   def set_locale
-    # TODO think about optimizing this
-    I18n.locale = \
-      (params[:locale].to_sym if params[:locale].present? && I18n.available_locales.include?(params[:locale].to_sym)) \
-      || (current_user.locale.to_sym if logged_in? && current_user.locale && I18n.available_locales.include?(current_user.locale.to_sym)) \
-      || (request.preferred_language_from(I18n.available_locales) if request.preferred_language_from(I18n.available_locales)) \
-      || (request.compatible_language_from(I18n.available_locales) if request.compatible_language_from(I18n.available_locales))
+    I18n.locale = params[:locale] \
+                  || (current_user.locale if logged_in?) \
+                  || request.preferred_language_from(I18n.available_locales) \
+                  || request.compatible_language_from(I18n.available_locales)
   end
 
   def require_login
@@ -45,7 +43,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!current_user
+    current_user.present?
   end
 
   def set_user_time_zone
