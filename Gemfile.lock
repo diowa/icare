@@ -36,7 +36,7 @@ GEM
       girl_friday
     arel (3.0.2)
     builder (3.0.4)
-    bullet (4.2.0)
+    bullet (4.3.0)
       uniform_notifier
     capybara (2.0.1)
       mime-types (>= 1.16)
@@ -324,7 +324,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uniform_notifier (1.1.0)
+    uniform_notifier (1.1.1)
     validates_timeliness (3.0.14)
       timeliness (~> 0.3.6)
     vegas (0.1.11)
