@@ -3,13 +3,11 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create, :activate]
 
   before_filter :set_user, only: [:show, :ban, :unban]
-  before_filter :set_user_as_current_user, only: [:dashboard, :settings]
+  before_filter :set_user_as_current_user, only: [:dashboard, :settings, :itineraries]
   before_filter :check_admin, only: [:index, :ban, :unban]
 
-  # TODO proper edit methods
-
   def index
-    @users = User.sorted.page params[:page]
+    @users = User.asc(:name).page params[:page]
   end
 
   def show
@@ -23,7 +21,7 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_attributes(params[:user])
+    if @user.update_attributes params[:user]
       redirect_to :settings, flash: { success: t('flash.user.success.update') }
     else
       render :settings
@@ -47,10 +45,14 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @last_itineraries = Itinerary.includes(:user).sorted_by_creation.limit(10)
+    @last_itineraries = Itinerary.includes(:user).desc(:created_at).limit 10
 
     # Gender filter
     @last_itineraries = @last_itineraries.where(pink: false) if current_user.male?
+  end
+
+  def itineraries
+    @itineraries = @user.itineraries.desc :created_at
   end
 
   def banned

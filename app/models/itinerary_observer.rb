@@ -3,6 +3,6 @@ class ItineraryObserver < Mongoid::Observer
     if itinerary.share_on_facebook_timeline
       Resque.enqueue(FacebookTimelinePublisher, itinerary.id)
     end
-  rescue
+  rescue Redis::CannotConnectError
   end
 end

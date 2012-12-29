@@ -6,14 +6,7 @@ class BootstrapFormBuilder < ActionView::Helpers::FormBuilder
       content_tag :div, class: "control-group#{' error' if object.errors.include?(name)}" do
         label_field(name, *args) +
         content_tag(:div, class: 'controls') do
-          if name == :nationality
-            super(name, *args) +
-            content_tag(:span, class: 'inline-flag') do
-              content_tag(:i, nil, id: 'flag', class: ("flag-#{object.nationality.downcase}" if object.nationality?))
-            end
-          else
-            super(name, *args)
-          end +
+          super(name, *args) +
           if object.errors.include?(name)
             content_tag(:span, class: 'help-inline') do
               object.errors.messages[name].join(', ')

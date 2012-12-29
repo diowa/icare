@@ -18,12 +18,6 @@ module UsersHelper
         class: [("verified" if user.class == User.model_name && user.facebook_verified?), options[:style], options[:class]].compact.join(" ") }.merge(options[:html]))
   end
 
-  def nationality_flag(user, tooltip = true, tooltip_placement = "bottom")
-    options = { class: "flag-#{user.nationality.downcase}" }
-    options = options.merge({ rel: "tooltip", title: user.nationality_name, data: { placement: tooltip_placement } }) if tooltip
-    content_tag(:i, nil, options) if user.nationality?
-  end
-
   def navbar_notifications(title, opts = {})
     options = { icon: "globe",
                 id: "notifications",

@@ -5,8 +5,7 @@ class Notification
 
   embedded_in :user
 
-  field :read, type: Boolean, default: false
+  field :read_at, type: DateTime
 
-  scope :unread, where(read: false)
-  scope :sorted, desc(:created_at)
+  scope :unread, where(read_at: nil)
 end

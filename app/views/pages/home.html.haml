@@ -1,6 +1,6 @@
 - content_for :head do
-  = tag :meta, name: 'description', content: t('meta_description', appname: APPNAME)
-- title APPNAME
+  = tag :meta, name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name)
+- title APP_CONFIG.app_name
 #fb-root
 = render 'shared/flash_messages'
 .row
@@ -10,12 +10,12 @@
         Asfalto by Daquella manera, on Flickr
       .transform
         %h1.pacifico
-          = APPNAME
+          = APP_CONFIG.app_name
           - if APP_CONFIG.demo_mode
             %small
               demo
       .tagline
-        %b= t('.tagline', appname: APPNAME)
+        %b= t('.tagline', appname: APP_CONFIG.app_name)
       .row-fluid
         .span6
           #facepile-container.white-container.hide
@@ -33,7 +33,7 @@
             - if APP_CONFIG.demo_mode
               = t('.demo_mode', demo_terms_link: link_to(t('demo_terms'), :demo_terms)).html_safe
             - else
-              = t('.signin_terms', appname: APPNAME, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy)).html_safe
+              = t('.signin_terms', appname: APP_CONFIG.app_name, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy)).html_safe
 .home-text-snippets
   .row
     .span4

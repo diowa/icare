@@ -66,7 +66,7 @@ wizardPrevStep = ->
 
 wizardNextStep = ->
   # Run validations
-  if $('#itinerary_route_json_object').val() is ''
+  if $('#itinerary_route').val() is ''
     $('#error').text(I18n.t 'javascript.setup_route_first').show()
     return false
 
@@ -133,7 +133,7 @@ lastStepInit = ->
   else
     $(".itinerary-preview-return").hide()
 
-  route = window.icare.itinerary_route_json_object
+  route = window.icare.route
   url_builder = $('#itinerary-preview-image')
     .data('staticMapUrlBuilder')
     .replace("%{end_location}", "#{route.end_location.lat},#{route.end_location.lng}")
@@ -168,17 +168,17 @@ createRouteMapInit = (id) ->
 
   google.maps.event.addListener dr, 'directions_changed', ->
     route = dr.getDirections().routes[0]
-    route_json_object = getJSONRoute route
+    json_route = getJSONRoute route
     $('#from-helper').text route.legs[0].start_address
     $('#to-helper').text route.legs[0].end_address
-    $('#itinerary_route_json_object').val JSON.stringify(route_json_object)
-    window.icare.itinerary_route_json_object = route_json_object
+    $('#itinerary_route').val JSON.stringify(json_route)
+    window.icare.route = json_route
     $('#new_itinerary_submit').removeAttr 'disabled'
     $('#distance').text route.legs[0].distance.text
     $('#duration').text route.legs[0].duration.text
     $('#route-helper').show()
     $('#result').show()
-    $('#itinerary_title').val "#{$("#itinerary_route_from").val()} - #{$("#itinerary_route_to").val()}".substr(0, 40).capitalize()
+    $('#itinerary_title').val "#{$("#itineraries_route_from").val()} - #{$("#itineraries_route_to").val()}".substr(0, 40).capitalize()
     route_km = route.legs[0].distance.value / 1000
     route_gasoline = route_km * (Number) $('#fuel-help').data('avg_consumption')
     $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", parseInt(route_gasoline, 10))
@@ -186,7 +186,7 @@ createRouteMapInit = (id) ->
     path = route.overview_path
     map.fitBounds(dr.directions.routes[0].bounds)
 
-  $('#new_itinerary_route').on 'submit', ->
+  $('#new_itineraries_route').on 'submit', ->
     $('#itineraries-spinner').show()
     $('#error').hide()
     $('#result').hide()
@@ -194,11 +194,11 @@ createRouteMapInit = (id) ->
     $('#distance').text ''
     $('#duration').text ''
     ds.route
-      origin: $('#itinerary_route_from').val()
-      destination: $('#itinerary_route_to').val()
+      origin: $('#itineraries_route_from').val()
+      destination: $('#itineraries_route_to').val()
       travelMode: 'DRIVING' #$("#mode").val()
-      avoidHighways: $('#itinerary_route_avoid_highways').attr('checked')?
-      avoidTolls: $('#itinerary_route_avoid_tolls').attr('checked')?
+      avoidHighways: $('#itineraries_route_avoid_highways').attr('checked')?
+      avoidTolls: $('#itineraries_route_avoid_tolls').attr('checked')?
     , (result, status) ->
       $('#itineraries-spinner').hide()
       if status is google.maps.DirectionsStatus.OK

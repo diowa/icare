@@ -4,11 +4,11 @@
     %h1= yield :title
     %h5.muted= t('last_modified', date: l(Date.parse('2012-12-01'), format: :long))
 
-    %h3 Welcome to #{APPNAME}
+    %h3 Welcome to #{APP_CONFIG.app_name}
     %p
       This is a demo application of the open source
       = link_to 'carpooling', 'http://en.wikipedia.org/wiki/Carpool'
-      platform #{APPNAME}.
+      platform #{APP_CONFIG.app_name}.
     %p
       The source code is available at
       = link_to 'http://github.com/diowa/icare', 'http://github.com/diowa/icare'
@@ -24,7 +24,7 @@
         %li
           Email, name, birthday, work, education, about, friends, favorites, known languages.
       We do not store your public profile picture.
-      Your username on #{APPNAME} will be the same of Facebook.
+      Your username on #{APP_CONFIG.app_name} will be the same of Facebook.
     %p
       We will not send you any email.
     %p

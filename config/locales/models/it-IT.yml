@@ -49,6 +49,9 @@ it-IT:
         updated_at: Ultima modifica
         url: Indirizzo
       itinerary:
+        route: Percorso
+        start_location: Partenza
+        end_location: Arrivo
         title: Titolo
         description: Descrizione
         vehicle: Veicolo
@@ -79,8 +82,8 @@ it-IT:
               invalid: non è una e-mail valida
         itinerary:
           attributes:
-            base:
-              out_of_boundaries: L'itinerario non è incluso nell'area geografica autorizzata.
+            route:
+              out_of_boundaries: non è incluso nell'area geografica autorizzata.
             pink:
               driver_must_be_female: solo le donne possono creare itinerari rosa
         conversation:
@@ -91,12 +94,12 @@ it-IT:
           attributes:
             user:
               yourself: non puoi lasciare una referenza a te stesso
-            itinerary_id:
-              already_present: hai già lasciato una referenza per questo itinerario
+            referencing_user_id:
+              already_present: hai già lasciato una referenza per questo utente
 
   activemodel:
     attributes:
-      itinerary_route:
+      itineraries/route:
         from: Partenza
         to: Arrivo
         avoid_highways: Evita autostrade

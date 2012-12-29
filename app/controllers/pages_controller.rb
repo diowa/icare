@@ -3,9 +3,7 @@ class PagesController < ApplicationController
   skip_before_filter :require_login
 
   def home
-    if logged_in?
-      redirect_to :dashboard
-    end
+    redirect_to :dashboard if logged_in?
   end
 
   def fbjssdk_channel

@@ -6,7 +6,6 @@ class ItinerariesController < ApplicationController
   before_filter :check_gender, only: [:show]
 
   before_filter :check_permissions
-  # TODO proper edit methods
 
   def new
     @itinerary = Itinerary.new
@@ -16,30 +15,26 @@ class ItinerariesController < ApplicationController
     #@itineraries = Itinerary.includes(:user).all
   end
 
-  def mine
-    @itineraries = current_user.itineraries.sorted_by_creation
-  end
-
   def show
     @conversation = @itinerary.conversations.find_or_initialize_by(user_ids: [current_user.id, @itinerary.user.id]) if current_user
     @reference = current_user.references.find_or_initialize_by(itinerary_id: @itinerary.id) if current_user
   end
 
   def create
-    @itinerary = Itinerary.build_with_route_json_object(params[:itinerary], current_user)
+    @itinerary = ItineraryBuild.new(params[:itinerary], current_user).itinerary
     if @itinerary.save
-      redirect_to itinerary_path(@itinerary)
+      redirect_to itinerary_path @itinerary
     else
       render :new
     end
   end
 
   def edit
-    @itinerary = current_user.itineraries.find(params[:id])
+    @itinerary = current_user.itineraries.find params[:id]
   end
 
   def update
-    @itinerary = current_user.itineraries.find(params[:id])
+    @itinerary = current_user.itineraries.find params[:id]
     if @itinerary.update_attributes(params[:itinerary])
       redirect_to my_itineraries_path, flash: { success: t('flash.itinerary.success.update') }
     else
@@ -48,7 +43,7 @@ class ItinerariesController < ApplicationController
   end
 
   def destroy
-    @itinerary = current_user.itineraries.find(params[:id])
+    @itinerary = current_user.itineraries.find params[:id]
     if @itinerary.destroy
       redirect_to my_itineraries_path, flash: { success: t('flash.itinerary.success.destroy') }
     else
@@ -59,20 +54,7 @@ class ItinerariesController < ApplicationController
   end
 
   def search
-    respond_to do |format|
-      format.json do
-        if request.xhr?
-          @itineraries = Itinerary.search(params[:itinerary_search], current_user.male?)
-        else
-          redirect_to root_path
-        end
-      end
-      format.html do
-        render(layout: false , json: {success: true,
-                                      data: Itinerary.all.as_json(except: [:deleted_at,
-                                                                           :overview_path]) })
-      end
-    end
+    @itineraries = ItinerarySearch.new(params[:itineraries_search], current_user).itineraries
   end
 
   protected
@@ -80,7 +62,7 @@ class ItinerariesController < ApplicationController
   end
 
   def check_gender
-    @itinerary = Itinerary.find(params[:id])
+    @itinerary = Itinerary.find params[:id]
     return unless @itinerary.pink?
     if !logged_in?
       redirect_to root_path

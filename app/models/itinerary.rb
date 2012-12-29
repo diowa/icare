@@ -46,13 +46,14 @@ class Itinerary
   field :driver_gender
   field :verified
 
-  attr_accessor :route_json_object, :share_on_facebook_timeline
+  attr_accessor :route, :share_on_facebook_timeline
 
-  slug :title
+  slug :title, reserve: %w(new)
 
   #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
-  scope :sorted_by_creation, desc(:created_at)
 
+  validates :start_location, presence: true
+  validates :end_location, presence: true
   validates :title, length: { maximum: 40 }, presence: true
   validates :description, length: { maximum: 1000 }, presence: true
   validates :vehicle, inclusion: VEHICLE
@@ -76,76 +77,32 @@ class Itinerary
   end
 
   def inside_bounds
-    # TODO RGeo???
-    self.errors.add(:base, :out_of_boundaries) unless start_location.lat >= BOUNDARIES[0][0] && start_location.lat <= BOUNDARIES[1][0] &&
-                                                      start_location.lng >= BOUNDARIES[0][1] && start_location.lng <= BOUNDARIES[1][1] &&
-                                                      end_location.lat >= BOUNDARIES[0][0] && end_location.lat <= BOUNDARIES[1][0] &&
-                                                      end_location.lng >= BOUNDARIES[0][1] && end_location.lng <= BOUNDARIES[1][1]
-  end
-
-  def self.build_with_route_json_object(params, user)
-    new(params) do |itinerary|
-      route_json_object = JSON.parse(params[:route_json_object])
-      itinerary.start_location = { lat: route_json_object['start_location']['lat'],
-                                   lng: route_json_object['start_location']['lng'] }
-      itinerary.end_location = { lat: route_json_object['end_location']['lat'],
-                                 lng: route_json_object['end_location']['lng'] }
-      itinerary.via_waypoints = route_json_object['via_waypoints']
-      itinerary.overview_path = route_json_object['overview_path']
-      itinerary.overview_polyline = route_json_object['overview_polyline']
-
-      itinerary.user = user
-
-      itinerary.driver_gender = user.gender
-      itinerary.verified = user.facebook_verified
-    end
-  end
-
-  def self.search(params, gender_filter)
-    # TODO: Optimization
-    start_location = [params[:start_location_lng].to_f, params[:start_location_lat].to_f]
-    end_location = [params[:end_location_lng].to_f, params[:end_location_lat].to_f]
-    sphere_radius = 5.fdiv(Mongoid::Geospatial.earth_radius[:km])
-
-    # Apply filters
-    itineraries = Itinerary.where(get_boolean_filters(params)).includes(:user)
-
-    # Gender filter. NOTE: it must be applied AFTER user filters
-    itineraries = itineraries.where(pink: false) if gender_filter
-
-    # From start to end
-    itineraries_start_end = itineraries.within_spherical_circle(start_location: [ start_location, sphere_radius ]) &
-                            itineraries.within_spherical_circle(end_location: [ end_location, sphere_radius ])
-
-    # From end to start, unless passenger searched for a round trip
-    # NOTE: Think about it, because driver may need a travelmate for the whole trip
-    itineraries_end_start = []
-    unless params[:filter_round_trip] == '1'
-      itineraries_end_start = itineraries.where(round_trip: true).within_spherical_circle(start_location: [ end_location, sphere_radius ]) &
-                              itineraries.within_spherical_circle(end_location: [ start_location, sphere_radius ])
-    end
-
-    # Sum results
-    itineraries_start_end + itineraries_end_start
-  end
-
-  def to_latlng_array(field)
-    self[field].to_a.reverse if self[field]
-  end
-
-  def to_latlng_hash(field)
-    { lat: self.send(field).lat, lng: self.send(field).lng } if self[field]
+    self.errors.add(:route, :out_of_boundaries) unless point_inside_bounds?(start_location) && point_inside_bounds?(end_location)
   end
 
   def sample_path(precision = 10)
+    # TODO move outside model
     overview_path.in_groups(precision).map { |g| g.first }.insert(-1,overview_path.last)
   end
 
   def static_map
-    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|#{to_latlng_array(:end_location).join(",")}&markers=color:green|label:A|#{to_latlng_array(:start_location).join(",")}&path=enc:#{overview_polyline}")
+    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|#{end_location.to_latlng_a.join(",")}&markers=color:green|label:A|#{start_location.to_latlng_a.join(",")}&path=enc:#{overview_polyline}")
   end
 
+  def to_s
+    title || id
+  end
+
+  private
+  def point_inside_bounds?(point)
+    # TODO RGeo???
+    point.lat.between?(BOUNDARIES[0][0], BOUNDARIES[1][0]) && point.lng.between?(BOUNDARIES[0][1], BOUNDARIES[1][1])
+  end
+
+=begin
   def random_close_location(max_dist = 0.5, km = true)
+    # TODO move outside model
+
     # Thanks to http://www.geomidpoint.com/random/calculation.html
 
     return unless source && source[:lat] != nil && source[:lng] != nil
@@ -186,27 +143,5 @@ class Itinerary
 
     [lat * rad_to_deg, lng * rad_to_deg]
   end
-
-  def to_s
-    title || super()
-  end
-
-  private
-  def self.get_boolean_filters(params = {})
-    filters = {}
-
-    [:round_trip, :pink, :verified].each do |checkbox_field|
-      param = params["filter_#{checkbox_field}".to_sym]
-      filters.merge!(checkbox_field => true) if param == '1'
-    end
-
-    [:smoking_allowed, :pets_allowed].each do |boolean_field|
-      param = params["filter_#{boolean_field}".to_sym]
-      filters.merge!(boolean_field => (param == 'true')) unless param.blank?
-    end
-
-    filter_driver_gender_param = params[:filter_driver_gender]
-    filters.merge!(driver_gender: filter_driver_gender_param) if User::GENDER.include?(filter_driver_gender_param)
-    filters
-  end
+=end
 end

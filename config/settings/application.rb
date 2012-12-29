@@ -5,6 +5,11 @@
 # SET SENSITIVE DATA ONLY IN 'local.rb'
 
 SimpleConfig.for :application do
+  set :app_name, 'icare'
+
+  set :available_locales, Hash[{ :"en-US" => 'English (US)',
+                                 :"it-IT" => 'Italiano' }.sort_by { |_, native_name| native_name }]
+
   set :demo_mode, true
   set :base_url, '127.0.0.1:5000'
   set :secret_token, '197241fc4c041de6402aa732e0004c5401536237a1c39178005ddf9994695cfc71fb32b543f8fb216f272b416974e3ea3cece241278a40a8516291aec598a948'
@@ -13,10 +18,22 @@ SimpleConfig.for :application do
   set :costs_calculation_service_link, 'http://servizi.aci.it/CKInternet/'
 
   group :facebook do
+    set :namespace, 'FACEBOOK_NAMESPACE'
     set :app_id, 'FACEBOOK_APP_ID'
     set :secret, 'FACEBOOK_SECRET'
     set :scope, 'email, publish_stream, user_birthday, user_about_me, user_education_history, user_interests, user_likes, user_religion_politics, user_work_history'
     set :cache_expiry_time, 7.days
+  end
+
+  group :airbrake do
+    set :api_key, 'AIRBRAKE_API_KEY'
+    set :host, 'AIRBRAKE_HOST'
+    set :port, 80
+  end
+
+  group :newrelic do
+    set :license_key, nil
+    set :app_name, nil
   end
 
   group :map do
@@ -40,14 +57,18 @@ SimpleConfig.for :application do
   end
 
   group :mailer do
-    set :address, '127.0.0.1'
-    set :domain, '127.0.0.1'
     set :from, "\"Icare\" <no-reply@i.care>"
     set :host, '127.0.0.1'
-    set :port, 587
 
-    set :user_name, 'test'
-    set :password, 'test'
+    group :smtp_settings do
+      set :address, '127.0.0.1'
+      set :port, 587
+      set :authentication, :plain
+      set :domain, '127.0.0.1'
+
+      set :user_name, 'test'
+      set :password, 'test'
+    end
   end
 
   group :redis do

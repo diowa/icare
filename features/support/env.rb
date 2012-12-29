@@ -10,7 +10,7 @@ require 'rubygems'
 require 'spork'
 require 'cucumber/rails'
 require 'cucumber/rspec/doubles'
-#require 'factory_girl/step_definitions'
+require 'cucumber/rspec/doubles'
 
 # Make sure this require is after you require cucumber/rails/world.
 require 'email_spec' # add this line if you use spork
@@ -75,6 +75,47 @@ Spork.each_run do
   # The :transaction strategy is faster, but might give you threading problems.
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    provider: 'facebook',
+    uid: '123456',
+    info: {
+      email: 'test@127.0.0.1',
+      name: 'John Doe',
+      first_name: 'John',
+      last_name: 'Doe',
+      image: 'http://graph.facebook.com/123456/picture?type=square',
+      urls: { "Facebook" => 'http://www.facebook.com/profile.php?id=123456' } },
+    credentials: {
+      token: "facebook token",
+      expires_at: 1361304575,
+      expires: true },
+    extra: {
+      raw_info: {
+        id: '123456',
+        username: 'johndoe',
+        name: 'John Doe',
+        first_name: 'John',
+        last_name: 'Doe',
+        link: 'http://www.facebook.com/profile.php?id=123456',
+        birthday: '10/03/1981',
+        work: [
+          { employer: { id: '100', name: 'First Inc.' }, start_date: '0000-00' },
+          { employer: { id: '101', name: 'Second Ltd.' }, start_date: '0000-00' },
+          { employer: { id: '102', name: 'Third S.p.A.' }, start_date: '0000-00', end_date: '0000-00' }],
+        favorite_athletes: [
+          { id: '200', name: 'First Athlete' },
+          { id: '201', name: 'Second Athlete' }],
+        education: [
+          { school: { id: '300', name: 'A College' }, type: 'College' }],
+        gender: 'male',
+        email: 'test@127.0.0.1',
+        timezone: 1,
+        locale: 'en_US',
+        languages: [
+          { id: '113153272032690', name: 'Italian' },
+          { id: '106059522759137', name: 'English' },
+          { id: '108224912538348', name: 'French' }],
+        updated_time: '2012-12-16T08:49:27+0000' } } })
 
   Before do
   end

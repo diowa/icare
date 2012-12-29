@@ -32,14 +32,14 @@ drawPath = (itinerary, strokeColor = '#0000FF', strokeOpacity = 0.45) ->
       user:
         image: itinerary.user.profile_picture
         name: itinerary.user.name
-        nationality: itinerary.user.nationality
       url: itinerary.url
       content: itinerary.description
     type: 'user_profile_picture'
     image: itinerary.user.profile_picture
   google.maps.event.addListener customMarker, 'click', ->
     icare.infoWindow.setContent customMarker.options.infoWindowContent
-    icare.infoWindow.open icare.map, customMarker
+    icare.infoWindow.setPosition customMarker.position
+    icare.infoWindow.open icare.map
   marker = new google.maps.Marker
     icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|FF0000|000000'
   directionsPath = new google.maps.Polyline
@@ -81,37 +81,37 @@ initItineraryIndex = ->
 
   # TODO clean this mess... directions service again?
   $('#itineraries-search').on 'click', ->
-    return false unless $("#new_itinerary_search").isValid(window.ClientSideValidations.forms["new_itinerary_search"].validators)
+    return false unless $("#new_itineraries_search").isValid(window.ClientSideValidations.forms["new_itineraries_search"].validators)
     $("#error").hide()
     geocoder = new google.maps.Geocoder()
-    address = $("#itinerary_search_from").val()
+    address = $("#itineraries_search_from").val()
     geocoder.geocode
       address: address
     , (results, status) ->
       if status is google.maps.GeocoderStatus.OK
-        $("#itinerary_search_from").val results[0].formatted_address
+        $("#itineraries_search_from").val results[0].formatted_address
         location = results[0].geometry.location
         icare.search_center = location
-        $("#itinerary_search_start_location_lat").val results[0].geometry.location.lat()
-        $("#itinerary_search_start_location_lng").val results[0].geometry.location.lng()
+        $("#itineraries_search_start_location_lat").val results[0].geometry.location.lat()
+        $("#itineraries_search_start_location_lng").val results[0].geometry.location.lng()
         geocoder = new google.maps.Geocoder()
-        address = $("#itinerary_search_to").val()
+        address = $("#itineraries_search_to").val()
         geocoder.geocode
           address: address
         , (results, status) ->
           if status is google.maps.GeocoderStatus.OK
-            $("#itinerary_search_to").val results[0].formatted_address
+            $("#itineraries_search_to").val results[0].formatted_address
             location = results[0].geometry.location
-            $("#itinerary_search_end_location_lat").val results[0].geometry.location.lat()
-            $("#itinerary_search_end_location_lng").val results[0].geometry.location.lng()
-            $("#new_itinerary_search").submit()
+            $("#itineraries_search_end_location_lat").val results[0].geometry.location.lat()
+            $("#itineraries_search_end_location_lng").val results[0].geometry.location.lng()
+            $("#new_itineraries_search").submit()
 
-  $('#new_itinerary_search').on 'keypress', (e) ->
+  $('#new_itineraries_search').on 'keypress', (e) ->
     if e and e.keyCode is 13
       e.preventDefault()
       $('#itineraries-search').click()
 
-  $('#new_itinerary_search')
+  $('#new_itineraries_search')
     .on 'submit', (evt) ->
       clearItineraries()
     .on 'ajax:beforeSend', (evt, xhr, settings) ->

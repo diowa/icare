@@ -8,8 +8,8 @@
         - @notifications.each do |notification|
           %tr
             %td{ class: ('notification-unread' if notification.unread?) }
-              = notification_icon(notification)
-              = notification_message(notification)
+              = notification_icon notification
+              = notification_message notification
             %td.align-right{ class: ('notification-unread' if notification.unread?) }
               %p
                 %small

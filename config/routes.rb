@@ -3,6 +3,7 @@ Icare::Application.routes.draw do
   root to: 'pages#home'
 
   resources :users, constraints: { id: /[A-Za-z0-9\.]+/ }, only: [:show, :create, :edit, :update, :destroy, :index] do
+    get :itineraries, on: :member
     post :ban, :unban, on: :member
     resources :references, only: [:show, :new, :create, :update, :index]
   end
@@ -12,7 +13,6 @@ Icare::Application.routes.draw do
   match 'banned', to: 'users#banned', as: :banned
 
   resources :itineraries, only: [:show, :new, :create, :edit, :update, :destroy, :index, :search] do
-    get :mine, as: :my, on: :collection
     post :search, on: :collection
     resources :build
   end

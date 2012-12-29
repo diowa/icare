@@ -7,7 +7,7 @@ node(:message) do |conversation|
   {
     body: m.body,
     date_sent: m.created_at,
-    read: m.read,
+    read_at: m.read_at,
     sender:
       {
         # TODO Ex user object

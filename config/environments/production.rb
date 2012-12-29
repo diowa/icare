@@ -72,16 +72,16 @@ Icare::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default charset: "utf-8"
+  config.action_mailer.default charset: 'utf-8'
   config.action_mailer.default from: APP_CONFIG.mailer.from
   config.action_mailer.smtp_settings = {
-    address: APP_CONFIG.mailer.address,
-    port: APP_CONFIG.mailer.port,
-    domain: APP_CONFIG.mailer.domain,
-    authentication: "plain",
-    enable_starttls_auto: true,
-    user_name: APP_CONFIG.mailer.user_name,
-    password: APP_CONFIG.mailer.password
+    address: APP_CONFIG.mailer.smtp_settings.address,
+    port: APP_CONFIG.mailer.smtp_settings.port,
+    authentication: APP_CONFIG.mailer.smtp_settings.authentication,
+    user_name: APP_CONFIG.mailer.smtp_settings.user_name,
+    password: APP_CONFIG.mailer.smtp_settings.password,
+    domain: APP_CONFIG.mailer.smtp_settings.domain,
+    enable_starttls_auto: true
   }
 
   # Google Analytics

@@ -33,7 +33,7 @@
           %i.icon-road.icon-large
           = t('.new_itinerary')
       %p
-        = link_to my_itineraries_path, class: 'btn btn-large btn-block' do
+        = link_to itineraries_user_path(current_user), class: 'btn btn-large btn-block' do
           %i.icon-heart.icon-large
           = t('.your_itineraries')
 .row

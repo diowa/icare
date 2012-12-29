@@ -10,17 +10,17 @@ class Reference
   embeds_one :outgoing, class_name: References::Outgoing.model_name, cascade_callbacks: true
 
   field :referencing_user_id
-  field :read, type: DateTime, default: nil
+  field :read_at, type: DateTime
 
   attr_accessor :body, :rating
 
-  scope :unread, where(read: nil)
+  scope :unread, where(read_at: nil)
 
   scope :positives, where(:"incoming.rating" => 1)
   scope :neutrals, where(:"incoming.rating" => 0)
   scope :negatives, where(:"incoming.rating" => -1)
 
-  validates :itinerary, uniqueness: { scope: :referencing_user_id, message: :already_present }
+  validates :referencing_user_id, uniqueness: { message: :already_present }
   validate :not_by_myself
 
   def not_by_myself
@@ -31,13 +31,13 @@ class Reference
     reference = user.references.new
     reference.itinerary = itinerary
     reference.referencing_user_id = itinerary.user.id
-    reference.read = Time.now.utc
+    reference.read_at = Time.now.utc
     reference.outgoing = References::Outgoing.new body: params[:body], rating: params[:rating]
     reference
   end
 
   def unread?
-    !read
+    read_at.nil?
   end
 
   def driver?
