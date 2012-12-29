@@ -1,6 +1,18 @@
 Changelog
 =========
 
+0.6.4
+-----
+* Added Airbrake for exception tracking
+* Added New Relic for performance management
+* Added Code Climate badge to README
+* Added some specs and feature tests
+* Changed how references work (user based instead of itinerary based)
+* Fixed map popups
+* Removed nationality in user model
+* Code refactored with concerns and service objects
+* Minor bug fixes and improvements
+
 0.6.3
 -----
 * Fixed outgoing references
