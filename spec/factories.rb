@@ -37,4 +37,14 @@ FactoryGirl.define do
     leave_date { Time.now  + 1.day }
     return_date { Time.now  + 2.day }
   end
+
+  factory :conversation do
+    conversable { FactoryGirl.build(:itinerary) }
+    users { [ FactoryGirl.build(:user), itinerary.user ] }
+  end
+
+  factory :message do
+    sender { FactoryGirl.build(:user) }
+    body 'Hello'
+  end
 end
