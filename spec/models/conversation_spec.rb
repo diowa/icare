@@ -52,6 +52,9 @@ describe Conversation do
   describe Message do
     describe '.unread?' do
       it "knows when message is unread" do
+        message = FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
+        conversation.messages << message
+        expect(message.unread?).to be_true
       end
     end
   end
