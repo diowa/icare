@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 describe Conversation do
-  # Generic Conversation
+  # Driver and Passenger users
   let(:driver) { FactoryGirl.create :user }
   let(:passenger) { FactoryGirl.create :user }
 
-  # Generic User
+  # Generic Itinerary
   let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
 
+  # Generic Conversation between driver and passenger
   let(:conversation) { FactoryGirl.create :conversation, users: [driver, passenger], conversable: itinerary }
 
   describe '.unread?' do
