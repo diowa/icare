@@ -17,7 +17,7 @@ class ReferencesController < ApplicationController
   end
 
   def create
-    @reference = Reference.build_from_params(params[:reference], current_user, @itinerary)
+    @reference = ReferenceBuild.new(params[:reference], current_user, @itinerary).reference
     if @reference.save
       redirect_to user_reference_path(current_user, @reference)
     else

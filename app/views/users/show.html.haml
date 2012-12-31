@@ -20,7 +20,7 @@
       %dt
         %span= Reference.model_name.human(count: :lot)
       %dd
-        = reference_snippet @user
+        = reference_tags @user
         = link_to t('.see_all'), user_references_path(@user)
       %dt
         %span.description-facebook= t('.basic_info')

@@ -37,4 +37,27 @@ FactoryGirl.define do
     leave_date { Time.now  + 1.day }
     return_date { Time.now  + 2.day }
   end
+
+  factory :conversation do
+    conversable { FactoryGirl.build(:itinerary) }
+    users { [ FactoryGirl.build(:user), itinerary.user ] }
+  end
+
+  factory :message do
+    sender { FactoryGirl.build(:user) }
+    body 'Hello'
+  end
+
+  factory :reference do
+    user { FactoryGirl.create(:user) }
+    itinerary { FactoryGirl.create(:itinerary) }
+    referencing_user_id { itinerary.user.id }
+  end
+
+  factory :outgoing_reference, class: References::Outgoing.model_name do
+    reference { FactoryGirl.create(:reference) }
+
+    rating 1
+    body 'Positive!'
+  end
 end

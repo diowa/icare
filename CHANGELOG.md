@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.5
+-----
+* Maintenance release
+
 0.6.4
 -----
 * Added Airbrake for exception tracking

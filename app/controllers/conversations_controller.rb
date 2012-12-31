@@ -29,14 +29,11 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @itinerary = Itinerary.find(params[:itinerary_id])
-    @conversation = @itinerary.conversations.build(params[:conversation])
-    @conversation.messages.build(params[:conversation][:message])
-    @conversation.users << current_user
-    @conversation.users << @itinerary.user
+    @conversation = ConversationBuild.new(params, current_user).conversation
     if @conversation.save
       redirect_to conversation_path(@conversation)
     else
+      # TODO conversation may be nil
       flash.now[:error] = @conversation.errors.full_messages
       render :new
     end

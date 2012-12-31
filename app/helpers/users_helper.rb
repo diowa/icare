@@ -7,20 +7,20 @@ module UsersHelper
   def user_profile_picture(user, opts = {})
     options = { size: [50, 50],
                 type: :square,
-                style: "img-polaroid",
+                style: 'img-polaroid',
                 html: {}
               }.merge(opts)
     tag(:img,
         { width: ("#{options[:size][0]}px" if options[:size][0]),
         height: ("#{options[:size][1]}px" if options[:size][1]),
         src: facebook_profile_picture(user, options[:type]),
-        alt: "",
-        class: [("verified" if user.class == User.model_name && user.facebook_verified?), options[:style], options[:class]].compact.join(" ") }.merge(options[:html]))
+        alt: '',
+        class: [('verified' if user.class == User.model_name && user.facebook_verified?), options[:style], options[:class]].compact.join(' ') }.merge(options[:html]))
   end
 
   def navbar_notifications(title, opts = {})
-    options = { icon: "globe",
-                id: "notifications",
+    options = { icon: 'globe',
+                id: 'notifications',
                 link: nil,
                 mock: false,
                 ajax: nil,
@@ -35,32 +35,33 @@ module UsersHelper
                 class: "notifications#{(" read" if options[:unread] == 0)}#{(" mock" if options[:mock])}",
                 id: "navbar-notifications-#{options[:id]}") do
       content_tag(:a,
-                  content_tag(:i, nil, class: "icon-#{options[:icon]}") + (content_tag(:span, options[:unread], class: "label label-important count") if options[:unread] > 0),
-                  href: "#",
-                  rel: "popover",
-                  data: { placement: 'bottom', content: content, title: title, html: true, trigger: "manual", load: (options[:ajax]) })
+                  content_tag(:i, nil, class: "icon-#{options[:icon]}") + (content_tag(:span, options[:unread], class: 'label label-important count') if options[:unread] > 0),
+                  href: '#',
+                  rel: 'popover',
+                  data: { placement: 'bottom', content: content, title: title, html: true, trigger: 'manual', load: (options[:ajax]) })
     end
   end
 
   def friends_with_privacy(friends)
     case friends
-      when 0...10
-        "10-"
-      when 10...100
-        "#{friends/10}0+"
-      when 100...1000
-        "#{friends/100}00+"
-      when 1000...5000
-        "#{friends/1000}000+"
-      else
-        "5000"
+    when 0...10
+      '10-'
+    when 10...100
+      "#{friends/10}0+"
+    when 100...1000
+      "#{friends/100}00+"
+    when 1000...5000
+      "#{friends/1000}000+"
+    else
+      '5000'
     end
   end
 
-  def reference_snippet(user)
-    content_tag(:span, t("references.snippet.positives", count: @user.references.positives.count)) +
-    content_tag(:span, t("references.snippet.neutrals", count: @user.references.neutrals.count)) +
-    content_tag(:span, t("references.snippet.negatives", count: @user.references.negatives.count))
+  def reference_tags(user)
+    html = content_tag(:span, t('references.snippet.positives', count: @user.references.positives.count))
+    html << content_tag(:span, t('references.snippet.neutrals', count: @user.references.neutrals.count))
+    html << content_tag(:span, t('references.snippet.negatives', count: @user.references.negatives.count))
+    html.html_safe
   end
 
   def mutual_friends(user1, user2, limit = 5)
@@ -68,19 +69,19 @@ module UsersHelper
     mutual_friends_list = user1.facebook_friends & user2.facebook_friends
     return unless mutual_friends_list.any?
     content_tag(:dt) do
-      content_tag(:span, t(".common_friends"), class: "description-facebook")
+      content_tag(:span, t('.common_friends'), class: 'description-facebook')
     end +
-    content_tag(:dd, class: "friends") do
+    content_tag(:dd, class: 'friends') do
       mutual_friends_list.sample(limit).map do |mutual_friend|
         content_tag(:span) do
-          user_profile_picture(mutual_friend["id"], size: [25,25], style: nil) +
-          mutual_friend["name"]
+          user_profile_picture(mutual_friend['id'], size: [25,25], style: nil) +
+          mutual_friend['name']
         end
       end.join.html_safe +
       if mutual_friends_list.size - 5 > 0
-        link_to t(".and_others", count: mutual_friends_list.size - 5), "#", class: "disabled"
+        link_to t('.and_others', count: mutual_friends_list.size - 5), '#', class: 'disabled'
       else
-        "".html_safe
+        ''.html_safe
       end
     end
   end
@@ -104,10 +105,10 @@ module UsersHelper
 
   def work_and_education_tags(user, field)
     return unless user[field] && user[field].any?
-    user_work_or_edu = user[field].map { |field| { "name" => field.first.second["name"], "id" => field.first.second["id"] } }
+    user_work_or_edu = user[field].map { |field| { 'name' => field.first.second['name'], 'id' => field.first.second['id'] } }
     my_field = current_user[field]
     if (render_common_work_or_edu = (user != current_user) && my_field && my_field.any?)
-      my_work_or_edu = my_field.map { |field| { "name" => field.first.second["name"], "id" => field.first.second["id"] } }
+      my_work_or_edu = my_field.map { |field| { 'name' => field.first.second['name'], 'id' => field.first.second['id'] } }
     end
     render_tags user_work_or_edu, my_work_or_edu, render_common_tags: render_common_work_or_edu, content: User.human_attribute_name(field), class: "description-facebook"
   end
@@ -117,9 +118,10 @@ module UsersHelper
     if (render_common_tags = (user != current_user))
       my_favorites = current_user.facebook_favorites
     end
-    render_tags user_favorites, my_favorites, render_common_tags: render_common_tags, content: t(".likes"), class: "description-facebook"
+    render_tags user_favorites, my_favorites, render_common_tags: render_common_tags, content: t('.likes'), class: 'description-facebook'
   end
 
+  private
   def render_tags(user_tags, my_tags, opts = {})
     options = { render_common_tags: false }.merge(opts)
     if options[:render_common_tags]
@@ -130,7 +132,7 @@ module UsersHelper
     end +
     content_tag(:dd) do
       user_tags.map do |user_tag|
-        content_tag(:span, user_tag["name"], class: ("common" if options[:render_common_tags] && common_tags.include?(user_tag["id"])))
+        content_tag(:span, user_tag['name'], class: ('common' if options[:render_common_tags] && common_tags.include?(user_tag['id'])))
       end.join.html_safe
     end
   end

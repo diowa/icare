@@ -27,15 +27,6 @@ class Reference
     self.errors.add(:user, :yourself) if user.id == referencing_user_id
   end
 
-  def self.build_from_params(params, user, itinerary)
-    reference = user.references.new
-    reference.itinerary = itinerary
-    reference.referencing_user_id = itinerary.user.id
-    reference.read_at = Time.now.utc
-    reference.outgoing = References::Outgoing.new body: params[:body], rating: params[:rating]
-    reference
-  end
-
   def unread?
     read_at.nil?
   end
