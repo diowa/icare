@@ -14,7 +14,13 @@ When /^a guest logs in on itinerary page$/ do
 end
 
 When /^a user logs in$/ do
-  @user = FactoryGirl.create :user, uid: '123456'
+  @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+  visit '/auth/facebook'
+end
+
+When /^a verified user logs in$/ do
+  OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
+  @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
   visit '/auth/facebook'
 end
 
