@@ -26,6 +26,7 @@ Then /^he should be able to ban other users$/ do
   visit users_path
   find(:xpath, "//a[contains(@href, '#{ban_user_path(user_to_ban)}')]").click
   step 'he should see a "success" message "User successfully banned."'
+  expect(find(:xpath, "//a[contains(@href, '#{unban_user_path(user_to_ban)}')]")).to be_true
 end
 
 Then /^he should not be able to ban himself$/ do
@@ -39,4 +40,5 @@ Then /^he should be able to unban a banned user$/ do
   visit users_path
   find(:xpath, "//a[contains(@href, '#{unban_user_path(banned_user)}')]").click
   step 'he should see a "success" message "User successfully unbanned."'
+  expect(find(:xpath, "//a[contains(@href, '#{ban_user_path(banned_user)}')]")).to be_true
 end

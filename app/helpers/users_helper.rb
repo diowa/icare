@@ -57,13 +57,6 @@ module UsersHelper
     end
   end
 
-  def reference_tags(user)
-    html = content_tag(:span, t('references.snippet.positives', count: @user.references.positives.count))
-    html << content_tag(:span, t('references.snippet.neutrals', count: @user.references.neutrals.count))
-    html << content_tag(:span, t('references.snippet.negatives', count: @user.references.negatives.count))
-    html.html_safe
-  end
-
   def mutual_friends(user1, user2, limit = 5)
     return if user1 == user2
     mutual_friends_list = user1.facebook_friends & user2.facebook_friends
@@ -96,19 +89,18 @@ module UsersHelper
       my_languages = current_user.languages.map { |lang| lang['id'] }
       common_languages = user.languages.map { |lang| lang['id'] } & my_languages
     end
-    user.languages.map do |language|
-      content_tag :span,
-                  t('.language', language: language['name']),
-                  class: ('common' if render_common_tags && common_languages.include?(language['id']))
-    end.join.html_safe
+    html = user.languages.map { |language| content_tag :span,
+                                                       t('.language', language: language['name']),
+                                                       class: ('common' if render_common_tags && common_languages.include?(language['id'])) }
+    html.join.html_safe
   end
 
   def work_and_education_tags(user, field)
     return unless user[field] && user[field].any?
-    user_work_or_edu = user[field].map { |field| { 'name' => field.first.second['name'], 'id' => field.first.second['id'] } }
+    user_work_or_edu = remap_work_or_edu_tags user[field]
     my_field = current_user[field]
     if (render_common_work_or_edu = (user != current_user) && my_field && my_field.any?)
-      my_work_or_edu = my_field.map { |field| { 'name' => field.first.second['name'], 'id' => field.first.second['id'] } }
+      my_work_or_edu = remap_work_or_edu_tags my_field
     end
     render_tags user_work_or_edu, my_work_or_edu, render_common_tags: render_common_work_or_edu, content: User.human_attribute_name(field), class: "description-facebook"
   end
@@ -122,18 +114,22 @@ module UsersHelper
   end
 
   private
+  def remap_work_or_edu_tags(field)
+    field.map { |field| { 'name' => field.first.second['name'], 'id' => field.first.second['id'] } }
+  end
+
   def render_tags(user_tags, my_tags, opts = {})
     options = { render_common_tags: false }.merge(opts)
     if options[:render_common_tags]
       common_tags = user_tags.map { |user_tag| user_tag["id"] } & my_tags.map { |my_tag| my_tag["id"] }
     end
-    content_tag(:dt) do
-      content_tag(:span, options[:content], class: options[:class])
-    end +
-    content_tag(:dd) do
-      user_tags.map do |user_tag|
-        content_tag(:span, user_tag['name'], class: ('common' if options[:render_common_tags] && common_tags.include?(user_tag['id'])))
-      end.join.html_safe
+    html = content_tag(:dt) { content_tag(:span, options[:content], class: options[:class]) }
+    html << content_tag(:dd) do
+      tags = user_tags.map { |user_tag| content_tag(:span,
+                                                    user_tag['name'],
+                                                    class: ('common' if options[:render_common_tags] && common_tags.include?(user_tag['id']))) }
+      tags.join.html_safe
     end
+    html.html_safe
   end
 end
