@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.8
+-----
+* Improved Users Helper
+
 0.6.7
 -----
 * Improved Users Helper
