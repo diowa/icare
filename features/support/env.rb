@@ -107,8 +107,7 @@ Spork.each_run do
         favorite_athletes: [
           { id: '200', name: 'First Athlete' },
           { id: '201', name: 'Second Athlete' }],
-        education: [
-          { school: { id: '300', name: 'A College' }, type: 'College' }],
+        education: [{ school: { id: '300', name: 'A College' }, type: 'College' }],
         gender: 'male',
         email: 'test@127.0.0.1',
         timezone: 1,
