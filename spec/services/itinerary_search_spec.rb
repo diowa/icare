@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ItinerarySearch do
-  describe 'search' do
+  describe 'itineraries' do
     # Generic male and female users
     let(:male_user) { FactoryGirl.create :user, gender: 'male' }
     let(:female_user) { FactoryGirl.create :user, gender: 'female' }
@@ -26,6 +26,13 @@ describe ItinerarySearch do
       7.times { FactoryGirl.create :itinerary, start_location: [2, 3], end_location: [5, 6] }
       itineraries = ItinerarySearch.new(search_params, male_user).itineraries
       expect(itineraries.count).to be 5
+    end
+
+    it "includes reversed itineraries" do
+      3.times { FactoryGirl.create :itinerary, start_location: [1, 1], end_location: [0, 0], round_trip: true }
+      1.times { FactoryGirl.create :itinerary, start_location: [0, 0], end_location: [1, 1] }
+      itineraries = ItinerarySearch.new(search_params, male_user).itineraries
+      expect(itineraries.count).to be 4
     end
 
     it "hides pink itineraries to male users" do

@@ -63,24 +63,15 @@ class UsersController < ApplicationController
     # Prevent autoban
     if @user == current_user
       redirect_to users_path, flash: { error: t('flash.user.error.ban') }
-      return
-    end
-
-    @user.banned = true
-    if @user.save
-      redirect_to users_path, flash: { success: t('flash.user.success.ban') }
     else
-      redirect_to users_path, flash: { error: t('flash.user.error.ban') }
+      @user.banned = true
+      redirect_to users_path, flash: (@user.save ? { success: t('flash.user.success.ban') } : { error: t('flash.user.error.ban') })
     end
   end
 
   def unban
     @user.banned = false
-    if @user.save
-      redirect_to users_path, flash: { success: t('flash.user.success.unban') }
-    else
-      redirect_to users_path, flash: { error: t('flash.user.error.unban') }
-    end
+    redirect_to users_path, flash: (@user.save ? { success: t('flash.user.success.unban') } : { error: t('flash.user.error.unban') })
   end
 
   private

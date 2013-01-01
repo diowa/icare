@@ -75,7 +75,9 @@ Spork.each_run do
   # The :transaction strategy is faster, but might give you threading problems.
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation
-  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+
+  # OmniAuth
+  OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new({
     provider: 'facebook',
     uid: '123456',
     info: {
@@ -116,7 +118,7 @@ Spork.each_run do
           { id: '106059522759137', name: 'English' },
           { id: '108224912538348', name: 'French' }],
         updated_time: '2012-12-16T08:49:27+0000' } } })
-
+  OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
   Before do
   end
 end
