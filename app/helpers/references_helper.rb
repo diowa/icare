@@ -26,17 +26,17 @@ module ReferencesHelper
     reference.itinerary.user == reference.referencing_user ? t('references.commons.driver') : t('references.commons.passenger')
   end
 
-  def reference_help_text_for(reference)
-    if reference.hospitality?
-      if reference.is_host
-        t(".reference_hosting_help")
-      elsif reference.is_guest
-        t(".reference_travelling_help")
-      end
-    end
+  def reference_tags(user)
+    html = [:positives, :neutrals, :negatives].map { |reference_type| reference_tag user, reference_type }
+    html.join.html_safe
   end
 
   def new_or_show_reference_path(reference, itinerary)
     reference && reference.persisted? ? user_reference_path(current_user, reference) : new_user_reference_path(current_user, itinerary_id: itinerary.id)
+  end
+
+  private
+  def reference_tag(user, reference_type)
+    content_tag(:span, t("references.snippet.#{reference_type}", count: @user.references.send(reference_type).count))
   end
 end
