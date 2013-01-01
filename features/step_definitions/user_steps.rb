@@ -112,7 +112,7 @@ Then /^he should see his friends with privacy$/ do
   expect(find(:xpath, "//span[text()='#{I18n.t('users.show.friends', count: '5000')}']")).to be_true
 end
 
-Then /create (\d+) friends/ do |n|
+Then /^create (\d+) friends and refresh$/ do |n|
   @user.update_attribute :facebook_friends, n.to_i.times.map { |i| { 'id' => "90110#{i}", 'name' => "Friend #{i}" } }
   @user.reload
   visit user_path(@user)
