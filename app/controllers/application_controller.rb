@@ -32,8 +32,7 @@ class ApplicationController < ActionController::Base
 
   def find_user(param)
     # TODO Optimization?
-    # TODO remove .to_s when issue CVE-2012-5664 will be solved
-    User.find_by({ username_or_uid: param.to_s })
+    User.find_by({ username_or_uid: param })
   end
 
   private
