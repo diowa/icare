@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.10
+-----
+* Updated Ruby on Rails to 3.2.10
+
 0.6.9
 -----
 * Security fix
