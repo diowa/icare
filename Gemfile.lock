@@ -120,7 +120,7 @@ GEM
     haml_assets (0.2.1)
       haml
       tilt
-    handlebars_assets (0.8.0)
+    handlebars_assets (0.8.1)
       execjs (>= 1.2.9)
       sprockets (>= 2.0.3)
       tilt
@@ -271,7 +271,7 @@ GEM
       rubinius-core-api
     rubinius-core-api (0.0.1)
     rubyzip (0.9.9)
-    sass (3.2.4)
+    sass (3.2.5)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -312,7 +312,7 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (0.6.1)
       coffee-rails
-    twitter-bootstrap-rails (2.1.9)
+    twitter-bootstrap-rails (2.2.0)
       actionpack (>= 3.1)
       execjs
       railties (>= 3.1)

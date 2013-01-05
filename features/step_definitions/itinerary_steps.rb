@@ -1,4 +1,4 @@
-ROUND_TRIP_ICON = 'icon-retweet'
+ROUND_TRIP_ICON = 'icon-exchange'
 DAILY_ICON = 'icon-repeat'
 PINK_ICON = 'icon-lock'
 
