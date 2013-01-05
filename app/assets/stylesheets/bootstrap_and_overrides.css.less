@@ -21,6 +21,12 @@ body {
 @fontAwesomeSvgPath: asset-path("fontawesome-webfont.svg");
 @import "fontawesome";
 
+.btn [class^="icon-"],
+.nav [class^="icon-"],
+.btn [class*=" icon-"],
+.nav [class*=" icon-"] {
+  line-height: 1em;
+}
 
 /* Overriding default variables and loading new ones
    ========================================================================== */
