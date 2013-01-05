@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.11
+-----
+* FontAwesome 3.0
+
 0.6.10
 -----
 * Updated Ruby on Rails to 3.2.10
