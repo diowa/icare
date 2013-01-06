@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.12
+-----
+* Some assets fixed
+
 0.6.11
 -----
 * FontAwesome 3.0
