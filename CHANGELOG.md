@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.13
+-----
+* Updated Ruby on Rails to 3.2.11
+
 0.6.12
 -----
 * Some assets fixed
