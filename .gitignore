@@ -16,6 +16,11 @@ chromedriver.log
 # Ignore simplecov reports
 coverage
 
+# Ignore vim swp files and gedit temp files
+*.swp
+*~
+.vim
+
 # Ignore rails_best_practices report
 rails_best_practices_output.html
 
