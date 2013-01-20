@@ -1,20 +1,24 @@
 Changelog
 =========
 
+0.6.14
+------
+* Maintenance release
+
 0.6.13
------
+------
 * Updated Ruby on Rails to 3.2.11
 
 0.6.12
------
+------
 * Some assets fixed
 
 0.6.11
------
+------
 * FontAwesome 3.0
 
 0.6.10
------
+------
 * Updated Ruby on Rails to 3.2.10
 
 0.6.9

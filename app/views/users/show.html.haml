@@ -24,10 +24,10 @@
         = link_to t('.see_all'), user_references_path(@user)
       %dt
         %span.description-facebook= t('.basic_info')
-      %dd
-        %span= t('.friends', count: friends_with_privacy(@user.facebook_friends.size))
-        %span{ class: check_common_field(@user, :age) }= t('.age', count: @user.age)
-        %span{ class: check_common_field(@user, :gender) }= User.human_attribute_name "gender_#{@user.gender}"
+      %dd><
+        %span><= t('.friends', count: friends_with_privacy(@user.facebook_friends.size))
+        %span{ class: check_common_field(@user, :age) }><= t('.age', count: @user.age)
+        %span{ class: check_common_field(@user, :gender) }><= User.human_attribute_name "gender_#{@user.gender}"
         = language_tags @user
       = mutual_friends @user, current_user
       = work_and_education_tags @user, :education

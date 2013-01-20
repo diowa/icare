@@ -82,12 +82,6 @@ Please make all pull requests against develop branch. Also, if your pull request
 If you are interested in feature development, we have priorities. Check out our [To Do](/diowa/icare/wiki/To-Do) list.
 
 
-Unit tests
-----------
-
-TODO
-
-
 Authors
 -------
 
