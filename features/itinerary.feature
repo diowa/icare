@@ -17,6 +17,7 @@ Feature: Itinerary
     When a female user with itineraries and pink itineraries logs in
     Then she should be able to manage her itineraries
 
+  @wip
   Scenario: Malicious titles and descriptions are correctly managed
     Given an itinerary with a malicious title and description
     When a user searches for an itinerary
