@@ -50,8 +50,8 @@ wizardPrevStep = ->
   lastStep = (Number) $('#new_itinerary').data 'lastStep'
 
   $("#wizard-step-#{step}-content").fadeOut ->
-    $('#wizard-next-step-button').removeAttr('disabled').show()
-    $('#new_itinerary_submit').attr('disabled', 'disabled').hide()
+    $('#wizard-next-step-button').prop('disabled', false).show()
+    $('#new_itinerary_submit').prop('disabled', true).hide()
 
     $("#wizard-step-#{step}-title").addClass('hidden-phone').removeClass 'active'
 
@@ -62,7 +62,7 @@ wizardPrevStep = ->
 
     $("#wizard-step-#{step}-content").fadeIn()
     if step is 1
-      $("#wizard-prev-step-button").attr('disabled', 'disabled').hide()
+      $("#wizard-prev-step-button").prop('disabled', true).hide()
 
 wizardNextStep = ->
   # Run validations
@@ -95,10 +95,10 @@ wizardNextStep = ->
     $("#wizard-step-#{step}-content").fadeIn ->
       $('#new_itinerary').enableClientSideValidations() # Enable validation for new fields
     if step > 1
-      $("#wizard-prev-step-button").removeAttr('disabled').show()
+      $("#wizard-prev-step-button").prop('disabled', false).show()
       if step is lastStep
-        $('#wizard-next-step-button').attr('disabled', 'disabled').hide()
-        $('#new_itinerary_submit').removeAttr('disabled').show()
+        $('#wizard-next-step-button').prop('disabled', true).hide()
+        $('#new_itinerary_submit').prop('disabled', false).show()
 
 dateFieldToString = (field_id) ->
   values = $("select[id^=#{field_id}] option:selected")
@@ -123,7 +123,7 @@ lastStepInit = ->
   $("#itinerary-preview-fuel_cost").text $("#itinerary_fuel_cost").val()
   $("#itinerary-preview-tolls").text $("#itinerary_tolls").val()
 
-  round_trip = $("#itinerary_round_trip").attr("checked")?
+  round_trip = $("#itinerary_round_trip").prop 'checked'
   $("#itinerary-preview-round_trip").text if round_trip then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
   $("#itinerary-preview-leave_date").text dateFieldToString("itinerary_leave_date")
 
@@ -173,7 +173,7 @@ createRouteMapInit = (id) ->
     $('#to-helper').text route.legs[0].end_address
     $('#itinerary_route').val JSON.stringify(json_route)
     window.icare.route = json_route
-    $('#new_itinerary_submit').removeAttr 'disabled'
+    $('#new_itinerary_submit').prop 'disabled', false
     $('#distance').text route.legs[0].distance.text
     $('#duration').text route.legs[0].duration.text
     $('#route-helper').show()
@@ -197,8 +197,8 @@ createRouteMapInit = (id) ->
       origin: $('#itineraries_route_from').val()
       destination: $('#itineraries_route_to').val()
       travelMode: 'DRIVING' #$("#mode").val()
-      avoidHighways: $('#itineraries_route_avoid_highways').attr('checked')?
-      avoidTolls: $('#itineraries_route_avoid_tolls').attr('checked')?
+      avoidHighways: $('#itineraries_route_avoid_highways').prop 'checked'
+      avoidTolls: $('#itineraries_route_avoid_tolls').prop 'checked'
     , (result, status) ->
       $('#itineraries-spinner').hide()
       if status is google.maps.DirectionsStatus.OK
@@ -281,9 +281,8 @@ initItineraryNew = ->
       $('#daily').fadeOut ->
         $('#single').fadeIn()
   $('#itinerary_round_trip').change ->
-    status = $(this).attr('checked')
-    $('select[id^="itinerary_return_date"]').each ->
-      $(this).attr 'disabled', (if status then null else 'disabled')
+    status = $(this).prop 'checked'
+    $('select[id^="itinerary_return_date"]').prop 'disabled', !status
 
 # jQuery Turbolinks
 $ ->
