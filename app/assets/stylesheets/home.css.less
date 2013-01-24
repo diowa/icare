@@ -1,0 +1,193 @@
+@import "stubs/variables_overrides.css.less";
+@import "twitter/bootstrap/mixins";
+
+.home-page-body {
+  padding-top: 0 !important;
+}
+
+#home-top-section {
+  position: relative;
+  height: 500px;
+  margin-bottom: 40px;
+}
+
+#home-top-section-background {
+  position: absolute;
+  overflow: hidden;
+  .size(500px, 100%);
+  background: @grayDarker;
+
+  img {
+    min-height: 500px;
+    min-width: 100%;
+    height: auto;
+  }
+
+  &:before {
+    position: absolute;
+    content: '';
+    .square(100%);
+    background: fade(@black, 40%);
+  }
+}
+
+#home-top-section-container {
+  position: absolute;
+  z-index: 1;
+  max-width: 550px;
+  padding: 0 40px;
+  margin-top: 100px;
+
+  h1,
+  small,
+  h2,
+  p,
+  a:not([class^=btn]) {
+    color: @white;
+    text-shadow: 0 1px 1px fade(@black, 45%);
+  }
+
+  h1,
+  h2 {
+    margin: 0;
+    color: @white;
+  }
+
+  h1 {
+    line-height: 90px;
+    font-size: 70px;
+  }
+
+  h2 {
+    margin-bottom: @baseLineHeight;
+    line-height: 46px;
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  a:not([class^=btn]) {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.signin-terms {
+  line-height: 18px;
+  font-size: 12px;
+  margin-top: @baseLineHeight / 2;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (max-width: 767px) {
+  #home-top-section {
+    height: 300px;
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  #home-top-section-background {
+    height: 300px;
+
+    img {
+      min-height: 300px;
+    }
+  }
+
+  .caption {
+    width: 65%;
+    padding: 0 70px;
+    margin-top: 100px;
+
+    h1 {
+      line-height: 40px;
+      font-size: 32px;
+    }
+
+    h2 {
+      line-height: 24px;
+      font-size: 18px;
+    }
+  }
+}
+
+#home-middle-section {
+  h3 {
+    font-weight: normal;
+    font-size: 26px;
+    color: @grayDark;
+    margin-bottom: @baseLineHeight /2;
+  }
+  .lead {
+    line-height: 30px;
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+}
+
+.home-description {
+  position: relative;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: -1px;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.home-description-line {
+  position: absolute;
+  width: 100%;
+  margin-top: 15px;
+  border: 1px solid #999;
+}
+
+.home-description-text {
+  display: inline-block;
+  position: relative;
+  padding: 0 20px;
+  background: @bodyBackground;
+}
+
+.home-icon {
+  position: relative;
+  display: inline-block;
+  .square(150px);
+  margin-bottom: 20px;
+  border: 4px solid @gray;
+  .border-radius(150px);
+
+  i {
+    position: relative;
+    top: 18px;
+    line-height: 112px !important;
+    font-size: 112px;
+  }
+
+  /* FIX icon group size */
+  .icon-group {
+    top: 22px;
+    line-height: 104px !important;
+    font-size: 104px;
+  }
+
+  &::before {
+    position: absolute;
+    display: block;
+    .square(162px);
+    .border-radius(162px);
+    border: 2px solid #999;
+    content: '';
+    top: -8px;
+    left: -8px;
+  }
+}
+
+.home-paragraph {
+  margin-bottom: 20px;
+  padding: 0 20px;
+  font-size: 18px;
+  line-height: 24px;
+  color: @gray;
+  text-align: left;
+}

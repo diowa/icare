@@ -1,66 +1,100 @@
-- content_for :head do
-  = tag :meta, name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name)
-- title APP_CONFIG.app_name
-#fb-root
-= render 'shared/flash_messages'
-.row
-  .span12
-    #home-hero
-      .attribution
-        Asfalto by Daquella manera, on Flickr
-      .transform
+!!!
+%html{ lang: I18n.locale.to_s }
+  %head
+    %meta{ charset: 'utf-8' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' }
+    %title= APP_CONFIG.app_name
+    = csrf_meta_tags
+    = tag :meta, name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name)
+    / Le HTML5 shim, for IE6-8 support of HTML elements
+    /[if lt IE 9]
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+
+    / Le styles
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700',
+                          'http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700',
+                          'http://fonts.googleapis.com/css?family=Pacifico',
+                          'application',
+                          media: 'all'
+
+    / Le fav and touch icons
+    %link{ href: '/assets/favicon.ico', rel: 'shortcut icon' }
+    %link{ href: '/assets/apple-touch-icon.png', rel: 'apple-touch-icon' }
+    %link{ href: '/assets/apple-touch-icon-72x72.png', rel: 'apple-touch-icon', sizes: '72x72' }
+    %link{ href: '/assets/apple-touch-icon-114x114.png', rel: 'apple-touch-icon', sizes: '114x114' }
+
+    /
+      Le javascript
+      \==================================================
+    / Placed at the top of the document 'cause of turbolinks
+    = javascript_include_tag 'application'
+    - if APP_CONFIG.exists?(:google_analytics_id) && APP_CONFIG.google_analytics_id
+      = analytics_init
+  / TODO DISABLE TURBOLINKS
+  %body.home-page-body
+    #fb-root
+    #home-top-section
+      #home-top-section-background
+        = image_tag '/assets/dash-itineraries.jpg', alt: ''
+      #home-top-section-container.container
         %h1.pacifico
           = APP_CONFIG.app_name
           - if APP_CONFIG.demo_mode
             %small
               demo
-      .tagline
-        %b= t('.tagline', appname: APP_CONFIG.app_name)
-      .row-fluid
-        .span6
-          #facepile-container.white-container.hide
-            .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
-        .span6.white-container
-          %p
-            = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-large btn-facebook', data: { :"no-turbolink" => true } do
-              %i.icon-facebook-sign.icon-large
-              = t('login_with_facebook')
-            %small.why-facebook
-              = link_to t('why_facebook'), '#why-facebook', data: { toggle: 'modal' }
-          %p.signin-terms
-            %b= t('we_will_never_post')
-            %br
-            - if APP_CONFIG.demo_mode
-              = t('.demo_mode', demo_terms_link: link_to(t('demo_terms'), :demo_terms)).html_safe
-            - else
-              = t('.signin_terms', appname: APP_CONFIG.app_name, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy)).html_safe
-.home-text-snippets
-  .row
-    .span4
-      %h2
-        %i.icon-road
-        = t('.share_itinerary_title')
-      %p= t('.share_itinerary_content')
-    .span4
-      %h2
-        %i.icon-group
-        = t('.make_new_connections_title')
-      %p= t('.make_new_connections_content')
-    .span4
-      %h2
-        %i.icon-money
-        = t('.save_money_title')
-      %p= t('.save_money_content')
-  .row
-    .span4
-      %h2
-        %i.icon-magic
-        = t('.thats_easy_title')
-      %p= t('.thats_easy_content')
-    .span4
-      %h2
-        %i.icon-leaf
-        = t('.help_environment_title')
-      %p= t('.help_environment_content')
+        %h2= t('.tagline')
+        = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-large btn-facebook', data: { :"no-turbolink" => true } do
+          %i.icon-facebook-sign.icon-large
+          = t('login_with_facebook')
+        %small.why-facebook
+          = link_to t('why_facebook'), '#why-facebook', data: { toggle: 'modal' }
+        %p.signin-terms
+          %b= t('we_will_never_post')
+          %br
+          - if APP_CONFIG.demo_mode
+            = t('.demo_mode', demo_terms_link: link_to(t('demo_terms'), :demo_terms)).html_safe
+          - else
+            = t('.signin_terms', appname: APP_CONFIG.app_name, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy)).html_safe
+        /
+          .row-fluid
+            .span6
+              #facepile-container.white-container.hide
+                .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
+            .span6.white-container
+              %p
+    .container#home-text-snippets
+      .row
+        .span4
+          %h2
+            %i.icon-road
+            = t('.share_itinerary_title')
+          %p= t('.share_itinerary_content')
+        .span4
+          %h2
+            %i.icon-group
+            = t('.make_new_connections_title')
+          %p= t('.make_new_connections_content')
+        .span4
+          %h2
+            %i.icon-money
+            = t('.save_money_title')
+          %p= t('.save_money_content')
+      .row
+        .span4
+          %h2
+            %i.icon-magic
+            = t('.thats_easy_title')
+          %p= t('.thats_easy_content')
+        .span4
+          %h2
+            %i.icon-leaf
+            = t('.help_environment_title')
+          %p= t('.help_environment_content')
 
-= render 'shared/modal_why_facebook'
+      = render 'shared/modal_why_facebook'
+
+    #footer
+      .container= render 'shared/footer'
+
+
+=# render 'shared/flash_messages'
