@@ -143,6 +143,8 @@ it-IT:
   pages:
     home:
       tagline: "Condividi l'asfalto e risparmia."
+      what_is_appname: "Cos'è %{appname}?"
+      main_features: "Caratteristiche Principali"
       share_itinerary_title: Condividi itinerari
       share_itinerary_content: "Ti sposti in automobile quotidianamente o saltuariamente? Condividi l'itinerario e dai la possibilità ad altre persone interessate allo stesso tipo di percorso di contattarti."
       make_new_connections_title: Nuove conoscenze
@@ -153,6 +155,8 @@ it-IT:
       thats_easy_content: "La familiarità di Google Maps e il processo di creazione guidata permettono a chiunque di condividere un percorso in pochi minuti."
       help_environment_title: "Ecosostenibile"
       help_environment_content: "Meno auto, meno traffico, meno stress e nuovi compagni di avventure! Rendi più piacevoli i tuoi spostamenti e nel contempo aiuti l'ambiente."
+      open_source_title: "Open Source"
+      open_source_content: "Il codice sorgente di %{appname} è a disposizione di tutti su github, la più vasta comunità open source al mondo."
       signin_terms: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
       demo_mode: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."
     policy:

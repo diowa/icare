@@ -62,42 +62,54 @@
                 .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
             .span6.white-container
               %p
-    .container#home-text-snippets.align-center
+    .container
       .row
         .span12
-          .home-description.inline-block= t('.how_it_works')
+          .ribbon-container
+            .ribbon
+              .ribbon-content
+                %h3= t('.what_is_appname', appname: APP_CONFIG.app_name)
+          %p.lead.align-center=  t('meta_description', appname: APP_CONFIG.app_name)
       .row
-        .span4
-          .home-icon
-            %i.icon-road
-          %h3= t('.share_itinerary_title')
-          %p= t('.share_itinerary_content')
-        .span4
-          .home-icon
-            %i.icon-group
-          %h3= t('.make_new_connections_title')
-          %p= t('.make_new_connections_content')
-        .span4
-          .home-icon
-            %i.icon-money
-          %h3= t('.save_money_title')
-          %p= t('.save_money_content')
-      .row
-        .span4
-          .home-icon
-            %i.icon-magic
-          %h3= t('.thats_easy_title')
-          %p= t('.thats_easy_content')
-        .span4
-          .home-icon
-            %i.icon-leaf
-          %h3= t('.help_environment_title')
-          %p= t('.help_environment_content')
-        .span4
-          .home-icon
-            %i.icon-github-alt
-          %h3= t('.open_source_title')
-          %p= t('.open_source_content')
+        .span12
+          .ribbon-container
+            .ribbon
+              .ribbon-content
+                %h3= t('.main_features')
+      #home-text-snippets.align-center
+        .row
+          .span4
+            .home-icon
+              %i.icon-road
+            %h3= t('.share_itinerary_title')
+            %p= t('.share_itinerary_content')
+          .span4
+            .home-icon
+              %i.icon-group
+            %h3= t('.make_new_connections_title')
+            %p= t('.make_new_connections_content')
+          .span4
+            .home-icon
+              %i.icon-money
+            %h3= t('.save_money_title')
+            %p= t('.save_money_content')
+        .row
+          .span12.spacer.hidden-phone
+          .span4
+            .home-icon
+              %i.icon-magic
+            %h3= t('.thats_easy_title')
+            %p= t('.thats_easy_content')
+          .span4
+            .home-icon
+              %i.icon-leaf
+            %h3= t('.help_environment_title')
+            %p= t('.help_environment_content')
+          .span4
+            .home-icon
+              %i.icon-github-alt
+            %h3= t('.open_source_title')
+            %p= t('.open_source_content', appname: APP_CONFIG.app_name)
 
       = render 'shared/modal_why_facebook'
 
