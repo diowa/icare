@@ -62,34 +62,42 @@
                 .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
             .span6.white-container
               %p
-    .container#home-text-snippets
+    .container#home-text-snippets.align-center
+      .row
+        .span12
+          .home-description.inline-block= t('.how_it_works')
       .row
         .span4
-          %h2
+          .home-icon
             %i.icon-road
-            = t('.share_itinerary_title')
+          %h3= t('.share_itinerary_title')
           %p= t('.share_itinerary_content')
         .span4
-          %h2
+          .home-icon
             %i.icon-group
-            = t('.make_new_connections_title')
+          %h3= t('.make_new_connections_title')
           %p= t('.make_new_connections_content')
         .span4
-          %h2
+          .home-icon
             %i.icon-money
-            = t('.save_money_title')
+          %h3= t('.save_money_title')
           %p= t('.save_money_content')
       .row
         .span4
-          %h2
+          .home-icon
             %i.icon-magic
-            = t('.thats_easy_title')
+          %h3= t('.thats_easy_title')
           %p= t('.thats_easy_content')
         .span4
-          %h2
+          .home-icon
             %i.icon-leaf
-            = t('.help_environment_title')
+          %h3= t('.help_environment_title')
           %p= t('.help_environment_content')
+        .span4
+          .home-icon
+            %i.icon-github-alt
+          %h3= t('.open_source_title')
+          %p= t('.open_source_content')
 
       = render 'shared/modal_why_facebook'
 
