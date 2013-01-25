@@ -104,11 +104,11 @@
             .ribbon
               .ribbon-content
                 %h2= t('.join_us_today')
-        .row
-          .span6= render 'facebook_login'
-          .span6
-            #facepile-container.hide
-              .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
+      .row
+        .span6= render 'facebook_login'
+        .span6
+          #facepile-container.hide
+            .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
       = render 'shared/modal_why_facebook'
 
     #footer
