@@ -57,14 +57,14 @@
               .ribbon
                 .ribbon-content
                   %h2= t('.what_is_appname', appname: APP_CONFIG.app_name)
-            %p.lead.align-center=  t('meta_description', appname: APP_CONFIG.app_name)
+            %p.lead=  t('meta_description', appname: APP_CONFIG.app_name)
       .row
         .span12
           .ribbon-container
             .ribbon
               .ribbon-content
                 %h2= t('.main_features')
-      #home-text-snippets.align-center
+      #home-text-snippets
         .row
           .span4
             .home-icon
