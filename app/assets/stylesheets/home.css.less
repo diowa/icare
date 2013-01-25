@@ -12,6 +12,21 @@
   .box-shadow(0 3px 3px fade(@black, 15%));
 }
 
+.learn-more-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.btn-learn-more {
+  margin-left: auto;
+  margin-right: auto;
+  .border-bottom-left-radius(0);
+  .border-bottom-right-radius(0);
+  border-bottom: none;
+}
+
 #home-top-section-background {
   position: absolute;
   overflow: hidden;
@@ -33,11 +48,9 @@
 }
 
 #home-top-section-container {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  max-width: 550px;
-  padding: 0 40px;
-  margin-top: 100px;
+  padding: 100px 0 0;
 
   h1,
   small,
@@ -78,38 +91,9 @@
   margin-top: @baseLineHeight / 2;
 }
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
-@media (max-width: 767px) {
-  #home-top-section {
-    height: 300px;
-    margin-left: -20px;
-    margin-right: -20px;
-  }
-
-  #home-top-section-background {
-    height: 300px;
-
-    img {
-      min-height: 300px;
-    }
-  }
-
+@media (max-width: 320px) {
   #home-top-section-container {
-    width: 65%;
-    padding: 0 70px;
-    margin-top: 40px;
-
-    h1 {
-      line-height: 58px;
-      font-size: 40px;
-    }
-
-    h2 {
-      line-height: 24px;
-      font-size: 24px;
-      margin-bottom: @baseLineHeight / 2;
-    }
+    padding: 10px 20px 0;
   }
 }
 
@@ -225,66 +209,109 @@
 .ribbon-container {
   text-align: center;
 }
+@media(min-width: 768px) {
+  .ribbon {
+    position: relative;
+    display: inline-block;
+    font-size: 16px !important;
+    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+    background: @icareMainColor;
+    .box-shadow(0 1px 1px fade(@black, 25%));
 
-.ribbon {
-  position: relative;
-  display: inline-block;
-  font-size: 16px !important;
-  /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
-  background: @icareMainColor;
-  .box-shadow(0 1px 1px fade(@black, 25%));
+    h2 {
+      color: @white;
+      text-shadow: 0 -1px 0 fade(@black, 25%);
+      margin: 0;
+    }
 
-  h3 {
-    color: @white;
-    text-shadow: 0 -1px 0 fade(@black, 25%);
-    margin: 0;
+    padding: 6px 2em; /* Adjust to suit */
+    margin: 1em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+
+    &:before,
+    &:after {
+      z-index: -1;
+      position: absolute;
+      display: block;
+      bottom: -1em;
+      border: 1.5em solid darken(@icareMainColor, 2%);
+      content: "";
+      .box-shadow(0 1px 0 fade(@black, 25%));
+    }
+
+    &:before {
+      left: -2em;
+      border-right-width: 1.5em;
+      border-left-color: transparent;
+    }
+
+    &:after {
+      right: -2em;
+      border-left-width: 1.5em;
+      border-right-color: transparent;
+    }
+
+    .ribbon-content:before,
+    .ribbon-content:after {
+      position: absolute;
+      display: block;
+      bottom: -1em;
+      border-style: solid;
+      border-color: darken(@icareMainColor, 5%) transparent transparent transparent;
+      content: "";
+    }
+
+    .ribbon-content:before {
+      left: 0;
+      border-width: 1em 0 0 1em;
+      .box-shadow(1px 0 0 fade(@black, 25%));
+    }
+
+    .ribbon-content:after {
+      right: 0;
+      border-width: 1em 1em 0 0;
+      .box-shadow(-1px 0 0 fade(@black, 25%));
+    }
+  }
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+@media (max-width: 767px) {
+  #home-top-section {
+    height: 300px;
+    margin-left: -20px;
+    margin-right: -20px;
   }
 
-  padding: 6px 2em; /* Adjust to suit */
-  margin: 1em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+  #home-top-section-background {
+    height: 300px;
 
-  &:before,
-  &:after {
-    z-index: -1;
-    position: absolute;
-    display: block;
-    bottom: -1em;
-    border: 1.5em solid darken(@icareMainColor, 2%);
-    content: "";
-    .box-shadow(0 1px 0 fade(@black, 25%));
+    img {
+      min-height: 300px;
+    }
   }
 
-  &:before {
-    left: -2em;
-    border-right-width: 1.5em;
-    border-left-color: transparent;
+  #home-top-section-container {
+    padding: 40px 40px 0;
+
+    h1 {
+      line-height: 58px;
+      font-size: 40px;
+    }
+
+    h2 {
+      line-height: 24px;
+      font-size: 24px;
+      margin-bottom: @baseLineHeight / 2;
+    }
   }
 
-  &:after {
-    right: -2em;
-    border-left-width: 1.5em;
-    border-right-color: transparent;
+  #learn-more .lead {
+    line-height: 20px;
+    font-size: 16px;
   }
 
-  .ribbon-content:before,
-  .ribbon-content:after {
-    position: absolute;
-    display: block;
-    bottom: -1em;
-    border-style: solid;
-    border-color: darken(@icareMainColor, 5%) transparent transparent transparent;
-    content: "";
-  }
-
-  .ribbon-content:before {
-    left: 0;
-    border-width: 1em 0 0 1em;
-    .box-shadow(1px 0 0 fade(@black, 25%));
-  }
-
-  .ribbon-content:after {
-    right: 0;
-    border-width: 1em 1em 0 0;
-    .box-shadow(-1px 0 0 fade(@black, 25%));
+  .home-icon {
+    .home-icon-responsive(4);
   }
 }

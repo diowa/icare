@@ -159,6 +159,7 @@ it-IT:
       open_source_content: "Il codice sorgente di %{appname} è a disposizione di tutti su github, la più vasta comunità open source al mondo."
       signin_terms: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
       demo_mode: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."
+      join_us_today: "Registrati adesso!"
     policy:
       title: Normativa sull'utilizzo dei dati
     terms:

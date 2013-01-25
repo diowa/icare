@@ -3,7 +3,7 @@
   %head
     %meta{ charset: 'utf-8' }
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' }
-    %title= APP_CONFIG.app_name
+    %title= t('meta_description', appname: APP_CONFIG.app_name)
     = csrf_meta_tags
     = tag :meta, name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name)
     / Le HTML5 shim, for IE6-8 support of HTML elements
@@ -34,6 +34,10 @@
   %body.home-page-body
     #fb-root
     #home-top-section
+      .learn-more-container.hidden-phone.align-center
+        %a.btn.btn-large.btn-learn-more{ href: '#' }
+          Learn more
+          %i.icon-chevron-down
       #home-top-section-background
         = image_tag '/assets/dash-itineraries.jpg', alt: ''
       #home-top-section-container.container
@@ -43,39 +47,23 @@
             %small
               demo
         %h2= t('.tagline')
-        = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-large btn-facebook', data: { :"no-turbolink" => true } do
-          %i.icon-facebook-sign.icon-large
-          = t('login_with_facebook')
-        %small.why-facebook
-          = link_to t('why_facebook'), '#why-facebook', data: { toggle: 'modal' }
-        %p.signin-terms
-          %b= t('we_will_never_post')
-          %br
-          - if APP_CONFIG.demo_mode
-            = t('.demo_mode', demo_terms_link: link_to(t('demo_terms'), :demo_terms)).html_safe
-          - else
-            = t('.signin_terms', appname: APP_CONFIG.app_name, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy)).html_safe
-        /
-          .row-fluid
-            .span6
-              #facepile-container.white-container.hide
-                .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
-            .span6.white-container
-              %p
+        = render 'facebook_login'
     .container
       .row
         .span12
-          .ribbon-container
-            .ribbon
-              .ribbon-content
-                %h3= t('.what_is_appname', appname: APP_CONFIG.app_name)
-          %p.lead.align-center=  t('meta_description', appname: APP_CONFIG.app_name)
+          = render 'shared/flash_messages'
+          #learn-more
+            .ribbon-container
+              .ribbon
+                .ribbon-content
+                  %h2= t('.what_is_appname', appname: APP_CONFIG.app_name)
+            %p.lead.align-center=  t('meta_description', appname: APP_CONFIG.app_name)
       .row
         .span12
           .ribbon-container
             .ribbon
               .ribbon-content
-                %h3= t('.main_features')
+                %h2= t('.main_features')
       #home-text-snippets.align-center
         .row
           .span4
@@ -110,11 +98,18 @@
               %i.icon-github-alt
             %h3= t('.open_source_title')
             %p= t('.open_source_content', appname: APP_CONFIG.app_name)
-
+      .row
+        .span12
+          .ribbon-container
+            .ribbon
+              .ribbon-content
+                %h2= t('.join_us_today')
+        .row
+          .span6= render 'facebook_login'
+          .span6
+            #facepile-container.hide
+              .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
       = render 'shared/modal_why_facebook'
 
     #footer
       .container= render 'shared/footer'
-
-
-=# render 'shared/flash_messages'
