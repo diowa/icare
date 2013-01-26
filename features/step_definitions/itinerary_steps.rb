@@ -1,6 +1,19 @@
 ROUND_TRIP_ICON = 'icon-exchange'
 DAILY_ICON = 'icon-repeat'
 PINK_ICON = 'icon-lock'
+XSS_ALERT = "<script>alert('toasty!);</script>"
+
+Given /^an itinerary with a malicious title and description$/ do
+  @user = FactoryGirl.create :user, uid: '123456', gender: 'male'
+  @malicious_itinerary = FactoryGirl.create :itinerary,
+    user: @user,
+    title: XSS_ALERT,
+    description: XSS_ALERT
+end
+
+When /^a user searches for an itinerary$/ do
+  pending # express the regexp above with the code you wish you had
+end
 
 When /^a male user with itineraries logs in$/ do
   @user = FactoryGirl.create :user, uid: '123456', gender: 'male'
@@ -39,4 +52,8 @@ Then /^he should be able to search itineraries$/ do
   fill_in 'itineraries_search_to', with: 'Turin'
   click_button 'itineraries-search'
   expect(find('.itinerary-thumbnail').size).to be 2
+end
+
+Then /^there are not security issues$/ do
+  pending # express the regexp above with the code you wish you had
 end

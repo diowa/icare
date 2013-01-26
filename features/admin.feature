@@ -2,7 +2,7 @@ Feature: Admin
   In order to manage users
   Admin should have some extra privileges
 
-  Scenario: An admin should be see reports
+  Scenario: An admin should see reports
     When an admin logs in
     Then he should see reports
 

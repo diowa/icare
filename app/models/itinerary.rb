@@ -82,7 +82,7 @@ class Itinerary
 
   def sample_path(precision = 10)
     # TODO move outside model
-    overview_path.in_groups(precision).map { |g| g.first }.insert(-1,overview_path.last)
+    overview_path.in_groups(precision).map { |g| g.first }.insert(-1, overview_path.last).compact
   end
 
   def static_map
