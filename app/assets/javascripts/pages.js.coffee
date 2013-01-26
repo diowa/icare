@@ -6,6 +6,12 @@
 $(document).on 'click', 'a.disabled', (e) ->
   e.preventDefault()
 
+$(document).on 'click', '.btn-learn-more', (e) ->
+  e.preventDefault()
+  $('html, body').animate
+    scrollTop: $('#learn-more').offset().top
+  , 'slow'
+
 if ClientSideValidations?
   ClientSideValidations.callbacks.element.fail = (element, message, callback, eventData) ->
     unless element.data('valid')

@@ -143,6 +143,8 @@ en-US:
   pages:
     home:
       tagline: "Street to share, money to save."
+      what_is_appname: "What is %{appname}?"
+      main_features: "Main Features"
       share_itinerary_title: Share itineraries
       share_itinerary_content: "You travel by car daily or occasionally? Share your itinerary and give the chance to other people interested in the same type of path to reach you."
       make_new_connections_title: Make new friends
@@ -153,8 +155,11 @@ en-US:
       thats_easy_content: "The simplicity of Google Maps and the wizard process allow anyone to share a path in a few minutes."
       help_environment_title: "Eco-friendly"
       help_environment_content: "Less cars, less traffic, less stress and new companions of adventures! Make your travel more enjoyable and help the environment at the same time."
+      open_source_title: "Open Source"
+      open_source_content: "The source code of %{appname} is available to everyone on github, the world's largest open source community."
       signin_terms: "By clicking \"Sign In\", you agree to %{terms_link} of %{appname} and that you have read and understand our %{policy_link}."
       demo_mode: "This is a demo application. By clicking on \"Sign In\" you agree to our %{demo_terms_link}."
+      join_us_today: "Join us today!"
     policy:
       title: Privacy Policy
     terms:
