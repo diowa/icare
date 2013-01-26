@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.6.15
+------
+* New homepage
+* Gets all webfonts in one request
+
 0.6.14
 ------
 * Maintenance release
