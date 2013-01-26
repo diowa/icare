@@ -11,9 +11,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
 
     / Le styles
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700',
-                          'http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700',
-                          'http://fonts.googleapis.com/css?family=Pacifico',
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700|Pacifico',
                           'application',
                           media: 'all'
 
@@ -39,6 +37,8 @@
           Learn more
           %i.icon-chevron-down
       #home-top-section-background
+        .attribution
+          _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
         = image_tag '/assets/dash-itineraries.jpg', alt: ''
       #home-top-section-container.container
         %h1.pacifico
@@ -105,10 +105,10 @@
               .ribbon-content
                 %h2= t('.join_us_today')
       .row
-        .span6= render 'facebook_login'
         .span6
           #facepile-container.hide
             .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
+        .span6= render 'facebook_login'
       = render 'shared/modal_why_facebook'
 
     #footer
