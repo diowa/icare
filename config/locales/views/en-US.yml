@@ -143,6 +143,7 @@ en-US:
   pages:
     home:
       tagline: "Street to share, money to save."
+      learn_more: "Learn more"
       what_is_appname: "What is %{appname}?"
       main_features: "Main Features"
       share_itinerary_title: Share itineraries

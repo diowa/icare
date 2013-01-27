@@ -143,6 +143,7 @@ it-IT:
   pages:
     home:
       tagline: "Condividi l'asfalto e risparmia."
+      learn_more: "Continua a leggere"
       what_is_appname: "Cos'è %{appname}?"
       main_features: "Caratteristiche Principali"
       share_itinerary_title: Condividi itinerari
