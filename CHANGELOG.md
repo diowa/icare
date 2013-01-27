@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.6.16
+------
+* Fixed missing string in italian translation (issue #6)
+* Fixed error on round trip itineraries when return date was nil
+* Updated navbar according to latest Facebook changes
+
 0.6.15
 ------
 * New homepage
