@@ -34,17 +34,11 @@
               %span.hidden-phone= current_user
           %li.dropdown
             = link_to '#', data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do
-              %i.icon-chevron-down
+              %i.icon-cog
             %ul.dropdown-menu
-              %li
-                = link_to :settings do
-                  %i.icon-cog
-                  = t('.user_settings')
+              %li= link_to t('.account_settings'), :settings
               %li.divider
-              %li
-                = link_to :logout do
-                  %i.icon-signout
-                  = t('logout')
+              %li= link_to t('logout'), :logout
         %ul.nav.pull-right
           %li.loading
             #loading-spinner
