@@ -52,7 +52,7 @@ en-US:
 
   login: Log in
   login_with_facebook: Login with Facebook
-  logout: Log out
+  logout: Log Out
   we_will_never_post: We will never post anything without your explicit consent.
   why_facebook: "Why Facebook?"
 
@@ -134,7 +134,7 @@ en-US:
   shared:
     navbar:
       language: Language
-      user_settings: User settings
+      account_settings: Account Settings
       see_all_messages: See All
       no_new_messages: No new messages
     footer:
@@ -143,6 +143,7 @@ en-US:
   pages:
     home:
       tagline: "Street to share, money to save."
+      learn_more: "Learn more"
       what_is_appname: "What is %{appname}?"
       main_features: "Main Features"
       share_itinerary_title: Share itineraries
@@ -220,7 +221,7 @@ en-US:
         one: and one other
         other: "and %{count} others"
     settings:
-      user_settings: User settings
+      account_settings: Account Settings
       general_information: General info
       vehicle_information: Vehicle info
       user_profile_details: Profile details are updated from Facebook after each login.

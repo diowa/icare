@@ -134,7 +134,7 @@ it-IT:
   shared:
     navbar:
       language: Lingua
-      user_settings: Impostazioni utente
+      account_settings: Impostazioni account
       see_all_messages: Mostra tutti
       no_new_messages: Non ci sono nuovi messaggi
     footer:
@@ -143,6 +143,7 @@ it-IT:
   pages:
     home:
       tagline: "Condividi l'asfalto e risparmia."
+      learn_more: "Continua a leggere"
       what_is_appname: "Cos'è %{appname}?"
       main_features: "Caratteristiche Principali"
       share_itinerary_title: Condividi itinerari
@@ -219,7 +220,7 @@ it-IT:
         one: e un altro
         other: "e atri %{count}"
     settings:
-      user_settings: Impostazioni utente
+      account_settings: Impostazioni account
       general_information: Informazioni generali
       vehicle_information: Informazioni sul veicolo
       user_profile_details: I dettagli del profilo vengono aggiornati da Facebook dopo ogni accesso.
