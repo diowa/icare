@@ -38,6 +38,12 @@ String::capitalize = ->
   this.replace /(?:^|\s)\S/g, (c) ->
     c.toUpperCase()
 
+String::lpad = (padString, length) ->
+  str = this
+  while str.length < length
+    str = padString + str
+  str
+
 setLoadingStatus = ->
   $('#loading-spinner').show()
 

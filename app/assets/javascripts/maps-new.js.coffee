@@ -103,35 +103,34 @@ wizardNextStep = ->
 dateFieldToString = (field_id) ->
   values = $("select[id^=#{field_id}] option:selected")
   year = $("##{field_id}_1i").val()
-  month = $("##{field_id}_2i").val()
-  day = $("##{field_id}_3i").val()
-  hour = $("##{field_id}_4i").val()
-  minute = $("##{field_id}_5i").val()
-  if I18n?
-    I18n.l 'time.formats.long', "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
-  else
-    "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
+  month = $("##{field_id}_2i").val().lpad 0, 2
+  day = $("##{field_id}_3i").val().lpad 0, 2
+  hour = $("##{field_id}_4i").val().lpad 0, 2
+  minute = $("##{field_id}_5i").val().lpad 0, 2
+  dateString = "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
+  if I18n? then I18n.l('time.formats.long', dateString) else dateString
+
+window.test = dateFieldToString
 
 lastStepInit = ->
   # TODO handlebars template
   $('#itinerary-preview-title').text $('#itinerary_title').val()
   $('#itinerary-preview-description').text $('#itinerary_description').val()
   $('#itinerary-preview-vehicle').text $('#itinerary_vehicle option:selected').text()
-  $("#itinerary-preview-smoking_allowed").text if $("#itinerary_smoking_allowed").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
-  $("#itinerary-preview-pets_allowed").text if $("#itinerary_pets_allowed").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
-  $("#itinerary-preview-pink").text if $("#itinerary_pink").attr("checked")? then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
-  $("#itinerary-preview-fuel_cost").text $("#itinerary_fuel_cost").val()
-  $("#itinerary-preview-tolls").text $("#itinerary_tolls").val()
+  $('#itinerary-preview-smoking_allowed').text I18n.t("boolean.#{$('#itinerary_smoking_allowed').prop 'checked'}")
+  $('#itinerary-preview-pets_allowed').text I18n.t("boolean.#{$('#itinerary_pets_allowed').prop 'checked'}")
+  $('#itinerary-preview-pink').text I18n.t("boolean.#{$('#itinerary_pink').prop 'checked'}")
+  $('#itinerary-preview-fuel_cost').text $("#itinerary_fuel_cost").val()
+  $('#itinerary-preview-tolls').text $("#itinerary_tolls").val()
+  $('#itinerary-preview-leave_date').text dateFieldToString('itinerary_leave_date')
 
-  round_trip = $("#itinerary_round_trip").prop 'checked'
-  $("#itinerary-preview-round_trip").text if round_trip then $("#itinerary-preview").data("true_text") else $("#itinerary-preview").data("false_text")
-  $("#itinerary-preview-leave_date").text dateFieldToString("itinerary_leave_date")
-
-  if round_trip
-    $("#itinerary-preview-return_date").text dateFieldToString("itinerary_return_date")
-    $(".itinerary-preview-return").show()
+  if $('#itinerary_round_trip').prop('checked')
+    $('#itinerary-preview-round_trip').text I18n.t('boolean.true')
+    $('#itinerary-preview-return_date').text dateFieldToString('itinerary_return_date')
+    $('.itinerary-preview-return').show()
   else
-    $(".itinerary-preview-return").hide()
+    $('#itinerary-preview-round_trip').text I18n.t('boolean.false')
+    $('.itinerary-preview-return').hide()
 
   route = window.icare.route
   url_builder = $('#itinerary-preview-image')
