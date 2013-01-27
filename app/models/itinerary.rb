@@ -60,16 +60,17 @@ class Itinerary
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
   validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
   validates :tolls, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
-  validate :driver_is_female, if: -> { pink }
-
   validates :leave_date, timeliness: { on_or_after: -> { Time.now } }, on: :create
+  validates :return_date, presence: true, if: -> { round_trip }
+
   validate :inside_bounds, if: -> { APP_CONFIG.itineraries.geo_restricted }, on: :create
+  validate :driver_is_female, if: -> { pink }
   validate :return_date_validator, if: -> { round_trip }
 
   def return_date_validator
     self.errors.add(:return_date,
                     I18n.t('mongoid.errors.messages.after',
-                    restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime')))) if return_date <= leave_date
+                    restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime')))) if return_date && return_date <= leave_date
   end
 
   def driver_is_female
