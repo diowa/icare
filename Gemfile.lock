@@ -31,10 +31,15 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.3.2)
-    airbrake (3.1.6)
+    airbrake (3.1.7)
+      activesupport
       builder
-      girl_friday
+      json
     arel (3.0.2)
+    better_errors (0.3.2)
+      coderay (>= 1.0.0)
+      erubis (>= 2.7.0)
+    binding_of_caller (0.6.8)
     builder (3.0.4)
     bullet (4.3.0)
       uniform_notifier
@@ -69,7 +74,6 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
-    connection_pool (1.0.0)
     crack (0.3.2)
     cucumber (1.2.1)
       builder (>= 2.1.2)
@@ -82,7 +86,7 @@ GEM
       nokogiri (>= 1.5.0)
     daemons (1.1.9)
     database_cleaner (0.9.1)
-    debugger (1.2.4)
+    debugger (1.3.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.1.1)
       debugger-ruby_core_source (~> 1.1.7)
@@ -112,9 +116,6 @@ GEM
     fssm (0.2.10)
     gherkin (2.11.5)
       json (>= 1.4.6)
-    girl_friday (0.11.2)
-      connection_pool (~> 1.0)
-      rubinius-actor
     google-analytics-rails (0.0.3)
     haml (3.1.7)
     haml_assets (0.2.1)
@@ -160,6 +161,9 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_request (0.2.1)
+      rack-contrib
+      rails
     method_source (0.8.1)
     mime-types (1.19)
     mongoid (3.0.19)
@@ -167,7 +171,7 @@ GEM
       moped (~> 1.2)
       origin (~> 1.0)
       tzinfo (~> 0.3.22)
-    mongoid-rspec (1.5.6)
+    mongoid-rspec (1.6.0)
       mongoid (>= 3.0.1)
       rake
       rspec (>= 2.9)
@@ -213,6 +217,8 @@ GEM
     rack (1.4.4)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-protection (1.3.2)
       rack
     rack-ssl (1.3.2)
@@ -256,7 +262,7 @@ GEM
     rspec-core (2.12.2)
     rspec-expectations (2.12.1)
       diff-lcs (~> 1.1.3)
-    rspec-mocks (2.12.1)
+    rspec-mocks (2.12.2)
     rspec-rails (2.12.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -264,9 +270,6 @@ GEM
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
       rspec-mocks (~> 2.12.0)
-    rubinius-actor (0.0.2)
-      rubinius-core-api
-    rubinius-core-api (0.0.1)
     rubyzip (0.9.9)
     sass (3.2.5)
     sass-rails (3.2.6)
@@ -339,6 +342,8 @@ PLATFORMS
 DEPENDENCIES
   action_mailer_cache_delivery
   airbrake
+  better_errors
+  binding_of_caller
   bullet
   client_side_validations
   client_side_validations-turbolinks
@@ -363,6 +368,7 @@ DEPENDENCIES
   koala
   launchy
   less-rails
+  meta_request
   mongoid
   mongoid-rspec
   mongoid_geospatial
