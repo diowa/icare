@@ -141,27 +141,12 @@ lastStepInit = ->
   $('#itinerary-preview-image').attr 'src', url_builder
 
 createRouteMapInit = (id) ->
-  recalcHeight = ->
-    $('#map').height $(window).height() - $('form').height() - $('#elevation').height()
-    map and google.maps.event.trigger map, 'resize'
-  $(window).resize recalcHeight
-  recalcHeight()
-
-  # for o of google.maps.DirectionsTravelMode
-  #  $("#mode").append new Option(o)
-
   map = icare.initGoogleMaps id
 
   dr = new google.maps.DirectionsRenderer
     map: map
     draggable: true
     preserveViewport: true
-
-  hoverMarker = new google.maps.Marker(map: map)
-
-  $('#elevation').mouseleave ->
-    hoverMarker.setVisible false
-    $('#elevation-hover').hide()
 
   ds = new google.maps.DirectionsService()
 
@@ -185,7 +170,7 @@ createRouteMapInit = (id) ->
     path = route.overview_path
     map.fitBounds(dr.directions.routes[0].bounds)
 
-  $('#new_itineraries_route').on 'submit', ->
+  $('#get-route').on 'click', ->
     $('#itineraries-spinner').show()
     $('#error').hide()
     $('#result').hide()
@@ -193,11 +178,11 @@ createRouteMapInit = (id) ->
     $('#distance').text ''
     $('#duration').text ''
     ds.route
-      origin: $('#itineraries_route_from').val()
-      destination: $('#itineraries_route_to').val()
+      origin: $('#itinerary_itineraries_route_from').val()
+      destination: $('#itinerary_itineraries_route_to').val()
       travelMode: 'DRIVING' #$("#mode").val()
-      avoidHighways: $('#itineraries_route_avoid_highways').prop 'checked'
-      avoidTolls: $('#itineraries_route_avoid_tolls').prop 'checked'
+      avoidHighways: $('#itinerary_itineraries_route_avoid_highways').prop 'checked'
+      avoidTolls: $('#itinerary_itineraries_route_avoid_tolls').prop 'checked'
     , (result, status) ->
       $('#itineraries-spinner').hide()
       if status is google.maps.DirectionsStatus.OK
@@ -219,51 +204,6 @@ createRouteMapInit = (id) ->
           else
             message = status
         $('#error').text(message).show()
-      recalcHeight()
-    false
-
-  drawElevation = (r) ->
-    max = writeStats(r)
-    drawGraph r, max
-
-  writeStats = (r) ->
-    prevElevation = r[0].elevation
-    climb = 0
-    drop = 0
-    max = 0
-    i = 1
-
-    while i < r.length
-      diff = r[i].elevation - prevElevation
-      prevElevation = r[i].elevation
-      if diff > 0
-        climb += diff
-      else
-        drop -= diff
-      max = r[i].elevation  if r[i].elevation > max
-      i++
-    max = Math.ceil(max)
-    $('#climb-drop').text "Climb: #{Math.round(climb)}m Drop: #{Math.round(drop)}m"
-    max
-
-  drawGraph = (r, max) ->
-    ec = $('#elevation-chart').empty()
-    width = Math.max(1, Math.floor(Math.min(11, ec.width() / r.length)) - 1)
-    height = 100
-    $.each r, (i, e) ->
-      barHeight = Math.round(e.elevation / max * height)
-      bar = $("<div style='width: #{width}px'><div style='height: #{barHeight}px;'></div></div>")
-      ec.append bar
-      bar.mouseenter(->
-        offset = bar.find('div').offset()
-        offset.top -= 25
-        offset.left -= 3
-        hoverMarker.setVisible true
-        hoverMarker.setPosition e.location
-        $('#elevation-hover').show().text("#{Math.round(e.elevation)}m").offset offset
-        map.panTo e.location  unless map.getBounds().contains(e.location)
-      ).click ->
-        map.panTo e.location
 
   $('.share').click ->
     $(this).find('input').focus().select()

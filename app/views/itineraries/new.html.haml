@@ -27,8 +27,8 @@
     %p= t('.confirm_and_share')
 .spacer
 #wizard-step-1-content
-  = render 'route_step'
 = bootstrap_form_for @itinerary, validate: true, html: { data: { step: 1, :"last-step" => 3 } } do |f|
+  = render 'route_step', f: f
   #wizard-step-2-content.hide
     = render 'details_step', f: f
   #wizard-step-3-content.hide
