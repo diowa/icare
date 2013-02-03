@@ -1,13 +1,14 @@
 .row
   .span3
     %h3= yield :title
-    = bootstrap_form_for Itineraries::Route.new, url: '#', method: 'get', validate: true do |f|
-      = f.text_field :from, class: 'input-xlarge width-max'
-      = f.text_field :to, class: 'input-xlarge width-max'
-      = f.check_box :avoid_highways
-      = f.check_box :avoid_tolls
-      = f.submit t('.get_route'), class: 'btn btn-primary'
+    = f.fields_for @itinerary_route do |route_fields|
+      = route_fields.text_field :from, class: 'input-xlarge width-max'
+      = route_fields.text_field :to, class: 'input-xlarge width-max'
+      = route_fields.check_box :avoid_highways
+      = route_fields.check_box :avoid_tolls
+      = route_fields.button t('.get_route'), type: 'button', class: 'btn btn-primary', id: 'get-route'
       = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...', id: 'itineraries-spinner', class: 'hide'
+    .spacer
     #error.alert.alert-error
     #result.alert.alert-info
       #{t('.distance')}:
@@ -19,10 +20,12 @@
     #new-itinerary-map.google-maps
     %p#route-helper.hide
       %small
-        Da:
+        = Itinerary.human_attribute_name :start_location
         %span#from-helper
-        a:
+        = Itinerary.human_attribute_name :end_location
         %span#to-helper
+        %br
+        %span#copyrights
 .row
   .span12
     .spacer

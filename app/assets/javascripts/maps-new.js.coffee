@@ -140,28 +140,24 @@ lastStepInit = ->
     .replace("%{overview_polyline}", "#{route.overview_polyline}")
   $('#itinerary-preview-image').attr 'src', url_builder
 
+setRoute = (dr, result) ->
+  dr.setDirections result
+  dr.setOptions
+    polylineOptions:
+      strokeColor: '#0000ff'
+      strokeWeight: 5
+      strokeOpacity: 0.45
+  dr.map.fitBounds dr.directions.routes[0].bounds
+  # dr.setOptions
+  #  suppressMarkers: true
+
 createRouteMapInit = (id) ->
-  recalcHeight = ->
-    $('#map').height $(window).height() - $('form').height() - $('#elevation').height()
-    map and google.maps.event.trigger map, 'resize'
-  $(window).resize recalcHeight
-  recalcHeight()
-
-  # for o of google.maps.DirectionsTravelMode
-  #  $("#mode").append new Option(o)
-
   map = icare.initGoogleMaps id
 
   dr = new google.maps.DirectionsRenderer
     map: map
     draggable: true
     preserveViewport: true
-
-  hoverMarker = new google.maps.Marker(map: map)
-
-  $('#elevation').mouseleave ->
-    hoverMarker.setVisible false
-    $('#elevation-hover').hide()
 
   ds = new google.maps.DirectionsService()
 
@@ -171,13 +167,15 @@ createRouteMapInit = (id) ->
     $('#from-helper').text route.legs[0].start_address
     $('#to-helper').text route.legs[0].end_address
     $('#itinerary_route').val JSON.stringify(json_route)
+    $('#itinerary_itineraries_route_waypoints').val JSON.stringify(route.legs[0].via_waypoints)
     window.icare.route = json_route
     $('#new_itinerary_submit').prop 'disabled', false
     $('#distance').text route.legs[0].distance.text
     $('#duration').text route.legs[0].duration.text
+    $('#copyrights').text route.copyrights
     $('#route-helper').show()
     $('#result').show()
-    $('#itinerary_title').val "#{$("#itineraries_route_from").val()} - #{$("#itineraries_route_to").val()}".substr(0, 40).capitalize()
+    $('#itinerary_title').val "#{$("#itinerary_itineraries_route_from").val()} - #{$("#itinerary_itineraries_route_to").val()}".substr(0, 40).capitalize()
     route_km = route.legs[0].distance.value / 1000
     route_gasoline = route_km * (Number) $('#fuel-help').data('avg_consumption')
     $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", parseInt(route_gasoline, 10))
@@ -185,31 +183,42 @@ createRouteMapInit = (id) ->
     path = route.overview_path
     map.fitBounds(dr.directions.routes[0].bounds)
 
-  $('#new_itineraries_route').on 'submit', ->
+  # Get Route acts as submit
+  $('input[type=text][id^=itinerary_itineraries_route]').on 'keypress', (e) ->
+    if e and e.keyCode is 13
+      e.preventDefault()
+      $('#get-route').click()
+
+  $('#get-route').on 'click', ->
+    valid = true
+    $('[data-validate][id^=itinerary_itineraries_route]:input:visible').each ->
+      settings = window.ClientSideValidations.forms[this.form.id]
+      valid = false unless $(this).isValid settings.validators
+      return
+    return unless valid
     $('#itineraries-spinner').show()
     $('#error').hide()
     $('#result').hide()
     $('#route-helper').hide()
+    $('#copyrights').text ''
     $('#distance').text ''
     $('#duration').text ''
     ds.route
-      origin: $('#itineraries_route_from').val()
-      destination: $('#itineraries_route_to').val()
-      travelMode: 'DRIVING' #$("#mode").val()
-      avoidHighways: $('#itineraries_route_avoid_highways').prop 'checked'
-      avoidTolls: $('#itineraries_route_avoid_tolls').prop 'checked'
+      origin: $('#itinerary_itineraries_route_from').val()
+      destination: $('#itinerary_itineraries_route_to').val()
+      travelMode: 'DRIVING' # $("#mode").val()
+      avoidHighways: $('#itinerary_itineraries_route_avoid_highways').prop 'checked'
+      avoidTolls: $('#itinerary_itineraries_route_avoid_tolls').prop 'checked'
+      waypoints:
+        try
+          JSON.parse($('#itinerary_route').val()).via_waypoints.map (point) ->
+            { location: new google.maps.LatLng(point[0], point[1]) }
+        catch error
+          []
     , (result, status) ->
       $('#itineraries-spinner').hide()
       if status is google.maps.DirectionsStatus.OK
-        dr.setDirections result
-        dr.setOptions
-          polylineOptions:
-            strokeColor:'#0000ff'
-            strokeWeight:5
-            strokeOpacity:0.45
-        dr.map.fitBounds(dr.directions.routes[0].bounds)
-        # dr.setOptions
-        #  suppressMarkers: true
+        setRoute dr, result
       else
         switch status
           when 'NOT_FOUND'
@@ -219,54 +228,15 @@ createRouteMapInit = (id) ->
           else
             message = status
         $('#error').text(message).show()
-      recalcHeight()
-    false
-
-  drawElevation = (r) ->
-    max = writeStats(r)
-    drawGraph r, max
-
-  writeStats = (r) ->
-    prevElevation = r[0].elevation
-    climb = 0
-    drop = 0
-    max = 0
-    i = 1
-
-    while i < r.length
-      diff = r[i].elevation - prevElevation
-      prevElevation = r[i].elevation
-      if diff > 0
-        climb += diff
-      else
-        drop -= diff
-      max = r[i].elevation  if r[i].elevation > max
-      i++
-    max = Math.ceil(max)
-    $('#climb-drop').text "Climb: #{Math.round(climb)}m Drop: #{Math.round(drop)}m"
-    max
-
-  drawGraph = (r, max) ->
-    ec = $('#elevation-chart').empty()
-    width = Math.max(1, Math.floor(Math.min(11, ec.width() / r.length)) - 1)
-    height = 100
-    $.each r, (i, e) ->
-      barHeight = Math.round(e.elevation / max * height)
-      bar = $("<div style='width: #{width}px'><div style='height: #{barHeight}px;'></div></div>")
-      ec.append bar
-      bar.mouseenter(->
-        offset = bar.find('div').offset()
-        offset.top -= 25
-        offset.left -= 3
-        hoverMarker.setVisible true
-        hoverMarker.setPosition e.location
-        $('#elevation-hover').show().text("#{Math.round(e.elevation)}m").offset offset
-        map.panTo e.location  unless map.getBounds().contains(e.location)
-      ).click ->
-        map.panTo e.location
 
   $('.share').click ->
     $(this).find('input').focus().select()
+
+  # Set route if it's already available
+  if $('#itinerary_itineraries_route_from').val() isnt '' && $('#itinerary_itineraries_route_to').val() isnt ''
+    # TODO cache this object
+    $('#get-route').click()
+
 
 initItineraryNew = ->
   createRouteMapInit('#new-itinerary-map')
