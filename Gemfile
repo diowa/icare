@@ -84,6 +84,6 @@ group :assets do
   gem 'sass-rails'
   gem 'therubyracer', '0.10.2' # NOTE can't update due to libv8 version on heroku
   gem 'turbolinks'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
   gem 'uglifier'
 end

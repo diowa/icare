@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.18
+------
+* Fixed assets
+
 0.6.17
 ------
 * Returns route back to client when itinerary creation fails
