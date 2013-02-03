@@ -9,6 +9,7 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    @itinerary_route = Itineraries::Route.new
   end
 
   def index
@@ -25,6 +26,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       redirect_to itinerary_path @itinerary
     else
+      @itinerary_route = Itineraries::Route.new params[:itinerary][:itineraries_route]
       render :new
     end
   end
