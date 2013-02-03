@@ -26,7 +26,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       redirect_to itinerary_path @itinerary
     else
-      @itinerary_route = Itineraries::Route.new params[:itinerary_route]
+      @itinerary_route = Itineraries::Route.new params[:itinerary][:itineraries_route]
       render :new
     end
   end

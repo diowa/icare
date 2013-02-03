@@ -20,10 +20,12 @@
     #new-itinerary-map.google-maps
     %p#route-helper.hide
       %small
-        Da:
+        = Itinerary.human_attribute_name :start_location
         %span#from-helper
-        a:
+        = Itinerary.human_attribute_name :end_location
         %span#to-helper
+        %br
+        %span#copyrights
 .row
   .span12
     .spacer
