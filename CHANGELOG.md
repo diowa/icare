@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.6.17
+------
+* Returns route back to client when itinerary creation fails
+* Minor fixes and improvements
+
 0.6.16
 ------
 * Fixed missing string in italian translation (issue #6)
