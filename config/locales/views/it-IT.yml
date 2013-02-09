@@ -234,7 +234,7 @@ it-IT:
       application_settings: Impostazioni dell'applicazione
 
   itineraries:
-    commons:
+    common:
       about: "su %{itinerary_link} di %{user_link}"
       features: Caratteristiche
     search:
@@ -316,7 +316,7 @@ it-IT:
       send: Invia
 
   references:
-    commons:
+    common:
       role: Ruolo
       driver: Guidatore
       passenger: Passeggero

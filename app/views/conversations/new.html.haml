@@ -2,5 +2,5 @@
 .row
   .span12
     %h1= yield :title
-    %p.lead= t('itineraries.commons.about', itinerary_link: link_to(@itinerary, itinerary_path(@itinerary)), user_link: link_to(@itinerary.user, user_path(@itinerary.user))).html_safe
+    %p.lead= t('itineraries.common.about', itinerary_link: link_to(@itinerary, itinerary_path(@itinerary)), user_link: link_to(@itinerary.user, user_path(@itinerary.user))).html_safe
     = render 'form'
