@@ -40,19 +40,32 @@ module Concerns
           Resque.enqueue(FacebookDataCacher, id)
         rescue Redis::CannotConnectError
         end
+
+        def has_access?
+          return true unless APP_CONFIG.facebook.restricted_group_id
+          facebook do |fb|
+            groups = fb.get_connections('me', 'groups')
+            group = groups.select{ |group| group['id'] == APP_CONFIG.facebook.restricted_group_id }.first
+            self.admin = group.present? && group['administrator']
+            group.present?
+          end
+        end
       end
 
       module ClassMethods
         # TODO waiting for mongoid 3.1.0
         # where(auth.slice(:provider, :uid)).first_or_initialize.tap
-
         def from_omniauth(auth)
           user = where(auth.slice(:provider, :uid)).first || ::User.new
-          user.provider = auth.provider
-          user.uid = auth.uid
-          user.update_fields_from_omniauth auth
-          user.save!
-          user
+          unless user.has_access?
+            user.provider = auth.provider
+            user.uid = auth.uid
+            user.update_fields_from_omniauth auth
+            user.save!
+            user
+          else
+            # TODO
+          end
         end
       end
     end
