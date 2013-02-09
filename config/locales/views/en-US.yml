@@ -235,7 +235,7 @@ en-US:
       application_settings: Application settings
 
   itineraries:
-    commons:
+    common:
       about: "about %{itinerary_link} by %{user_link}"
       features: Features
     search:
@@ -316,7 +316,7 @@ en-US:
       send: Send
 
   references:
-    commons:
+    common:
       role: Role
       driver: Driver
       passenger: Passenger

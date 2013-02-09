@@ -23,7 +23,7 @@ module ReferencesHelper
   end
 
   def driver_or_passenger(reference)
-    reference.itinerary.user == reference.referencing_user ? t('references.commons.driver') : t('references.commons.passenger')
+    reference.itinerary.user == reference.referencing_user ? t('references.common.driver') : t('references.common.passenger')
   end
 
   def reference_tags(user)
