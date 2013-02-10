@@ -30,17 +30,38 @@ body {
    ========================================================================== */
 
 .pac-container {
-  z-index: @zindexFixedNavbar + 1 !important;
-  min-width: 200px;
-  .border-radius(4px);
-  margin-top: 2px; // give it some space to breathe
+  z-index: @zindexDropdown;
+  min-width: 160px;
+  margin: 2px 0 0;
+  .border-radius(6px);
+  padding: 5px 0;
+  background-color: @dropdownBackground;
+  border: 1px solid #ccc; // Fallback for IE7-8
+  border: 1px solid @dropdownBorder;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  .border-radius(6px);
+  .box-shadow(0 5px 10px rgba(0,0,0,.2));
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
 
   .pac-item {
-    padding: 3px 15px;
-    line-height: 18px;
+    padding: 3px 20px;
+    line-height: @baseLineHeight;
+    color: @dropdownLinkColor;
+
     &:hover {
-      color: @white;
-      background-color: @linkColor;
+      text-decoration: none;
+      color: @dropdownLinkColorHover;
+      #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+    }
+
+    &:active {
+      color: @dropdownLinkColorActive;
+      text-decoration: none;
+      outline: 0;
+      #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
     }
   }
 
