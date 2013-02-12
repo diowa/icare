@@ -19,11 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def require_login
-    redirect_to root_path, flash: { error: t('flash.error.not_authenticated') } unless logged_in?
+    redirect_to root_path, flash: { error: t('flash.errors.not_authenticated') } unless logged_in?
   end
 
   def check_admin
-    redirect_to root_path, flash: { error: t('flash.error.not_allowed') } if logged_in? && !current_user.admin?
+    redirect_to root_path, flash: { error: t('flash.errors.not_allowed') } if logged_in? && !current_user.admin?
   end
 
   def check_banned
