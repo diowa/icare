@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.6.19
+------
+* Rails 3.2.12
+* Bootstrap 2.3
+
 0.6.18
 ------
 * Fixed assets
