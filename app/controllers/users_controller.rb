@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update_attributes params[:user]
-      redirect_to :settings, flash: { success: t('flash.user.success.update') }
+      redirect_to :settings, flash: { success: t('flash.users.success.update') }
     else
       render :settings
     end
@@ -37,10 +37,10 @@ class UsersController < ApplicationController
       if current_user.admin? && @user != current_user
         redirect_to users_path
       else
-        redirect_to root_path, flash: { success: t('flash.user.success.destroy') }
+        redirect_to root_path, flash: { success: t('flash.users.success.destroy') }
       end
     else
-      redirect_to root_path, flash: { error: t('flash.user.error.destroy') }
+      redirect_to root_path, flash: { error: t('flash.users.error.destroy') }
     end
   end
 
@@ -62,16 +62,16 @@ class UsersController < ApplicationController
   def ban
     # Prevent autoban
     if @user == current_user
-      redirect_to users_path, flash: { error: t('flash.user.error.ban') }
+      redirect_to users_path, flash: { error: t('flash.users.error.ban') }
     else
       @user.banned = true
-      redirect_to users_path, flash: (@user.save ? { success: t('flash.user.success.ban') } : { error: t('flash.user.error.ban') })
+      redirect_to users_path, flash: (@user.save ? { success: t('flash.users.success.ban') } : { error: t('flash.users.error.ban') })
     end
   end
 
   def unban
     @user.banned = false
-    redirect_to users_path, flash: (@user.save ? { success: t('flash.user.success.unban') } : { error: t('flash.user.error.unban') })
+    redirect_to users_path, flash: (@user.save ? { success: t('flash.users.success.unban') } : { error: t('flash.users.error.unban') })
   end
 
   private

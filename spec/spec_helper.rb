@@ -52,6 +52,7 @@ Spork.prefork do
     config.order = 'random'
 
     config.include Delorean
+    config.include MailerMacros
     ActionMailer::Base.perform_deliveries = false
     ActionMailer::Base.raise_delivery_errors = false
     ActionMailer::Base.delivery_method = :test
@@ -62,6 +63,7 @@ Spork.prefork do
 
     config.before(:each) do
       back_to_the_present
+      reset_email
       #load "#{Rails.root}/db/seeds.rb"
     end
   end

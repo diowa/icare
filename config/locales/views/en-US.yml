@@ -98,7 +98,7 @@ en-US:
     enter_words: Enter the words above
 
   flash:
-    user:
+    users:
       success:
         update: User successfully updated.
         destroy: User sucessfully destoryed.
@@ -108,7 +108,7 @@ en-US:
         update: An error occurred while updating this user.
         ban: An error occurred while banning this user.
         unban: An error occurred while unbanning this user.
-    feedback:
+    feedbacks:
       success:
         create: Feedback successfully created.
         update: Feedback successfully updated.
@@ -117,17 +117,17 @@ en-US:
         create: An error occurred while creating this feedback.
         update: An error occurred while updating this feedback.
         destroy: An error occurred while destroying this feedback.
-    itinerary:
+    itineraries:
       success:
         update: Itinerary successfully updated.
         destroy: Itinerary successfully destroyed.
       error:
         destroy: An error occurred while destroying this itinerary.
         pink: Pink itineraries are visible only to women.
-    message:
+    messages:
       error:
         create: An error occurred while creating this message.
-    error:
+    errors:
       not_authenticated: Please login first.
       not_allowed: You don't have permissions to access this page.
 
@@ -235,7 +235,7 @@ en-US:
       application_settings: Application settings
 
   itineraries:
-    commons:
+    common:
       about: "about %{itinerary_link} by %{user_link}"
       features: Features
     search:
@@ -316,7 +316,7 @@ en-US:
       send: Send
 
   references:
-    commons:
+    common:
       role: Role
       driver: Driver
       passenger: Passenger

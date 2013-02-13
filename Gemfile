@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '1.9.3'
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 
 # Servers
 gem 'thin'
@@ -59,7 +59,6 @@ group :development, :test do
 end
 
 group :test do
-  gem 'action_mailer_cache_delivery'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'email_spec'
@@ -84,6 +83,6 @@ group :assets do
   gem 'sass-rails'
   gem 'therubyracer', '0.10.2' # NOTE can't update due to libv8 version on heroku
   gem 'turbolinks'
-  gem 'twitter-bootstrap-rails', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+  gem 'twitter-bootstrap-rails'
   gem 'uglifier'
 end
