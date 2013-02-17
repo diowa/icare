@@ -20,7 +20,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [RABL][10] API Builder
 * Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
-* [RSpec][12] and [Cucumber][13]
+* [RSpec][12]
 * [Heroku][14] Cloud Application Platform
 * [Multi environment configuration][15]
 * [Airbrake][16] Exception Notification

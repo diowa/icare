@@ -26,20 +26,19 @@ body {
 
 
 /* ==========================================================================
-   Google Places Autocompletion
+   Google Places Autocomplete
    ========================================================================== */
 
 .pac-container {
   z-index: @zindexDropdown;
   min-width: 160px;
   margin: 2px 0 0;
-  .border-radius(6px);
-  padding: 5px 0;
-  background-color: @dropdownBackground;
   border: 1px solid #ccc; // Fallback for IE7-8
   border: 1px solid @dropdownBorder;
   *border-right-width: 2px;
   *border-bottom-width: 2px;
+  padding: 5px 0;
+  background-color: @dropdownBackground;
   .border-radius(6px);
   .box-shadow(0 5px 10px rgba(0,0,0,.2));
   -webkit-background-clip: padding-box;
@@ -48,6 +47,8 @@ body {
 
   .pac-item {
     padding: 3px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: @baseLineHeight;
     color: @dropdownLinkColor;
 
@@ -58,15 +59,29 @@ body {
     }
 
     &:active {
-      color: @dropdownLinkColorActive;
       text-decoration: none;
       outline: 0;
+      color: @dropdownLinkColorActive;
       #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
     }
   }
 
   &::after {
     padding-right: 3px;
+  }
+}
+
+
+/* Typeahead
+   ========================================================================== */
+
+.typeahead {
+  .box-sizing(border-box);
+  overflow: hidden;
+
+  &.dropdown-menu > li > a {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

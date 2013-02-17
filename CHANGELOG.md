@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.6.20
+------
+* Fixed bugs in itineraries controller
+* Fixed navbar icons
+* Fixed popover width
+* Replaced Cucumber with feature specs
+
 0.6.19
 ------
 * Rails 3.2.12

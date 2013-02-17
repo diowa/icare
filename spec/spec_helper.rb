@@ -29,6 +29,10 @@ Spork.prefork do
   Rails.application.railties.all { |r| r.eager_load! }
 
   require 'webmock/rspec'
+  require 'rspec/rails'
+  require 'capybara/rspec'
+
+  WebMock.disable_net_connect! allow: 'graph.facebook.com', allow_localhost: true
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.

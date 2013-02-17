@@ -38,7 +38,7 @@ class ItinerariesController < ApplicationController
   def update
     @itinerary = current_user.itineraries.find params[:id]
     if @itinerary.update_attributes(params[:itinerary])
-      redirect_to my_itineraries_path, flash: { success: t('flash.itineraries.success.update') }
+      redirect_to itineraries_user_path(current_user), flash: { success: t('flash.itineraries.success.update') }
     else
       render :edit
     end
@@ -47,12 +47,12 @@ class ItinerariesController < ApplicationController
   def destroy
     @itinerary = current_user.itineraries.find params[:id]
     if @itinerary.destroy
-      redirect_to my_itineraries_path, flash: { success: t('flash.itineraries.success.destroy') }
+      redirect_to itineraries_user_path(current_user), flash: { success: t('flash.itineraries.success.destroy') }
     else
-      redirect_to my_itineraries_path, flash: { error: t('flash.itineraries.error.destroy') }
+      redirect_to itineraries_user_path(current_user), flash: { error: t('flash.itineraries.error.destroy') }
     end
   rescue
-    redirect_to my_itineraries_path, flash: { error: t('flash.itineraries.error.destroy') }
+    redirect_to itineraries_user_path(current_user), flash: { error: t('flash.itineraries.error.destroy') }
   end
 
   def search
