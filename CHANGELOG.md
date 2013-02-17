@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.6.21
+------
+* New Code Climate badge in README
+* Fixed New Relic configuration
+
 0.6.20
 ------
 * Fixed bugs in itineraries controller
