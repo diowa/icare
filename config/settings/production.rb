@@ -21,11 +21,6 @@ SimpleConfig.for :application do
     set :host, ENV['AIRBRAKE_HOST']
   end
 
-  group :newrelic do
-    set :license_key, ENV['NEW_RELIC_LICENSE_KEY']
-    set :app_name, ENV['NEW_RELIC_APP_NAME']
-  end
-
   group :mailer do
     set :from, "\"Icare\" <no-reply@i.care>"
     set :host, 'heroku.com'
