@@ -46,25 +46,25 @@ gem 'rest-client'
 
 
 group :development, :test do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'bullet'
   gem 'debugger'
   gem 'delorean'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'meta_request'
   gem 'pry'
   gem 'pry-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'meta_request'
+  gem 'rspec-rails', '~> 2.6'
 end
 
 group :test do
-  gem 'cucumber-rails', require: false
+  gem 'capybara'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'
-  gem 'rspec-rails', '~> 2.6'
   gem 'simplecov', require: false
   gem 'spork', '~> 1.0rc'
   gem 'webmock', require: false
