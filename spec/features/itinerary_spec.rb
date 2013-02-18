@@ -54,7 +54,7 @@ describe 'Itinerary' do
     visit itineraries_user_path(@user)
     find(:xpath, "//a[contains(@href, '#{edit_itinerary_path(itinerary)}')]").click
     fill_in 'itinerary_title', with: 'New Title'
-    click_button 'Update Itinerary'
+    click_button I18n.t('helpers.submit.update', model: Itinerary.model_name.human)
     expect(page).to have_content I18n.t('flash.itineraries.success.update')
     expect(page).to_not have_content itinerary.title
     expect(page).to have_content itinerary.reload.title
