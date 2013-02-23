@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   skip_before_filter :require_login, only: [:new, :create, :activate]
 
   before_filter :set_user, only: [:show, :ban, :unban]
-  before_filter :set_user_as_current_user, only: [:dashboard, :settings, :itineraries]
+  before_filter :set_user_as_current_user, only: [:dashboard, :settings, :itineraries, :update]
   before_filter :check_admin, only: [:index, :ban, :unban]
 
   def index
@@ -20,8 +20,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    if @user.update_attributes params[:user]
+    if @user.update_attributes(permitted_params.user)
       redirect_to :settings, flash: { success: t('flash.users.success.update') }
     else
       render :settings
@@ -64,14 +63,12 @@ class UsersController < ApplicationController
     if @user == current_user
       redirect_to users_path, flash: { error: t('flash.users.error.ban') }
     else
-      @user.banned = true
-      redirect_to users_path, flash: (@user.save ? { success: t('flash.users.success.ban') } : { error: t('flash.users.error.ban') })
+      redirect_to users_path, flash: (@user.update_attributes(banned: true) ? { success: t('flash.users.success.ban') } : { error: t('flash.users.error.ban') })
     end
   end
 
   def unban
-    @user.banned = false
-    redirect_to users_path, flash: (@user.save ? { success: t('flash.users.success.unban') } : { error: t('flash.users.error.unban') })
+    redirect_to users_path, flash: (@user.update_attributes(banned: false) ? { success: t('flash.users.success.unban') } : { error: t('flash.users.error.unban') })
   end
 
   private

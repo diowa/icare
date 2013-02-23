@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_user_time_zone, if: :logged_in?
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :permitted_params
 
   protected
   def set_locale
@@ -48,5 +48,9 @@ class ApplicationController < ActionController::Base
 
   def set_user_time_zone
     Time.zone = current_user.time_zone
+  end
+
+  def permitted_params
+    @permitted_params ||= PermittedParams.new(params, current_user)
   end
 end
