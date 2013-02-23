@@ -124,6 +124,10 @@ en-US:
       error:
         destroy: An error occurred while destroying this itinerary.
         pink: Pink itineraries are visible only to women.
+    sessions:
+      error:
+        create: An error occurred while accessing the application.
+        restricted: "An error occurred while accessing the application. This application is restricted to users of a Facebook group, you may have not enough privileges to log in."
     messages:
       error:
         create: An error occurred while creating this message.
