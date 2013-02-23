@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.6.22
+------
+* Minor improvements
+
 0.6.21
 ------
 * New Code Climate badge in README

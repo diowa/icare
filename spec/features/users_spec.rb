@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-describe 'User' do
-  describe 'privileges' do
+describe 'Users' do
+  describe 'without admin permissions' do
     before(:each) do
       @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
       visit '/auth/facebook'

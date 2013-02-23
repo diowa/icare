@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Itinerary' do
+describe 'Itineraries' do
   ROUND_TRIP_ICON = 'icon-exchange'
   DAILY_ICON = 'icon-repeat'
   PINK_ICON = 'icon-lock'
@@ -11,12 +11,12 @@ describe 'Itinerary' do
     visit '/auth/facebook'
   end
 
-  it "manages malicious titles and descriptions" do
+  it "sanitize malicious titles and descriptions" do
     malicious_itinerary = FactoryGirl.create :itinerary, user: @user, title: XSS_ALERT, description: XSS_ALERT
     #pending
   end
 
-  it "allows users to search them", js: true do
+  it "allow users to search them", js: true do
     FactoryGirl.create :itinerary, round_trip: true
     FactoryGirl.create :itinerary
     visit itineraries_path
@@ -26,7 +26,7 @@ describe 'Itinerary' do
     expect(page).to have_css('.itinerary-thumbnail', count: 2)
   end
 
-  it "allows users to view their own ones" do
+  it "allow users to view their own ones" do
     FactoryGirl.create :itinerary, user: @user
     FactoryGirl.create :itinerary, user: @user, round_trip: true
     FactoryGirl.create :itinerary, user: @user, daily: true
@@ -41,7 +41,7 @@ describe 'Itinerary' do
     end
   end
 
-  it "allows users to delete their own ones" do
+  it "allow users to delete their own ones" do
     itinerary = FactoryGirl.create :itinerary, user: @user, title: 'Itinerary to destroy'
     visit itineraries_user_path(@user)
     find(:xpath, "//a[@data-method='delete' and contains(@href, '#{itinerary_path(itinerary)}')]").click
@@ -49,12 +49,12 @@ describe 'Itinerary' do
     expect(page).to_not have_content itinerary.title
   end
 
-  it "allows users to edit their own ones" do
+  it "allow users to edit their own ones" do
     itinerary = FactoryGirl.create :itinerary, user: @user, title: 'Old title'
     visit itineraries_user_path(@user)
     find(:xpath, "//a[contains(@href, '#{edit_itinerary_path(itinerary)}')]").click
     fill_in 'itinerary_title', with: 'New Title'
-    click_button 'Update Itinerary'
+    click_button I18n.t('helpers.submit.update', model: Itinerary.model_name.human)
     expect(page).to have_content I18n.t('flash.itineraries.success.update')
     expect(page).to_not have_content itinerary.title
     expect(page).to have_content itinerary.reload.title
