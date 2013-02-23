@@ -26,18 +26,13 @@ SimpleConfig.for :application do
     # If set, only users of the following facebook group id will be able to use the application
     # It will automatically add 'user_groups' permission to facebook scope
     # Example: set :restricted_group_id, '379766462096606'
-    set :restricted_group_id, '379766462096606'
+    set :restricted_group_id, nil
   end
 
   group :airbrake do
     set :api_key, 'AIRBRAKE_API_KEY'
     set :host, 'AIRBRAKE_HOST'
     set :port, 80
-  end
-
-  group :newrelic do
-    set :license_key, nil
-    set :app_name, nil
   end
 
   group :map do

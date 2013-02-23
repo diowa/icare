@@ -98,7 +98,7 @@ it-IT:
     enter_words: Inserisci le parole sopra
 
   flash:
-    user:
+    users:
       success:
         update: Utente aggiornato con successo.
         destroy: Utente eliminato con successo.
@@ -108,7 +108,7 @@ it-IT:
         update: Si è verificato un errore durante l'aggiornamento dell'utente.
         ban: Si è verificato un errore durante la sospensione dell'utente.
         unban: Si è verificato un errore durante la riabilitazione dell'utente.
-    feedback:
+    feedbacks:
       success:
         create: Feedback creato con successo.
         update: Feedback aggiornato con successo.
@@ -117,17 +117,21 @@ it-IT:
         create: Si è verificato un errore durante la creazione del feedback.
         update: Si è verificato un errore durante l'aggiornamento del feedback.
         destroy: Si è verificato un errore durante l'eliminazione del feedback.
-    itinerary:
+    itineraries:
       success:
         update: Itinerario aggiornato con successo.
         destroy: Itinerario eliminato con successo.
       error:
         destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.
         pink: Gli itinerari rosa sono visibili solo dalle donne.
-    message:
+    sessions:
+      error:
+        create: "Impossibile effettuare l'accesso."
+        restricted: "Impossibile effettuare l'accesso. Questa applicazione è ristretta agli utenti di un gruppo Facebook, potresti non avere i diritti necessari ad accedere."
+    messages:
       error:
         create: Si è verificato un errore durante la creazione del messaggio.
-    error:
+    errors:
       not_authenticated: Effettua prima l'accesso.
       not_allowed: Non hai i permessi per accedere a questa pagina
 

@@ -22,7 +22,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.new(attrs)
     @feedback.user = current_user
     if @feedback.save
-      redirect_to feedbacks_path, flash: { success: t('flash.feedback.success.create') }
+      redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.create') }
     else
       flash.now[:error] = @feedback.errors.full_messages
       render :new
@@ -37,7 +37,7 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.find(params[:id])
 
     if @feedback.update_attributes(params[:feedback])
-      redirect_to feedbacks_path, flash: { success: t('flash.feedback.success.update') }
+      redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.update') }
     else
       flash.now[:error] = @feedback.errors.full_messages
       render :edit
@@ -48,9 +48,9 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.find(params[:id])
 
     if current_user.admin? && @feedback.destroy
-      redirect_to feedbacks_path, flash: { success: t('flash.feedback.success.destroy') }
+      redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.destroy') }
     else
-      redirect_to feedbacks_path, flash: { error: t('flash.feedback.error.destroy') }
+      redirect_to feedbacks_path, flash: { error: t('flash.feedbacks.error.destroy') }
     end
   end
 end

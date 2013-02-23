@@ -1,6 +1,27 @@
 Changelog
 =========
 
+0.6.22
+------
+* Minor improvements
+
+0.6.21
+------
+* New Code Climate badge in README
+* Fixed New Relic configuration
+
+0.6.20
+------
+* Fixed bugs in itineraries controller
+* Fixed navbar icons
+* Fixed popover width
+* Replaced Cucumber with feature specs
+
+0.6.19
+------
+* Rails 3.2.12
+* Bootstrap 2.3
+
 0.6.18
 ------
 * Fixed assets

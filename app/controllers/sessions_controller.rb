@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   def create
     if (user = User.from_omniauth env['omniauth.auth'])
       session[:user_id] = user.id.to_s # NOTE .to_s keeps the session simple
-      redirect_to session.delete(:redirect_to) || root_path
+      redirect_to session.delete(:redirect_to) || dashboard_path
     else
-      # TODO
+      redirect_to root_path, flash: { error: t(APP_CONFIG.facebook.restricted_group_id ? 'flash.sessions.error.restricted' : 'flash.sessions.error.create') }
     end
   end
 
