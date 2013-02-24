@@ -40,11 +40,22 @@ module Concerns
           Resque.enqueue(FacebookDataCacher, id)
         rescue Redis::CannotConnectError
         end
+
+        def has_access?
+          return true unless APP_CONFIG.facebook.restricted_group_id
+          facebook do |fb|
+            groups = fb.get_connections('me', 'groups')
+            group = groups.select{ |g| g['id'] == APP_CONFIG.facebook.restricted_group_id }.first
+            self.admin = group.present? && group['administrator']
+            group.present?
+          end
+        end
       end
 
       module ClassMethods
         def from_omniauth(auth)
           user = where(auth.slice(:provider, :uid)).first_or_initialize
+          return nil if user.new_record? && !user.has_access?
           user.provider = auth.provider
           user.uid = auth.uid
           user.set_fields_from_omniauth auth

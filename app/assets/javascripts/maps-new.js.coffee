@@ -176,8 +176,8 @@ createRouteMapInit = (id) ->
     $('#route-helper').show()
     $('#result').show()
     $('#itinerary_title').val "#{$("#itinerary_itineraries_route_from").val()} - #{$("#itinerary_itineraries_route_to").val()}".substr(0, 40).capitalize()
-    route_km = route.legs[0].distance.value / 1000
-    route_gasoline = route_km * (Number) $('#fuel-help').data('avg_consumption')
+    route_km = (Number) route.legs[0].distance.value / 1000
+    route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
     $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", parseInt(route_gasoline, 10))
     $('#fuel-help').show()
     path = route.overview_path

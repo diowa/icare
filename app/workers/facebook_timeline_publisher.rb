@@ -7,7 +7,13 @@ class FacebookTimelinePublisher
     user = itinerary.user
     return unless user.has_facebook_permission?(:publish_stream)
     user.facebook do |fb|
-      fb.put_connections 'me', "#{APP_CONFIG.facebook.namespace}:plan", itinerary: itinerary_url
+      if APP_CONFIG.facebook.restricted_group_id
+        fb.put_wall_post itinerary.title,
+                         { name: itinerary.title, link: itinerary_url },
+                         APP_CONFIG.facebook.restricted_group_id
+      else
+        fb.put_connections 'me', "#{APP_CONFIG.facebook.namespace}:plan", itinerary: itinerary_url
+      end
     end
   end
 end

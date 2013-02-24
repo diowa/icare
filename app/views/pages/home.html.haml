@@ -41,6 +41,7 @@
           _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
         = image_tag '/assets/dash-itineraries.jpg', alt: ''
       #home-top-section-container.container
+        = render 'shared/flash_messages'
         %h1.pacifico
           = APP_CONFIG.app_name
           - if APP_CONFIG.demo_mode
@@ -51,7 +52,6 @@
     .container
       .row
         .span12
-          = render 'shared/flash_messages'
           #learn-more
             .ribbon-container
               .ribbon

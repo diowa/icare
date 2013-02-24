@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.0
+-----
+* Restricted mode (only available to members of a Facebook group)
+
 0.6.22
 ------
 * Minor improvements
