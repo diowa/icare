@@ -27,6 +27,10 @@ describe 'Sessions' do
       APP_CONFIG.facebook.set :restricted_group_id, '10'
     end
 
+    after(:all) do
+      APP_CONFIG.facebook.set :restricted_group_id, nil
+    end
+
     it "blocks unauthorized users" do
       groups = [{ "name"=>"A group", "version"=>1, "id"=>"1", "administrator"=>true },
                 { "name"=>"Another group", "version"=>1, "id"=>"2" }]
