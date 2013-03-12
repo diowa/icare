@@ -22,5 +22,5 @@
 #
 
 translations:
-  - file: "app/assets/javascripts/i18n/translations.js"
-    only: [ "*.date", "*.time", "*.datetime", "*.javascript", "*.shared.navbar", "*.templates", "*.mongoid.attributes.itinerary" ]
+  - file: 'app/assets/javascripts/i18n/translations.js'
+    only: ['*.boolean', '*.date', '*.time', '*.datetime', '*.javascript', '*.shared.navbar', '*.templates', '*.mongoid.attributes.itinerary']

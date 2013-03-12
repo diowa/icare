@@ -1,5 +1,5 @@
 - title @itinerary.title
-- opengraph_header_content @itinerary
+= render 'opengraph_head_contents', itinerary: @itinerary
 .row
   .span3
     = image_tag @itinerary.static_map, class: 'img-polaroid border-box', alt: '', width: 200, height: 200
@@ -85,5 +85,5 @@
           .btn-toolbar
             - session[:redirect_to] = itinerary_path(@itinerary)
             = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
-              %i.icon-facebook-sign.icon-large
+              %i.icon-facebook-sign
               = t('.login_to_contact')

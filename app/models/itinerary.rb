@@ -12,7 +12,7 @@ class Itinerary
 
   attr_accessible :title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls, :pink
   attr_accessible :round_trip, :leave_date, :return_date, :daily
-  attr_accessible :share_on_facebook_timeline
+  attr_accessible :route, :share_on_facebook_timeline
 
   belongs_to :user
   delegate :name, to: :user, prefix: true
@@ -60,16 +60,17 @@ class Itinerary
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
   validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
   validates :tolls, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
-  validate :driver_is_female, if: -> { pink }
-
   validates :leave_date, timeliness: { on_or_after: -> { Time.now } }, on: :create
+  validates :return_date, presence: true, if: -> { round_trip }
+
   validate :inside_bounds, if: -> { APP_CONFIG.itineraries.geo_restricted }, on: :create
+  validate :driver_is_female, if: -> { pink }
   validate :return_date_validator, if: -> { round_trip }
 
   def return_date_validator
     self.errors.add(:return_date,
                     I18n.t('mongoid.errors.messages.after',
-                    restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime')))) if return_date <= leave_date
+                    restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime')))) if return_date && return_date <= leave_date
   end
 
   def driver_is_female
@@ -82,7 +83,7 @@ class Itinerary
 
   def sample_path(precision = 10)
     # TODO move outside model
-    overview_path.in_groups(precision).map { |g| g.first }.insert(-1,overview_path.last)
+    overview_path.in_groups(precision).map { |g| g.first }.insert(-1, overview_path.last).compact
   end
 
   def static_map

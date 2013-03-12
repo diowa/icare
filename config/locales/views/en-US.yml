@@ -52,7 +52,7 @@ en-US:
 
   login: Log in
   login_with_facebook: Login with Facebook
-  logout: Log out
+  logout: Log Out
   we_will_never_post: We will never post anything without your explicit consent.
   why_facebook: "Why Facebook?"
 
@@ -98,7 +98,7 @@ en-US:
     enter_words: Enter the words above
 
   flash:
-    user:
+    users:
       success:
         update: User successfully updated.
         destroy: User sucessfully destoryed.
@@ -108,7 +108,7 @@ en-US:
         update: An error occurred while updating this user.
         ban: An error occurred while banning this user.
         unban: An error occurred while unbanning this user.
-    feedback:
+    feedbacks:
       success:
         create: Feedback successfully created.
         update: Feedback successfully updated.
@@ -117,24 +117,28 @@ en-US:
         create: An error occurred while creating this feedback.
         update: An error occurred while updating this feedback.
         destroy: An error occurred while destroying this feedback.
-    itinerary:
+    itineraries:
       success:
         update: Itinerary successfully updated.
         destroy: Itinerary successfully destroyed.
       error:
         destroy: An error occurred while destroying this itinerary.
         pink: Pink itineraries are visible only to women.
-    message:
+    sessions:
+      error:
+        create: An error occurred while accessing the application.
+        restricted: "An error occurred while accessing the application. This application is restricted to users of a Facebook group, you may have not enough privileges to log in."
+    messages:
       error:
         create: An error occurred while creating this message.
-    error:
+    errors:
       not_authenticated: Please login first.
       not_allowed: You don't have permissions to access this page.
 
   shared:
     navbar:
       language: Language
-      user_settings: User settings
+      account_settings: Account Settings
       see_all_messages: See All
       no_new_messages: No new messages
     footer:
@@ -143,6 +147,9 @@ en-US:
   pages:
     home:
       tagline: "Street to share, money to save."
+      learn_more: "Learn more"
+      what_is_appname: "What is %{appname}?"
+      main_features: "Main Features"
       share_itinerary_title: Share itineraries
       share_itinerary_content: "You travel by car daily or occasionally? Share your itinerary and give the chance to other people interested in the same type of path to reach you."
       make_new_connections_title: Make new friends
@@ -153,8 +160,11 @@ en-US:
       thats_easy_content: "The simplicity of Google Maps and the wizard process allow anyone to share a path in a few minutes."
       help_environment_title: "Eco-friendly"
       help_environment_content: "Less cars, less traffic, less stress and new companions of adventures! Make your travel more enjoyable and help the environment at the same time."
+      open_source_title: "Open Source"
+      open_source_content: "The source code of %{appname} is available to everyone on github, the world's largest open source community."
       signin_terms: "By clicking \"Sign In\", you agree to %{terms_link} of %{appname} and that you have read and understand our %{policy_link}."
       demo_mode: "This is a demo application. By clicking on \"Sign In\" you agree to our %{demo_terms_link}."
+      join_us_today: "Join us today!"
     policy:
       title: Privacy Policy
     terms:
@@ -215,7 +225,7 @@ en-US:
         one: and one other
         other: "and %{count} others"
     settings:
-      user_settings: User settings
+      account_settings: Account Settings
       general_information: General info
       vehicle_information: Vehicle info
       user_profile_details: Profile details are updated from Facebook after each login.
@@ -229,7 +239,7 @@ en-US:
       application_settings: Application settings
 
   itineraries:
-    commons:
+    common:
       about: "about %{itinerary_link} by %{user_link}"
       features: Features
     search:
@@ -310,7 +320,7 @@ en-US:
       send: Send
 
   references:
-    commons:
+    common:
       role: Role
       driver: Driver
       passenger: Passenger

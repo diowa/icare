@@ -1,4 +1,4 @@
-icare [![Build Status](https://secure.travis-ci.org/diowa/icare.png)](https://travis-ci.org/diowa/icare) [![Dependency Status](https://gemnasium.com/diowa/icare.png)](https://gemnasium.com/diowa/icare) [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/diowa/icare)
+icare [![Build Status](https://secure.travis-ci.org/diowa/icare.png)](https://travis-ci.org/diowa/icare) [![Dependency Status](https://gemnasium.com/diowa/icare.png)](https://gemnasium.com/diowa/icare) [![Code Climate](https://codeclimate.com/github/diowa/icare.png)](https://codeclimate.com/github/diowa/icare) [![Coverage Status](https://coveralls.io/repos/diowa/icare/badge.png?branch=master)](https://coveralls.io/r/diowa/icare)
 =====
 
 **icare** is an open source [carpooling](http://en.wikipedia.org/wiki/Carpool) platform.
@@ -20,7 +20,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [RABL][10] API Builder
 * Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
-* [RSpec][12] and [Cucumber][13]
+* [RSpec][12]
 * [Heroku][14] Cloud Application Platform
 * [Multi environment configuration][15]
 * [Airbrake][16] Exception Notification
@@ -80,12 +80,6 @@ Contributing
 Please make all pull requests against develop branch. Also, if your pull request contains new features, you must include relevant unit tests. Thanks!
 
 If you are interested in feature development, we have priorities. Check out our [To Do](/diowa/icare/wiki/To-Do) list.
-
-
-Unit tests
-----------
-
-TODO
 
 
 Authors

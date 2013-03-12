@@ -1,16 +1,74 @@
 Changelog
 =========
 
-0.6.12
+0.7.1
 -----
+* Updated gems
+* Added Coveralls
+
+0.7.0
+-----
+* Restricted mode (only available to members of a Facebook group)
+
+0.6.22
+------
+* Minor improvements
+
+0.6.21
+------
+* New Code Climate badge in README
+* Fixed New Relic configuration
+
+0.6.20
+------
+* Fixed bugs in itineraries controller
+* Fixed navbar icons
+* Fixed popover width
+* Replaced Cucumber with feature specs
+
+0.6.19
+------
+* Rails 3.2.12
+* Bootstrap 2.3
+
+0.6.18
+------
+* Fixed assets
+
+0.6.17
+------
+* Returns route back to client when itinerary creation fails
+* Minor fixes and improvements
+
+0.6.16
+------
+* Fixed missing string in italian translation (issue #6)
+* Fixed error on round trip itineraries when return date was nil
+* Updated navbar according to latest Facebook changes
+
+0.6.15
+------
+* New homepage
+* Gets all webfonts in one request
+
+0.6.14
+------
+* Maintenance release
+
+0.6.13
+------
+* Updated Ruby on Rails to 3.2.11
+
+0.6.12
+------
 * Some assets fixed
 
 0.6.11
------
+------
 * FontAwesome 3.0
 
 0.6.10
------
+------
 * Updated Ruby on Rails to 3.2.10
 
 0.6.9

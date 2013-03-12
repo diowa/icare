@@ -11,22 +11,21 @@
         %span.hidden-phone= APP_CONFIG.app_name
       - if logged_in?
         .center-notifications
-          .center-notifications-container
-            %ul#navbar-notifications-list.nav
-              %li.divider-vertical.hidden-phone
-              = navbar_notifications Message.model_name.human(count: :lot),
-                                     id: 'messages',
-                                     icon: 'comments',
-                                     unread: current_user.unread_conversations_count,
-                                     link: link_to(t('.see_all_messages'), :conversations),
-                                     ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0),
-                                     content: t('.no_new_messages')
-              = navbar_notifications Notification.model_name.human(count: :lot),
-                                     id: 'notifications',
-                                     icon: 'globe',
-                                     mock: true
-              - if current_user.admin?
-                = navbar_notifications 'Reports', id: 'reports', icon: 'flag', mock: true
+          %ul#navbar-notifications-list.nav
+            %li.divider-vertical.hidden-phone
+            = navbar_notifications Message.model_name.human(count: :lot),
+                                   id: 'messages',
+                                   icon: 'comments',
+                                   unread: current_user.unread_conversations_count,
+                                   link: link_to(t('.see_all_messages'), :conversations),
+                                   ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0),
+                                   content: t('.no_new_messages')
+            = navbar_notifications Notification.model_name.human(count: :lot),
+                                   id: 'notifications',
+                                   icon: 'globe',
+                                   mock: true
+            - if current_user.admin?
+              = navbar_notifications 'Reports', id: 'reports', icon: 'flag', mock: true
         %ul.nav.pull-right
           %li#navbar-user-info
             = link_to user_path(current_user), class: 'navbar-profile-link' do
@@ -34,17 +33,11 @@
               %span.hidden-phone= current_user
           %li.dropdown
             = link_to '#', data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do
-              %i.icon-chevron-down
+              %i.icon-cog
             %ul.dropdown-menu
-              %li
-                = link_to :settings do
-                  %i.icon-cog
-                  = t('.user_settings')
+              %li= link_to t('.account_settings'), :settings
               %li.divider
-              %li
-                = link_to :logout do
-                  %i.icon-signout
-                  = t('logout')
+              %li= link_to t('logout'), :logout
         %ul.nav.pull-right
           %li.loading
             #loading-spinner

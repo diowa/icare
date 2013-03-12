@@ -26,13 +26,10 @@
       = t('.step_3')
     %p= t('.confirm_and_share')
 .spacer
-#wizard-step-1-content
-  = render 'route_step'
 = bootstrap_form_for @itinerary, validate: true, html: { data: { step: 1, :"last-step" => 3 } } do |f|
-  #wizard-step-2-content.hide
-    = render 'details_step', f: f
-  #wizard-step-3-content.hide
-    = render 'confirm_and_share_step', f: f
+  #wizard-step-1-content= render 'route_step', f: f
+  #wizard-step-2-content.hide= render 'details_step', f: f
+  #wizard-step-3-content.hide= render 'confirm_and_share_step', f: f
   .form-actions.pagination-centered
     = f.hidden_field :route
     = f.submit t('.confirm_and_share'), class: 'btn btn-large btn-success hide', id: 'new_itinerary_submit', disabled: true

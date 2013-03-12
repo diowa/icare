@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '1.9.3'
-gem 'rails', '3.2.10'
+gem 'rails', '3.2.12'
 
 # Servers
 gem 'thin'
@@ -46,23 +46,29 @@ gem 'rest-client'
 
 
 group :development, :test do
-  gem 'bullet'
   gem 'debugger'
   gem 'delorean'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry'
   gem 'pry-rails'
+  gem 'rspec-rails', '~> 2.6'
+end
+
+group :development do
+  gem 'bullet'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
 
 group :test do
-  gem 'action_mailer_cache_delivery'
-  gem 'cucumber-rails', require: false
+  gem 'capybara'
+  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'
-  gem 'rspec-rails', '~> 2.6'
   gem 'simplecov', require: false
   gem 'spork', '~> 1.0rc'
   gem 'webmock', require: false

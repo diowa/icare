@@ -16,6 +16,13 @@ describe Itinerary do
       expect(invalid_itinerary.errors.size).to be 1
       expect(invalid_itinerary.errors.messages).to have_key :return_date
     end
+
+    it "adds an error on the return_date field if it's blank" do
+      nil_return_date_itinerary = FactoryGirl.build :itinerary, leave_date: Time.now + 1.day, return_date: nil, round_trip: true
+      expect(nil_return_date_itinerary.valid?).to be_false
+      expect(nil_return_date_itinerary.errors.size).to be 1
+      expect(nil_return_date_itinerary.errors.messages).to have_key :return_date
+    end
   end
 
   describe 'driver_is_female' do
@@ -82,7 +89,7 @@ describe Itinerary do
     end
   end
 
-  describe 'to_latlng_array' do
+  describe '.to_latlng_array' do
     it "converts Point in latitude, longitude array" do
       latlng_start_location_a = itinerary.start_location.to_latlng_a
       expect(itinerary.start_location.to_latlng_a.class).to be Array
@@ -92,7 +99,7 @@ describe Itinerary do
     end
   end
 
-  describe 'to_latlng_hash' do
+  describe '.to_latlng_hash' do
     it "converts Point in lat: latitude, lng: longitude hash" do
       latlng_start_location_hash = itinerary.start_location.to_latlng_hash
       expect(latlng_start_location_hash.class).to be Hash

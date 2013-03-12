@@ -10,23 +10,14 @@ body {
 
 @import "twitter/bootstrap/responsive";
 
-
 /* Fontawesome Icons
    ========================================================================== */
 
-@fontAwesomeEotPath: asset-path("fontawesome-webfont.eot");
-@fontAwesomeEotPath_iefix: asset-path("fontawesome-webfont.eot#iefix");
-@fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff");
-@fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf");
-@fontAwesomeSvgPath: asset-path("fontawesome-webfont.svg");
+@fontAwesomeEotPath: asset-path("fontawesome-webfont.eot?v=3.0.2");
+@fontAwesomeEotPath_iefix: asset-path("fontawesome-webfont.eot?#iefix&v=3.0.2");
+@fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff?v=3.0.2");
+@fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf?v=3.0.2");
 @import "fontawesome";
-
-.btn [class^="icon-"],
-.nav [class^="icon-"],
-.btn [class*=" icon-"],
-.nav [class*=" icon-"] {
-  line-height: .7em;
-}
 
 /* Overriding default variables and loading new ones
    ========================================================================== */
@@ -35,26 +26,62 @@ body {
 
 
 /* ==========================================================================
-   Google Places Autocompletion
+   Google Places Autocomplete
    ========================================================================== */
 
 .pac-container {
-  z-index: @zindexFixedNavbar + 1 !important;
-  min-width: 200px;
-  .border-radius(4px);
-  margin-top: 2px; // give it some space to breathe
+  z-index: @zindexDropdown;
+  min-width: 160px;
+  margin: 2px 0 0;
+  border: 1px solid #ccc; // Fallback for IE7-8
+  border: 1px solid @dropdownBorder;
+  *border-right-width: 2px;
+  *border-bottom-width: 2px;
+  padding: 5px 0;
+  background-color: @dropdownBackground;
+  .border-radius(6px);
+  .box-shadow(0 5px 10px rgba(0,0,0,.2));
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
 
   .pac-item {
-    padding: 3px 15px;
-    line-height: 18px;
+    padding: 3px 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: @baseLineHeight;
+    color: @dropdownLinkColor;
+
     &:hover {
-      color: @white;
-      background-color: @linkColor;
+      text-decoration: none;
+      color: @dropdownLinkColorHover;
+      #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+    }
+
+    &:active {
+      text-decoration: none;
+      outline: 0;
+      color: @dropdownLinkColorActive;
+      #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
     }
   }
 
   &::after {
     padding-right: 3px;
+  }
+}
+
+
+/* Typeahead
+   ========================================================================== */
+
+.typeahead {
+  .box-sizing(border-box);
+  overflow: hidden;
+
+  &.dropdown-menu > li > a {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

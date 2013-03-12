@@ -1,4 +1,7 @@
 require 'spork'
+require 'coveralls'
+Coveralls.wear!
+
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -29,6 +32,10 @@ Spork.prefork do
   Rails.application.railties.all { |r| r.eager_load! }
 
   require 'webmock/rspec'
+  require 'rspec/rails'
+  require 'capybara/rspec'
+
+  WebMock.disable_net_connect! allow: 'graph.facebook.com', allow_localhost: true
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -52,6 +59,7 @@ Spork.prefork do
     config.order = 'random'
 
     config.include Delorean
+    config.include MailerMacros
     ActionMailer::Base.perform_deliveries = false
     ActionMailer::Base.raise_delivery_errors = false
     ActionMailer::Base.delivery_method = :test
@@ -62,6 +70,7 @@ Spork.prefork do
 
     config.before(:each) do
       back_to_the_present
+      reset_email
       #load "#{Rails.root}/db/seeds.rb"
     end
   end

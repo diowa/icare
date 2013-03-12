@@ -98,7 +98,7 @@ it-IT:
     enter_words: Inserisci le parole sopra
 
   flash:
-    user:
+    users:
       success:
         update: Utente aggiornato con successo.
         destroy: Utente eliminato con successo.
@@ -108,7 +108,7 @@ it-IT:
         update: Si è verificato un errore durante l'aggiornamento dell'utente.
         ban: Si è verificato un errore durante la sospensione dell'utente.
         unban: Si è verificato un errore durante la riabilitazione dell'utente.
-    feedback:
+    feedbacks:
       success:
         create: Feedback creato con successo.
         update: Feedback aggiornato con successo.
@@ -117,24 +117,28 @@ it-IT:
         create: Si è verificato un errore durante la creazione del feedback.
         update: Si è verificato un errore durante l'aggiornamento del feedback.
         destroy: Si è verificato un errore durante l'eliminazione del feedback.
-    itinerary:
+    itineraries:
       success:
         update: Itinerario aggiornato con successo.
         destroy: Itinerario eliminato con successo.
       error:
         destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.
         pink: Gli itinerari rosa sono visibili solo dalle donne.
-    message:
+    sessions:
+      error:
+        create: "Impossibile effettuare l'accesso."
+        restricted: "Impossibile effettuare l'accesso. Questa applicazione è ristretta agli utenti di un gruppo Facebook, potresti non avere i diritti necessari ad accedere."
+    messages:
       error:
         create: Si è verificato un errore durante la creazione del messaggio.
-    error:
+    errors:
       not_authenticated: Effettua prima l'accesso.
       not_allowed: Non hai i permessi per accedere a questa pagina
 
   shared:
     navbar:
       language: Lingua
-      user_settings: Impostazioni utente
+      account_settings: Impostazioni account
       see_all_messages: Mostra tutti
       no_new_messages: Non ci sono nuovi messaggi
     footer:
@@ -143,6 +147,9 @@ it-IT:
   pages:
     home:
       tagline: "Condividi l'asfalto e risparmia."
+      learn_more: "Continua a leggere"
+      what_is_appname: "Cos'è %{appname}?"
+      main_features: "Caratteristiche Principali"
       share_itinerary_title: Condividi itinerari
       share_itinerary_content: "Ti sposti in automobile quotidianamente o saltuariamente? Condividi l'itinerario e dai la possibilità ad altre persone interessate allo stesso tipo di percorso di contattarti."
       make_new_connections_title: Nuove conoscenze
@@ -153,8 +160,11 @@ it-IT:
       thats_easy_content: "La familiarità di Google Maps e il processo di creazione guidata permettono a chiunque di condividere un percorso in pochi minuti."
       help_environment_title: "Ecosostenibile"
       help_environment_content: "Meno auto, meno traffico, meno stress e nuovi compagni di avventure! Rendi più piacevoli i tuoi spostamenti e nel contempo aiuti l'ambiente."
+      open_source_title: "Open Source"
+      open_source_content: "Il codice sorgente di %{appname} è a disposizione di tutti su github, la più vasta comunità open source al mondo."
       signin_terms: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
       demo_mode: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."
+      join_us_today: "Registrati adesso!"
     policy:
       title: Normativa sull'utilizzo dei dati
     terms:
@@ -214,7 +224,7 @@ it-IT:
         one: e un altro
         other: "e atri %{count}"
     settings:
-      user_settings: Impostazioni utente
+      account_settings: Impostazioni account
       general_information: Informazioni generali
       vehicle_information: Informazioni sul veicolo
       user_profile_details: I dettagli del profilo vengono aggiornati da Facebook dopo ogni accesso.
@@ -228,7 +238,7 @@ it-IT:
       application_settings: Impostazioni dell'applicazione
 
   itineraries:
-    commons:
+    common:
       about: "su %{itinerary_link} di %{user_link}"
       features: Caratteristiche
     search:
@@ -310,7 +320,7 @@ it-IT:
       send: Invia
 
   references:
-    commons:
+    common:
       role: Ruolo
       driver: Guidatore
       passenger: Passeggero

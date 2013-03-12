@@ -26,7 +26,11 @@ airbrake is licensed by Airbrake
 
 client_side_validations is licensed under the MIT License
 
-FontAwesome is licensed under CC BY 3.0 License
+FontAwesome is licensed under the MIT License
+
+FontAwesome font is licensed under the SIL Open Font License
+
+FontAwesome pictograms are licensed under the CC BY 3.0 License
 
 haml is licensed under the MIT License
 
@@ -48,7 +52,7 @@ koala is licensed under the MIT License
 
 mongoid is licensed under the MIT License
 
-#mongoid_geospatial: no license file provided
+mongoid_geospatial is licensed under the WTFPL License
 
 mongoid_slug is licensed under the MIT License
 

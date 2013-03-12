@@ -4,7 +4,7 @@ module Concerns
       extend ActiveSupport::Concern
 
       included do
-        def update_fields_from_omniauth(auth)
+        def set_fields_from_omniauth(auth)
           # Auth / Credentials
           self.oauth_token = auth.credentials.token
           self.oauth_expires_at = Time.at auth.credentials.expires_at
@@ -40,17 +40,25 @@ module Concerns
           Resque.enqueue(FacebookDataCacher, id)
         rescue Redis::CannotConnectError
         end
+
+        def has_access?
+          return true unless APP_CONFIG.facebook.restricted_group_id
+          facebook do |fb|
+            groups = fb.get_connections('me', 'groups')
+            group = groups.select{ |g| g['id'] == APP_CONFIG.facebook.restricted_group_id }.first
+            self.admin = group.present? && group['administrator']
+            group.present?
+          end
+        end
       end
 
       module ClassMethods
-        # TODO waiting for mongoid 3.1.0
-        # where(auth.slice(:provider, :uid)).first_or_initialize.tap
-
         def from_omniauth(auth)
-          user = where(auth.slice(:provider, :uid)).first || ::User.new
+          user = where(auth.slice(:provider, :uid)).first_or_initialize
+          return nil if user.new_record? && !user.has_access?
           user.provider = auth.provider
           user.uid = auth.uid
-          user.update_fields_from_omniauth auth
+          user.set_fields_from_omniauth auth
           user.save!
           user
         end

@@ -9,6 +9,7 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
+    @itinerary_route = Itineraries::Route.new
   end
 
   def index
@@ -25,6 +26,7 @@ class ItinerariesController < ApplicationController
     if @itinerary.save
       redirect_to itinerary_path @itinerary
     else
+      @itinerary_route = Itineraries::Route.new params[:itinerary][:itineraries_route]
       render :new
     end
   end
@@ -36,7 +38,7 @@ class ItinerariesController < ApplicationController
   def update
     @itinerary = current_user.itineraries.find params[:id]
     if @itinerary.update_attributes(params[:itinerary])
-      redirect_to my_itineraries_path, flash: { success: t('flash.itinerary.success.update') }
+      redirect_to itineraries_user_path(current_user), flash: { success: t('flash.itineraries.success.update') }
     else
       render :edit
     end
@@ -45,12 +47,12 @@ class ItinerariesController < ApplicationController
   def destroy
     @itinerary = current_user.itineraries.find params[:id]
     if @itinerary.destroy
-      redirect_to my_itineraries_path, flash: { success: t('flash.itinerary.success.destroy') }
+      redirect_to itineraries_user_path(current_user), flash: { success: t('flash.itineraries.success.destroy') }
     else
-      redirect_to my_itineraries_path, flash: { error: t('flash.itinerary.error.destroy') }
+      redirect_to itineraries_user_path(current_user), flash: { error: t('flash.itineraries.error.destroy') }
     end
   rescue
-    redirect_to my_itineraries_path, flash: { error: t('flash.itinerary.error.destroy') }
+    redirect_to itineraries_user_path(current_user), flash: { error: t('flash.itineraries.error.destroy') }
   end
 
   def search
@@ -67,7 +69,7 @@ class ItinerariesController < ApplicationController
     if !logged_in?
       redirect_to root_path
     elsif current_user.male?
-      redirect_to :dashboard, flash: { error: t('flash.itinerary.error.pink') }
+      redirect_to :dashboard, flash: { error: t('flash.itineraries.error.pink') }
     end
   end
 end

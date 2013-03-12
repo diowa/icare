@@ -61,22 +61,20 @@ module UsersHelper
     return if user1 == user2
     mutual_friends_list = user1.facebook_friends & user2.facebook_friends
     return unless mutual_friends_list.any?
-    content_tag(:dt) do
-      content_tag(:span, t('.common_friends'), class: 'description-facebook')
-    end +
-    content_tag(:dd, class: 'friends') do
-      mutual_friends_list.sample(limit).map do |mutual_friend|
+    html = content_tag(:dt) { content_tag(:span, t('.common_friends'), class: 'description-facebook') }
+    html << content_tag(:dd, class: 'friends') do
+      inner_html = ''
+      friend_tags = mutual_friends_list.sample(limit).map do |mutual_friend|
         content_tag(:span) do
           user_profile_picture(mutual_friend['id'], size: [25,25], style: nil) +
           mutual_friend['name']
         end
-      end.join.html_safe +
-      if mutual_friends_list.size - 5 > 0
-        link_to t('.and_others', count: mutual_friends_list.size - 5), '#', class: 'disabled'
-      else
-        ''.html_safe
       end
+      inner_html << friend_tags.join
+      inner_html << link_to(t('.and_others', count: mutual_friends_list.size - 5), '#', class: 'disabled') if mutual_friends_list.size - 5 > 0
+      inner_html.html_safe
     end
+    html.html_safe
   end
 
   def check_common_field(user, field)
@@ -109,7 +107,7 @@ module UsersHelper
 
   private
   def remap_work_or_edu_tags(field)
-    field.map { |field| { 'name' => field.first.second['name'], 'id' => field.first.second['id'] } }
+    field.map { |el| { 'name' => el.first.second['name'], 'id' => el.first.second['id'] } }
   end
 
   def get_common_tags(my_tags, user_tags)
