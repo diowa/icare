@@ -1,4 +1,7 @@
 require 'spork'
+require 'coveralls'
+Coveralls.wear!
+
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
