@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.7.1
+-----
+* Updated gems
+* Added Coveralls
+
 0.7.0
 -----
 * Restricted mode (only available to members of a Facebook group)
