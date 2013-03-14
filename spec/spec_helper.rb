@@ -1,6 +1,9 @@
 require 'spork'
-require 'coveralls'
-Coveralls.wear!
+
+if ENV['CI']
+  require 'coveralls'
+  Coveralls.wear! 'rails'
+end
 
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
