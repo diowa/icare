@@ -15,11 +15,10 @@
                           'application',
                           media: 'all'
 
-    / Le fav and touch icons
-    %link{ href: '/assets/favicon.ico', rel: 'shortcut icon' }
-    %link{ href: '/assets/apple-touch-icon.png', rel: 'apple-touch-icon' }
-    %link{ href: '/assets/apple-touch-icon-72x72.png', rel: 'apple-touch-icon', sizes: '72x72' }
-    %link{ href: '/assets/apple-touch-icon-114x114.png', rel: 'apple-touch-icon', sizes: '114x114' }
+    / Touch icons
+    %link{ href: asset_path('apple-touch-icon.png'), rel: 'apple-touch-icon' }
+    %link{ href: asset_path('apple-touch-icon-72x72.png'), rel: 'apple-touch-icon', sizes: '72x72' }
+    %link{ href: asset_path('apple-touch-icon-114x114.png'), rel: 'apple-touch-icon', sizes: '114x114' }
 
     /
       Le javascript
@@ -39,7 +38,7 @@
       #home-top-section-background
         .attribution
           _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
-        = image_tag '/assets/dash-itineraries.jpg', alt: ''
+        = image_tag asset_path('dash-itineraries.jpg'), alt: ''
       #home-top-section-container.container
         = render 'shared/flash_messages'
         %h1.pacifico
