@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.4
+-----
+* Minor css fixes
+
 0.7.3
 -----
 * New style inspired by Flat UI
