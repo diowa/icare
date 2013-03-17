@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '1.9.3'
+ruby '2.0.0'
 gem 'rails', '3.2.12'
 
 # Servers
@@ -46,21 +46,25 @@ gem 'rest-client'
 
 
 group :development, :test do
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'bullet'
   gem 'debugger'
   gem 'delorean'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'meta_request'
   gem 'pry'
   gem 'pry-rails'
   gem 'rspec-rails', '~> 2.6'
 end
 
+group :development do
+  gem 'bullet'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
 group :test do
   gem 'capybara'
+  gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'

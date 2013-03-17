@@ -1,6 +1,17 @@
 Changelog
 =========
 
+0.7.2
+-----
+* Ruby 2.0
+* Improved support for static assets (#10)
+* Fixed issues with missing locales (#11)
+
+0.7.1
+-----
+* Updated gems
+* Added Coveralls
+
 0.7.0
 -----
 * Restricted mode (only available to members of a Facebook group)

@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
 
   protected
   def set_locale
-    I18n.locale = params[:locale] \
-                  || (current_user.locale if logged_in?) \
+    preferred_locale = params[:locale] || current_user.locale if logged_in?
+    I18n.locale = check_locale_availability(preferred_locale) \
                   || request.preferred_language_from(I18n.available_locales) \
                   || request.compatible_language_from(I18n.available_locales)
   end
@@ -48,5 +48,9 @@ class ApplicationController < ActionController::Base
 
   def set_user_time_zone
     Time.zone = current_user.time_zone
+  end
+
+  def check_locale_availability(locale)
+    locale if locale.present? && I18n.available_locales.include?(locale.to_sym)
   end
 end
