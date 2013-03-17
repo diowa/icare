@@ -142,47 +142,26 @@
 }
 
 .home-icon-responsive(@multiplier: 5) {
-  @icon-size: @baseFontSize * @multiplier;
-  .square(@icon-size + 6px * @multiplier);
-  margin: 4px;
+  @icon-size: @baseFontSize * (@multiplier - 1);
+  .square(@icon-size + @baseFontSize + 8px * @multiplier);
 
   i {
-    top: 3px * @multiplier;
-    .square(@icon-size);
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
     line-height: @icon-size;
     font-size: @icon-size;
-  }
-
-  &::after {
-    .square(@icon-size + 6px * @multiplier + 12px);
   }
 }
 
 .home-icon {
   .home-icon-responsive();
   position: relative;
-  display: inline-block;
-  border: 4px solid @headerColor;
+  display: inline-table;
   .border-radius(100%);
   text-align: center;
-  color: @headerColor;
-  background: white;
-
-  i {
-    position: relative;
-  }
-
-  &::after {
-    position: absolute;
-    z-index: -1;
-    display: block;
-    top: -8px;
-    left: -8px;
-    .border-radius(100%);
-    border: 2px solid lighten(@headerColor, 0%);
-    content: '';
-    background: @grayLighter;
-  }
+  color: @bodyBackground;
+  background: @linkColor;
 }
 
 .home-paragraph {
@@ -206,11 +185,12 @@
   }
 
   .ribbon {
+    @ribbon-color: @headingsColor;
     position: relative;
     display: inline-block;
     font-size: 16px !important;
     /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
-    background: @icareMainColor;
+    background: @ribbon-color;
     .box-shadow(0 1px 1px fade(@black, 25%));
 
     h2 {
@@ -220,7 +200,7 @@
     }
 
     padding: 6px 2em; /* Adjust to suit */
-    margin: 1em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+    margin: 2em auto 4em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
 
     &:before,
     &:after {
@@ -228,7 +208,7 @@
       position: absolute;
       display: block;
       bottom: -1em;
-      border: 1.5em solid darken(@icareMainColor, 2%);
+      border: 1.5em solid darken(@ribbon-color, 2%);
       content: "";
       .box-shadow(0 1px 0 fade(@black, 25%));
     }
@@ -251,7 +231,7 @@
       display: block;
       bottom: -1em;
       border-style: solid;
-      border-color: darken(@icareMainColor, 5%) transparent transparent transparent;
+      border-color: darken(@ribbon-color, 5%) transparent transparent transparent;
       content: "";
     }
 
@@ -307,18 +287,15 @@
   }
 
   #home-text-snippets {
-    .home-icon,
     h3 {
       display: inline-block;
     }
 
-    h3 {
-      position: relative;
-      top: 4px;
-    }
-
     .home-icon {
       .home-icon-responsive(2);
+      i {
+        font-size: @baseFontSize * 2;
+      }
     }
   }
 }

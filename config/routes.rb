@@ -37,8 +37,6 @@ Icare::Application.routes.draw do
 
   resources :feedbacks, only: [:show, :new, :create, :edit, :update, :destroy, :index]
 
-  resources :beta_invites, only: [:new, :create, :destroy, :index]
-
   resources :sessions, only: [:create, :destroy]
 
   match 'auth/:provider', to: 'sessions#new', as: :auth_at_provider

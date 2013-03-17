@@ -1,6 +1,6 @@
-.modal.fade.in.hide#why-facebook
+#why-facebook.modal.hide.fade{ tabindex: -1, role: 'dialog', 'aria-labelledby' => t('why_facebook'), 'aria-hidden' => true }
   .modal-header
-    %button.close{ type: 'button', data: { dismiss: 'modal' } } &times;
+    %button.close{ type: 'button', data: { dismiss: 'modal' }, 'aria-hidden' => true } &times;
     %h3= t('why_facebook')
   .modal-body
     %p
@@ -8,7 +8,9 @@
     %p
       La creazione di un nuovo profilo, tuttavia, ti constringerebbe a risolvere un captcha, attendere la
       mail di attivazione, inserire dati anagrafici, caricare almeno una foto,
-      scegliere un nome utente, ricordare una nuova password, ecc. Accedendo con Facebook è possibile evitare questa noiosa procedura.
+      scegliere un nome utente, ricordare una nuova password, ecc.
+      %br
+      Accedendo con Facebook è possibile evitare questa noiosa procedura.
     %p
       Inoltre è facile immaginare che l'identità personale per una applicazione come la nostra è fondamentale. Bisogna potersi fidare in qualche modo dei nuovi compagni di viaggio e Facebook permette una prima verifica tramite amici, amici di amici, foto caricate...
     %p
@@ -19,4 +21,4 @@
         %strong
           NOTA: Non posteremo mai nulla senza il tuo esplicito permesso.
   .modal-footer
-    = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn'
+    = link_to t('close'), '#', 'aria-hidden' => true, data: { dismiss: 'modal' }, class: 'btn'

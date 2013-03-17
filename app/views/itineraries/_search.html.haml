@@ -21,12 +21,12 @@
       - [:smoking_allowed, :pets_allowed].each do |boolean_field|
         %tr
           %td= f.label "filter_#{boolean_field}".to_sym, Itinerary.human_attribute_name(boolean_field)
-          %td.select-field.align-right
+          %td.select-field.text-right
             = f.default_tag :select, "filter_#{boolean_field}".to_sym, boolean_options_for_select, { include_blank: true }
       %tr
         %td><
           = f.label :filter_driver_gender, Itinerary.human_attribute_name(:driver_gender)
-        %td.select-field.align-right
+        %td.select-field.text-right
           = f.default_tag :select, :filter_driver_gender, options_for_array_collection(User, :gender), { include_blank: true }, class: 'width-auto'
 
   = f.hidden_field :start_location_lat

@@ -7,7 +7,7 @@
           %span.icon-bar
           %span.icon-bar
       = link_to logged_in? ? :dashboard : root_path, class: 'brand' do
-        = image_tag 'turtle.svg', class: 'brand-logo'
+        = image_tag 'turtle_dark.svg', class: 'brand-logo'
         %span.hidden-phone= APP_CONFIG.app_name
       - if logged_in?
         .center-notifications

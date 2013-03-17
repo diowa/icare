@@ -35,7 +35,6 @@ en-US:
         gender_male: Male
         gender_female: Female
         birthday: Birthday
-        nationality: Nationality
         education: Education
         work: Work
         time_zone: Time zone

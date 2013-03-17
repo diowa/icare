@@ -10,12 +10,12 @@
       %blockquote.user-blockquote
         %p= @user.bio
     - if @user.facebook_verified?
-      %p.well
+      %blockquote.facebook-verified-blockquote
         %span.facebook-verified
           %i.icon-ok
           = User.human_attribute_name(:facebook_verified)
         %br
-        %small.muted= t('.facebook_verified')
+        %sspan.muted= t('.facebook_verified')
     %dl.dl-horizontal.tag-list
       %dt
         %span= Reference.model_name.human(count: :lot)

@@ -14,7 +14,7 @@
         = f.label :vehicle_avg_consumption, class: 'control-label'
         .controls
           .input-append
-            = f.default_tag :text_field, :vehicle_avg_consumption, class: 'input-mini align-right'
+            = f.default_tag :text_field, :vehicle_avg_consumption, class: 'input-mini text-right'
             %span.add-on>
               &euro; / km
           - if @user.errors.include?(:vehicle_avg_consumption)
