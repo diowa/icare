@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.7.3
+-----
+* New style inspired by Flat UI
+* New Ubuntu webfont
+* More specs
+
 0.7.2
 -----
 * Ruby 2.0
