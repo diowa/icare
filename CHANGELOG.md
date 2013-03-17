@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.7.4
+0.7.5
 -----
 * Minor css fixes
 
