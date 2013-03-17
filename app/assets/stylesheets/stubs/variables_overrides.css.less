@@ -8,12 +8,45 @@
    ========================================================================== */
 
 @blueFacebook: #3b5998;
-@icareMainColor: #16576b;
+@icareMainColor: #2c3e50;
 
-@headerColor: desaturate(darken(@icareMainColor, 7%), 30%);
-@headerFontFamily: "Open Sans Condensed";
+/* Flat UI Palettes */
+@flat-ui-turquoise: #1abc9c;
+@flat-ui-green-sea: #16a085;
 
-/* Desaturating some colours
+@flat-ui-emerald:   #2ecc71;
+@flat-ui-nephritis: #27ae60;
+
+@flat-ui-petermann-river: #3498db;
+@flat-ui-belize-hole:     #2980b9;
+
+@flat-ui-amethyst: #9b59b6;
+@flat-ui-wisteria: #8e44ad;
+
+@flat-ui-wet-asphalt:   #34495e;
+@flat-ui-midnight-blue: #2c3e50;
+
+@flat-ui-wet-asphalt:   #34495e;
+@flat-ui-midnight-blue: #2c3e50;
+
+@flat-ui-sun-flower: #f1c40f;
+@flat-ui-orange: #f39c12;
+
+@flat-ui-carrot:      #e67e22;
+@flat-ui-pumpkin:     #d35400;
+
+@flat-ui-alizarin:    #e74c3c;
+@flat-ui-pomegranate: #c0392b;
+
+@flat-ui-clouds:      #ecf0f1;
+@flat-ui-silver:      #bdc3c7;
+
+@flat-ui-concrete:    #95a5a6;
+@flat-ui-asbestos:    #7f8c8d;
+
+@glossiness: 5%;
+
+/* Desaturating bootstrap colours
    ========================================================================== */
 
 @amount: 10%;
@@ -27,47 +60,62 @@
 @pink:                  desaturate(#c3325f, @amount);
 @purple:                desaturate(#7a43b6, @amount);
 
-@btnInfoBackground:                 desaturate(#5bc0de, @amount);
-@btnInfoBackgroundHighlight:        desaturate(#2f96b4, @amount);
+/* Desaturating bootstrap colours
+   ========================================================================== */
 
-@btnSuccessBackground:              desaturate(#62c462, @amount);
-@btnSuccessBackgroundHighlight:     desaturate(#51a351, @amount);
+@btnBackground:                     @white;
+@btnBackgroundHighlight:            darken(@btnBackground, @glossiness);
 
-@btnWarningBackground:              desaturate(lighten(@orange, 15%), @amount);
-@btnWarningBackgroundHighlight:     desaturate(@orange, @amount);
+@btnInfoBackground:                 @flat-ui-green-sea;
+@btnInfoBackgroundHighlight:        darken(@btnInfoBackground, @glossiness);
 
-@btnDangerBackground:               desaturate(#ee5f5b, @amount);
-@btnDangerBackgroundHighlight:      desaturate(#bd362f, @amount);
+@btnSuccessBackground:              @flat-ui-nephritis;
+@btnSuccessBackgroundHighlight:     darken(@btnSuccessBackground, @glossiness);
 
-@warningText:             desaturate(#c09853, @amount);
-@warningBackground:       desaturate(#fcf8e3, @amount);
-@warningBorder:           desaturate(darken(spin(@warningBackground, -10), 3%), @amount);
+@btnWarningBackground:              @flat-ui-orange;
+@btnWarningBackgroundHighlight:     darken(@btnWarningBackground, @glossiness);
 
-@errorText:               desaturate(#b94a48, @amount);
-@errorBackground:         desaturate(#f2dede, @amount);
-@errorBorder:             desaturate(darken(spin(@errorBackground, -10), 3%), @amount);
+@btnDangerBackground:               @flat-ui-pomegranate;
+@btnDangerBackgroundHighlight:      darken(@btnDangerBackground, @glossiness);
 
-@successText:             desaturate(#468847, @amount);
-@successBackground:       desaturate(#dff0d8, @amount);
-@successBorder:           desaturate(darken(spin(@successBackground, -10), 5%), @amount);
+@warningText:             darken(@flat-ui-orange, 15%);
+@warningBackground:       lighten(@flat-ui-orange, 35%);
+@warningBorder:           darken(spin(@warningBackground, -10), 3%);
 
-@infoText:                desaturate(#3a87ad, @amount);
-@infoBackground:          desaturate(#d9edf7, @amount);
-@infoBorder:              desaturate(darken(spin(@infoBackground, -10), 7%), @amount);
+@errorText:               desaturate(@flat-ui-pomegranate, 10%);
+@errorBackground:         lighten(@flat-ui-pomegranate, 45%);
+@errorBorder:             darken(spin(@errorBackground, -10), 3%);
+
+@successText:             darken(@flat-ui-green-sea, 10%);
+@successBackground:       desaturate(lighten(@flat-ui-green-sea, 55%), 25%);
+@successBorder:           darken(spin(@successBackground, -10), 5%);
+
+@infoText:                @flat-ui-belize-hole;
+@infoBackground:          lighten(@flat-ui-belize-hole, 45%);
+@infoBorder:              darken(spin(@infoBackground, -10), 7%);
 
 /* Bootstrap variables override
    ========================================================================== */
 
-@sansFontFamily: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@sansFontFamily: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-@linkColor: lighten(@icareMainColor, 10%);
+@headingsFontWeight:    500;    // instead of browser default, bold
+@headingsColor:         @flat-ui-wet-asphalt;
 
-@navbarBackground: fade(@icareMainColor, 70%);
-@navbarBackgroundHighlight: lighten(@navbarBackground, 10%);
+@linkColor: desaturate(darken(@flat-ui-belize-hole, 5%), 10%);
 
-@navbarText: @grayLighter;
-@navbarLinkColor: @grayLighter;
-@navbarLinkColorHover: @white;
-@navbarLinkColorActive: @white;
-@navbarLinkBackgroundHover: fade(@white, 5%);
-@navbarLinkBackgroundActive: darken(@navbarBackground, 5%);
+@navbarBackground: fade(@flat-ui-clouds, 70%);
+@navbarBackgroundHighlight: lighten(@navbarBackground, @glossiness);
+
+@navbarText: @grayDark;
+@navbarLinkColor: @linkColor;
+@navbarLinkColorHover: darken(@linkColor, 5%);
+@navbarLinkColorActive: darken(@linkColor, 10%);
+@navbarLinkBackgroundHover: darken(@navbarBackground, 5%);
+@navbarLinkBackgroundActive: darken(@navbarBackground, 10%);
+
+@baseBorderRadius:      3px;
+@borderRadiusLarge:     4px;
+@borderRadiusSmall:     2px;
+
+@tooltipBackground: @flat-ui-midnight-blue;

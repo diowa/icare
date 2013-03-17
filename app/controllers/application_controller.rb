@@ -12,8 +12,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def set_locale
-    preferred_locale = params[:locale] || current_user.locale if logged_in?
-    I18n.locale = check_locale_availability(preferred_locale) \
+    I18n.locale = check_locale_availability(params[:locale] || (current_user.locale if logged_in?)) \
                   || request.preferred_language_from(I18n.available_locales) \
                   || request.compatible_language_from(I18n.available_locales)
   end

@@ -35,7 +35,6 @@ it-IT:
         gender_male: Uomo
         gender_female: Donna
         birthday: Data di nascita
-        nationality: Nazionalità
         education: Istruzione
         work: Lavoro
         time_zone: Fuso orario

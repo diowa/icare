@@ -1,6 +1,17 @@
 require 'spec_helper'
 
 describe 'Users' do
+
+  it "should be able to edit their profile" do
+    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+    visit '/auth/facebook'
+    visit '/settings'
+    fill_in 'user_vehicle_avg_consumption', with: '0.29'
+    click_button I18n.t('helpers.submit.update', model: User)
+    expect(user.reload.vehicle_avg_consumption).to eq 0.29
+    expect(find('#user_vehicle_avg_consumption').value).to eq '0.29'
+  end
+
   describe 'without admin permissions' do
     before(:each) do
       @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'

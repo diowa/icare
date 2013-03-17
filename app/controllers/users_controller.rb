@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     @last_itineraries = Itinerary.includes(:user).desc(:created_at).limit 10
 
     # Gender filter
-    @last_itineraries = @last_itineraries.where(pink: false) if current_user.male?
+    @latest_itineraries = @last_itineraries.where(pink: false) if current_user.male?
   end
 
   def itineraries

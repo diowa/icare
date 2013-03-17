@@ -13,7 +13,7 @@
         .input-prepend.input-append
           %span.add-on>
             &euro;
-          = f.default_tag :text_field, :fuel_cost, class: 'span1 align-right'
+          = f.default_tag :text_field, :fuel_cost, class: 'span1 text-right'
           %span.add-on>
             \.00
         - if @itinerary.errors.include?(:fuel_cost)
@@ -31,7 +31,7 @@
         .input-prepend.input-append
           %span.add-on>
             &euro;
-          = f.default_tag :text_field, :tolls, class: 'span1 align-right'
+          = f.default_tag :text_field, :tolls, class: 'span1 text-right'
           %span.add-on>
             \.00
         - if @itinerary.errors.include?(:tolls)
@@ -80,7 +80,7 @@
               - (0..6).each_with_index do |index|
                 %tr
                   %td
-                    %p.align-center
+                    %p.text-center
                       = check_box_tag "day-#{index}"
                   %td= label_tag "day-#{index}", t('date.day_names')[index]
                   %td
