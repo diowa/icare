@@ -7,6 +7,17 @@ describe 'Sessions' do
     expect(User.count).to_not be_zero
   end
 
+  it "allow users without birthday (???) to sign in from Facebook" do
+    @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
+    OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Duncan MacLeod' }, extra: { raw_info: { birthday: nil } }
+    highlander = FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
+    visit '/auth/facebook'
+    expect(current_path).to eq dashboard_path
+    expect(page).to have_content highlander.name
+    OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
+  end
+
+
   it "allow users to logout" do
     visit '/auth/facebook'
     expect(find("a[href='/signout']")).to be_present

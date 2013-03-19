@@ -12,6 +12,26 @@ describe 'Users' do
     expect(find('#user_vehicle_avg_consumption').value).to eq '0.29'
   end
 
+  it "should see latest itineraries in dashboard" do
+    female_user = FactoryGirl.create :user, gender: 'female'
+    FactoryGirl.create_list :itinerary, 5
+    FactoryGirl.create :itinerary, pink: true, user: female_user
+    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+    visit '/auth/facebook'
+    expect(page).to have_css('.table-itinerary tr', count: 5)
+  end
+
+  it "should see latest itineraries in dashboard including pink if they are women" do
+    female_user = FactoryGirl.create :user, gender: 'female'
+    FactoryGirl.create_list :itinerary, 5
+    FactoryGirl.create_list :itinerary, 1, pink: true, user: female_user
+    @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
+    OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
+    visit '/auth/facebook'
+    expect(page).to have_css('.table-itinerary tr', count: 6)
+    OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
+  end
+
   describe 'without admin permissions' do
     before(:each) do
       @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
@@ -29,8 +49,14 @@ describe 'Users' do
   end
 
   describe 'verified' do
-    before(:each) do
+    before(:all) do
+      @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
+    end
+    after(:all) do
+      OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
+    end
+    before(:each) do
       @verified_user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
       visit '/auth/facebook'
     end
