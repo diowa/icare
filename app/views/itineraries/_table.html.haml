@@ -1,7 +1,10 @@
 %table.table
   %thead
     %th= Itinerary.human_attribute_name(:title)
-    %th= t('itineraries.common.features')
+    %th
+      %span.visible-phone
+        %i.icon-info-sign{ rel: 'tooltip', title: t('itineraries.common.features') }
+      %span.hidden-phone= t('itineraries.common.features')
     - if edit
       %th= t('helpers.actions')
     - else
