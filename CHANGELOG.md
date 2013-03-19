@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.7
+-----
+* Rails 3.2.13
+
 0.7.6
 -----
 * Minor css fixes
