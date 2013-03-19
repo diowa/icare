@@ -83,14 +83,18 @@
 .notifications {
   position: relative;
 
-  a {
-    padding: 9px 10px !important;
+  > a {
+    padding: 10px 10px !important;
+    .box-sizing(border-box);
+    height: 40px;
   }
 
   i {
     position: relative;
     top: 2px;
     font-size: 20px;
+    height: 20px;
+    line-height: 20px;
   }
 
   &.read {
@@ -124,7 +128,7 @@
 .popover-ajax-content,
 .popover-static-content {
   margin-bottom: 9px;
-  padding: 10px 10px 9px !important;
+  padding: 10px 14px 9px !important;
 }
 
 .popover-title {
@@ -134,6 +138,11 @@
 
 .popover-content {
   padding: 0 0 @baseLineHeight/2 0;
+
+  > p {
+    margin-right: 14px;
+    margin-left: 14px;
+  }
 }
 
 .popover-elements {

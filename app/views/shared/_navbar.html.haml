@@ -12,7 +12,6 @@
       - if logged_in?
         .center-notifications
           %ul#navbar-notifications-list.nav
-            %li.divider-vertical.hidden-phone
             = navbar_notifications Message.model_name.human(count: :lot),
                                    id: 'messages',
                                    icon: 'comments',
