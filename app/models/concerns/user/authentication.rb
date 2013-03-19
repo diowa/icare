@@ -24,7 +24,7 @@ module Concerns
           self.locale = auth.extra.raw_info.locale.gsub(/_/,'-') unless self.locale?
 
           # Extras (extra permissions are required)
-          self.birthday = Date.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").at_midnight
+          self.birthday = Date.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").at_midnight if auth.extra.raw_info.birthday
           self.work = auth.extra.raw_info.work || {}
           self.education = auth.extra.raw_info.education || {}
 
