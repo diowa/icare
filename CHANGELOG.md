@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.8
+-----
+* Fixes issues for women
+
 0.7.7
 -----
 * Rails 3.2.13
