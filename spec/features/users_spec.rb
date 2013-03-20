@@ -80,17 +80,17 @@ describe 'Users' do
     end
 
     it "should show a rough number of friends" do
-      expect(find(:xpath, "//span[text()='#{I18n.t('users.show.friends', count: '10-')}']")).to be_true
+      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '10-')}']")).to be_true
       create_friends_and_refresh 6
-      expect(find(:xpath, "//span[text()='#{I18n.t('users.show.friends', count: '10-')}']")).to be_true
+      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '10-')}']")).to be_true
       create_friends_and_refresh 11
-      expect(find(:xpath, "//span[text()='#{I18n.t('users.show.friends', count: '10+')}']")).to be_true
+      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '10+')}']")).to be_true
       create_friends_and_refresh 101
-      expect(find(:xpath, "//span[text()='#{I18n.t('users.show.friends', count: '100+')}']")).to be_true
+      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '100+')}']")).to be_true
       create_friends_and_refresh 1001
-      expect(find(:xpath, "//span[text()='#{I18n.t('users.show.friends', count: '1000+')}']")).to be_true
+      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '1000+')}']")).to be_true
       create_friends_and_refresh 5001
-      expect(find(:xpath, "//span[text()='#{I18n.t('users.show.friends', count: '5000')}']")).to be_true
+      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '5000')}']")).to be_true
     end
 
     it "should show reference tags" do
@@ -126,19 +126,19 @@ describe 'Users' do
     it "should highlight common languages" do
       user_with_common_languages = FactoryGirl.create :user, languages: [{ id: '106059522759137', name: 'English' }]
       visit user_path(user_with_common_languages)
-      expect(find(:xpath, "//span[@class='common' and text()='#{I18n.t('users.show.language', language: 'English')}']")).to be_true
+      expect(find(:xpath, "//div[@class='tag common' and text()='#{I18n.t('users.show.language', language: 'English')}']")).to be_true
     end
 
     it "should highlight common jobs" do
       user_with_common_works = FactoryGirl.create :user, work: [ { employer: { id: '100', name: 'First Inc.' }, start_date: '0000-00' } ]
       visit user_path(user_with_common_works)
-      expect(find(:xpath, "//span[@class='common' and text()='First Inc.']")).to be_true
+      expect(find(:xpath, "//div[@class='tag common' and text()='First Inc.']")).to be_true
     end
 
     it "should highlight common schools" do
       user_with_common_education = FactoryGirl.create :user, education: [{ school: { id: '300', name: 'A College' }, type: 'College' }]
       visit user_path(user_with_common_education)
-      expect(find(:xpath, "//span[@class='common' and text()='A College']")).to be_true
+      expect(find(:xpath, "//div[@class='tag common' and text()='A College']")).to be_true
     end
 
     it "should show mutual friends" do
@@ -149,7 +149,7 @@ describe 'Users' do
       user_with_mutual_friends = FactoryGirl.create :user,
                                                     facebook_friends: [{ 'id' => '910100', 'name' => 'Not a mutual friend' }, { 'id' => '910101', 'name' => 'Not a mutual friend' } ] + mutual_friends
       visit user_path(user_with_mutual_friends)
-      expect(all(:xpath, "//span[text()[contains(.,'Mutual friend named ')]]").size).to be 5
+      expect(all(:xpath, "//div[text()[contains(.,'Mutual friend named ')]]").size).to be 5
       expect(has_content?(I18n.t('users.show.and_others', count: 1))).to be_true
       expect(has_content?('Not a common friend')).to be_false
     end
@@ -160,8 +160,8 @@ describe 'Users' do
       @user_with_common_friends = FactoryGirl.create :user,
                                                      facebook_favorites: [ { 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' } ]
       visit user_path(@user_with_common_friends)
-      expect(find(:xpath, "//span[@class='common' and text()='Common like']")).to be_true
-      expect(-> { find(:xpath, "//span[@class='common' and text()='Not a common like']") }).to raise_error Capybara::ElementNotFound
+      expect(find(:xpath, "//div[@class='tag common' and text()='Common like']")).to be_true
+      expect(-> { find(:xpath, "//div[@class='tag common' and text()='Not a common like']") }).to raise_error Capybara::ElementNotFound
     end
   end
 end
