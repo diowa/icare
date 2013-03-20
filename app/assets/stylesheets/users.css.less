@@ -1,73 +1,45 @@
 @import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
 
-dl.tag-list {
+.tag-list {
+  margin-left: -5px;
 
-  dt,
-  dd {
-    margin-bottom: 13px;
-    font-weight: normal;
-    line-height: 26px;
-  }
+  .tag {
+    display: block;
+    float: left;
+    margin: 0 0 12px 5px;
+    padding: 4px 12px;
+    background: @flat-ui-clouds;
 
-  a {
-    position: relative;
-    top: 1px;
-  }
+    &.tag-mutual-friend {
+      position: relative;
+      padding-left: 34px;
 
-  span {
-    display: inline-block;
-    max-width: 100%;
-    .ie7-inline-block();
-    overflow: hidden;
-    border: 1px solid @btnBorder;
-    /* border-bottom-color: darken(@btnBorder, 10%); */
-    padding: 3px 6px 4px;
-    line-height: 14px;
-    white-space: pre;
-    text-align: center;
-    text-overflow: ellipsis;
-    vertical-align: middle;
-    .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px fade(@white, 75%));
-    .border-radius(4px);
-    .ie7-restore-left-whitespace(); // Give IE7 some love
-    cursor: default;
-  }
-
-  dd > span {
-    margin-right: 6px;
-  }
-
-  dd.friends {
-    vertical-align: top;
-    line-height: 31px;
-    margin-bottom: 8px;
-
-    span {
-      margin-bottom: 5px;
+      img {
+        position: absolute;
+        .square(28px);
+        top: 0;
+        left: 0;
+      }
     }
 
-    img {
-      .square(25px);
-      margin-right: 5px;
+    &.tag-icare {
+      color: @white;
+      background: @linkColor;
+      clear: left;
     }
 
-    a {
-      top: -2px;
+
+    &.tag-facebook {
+      color: @white;
+      background: @blueFacebook;
+      clear: left;
     }
-  }
 
-  .common {
-    .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
-  }
-
-  dt > span,
-  .description {
-    .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
-  }
-
-  .description-facebook {
-    .buttonBackground(@blueFacebook, darken(@blueFacebook, 10%));
+    &.common {
+      color: @white;
+      background: @flat-ui-nephritis;
+    }
   }
 }
 

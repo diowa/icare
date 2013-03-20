@@ -3,8 +3,8 @@ Changelog
 
 0.7.9
 -----
-* Code climate
-* Fixes navbar height issue in firefox
+* Improved user show
+* Fixed navbar height issue in firefox
 
 0.7.8
 -----
