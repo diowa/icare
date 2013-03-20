@@ -37,6 +37,6 @@ module ReferencesHelper
 
   private
   def reference_tag(user, reference_type)
-    content_tag(:span, t("references.snippet.#{reference_type}", count: @user.references.send(reference_type).count))
+    content_tag(:div, t("references.snippet.#{reference_type}", count: @user.references.send(reference_type).count), class: 'tag')
   end
 end

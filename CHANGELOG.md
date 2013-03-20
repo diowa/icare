@@ -1,9 +1,15 @@
 Changelog
 =========
 
+0.7.9
+-----
+* Improved user show
+* Fixed navbar height issue in firefox
+
 0.7.8
 -----
 * Fixes issues for women
+* Fixes issues for users without birthday
 
 0.7.7
 -----
