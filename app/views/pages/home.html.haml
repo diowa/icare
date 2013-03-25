@@ -11,15 +11,14 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
 
     / Le styles
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:700|Pacifico',
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Ubuntu:400,500,700|Pacifico',
                           'application',
                           media: 'all'
 
-    / Le fav and touch icons
-    %link{ href: '/assets/favicon.ico', rel: 'shortcut icon' }
-    %link{ href: '/assets/apple-touch-icon.png', rel: 'apple-touch-icon' }
-    %link{ href: '/assets/apple-touch-icon-72x72.png', rel: 'apple-touch-icon', sizes: '72x72' }
-    %link{ href: '/assets/apple-touch-icon-114x114.png', rel: 'apple-touch-icon', sizes: '114x114' }
+    / Touch icons
+    %link{ href: asset_path('apple-touch-icon.png'), rel: 'apple-touch-icon' }
+    %link{ href: asset_path('apple-touch-icon-72x72.png'), rel: 'apple-touch-icon', sizes: '72x72' }
+    %link{ href: asset_path('apple-touch-icon-114x114.png'), rel: 'apple-touch-icon', sizes: '114x114' }
 
     /
       Le javascript
@@ -32,14 +31,12 @@
   %body.home-page-body
     #fb-root
     #home-top-section
-      .learn-more-container.hidden-phone.align-center
-        %a.btn.btn-large.btn-learn-more{ href: '#' }
-          = t('.learn_more')
-          %i.icon-chevron-down
+      .learn-more-container.hidden-phone.text-center
+        %a.btn.btn-large.btn-learn-more{ href: '#' }= t('.learn_more')
       #home-top-section-background
         .attribution
           _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
-        = image_tag '/assets/dash-itineraries.jpg', alt: ''
+        = image_tag asset_path('dash-itineraries.jpg'), alt: ''
       #home-top-section-container.container
         = render 'shared/flash_messages'
         %h1.pacifico
@@ -97,7 +94,7 @@
             .home-icon
               %i.icon-github-alt
             %h3= t('.open_source_title')
-            %p= t('.open_source_content', appname: APP_CONFIG.app_name)
+            %p= t('.open_source_content', appname: APP_CONFIG.app_name, source_code_link: link_to(t('.source_code'), APP_CONFIG.repository_url)).html_safe
       .row
         .span12
           .ribbon-container

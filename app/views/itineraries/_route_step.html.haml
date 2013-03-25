@@ -1,9 +1,9 @@
 .row
-  .span3
+  .span4
     %h3= yield :title
     = f.fields_for @itinerary_route do |route_fields|
-      = route_fields.text_field :from, class: 'input-xlarge width-max'
-      = route_fields.text_field :to, class: 'input-xlarge width-max'
+      = route_fields.text_field :from, class: 'input-block'
+      = route_fields.text_field :to, class: 'input-block'
       = route_fields.check_box :avoid_highways
       = route_fields.check_box :avoid_tolls
       = route_fields.button t('.get_route'), type: 'button', class: 'btn btn-primary', id: 'get-route'
@@ -16,7 +16,7 @@
       %br
       #{t('.duration')}:
       %b#duration
-  .span9
+  .span8
     #new-itinerary-map.google-maps
     %p#route-helper.hide
       %small

@@ -8,17 +8,8 @@
 
   .brand {
     font-family: "Pacifico";
-    color: @grayLighter;
     font-size: 20px;
     line-height: 20px;
-    text-shadow: 0 -1px 0 fade(@black, 25%);
-    .transition(text-shadow .4s ease-out);
-
-    &:hover {
-      color: white;
-      text-shadow: 0 -1px 0 fade(@black, 25%),
-                   0 0 25px fade(@white, 90%);
-    }
   }
 }
 
@@ -36,7 +27,8 @@
 
     img {
       position: absolute;
-      border: 1px solid @grayLighter;
+      border: 1px solid darken(@navbarBackground, 15%);
+      .border-radius(100%);
     }
 
     span {
@@ -91,26 +83,28 @@
 .notifications {
   position: relative;
 
-  a {
-    padding: 9px 10px !important;
+  > a {
+    padding: 10px 10px !important;
+    .box-sizing(border-box);
+    height: 40px;
   }
 
   i {
     position: relative;
     top: 2px;
     font-size: 20px;
-    text-shadow: 0 1px 0px fade(darken(@icareMainColor, 20%), 85%);
+    height: 20px;
+    line-height: 20px;
   }
 
   &.read {
     i {
-      color: fade(darken(@icareMainColor, 20%), 45%);
-      text-shadow: none;
+      color: fade(darken(@navbarBackground, 40%), 45%);
     }
   }
 
   &.active i {
-    color: @white;
+    color: @navbarLinkColorActive;
   }
 
   .count {
@@ -118,11 +112,12 @@
     top: 3px;
     right: 4px;
     height: 12px;
-    padding: 2px 5px;
+    padding: 3px 5px 1px;
     font-weight: bold;
     line-height: 12px;
     font-size: 10px;
     background: fade(@red, 80%);
+    .border-radius(100%);
   }
 }
 
@@ -133,7 +128,7 @@
 .popover-ajax-content,
 .popover-static-content {
   margin-bottom: 9px;
-  padding: 10px 10px 9px !important;
+  padding: 10px 14px 9px !important;
 }
 
 .popover-title {
@@ -143,6 +138,11 @@
 
 .popover-content {
   padding: 0 0 @baseLineHeight/2 0;
+
+  > p {
+    margin-right: 14px;
+    margin-left: 14px;
+  }
 }
 
 .popover-elements {
@@ -192,7 +192,7 @@
     top: 12px;
     right: 5px;
     .size(17px, 24px);
-    background: url('/assets/ajax-spinner-24x17.gif');
+    background: image-url('ajax-spinner-24x17.gif');
     .background-size(24px 17px);
   }
 }

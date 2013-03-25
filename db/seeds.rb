@@ -55,6 +55,7 @@ Language.create(name_translations: {"en-US" => "Ukranian", "it-IT" => "Ucraino"}
 
 #http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 #tab = $("table.wikitable.sortable.jquery-tablesorter").find("tbody")[0]; for (row in tab.rows) { console.log('Country.create(name_translations: { "en-US" => "' + tab.rows[row].cells[1].textContent +'" }, code: "' + tab.rows[row].cells[0].textContent + '")'); }
+=begin
 Country.destroy_all
 Country.create(name_translations: { "en-US" => "Andorra" }, code: "AD")
 Country.create(name_translations: { "en-US" => "United Arab Emirates" }, code: "AE")
@@ -305,3 +306,4 @@ Country.create(name_translations: { "en-US" => "Mayotte" }, code: "YT")
 Country.create(name_translations: { "en-US" => "South Africa" }, code: "ZA")
 Country.create(name_translations: { "en-US" => "Zambia" }, code: "ZM")
 Country.create(name_translations: { "en-US" => "Zimbabwe" }, code: "ZW")
+=end

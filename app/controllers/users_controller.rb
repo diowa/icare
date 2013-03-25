@@ -45,10 +45,10 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-    @last_itineraries = Itinerary.includes(:user).desc(:created_at).limit 10
+    @latest_itineraries = Itinerary.includes(:user).desc(:created_at).limit 10
 
     # Gender filter
-    @last_itineraries = @last_itineraries.where(pink: false) if current_user.male?
+    @latest_itineraries = @latest_itineraries.where(pink: false) if current_user.male?
   end
 
   def itineraries

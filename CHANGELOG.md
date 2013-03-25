@@ -1,6 +1,42 @@
 Changelog
 =========
 
+0.7.10
+------
+* Improved dashboard
+* Improved homepage
+* Updated gems (fixed client side validations)
+
+0.7.9
+-----
+* Improved user show
+* Fixed navbar height issue in firefox
+
+0.7.8
+-----
+* Fixes issues for women
+* Fixes issues for users without birthday
+
+0.7.7
+-----
+* Rails 3.2.13
+
+0.7.6
+-----
+* Minor css fixes
+
+0.7.3
+-----
+* New style inspired by Flat UI
+* New Ubuntu webfont
+* More specs
+
+0.7.2
+-----
+* Ruby 2.0
+* Improved support for static assets (#10)
+* Fixed issues with missing locales (#11)
+
 0.7.1
 -----
 * Updated gems

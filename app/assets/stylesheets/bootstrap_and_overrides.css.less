@@ -152,6 +152,13 @@ i[class^="icon-"] {
   margin-top: 8px !important;
 }
 
+/* Text class fix */
+th.text-right,
+td.text-right {
+  text-right: right;
+}
+
+
 /* ==========================================================================
    Global styles
    ========================================================================== */
@@ -188,16 +195,9 @@ i[class^="icon-"] {
 
 h1,
 h2,
-h3,
-h4 {
-  font-family: @headerFontFamily;
-}
-
-h1,
-h2,
 h3 {
-  color: @headerColor;
   text-shadow: 1px 1px 0 fade(@white, 25%);
+  letter-spacing: -1px;
 }
 
 h4,
@@ -208,6 +208,10 @@ h6 {
 
 h1 {
   margin-bottom: 15px;
+}
+
+.tooltip.in {
+  .opacity(90);
 }
 
 /* New Buttons
@@ -223,6 +227,23 @@ h1 {
 
 .btn-facebook {
   .buttonBackground(lighten(@blueFacebook, 10%), @blueFacebook);
+}
+
+.btn-outline {
+  border: 2px solid fade(@white, 50%);
+  padding: 3px 11px;
+  color: @white;
+  background: fade(@black, 10%) !important;
+  .box-sizing(border-box);
+
+
+  &:hover {
+    border: 2px solid @white;
+  }
+}
+
+.btn-outline.btn-large {
+  padding: 10px 18px;
 }
 
 /* New Text colours

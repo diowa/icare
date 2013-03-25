@@ -9,7 +9,7 @@
         %li= link_to t('terms'), :terms
     %li
       %i.icon-github
-      = link_to 'diowa/icare', 'http://github.com/diowa/icare'
+      = link_to 'diowa/icare', APP_CONFIG.repository_url
     - if logged_in?
       %li
         %i.icon-bullhorn

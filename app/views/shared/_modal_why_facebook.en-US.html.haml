@@ -1,6 +1,6 @@
-.modal.fade.in.hide#why-facebook
+#why-facebook.modal.hide.fade{ tabindex: -1, role: 'dialog', 'aria-labelledby' => t('why_facebook'), 'aria-hidden' => true }
   .modal-header
-    %button.close{ type: 'button', data: { dismiss: 'modal' } } &times;
+    %button.close{ type: 'button', data: { dismiss: 'modal' }, 'aria-hidden' => true } &times;
     %h3= t('why_facebook')
   .modal-body
     %p
@@ -8,7 +8,8 @@
     %p
       Anyway, the creation of a new profile will you solve a captcha, wait for an activation email, insert
       personal data, upload at least one picture, select an user name, remember a new password, etc.
-      Logging in by Facebook you can skip this boring process.
+      %br
+      You can skip all this boring process by logging in with Facebook.
     %p
       Personal identity matters for our application. You can trust in any way your new travel companions and Facebook provides
       a first verification through friends, friends of friends, uploaded photos...
@@ -20,4 +21,4 @@
         %strong
           NOTE: We will never post anything without your explicit consent.
   .modal-footer
-    = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn'
+    = link_to t('close'), '#', 'aria-hidden' => true, data: { dismiss: 'modal' }, class: 'btn'
