@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.7.10
+------
+* Improved dashboard
+* Improved homepage
+* Updated gems (fixed client side validations)
+
 0.7.9
 -----
 * Improved user show
