@@ -2,40 +2,19 @@
 .row
   .span12
     = render 'shared/flash_messages'
-  .span6
-    #hero-user.hero-unit
-      .attribution
-        db9_dash.jpg by xmatt, on Flickr
-      .dashboard-title= t('.reminder')
-      %p
-        = link_to :conversations, class: 'btn btn-large btn-block' do
-          %i.icon-comments
-          = t('.new_messages', count: current_user.unread_conversations_count)
-      %p
-        = link_to :notifications, class: 'btn btn-large btn-block mock disabled' do
-          %i.icon-globe
-          = t('.new_notifications', count: 0)
-      %p
-        = link_to user_references_path(current_user), class: 'btn btn-large btn-block' do
-          %i.icon-thumbs-up
-          = t('.new_references', count: current_user.unread_references_count)
-  .span6
-    #hero-itineraries.hero-unit
-      .attribution
-        _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
-      .dashboard-title= Itinerary.model_name.human(count: 42)
-      %p
-        = link_to itineraries_path, class: 'btn btn-large btn-block' do
-          %i.icon-search
-          = t('.search_itineraries')
-      %p
-        = link_to new_itinerary_path, class: 'btn btn-large btn-block' do
-          %i.icon-road
-          = t('.new_itinerary')
-      %p
-        = link_to itineraries_user_path(current_user), class: 'btn btn-large btn-block' do
-          %i.icon-heart
-          = t('.your_itineraries')
+.row.dashboard
+  .span4
+    = link_to itineraries_path, class: 'btn btn-large btn-block btn-primary' do
+      %i.icon-search
+      = t('.search_itineraries')
+  .span4
+    = link_to new_itinerary_path, class: 'btn btn-large btn-block' do
+      %i.icon-plus
+      = t('.new_itinerary')
+  .span4
+    = link_to itineraries_user_path(current_user), class: 'btn btn-large btn-block' do
+      %i.icon-road
+      = t('.your_itineraries')
 .row
   .span12
     %h3= t('.latest_itineraries')
