@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.11
+------
+* Fixed README
+
 0.7.10
 ------
 * Improved dashboard
