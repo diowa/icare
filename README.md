@@ -1,4 +1,8 @@
-icare [![Build Status](https://secure.travis-ci.org/diowa/icare.png)](https://travis-ci.org/diowa/icare) [![Dependency Status](https://gemnasium.com/diowa/icare.png)](https://gemnasium.com/diowa/icare) [![Code Climate](https://codeclimate.com/github/diowa/icare.png)](https://codeclimate.com/github/diowa/icare) [![Coverage Status](https://coveralls.io/repos/diowa/icare/badge.png?branch=master)](https://coveralls.io/r/diowa/icare)
+icare
+[![Build Status](https://secure.travis-ci.org/diowa/icare.png)](https://travis-ci.org/diowa/icare)
+[![Dependency Status](https://gemnasium.com/diowa/icare.png)](https://gemnasium.com/diowa/icare)
+[![Code Climate](https://codeclimate.com/github/diowa/icare.png)](https://codeclimate.com/github/diowa/icare)
+[![Coverage Status](https://coveralls.io/repos/diowa/icare/badge.png?branch=master)](https://coveralls.io/r/diowa/icare)
 =====
 
 **icare** is an open source [carpooling](http://en.wikipedia.org/wiki/Carpool) platform.
@@ -44,7 +48,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [16]: http://github.com/airbrake/airbrake
  [17]: http://newrelic.com/
 
-A working demo is available at http://icaredemo.herokuapp.com/
+A working demo is available at http://icare.diowa.com/
 
 
 Name and logo
