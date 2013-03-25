@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.12
+------
+* Fixed Badges
+
 0.7.11
 ------
 * Fixed README
