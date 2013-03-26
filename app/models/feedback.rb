@@ -5,8 +5,6 @@ class Feedback
   TYPE = %w(bug idea)
   STATUS = ['open', 'fixed', 'in progress', 'not applicable']
 
-  attr_accessible :type, :status, :message, :url
-
   belongs_to :user
   delegate :name, to: :user, prefix: true
 

@@ -12,13 +12,19 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def ban
-    @user.banned = true
-    redirect_to admin_users_path, flash: (@user.save ? { success: t('flash.admin.users.success.ban') } : { error: t('flash.admin.users.error.ban') })
+    if @user.update_attributes(banned: true)
+      redirect_to admin_users_path, flash: { success: t('flash.admin.users.success.ban') }
+    else
+      redirect_to admin_users_path, flash: { error: t('flash.admin.users.error.ban') }
+    end
   end
 
   def unban
-    @user.banned = false
-    redirect_to admin_users_path, flash: (@user.save ? { success: t('flash.admin.users.success.unban') } : { error: t('flash.admin.users.error.unban') })
+    if @user.update_attributes(banned: false)
+      redirect_to admin_users_path, flash: { success: t('flash.admin.users.success.unban') }
+    else
+      redirect_to admin_users_path, flash: { error: t('flash.admin.users.error.unban') }
+    end
   end
 
   private

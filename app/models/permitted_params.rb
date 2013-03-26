@@ -7,11 +7,8 @@ class PermittedParams < Struct.new(:params, :current_user)
     basic_fields = [:title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls,
                     :round_trip, :leave_date, :return_date, :daily,
                     :route, :share_on_facebook_timeline]
-    if current_user && current_user.female?
-      basic_fields + [:pink]
-    else
-      basic_fields
-    end
+    basic_fields << :pink if current_user && current_user.female?
+    basic_fields
   end
 
   def user
@@ -20,5 +17,23 @@ class PermittedParams < Struct.new(:params, :current_user)
 
   def user_attributes
     [:time_zone, :locale, :vehicle_avg_consumption]
+  end
+
+  def feedback
+    params.require(:feedback).permit(*feedback_attributes)
+  end
+
+  def feedback_attributes
+    basic_fields = [:type, :status, :message, :url]
+    basic_fields << :status if current_user && current_user.admin?
+    basic_fields
+  end
+
+  def conversation
+    params.require(:conversation).permit(*conversation_attributes)
+  end
+
+  def conversation_attributes
+    [message: [:body, :sender]]
   end
 end

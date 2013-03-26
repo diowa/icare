@@ -1,21 +1,21 @@
 class ConversationBuild
-  def initialize(params, user)
+  def initialize(params, user, itinerary)
     @params = params
     @user = user
+    @itinerary = itinerary
   end
 
   def conversation
-    @conversation ||= build @params, @user
-  end
-
-  private
-  def build(params, user)
-    itinerary = Itinerary.find params[:itinerary_id]
-    conversation = itinerary.conversations.build params[:conversation]
-    conversation.messages.build params[:conversation][:message]
-    conversation.users = [ user, itinerary.user ]
-    conversation
+    result = @itinerary.conversations.build
+    result.messages.build message
+    result.users = [@user, @itinerary.user]
+    result
   rescue
     # TODO
+  end
+
+  def message
+    result = @params[:message]
+    result.merge! sender: @user
   end
 end
