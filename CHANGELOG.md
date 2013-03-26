@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.13
+------
+* Improved User management
+
 0.7.12
 ------
 * Fixed Badges
