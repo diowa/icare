@@ -21,6 +21,7 @@ gem 'mongoid'
 gem 'mongoid_geospatial'
 gem 'mongoid_slug'
 gem 'validates_timeliness'
+gem 'strong_parameters'
 
 # Geospatial data library
 gem 'rgeo'

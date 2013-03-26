@@ -10,8 +10,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    if @user.update_attributes params[:user]
+    if @user.update_attributes(permitted_params.user)
       redirect_to :settings, flash: { success: t('flash.users.success.update') }
     else
       render :settings

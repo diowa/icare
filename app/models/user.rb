@@ -13,8 +13,6 @@ class User
 
   index({ username_or_uid: 1 })
 
-  attr_accessible :time_zone, :locale, :vehicle_avg_consumption
-
   has_and_belongs_to_many :conversations
 
   has_many :itineraries, dependent: :destroy
