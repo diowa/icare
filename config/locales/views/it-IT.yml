@@ -98,16 +98,20 @@ it-IT:
     enter_words: Inserisci le parole sopra
 
   flash:
+    admin:
+      users:
+        success:
+          ban: Utente sospeso con successo.
+          unban: Utente riabilitato con successo.
+        error:
+          ban: Si è verificato un errore durante la sospensione dell'utente.
+          unban: Si è verificato un errore durante la riabilitazione dell'utente.
     users:
       success:
         update: Utente aggiornato con successo.
         destroy: Utente eliminato con successo.
-        ban: Utente sospeso con successo.
-        unban: Utente riabilitato con successo.
       error:
         update: Si è verificato un errore durante l'aggiornamento dell'utente.
-        ban: Si è verificato un errore durante la sospensione dell'utente.
-        unban: Si è verificato un errore durante la riabilitazione dell'utente.
     feedbacks:
       success:
         create: Feedback creato con successo.
@@ -137,10 +141,11 @@ it-IT:
 
   shared:
     navbar:
-      language: Lingua
       account_settings: Impostazioni account
-      see_all_messages: Mostra tutti
+      admin_users: Gestione utenti
+      language: Lingua
       no_new_messages: Non ci sono nuovi messaggi
+      see_all_messages: Mostra tutti
     footer:
       message: La riservatezza non è garantita in questo stato di sviluppo
 
@@ -172,6 +177,12 @@ it-IT:
       title: Condizioni d'uso
     demo_terms:
       title: Condizioni d'uso della versione dimostrativa
+
+  admin:
+    users:
+      index:
+        login_as: Loggati come
+
   users:
     banned:
       title: Account sospeso

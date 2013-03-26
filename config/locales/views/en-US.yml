@@ -137,10 +137,11 @@ en-US:
 
   shared:
     navbar:
-      language: Language
       account_settings: Account Settings
-      see_all_messages: See All
+      admin_users: Manage Users
+      language: Language
       no_new_messages: No new messages
+      see_all_messages: See All
     footer:
       message: Privacy is not guaranteed at this stage of development
 
@@ -172,6 +173,11 @@ en-US:
       title: Terms of Service
     demo_terms:
       title: Terms of Service (Demo)
+
+  admin:
+    users:
+      index:
+        login_as: Login as
 
   users:
     banned:
