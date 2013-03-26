@@ -19,10 +19,6 @@ class Feedback
   validates :status, inclusion: STATUS, presence: true
   validates :message, presence: true
 
-  def short_message(max = 100)
-    message.truncate(max)
-  end
-
   def fixed?
     status == 'fixed'
   end

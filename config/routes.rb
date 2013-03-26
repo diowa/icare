@@ -2,9 +2,8 @@ Icare::Application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :users, constraints: { id: /[A-Za-z0-9\.]+/ }, only: [:show, :create, :edit, :update, :destroy, :index] do
+  resources :users, constraints: { id: /[A-Za-z0-9\.]+/ }, only: [:show, :edit, :update, :destroy] do
     get :itineraries, on: :member
-    post :ban, :unban, on: :member
     resources :references, only: [:show, :new, :create, :update, :index]
   end
 
@@ -38,6 +37,13 @@ Icare::Application.routes.draw do
   resources :feedbacks, only: [:show, :new, :create, :edit, :update, :destroy, :index]
 
   resources :sessions, only: [:create, :destroy]
+
+  namespace :admin do
+    resources :users, only: [:index] do
+      get :login_as, on: :member
+      post :ban, :unban, on: :member
+    end
+  end
 
   match 'auth/:provider', to: 'sessions#new', as: :auth_at_provider
   match 'auth/:provider/callback', to: 'sessions#create'

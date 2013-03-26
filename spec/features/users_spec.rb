@@ -32,6 +32,16 @@ describe 'Users' do
     OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
   end
 
+  it "should be able to delete their account" do
+    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+    visit '/auth/facebook'
+    click_link I18n.t('delete_account')
+    expect(current_path).to eq root_path
+    expect(User.count).to be 0
+    expect(User.deleted.count).to be 1
+    expect(page).to have_content I18n.t('flash.users.success.destroy')
+  end
+
   describe 'without admin permissions' do
     before(:each) do
       @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
@@ -43,7 +53,7 @@ describe 'Users' do
     end
 
     it "should note see users index" do
-      visit users_path
+      visit admin_users_path
       expect(current_path).to eq dashboard_path
     end
   end

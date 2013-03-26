@@ -23,7 +23,7 @@
             %td= feedback.type
             %td= feedback.status.upcase
             %td= link_to feedback.user_name, user_path(feedback.user)
-            %td= link_to feedback.short_message, feedback_path(feedback)
+            %td= link_to feedback.message.truncate(100), feedback_path(feedback)
             %td= l feedback.updated_at, format: :long
             %td.btn-toolbar
               = link_to edit_feedback_path(feedback), class: 'btn btn-small' do
