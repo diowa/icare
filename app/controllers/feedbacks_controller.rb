@@ -1,6 +1,8 @@
 class FeedbacksController < ApplicationController
 
   skip_before_filter :check_admin, only: [:index]
+  before_filter :check_admin, only: [:destroy]
+  before_filter :check_owner_or_admin, only: [:edit, :update]
 
   def index
     @feedbacks = Feedback.includes(:user).all.desc(:updated_at).page params[:page]
@@ -17,10 +19,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    attrs = params[:feedback]
-    attrs.delete("status") unless current_user.admin?
-    @feedback = Feedback.new(attrs)
-    @feedback.user = current_user
+    @feedback = current_user.feedbacks.build(permitted_params.feedback)
     if @feedback.save
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.create') }
     else
@@ -30,12 +29,9 @@ class FeedbacksController < ApplicationController
   end
 
   def edit
-    @feedback = Feedback.find(params[:id])
   end
 
   def update
-    @feedback = Feedback.find(params[:id])
-
     if @feedback.update_attributes(permitted_params.feedback)
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.update') }
     else
@@ -46,11 +42,16 @@ class FeedbacksController < ApplicationController
 
   def destroy
     @feedback = Feedback.find(params[:id])
-
-    if current_user.admin? && @feedback.destroy
+    if @feedback.destroy
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.destroy') }
     else
       redirect_to feedbacks_path, flash: { error: t('flash.feedbacks.error.destroy') }
     end
+  end
+
+  private
+  def check_owner_or_admin
+    @feedback = Feedback.find(params[:id])
+    redirect_to :dashboard, flash: { error: t('flash.errors.not_allowed') } unless current_user.admin? || current_user == @feedback.user
   end
 end

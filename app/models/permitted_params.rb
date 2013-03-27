@@ -24,7 +24,7 @@ class PermittedParams < Struct.new(:params, :current_user)
   end
 
   def feedback_attributes
-    basic_fields = [:type, :status, :message, :url]
+    basic_fields = [:type, :message, :url]
     basic_fields << :status if current_user && current_user.admin?
     basic_fields
   end
