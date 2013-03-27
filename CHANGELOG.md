@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.14
+------
+* Strong parameters
+
 0.7.13
 ------
 * Improved User management
