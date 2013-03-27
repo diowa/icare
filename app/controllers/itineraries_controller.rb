@@ -22,7 +22,7 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = ItineraryBuild.new(params[:itinerary], current_user).itinerary
+    @itinerary = ItineraryBuild.new(permitted_params.itinerary, current_user).itinerary
     if @itinerary.save
       redirect_to itinerary_path @itinerary
     else
@@ -37,7 +37,7 @@ class ItinerariesController < ApplicationController
 
   def update
     @itinerary = current_user.itineraries.find params[:id]
-    if @itinerary.update_attributes(params[:itinerary])
+    if @itinerary.update_attributes permitted_params.itinerary
       redirect_to itineraries_user_path(current_user), flash: { success: t('flash.itineraries.success.update') }
     else
       render :edit

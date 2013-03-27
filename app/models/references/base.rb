@@ -3,8 +3,6 @@ class References::Base
   include Mongoid::Timestamps
   include Mongoid::Paranoia
 
-  attr_accessible :body, :rating
-
   field :body
   field :rating, type: Integer
 

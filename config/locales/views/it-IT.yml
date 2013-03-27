@@ -343,7 +343,7 @@ it-IT:
     show:
       title: Referenza
     new:
-      title: New reference
+      title: Nuova referenza
     snippet:
       positives:
         zero: 0 positive
