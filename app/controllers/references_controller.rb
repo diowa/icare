@@ -17,7 +17,7 @@ class ReferencesController < ApplicationController
   end
 
   def create
-    @reference = ReferenceBuild.new(params[:reference], current_user, @itinerary).reference
+    @reference = ReferenceBuild.new(permitted_params.reference, current_user, @itinerary).reference
     if @reference.save
       redirect_to user_reference_path(current_user, @reference)
     else
@@ -34,7 +34,7 @@ class ReferencesController < ApplicationController
 
   def update
     @reference = current_user.references.find params[:id]
-    if @reference.build_outgoing(params[:reference]) && @reference.save
+    if @reference.build_outgoing(permitted_params.reference) && @reference.save
       redirect_to user_reference_path(current_user, @reference)
     else
       @user = find_user params[:user_id]

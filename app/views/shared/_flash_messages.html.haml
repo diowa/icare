@@ -1,5 +1,5 @@
 -unless flash.empty?
   - flash.each do |type, message|
     .alert.fade.in{ class: "alert-#{twitterized_type(type)}" }
-      %btn.close{ type: 'button', data: { dismiss: 'alert' } } &times;
+      %button.close{ type: 'button', data: { dismiss: 'alert' } } &times;
       = message

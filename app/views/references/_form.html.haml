@@ -6,13 +6,14 @@
     .controls
       .btn-group.btn-group-radio
         = f.default_tag :radio_button, :rating, -1
-        = f.label 'rating_-1', class: 'btn' do
+        = f.label :rating, value: -1, class: 'btn' do
           %i.icon-thumbs-down
           = Reference.human_attribute_name(:rating_negative)
         = f.default_tag :radio_button, :rating, 0
-        = f.label :rating_0, Reference.human_attribute_name(:rating_neutral), class: 'btn'
+        = f.label :rating, value: 0, class: 'btn' do
+          = Reference.human_attribute_name(:rating_neutral)
         = f.default_tag :radio_button, :rating, 1
-        = f.label :rating_1, class: 'btn' do
+        = f.label :rating, value: 1, class: 'btn' do
           %i.icon-thumbs-up
           = Reference.human_attribute_name(:rating_positive)
   .form-actions

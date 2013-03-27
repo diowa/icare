@@ -3,8 +3,6 @@ class Message
   include Mongoid::Timestamps
   include Mongoid::Paranoia
 
-  attr_accessible :body, :sender, :read_at
-
   belongs_to :sender, class_name: User.model_name
 
   embedded_in :conversation

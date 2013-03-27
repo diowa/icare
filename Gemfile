@@ -21,6 +21,7 @@ gem 'mongoid'
 gem 'mongoid_geospatial'
 gem 'mongoid_slug'
 gem 'validates_timeliness'
+gem 'strong_parameters'
 
 # Geospatial data library
 gem 'rgeo'
@@ -42,8 +43,6 @@ gem 'jquery-rails'
 gem 'nokogiri'
 gem 'resque', require: 'resque/server' # Resque web interface
 gem 'rest-client'
-#gem 'wicked'
-
 
 group :development, :test do
   gem 'debugger'

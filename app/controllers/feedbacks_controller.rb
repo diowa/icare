@@ -36,7 +36,7 @@ class FeedbacksController < ApplicationController
   def update
     @feedback = Feedback.find(params[:id])
 
-    if @feedback.update_attributes(params[:feedback])
+    if @feedback.update_attributes(permitted_params.feedback)
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.update') }
     else
       flash.now[:error] = @feedback.errors.full_messages
