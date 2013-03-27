@@ -4,4 +4,4 @@
 
 # jQuery Turbolinks
 $ ->
-  $('a[rel~="tooltip"],i[rel~="tooltip"]').tooltip()
+  $('[rel~="tooltip"]').tooltip()

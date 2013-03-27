@@ -53,10 +53,6 @@ it-IT:
         end_location: Arrivo
         title: Titolo
         description: Descrizione
-        vehicle: Veicolo
-        vehicle_car: Automobile
-        vehicle_motorcycle: Motocicletta
-        vehicle_van: Furgone
         smoking_allowed: Si fuma a bordo
         pets_allowed: Animali a bordo
         fuel_cost: Costo carburante

@@ -1,7 +1,5 @@
 .row
   .span5
-    = f.text_field :title, class: 'input-block', maxlength: 40
-    = f.select :vehicle, options_for_array_collection(Itinerary, :vehicle)
     .control-group
       .controls
         = f.check_box :smoking_allowed, class: 'checkbox inline'

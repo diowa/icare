@@ -12,8 +12,8 @@ describe 'Itineraries' do
       visit '/auth/facebook'
     end
 
-    it "sanitize malicious titles and descriptions" do
-      malicious_itinerary = FactoryGirl.create :itinerary, user: @user, title: XSS_ALERT, description: XSS_ALERT
+    it "sanitize malicious description" do
+      malicious_itinerary = FactoryGirl.create :itinerary, user: @user, description: XSS_ALERT
       #pending
     end
 
@@ -43,27 +43,27 @@ describe 'Itineraries' do
     end
 
     it "allow users to delete their own ones" do
-      itinerary = FactoryGirl.create :itinerary, user: @user, title: 'Itinerary to destroy'
+      itinerary = FactoryGirl.create :itinerary, user: @user
       visit itineraries_user_path(@user)
-      find(:xpath, "//a[@data-method='delete' and contains(@href, '#{itinerary_path(itinerary)}')]").click
+      find(:xpath, "//a[@data-method='delete' and @href='#{itinerary_path(itinerary)}']").click
       expect(page).to have_content I18n.t('flash.itineraries.success.destroy')
       expect(page).to_not have_content itinerary.title
     end
 
     it "allow users to edit their own ones" do
-      itinerary = FactoryGirl.create :itinerary, user: @user, title: 'Old title'
+      itinerary = FactoryGirl.create :itinerary, user: @user, description: 'Old description'
       visit itineraries_user_path(@user)
       find(:xpath, "//a[contains(@href, '#{edit_itinerary_path(itinerary)}')]").click
-      fill_in 'itinerary_title', with: 'New Title'
+      fill_in 'itinerary_description', with: 'New Description'
       click_button I18n.t('helpers.submit.update', model: Itinerary.model_name.human)
       expect(page).to have_content I18n.t('flash.itineraries.success.update')
-      expect(page).to_not have_content itinerary.title
-      expect(page).to have_content itinerary.reload.title
+      visit itinerary_path(itinerary)
+      expect(page).to have_content 'New Description'
     end
 
     it "doesn't allow male users to see pink itineraries" do
       female_user = FactoryGirl.create :user, gender: 'female'
-      pink_itinerary = FactoryGirl.create :itinerary, user: female_user, title: 'Pink itinerary', pink: true
+      pink_itinerary = FactoryGirl.create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
       visit itinerary_path(pink_itinerary)
       expect(current_path).to eq dashboard_path
       expect(page).to have_content I18n.t('flash.itineraries.error.pink')
@@ -72,15 +72,15 @@ describe 'Itineraries' do
 
   describe 'Guests' do
     it "allow guests to see itineraries" do
-      itinerary = FactoryGirl.create :itinerary, title: 'Itinerary for guest users'
+      itinerary = FactoryGirl.create :itinerary, description: 'Itinerary for guest users'
       visit itinerary_path(itinerary)
       expect(current_path).to eq itinerary_path(itinerary)
-      expect(page).to have_content itinerary.title
+      expect(page).to have_content itinerary.description
     end
 
     it "doesn't allow guests to see pink itineraries" do
       female_user = FactoryGirl.create :user, gender: 'female'
-      pink_itinerary = FactoryGirl.create :itinerary, user: female_user, title: 'Pink itinerary', pink: true
+      pink_itinerary = FactoryGirl.create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
       visit itinerary_path(pink_itinerary)
       expect(current_path).to eq root_path
     end

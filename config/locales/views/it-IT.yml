@@ -263,22 +263,32 @@ it-IT:
     show:
       app_user: "Un utente di %{appname}"
       contact: "Contatta %{user}"
+      expenses_to_share: Costi da dividere
       leave_reference: Lascia una referenza
       report_itinerary: "Segnala questo itinerario"
       login_to_contact: "Accedi per contattare questo utente"
+      smoking:
+        allowed: Si fuma a bordo
+        forbidden: Vietato fumare
+      pets:
+        allowed: Animali a bordo
+        forbidden: Vietato portare animali
     edit:
       title: "Modifica itinerario"
     new:
+      continue: Continua
       title: Nuovo itinerario
       step_1: Passo 1
       step_2: Passo 2
       step_3: Passo 3
       plan_route: Pianifica il percorso
       insert_itinerary_details: "Inserisci i dettagli sull'itinerario"
+      insert_details_and_confirm: "Inserisci i dettagli e conferma"
       confirm_and_share: "Conferma e condividi"
-      satisfied_next_step: "Sono soddisfatto, continua"
       next_step: "Passo successivo"
       previous_step: "Torna indietro"
+      missing_publish_stream_permission: "%{appname} non ha il permesso di pubblicare sul tuo diario."
+      share_on_timeline_unavailable: "Siamo spiacenti. Al momento %{appname} non può condividere l'itinerario sul diario di Facebook."
     route_step:
       get_route: Calcola percorso
       distance: Distanza
@@ -291,7 +301,7 @@ it-IT:
       hint_search_before_title: "Cerca prima"
       hint_search_before_content: "E se il tuo percorso esistesse già? %{search_link} tra quelli disponibili se ne è presente uno adatto alle tue esigenze."
       search_link: "Cerca"
-    details_step:
+    form:
       description_help: "Inserisci una breve descrizione del tuo itinerario. Se ci sono cose che i tuoi compagni di viaggio devono necessariamente sapere prima di contattarti, aggiungile qui (esempio: \"ascolto musica al massimo del volume\")."
       single_itinerary: Itinerario Singolo
       daily_itinerary: Itinerario Giornaliero
@@ -302,10 +312,6 @@ it-IT:
       fuel_help_text: "Il percorso è di {km} km. Considerando un consumo medio di %{avg_consumption} €/km, il costo stimato è di {est}.00 €."
       more_accurate_data: "Vuoi dati più accurati per il tuo veicolo?"
       pink_help: Gli itinerari rosa possono essere creati solo dalle donne e sono visibili solo alle donne.
-    confirm_and_share_step:
-      preview: Anteprima
-      missing_publish_stream_permission: "%{appname} non ha il permesso di pubblicare sul tuo diario."
-      share_on_timeline_unavailable: "Siamo spiacenti. Al momento %{appname} non può condividere l'itinerario sul diario di Facebook."
 
   feedbacks:
     index:

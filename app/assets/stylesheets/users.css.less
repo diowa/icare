@@ -1,48 +1,6 @@
 @import "stubs/variables_overrides.css.less";
 @import "twitter/bootstrap/mixins";
 
-.tag-list {
-  margin-left: -5px;
-
-  .tag {
-    display: block;
-    float: left;
-    margin: 0 0 12px 5px;
-    padding: 4px 12px;
-    background: @flat-ui-clouds;
-
-    &.tag-mutual-friend {
-      position: relative;
-      padding-left: 34px;
-
-      img {
-        position: absolute;
-        .square(28px);
-        top: 0;
-        left: 0;
-      }
-    }
-
-    &.tag-icare {
-      color: @white;
-      background: @linkColor;
-      clear: left;
-    }
-
-
-    &.tag-facebook {
-      color: @white;
-      background: @blueFacebook;
-      clear: left;
-    }
-
-    &.common {
-      color: @white;
-      background: @flat-ui-nephritis;
-    }
-  }
-}
-
 .facebook-verified {
   color: @successText;
   font-size: 1.2em;

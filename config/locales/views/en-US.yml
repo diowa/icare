@@ -259,9 +259,16 @@ en-US:
     show:
       app_user: "An user of %{appname}"
       contact: "Contact %{user}"
+      expenses_to_share: Expenses to share
       leave_reference: Leave a reference
       report_itinerary: "Report this itinerary"
       login_to_contact: "Log in to contact this user"
+      smoking:
+        allowed: Smoking allowed
+        forbidden: Smoking forbidden
+      pets:
+        allowed: Pets allowed
+        forbidden: Pets forbidden
     edit:
       title: "Edit itinerary"
     new:
@@ -272,9 +279,10 @@ en-US:
       plan_route: Set up the route
       insert_itinerary_details: "Insert itinerary details"
       confirm_and_share: "Confirm and share"
-      satisfied_next_step: "I'm satisfied, continue"
       next_step: "Next step"
       previous_step: "Back"
+      missing_publish_stream_permission: "%{appname} doesn't have permissions to publish on your timeline."
+      share_on_timeline_unavailable: "We apologize. %{appname} can't share on Facebook's Timeline right now."
     route_step:
       get_route: Get route
       distance: Distance
@@ -286,7 +294,7 @@ en-US:
       hint_search_before_title: "Search before"
       hint_search_before_content: "And if your itinerary was already there? %{search_link} among the available itineraries and check if there is one that matches your needs."
       search_link: "Search"
-    details_step:
+    form:
       description_help: "Enter a brief description of your itinerary. If there are things that your fellow travelers need to know, add them here (example: \"loud music in the car!\")."
       single_itinerary: Single Itinerary
       daily_itinerary: Daily Itinerary
@@ -297,10 +305,6 @@ en-US:
       fuel_help_text: "The route is {km} km long. Considering an average consumption of %{avg_consumption} €/km, the estimate cost is {est}.00 €."
       more_accurate_data: "Need more accurate data for your vehicle?"
       pink_help: Pink itineraries can be created only by women and are visible only to women.
-    confirm_and_share_step:
-      preview: Preview
-      missing_publish_stream_permission: "%{appname} doesn't have permissions to publish on your timeline."
-      share_on_timeline_unavailable: "We apologize. %{appname} can't share on Facebook's Timeline right now."
 
   feedbacks:
     index:

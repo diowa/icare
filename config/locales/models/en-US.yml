@@ -53,10 +53,6 @@ en-US:
         end_location: To
         title: Title
         description: Description
-        vehicle: Vehicle
-        vehicle_car: Car
-        vehicle_motorcycle: Motorcycle
-        vehicle_van: Van
         smoking_allowed: Smoking allowed
         pets_allowed: Pets allowed
         fuel_cost: Fuel cost

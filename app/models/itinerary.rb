@@ -6,7 +6,6 @@ class Itinerary
   include Mongoid::MultiParameterAttributes
   include Mongoid::Slug
 
-  VEHICLE = %w(car motorcycle van)
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
   BOUNDARIES = [APP_CONFIG.itineraries.bounds.sw, APP_CONFIG.itineraries.bounds.ne]
 
@@ -24,9 +23,9 @@ class Itinerary
   field :overview_polyline, type: String
 
   # Details
-  field :title
+  field :start_address
+  field :end_address
   field :description
-  field :vehicle, default: 'car'
   field :num_people, type: Integer
   field :smoking_allowed, type: Boolean, default: false
   field :pets_allowed, type: Boolean, default: false
@@ -44,15 +43,16 @@ class Itinerary
 
   attr_accessor :route, :share_on_facebook_timeline
 
-  slug :title, reserve: %w(new)
+  slug :start_address, :end_address, reserve: %w(new)
 
   #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
 
   validates :start_location, presence: true
   validates :end_location, presence: true
-  validates :title, length: { maximum: 40 }, presence: true
+
+  validates :start_address, presence: true
+  validates :end_address, presence: true
   validates :description, length: { maximum: 1000 }, presence: true
-  validates :vehicle, inclusion: VEHICLE
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
   validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
   validates :tolls, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
@@ -83,11 +83,15 @@ class Itinerary
   end
 
   def static_map
-    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=200x200&scale=2&sensor=false&markers=color:green|label:B|#{end_location.to_latlng_a.join(",")}&markers=color:green|label:A|#{start_location.to_latlng_a.join(",")}&path=enc:#{overview_polyline}")
+    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&sensor=false&markers=color:green|label:B|#{end_location.to_latlng_a.join(",")}&markers=color:green|label:A|#{start_location.to_latlng_a.join(",")}&path=enc:#{overview_polyline}")
+  end
+
+  def title
+    [start_address, end_address].join ' - '
   end
 
   def to_s
-    title || id
+     title || id
   end
 
   private

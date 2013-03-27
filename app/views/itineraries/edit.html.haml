@@ -1,7 +1,10 @@
 - title t('.title')
+= render 'header'
+.spacer
 .row
-  .span3
-    = image_tag @itinerary.static_map, class: 'img-polaroid border-box', alt: '', width: 200, height: 200
-  .span9
-    %h1= yield :title
-    = render 'edit_form'
+  .span12
+    = bootstrap_form_for @itinerary, validate: true do |f|
+      = f.error_messages
+      = render 'form', f: f
+      .form-actions
+        = f.submit class: 'btn btn-primary'
