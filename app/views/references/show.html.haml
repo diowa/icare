@@ -3,7 +3,7 @@
   .span12
     %h1.no-margin-bottom= yield :title
     %p= t('itineraries.common.about', itinerary_link: link_to(@itinerary, itinerary_path(@itinerary)), user_link: link_to(@itinerary.user, user_path(@itinerary.user))).html_safe
-    = render '_reference', reference: @reference
+    = render 'reference', reference: @reference
     - if @user == current_user
       .spacer
       = render 'form'

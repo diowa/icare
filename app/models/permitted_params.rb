@@ -34,6 +34,14 @@ class PermittedParams < Struct.new(:params, :current_user)
   end
 
   def conversation_attributes
-    [message: [:body, :sender]]
+    [message: [:body]]
+  end
+
+  def reference
+    params.require(:reference).permit(*reference_attributes)
+  end
+
+  def reference_attributes
+    [:body, :rating]
   end
 end

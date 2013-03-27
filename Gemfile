@@ -43,8 +43,6 @@ gem 'jquery-rails'
 gem 'nokogiri'
 gem 'resque', require: 'resque/server' # Resque web interface
 gem 'rest-client'
-#gem 'wicked'
-
 
 group :development, :test do
   gem 'debugger'
