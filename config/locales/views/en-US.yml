@@ -119,6 +119,7 @@ en-US:
         destroy: An error occurred while destroying this feedback.
     itineraries:
       success:
+        create: Itinerary successfully created.
         update: Itinerary successfully updated.
         destroy: Itinerary successfully destroyed.
       error:

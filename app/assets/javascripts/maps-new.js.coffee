@@ -149,10 +149,6 @@ createRouteMapInit = (id) ->
     json_route = getJSONRoute route
     $('#from-helper, #itinerary-preview-from').text route.legs[0].start_address
     $('#to-helper, #itinerary-preview-to').text route.legs[0].end_address
-    $('#itinerary_start_address').val route.legs[0].start_address
-    $('#itinerary_end_address').val route.legs[0].end_address
-    $('#itinerary_route').val JSON.stringify(json_route)
-    $('#itinerary_itineraries_route_waypoints').val JSON.stringify(route.legs[0].via_waypoints)
     window.icare.itinerary = route
     window.icare.route = json_route
     $('#new_itinerary_submit').prop 'disabled', false
@@ -163,7 +159,14 @@ createRouteMapInit = (id) ->
     $('#result').show()
     route_km = (Number) route.legs[0].distance.value / 1000
     route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
-    $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", parseInt(route_gasoline, 10))
+    $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", Math.ceil(route_gasoline))
+
+    $('#itinerary_start_address').val route.legs[0].start_address
+    $('#itinerary_end_address').val route.legs[0].end_address
+    $('#itinerary_fuel_cost').val Math.ceil(route_gasoline)
+    $('#itinerary_route').val JSON.stringify(json_route)
+    $('#itinerary_itineraries_route_waypoints').val JSON.stringify(route.legs[0].via_waypoints)
+
     $('#fuel-help').show()
     path = route.overview_path
     map.fitBounds(dr.directions.routes[0].bounds)

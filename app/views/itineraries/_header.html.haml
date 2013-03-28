@@ -10,8 +10,8 @@
     %h2.itinerary-subtitle
       - if @itinerary.daily?
       - else
-        %small= Itineraries::Route.human_attribute_name :leave_date
+        %small= Itinerary.human_attribute_name :leave_date
         %span= l(@itinerary.leave_date, format: :long)
         - if @itinerary.round_trip?
-          %smal= Itineraries::Route.human_attribute_name :return_date
+          %small= Itinerary.human_attribute_name :return_date
           %span= l(@itinerary.return_date, format: :long)

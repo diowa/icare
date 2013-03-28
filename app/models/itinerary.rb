@@ -30,7 +30,7 @@ class Itinerary
   field :smoking_allowed, type: Boolean, default: false
   field :pets_allowed, type: Boolean, default: false
   field :fuel_cost, type: Integer
-  field :tolls, type: Integer
+  field :tolls, type: Integer, default: 0
   field :pink, type: Boolean, default: false
   field :round_trip, type: Boolean, default: false
   field :leave_date, type: DateTime

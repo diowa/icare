@@ -123,6 +123,7 @@ it-IT:
         destroy: Si è verificato un errore durante l'eliminazione del feedback.
     itineraries:
       success:
+        create: Itinerario creato con successo.
         update: Itinerario aggiornato con successo.
         destroy: Itinerario eliminato con successo.
       error:

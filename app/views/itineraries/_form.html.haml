@@ -1,94 +1,90 @@
 .row
-  .span5
-    .control-group
-      .controls
-        = f.check_box :smoking_allowed, class: 'checkbox inline'
-        = f.check_box :pets_allowed, class: 'checkbox inline'
-
-    .control-group{ class: ('error' if @itinerary.errors.include?(:fuel_cost)) }
-      = f.label :fuel_cost, class: 'control-label'
-      .controls
-        .input-prepend.input-append
-          %span.add-on>
-            &euro;
-          = f.default_tag :text_field, :fuel_cost, class: 'span1 text-right'
-          %span.add-on>
-            \.00
-        - if @itinerary.errors.include?(:fuel_cost)
-          %span.help-inline
-            = @itinerary.errors.messages[:fuel_cost].join(', ')
-        %p.help-block#fuel-help.hide{ data: { avg_consumption: current_user.vehicle_avg_consumption, text: t('.fuel_help_text', avg_consumption: current_user.vehicle_avg_consumption) } }
-          %small
-            %i.icon-info-sign
-            %span#fuel-help-text
-            = link_to t('.more_accurate_data'), :settings
-
-    .control-group{ class: ('error' if @itinerary.errors.include?(:tolls)) }
-      = f.label :tolls, class: 'control-label'
-      .controls
-        .input-prepend.input-append
-          %span.add-on>
-            &euro;
-          = f.default_tag :text_field, :tolls, class: 'span1 text-right'
-          %span.add-on>
-            \.00
-        - if @itinerary.errors.include?(:tolls)
-          %span.help-inline
-            = @itinerary.errors.messages[:tolls].join(", ")
-    - if current_user.female?
-      .control-group
-        .controls
-          = f.label :pink, class: "btn btn-pink btn-checkbox#{' disabled' if current_user.male?}" do
-            = f.default_tag :check_box, :pink, disabled: (current_user.male?)
-            %i.icon-check-empty.check
-            = Itinerary.human_attribute_name(:pink)
-          %p.help-block
-            %i.icon-lock
-            = t('.pink_help')
-
-  .span7
-    = f.text_area :description, rows: 5, class: 'full-width border-box', help: true
-    = f.check_box :daily, class: 'checkbox inline'
-    /
-      .control-group.hide
-        .controls
-          = label_tag nil, class: 'radio inline' do
-            = f.default_tag :radio_button, :daily, false, class: 'inline', checked: true
-            = t('.single_itinerary')
-          &nbsp;
-          = label_tag nil, class: 'radio inline mock' do
-            = f.default_tag :radio_button, :daily, true, class: 'inline'
-            = t('.daily_itinerary')
-    %fieldset#single
-      .control-group
-        .controls= f.check_box :round_trip, class: 'checkbox inline'
-      = f.datetime_select :leave_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm') }, class: 'date-time'
-      = f.datetime_select :return_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm') }, class: 'date-time', disabled: !@itinerary.round_trip
-    %fieldset#daily.hide.mock
-      .control-group
-        .controls
-          %table.table.table-striped.table-condensed.full-width#table-daily-itinerary
-            %thead
-              %tr
-                %th
-                %th= t('.day')
-                %th= t('.leave_time')
-                %th= t('.return_time')
-            %tbody
-              - (0..6).each_with_index do |index|
+  .span12
+    .form-horizontal
+      /
+        .control-group.hide
+          .controls
+            = label_tag nil, class: 'radio inline' do
+              = f.default_tag :radio_button, :daily, false, class: 'inline', checked: true
+              = t('.single_itinerary')
+            &nbsp;
+            = label_tag nil, class: 'radio inline mock' do
+              = f.default_tag :radio_button, :daily, true, class: 'inline'
+              = t('.daily_itinerary')
+      %fieldset#single
+        .control-group
+          .controls= f.check_box :round_trip, class: 'checkbox inline'
+        = f.datetime_select :leave_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm') }, class: 'date-time'
+        = f.datetime_select :return_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm') }, class: 'date-time', disabled: !@itinerary.round_trip
+      %fieldset#daily.hide.mock
+        .control-group
+          .controls
+            %table.table.table-striped.table-condensed.full-width#table-daily-itinerary
+              %thead
                 %tr
-                  %td
-                    %p.text-center
-                      = check_box_tag "day-#{index}"
-                  %td= label_tag "day-#{index}", t('date.day_names')[index]
-                  %td
-                    = time_select 'uni', 'dye', { minute_step: 10, default: { hour: 8 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
-                  %td
-                    = time_select 'uni', 'due', { minute_step: 10, default: { hour: 18 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
-            %tfoot
-              %tr
-                %td{ colspan: 2 }
-                %td{ colspan: 2 }
-                  = label_tag 'edit-all-times', class: 'checkbox inline' do
-                    = check_box_tag 'edit-all-times', nil, checked: true
-                    = t('.edit_all_times')
+                  %th
+                  %th= t('.day')
+                  %th= t('.leave_time')
+                  %th= t('.return_time')
+              %tbody
+                - (0..6).each_with_index do |index|
+                  %tr
+                    %td
+                      %p.text-center
+                        = check_box_tag "day-#{index}"
+                    %td= label_tag "day-#{index}", t('date.day_names')[index]
+                    %td
+                      = time_select 'uni', 'dye', { minute_step: 10, default: { hour: 8 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
+                    %td
+                      = time_select 'uni', 'due', { minute_step: 10, default: { hour: 18 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
+              %tfoot
+                %tr
+                  %td{ colspan: 2 }
+                  %td{ colspan: 2 }
+                    = label_tag 'edit-all-times', class: 'checkbox inline' do
+                      = check_box_tag 'edit-all-times', nil, checked: true
+                      = t('.edit_all_times')
+
+      .control-group{ class: ('error' if @itinerary.errors.include?(:fuel_cost)) }
+        = f.label :fuel_cost, class: 'control-label'
+        .controls
+          .input-prepend.input-append
+            %span.add-on>
+              &euro;
+            = f.default_tag :text_field, :fuel_cost, class: 'span1 text-right'
+            %span.add-on>
+              \.00
+          - if @itinerary.errors.include?(:fuel_cost)
+            %span.help-inline
+              = @itinerary.errors.messages[:fuel_cost].join(', ')
+          %p.help-block#fuel-help.hide{ data: { avg_consumption: current_user.vehicle_avg_consumption, text: t('.fuel_help_text', avg_consumption: current_user.vehicle_avg_consumption) } }
+            %small
+              %i.icon-info-sign
+              %span#fuel-help-text
+              = link_to t('.more_accurate_data'), :settings
+
+      .control-group{ class: ('error' if @itinerary.errors.include?(:tolls)) }
+        = f.label :tolls, class: 'control-label'
+        .controls
+          .input-prepend.input-append
+            %span.add-on>
+              &euro;
+            = f.default_tag :text_field, :tolls, class: 'span1 text-right'
+            %span.add-on>
+              \.00
+          - if @itinerary.errors.include?(:tolls)
+            %span.help-inline
+              = @itinerary.errors.messages[:tolls].join(", ")
+
+      = f.text_area :description, rows: 5, class: 'full-width border-box', help: true
+      - if current_user.female?
+        .control-group
+          .controls
+            = f.check_box :pink, disabled: (current_user.male?), class: 'checkbox inline'
+            %p.help-block
+              %i.icon-lock
+              = t('.pink_help')
+      .control-group
+        .controls
+          = f.check_box :smoking_allowed, class: 'checkbox inline'
+          = f.check_box :pets_allowed, class: 'checkbox inline'
