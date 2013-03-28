@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.15
+------
+* 2 step itinerary creation
+
 0.7.14
 ------
 * Strong parameters
