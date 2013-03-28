@@ -10,28 +10,35 @@
           - @itinerary.errors.full_messages.each do |message|
             %li= message
 .row
-  #wizard-step-1-title.span4.itinerary-step.active
-    %h2.no-margin
-      %i.icon-check-empty.hidden-phone
-      = t('.step_1')
-    %p= t('.plan_route')
-  #wizard-step-2-title.span4.itinerary-step.hidden-phone
-    %h2.no-margin
-      %i.icon-check-empty.hidden-phone
-      = t('.step_2')
-    %p= t('.insert_itinerary_details')
-  #wizard-step-3-title.span4.itinerary-step.hidden-phone
-    %h2.no-margin
-      %i.icon-check-empty.hidden-phone
-      = t('.step_3')
-    %p= t('.confirm_and_share')
+  #wizard-step-1-title.span6.itinerary-step.active
+    %h3.no-margin
+      = t('.plan_route')
+  #wizard-step-2-title.span6.itinerary-step.hidden-phone
+    %h3.no-margin
+      = t('.insert_details_and_confirm')
 .spacer
-= bootstrap_form_for @itinerary, validate: true, html: { data: { step: 1, :"last-step" => 3 } } do |f|
-  #wizard-step-1-content= render 'route_step', f: f
-  #wizard-step-2-content.hide= render 'details_step', f: f
-  #wizard-step-3-content.hide= render 'confirm_and_share_step', f: f
+= bootstrap_form_for @itinerary, validate: true do |f|
+  #wizard-step-1-content{ data: { step: 1 } }= render 'route_step', f: f
+  #wizard-step-2-content.hide{ data: { step: 2 } }
+    .row
+      .span4
+        = image_tag transparent_gif_image_data, class: 'google-static-map', id: 'itinerary-preview-image', alt: ''
+      .span8
+        %h1.itinerary-title
+          %small= Itineraries::Route.human_attribute_name :from
+          %span#itinerary-preview-from
+          %small= Itineraries::Route.human_attribute_name :to
+          %span#itinerary-preview-to
+    .spacer
+    = render 'form', f: f
+    .spacer
+    .row
+      .span12.text-center
+        = share_on_facebook_timeline_checkbutton(f)
   .form-actions.pagination-centered
     = f.hidden_field :route
+    = f.hidden_field :start_address
+    = f.hidden_field :end_address
     = button_tag t('.previous_step'), type: 'button', class: 'btn btn-large hide', name: 'back_button', id: 'wizard-prev-step-button', disabled: true
     = f.submit t('.next_step'), type: 'button', class: 'btn btn-large btn-primary', name: 'next_button', id: 'wizard-next-step-button', disabled: false
     = f.submit t('.confirm_and_share'), class: 'btn btn-large btn-success hide', id: 'new_itinerary_submit', disabled: true

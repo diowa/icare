@@ -10,6 +10,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 
 * [Ruby on Rails][1]
 * [Turbolinks][2]
+* [Strong Parameters][18]
 * [CoffeeScript][3]
 * [Handlebars][4] (JavaScript semantic templates)
 * [HAML][5]
@@ -43,6 +44,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [15]: http://github.com/lukeredpath/simpleconfig
  [16]: http://github.com/airbrake/airbrake
  [17]: http://newrelic.com/
+ [18]: http://github.com/rails/strong_parameters
 
 A working demo is available at http://icare.diowa.com/
 
@@ -63,7 +65,7 @@ Styleguides
 Bug tracker
 -----------
 
-Have a bug? Please create an issue here on GitHub! Also, when filing please make sure you're familiar with [necolas's guidelines](https://github.com/necolas/issue-guidelines). Thanks!
+Have a bug? Please create an issue here on GitHub! Also, when filing please make sure you're familiar with [necolas's guidelines](http://github.com/necolas/issue-guidelines). Thanks!
 
 https://github.com/diowa/icare/issues
 
@@ -79,7 +81,7 @@ Contributing
 
 Please make all pull requests against develop branch. Also, if your pull request contains new features, you must include relevant unit tests. Thanks!
 
-If you are interested in feature development, we have priorities. Check out our [To Do](/diowa/icare/wiki/To-Do) list.
+If you are interested in feature development, we have priorities. Check out our [To Do](http://github.com/diowa/icare/wiki/To-Do) list.
 
 
 Authors
@@ -99,7 +101,7 @@ Authors
 Roadmap
 --------
 
-Immediate: Check out our [To Do](/diowa/icare/wiki/To-Do) list.
+Immediate: Check out our [To Do](http://github.com/diowa/icare/wiki/To-Do) list.
 Long-term: TODO
 
 

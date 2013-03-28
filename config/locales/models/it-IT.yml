@@ -49,14 +49,12 @@ it-IT:
         url: Indirizzo
       itinerary:
         route: Percorso
-        start_location: Partenza
-        end_location: Arrivo
+        start_location: Punto di partenza
+        end_location: Punto di arrivo
+        start_address: Partenza
+        end_address: Arrivo
         title: Titolo
         description: Descrizione
-        vehicle: Veicolo
-        vehicle_car: Automobile
-        vehicle_motorcycle: Motocicletta
-        vehicle_van: Furgone
         smoking_allowed: Si fuma a bordo
         pets_allowed: Animali a bordo
         fuel_cost: Costo carburante

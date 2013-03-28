@@ -2,7 +2,7 @@
 @import "twitter/bootstrap/mixins";
 
 .google-maps {
-  .box-sizing(border-box);
+  .size(300px, 100%);
 
   label {
     display:inline;
@@ -14,9 +14,10 @@
   }
 }
 
-#index-itineraries-map,
-#new-itinerary-map {
-  .size(300px, 100%);
+
+.google-static-map,
+.google-maps {
+  .box-sizing(border-box);
   border: 1px solid #ddd;
 }
 

@@ -1,0 +1,17 @@
+.row
+  .span4
+    = image_tag @itinerary.static_map, class: 'google-static-map', alt: ''
+  .span8
+    %h1.itinerary-title
+      %small= Itineraries::Route.human_attribute_name :from
+      %span= @itinerary.start_address
+      %small= Itineraries::Route.human_attribute_name :to
+      %span= @itinerary.end_address
+    %h2.itinerary-subtitle
+      - if @itinerary.daily?
+      - else
+        %small= Itinerary.human_attribute_name :leave_date
+        %span= l(@itinerary.leave_date, format: :long)
+        - if @itinerary.round_trip?
+          %small= Itinerary.human_attribute_name :return_date
+          %span= l(@itinerary.return_date, format: :long)

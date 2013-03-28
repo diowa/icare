@@ -1,6 +1,7 @@
 %table.table.table-itinerary
   %thead
-    %th= Itinerary.human_attribute_name(:title)
+    %th= Itinerary.human_attribute_name(:start_address)
+    %th= Itinerary.human_attribute_name(:end_address)
     %th
       %span.visible-phone
         %i.icon-info-sign{ rel: 'tooltip', title: t('itineraries.common.features') }
@@ -13,7 +14,8 @@
   %tbody
     - itineraries.each_with_index do |itinerary, index|
       %tr.vertical-align-middle
-        %td= link_to itinerary, itinerary_path(itinerary)
+        %td= link_to itinerary.start_address, itinerary_path(itinerary)
+        %td= link_to itinerary.end_address, itinerary_path(itinerary)
         %td
           - if itinerary.pink
             %i.text-pink.icon-lock.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }

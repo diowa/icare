@@ -1,89 +1,59 @@
 - title @itinerary.title
 = render 'opengraph_head_contents', itinerary: @itinerary
 .row
-  .span3
-    = image_tag @itinerary.static_map, class: 'img-polaroid border-box', alt: '', width: 200, height: 200
-  .span9
-    %h1= @itinerary.title || Itinerary.model_name.human
-    %table
-      %tbody
-        %tr
-          %td.profile-picture-cell.vertical-align-top
-            .img-outset
-              - if logged_in?
-                = user_profile_picture @itinerary.user, style: nil
-              - else
-                = image_tag 'http://fbcdn-profile-a.akamaihd.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif', width: 50, height: 50, style: nil
-          %td.vertical-align-top
-            .balloon.for-profile-picture
-              - if logged_in?
-                %h5.no-margin= link_to @itinerary.user, user_path(@itinerary.user)
-                %p.pre-line= @itinerary.description
-              - else
-                %h5.no-margin= t('.app_user', appname: APP_CONFIG.app_name)
-                %p.pre-line= @itinerary.description
-    .spacer
-    .row-fluid
+  .span12
+    = render 'shared/flash_messages'
+
+= render 'header'
+.spacer
+.row
+  .span4
+    .media
+      .media-object.pull-left= user_profile_picture @itinerary.user, style: nil
+      .media-body
+        %h4.media-heading
+          - if logged_in?
+            = link_to @itinerary.user, user_path(@itinerary.user)
+          - else
+            = t('.app_user', appname: APP_CONFIG.app_name)
+        %p.pre-line= @itinerary.description
+  .span8
+    .tag-list
+      %span.tag.tag-icare= t('.expenses_to_share')
+      %span.tag #{Itinerary.human_attribute_name(:fuel_cost)}: #{@itinerary.fuel_cost}.00 &euro;
+      %span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}.00 &euro;
+    .tag-list
       - if @itinerary.pink?
-        .span12
-          %p.well
-            %span.pink-itinerary
-              %i.icon-lock
-              = Itinerary.human_attribute_name(:pink)
-            %br
-            %small.muted= t('itineraries.details_step.pink_help')
-      .span6
-        %dl.dl-horizontal
-          %dt= Itinerary.human_attribute_name(:vehicle)
-          %dd= Itinerary.human_attribute_name("vehicle_#{@itinerary.vehicle}")
-          %dt= Itinerary.human_attribute_name(:smoking_allowed)
-          %dd= t("boolean.#{@itinerary.smoking_allowed}")
-          %dt= Itinerary.human_attribute_name(:pets_allowed)
-          %dd= t("boolean.#{@itinerary.pets_allowed}")
-          %dt= Itinerary.human_attribute_name(:fuel_cost)
-          %dd
-            %span= @itinerary.fuel_cost
-            %span>< .00 &euro;
-          %dt= Itinerary.human_attribute_name(:tolls)
-          %dd
-            %span= @itinerary.tolls
-            %span>< .00 &euro;
-      .span6
-        %dl.dl-horizontal
-          %dt= Itinerary.human_attribute_name(:round_trip)
-          %dd= t("boolean.#{@itinerary.round_trip}")
-          %dt= Itinerary.human_attribute_name(:leave_date)
-          %dd= l(@itinerary.leave_date, format: :long)
-          - if @itinerary.round_trip
-            %dt.itinerary-preview-return= Itinerary.human_attribute_name(:return_date)
-            %dd.itinerary-preview-return= l(@itinerary.return_date, format: :long)
-    .row-fluid
-      .span12
-        - if logged_in?
-          .btn-toolbar
-            - if current_user != @itinerary.user
-              = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary' do
-                %i.icon-comment
-                = t('.contact', user: @itinerary.user_first_name)
-              = link_to new_or_show_reference_path(@reference, @itinerary), class: 'btn' do
-                %i.icon-thumbs-up
-                = t('.leave_reference')
-              .btn-group.mock
-                %button.btn.btn-mini.btn-inverse
-                  %i.icon-flag
-                %button.btn.btn-mini.btn-inverse.dropdown-toggle{ data: { toggle: 'dropdown' } }
-                  %span.caret
-                %ul.dropdown-menu
-                  %li
-                    %a{ href: '#' }
-                      = t('.report_itinerary')
-            - else
-              = link_to edit_itinerary_path(@itinerary), class: 'btn' do
-                %i.icon-edit
-                = t('helpers.titles.edit', model: Itinerary.model_name.human)
+        %span.tag.tag-pink.tooltipable{ rel: 'tooltip', title: t('itineraries.form.pink_help') }
+          %i.icon-lock
+          = Itinerary.human_attribute_name(:pink)
+      = boolean_tag @itinerary.smoking_allowed?, 'smoking'
+      = boolean_tag @itinerary.pets_allowed?, 'pets'
+    - if logged_in?
+      .btn-toolbar
+        - if current_user != @itinerary.user
+          = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary' do
+            %i.icon-comment
+            = t('.contact', user: @itinerary.user_first_name)
+          = link_to new_or_show_reference_path(@reference, @itinerary), class: 'btn' do
+            %i.icon-thumbs-up
+            = t('.leave_reference')
+          .btn-group.mock
+            %button.btn.btn-mini.btn-inverse
+              %i.icon-flag
+            %button.btn.btn-mini.btn-inverse.dropdown-toggle{ data: { toggle: 'dropdown' } }
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                %a{ href: '#' }
+                  = t('.report_itinerary')
         - else
-          .btn-toolbar
-            - session[:redirect_to] = itinerary_path(@itinerary)
-            = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
-              %i.icon-facebook-sign
-              = t('.login_to_contact')
+          = link_to edit_itinerary_path(@itinerary), class: 'btn' do
+            %i.icon-edit
+            = t('helpers.titles.edit', model: Itinerary.model_name.human)
+    - else
+      .btn-toolbar
+        - session[:redirect_to] = itinerary_path(@itinerary)
+        = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
+          %i.icon-facebook-sign
+          = t('.login_to_contact')

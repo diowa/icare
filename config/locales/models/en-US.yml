@@ -49,14 +49,12 @@ en-US:
         url: URL
       itinerary:
         route: Route
-        start_location: From
-        end_location: To
+        start_location: Start location
+        end_location: End location
+        start_address: Start address
+        end_address: End address
         title: Title
         description: Description
-        vehicle: Vehicle
-        vehicle_car: Car
-        vehicle_motorcycle: Motorcycle
-        vehicle_van: Van
         smoking_allowed: Smoking allowed
         pets_allowed: Pets allowed
         fuel_cost: Fuel cost

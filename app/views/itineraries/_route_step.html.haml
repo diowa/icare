@@ -1,6 +1,5 @@
 .row
   .span4
-    %h3= yield :title
     = f.fields_for @itinerary_route do |route_fields|
       = route_fields.text_field :from, class: 'input-block'
       = route_fields.text_field :to, class: 'input-block'
@@ -21,9 +20,10 @@
     %p#route-helper.hide
       %small
         = Itinerary.human_attribute_name :start_location
-        %span#from-helper
+        %b#from-helper
+        %br
         = Itinerary.human_attribute_name :end_location
-        %span#to-helper
+        %b#to-helper
         %br
         %span#copyrights
 .row
