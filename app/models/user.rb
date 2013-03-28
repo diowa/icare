@@ -62,8 +62,8 @@ class User
   #field :access_level, type: Integer, default: 0
   field :banned, type: Boolean, default: false
 
-  field :send_email_messages, type: Boolean, default: true
-  field :send_email_references, type: Boolean, default: true
+  field :send_email_messages, type: Boolean, default: false
+  field :send_email_references, type: Boolean, default: false
 
   validates :gender, inclusion: GENDER, allow_blank: true
   validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map(&:name).keys, allow_blank: true

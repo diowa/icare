@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.16
+------
+* Clean up and refactoring
+
 0.7.15
 ------
 * 2 step itinerary creation

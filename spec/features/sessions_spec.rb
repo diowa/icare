@@ -17,6 +17,31 @@ describe 'Sessions' do
     OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
   end
 
+  it "fills user profile with data from facebook" do
+    user = FactoryGirl.create :user, uid: '123456'
+    visit '/auth/facebook'
+    user.reload
+
+    expect(user.oauth_token).to      eq OMNIAUTH_MOCKED_AUTHHASH.credentials.token
+    expect(user.oauth_expires_at).to eq Time.at OMNIAUTH_MOCKED_AUTHHASH.credentials.expires_at
+
+    expect(user.email).to             eq OMNIAUTH_MOCKED_AUTHHASH.info.email
+    expect(user.name).to              eq OMNIAUTH_MOCKED_AUTHHASH.info.name
+    expect(user.facebook_verified).to be_false
+
+    expect(user.username).to  eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.username
+    expect(user.gender).to    eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.gender
+    expect(user.bio).to       eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.bio
+    expect(user.languages).to eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.languages
+
+    expect(user.birthday.to_date).to  eq Date.strptime(OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.birthday, "%m/%d/%Y").at_midnight.to_date
+    expect(user.work).to      eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.work
+    expect(user.education).to eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.education
+
+    expect(user.locale).to eq locale = OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.locale.gsub(/_/,'-')
+
+    expect(user.username_or_uid).to eq [OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.username, OMNIAUTH_MOCKED_AUTHHASH.uid]
+  end
 
   it "allow users to logout" do
     visit '/auth/facebook'

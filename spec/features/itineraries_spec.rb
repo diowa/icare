@@ -89,12 +89,13 @@ describe 'Itineraries' do
       FactoryGirl.create :itinerary, user: @user, daily: true
       FactoryGirl.create :itinerary, user: @user, pink: true, daily: true
       visit itineraries_user_path(@user)
+      expect(page).to have_css('tbody > tr', count: 4)
       @user.itineraries.each do |itinerary|
         row = find(:xpath, "//a[@href='#{itinerary_path(itinerary)}' and text()='#{itinerary.start_address}']/../..")
         expect(row).to_not be_nil
-        expect(row.find(:xpath, ".//i[contains(@class,'#{ROUND_TRIP_ICON}')]")).to_not be_nil if itinerary.round_trip?
-        expect(row.find(:xpath, ".//i[contains(@class,'#{DAILY_ICON}')]")).to_not be_nil if itinerary.daily?
-        expect(row.find(:xpath, ".//i[contains(@class,'#{PINK_ICON}')]")).to_not be_nil if itinerary.pink?
+        expect(row).to have_css "i.#{ROUND_TRIP_ICON}" if itinerary.round_trip?
+        expect(row).to have_css "i.#{DAILY_ICON}" if itinerary.daily?
+        expect(row).to have_css "i.#{PINK_ICON}" if itinerary.pink?
       end
     end
 

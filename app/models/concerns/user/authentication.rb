@@ -5,36 +5,26 @@ module Concerns
 
       included do
         def set_fields_from_omniauth(auth)
-          # Auth / Credentials
-          self.oauth_token = auth.credentials.token
-          self.oauth_expires_at = Time.at auth.credentials.expires_at
+          # Auth / Credentials (token, expires_at)
+          set_credentials auth.credentials
 
-          # Info
-          self.email = auth.info.email
-          self.name = auth.info.name
-          self.facebook_verified = auth.info.verified || false
+          # Info (email, name, verified)
+          set_info auth.info
 
-          # Extra
-          self.username = auth.extra.raw_info.username
-          self.gender = auth.extra.raw_info.gender
-          self.bio = auth.extra.raw_info.bio
-          self.languages = auth.extra.raw_info.languages || {}
+          # Extra raw info (username, gender, bio, languages)
+          set_extra_raw_info auth.extra.raw_info
 
-          # Locale (gives priority to application setting)
+          # Extra raw info requiring special permissions (birthday, work, education)
+          set_extra_raw_info_special_permissions auth.extra.raw_info
+
+          # Locale, with priority to application setting
           self.locale = auth.extra.raw_info.locale.gsub(/_/,'-') unless self.locale?
-
-          # Extras (extra permissions are required)
-          self.birthday = Date.strptime(auth.extra.raw_info.birthday, "%m/%d/%Y").at_midnight if auth.extra.raw_info.birthday
-          self.work = auth.extra.raw_info.work || {}
-          self.education = auth.extra.raw_info.education || {}
 
           # Username and uid array
           self.username_or_uid = [ username, uid ]
 
-          # Cache permissions
-          facebook do |fb|
-            self.facebook_permissions = fb.get_connections('me', 'permissions')[0]
-          end
+          # Permissions
+          set_permissions
 
           # Schedule facebook data cache
           Resque.enqueue(FacebookDataCacher, id)
@@ -48,6 +38,37 @@ module Concerns
             group = groups.select{ |g| g['id'] == APP_CONFIG.facebook.restricted_group_id }.first
             self.admin = group.present? && group['administrator']
             group.present?
+          end
+        end
+
+        private
+        def set_credentials(credentials)
+          self.oauth_token = credentials.token
+          self.oauth_expires_at = Time.at credentials.expires_at
+        end
+
+        def set_info(info)
+          self.email = info.email
+          self.name = info.name
+          self.facebook_verified = info.verified || false
+        end
+
+        def set_extra_raw_info(raw_info)
+          self.username = raw_info.username
+          self.gender = raw_info.gender
+          self.bio = raw_info.bio
+          self.languages = raw_info.languages || {}
+        end
+
+        def set_extra_raw_info_special_permissions(raw_info)
+          self.birthday = Date.strptime(raw_info.birthday, "%m/%d/%Y").at_midnight if raw_info.birthday
+          self.work = raw_info.work || {}
+          self.education = raw_info.education || {}
+        end
+
+        def set_permissions
+          facebook do |fb|
+            self.facebook_permissions = fb.get_connections('me', 'permissions')[0]
           end
         end
       end
