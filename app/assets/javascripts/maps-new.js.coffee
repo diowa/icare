@@ -44,10 +44,10 @@ getJSONRoute = (route) ->
   data
 
 wizardPrevStep = ->
-  step = (Number) $('#new_itinerary').data 'step'
+  step = (Number) $('div[data-step]:visible').data('step')
   return if step <= 1
 
-  lastStep = (Number) $('#new_itinerary').data 'lastStep'
+  lastStep = (Number) $('div[data-step]').last().data('step')
 
   $("#wizard-step-#{step}-content").fadeOut ->
     $('#wizard-next-step-button').prop('disabled', false).show()
@@ -55,14 +55,17 @@ wizardPrevStep = ->
 
     $("#wizard-step-#{step}-title").addClass('hidden-phone').removeClass 'active'
 
-    $("#new_itinerary").data 'step', --step
     $("#wizard-step-#{step}-title")
-      .removeClass('done').removeClass('hidden-phone').addClass('active')
-      .find('.icon-check').addClass('icon-check-empty').toggleClass('icon-check')
+      .removeClass('hidden-phone').addClass('active')
+
+    --step
 
     $("#wizard-step-#{step}-content").fadeIn()
+
     if step is 1
       $("#wizard-prev-step-button").prop('disabled', true).hide()
+
+    $(window).scrollTop("#wizard-step-#{step}-title")
 
 wizardNextStep = ->
   # Run validations
@@ -78,22 +81,26 @@ wizardNextStep = ->
     return
   return false unless valid
 
-  step = (Number) $('#new_itinerary').data 'step'
-  lastStep = (Number) $('#new_itinerary').data 'lastStep'
+  step = (Number) $('div[data-step]:visible').data('step')
+  lastStep = (Number) $('div[data-step]').last().data('step')
 
   if step is lastStep
     return false
 
   $("#wizard-step-#{step}-content").fadeOut ->
     $("#wizard-step-#{step}-title")
-      .removeClass('active').addClass('done').addClass('hidden-phone')
-      .find('.icon-check-empty').addClass('icon-check').toggleClass('icon-check-empty')
-    $('#new_itinerary').data 'step', ++step
+      .removeClass('active').addClass('hidden-phone')
+
+    ++step
+
     if step is lastStep
       lastStepInit()
     $("#wizard-step-#{step}-title").removeClass('hidden-phone').addClass 'active'
+
     $("#wizard-step-#{step}-content").fadeIn ->
       $('#new_itinerary').enableClientSideValidations() # Enable validation for new fields
+      $(window).scrollTop("#wizard-step-#{step}-title")
+
     if step > 1
       $("#wizard-prev-step-button").prop('disabled', false).show()
       if step is lastStep
@@ -113,32 +120,8 @@ dateFieldToString = (field_id) ->
 window.test = dateFieldToString
 
 lastStepInit = ->
-  # TODO handlebars template
-  $('#itinerary-preview-title').text $('#itinerary_title').val()
-  $('#itinerary-preview-description').text $('#itinerary_description').val()
-  $('#itinerary-preview-vehicle').text $('#itinerary_vehicle option:selected').text()
-  $('#itinerary-preview-smoking_allowed').text I18n.t("boolean.#{$('#itinerary_smoking_allowed').prop 'checked'}")
-  $('#itinerary-preview-pets_allowed').text I18n.t("boolean.#{$('#itinerary_pets_allowed').prop 'checked'}")
-  $('#itinerary-preview-pink').text I18n.t("boolean.#{$('#itinerary_pink').prop 'checked'}")
-  $('#itinerary-preview-fuel_cost').text $("#itinerary_fuel_cost").val()
-  $('#itinerary-preview-tolls').text $("#itinerary_tolls").val()
-  $('#itinerary-preview-leave_date').text dateFieldToString('itinerary_leave_date')
-
-  if $('#itinerary_round_trip').prop('checked')
-    $('#itinerary-preview-round_trip').text I18n.t('boolean.true')
-    $('#itinerary-preview-return_date').text dateFieldToString('itinerary_return_date')
-    $('.itinerary-preview-return').show()
-  else
-    $('#itinerary-preview-round_trip').text I18n.t('boolean.false')
-    $('.itinerary-preview-return').hide()
-
   route = window.icare.route
-  url_builder = $('#itinerary-preview-image')
-    .data('staticMapUrlBuilder')
-    .replace("%{end_location}", "#{route.end_location.lat},#{route.end_location.lng}")
-    .replace("%{start_location}", "#{route.start_location.lat},#{route.start_location.lng}")
-    .replace("%{overview_polyline}", "#{route.overview_polyline}")
-  $('#itinerary-preview-image').attr 'src', url_builder
+  $('#itinerary-preview-image').attr 'src', "http://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&sensor=false&markers=color:green|label:B|#{route.end_location.lat},#{route.end_location.lng}&markers=color:green|label:A|#{route.start_location.lat},#{route.start_location.lng}&path=enc:#{route.overview_polyline}"
 
 setRoute = (dr, result) ->
   dr.setDirections result
@@ -164,10 +147,9 @@ createRouteMapInit = (id) ->
   google.maps.event.addListener dr, 'directions_changed', ->
     route = dr.getDirections().routes[0]
     json_route = getJSONRoute route
-    $('#from-helper').text route.legs[0].start_address
-    $('#to-helper').text route.legs[0].end_address
-    $('#itinerary_route').val JSON.stringify(json_route)
-    $('#itinerary_itineraries_route_waypoints').val JSON.stringify(route.legs[0].via_waypoints)
+    $('#from-helper, #itinerary-preview-from').text route.legs[0].start_address
+    $('#to-helper, #itinerary-preview-to').text route.legs[0].end_address
+    window.icare.itinerary = route
     window.icare.route = json_route
     $('#new_itinerary_submit').prop 'disabled', false
     $('#distance').text route.legs[0].distance.text
@@ -175,10 +157,16 @@ createRouteMapInit = (id) ->
     $('#copyrights').text route.copyrights
     $('#route-helper').show()
     $('#result').show()
-    $('#itinerary_title').val "#{$("#itinerary_itineraries_route_from").val()} - #{$("#itinerary_itineraries_route_to").val()}".substr(0, 40).capitalize()
     route_km = (Number) route.legs[0].distance.value / 1000
     route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
-    $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", parseInt(route_gasoline, 10))
+    $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", Math.ceil(route_gasoline))
+
+    $('#itinerary_start_address').val route.legs[0].start_address
+    $('#itinerary_end_address').val route.legs[0].end_address
+    $('#itinerary_fuel_cost').val Math.ceil(route_gasoline)
+    $('#itinerary_route').val JSON.stringify(json_route)
+    $('#itinerary_itineraries_route_waypoints').val JSON.stringify(route.legs[0].via_waypoints)
+
     $('#fuel-help').show()
     path = route.overview_path
     map.fitBounds(dr.directions.routes[0].bounds)

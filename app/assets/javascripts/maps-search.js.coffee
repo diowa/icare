@@ -28,7 +28,6 @@ drawPath = (itinerary, strokeColor = '#0000FF', strokeOpacity = 0.45) ->
   new_path = []
   customMarker = new icare.CustomMarker overview_path[0], icare.map,
     infoWindowContent: HandlebarsTemplates['gmaps_popup']
-      title: itinerary.title
       user:
         image: itinerary.user.profile_picture
         name: itinerary.user.name

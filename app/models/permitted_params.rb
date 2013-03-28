@@ -4,7 +4,7 @@ class PermittedParams < Struct.new(:params, :current_user)
   end
 
   def itinerary_attributes
-    basic_fields = [:title, :description, :vehicle, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls,
+    basic_fields = [:start_address, :end_address, :description, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls,
                     :round_trip, :leave_date, :return_date, :daily,
                     :route, :share_on_facebook_timeline]
     basic_fields << :pink if current_user && current_user.female?

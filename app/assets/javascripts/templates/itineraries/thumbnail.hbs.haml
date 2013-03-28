@@ -9,7 +9,9 @@
           %td
             %strong.it-title
               %a.pre-line{ href: "{{url}}" }><
-                {{title}}
+                {{start_address}}
+                %br
+                {{end_address}}
             %p.it-user
               {{user.name}}
               {{#if user.facebook_verified}}

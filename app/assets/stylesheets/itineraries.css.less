@@ -2,24 +2,22 @@
 @import "twitter/bootstrap/mixins";
 
 .itinerary-step {
-  border-bottom: 2px solid @grayDark;
+  border-bottom: 2px solid @grayLight;
 
-  &:not(.active) {
-    border-color: @grayLight;
-
-    &,
-    h2 {
-      color: @grayLight;
-    }
+  h3 {
+    color: @grayLight;
   }
 
-  &.done {
-    border-color: @successText;
+  &.active,
+  &.active h3 {
+    color: @headingsColor;
+    border-color: @headingsColor;
+  }
 
-    &,
-    h2 {
-      color: @successText;
-    }
+  &.done,
+  &.done h3 {
+    color: @successText;
+    border-color: @successText;
   }
 }
 
@@ -139,4 +137,36 @@ select.date-time {
 .itinerary-details {
   font-size: 13px;
   line-height: 15px;
+}
+
+.itinerary-title,
+.itinerary-subtitle {
+  small,
+  span {
+    display: block;
+  }
+}
+
+.itinerary-title {
+  margin: 0;
+
+  small {
+    font-size: @baseFontSize * 1.25;
+  }
+
+  span {
+    line-height: @baseLineHeight * 1.5;
+    font-size: @baseFontSize * 1.75;
+  }
+}
+
+.itinerary-subtitle {
+  small {
+    font-size: @baseFontSize * 1;
+  }
+
+  span {
+    line-height: @baseLineHeight * 1.25;
+    font-size: @baseFontSize * 1.5;
+  }
 }

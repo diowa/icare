@@ -7,6 +7,11 @@ module ItinerariesHelper
     @default_leave_date ||= ((Time.now).change(min: (Time.now.min / 10) * 10) + 10.minutes).in_time_zone
   end
 
+  def boolean_tag(value, field)
+    status = value ? 'allowed' : 'forbidden'
+    content_tag :span, t(".#{field}.#{status}"), class: "tag tag-#{status}"
+  end
+
   def share_on_facebook_timeline_checkbutton(form)
     has_publish_stream_permission = current_user.has_facebook_permission?(:publish_stream)
     if background_jobs_available?
