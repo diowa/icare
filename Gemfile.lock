@@ -39,6 +39,7 @@ GEM
       erubis (>= 2.6.6)
     binding_of_caller (0.7.1)
       debug_inspector (>= 0.0.1)
+    brwsr (1.1.1)
     builder (3.0.4)
     bullet (4.5.0)
       uniform_notifier
@@ -273,6 +274,8 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    secure_headers (0.3.0)
+      brwsr (>= 1.1.1)
     selenium-webdriver (2.31.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
@@ -387,6 +390,7 @@ DEPENDENCIES
   rgeo
   rspec-rails (~> 2.6)
   sass-rails
+  secure_headers
   simpleconfig
   simplecov
   spork (~> 1.0rc)
