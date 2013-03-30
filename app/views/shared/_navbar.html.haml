@@ -28,7 +28,7 @@
         %ul.nav.pull-right
           %li#navbar-user-info
             = link_to user_path(current_user), class: 'navbar-profile-link' do
-              = user_profile_picture current_user, size: [], style: nil
+              = user_profile_picture current_user, size: nil, style: nil
               %span.hidden-phone= current_user
           %li.dropdown
             = link_to '#', data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do

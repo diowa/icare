@@ -1,7 +1,7 @@
 - title @user
 .row
   .span3
-    = user_profile_picture @user, size: [], type: :large, class: 'border-box'
+    = user_profile_picture @user, size: nil, type: :large, style: 'img-polaroid border-box'
   .span9
     %h1.no-margin-bottom= @user
     %p.muted

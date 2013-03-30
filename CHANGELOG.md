@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.7.17
+------
+* Added secure_headers gem
+* Refactoring
+
 0.7.16
 ------
 * Clean up and refactoring

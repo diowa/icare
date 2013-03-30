@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def home
     if logged_in?
-      redirect_to :dashboard 
+      redirect_to :dashboard
     else
       render layout: false
     end

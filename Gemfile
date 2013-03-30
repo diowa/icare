@@ -35,6 +35,9 @@ gem 'airbrake'
 gem 'newrelic_rpm'
 gem 'newrelic_moped'
 
+# Security
+gem 'secure_headers'
+
 # Miscellanea
 gem 'google-analytics-rails'
 gem 'haml'
