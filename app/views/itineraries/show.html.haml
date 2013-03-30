@@ -53,7 +53,6 @@
             = t('helpers.titles.edit', model: Itinerary.model_name.human)
     - else
       .btn-toolbar
-        - session[:redirect_to] = itinerary_path(@itinerary)
         = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
           %i.icon-facebook-sign
           = t('.login_to_contact')
