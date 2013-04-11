@@ -158,6 +158,14 @@ td.text-right {
   text-right: right;
 }
 
+/* fucking firefox input.btn fix */
+body:not(:-moz-handler-blocked) {
+  input.btn {
+    height: @baseLineHeight !important;
+    -moz-box-sizing: content-box;
+  }
+}
+
 
 /* ==========================================================================
    Global styles

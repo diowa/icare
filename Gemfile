@@ -71,6 +71,7 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'
+  gem 'selenium-webdriver'
   gem 'simplecov', require: false
   gem 'spork', '~> 1.0rc'
   gem 'webmock', require: false

@@ -44,12 +44,12 @@ String::lpad = (padString, length) ->
     str = padString + str
   str
 
-setLoadingStatus = ->
+startSpinner = ->
   $('#loading-spinner').show()
 
-unsetLoadingStatus = ->
+stopSpinner = ->
   $('#loading-spinner').fadeOut()
 
-# Turbolinks
-$(window).on 'page:fetch', setLoadingStatus
-$(window).on 'page:change', unsetLoadingStatus
+# Turbolinks Spinner
+document.addEventListener 'page:fetch', startSpinner
+document.addEventListener 'page:receive', stopSpinner
