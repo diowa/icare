@@ -92,7 +92,7 @@ GEM
     debugger-ruby_core_source (1.2.0)
     delorean (2.1.0)
       chronic
-    diff-lcs (1.2.2)
+    diff-lcs (1.2.3)
     email_spec (1.4.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -109,7 +109,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.8.7)
       multipart-post (~> 1.1)
-    ffi (1.6.0)
+    ffi (1.7.0)
     fssm (0.2.10)
     google-analytics-rails (0.0.4)
     haml (4.0.2)
