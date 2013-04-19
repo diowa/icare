@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.7.18
+------
+* Minor fixes
+* Trying to use latest therubyracer gem
+
 0.7.17
 ------
 * Added secure_headers gem
