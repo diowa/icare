@@ -29,7 +29,7 @@ describe User do
       expect(born_on_1960_10_30.age).to be 52
     end
 
-    it "does not raise exceptions if user has no name" do
+    it "does not raise exceptions if user has no birthday" do
       expect(unknown_birthday.age).to be_nil
     end
   end
