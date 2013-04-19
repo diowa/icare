@@ -54,7 +54,7 @@ describe 'Sessions' do
     itinerary = FactoryGirl.create :itinerary
     visit itinerary_path(itinerary)
     find('a', text: I18n.t('login_with_facebook')).click
-    expect(page).to have_xpath '//title', itinerary.title
+    expect(page.title).to eq itinerary.title
     expect(page).to have_content itinerary.user_name
   end
 

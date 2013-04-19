@@ -2,7 +2,9 @@
 .row
   .span12
     = render 'shared/flash_messages'
-    %h1= yield :title
+    %h1
+      = yield :title
+      %small= User.all.count
   .span12
     %table.table.table-striped
       %thead

@@ -29,8 +29,11 @@
           = Itinerary.human_attribute_name(:pink)
       = boolean_tag @itinerary.smoking_allowed?, 'smoking'
       = boolean_tag @itinerary.pets_allowed?, 'pets'
-    - if logged_in?
-      .btn-toolbar
+.row
+  .span12.text-center
+    %hr
+    .btn-toolbar
+      - if logged_in?
         - if current_user != @itinerary.user
           = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary' do
             %i.icon-comment
@@ -39,9 +42,9 @@
             %i.icon-thumbs-up
             = t('.leave_reference')
           .btn-group.mock
-            %button.btn.btn-mini.btn-inverse
+            %button.btn
               %i.icon-flag
-            %button.btn.btn-mini.btn-inverse.dropdown-toggle{ data: { toggle: 'dropdown' } }
+            %button.btn.dropdown-toggle{ data: { toggle: 'dropdown' } }
               %span.caret
             %ul.dropdown-menu
               %li
@@ -51,8 +54,7 @@
           = link_to edit_itinerary_path(@itinerary), class: 'btn' do
             %i.icon-edit
             = t('helpers.titles.edit', model: Itinerary.model_name.human)
-    - else
-      .btn-toolbar
+      - else
         = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
           %i.icon-facebook-sign
           = t('.login_to_contact')

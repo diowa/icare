@@ -18,7 +18,7 @@ describe 'Users' do
     FactoryGirl.create :itinerary, pink: true, user: female_user
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
     visit '/auth/facebook'
-    expect(page).to have_css('.table-itinerary tr', count: 5)
+    expect(page).to have_css('.table-itinerary tbody tr', count: 5)
   end
 
   it "should see latest itineraries in dashboard including pink if they are women" do
@@ -28,7 +28,7 @@ describe 'Users' do
     @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
     OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
     visit '/auth/facebook'
-    expect(page).to have_css('.table-itinerary tr', count: 6)
+    expect(page).to have_css('.table-itinerary tbody tr', count: 6)
     OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
   end
 

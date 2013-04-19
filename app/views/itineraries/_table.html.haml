@@ -1,16 +1,17 @@
 %table.table.table-itinerary
   %thead
-    %th= Itinerary.human_attribute_name(:start_address)
-    %th= Itinerary.human_attribute_name(:end_address)
-    %th
-      %span.visible-phone
-        %i.icon-info-sign{ rel: 'tooltip', title: t('itineraries.common.features') }
-      %span.hidden-phone= t('itineraries.common.features')
-    - if edit
-      %th= t('helpers.actions')
-    - else
-      %th= User.model_name.human
-      %th= Itinerary.human_attribute_name(:leave_date)
+    %tr
+      %th= Itinerary.human_attribute_name(:start_address)
+      %th= Itinerary.human_attribute_name(:end_address)
+      %th
+        %span.visible-phone
+          %i.icon-info-sign{ rel: 'tooltip', title: t('itineraries.common.features') }
+        %span.hidden-phone= t('itineraries.common.features')
+      - if edit
+        %th= t('helpers.actions')
+      - else
+        %th= User.model_name.human
+        %th= Itinerary.human_attribute_name(:leave_date)
   %tbody
     - itineraries.each_with_index do |itinerary, index|
       %tr.vertical-align-middle
