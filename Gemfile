@@ -88,7 +88,7 @@ group :assets do
   gem 'jquery-turbolinks'
   gem 'less-rails'
   gem 'sass-rails'
-  gem 'therubyracer', '0.10.2' # NOTE can't update due to libv8 version on heroku
+  gem 'therubyracer'
   gem 'turbolinks'
   gem 'twitter-bootstrap-rails'
   gem 'uglifier'

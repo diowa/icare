@@ -153,7 +153,7 @@ GEM
     less-rails (2.3.3)
       actionpack (>= 3.1)
       less (~> 2.3.1)
-    libv8 (3.3.10.4)
+    libv8 (3.11.8.17)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -244,6 +244,7 @@ GEM
     redis (3.0.3)
     redis-namespace (1.2.1)
       redis (~> 3.0.0)
+    ref (1.0.4)
     resque (1.24.1)
       mono_logger (~> 1.0)
       multi_json (~> 1.0)
@@ -302,8 +303,9 @@ GEM
       actionpack (~> 3.0)
       activemodel (~> 3.0)
       railties (~> 3.0)
-    therubyracer (0.10.2)
-      libv8 (~> 3.3.10)
+    therubyracer (0.11.4)
+      libv8 (~> 3.11.8.12)
+      ref
     thin (1.5.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -396,7 +398,7 @@ DEPENDENCIES
   simplecov
   spork (~> 1.0rc)
   strong_parameters
-  therubyracer (= 0.10.2)
+  therubyracer
   thin
   turbolinks
   twitter-bootstrap-rails
