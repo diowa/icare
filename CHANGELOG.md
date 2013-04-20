@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.7.19
+------
+* Fixed turbolinks spinner
+
 0.7.18
 ------
 * Minor fixes
