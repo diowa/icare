@@ -1,6 +1,5 @@
 class ReferencesController < ApplicationController
 
-  skip_before_filter :check_admin, only: [:index]
   before_filter :check_not_myself, only: [:new, :create]
 
   after_filter :mark_as_read, only: [:show]

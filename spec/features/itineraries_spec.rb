@@ -31,18 +31,18 @@ describe 'Itineraries' do
       check 'itinerary_round_trip'
 
       leave_date = Time.parse("#{10.days.from_now.to_date} 8:30")
-      select leave_date.day,   from: 'itinerary_leave_date_3i'
+      select leave_date.day, from: 'itinerary_leave_date_3i'
       select I18n.t('date.month_names')[leave_date.month], from: 'itinerary_leave_date_2i'
-      select leave_date.year,  from: 'itinerary_leave_date_1i'
-      select '08 AM', from:'itinerary_leave_date_4i'
-      select leave_date.min, from:'itinerary_leave_date_5i'
+      select leave_date.year, from: 'itinerary_leave_date_1i'
+      select '08 AM', from: 'itinerary_leave_date_4i'
+      select leave_date.min, from: 'itinerary_leave_date_5i'
 
       return_date = Time.parse("#{35.days.from_now.to_date} 9:10")
-      select return_date.day,   from: 'itinerary_return_date_3i'
+      select return_date.day, from: 'itinerary_return_date_3i'
       select I18n.t('date.month_names')[return_date.month], from: 'itinerary_return_date_2i'
-      select return_date.year,  from: 'itinerary_return_date_1i'
-      select '09 AM', from:'itinerary_return_date_4i'
-      select return_date.min, from:'itinerary_return_date_5i'
+      select return_date.year, from: 'itinerary_return_date_1i'
+      select '09 AM', from: 'itinerary_return_date_4i'
+      select return_date.min, from: 'itinerary_return_date_5i'
 
       fill_in 'itinerary_fuel_cost', with: '5'
       fill_in 'itinerary_tolls', with: '3'

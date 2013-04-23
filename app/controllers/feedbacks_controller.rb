@@ -1,6 +1,5 @@
 class FeedbacksController < ApplicationController
 
-  skip_before_filter :check_admin, only: [:index]
   before_filter :check_admin, only: [:destroy]
   before_filter :check_owner_or_admin, only: [:edit, :update]
 

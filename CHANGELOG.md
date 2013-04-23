@@ -1,6 +1,9 @@
 Changelog
 =========
 
+------
+* Improved controllers
+
 0.7.20
 ------
 * Don't screw up with things you don't understand, like 'uri-directive' in secure_headers
