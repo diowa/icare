@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   before_filter :require_login
   before_filter :set_locale
   before_filter :check_banned, except: [:banned]
-  before_filter :check_admin, only: [:index] # whitelist approach on indexes
 
   before_filter :set_user_time_zone, if: :logged_in?
 

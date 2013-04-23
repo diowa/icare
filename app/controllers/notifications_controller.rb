@@ -1,7 +1,5 @@
 class NotificationsController < ApplicationController
 
-  skip_before_filter :check_admin, only: [:index]
-
   after_filter :consume_notifications, only: :index
 
   def index

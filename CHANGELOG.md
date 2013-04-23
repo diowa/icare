@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.7.21
+------
+* Improved controllers
+* Users are now able to delete their own feedbacks
+
 0.7.20
 ------
 * Don't screw up with things you don't understand, like 'uri-directive' in secure_headers

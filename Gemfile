@@ -15,7 +15,7 @@ gem 'rabl'
 
 # ODM and related
 gem 'client_side_validations'
-gem 'client_side_validations-turbolinks', github: 'tagliala/client_side_validations-turbolinks', branch: 'turbolinks-1.1.1'
+gem 'client_side_validations-turbolinks'
 gem 'kaminari'
 gem 'mongoid'
 gem 'mongoid_geospatial'

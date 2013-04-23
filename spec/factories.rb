@@ -61,4 +61,9 @@ FactoryGirl.define do
     rating 1
     body 'Positive!'
   end
+
+  factory :feedback do
+    user { FactoryGirl.create(:user) }
+    message 'Generic Feedback'
+  end
 end

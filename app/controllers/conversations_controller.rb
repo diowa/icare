@@ -1,7 +1,5 @@
 class ConversationsController < ApplicationController
 
-  skip_before_filter :check_admin, only: [:index]
-
   after_filter :mark_as_read, only: [:show]
 
   def index
