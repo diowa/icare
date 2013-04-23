@@ -8,7 +8,7 @@ class Feedback
   belongs_to :user
   delegate :name, to: :user, prefix: true
 
-  field :type, type: String
+  field :type, type: String, default: 'bug'
   field :message, type: String
   field :url, type: String
   field :status, type: String, default: 'open'

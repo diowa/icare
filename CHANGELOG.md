@@ -3,6 +3,7 @@ Changelog
 
 ------
 * Improved controllers
+* Users are now able to delete their own feedbacks
 
 0.7.20
 ------

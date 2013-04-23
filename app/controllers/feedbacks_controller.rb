@@ -1,7 +1,6 @@
 class FeedbacksController < ApplicationController
 
-  before_filter :check_admin, only: [:destroy]
-  before_filter :check_owner_or_admin, only: [:edit, :update]
+  before_filter :check_owner_or_admin, only: [:edit, :update, :destroy]
 
   def index
     @feedbacks = Feedback.includes(:user).all.desc(:updated_at).page params[:page]
