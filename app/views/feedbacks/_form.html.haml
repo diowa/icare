@@ -6,4 +6,4 @@
   = f.text_area :message, class: 'full-width border-box', rows: 8
   = f.text_field :url, class: 'full-width width-max'
   .form-actions
-    = f.submit class: 'btn btn-primary'
+    = f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')

@@ -41,4 +41,4 @@
     = f.hidden_field :end_address
     = button_tag t('.previous_step'), type: 'button', class: 'btn btn-large hide', name: 'back_button', id: 'wizard-prev-step-button', disabled: true
     = f.submit t('.next_step'), type: 'button', class: 'btn btn-large btn-primary', name: 'next_button', id: 'wizard-next-step-button', disabled: false
-    = f.submit t('.confirm_and_share'), class: 'btn btn-large btn-success hide', id: 'new_itinerary_submit', disabled: true
+    = f.submit t('.confirm_and_share'), class: 'btn btn-large btn-success hide', id: 'new_itinerary_submit', disabled: true, disable_with: t('helpers.disable_with')

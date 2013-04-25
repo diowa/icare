@@ -7,4 +7,4 @@
       = f.error_messages
       = render 'form', f: f
       .form-actions
-        = f.submit class: 'btn btn-primary'
+        = f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')
