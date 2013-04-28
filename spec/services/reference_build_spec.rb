@@ -1,14 +1,10 @@
 require 'spec_helper'
 
-describe ItineraryBuild do
-  describe 'itinerary' do
-    # Driver and Passenger users
+describe ReferenceBuild do
+  describe 'reference' do
     let(:driver) { FactoryGirl.create :user }
     let(:passenger) { FactoryGirl.create :user }
-
-    # Generic Itinerary
     let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
-
     let(:params) { { body: 'Positive', rating: '1' } }
 
     it "does not fail if params are empty or malformed" do

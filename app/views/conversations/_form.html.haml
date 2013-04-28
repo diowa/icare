@@ -3,4 +3,4 @@
   = f.error_messages
   = f.fields_for Message.new do |m|
     = m.text_area :body, rows: 5, class: 'input-xxlarge', placeholder: t('.write_a_message'), skip_label: true
-    = f.submit t('.send'), class: 'btn btn-primary'
+    = f.submit t('.send'), class: 'btn btn-primary', disable_with: t('helpers.disable_with')

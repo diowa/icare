@@ -4,13 +4,13 @@
     = render 'shared/flash_messages'
     %h1
       = yield :title
-      %small= User.all.count
+      %small= @users.all.count
   .span12
     %table.table.table-striped
       %thead
-        %th Name
-        %th Email
-        %th Actions
+        %th= User.human_attribute_name :name
+        %th= User.human_attribute_name :email
+        %th= t('helpers.actions')
       %tbody
         - @users.each do |user, index|
           %tr.vertical-align-middle

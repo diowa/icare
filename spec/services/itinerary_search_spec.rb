@@ -2,11 +2,8 @@ require 'spec_helper'
 
 describe ItinerarySearch do
   describe 'itineraries' do
-    # Generic male and female users
     let(:male_user) { FactoryGirl.create :user, gender: 'male' }
     let(:female_user) { FactoryGirl.create :user, gender: 'female' }
-
-    # Generic search parameters
     let(:search_params) {
       { start_location_lat: 0,
         start_location_lng: 0,

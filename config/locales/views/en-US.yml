@@ -17,12 +17,10 @@ en-US:
     "false": "No"
 
   helpers:
+    actions: Actions
+    disable_with: Please wait...
     form:
       error: Fix the following errors
-    actions: Actions
-    titles:
-      new: "New %{model}"
-      edit: "Edit %{model}"
     links:
       share_on_facebook_timeline: Share on Facebook
       new: New
@@ -33,6 +31,9 @@ en-US:
       user:
         ban: Ban
         unban: Unban
+    titles:
+      new: "New %{model}"
+      edit: "Edit %{model}"
 
   views:
     pagination:
@@ -98,16 +99,20 @@ en-US:
     enter_words: Enter the words above
 
   flash:
+    admin:
+      users:
+        success:
+          ban: User successfully banned.
+          unban: User successfully unbanned.
+        error:
+          ban: An error occurred while banning this user.
+          unban: An error occurred while unbanning this user.
     users:
       success:
         update: User successfully updated.
         destroy: User sucessfully destoryed.
-        ban: User successfully banned.
-        unban: User successfully unbanned.
       error:
         update: An error occurred while updating this user.
-        ban: An error occurred while banning this user.
-        unban: An error occurred while unbanning this user.
     feedbacks:
       success:
         create: Feedback successfully created.

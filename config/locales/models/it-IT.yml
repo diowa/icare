@@ -48,11 +48,12 @@ it-IT:
         updated_at: Ultima modifica
         url: Indirizzo
       itinerary:
-        route: Percorso
-        start_location: Punto di partenza
-        end_location: Punto di arrivo
         start_address: Partenza
         end_address: Arrivo
+        avoid_highways: Evita autostrade
+        avoid_tolls: Evita strade a pedaggio
+        start_location: Punto di partenza
+        end_location: Punto di arrivo
         title: Titolo
         description: Descrizione
         smoking_allowed: Si fuma a bordo
@@ -96,11 +97,6 @@ it-IT:
 
   activemodel:
     attributes:
-      itineraries/route:
-        from: Partenza
-        to: Arrivo
-        avoid_highways: Evita autostrade
-        avoid_tolls: Evita strade a pedaggio
     errors:
       models:
         login:

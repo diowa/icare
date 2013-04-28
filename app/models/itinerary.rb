@@ -6,8 +6,9 @@ class Itinerary
   include Mongoid::MultiParameterAttributes
   include Mongoid::Slug
 
+  include Concerns::GmapRoute
+
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
-  BOUNDARIES = [APP_CONFIG.itineraries.bounds.sw, APP_CONFIG.itineraries.bounds.ne]
 
   belongs_to :user
   delegate :name, to: :user, prefix: true
@@ -15,16 +16,7 @@ class Itinerary
 
   has_many :conversations, as: :conversable, dependent: :destroy
 
-  # Route
-  field :start_location, type: Point, spatial: true
-  field :end_location, type: Point, spatial: true
-  field :via_waypoints, type: Array
-  field :overview_path, type: Line
-  field :overview_polyline, type: String
-
   # Details
-  field :start_address
-  field :end_address
   field :description
   field :num_people, type: Integer
   field :smoking_allowed, type: Boolean, default: false
@@ -41,17 +33,12 @@ class Itinerary
   field :driver_gender
   field :verified
 
-  attr_accessor :route, :share_on_facebook_timeline
+  attr_accessor :share_on_facebook_timeline
 
   slug :start_address, :end_address, reserve: %w(new)
 
   #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
 
-  validates :start_location, presence: true
-  validates :end_location, presence: true
-
-  validates :start_address, presence: true
-  validates :end_address, presence: true
   validates :description, length: { maximum: 1000 }, presence: true
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
   validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
@@ -59,7 +46,6 @@ class Itinerary
   validates :leave_date, timeliness: { on_or_after: -> { Time.now } }, on: :create
   validates :return_date, presence: true, if: -> { round_trip }
 
-  validate :inside_bounds, if: -> { APP_CONFIG.itineraries.geo_restricted }, on: :create
   validate :driver_is_female, if: -> { pink }
   validate :return_date_validator, if: -> { round_trip }
 
@@ -73,17 +59,15 @@ class Itinerary
     self.errors.add(:pink, :driver_must_be_female) unless user.female?
   end
 
-  def inside_bounds
-    self.errors.add(:route, :out_of_boundaries) unless point_inside_bounds?(start_location) && point_inside_bounds?(end_location)
+  set_callback(:create, :before) do
+    self.driver_gender = user.gender
+    self.verified = user.facebook_verified
+    true
   end
 
   def sample_path(precision = 10)
     # TODO move outside model
     overview_path.in_groups(precision).map { |g| g.first }.insert(-1, overview_path.last).compact
-  end
-
-  def static_map
-    URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&sensor=false&markers=color:green|label:B|#{end_location.to_latlng_a.join(",")}&markers=color:green|label:A|#{start_location.to_latlng_a.join(",")}&path=enc:#{overview_polyline}")
   end
 
   def title
@@ -92,11 +76,5 @@ class Itinerary
 
   def to_s
      title || id
-  end
-
-  private
-  def point_inside_bounds?(point)
-    # TODO RGeo???
-    point.lat.between?(BOUNDARIES[0][0], BOUNDARIES[1][0]) && point.lng.between?(BOUNDARIES[0][1], BOUNDARIES[1][1])
   end
 end

@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.8.0
+-----
+* Refactored itineraries
+* Improved specs
+
 0.7.21
 ------
 * Improved controllers

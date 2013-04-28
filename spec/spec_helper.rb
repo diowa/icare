@@ -64,10 +64,6 @@ Spork.prefork do
     config.order = 'random'
 
     config.include Delorean
-    config.include MailerMacros
-    ActionMailer::Base.perform_deliveries = false
-    ActionMailer::Base.raise_delivery_errors = false
-    ActionMailer::Base.delivery_method = :test
 
     config.expect_with :rspec do |c|
       c.syntax = :expect

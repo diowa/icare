@@ -17,12 +17,10 @@ it-IT:
     "false": "No"
 
   helpers:
+    actions: Azioni
+    disable_with: Attendi...
     form:
       error: Correggi i seguenti errori
-    actions: Azioni
-    titles:
-      new: "Nuovo %{model}"
-      edit: "Modifica %{model}"
     links:
       share_on_facebook_timeline: Condividi su Facebook
       new: Nuovo
@@ -33,6 +31,9 @@ it-IT:
       user:
         ban: Sospendi
         unban: Rimuovi sospensione
+    titles:
+      new: "Nuovo %{model}"
+      edit: "Modifica %{model}"
 
   views:
     pagination:

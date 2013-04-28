@@ -14,34 +14,45 @@ Itineraries
 window.icare = window.icare || {}
 icare = window.icare
 
-getJSONRoute = (route) ->
-  # TODO server side, basing on start location, end location and via waypoints
-  # NOTE server side is limited to 2.500 requests per day. Are we sure?
+setItinerary = (route) ->
+  # NOTE server side is limited to 2.500 requests per day, so we create routes on client
 
-  data =
-    start_location: null
-    end_location: null
-    via_waypoints: []
-    overview_path: []
-    overview_polyline: null
+  # Set visible fields at first
+  $('#from-helper, #itinerary-preview-from').text route.legs[0].start_address
+  $('#to-helper, #itinerary-preview-to').text route.legs[0].end_address
+  $('#distance').text route.legs[0].distance.text
+  $('#duration').text route.legs[0].duration.text
+  $('#copyrights').text route.copyrights
+  $('#result').show()
+  route_km = (Number) route.legs[0].distance.value / 1000
+  route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
+  $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", Math.ceil(route_gasoline))
+  $('#fuel-help').show()
+  $('#itinerary_fuel_cost').val Math.ceil(route_gasoline)
 
   rleg = route.legs[0]
-  data.start_location =
-    'lat': rleg.start_location.lat()
-    'lng': rleg.start_location.lng()
-  data.end_location =
-    'lat': rleg.end_location.lat()
-    'lng': rleg.end_location.lng()
+
+  data =
+    start_location: [rleg.start_location.lng(), rleg.start_location.lat()]
+    end_location: [rleg.end_location.lng(), rleg.end_location.lat()]
+    via_waypoints: []
+    overview_path: []
+    overview_polyline: route.overview_polyline.points
 
   for waypoint in rleg.via_waypoints
-    data.via_waypoints.push [waypoint.lat(), waypoint.lng()]
+    data.via_waypoints.push [waypoint.lng(), waypoint.lat()]
+
+  # Show a link to remove waypoints
+  if rleg.via_waypoints.length > 0
+    $('#remove-waypoints-link').show()
+  else
+    $('#remove-waypoints-link').hide()
 
   for point in route.overview_path
-    data.overview_path.push [point.lat(), point.lng()]
+    data.overview_path.push [point.lng(), point.lat()]
 
-  data.overview_polyline = route.overview_polyline.points
-
-  data
+  window.icare.route = data
+  $('#itinerary_route').val JSON.stringify(data)
 
 wizardPrevStep = ->
   step = (Number) $('div[data-step]:visible').data('step')
@@ -117,11 +128,9 @@ dateFieldToString = (field_id) ->
   dateString = "#{year}-#{month}-#{day}T#{hour}:#{minute}:00"
   if I18n? then I18n.l('time.formats.long', dateString) else dateString
 
-window.test = dateFieldToString
-
 lastStepInit = ->
   route = window.icare.route
-  $('#itinerary-preview-image').attr 'src', "http://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&sensor=false&markers=color:green|label:B|#{route.end_location.lat},#{route.end_location.lng}&markers=color:green|label:A|#{route.start_location.lat},#{route.start_location.lng}&path=enc:#{route.overview_polyline}"
+  $('#itinerary-preview-image').attr 'src', "http://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&sensor=false&markers=color:green|label:B|#{route.end_location[1]},#{route.end_location[0]}&markers=color:green|label:A|#{route.start_location[1]},#{route.start_location[0]}&path=enc:#{route.overview_polyline}"
 
 setRoute = (dr, result) ->
   dr.setDirections result
@@ -134,6 +143,43 @@ setRoute = (dr, result) ->
   # dr.setOptions
   #  suppressMarkers: true
 
+getWaypoints = () ->
+  try
+    for point in JSON.parse($('#itinerary_via_waypoints').val())
+      { location: new google.maps.LatLng(point[1], point[0]), stopover: false } 
+  catch e
+    []
+
+calculateRoute = (dr, ds) ->
+  return if $('#itinerary_start_address').val() is '' || $('#itinerary_end_address').val() is ''
+  $('#itineraries-spinner').show()
+  $('#error').hide()
+  $('#result').hide()
+  $('#route-helper').hide()
+  $('#copyrights').text ''
+  $('#distance').text ''
+  $('#duration').text ''
+  ds.route
+    origin: $('#itinerary_start_address').val()
+    destination: $('#itinerary_end_address').val()
+    travelMode: 'DRIVING' # $("#mode").val()
+    avoidHighways: $('#itinerary_avoid_highways').prop 'checked'
+    avoidTolls: $('#itinerary_avoid_tolls').prop 'checked'
+    waypoints: getWaypoints()
+  , (result, status) ->
+    $('#itineraries-spinner').hide()
+    if status is google.maps.DirectionsStatus.OK
+      setRoute dr, result
+    else
+      switch status
+        when 'NOT_FOUND'
+          message = I18n.t 'javascript.not_found'
+        when 'ZERO_RESULTS'
+          message = I18n.t 'javascript.zero_results'
+        else
+          message = status
+      $('#error').text(message).show()
+
 createRouteMapInit = (id) ->
   map = icare.initGoogleMaps id
 
@@ -145,85 +191,30 @@ createRouteMapInit = (id) ->
   ds = new google.maps.DirectionsService()
 
   google.maps.event.addListener dr, 'directions_changed', ->
-    route = dr.getDirections().routes[0]
-    json_route = getJSONRoute route
-    $('#from-helper, #itinerary-preview-from').text route.legs[0].start_address
-    $('#to-helper, #itinerary-preview-to').text route.legs[0].end_address
-    window.icare.itinerary = route
-    window.icare.route = json_route
+    map.fitBounds dr.directions.routes[0].bounds
+    setItinerary dr.getDirections().routes[0]
     $('#new_itinerary_submit').prop 'disabled', false
-    $('#distance').text route.legs[0].distance.text
-    $('#duration').text route.legs[0].duration.text
-    $('#copyrights').text route.copyrights
-    $('#route-helper').show()
-    $('#result').show()
-    route_km = (Number) route.legs[0].distance.value / 1000
-    route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
-    $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", Math.ceil(route_gasoline))
 
-    $('#itinerary_start_address').val route.legs[0].start_address
-    $('#itinerary_end_address').val route.legs[0].end_address
-    $('#itinerary_fuel_cost').val Math.ceil(route_gasoline)
-    $('#itinerary_route').val JSON.stringify(json_route)
-    $('#itinerary_itineraries_route_waypoints').val JSON.stringify(route.legs[0].via_waypoints)
-
-    $('#fuel-help').show()
-    path = route.overview_path
-    map.fitBounds(dr.directions.routes[0].bounds)
+  $itinerary_address_inputs = $('#itinerary_start_address, #itinerary_end_address')
+  $itinerary_route_checkboxes = $('#itinerary_avoid_highways, #itinerary_avoid_tolls')
 
   # Get Route acts as submit
-  $('input[type=text][id^=itinerary_itineraries_route]').on 'keypress', (e) ->
+  $itinerary_address_inputs.on 'keypress', (e) ->
     if e and e.keyCode is 13
       e.preventDefault()
-      $('#get-route').click()
+      calculateRoute dr, ds
 
   $('#get-route').on 'click', ->
     valid = true
-    $('[data-validate][id^=itinerary_itineraries_route]:input:visible').each ->
+    $('[data-validate]:input:visible').each ->
       settings = window.ClientSideValidations.forms[this.form.id]
       valid = false unless $(this).isValid settings.validators
       return
     return unless valid
-    $('#itineraries-spinner').show()
-    $('#error').hide()
-    $('#result').hide()
-    $('#route-helper').hide()
-    $('#copyrights').text ''
-    $('#distance').text ''
-    $('#duration').text ''
-    ds.route
-      origin: $('#itinerary_itineraries_route_from').val()
-      destination: $('#itinerary_itineraries_route_to').val()
-      travelMode: 'DRIVING' # $("#mode").val()
-      avoidHighways: $('#itinerary_itineraries_route_avoid_highways').prop 'checked'
-      avoidTolls: $('#itinerary_itineraries_route_avoid_tolls').prop 'checked'
-      waypoints:
-        try
-          JSON.parse($('#itinerary_route').val()).via_waypoints.map (point) ->
-            { location: new google.maps.LatLng(point[0], point[1]) }
-        catch error
-          []
-    , (result, status) ->
-      $('#itineraries-spinner').hide()
-      if status is google.maps.DirectionsStatus.OK
-        setRoute dr, result
-      else
-        switch status
-          when 'NOT_FOUND'
-            message = I18n.t 'javascript.not_found'
-          when 'ZERO_RESULTS'
-            message = I18n.t 'javascript.zero_results'
-          else
-            message = status
-        $('#error').text(message).show()
-
-  $('.share').click ->
-    $(this).find('input').focus().select()
+    calculateRoute dr, ds
 
   # Set route if it's already available
-  if $('#itinerary_itineraries_route_from').val() isnt '' && $('#itinerary_itineraries_route_to').val() isnt ''
-    # TODO cache this object
-    $('#get-route').click()
+  calculateRoute dr, ds
 
 
 initItineraryNew = ->

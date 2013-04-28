@@ -1,6 +1,25 @@
-class Itineraries::Search < Itineraries::Route
+class Itineraries::Search
+  include ActiveModel::Validations
+  include ActiveModel::Conversion
+  extend ActiveModel::Naming
+
+  attr_accessor :from, :to
+
   attr_accessor :start_location_lat, :start_location_lng, :end_location_lat, :end_location_lng
   attr_accessor :filter_round_trip, :filter_pink, :filter_verified
   attr_accessor :filter_smoking_allowed, :filter_pets_allowed
   attr_accessor :filter_driver_gender
+
+  validates :from, presence: true
+  validates :to, presence: true
+
+  def initialize(attributes = {})
+    attributes.each do |name, value|
+      send("#{name}=", value)
+    end
+  end
+
+  def persisted?
+    false
+  end
 end
