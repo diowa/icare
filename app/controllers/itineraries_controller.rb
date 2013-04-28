@@ -8,7 +8,6 @@ class ItinerariesController < ApplicationController
 
   def new
     @itinerary = Itinerary.new
-    @itinerary_route = Itineraries::Route.new
   end
 
   def index
@@ -22,11 +21,10 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = ItineraryBuild.new(permitted_params.itinerary, current_user).itinerary
+    @itinerary = current_user.itineraries.new(permitted_params.itinerary)
     if @itinerary.save
       redirect_to itinerary_path(@itinerary), flash: { success: t('flash.itineraries.success.create') }
     else
-      @itinerary_route = Itineraries::Route.new params[:itinerary][:itineraries_route]
       render :new
     end
   end

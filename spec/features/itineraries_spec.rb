@@ -23,8 +23,8 @@ describe 'Itineraries' do
     it "are allowed to create itineraries", js: true do
       login_as_female
       visit new_itinerary_path
-      fill_in 'itinerary_itineraries_route_from', with: 'Milan'
-      fill_in 'itinerary_itineraries_route_to', with: 'Turin'
+      fill_in 'itinerary_start_address', with: 'Milan'
+      fill_in 'itinerary_end_address', with: 'Turin'
       click_button 'get-route'
       click_button 'wizard-next-step-button'
 

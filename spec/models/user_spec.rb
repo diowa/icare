@@ -1,10 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  # Generic User
   let(:user) { FactoryGirl.create :user }
-
-  # Generic male and female users
   let(:male_user) { FactoryGirl.create :user, gender: 'male' }
   let(:female_user) { FactoryGirl.create :user, gender: 'female' }
 

@@ -3,9 +3,9 @@
     = image_tag @itinerary.static_map, class: 'google-static-map', alt: ''
   .span8
     %h1.itinerary-title
-      %small= Itineraries::Route.human_attribute_name :from
+      %small= Itinerary.human_attribute_name :start_address
       %span= @itinerary.start_address
-      %small= Itineraries::Route.human_attribute_name :to
+      %small= Itinerary.human_attribute_name :end_address
       %span= @itinerary.end_address
     %h2.itinerary-subtitle
       - if @itinerary.daily?

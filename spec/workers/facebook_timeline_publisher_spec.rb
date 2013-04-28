@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe FacebookTimelinePublisher do
   describe '.perform' do
-    # Generic itinerary
     let(:user) { FactoryGirl.create :user, oauth_token: 'test', facebook_permissions: { "publish_stream" => 1 } }
     let(:itinerary) { FactoryGirl.create :itinerary, user: user }
 

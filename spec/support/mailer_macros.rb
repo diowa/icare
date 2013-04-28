@@ -7,3 +7,7 @@ module MailerMacros
     ActionMailer::Base.deliveries = []
   end
 end
+
+RSpec.configure do |config|
+  config.include MailerMacros
+end

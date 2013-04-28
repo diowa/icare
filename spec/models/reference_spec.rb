@@ -1,13 +1,9 @@
 require 'spec_helper'
 
 describe Reference do
-  # Driver and Passenger users
   let(:driver) { FactoryGirl.create :user }
   let(:passenger) { FactoryGirl.create :user }
-
-  # Generic Itinerary
   let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
-
   let(:reference) { FactoryGirl.create :reference, user: passenger, itinerary: itinerary }
 
   describe '.not_by_myself' do

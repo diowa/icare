@@ -1,12 +1,11 @@
 .row
   .span4
-    = f.fields_for @itinerary_route do |route_fields|
-      = route_fields.text_field :from, class: 'input-block'
-      = route_fields.text_field :to, class: 'input-block'
-      = route_fields.check_box :avoid_highways
-      = route_fields.check_box :avoid_tolls
-      = route_fields.button t('.get_route'), type: 'button', class: 'btn btn-primary', id: 'get-route'
-      = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...', id: 'itineraries-spinner', class: 'hide'
+    = f.text_field :start_address, class: 'input-block'
+    = f.text_field :end_address, class: 'input-block'
+    = f.check_box :avoid_highways
+    = f.check_box :avoid_tolls
+    = f.button t('.get_route'), type: 'button', class: 'btn btn-primary', id: 'get-route'
+    = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...', id: 'itineraries-spinner', class: 'hide'
     .spacer
     #error.alert.alert-error
     #result.alert.alert-info

@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe FacebookDataCacher do
   describe '.perform' do
-    # Generic itinerary
     let(:user) { FactoryGirl.create :user, oauth_token: 'test' }
 
     before do

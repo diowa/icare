@@ -1,24 +1,8 @@
 module ReferencesHelper
-
-  def make_stars(stars, text = true)
-    stars = stars.to_i
-    return unless stars
-    (stars.times.map do
-      content_tag(:i, nil, class: "minstrels-star icon-star", title: "*")
-    end +
-    (5 - stars).times.map do
-      content_tag(:i, nil, class: "minstrels-star icon-star-empty")
-    end).join.html_safe +
-    if text
-      content_tag(:small, " #{t("references.stars", count: stars)}").html_safe
-    end
-  end
-
   def make_thumbs(rating)
-    if rating == -1
-      content_tag :i, nil, class: 'icon-thumbs-down'
-    elsif rating == 1
-      content_tag :i, nil, class: 'icon-thumbs-up'
+    case rating
+    when -1 then content_tag :i, nil, class: 'icon-thumbs-down'
+    when 1 then content_tag :i, nil, class: 'icon-thumbs-up'
     end
   end
 

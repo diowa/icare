@@ -1,6 +1,6 @@
 = bootstrap_form_for Itineraries::Search.new, url: search_itineraries_path, method: :post, validate: true, remote: true do |f|
-  = f.text_field :from, class: 'input-block', label: Itineraries::Route.human_attribute_name(:from)
-  = f.text_field :to, class: 'input-block', label: Itineraries::Route.human_attribute_name(:to)
+  = f.text_field :from, class: 'input-block', label: Itinerary.human_attribute_name(:start_address)
+  = f.text_field :to, class: 'input-block', label: Itinerary.human_attribute_name(:end_address)
   %p
     = link_to '#', id: 'search-form-advanced-link' do
       %i.icon-chevron-up
