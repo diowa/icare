@@ -1,32 +1,26 @@
 !!!
 %html{ lang: I18n.locale.to_s }
   %head
-    %meta{ charset: 'utf-8' }
-    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' }
     %title= t('meta_description', appname: APP_CONFIG.app_name)
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' }
     = csrf_meta_tags
     = tag :meta, name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name)
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
 
-    / Le styles
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Ubuntu:400,500,700|Pacifico',
-                          'application',
-                          media: 'all'
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Ubuntu:400,500,700|Pacifico', 'application', media: 'all'
 
     / Touch icons
     %link{ href: asset_path('apple-touch-icon.png'), rel: 'apple-touch-icon' }
     %link{ href: asset_path('apple-touch-icon-72x72.png'), rel: 'apple-touch-icon', sizes: '72x72' }
     %link{ href: asset_path('apple-touch-icon-114x114.png'), rel: 'apple-touch-icon', sizes: '114x114' }
+    %link{ href: asset_path('apple-touch-icon-144x144.png'), rel: 'apple-touch-icon', sizes: '144x144' }
 
-    /
-      Le javascript
-      \==================================================
     / Placed at the top of the document 'cause of turbolinks
     = javascript_include_tag 'application'
-    - if APP_CONFIG.exists?(:google_analytics_id) && APP_CONFIG.google_analytics_id
-      = analytics_init
+    = analytics_init if APP_CONFIG.google_analytics_id.present?
+
   / TODO DISABLE TURBOLINKS
   %body.home-page-body
     #fb-root
@@ -108,5 +102,4 @@
         .span6= render 'facebook_login'
       = render 'shared/modal_why_facebook'
 
-    #footer
-      .container= render 'shared/footer'
+    #footer= render 'shared/footer'
