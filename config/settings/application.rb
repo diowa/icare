@@ -18,6 +18,9 @@ SimpleConfig.for :application do
 
   set :costs_calculation_service_link, 'http://servizi.aci.it/CKInternet/'
 
+  set :google_analytics_id, nil
+  set :google_maps_api_key, nil
+
   group :facebook do
     set :namespace, 'FACEBOOK_NAMESPACE'
     set :app_id, 'FACEBOOK_APP_ID'
