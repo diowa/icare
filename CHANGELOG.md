@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.8.1
+-----
+* Updated gems
+* Improved application layout
+
 0.8.0
 -----
 * Refactored itineraries
