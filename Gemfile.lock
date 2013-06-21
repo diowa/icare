@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/diowa/twitter-bootstrap-rails.git
+  revision: 05f7e9fa7f1c7d7101d2f177169e8d632b9b9e65
+  branch: fontawesome-3.2.1
+  specs:
+    twitter-bootstrap-rails (2.2.7)
+      actionpack (>= 3.1)
+      execjs
+      rails (>= 3.1)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -319,10 +330,6 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (1.1.1)
       coffee-rails
-    twitter-bootstrap-rails (2.2.6)
-      actionpack (>= 3.1)
-      execjs
-      railties (>= 3.1)
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
@@ -402,7 +409,7 @@ DEPENDENCIES
   therubyracer
   thin
   turbolinks
-  twitter-bootstrap-rails
+  twitter-bootstrap-rails!
   uglifier
   unicorn
   validates_timeliness
