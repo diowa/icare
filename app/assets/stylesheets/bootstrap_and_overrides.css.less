@@ -88,48 +88,8 @@ body {
 
 
 /* ==========================================================================
-   Carousel fade effect
-   ========================================================================== */
-
-&.carousel-fade {
-  .item {
-   .transition(opacity 1s ease-in-out);
-  }
-
-  .active {
-    &.left, &.right {
-      z-index: 2;
-      left: 0;
-      .opacity(0);
-    }
-  }
-
-  .next, .prev {
-    z-index: 1;
-    left: 0;
-  }
-
-  .carousel-control {
-    z-index: 3;
-  }
-}
-
-
-/* ==========================================================================
    Fixes
    ========================================================================== */
-
-/* Icon antialiasing fix */
-i[class^="icon-"] {
-  -webkit-font-smoothing: antialiased
-}
-
-/* Icon Button Fix */
-.btn {
-  i.icon-large[class^="icon-"] {
-    margin-right: 3px;
-  }
-}
 
 /* Modal focus fix */
 .modal-open .modal, a[data-toggle="modal"] { outline: none; }

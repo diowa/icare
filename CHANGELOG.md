@@ -3,6 +3,9 @@ Changelog
 
 0.9.0
 -----
+* Updated gems
+* Improved loader spinner
+* Improved homepage and why facebook modal
 
 0.8.1
 -----
