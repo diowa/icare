@@ -3,6 +3,7 @@ Changelog
 
 0.9.0
 -----
+* Rails 3.2.14
 * Updated gems
 * Improved loader spinner
 * Improved homepage and why facebook modal
