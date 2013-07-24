@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.0.0'
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.14'
 
 # Servers
 gem 'thin'
@@ -90,6 +90,6 @@ group :assets do
   gem 'sass-rails'
   gem 'therubyracer'
   gem 'turbolinks'
-  gem 'twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
   gem 'uglifier'
 end

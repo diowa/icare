@@ -146,7 +146,7 @@ setRoute = (dr, result) ->
 getWaypoints = () ->
   try
     for point in JSON.parse($('#itinerary_via_waypoints').val())
-      { location: new google.maps.LatLng(point[1], point[0]), stopover: false } 
+      { location: new google.maps.LatLng(point[1], point[0]), stopover: false }
   catch e
     []
 

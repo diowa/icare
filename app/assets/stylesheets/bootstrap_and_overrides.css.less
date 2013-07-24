@@ -10,14 +10,15 @@ body {
 
 @import "twitter/bootstrap/responsive";
 
-/* Fontawesome Icons
-   ========================================================================== */
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+@fontAwesomeEotPath: asset-url("fontawesome-webfont.eot");
+@fontAwesomeEotPath_iefix: asset-url("fontawesome-webfont.eot#iefix");
+@fontAwesomeWoffPath: asset-url("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-url("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-url("fontawesome-webfont.svg#fontawesomeregular");
 
-@fontAwesomeEotPath: asset-path("fontawesome-webfont.eot?v=3.0.2");
-@fontAwesomeEotPath_iefix: asset-path("fontawesome-webfont.eot?#iefix&v=3.0.2");
-@fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff?v=3.0.2");
-@fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf?v=3.0.2");
-@import "fontawesome";
+// Font Awesome
+@import "fontawesome/font-awesome";
 
 /* Overriding default variables and loading new ones
    ========================================================================== */
@@ -87,48 +88,8 @@ body {
 
 
 /* ==========================================================================
-   Carousel fade effect
-   ========================================================================== */
-
-&.carousel-fade {
-  .item {
-   .transition(opacity 1s ease-in-out);
-  }
-
-  .active {
-    &.left, &.right {
-      z-index: 2;
-      left: 0;
-      .opacity(0);
-    }
-  }
-
-  .next, .prev {
-    z-index: 1;
-    left: 0;
-  }
-
-  .carousel-control {
-    z-index: 3;
-  }
-}
-
-
-/* ==========================================================================
    Fixes
    ========================================================================== */
-
-/* Icon antialiasing fix */
-i[class^="icon-"] {
-  -webkit-font-smoothing: antialiased
-}
-
-/* Icon Button Fix */
-.btn {
-  i.icon-large[class^="icon-"] {
-    margin-right: 3px;
-  }
-}
 
 /* Modal focus fix */
 .modal-open .modal, a[data-toggle="modal"] { outline: none; }

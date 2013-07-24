@@ -128,29 +128,6 @@
   background: @bodyBackground;
 }
 
-.home-icon-responsive(@multiplier: 5) {
-  @icon-size: @baseFontSize * (@multiplier - 1);
-  .square(@icon-size + @baseFontSize + 8px * @multiplier);
-
-  i {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-    line-height: @icon-size;
-    font-size: @icon-size;
-  }
-}
-
-.home-icon {
-  .home-icon-responsive();
-  position: relative;
-  display: inline-table;
-  .border-radius(100%);
-  text-align: center;
-  color: @bodyBackground;
-  background: @linkColor;
-}
-
 .home-paragraph {
   margin-bottom: 20px;
   padding: 0 20px;
@@ -175,15 +152,17 @@
     @ribbon-color: @headingsColor;
     position: relative;
     display: inline-block;
+    font-family: 'Pacifico';
     font-size: 16px !important;
     /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
     background: @ribbon-color;
     .box-shadow(0 1px 1px fade(@black, 25%));
 
     h2 {
+      margin: 0;
+      line-height: 1.5;
       color: @white;
       text-shadow: 0 -1px 0 fade(@black, 25%);
-      margin: 0;
     }
 
     padding: 6px 2em; /* Adjust to suit */
@@ -195,20 +174,20 @@
       position: absolute;
       display: block;
       bottom: -1em;
-      border: 1.5em solid darken(@ribbon-color, 2%);
+      border: 1.7em solid darken(@ribbon-color, 2%);
       content: "";
       .box-shadow(0 1px 0 fade(@black, 25%));
     }
 
     &:before {
-      left: -2em;
-      border-right-width: 1.5em;
+      left: -2.3em;
+      border-right-width: 1.7em;
       border-left-color: transparent;
     }
 
     &:after {
-      right: -2em;
-      border-left-width: 1.5em;
+      right: -2.3em;
+      border-left-width: 1.7em;
       border-right-color: transparent;
     }
 
@@ -233,6 +212,24 @@
       border-width: 1em 1em 0 0;
       .box-shadow(-1px 0 0 fade(@black, 25%));
     }
+  }
+}
+
+.icon-home-style {
+  display: inline-table;
+  border: 0.2em solid @linkColor;
+  width: 1.618em;
+  height: 1.618em;
+  font-size: 4em;
+  .box-sizing(border-box);
+  .border-radius(1.618em);
+  color: @bodyBackground;
+  background: @linkColor;
+
+  &:before {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
   }
 }
 
@@ -278,17 +275,14 @@
       display: inline;
     }
 
-    .home-icon {
-      .home-icon-responsive(2);
-      i {
-        font-size: @baseFontSize * 2;
-      }
-    }
-
     p {
       margin-top: @baseLineHeight / 2;
       margin-bottom: @baseLineHeight;
     }
+  }
+
+  .icon-home-style {
+    font-size: 2em;
   }
 }
 

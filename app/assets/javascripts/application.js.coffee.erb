@@ -45,9 +45,13 @@ String::lpad = (padString, length) ->
   str
 
 startSpinner = ->
-  $('#loading-spinner').show()
+  @spinner ||= setTimeout ->
+    $('#loading-spinner').show()
+  , 250
 
 stopSpinner = ->
+  clearTimeout @spinner
+  @spinner = null
   $('#loading-spinner').hide()
 
 # Turbolinks Spinner
