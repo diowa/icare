@@ -6,7 +6,7 @@ class Feedback
   STATUS = ['open', 'fixed', 'in progress', 'not applicable']
 
   belongs_to :user
-  delegate :name, to: :user, prefix: true
+  delegate :name, to: :user, prefix: true, allow_nil: true
 
   field :type, type: String, default: 'bug'
   field :message, type: String
