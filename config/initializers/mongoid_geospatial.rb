@@ -1,5 +1,5 @@
 if defined?(Mongoid::Geospatial)
-  Mongoid::Geospatial.use_rgeo
+  Mongoid::Geospatial.with_rgeo!
 
   # Adding :lat and :lng aliases; to_latlng_a and to_latlng:hash methods
   module Mongoid

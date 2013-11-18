@@ -32,8 +32,8 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [3]: http://coffeescript.org/
  [4]: http://handlebarsjs.com/
  [5]: http://haml.info/
- [6]: http://twitter.github.com/bootstrap/
- [7]: http://fortawesome.github.com/Font-Awesome/
+ [6]: http://getbootstrap.com/2.3.2/
+ [7]: http://fontawesome.io/3.2.1/
  [8]: http://mongoid.org/en/mongoid/index.html
  [9]: http://github.com/defunkt/resque
  [10]: http://github.com/nesquena/rabl
@@ -125,4 +125,4 @@ Donations
 If you like this project or you are considering to use it (or any part of it) for commercial purposes, please make
 a donation to the authors.
 
-[![Click here to lend your support to: icare: Ruby on Rails open source carpooling platform and make a donation at www.pledgie.com !](http://www.pledgie.com/campaigns/18177.png?skin_name=chrome)](http://www.pledgie.com/campaigns/18177)
+[![Click here to lend your support to: icare: Ruby on Rails open source carpooling platform and make a donation at www.pledgie.com !](https://www.pledgie.com/campaigns/18177.png?skin_name=chrome)](http://www.pledgie.com/campaigns/18177)
