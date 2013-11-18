@@ -125,4 +125,4 @@ Donations
 If you like this project or you are considering to use it (or any part of it) for commercial purposes, please make
 a donation to the authors.
 
-[![Click here to lend your support to: icare: Ruby on Rails open source carpooling platform and make a donation at www.pledgie.com !](https://www.pledgie.com/campaigns/18177.png?skin_name=chrome)](http://www.pledgie.com/campaigns/18177)
+[![Click here to lend your support to: icare: Ruby on Rails open source carpooling platform and make a donation at pledgie.com !](https://pledgie.com/campaigns/18177.png?skin_name=chrome)](https://pledgie.com/campaigns/18177)

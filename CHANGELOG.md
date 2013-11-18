@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.9.3
+-----
+* Fixed pledgie link in readme
+
 0.9.2
 -----
 * Updated gems
