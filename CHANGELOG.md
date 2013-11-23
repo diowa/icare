@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.9.4
+-----
+* Deploy with ruby 2.0.0-p353
+* Updated gems
+
 0.9.3
 -----
 * Fixed pledgie link in readme
