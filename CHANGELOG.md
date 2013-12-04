@@ -1,6 +1,11 @@
 Changelog
 =========
 
+0.9.5
+-----
+* Rails 3.2.16
+* Updated gems
+
 0.9.4
 -----
 * Deploy with ruby 2.0.0-p353
