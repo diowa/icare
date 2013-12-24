@@ -1,6 +1,10 @@
 Changelog
 =========
 
+0.9.7
+-----
+* Attempt to fix builds on travis
+
 0.9.6
 -----
 * Updated gems
