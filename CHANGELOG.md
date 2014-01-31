@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.9.9
+
+* Fixed travis.yml
+
 ## 0.9.8
 
 * Ruby 2.1.0
