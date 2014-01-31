@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.0'
 gem 'rails', '3.2.16'
 
 # Servers
@@ -90,6 +90,6 @@ group :assets do
   gem 'sass-rails'
   gem 'therubyracer'
   gem 'turbolinks'
-  gem 'twitter-bootstrap-rails', github: 'diowa/twitter-bootstrap-rails', branch: 'fontawesome-3.2.1'
+  gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', ref: '61c14a7a853abefcaa9e6878ade5a48a6856fb55'
   gem 'uglifier'
 end
