@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.10
+
+* Updated gems
+* update ruby for CVE-2013-6393
+
 ## 0.9.9
 
 * Fixed travis.yml
