@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.9.11
+
+* Rails 3.2.17
+* Updated gems
+
 ## 0.9.10
 
 * Updated gems
