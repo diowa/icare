@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.1'
 gem 'rails', '3.2.17'
 
 # Servers
@@ -48,20 +48,22 @@ gem 'resque', require: 'resque/server' # Resque web interface
 gem 'rest-client'
 
 group :development, :test do
-  gem 'debugger'
+  gem 'bullet'
+  gem 'byebug'
   gem 'delorean'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry'
+  gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~> 2.6'
 end
 
 group :development do
-  gem 'bullet'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
@@ -72,8 +74,9 @@ group :test do
   gem 'launchy'
   gem 'mongoid-rspec'
   gem 'selenium-webdriver'
+  gem 'rspec'
+  gem 'rspec-rails'
   gem 'simplecov', require: false
-  gem 'spork', '~> 1.0rc'
   gem 'webmock', require: false
 end
 
@@ -92,4 +95,8 @@ group :assets do
   gem 'turbolinks'
   gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', ref: '61c14a7a853abefcaa9e6878ade5a48a6856fb55'
   gem 'uglifier'
+end
+
+group :staging, :production do
+  gem 'rails_12factor' # Only for heroku
 end
