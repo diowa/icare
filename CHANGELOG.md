@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.0
+
+* Using spring instead of spork
+* Updated gems
+* Using around filters to set locale and timezone
+
 ## 0.9.11
 
 * Rails 3.2.17

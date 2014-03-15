@@ -3,18 +3,23 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :require_login
-  before_filter :set_locale
   before_filter :check_banned, except: [:banned]
 
-  before_filter :set_user_time_zone, if: :logged_in?
+  around_filter :set_locale
+  around_filter :set_user_time_zone, if: :logged_in?
 
   helper_method :current_user, :logged_in?, :permitted_params
 
   protected
-  def set_locale
-    I18n.locale = check_locale_availability(params[:locale] || (current_user.locale if logged_in?)) ||
-                  http_accept_language.preferred_language_from(I18n.available_locales) ||
-                  http_accept_language.compatible_language_from(I18n.available_locales)
+  def set_locale(&block)
+    locale = check_locale_availability(params[:locale] || (current_user.locale if logged_in?)) ||
+             http_accept_language.preferred_language_from(I18n.available_locales) ||
+             http_accept_language.compatible_language_from(I18n.available_locales)
+    I18n.with_locale locale, &block
+  end
+
+  def set_user_time_zone(&block)
+    Time.use_zone current_user.time_zone, &block
   end
 
   def require_login
@@ -43,10 +48,6 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user.present?
-  end
-
-  def set_user_time_zone
-    Time.zone = current_user.time_zone
   end
 
   def check_locale_availability(locale)
