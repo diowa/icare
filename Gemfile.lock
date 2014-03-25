@@ -173,7 +173,7 @@ GEM
       railties
     method_source (0.8.2)
     mime-types (1.25.1)
-    mini_portile (0.5.2)
+    mini_portile (0.5.3)
     mongoid (3.1.6)
       activemodel (~> 3.2)
       moped (~> 1.4)
@@ -262,7 +262,7 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     raindrops (0.13.0)
-    rake (10.1.1)
+    rake (10.2.0)
     rdoc (3.12.2)
       json (~> 1.4)
     redis (3.0.7)
