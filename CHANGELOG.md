@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.10.2
+
+* Fixed newrelic configuration
+* Fixed LICENSE
+* Updated gems
+
 ## 0.10.1
 
 * Updated gems
