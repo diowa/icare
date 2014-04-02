@@ -1,99 +1,77 @@
-!!!
-%html{ lang: I18n.locale.to_s }
-  %head
-    %title= t('meta_description', appname: APP_CONFIG.app_name)
-    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' }
-    = csrf_meta_tags
-    = tag :meta, name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name)
-    / Le HTML5 shim, for IE6-8 support of HTML elements
-    /[if lt IE 9]
-      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
+- title t('meta_description', appname: APP_CONFIG.app_name)
+- content_for :head do
+  %meta{ name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name) }
 
-    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Ubuntu:400,500,700|Pacifico', 'application', media: 'all'
-
-    / Touch icons
-    %link{ href: asset_path('apple-touch-icon.png'), rel: 'apple-touch-icon' }
-    %link{ href: asset_path('apple-touch-icon-72x72.png'), rel: 'apple-touch-icon', sizes: '72x72' }
-    %link{ href: asset_path('apple-touch-icon-114x114.png'), rel: 'apple-touch-icon', sizes: '114x114' }
-    %link{ href: asset_path('apple-touch-icon-144x144.png'), rel: 'apple-touch-icon', sizes: '144x144' }
-
-    / Placed at the top of the document 'cause of turbolinks
-    = javascript_include_tag 'application'
-    = analytics_init if APP_CONFIG.google_analytics_id.present?
-
-  / TODO DISABLE TURBOLINKS
-  %body.home-page-body
-    #fb-root
-    #home-top-section
-      .learn-more-container.hidden-phone.text-center
-        %a.btn.btn-large.btn-learn-more{ href: '#' }= t('.learn_more')
-      #home-top-section-background
-        .attribution
-          _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
-        = image_tag asset_path('dash-itineraries.jpg'), alt: ''
-      #home-top-section-container.container
-        = render 'shared/flash_messages'
-        %h1.pacifico
-          = APP_CONFIG.app_name
-          - if APP_CONFIG.demo_mode
-            %small
-              demo
-        %h2= t('.tagline')
-        = render 'facebook_login'
-    .container
-      .row
-        .span12
-          #learn-more
-            .ribbon-container
-              .ribbon
-                .ribbon-content
-                  %h2= t('.what_is_appname', appname: APP_CONFIG.app_name)
-            %p.lead=  t('meta_description', appname: APP_CONFIG.app_name)
-      .row
-        .span12
+.home-page
+  #fb-root
+  #home-top-section
+    .learn-more-container.hidden-phone.text-center
+      %a.btn.btn-large.btn-learn-more{ href: '#' }= t('.learn_more')
+    #home-top-section-background
+      .attribution
+        _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
+      = image_tag asset_path('dash-itineraries.jpg'), alt: ''
+    #home-top-section-container.container
+      = render 'shared/flash_messages'
+      %h1.pacifico
+        = APP_CONFIG.app_name
+        - if APP_CONFIG.demo_mode
+          %small
+            demo
+      %h2= t('.tagline')
+      = render 'facebook_login'
+  .container
+    .row
+      .span12
+        #learn-more
           .ribbon-container
             .ribbon
               .ribbon-content
-                %h2= t('.main_features')
-      #home-text-snippets
-        .row
-          .span4
-            %i.icon-road.icon-home-style
-            %h3= t('.share_itinerary_title')
-            %p= t('.share_itinerary_content')
-          .span4
-            %i.icon-group.icon-home-style
-            %h3= t('.make_new_connections_title')
-            %p= t('.make_new_connections_content')
-          .span4
-            %i.icon-money.icon-home-style
-            %h3= t('.save_money_title')
-            %p= t('.save_money_content')
-        .row
-          .span12.spacer.hidden-phone
-          .span4
-            %i.icon-magic.icon-home-style
-            %h3= t('.thats_easy_title')
-            %p= t('.thats_easy_content')
-          .span4
-            %i.icon-leaf.icon-home-style
-            %h3= t('.help_environment_title')
-            %p= t('.help_environment_content')
-          .span4
-            %i.icon-github.icon-home-style
-            %h3= t('.open_source_title')
-            %p= t('.open_source_content', appname: APP_CONFIG.app_name, source_code_link: link_to(t('.source_code'), APP_CONFIG.repository_url)).html_safe
+                %h2= t('.what_is_appname', appname: APP_CONFIG.app_name)
+          %p.lead=  t('meta_description', appname: APP_CONFIG.app_name)
+    .row
+      .span12
+        .ribbon-container
+          .ribbon
+            .ribbon-content
+              %h2= t('.main_features')
+    #home-text-snippets
       .row
-        .span12
-          .ribbon-container
-            .ribbon
-              .ribbon-content
-                %h2= t('.join_us_today')
+        .span4
+          %i.icon-road.icon-home-style
+          %h3= t('.share_itinerary_title')
+          %p= t('.share_itinerary_content')
+        .span4
+          %i.icon-group.icon-home-style
+          %h3= t('.make_new_connections_title')
+          %p= t('.make_new_connections_content')
+        .span4
+          %i.icon-money.icon-home-style
+          %h3= t('.save_money_title')
+          %p= t('.save_money_content')
       .row
-        .span6
-          #facepile-container.hide
-            .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
-        .span6= render 'facebook_login'
-      = render 'shared/modal_why_facebook'
-
-    #footer= render 'shared/footer'
+        .span12.spacer.hidden-phone
+        .span4
+          %i.icon-magic.icon-home-style
+          %h3= t('.thats_easy_title')
+          %p= t('.thats_easy_content')
+        .span4
+          %i.icon-leaf.icon-home-style
+          %h3= t('.help_environment_title')
+          %p= t('.help_environment_content')
+        .span4
+          %i.icon-github.icon-home-style
+          %h3= t('.open_source_title')
+          %p= t('.open_source_content', appname: APP_CONFIG.app_name, source_code_link: link_to(t('.source_code'), APP_CONFIG.repository_url)).html_safe
+    .row
+      .span12
+        .ribbon-container
+          .ribbon
+            .ribbon-content
+              %h2= t('.join_us_today')
+    .row
+      .span6
+        #facepile-container.hide
+          .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
+      .span6= render 'facebook_login'
+    = render 'shared/modal_why_facebook'

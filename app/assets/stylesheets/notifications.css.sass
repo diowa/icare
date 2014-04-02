@@ -1,0 +1,16 @@
+@import "twbs-variables"
+@import "twbs/bootstrap/mixins"
+
+$background: lighten($brand-success, 5%)
+
+.notification-unread
+  background-color: $background
+
+.table-striped
+  tbody
+    tr:nth-child(odd) td.notification-unread
+      background-color: darken($background, 1%)
+
+.table
+  tbody tr:hover td.notification-unread
+    background-color: darken($background, 3%)

@@ -1,0 +1,17 @@
+@import "twbs-variables"
+@import "twbs/bootstrap/mixins"
+
+footer
+  margin-top: $line-height-computed
+  border-top: 1px solid fade-out($black, 0.75)
+  padding: $line-height-computed 0
+  @include gradient-vertical(darken($body-bg, 5%), $body-bg)
+  background-color: transparent !important
+
+  font-size: $font-size-base + 1
+  color: $gray
+
+  a,
+  a:hover,
+  a:focus
+    color: $gray

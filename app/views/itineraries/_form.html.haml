@@ -19,7 +19,7 @@
       %fieldset#daily.hide.mock
         .control-group
           .controls
-            %table.table.table-striped.table-condensed.full-width#table-daily-itinerary
+            %table.table.table-striped.table-condensed#table-daily-itinerary
               %thead
                 %tr
                   %th
@@ -76,7 +76,7 @@
             %span.help-inline
               = @itinerary.errors.messages[:tolls].join(", ")
 
-      = f.text_area :description, rows: 5, class: 'full-width border-box', help: true
+      = f.text_area :description, rows: 5, help: true
       - if current_user.female?
         .control-group
           .controls

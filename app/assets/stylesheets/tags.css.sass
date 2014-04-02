@@ -1,0 +1,44 @@
+@import "twbs-variables"
+@import "twbs/bootstrap/mixins"
+
+.tag-list
+  margin-left: -5px
+  @include clearfix
+
+  .tag
+    color: $white
+    display: block
+    float: left
+    margin: 0 0 12px 5px
+    padding: 4px 12px
+    background: $brand-info
+
+    &.tag-mutual-friend
+      position: relative
+      padding-left: 34px
+
+      img
+        position: absolute
+        @include square(28px)
+        top: 0
+        left: 0
+
+    &.tag-clear,
+    &.tag-facebook,
+    &.tag-icare
+      clear: left
+
+    &.tag-icare
+      background: $link-color
+
+    &.tag-facebook
+      background: $brand-facebook
+
+    &.tag-pink
+      background: $pink
+
+    &.tag-forbidden
+      background: $brand-danger
+
+    &.tag-allowed,
+      background: $brand-success

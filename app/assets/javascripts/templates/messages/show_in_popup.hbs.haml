@@ -3,9 +3,9 @@
     .popover-element-avatar
       %img{ src:"{{message.sender.profile_picture}}", width: 50, height: 50, alt: "" }
     .popover-element-content
-      %strong.text-ellipsis
+      %strong.text-overflow
         {{message.sender.name}}
-      %span.text-ellipsis
+      %span.text-overflow
         {{message.body}}
       %p
         %small.muted

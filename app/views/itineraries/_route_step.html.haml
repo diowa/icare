@@ -1,7 +1,7 @@
 .row
   .span4
-    = f.text_field :start_address, class: 'input-block'
-    = f.text_field :end_address, class: 'input-block'
+    = f.text_field :start_address
+    = f.text_field :end_address
     = f.check_box :avoid_highways
     = f.check_box :avoid_tolls
     = f.button t('.get_route'), type: 'button', class: 'btn btn-primary', id: 'get-route'

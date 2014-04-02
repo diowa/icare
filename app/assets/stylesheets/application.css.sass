@@ -1,0 +1,215 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= stub twbs-variables
+ *= require twbs
+ *= require_tree .
+ */
+
+@import "twbs-variables"
+@import "twbs/bootstrap/mixins"
+
+/* Some browser fixes
+   ========================================================================== */
+
+/* Prevent Firefox outlines */
+::focus
+  outline: none !important
+
+::-moz-focus-inner
+  border: 0 !important
+
+/* Disable text shadow on highlighting */
+::-moz-selection,
+::-webkit-selection,
+::selection
+  color: #fff
+  background: $link-hover-color
+  text-shadow: none
+
+.pacifico
+  font-family: "Pacifico"
+  font-weight: 400
+
+h1.pacifico
+  line-height: 44px
+  margin: 10px 0 $line-height-computed
+
+.vertical-align-middle td
+  vertical-align: middle
+
+.text-overflow
+  @include text-overflow
+
+.no-margin
+  margin: 0
+
+.no-margin-bottom
+  margin-bottom: 0
+
+.diowa-logo
+  position: relative
+  display: inline-block
+  top: -1px
+  margin-right: 3px
+  @include size(90px, 28px)
+  background: asset-data-url("diowa.svg") no-repeat
+  background-size: 90px 28px
+  line-height: 1px
+
+.inline-block
+  display: inline-block !important
+
+.pre-line
+  word-break: break-all
+  word-wrap: break-word
+  white-space: pre
+  white-space: pre-wrap
+
+.mock
+  opacity: 60
+
+.balloon
+  position: relative
+  display: inline-block
+  width: 100%
+  border: 1px solid #ddd
+  padding: 8px 10px
+  background: $white
+  box-shadow: 0 1px 1px fade-out($black, 0.925)
+
+  &:after, &:before
+    position: absolute
+    right: 100%
+    top: 50%
+    @include square(0)
+    border: solid transparent
+    content: " "
+    pointer-events: none
+
+  &:after
+    border-width: 8px
+    border-right-color: #fff
+    margin-top: -8px
+
+  &:before
+    border-width: 9px
+    border-right-color: #ddd
+    margin-top: -9px
+
+  &.for-profile-picture
+    min-height: 60 - $line-height-computed
+
+    &:after,
+    &:before
+      top: 25px
+
+/* Ellipse text overflow in input */
+input[type=text]
+  @include text-overflow
+
+.attribution
+  position: absolute
+  bottom: 5px
+  right: 10px
+  font-size: 10px
+  color: fade-out($white, 0.5)
+  cursor: default
+  user-select: none
+
+.img-outset
+  display: inline-block
+  position: relative
+
+  &:before
+    position: absolute
+    @include square(100%)
+    border: 1px solid fade-out($black, 0.9)
+    content: ""
+
+.img-outset-dark:before
+  border: 1px solid fade-out($black, 0.5)
+
+.btn-checkbox
+  margin-bottom: $line-height-computed/2 !important
+  user-select: none
+
+  i.check
+    position: relative
+    top: 1px
+    display: inline-block
+    font-size: 1.15em
+
+  input[type=checkbox]
+    position: absolute !important
+    top: -9999px !important
+    left: -9999px !important
+    &:checked ~ i.check:before
+      content: "\f046"
+
+.facebook-bg
+  background: $brand-facebook
+
+.facebook-color
+  color: $brand-facebook
+
+.spacer
+  height: $line-height-computed
+
+.div-table
+  display: table
+  width: auto
+
+.div-table-cell
+  display: table-cell
+  vertical-align: top
+  text-align: left
+
+.tooltipable
+  display: inline-block
+
+/* ==========================================================================
+   Global styles
+   ========================================================================== */
+
+.form-actions
+  background: none
+
+h1,
+h2,
+h3
+  text-shadow: 1px 1px 0 fade-out($white, 0.75)
+  letter-spacing: -1px
+
+h4,
+h5,
+h6
+  text-rendering: optimizeLegibility
+
+h1
+  margin-bottom: 15px
+
+
+/* New Buttons
+   ========================================================================== */
+
+.btn-pink
+  @include button-variant($white, $pink, $pink)
+
+.btn-facebook
+  @include button-variant($white, $brand-facebook, $brand-facebook)
+
+
+/* New Text colours
+   ========================================================================== */
+
+.text-pink
+  color: $pink

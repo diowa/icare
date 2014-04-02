@@ -1,0 +1,198 @@
+@import "twbs-variables"
+@import "twbs/bootstrap/mixins"
+
+.home-page-body
+  padding-top: 0
+
+#home-top-section
+  position: relative
+  height: 500px
+  margin-bottom: 40px
+  box-shadow: 0 3px 3px fade-out($black, 0.75)
+
+.learn-more-container
+  position: absolute
+  bottom: 0
+  width: 100%
+  z-index: 1
+
+.btn-learn-more
+  @include center-block
+  border-bottom-left-radius: 0
+  border-bottom-right-radius: 0
+  border: none
+  text-shadow: none
+
+#home-top-section-background
+  position: absolute
+  overflow: hidden
+  @include size(100%, 500px)
+  background: $gray-darker
+
+  img
+    min-height: 500px
+    min-width: 100%
+    height: auto
+
+  &:before
+    position: absolute
+    content: ''
+    @include square(100%)
+    background: fade-out($black, 0.6)
+
+#home-top-section-container
+  position: relative
+  z-index: 1
+  padding: 100px 0 0
+
+  h1,
+  small,
+  h2,
+  p,
+  a:not([class^=btn])
+    color: $white
+    text-shadow: 0 1px 1px fade-out($black, 0.55)
+
+  h1,
+  h2
+    margin: 0
+    color: $white
+
+  h1
+    line-height: 90px
+    font-size: 70px
+
+  h2
+    margin-bottom: $line-height-computed
+    line-height: 46px
+    font-size: 36px
+    letter-spacing: -1px
+
+  a:not([class^=btn])
+    font-weight: bold
+    text-decoration: underline
+
+.signin-terms
+  line-height: 18px
+  font-size: 12px
+  margin-top: $line-height-computed / 2
+
+.home-description
+  position: relative
+  display: table
+  font-size: 28px
+  line-height: 32px
+  letter-spacing: -1px
+  color: #999
+  text-transform: uppercase
+  margin-bottom: 40px
+  white-space: pre
+
+  &::before,
+  &:after
+    position: absolute
+    display: table-cell
+    width: 100%
+    content: ''
+    border-bottom: 1px solid gray
+
+.home-description-line
+  position: absolute
+  width: 100%
+  margin-top: 15px
+  border: 1px solid #999
+
+.home-description-text
+  display: inline-block
+  position: relative
+  padding: 0 20px
+  background: $body-bg
+
+.home-paragraph
+  margin-bottom: 20px
+  padding: 0 20px
+  font-size: 18px
+  line-height: 24px
+  color: $gray
+  text-align: left
+
+#home-text-snippets
+  h3
+    margin: 0
+
+@media(min-width: 768px)
+  .ribbon-container
+    text-align: center
+
+  .ribbon
+    $ribbon-color: $headings-color
+    position: relative
+    display: inline-block
+    font-family: 'Pacifico'
+    font-size: 16px !important
+    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+    background: $ribbon-color
+    box-shadow: 0 1px 1px fade-out($black, 0.75)
+
+    h2
+      margin: 0
+      line-height: 1.5
+      color: $white
+      text-shadow: 0 -1px 0 fade-out($black, 0.75)
+
+    padding: 6px 2em /* Adjust to suit */
+    margin: 2em auto 4em /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+
+    &:before,
+    &:after
+      z-index: -1
+      position: absolute
+      display: block
+      bottom: -1em
+      border: 1.7em solid darken($ribbon-color, 2%)
+      content: ""
+      box-shadow: 0 1px 0 fade-out($black, 0.75)
+
+    &:before
+      left: -2.3em
+      border-right-width: 1.7em
+      border-left-color: transparent
+
+    &:after
+      right: -2.3em
+      border-left-width: 1.7em
+      border-right-color: transparent
+
+    .ribbon-content:before,
+    .ribbon-content:after
+      position: absolute
+      display: block
+      bottom: -1em
+      border-style: solid
+      border-color: darken($ribbon-color, 5%) transparent transparent transparent
+      content: ""
+
+    .ribbon-content:before
+      left: 0
+      border-width: 1em 0 0 1em
+      box-shadow: 1px 0 0 fade-out($black, 0.75)
+
+    .ribbon-content:after
+      right: 0
+      border-width: 1em 1em 0 0
+      box-shadow: -1px 0 0 fade-out($black, 0.75)
+
+.icon-home-style
+  display: inline-table
+  border: 0.2em solid $link-color
+  width: 1.618em
+  height: 1.618em
+  font-size: 4em
+  border-radius: 1.618em
+  color: $body-bg
+  background: $link-color
+
+  &:before
+    display: table-cell
+    vertical-align: middle
+    text-align: center
