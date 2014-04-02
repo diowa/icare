@@ -1,41 +1,39 @@
 - title t('.account_settings')
-.row
-  .span12
-    = render 'shared/flash_messages'
+.container
+  = render 'shared/flash_messages'
+  .page-header
     %h1= yield :title
-.row
-  .span12
-    %p.lead= t('.user_profile_details')
-    = bootstrap_form_for @user, validate: true, html: {  class: 'form-horizontal' } do |f|
-      = f.error_messages
-      %legend= t('.vehicle_information')
-      %fieldset
-      .control-group{ class: ('error' if @user.errors.include?(:vehicle_avg_consumption)) }
-        = f.label :vehicle_avg_consumption, class: 'control-label'
-        .controls
-          .input-append
-            = f.default_tag :text_field, :vehicle_avg_consumption, class: 'input-mini text-right'
-            %span.add-on>
-              &euro; / km
-          - if @user.errors.include?(:vehicle_avg_consumption)
-            %span.help-inline
-              = @user.errors.messages[:vehicle_avg_consumption].join(', ')
-          %p.help-block
-            = t('.vehicle_avg_consumption_help')
-            = link_to t('.km_costs_calculation_link'), APP_CONFIG.costs_calculation_service_link, target: '_blank'
-            %br
-            %small
-              = t('.vehicle_avg_consumption_note', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs'))).html_safe
-      %legend= t('.application_settings')
-      %fieldset
-        = f.select :locale, options_for_select(APP_CONFIG.available_locales.map { |code, native_name| [ native_name, code] }, @user.locale), {}, disabled: (APP_CONFIG.available_locales.size == 1)
-        = f.time_zone_select :time_zone
-        .control-group
+  %p.lead= t('.user_profile_details')
+  = bootstrap_form_for @user, validate: true, html: {  class: 'form-horizontal' } do |f|
+    = f.error_messages
+    %legend= t('.vehicle_information')
+    %fieldset
+    .form-group{ class: ('has-errors' if @user.errors.include?(:vehicle_avg_consumption)) }
+      = f.label :vehicle_avg_consumption, class: 'control-label col-sm-2'
+      .col-sm-10
+        .input-group
+          = f.default_tag :text_field, :vehicle_avg_consumption, class: 'form-control'
+          %span.input-group-addon>
+            &euro; / km
+        - if @user.errors.include?(:vehicle_avg_consumption)
+          %span.help-block
+            = @user.errors.messages[:vehicle_avg_consumption].join(', ')
+        %p.help-block
+          = t('.vehicle_avg_consumption_help')
+          = link_to t('.km_costs_calculation_link'), APP_CONFIG.costs_calculation_service_link, target: '_blank'
+          %br
+          %small
+            = t('.vehicle_avg_consumption_note', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs'))).html_safe
+    %legend= t('.application_settings')
+    %fieldset
+      .form-group= f.select :locale, options_for_select(APP_CONFIG.available_locales.map { |code, native_name| [ native_name, code] }, @user.locale), {}, disabled: (APP_CONFIG.available_locales.size == 1)
+      .form-group= f.time_zone_select :time_zone, nil, {}, html: { class: 'form-control' }
+      .form-group
+        .col-sm-10.col-sm-offset-2
           = label_tag :notification_group, t('.send_email'), class: 'control-label'
           .controls
             = f.check_box :send_email_messages
             = f.check_box :send_email_references
             %p.help-block
               = t('.send_email_at_address', email: content_tag(:b,current_user.email)).html_safe
-      .form-actions
-        = f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')
+      .form-group= f.button type: 'submit', class: 'btn btn-primary', disable_with: t('helpers.disable_with')

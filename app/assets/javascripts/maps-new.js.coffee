@@ -64,10 +64,10 @@ wizardPrevStep = ->
     $('#wizard-next-step-button').prop('disabled', false).show()
     $('#new_itinerary_submit').prop('disabled', true).hide()
 
-    $("#wizard-step-#{step}-title").addClass('hidden-phone').removeClass 'active'
+    $("#wizard-step-#{step}-title").addClass('hidden-xs').removeClass 'active'
 
     $("#wizard-step-#{step}-title")
-      .removeClass('hidden-phone').addClass('active')
+      .removeClass('hidden-xs').addClass('active')
 
     --step
 
@@ -100,13 +100,13 @@ wizardNextStep = ->
 
   $("#wizard-step-#{step}-content").fadeOut ->
     $("#wizard-step-#{step}-title")
-      .removeClass('active').addClass('hidden-phone')
+      .removeClass('active').addClass('hidden-xs')
 
     ++step
 
     if step is lastStep
       lastStepInit()
-    $("#wizard-step-#{step}-title").removeClass('hidden-phone').addClass 'active'
+    $("#wizard-step-#{step}-title").removeClass('hidden-xs').addClass 'active'
 
     $("#wizard-step-#{step}-content").fadeIn ->
       $('#new_itinerary').enableClientSideValidations() # Enable validation for new fields

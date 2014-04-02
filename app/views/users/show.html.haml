@@ -1,31 +1,32 @@
 - title @user
-.row
-  .span3
-    = user_profile_picture @user, size: nil, type: :large, style: 'img-polaroid border-box'
-  .span9
-    %h1.no-margin-bottom= @user
-    %p.muted
-      %small= t('.member_since', date: l(@user.created_at.to_date, format: :month_year))
-    - if @user.bio?
-      %blockquote.user-blockquote
-        %p= @user.bio
-    - if @user.facebook_verified?
-      %blockquote.facebook-verified-blockquote
-        %span.facebook-verified
-          %i.icon-ok
-          = User.human_attribute_name(:facebook_verified)
-        %br
-        %span.muted= t('.facebook_verified')
-    .tag-list
-      .tag.tag-icare= Reference.model_name.human(count: :lot)
-      = reference_tags @user
-      = link_to t('.see_all'), user_references_path(@user), class: 'tag'
-      .tag.tag-facebook= t('.basic_info')
-      .tag= t('.friends', count: friends_with_privacy(@user.facebook_friends.size))
-      .tag{ class: check_common_field(@user, :age) }><= t('.age', count: @user.age)
-      .tag{ class: check_common_field(@user, :gender) }><= User.human_attribute_name "gender_#{@user.gender}"
-      = language_tags @user
-      = mutual_friends @user, current_user
-      = work_and_education_tags @user, :education
-      = work_and_education_tags @user, :work
-      = favorite_tags @user, @user.facebook_favorites
+.container
+  .row
+    .col-sm-3.text-center-sm
+      = user_profile_picture @user, size: nil, type: :large, style: 'heading-margins'
+    .col-sm-9
+      %h1.no-margin-bottom= @user
+      %p.text-muted
+        %small= t('.member_since', date: l(@user.created_at.to_date, format: :month_year))
+      - if @user.bio?
+        %blockquote.user-blockquote
+          %p= @user.bio
+      - if @user.facebook_verified?
+        %blockquote.facebook-verified-blockquote
+          %span.facebook-verified
+            %span.fa.fa-check
+            = User.human_attribute_name(:facebook_verified)
+          %br
+          %span.text-muted= t('.facebook_verified')
+      .tag-list
+        .tag.tag-icare= Reference.model_name.human(count: :lot)
+        = reference_tags @user
+        = link_to t('.see_all'), user_references_path(@user), class: 'tag'
+        .tag.tag-facebook= t('.basic_info')
+        .tag= t('.friends', count: friends_with_privacy(@user.facebook_friends.size))
+        .tag{ class: check_common_field(@user, :age) }><= t('.age', count: @user.age)
+        .tag{ class: check_common_field(@user, :gender) }><= User.human_attribute_name "gender_#{@user.gender}"
+        = language_tags @user
+        = mutual_friends @user, current_user
+        = work_and_education_tags @user, :education
+        = work_and_education_tags @user, :work
+        = favorite_tags @user, @user.facebook_favorites

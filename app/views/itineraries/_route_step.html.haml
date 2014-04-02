@@ -30,19 +30,19 @@
     .spacer
   .span4
     %h3.no-margin
-      %i.icon-eye-close
+      %span.fa.fa-eye-close
       = t('.hint_privacy_title')
     %p
       = t('.hint_privacy_content')
   .span4
     %h3.no-margin
-      %i.icon-wrench
+      %span.fa.fa-wrench
       = t('.hint_customize_title')
     %p
       = t('.hint_customize_content')
   .span4
     %h3.no-margin
-      %i.icon-search
+      %span.fa.fa-search
       = t('.hint_search_before_title')
     %p
       = t('.hint_search_before_content', search_link: (link_to t('.search_link'), itineraries_path)).html_safe

@@ -59,7 +59,7 @@
               = @itinerary.errors.messages[:fuel_cost].join(', ')
           %p.help-block#fuel-help.hide{ data: { avg_consumption: current_user.vehicle_avg_consumption, text: t('.fuel_help_text', avg_consumption: current_user.vehicle_avg_consumption) } }
             %small
-              %i.icon-info-sign
+              %span.fa.fa-info-circle
               %span#fuel-help-text
               = link_to t('.more_accurate_data'), :settings
 
@@ -82,7 +82,7 @@
           .controls
             = f.check_box :pink, disabled: (current_user.male?), class: 'checkbox inline'
             %p.help-block
-              %i.icon-lock
+              %span.fa.fa-lock
               = t('.pink_help')
       .control-group
         .controls

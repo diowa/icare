@@ -65,6 +65,10 @@ h1.pacifico
   background-size: 90px 28px
   line-height: 1px
 
+.heading-margins
+  margin-top: $line-height-computed
+  margin-bottom: ($line-height-computed / 2)
+
 .inline-block
   display: inline-block !important
 
@@ -213,3 +217,20 @@ h1
 
 .text-pink
   color: $pink
+
+@media(min-width: #{$screen-sm-min})
+  .display-table-sm
+    display: table
+    width: 100%
+
+  .display-table-cell-sm
+    display: table-cell
+
+  .text-center-sm
+    text-align: center
+
+  .text-right-sm
+    text-align: right
+
+  .pull-right-sm
+    float: right

@@ -21,7 +21,7 @@ module ItinerariesHelper
         t('helpers.links.share_on_facebook_timeline')
       end) +
       (unless has_publish_stream_permission
-        content_tag(:p, class: 'muted') do
+        content_tag(:p, class: 'text-muted') do
           content_tag(:small) do
             content_tag(:i, nil, class: 'icon-ban-circle') + ' ' +
             t('.missing_publish_stream_permission', appname: APP_CONFIG.app_name)

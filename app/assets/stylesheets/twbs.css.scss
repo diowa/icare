@@ -66,3 +66,7 @@ th.text-right,
 td.text-right {
   text-right: right;
 }
+
+body {
+  padding-top: $navbar-height + 10px;
+}

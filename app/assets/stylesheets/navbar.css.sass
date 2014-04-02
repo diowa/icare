@@ -1,0 +1,198 @@
+@import "twbs-variables"
+@import "twbs/bootstrap/mixins"
+
+.navbar-brand
+  font-family: "Pacifico"
+  font-size: 20px
+  line-height: 20px
+
+.navbar-brand-logo
+  position: relative
+  display: inline-block
+  top: 4px
+  @include size(38px, 15px)
+  vertical-align: top
+
+.navbar-default .navbar-nav > li.facebook-link > a
+  color: $white
+  background-color: $brand-facebook
+
+  &:hover,
+  &:focus
+    background-color: darken($brand-facebook, 5%)
+
+#navbar-user-info
+  .navbar-profile-link
+    position: relative
+
+    img
+      position: absolute
+      top: 7px
+      left: 15px
+      @include square(26px)
+      border-radius: 100%
+
+    span
+      margin-left: 35px
+
+/*
+ * @media (min-width: 768px) {
+ *   #navbar-user-info {
+ *     .navbar-profile-link {
+ *       img {
+ *         top: 7px;
+ *         left: 15px;
+ *         .square(25px);
+ *       }
+ *     }
+ *   }
+ * }
+ *
+ * @media (max-width: 767px) {
+ *   #navbar-user-info {
+ *     .navbar-profile-link {
+ *       .size(21px, 18px);
+ *
+ *       img {
+ *         top: 5px;
+ *         left: 9px;
+ *         .square(30px);
+ *       }
+ *     }
+ *   }
+ *
+ *   .navbar .container .brand,
+ *   .navbar .container .nav {
+ *     position: relative;
+ *     z-index: 1;
+ *   }
+ *
+ *   .center-notifications {
+ *     margin-left: 100px;
+ *   }
+ * }
+ *
+ * @media (min-width: 768px) and (max-width: 979px) {
+ *   .navbar {
+ *     position: relative;
+ *     z-index: 1;
+ *   }
+ * }
+ *
+ * .notifications {
+ *   position: relative;
+ *
+ *   > a {
+ *     padding: 10px 10px !important;
+ *     .box-sizing(border-box);
+ *     height: 40px;
+ *   }
+ *
+ *   i {
+ *     position: relative;
+ *     top: 2px;
+ *     font-size: 20px;
+ *     height: 20px;
+ *     line-height: 20px;
+ *   }
+ *
+ *   &.read {
+ *     i {
+ *       color: fade(darken(@navbarBackground, 40%), 45%);
+ *     }
+ *   }
+ *
+ *   &.active i {
+ *     color: @navbarLinkColorActive;
+ *   }
+ *
+ *   .count {
+ *     position: absolute;
+ *     top: 3px;
+ *     right: 4px;
+ *     height: 12px;
+ *     padding: 3px 5px 1px;
+ *     font-weight: bold;
+ *     line-height: 12px;
+ *     font-size: 10px;
+ *     background: fade(@red, 80%);
+ *     .border-radius(100%);
+ *   }
+ * }
+ *
+ * .popover {
+ *   min-width: 200px;
+ * }
+ *
+ * .popover-ajax-content,
+ * .popover-static-content {
+ *   margin-bottom: 9px;
+ *   padding: 10px 14px 9px !important;
+ * }
+ *
+ * .popover-title {
+ *   font-family: @sansFontFamily;
+ *   color: @grayDark;
+ * }
+ *
+ * .popover-content {
+ *   padding: 0 0 @baseLineHeight/2 0;
+ *
+ *   > p {
+ *     margin-right: 14px;
+ *     margin-left: 14px;
+ *   }
+ * }
+ *
+ * .popover-elements {
+ *   font-size: 12px;
+ *   overflow: hidden;
+ *
+ *   a {
+ *     display: table;
+ *     width: 100%;
+ *     color: @grayDark;
+ *     text-decoration: none;
+ *
+ *     &:hover {
+ *       background: @grayLighter;
+ *     }
+ *   }
+ *
+ *   li + li {
+ *     border-top: 1px solid @grayLighter;
+ *   }
+ *
+ *   .popover-element-avatar,
+ *   .popover-element-content {
+ *     display: table-cell;
+ *     vertical-align: top;
+ *   }
+ *
+ *   .popover-element-avatar {
+ *     width: 30px;
+ *     padding-right: 5px;
+ *   }
+ *
+ *   .popover-element-content {
+ *     width: 150px;
+ *     max-width: 150px;
+ *     overflow: hidden;
+ *     line-height: 16px;
+ *   }
+ * }
+ *
+ * .loading {
+ *   width: 24px;
+ *
+ *   #loading-spinner {
+ *     display: none;
+ *     position: relative;
+ *     top: 12px;
+ *     right: 5px;
+ *     .size(17px, 24px);
+ *     background: image-url('ajax-spinner-24x17.gif');
+ *     .background-size(24px 17px);
+ *   }
+ * }
+ */

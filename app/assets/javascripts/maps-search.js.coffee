@@ -152,9 +152,9 @@ initItineraryIndex = ->
     e.preventDefault()
     me = this
     $('#search-form-advanced').slideToggle ->
-      $(me).find('i')
-        .toggleClass('icon-chevron-up')
-        .toggleClass('icon-chevron-down')
+      $(me).find('span.fa')
+        .toggleClass('fa-chevron-up')
+        .toggleClass('fa-chevron-down')
 
 # jQuery Turbolinks
 $ ->

@@ -15,7 +15,7 @@
           - if reference.incoming
             %tr{ class: ('unread' if reference.unread?) }
               %td
-                %i.icon-download-alt
+                %span.fa.fa-download
               %td= link_to reference.referencing_user, user_path(reference.referencing_user)
               %td= driver_or_passenger reference
               %td= make_thumbs reference.incoming.rating
@@ -23,7 +23,7 @@
           - if reference.outgoing && reference.outgoing.body?
             %tr
               %td
-                %i.icon-upload-alt
+                %span.fa.fa-upload
               %td= link_to reference.referencing_user, user_path(reference.referencing_user)
               %td= driver_or_passenger reference
               %td= make_thumbs reference.outgoing.rating

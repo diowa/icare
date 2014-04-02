@@ -27,10 +27,10 @@
             %td= l feedback.updated_at, format: :long
             %td.btn-toolbar
               - if current_user == feedback.user || current_user.admin?
-                = link_to edit_feedback_path(feedback), class: 'btn btn-small' do
-                  %i.icon-edit
+                = link_to edit_feedback_path(feedback), class: 'btn btn-sm btn-default' do
+                  %span.fa.fa-edit
                   = t('helpers.links.edit')
-                = link_to feedback_path(feedback), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-small btn-danger' do
-                  %i.icon-trash
+                = link_to feedback_path(feedback), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-danger' do
+                  %span.fa.fa-trash
                   = t('helpers.links.destroy')
     = paginate @feedbacks

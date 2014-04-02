@@ -6,12 +6,11 @@
   @include clearfix
 
   .tag
-    color: $white
     display: block
     float: left
     margin: 0 0 12px 5px
     padding: 4px 12px
-    background: $brand-info
+    background: $flat-ui-clouds
 
     &.tag-mutual-friend
       position: relative
@@ -28,17 +27,24 @@
     &.tag-icare
       clear: left
 
-    &.tag-icare
-      background: $link-color
+    &.tag-allowed,
+    &.tag-facebook,
+    &.tag-forbidden,
+    &.tag-icare,
+    &.tag-pink
+      color: $white
+
+    &.tag-allowed,
+      background: $brand-success
 
     &.tag-facebook
       background: $brand-facebook
 
-    &.tag-pink
-      background: $pink
-
     &.tag-forbidden
       background: $brand-danger
 
-    &.tag-allowed,
-      background: $brand-success
+    &.tag-icare
+      background: $brand-primary
+
+    &.tag-pink
+      background: $pink

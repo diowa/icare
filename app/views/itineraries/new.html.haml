@@ -13,7 +13,7 @@
   #wizard-step-1-title.span6.itinerary-step.active
     %h3.no-margin
       = t('.plan_route')
-  #wizard-step-2-title.span6.itinerary-step.hidden-phone
+  #wizard-step-2-title.span6.itinerary-step.hidden-xs
     %h3.no-margin
       = t('.insert_details_and_confirm')
 .spacer
@@ -38,6 +38,6 @@
   .form-actions.pagination-centered
     = f.hidden_field :route
     = f.hidden_field :via_waypoints
-    = button_tag t('.previous_step'), type: 'button', class: 'btn btn-large hide', name: 'back_button', id: 'wizard-prev-step-button', disabled: true
-    = f.submit t('.next_step'), type: 'button', class: 'btn btn-large btn-primary', name: 'next_button', id: 'wizard-next-step-button', disabled: false
-    = f.submit t('.confirm_and_share'), class: 'btn btn-large btn-success hide', id: 'new_itinerary_submit', disabled: true, disable_with: t('helpers.disable_with')
+    = button_tag t('.previous_step'), type: 'button', class: 'btn btn-lg hide', name: 'back_button', id: 'wizard-prev-step-button', disabled: true
+    = f.submit t('.next_step'), type: 'button', class: 'btn btn-lg btn-primary', name: 'next_button', id: 'wizard-next-step-button', disabled: false
+    = f.submit t('.confirm_and_share'), class: 'btn btn-lg btn-success hide', id: 'new_itinerary_submit', disabled: true, disable_with: t('helpers.disable_with')

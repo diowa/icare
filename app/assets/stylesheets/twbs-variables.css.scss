@@ -56,22 +56,20 @@ $flat-ui-asbestos:      #7f8c8d;
 $brand-primary:         $brand-icare;
 $brand-success:         $flat-ui-nephritis;
 $brand-warning:         $flat-ui-orange;
-$brand-danger:          $flat-ui-alizarin;
+$brand-danger:          $flat-ui-pomegranate;
 $brand-info:            $flat-ui-peter-river;
 
-$body-bg: #f5f5f5;
-$link-color:            $brand-primary;
+$link-color:            $flat-ui-belize-hole;
 $link-hover-color:      darken($link-color, 15%);
-
-// Typography
-// -------------------------
 
 $font-family-sans-serif: "Ubuntu", "Helvetica Neue", Helvetica, Arial, sans-serif;
 $headingsFontWeight: 400;
 $headings-color: $brand-primary;
 
-// Tooltips and popovers
-// -------------------------
+$navbar-height: 40px;
+$navbar-default-bg: fade-out($white, 0.1);
+$navbar-default-brand-color: $link-color;
+$navbar-default-link-color: $link-color;
 
 $tooltip-bg: $flat-ui-midnight-blue;
 

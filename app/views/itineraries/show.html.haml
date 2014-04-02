@@ -25,7 +25,7 @@
     .tag-list
       - if @itinerary.pink?
         %span.tag.tag-pink.tooltipable{ rel: 'tooltip', title: t('itineraries.form.pink_help') }
-          %i.icon-lock
+          %span.fa.fa-lock
           = Itinerary.human_attribute_name(:pink)
       = boolean_tag @itinerary.smoking_allowed?, 'smoking'
       = boolean_tag @itinerary.pets_allowed?, 'pets'
@@ -36,14 +36,14 @@
       - if logged_in?
         - if current_user != @itinerary.user
           = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary' do
-            %i.icon-comment
+            %span.fa.fa-comment
             = t('.contact', user: @itinerary.user_first_name)
           = link_to new_or_show_reference_path(@reference, @itinerary), class: 'btn' do
-            %i.icon-thumbs-up
+            %span.fa.fa-thumbs-up
             = t('.leave_reference')
           .btn-group.mock
             %button.btn
-              %i.icon-flag
+              %span.fa.fa-flag
             %button.btn.dropdown-toggle{ data: { toggle: 'dropdown' } }
               %span.caret
             %ul.dropdown-menu
@@ -52,9 +52,9 @@
                   = t('.report_itinerary')
         - else
           = link_to edit_itinerary_path(@itinerary), class: 'btn' do
-            %i.icon-edit
+            %span.fa.fa-edit
             = t('helpers.titles.edit', model: Itinerary.model_name.human)
       - else
         = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
-          %i.icon-facebook-sign
+          %span.fa.fa-facebook-sign
           = t('.login_to_contact')
