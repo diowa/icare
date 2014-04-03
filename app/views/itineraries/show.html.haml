@@ -3,54 +3,41 @@
 .container
   = render 'shared/flash_messages'
   = render 'header'
-  .row
-    .col-sm-4
-      .media#user-media
-        = link_to user_path(@itinerary.user), class: 'pull-left' do
-          = user_profile_picture @itinerary.user, style: 'media-object'
-        .media-body
-          %h4.media-heading
-            - if logged_in?
-              = link_to @itinerary.user, user_path(@itinerary.user)
-            - else
-              = t('.app_user', appname: APP_CONFIG.app_name)
-          %p.pre-line= @itinerary.description
-    .col-sm-8
-      .tag-list
-        %span.tag.tag-icare= t('.expenses_to_share')
-        %span.tag #{Itinerary.human_attribute_name(:fuel_cost)}: #{@itinerary.fuel_cost}.00 &euro;
-        %span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}.00 &euro;
-      .tag-list
-        - if @itinerary.pink?
-          %span.tag.tag-pink{ rel: 'tooltip', title: t('itineraries.form.pink_help') }
-            %span.fa.fa-lock
-            = Itinerary.human_attribute_name(:pink)
-        = boolean_tag @itinerary.smoking_allowed?, 'smoking'
-        = boolean_tag @itinerary.pets_allowed?, 'pets'
-      %hr
-      .btn-toolbar
-        - if logged_in?
-          - if current_user != @itinerary.user
-            = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary' do
-              %span.fa.fa-comment
-              = t('.contact', user: @itinerary.user_first_name)
-            = link_to new_or_show_reference_path(@reference, @itinerary), class: 'btn btn-default' do
-              %span.fa.fa-thumbs-up
-              = t('.leave_reference')
-            .btn-group.mock
-              %button.btn.btn-warning
-                %span.fa.fa-flag
-              %button.btn.btn-warning.dropdown-toggle{ data: { toggle: 'dropdown' } }
-                %span.caret
-              %ul.dropdown-menu
-                %li
-                  %a{ href: '#' }
-                    = t('.report_itinerary')
-          - else
-            = link_to edit_itinerary_path(@itinerary), class: 'btn btn-default' do
-              %span.fa.fa-pencil
-              = t('helpers.titles.edit', model: Itinerary.model_name.human)
-        - else
-          = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
-            %span.fa.fa-facebook-sign
-            = t('.login_to_contact')
+  .tag-list
+    %span.tag.tag-icare= t('.expenses_to_share')
+    %span.tag #{Itinerary.human_attribute_name(:fuel_cost)}: #{@itinerary.fuel_cost}.00 &euro;
+    %span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}.00 &euro;
+  .tag-list
+    - if @itinerary.pink?
+      %span.tag.tag-pink{ rel: 'tooltip', title: t('itineraries.form.pink_help') }
+        %span.fa.fa-lock
+        = Itinerary.human_attribute_name(:pink)
+    = boolean_tag @itinerary.smoking_allowed?, 'smoking'
+    = boolean_tag @itinerary.pets_allowed?, 'pets'
+  %hr
+  .btn-toolbar.text-center
+    - if logged_in?
+      - if current_user != @itinerary.user
+        = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary' do
+          %span.fa.fa-comment
+          = t('.contact', user: @itinerary.user_first_name)
+        = link_to new_or_show_reference_path(@reference, @itinerary), class: 'btn btn-default' do
+          %span.fa.fa-thumbs-up
+          = t('.leave_reference')
+        .btn-group
+          %button.btn.btn-warning
+            %span.fa.fa-flag
+          %button.btn.btn-warning.dropdown-toggle{ data: { toggle: 'dropdown' } }
+            %span.caret
+          %ul.dropdown-menu{ role: 'menu' }
+            %li
+              %a{ href: '#' }
+                = t('.report_itinerary')
+      - else
+        = link_to edit_itinerary_path(@itinerary), class: 'btn btn-default' do
+          %span.fa.fa-pencil
+          = t('helpers.titles.edit', model: Itinerary.model_name.human)
+    - else
+      = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
+        %span.fa.fa-facebook-sign
+        = t('.login_to_contact')
