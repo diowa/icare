@@ -26,7 +26,7 @@ setItinerary = (route) ->
   $('#result').show()
   route_km = (Number) route.legs[0].distance.value / 1000
   route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
-  $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", Math.ceil(route_gasoline))
+  $('#fuel-help-text').text I18n.t('javascript.fuel_help_text', { km: route_km.toFixed(2), est: Math.ceil(route_gasoline), avg_consumption: $('#fuel-help').data('avg-consumption') })
   $('#fuel-help').show()
   $('#itinerary_fuel_cost').val Math.ceil(route_gasoline)
 
@@ -234,5 +234,5 @@ initItineraryNew = ->
 
 # jQuery Turbolinks
 $ ->
-  if $('#new_itinerary')[0]?
+  if google? && $('#new_itinerary')[0]?
     initItineraryNew()

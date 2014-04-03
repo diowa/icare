@@ -308,7 +308,6 @@ en-US:
       leave_time: Leave time
       return_time: Return time
       edit_all_times: Edit all times
-      fuel_help_text: "The route is {km} km long. Considering an average consumption of %{avg_consumption} €/km, the estimate cost is {est}.00 €."
       more_accurate_data: "Need more accurate data for your vehicle?"
       pink_help: Pink itineraries can be created only by women and are visible only to women.
 
@@ -368,6 +367,7 @@ en-US:
   javascript:
     no_itineraries_found: No itineraries found
     an_error_occurred: Ops! An error occurred while searching for itineraries.
+    fuel_help_text: "The route is %{km} km long. Considering an average consumption of %{avg_consumption} €/km, the estimate cost is %{est}.00 €."
     not_found: Route not found
     zero_results: No results
     setup_route_first: Setup the route first

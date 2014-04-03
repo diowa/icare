@@ -148,15 +148,15 @@ initItineraryIndex = ->
     google.maps.event.trigger icare.customMarkers[$(this).data('id')], 'click'
     false
 
-  $('#search-form-advanced-link').on 'click', (e) ->
-    e.preventDefault()
-    me = this
-    $('#search-form-advanced').slideToggle ->
-      $(me).find('span.fa')
-        .toggleClass('fa-chevron-up')
-        .toggleClass('fa-chevron-down')
+$(document).on 'click', '#search-form-advanced-link', (e) ->
+  e.preventDefault()
+  me = this
+  $('#search-form-advanced').slideToggle ->
+    $(me).find('span.fa')
+      .toggleClass('fa-chevron-up')
+      .toggleClass('fa-chevron-down')
 
 # jQuery Turbolinks
 $ ->
-  if $('#index-itineraries-map')[0]?
+  if google? && $('#index-itineraries-map')[0]?
     initItineraryIndex()

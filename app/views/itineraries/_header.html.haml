@@ -1,7 +1,7 @@
 .row
-  .span4
-    = image_tag @itinerary.static_map, class: 'google-static-map', alt: ''
-  .span8
+  .col-sm-4
+    = image_tag @itinerary.static_map, class: 'google-static-map img-responsive', alt: ''
+  .col-sm-8
     %h1.itinerary-title
       %small= Itinerary.human_attribute_name :start_address
       %span= @itinerary.start_address

@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe 'Itineraries' do
-  ROUND_TRIP_ICON = 'icon-exchange'
-  DAILY_ICON = 'icon-repeat'
-  PINK_ICON = 'icon-lock'
+  ROUND_TRIP_ICON = 'span.fa.fa-exchange'
+  DAILY_ICON = 'span.fa.fa-repeat'
+  PINK_ICON = 'span.fa.fa-lock'
   XSS_ALERT = "<script>alert('toasty!);</script>"
 
   describe 'Registered Users' do
@@ -93,9 +93,9 @@ describe 'Itineraries' do
       @user.itineraries.each do |itinerary|
         row = find(:xpath, "//a[@href='#{itinerary_path(itinerary)}' and text()='#{itinerary.start_address}']/../..")
         expect(row).to_not be_nil
-        expect(row).to have_css "i.#{ROUND_TRIP_ICON}" if itinerary.round_trip?
-        expect(row).to have_css "i.#{DAILY_ICON}" if itinerary.daily?
-        expect(row).to have_css "i.#{PINK_ICON}" if itinerary.pink?
+        expect(row).to have_css ROUND_TRIP_ICON if itinerary.round_trip?
+        expect(row).to have_css DAILY_ICON if itinerary.daily?
+        expect(row).to have_css PINK_ICON if itinerary.pink?
       end
     end
 

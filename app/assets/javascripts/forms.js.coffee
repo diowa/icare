@@ -3,7 +3,9 @@ if ClientSideValidations?
   errorBlockClass = 'error-block'
 
   getErrorFields = (element) ->
-    if element.closest('form').hasClass 'form-horizontal'
+    if element.closest('.input-group')[0]?
+      [element.closest('.input-group').parent(), element.closest('.input-group').parent()]
+    else if element.closest('form').hasClass 'form-horizontal'
       [element.closest('.form-group'), element.parent()]
     else
       [element.parent(), element.parent()]

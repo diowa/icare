@@ -311,7 +311,6 @@ it-IT:
       leave_time: Ora andata
       return_time: Ora ritorno
       edit_all_times: Modifica tutti gli orari insieme
-      fuel_help_text: "Il percorso è di {km} km. Considerando un consumo medio di %{avg_consumption} €/km, il costo stimato è di {est}.00 €."
       more_accurate_data: "Vuoi dati più accurati per il tuo veicolo?"
       pink_help: Gli itinerari rosa possono essere creati solo dalle donne e sono visibili solo alle donne.
 
@@ -371,6 +370,7 @@ it-IT:
   javascript:
     no_itineraries_found: Nessun itinerario trovato
     an_error_occurred: Ops! Si è verificato un errore nella ricerca degli itinerari
+    fuel_help_text: "Il percorso è di %{km} km. Considerando un consumo medio di %{avg_consumption} €/km, il costo stimato è di %{est}.00 €."
     not_found: Percorso non trovato
     zero_results: Nessun risultato
     setup_route_first: Calcola prima il percorso
