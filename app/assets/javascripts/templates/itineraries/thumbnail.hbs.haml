@@ -1,22 +1,16 @@
-.span6.itinerary-thumbnail
+.itinerary-thumbnail.col-md-6
   .caption.itinerary-thumb-stroke{ style: "border-color: {{borderColor}}" }
-    %table
-      %tbody
-        %tr
-          %td.user-profile-picture.verified
-            .img-outset
-              %img{ src: "{{user.profile_picture}}", width: 50, height: 50, alt: "" }
-          %td
-            %strong.it-title
-              %a.pre-line{ href: "{{url}}" }><
-                {{start_address}}
-                %br
-                {{end_address}}
-            %p.it-user
-              {{user.name}}
-              {{#if user.facebook_verified}}
-              %span.fa.fa-check.text-success.facebook-verified-tooltip.inline-block{ rel: "tooltip", title: "{{translate \"templates.itineraries.facebook_verified\"}}" }
-              {{/if}}
+    .media
+      .pull-left
+        .img-outset
+          %img.media-object{ src: "{{user.profile_picture}}", width: 50, height: 50, alt: "" }
+      .media-body
+        %h4.media-heading= link_to "{{title}}", "{{url}}", class: 'pre-line'
+        %p
+          {{user.name}}
+          {{#if user.facebook_verified}}
+          %span.fa.fa-check.text-success.facebook-verified-tooltip{ rel: "tooltip", title: "{{translate \"templates.itineraries.facebook_verified\"}}" }
+          {{/if}}
     %p.itinerary-details
       {{#if pink}}
       %span.text-pink
@@ -50,7 +44,7 @@
       {{translate "mongoid.attributes.itinerary.tolls"}}:
       {{tolls}}.00 &euro;
     .btn-toolbar
-      %a.btn.btn-xs.show-itinerary-on-map{ href: "#", data: { id: "{{id}}" } }
+      %a.btn.btn-xs.btn-default.show-itinerary-on-map{ href: "#", data: { id: "{{id}}" } }
         {{translate "templates.itineraries.show_on_map"}}
       %a.btn.btn-xs.btn-primary{ href: "{{url}}" }
         {{translate "templates.itineraries.read_more"}}

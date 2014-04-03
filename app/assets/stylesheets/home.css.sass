@@ -1,20 +1,21 @@
 @import "twbs-variables"
 @import "twbs/bootstrap/mixins"
 
-.home-page-body
-  padding-top: 0
-
 #home-top-section
   position: relative
   height: 500px
+  margin: -($navbar-height + 10px)
   margin-bottom: 40px
   box-shadow: 0 3px 3px fade-out($black, 0.75)
 
-.learn-more-container
+.attribution
   position: absolute
-  bottom: 0
-  width: 100%
-  z-index: 1
+  bottom: 5px
+  right: 10px
+  font-size: 10px
+  color: fade-out($white, 0.5)
+  cursor: default
+  user-select: none
 
 .btn-learn-more
   margin-right: auto
@@ -23,6 +24,13 @@
   border-bottom-right-radius: 0
   border: none
   text-shadow: none
+
+.learn-more-container
+  position: absolute
+  bottom: 0
+  width: 100%
+  z-index: 1
+
 
 #home-top-section-background
   position: absolute

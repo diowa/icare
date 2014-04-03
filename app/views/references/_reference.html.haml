@@ -8,7 +8,7 @@
           .balloon.for-profile-picture
             %h5.no-margin
               = link_to reference.referencing_user, user_path(reference.referencing_user)
-              %span.driver-or-passenger.text-muted (#{driver_or_passenger reference})
+              %span.text-muted (#{driver_or_passenger reference})
               = make_thumbs(reference.incoming.rating)
             %p.pre-line= reference.incoming.body
         - else

@@ -132,14 +132,11 @@ initItineraryIndex = ->
         $('#itineraries-thumbs').html ''
         index = 0
         icare.latLngBounds = new google.maps.LatLngBounds()
-        row_template = $("""<div class="row-fluid"></div>""")
-        row = row_template
         $(data).each ->
-          $('#itineraries-thumbs').append(row = row_template.clone(true)) if (index % 2) is 0
           color = routeColoursArray[index++ % routeColoursArray.length]
           drawPath this, color
           this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
-          row.append HandlebarsTemplates['itineraries/thumbnail'](this)
+          $('#itineraries-thumbs').append HandlebarsTemplates['itineraries/thumbnail'](this)
         icare.map.fitBounds icare.latLngBounds
         $('.facebook-verified-tooltip').tooltip()
 

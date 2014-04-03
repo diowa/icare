@@ -22,7 +22,7 @@
         %span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}.00 &euro;
       .tag-list
         - if @itinerary.pink?
-          %span.tag.tag-pink.tooltipable{ rel: 'tooltip', title: t('itineraries.form.pink_help') }
+          %span.tag.tag-pink{ rel: 'tooltip', title: t('itineraries.form.pink_help') }
             %span.fa.fa-lock
             = Itinerary.human_attribute_name(:pink)
         = boolean_tag @itinerary.smoking_allowed?, 'smoking'

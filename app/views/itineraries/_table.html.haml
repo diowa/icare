@@ -20,11 +20,11 @@
           %td= link_to itinerary.end_address, itinerary_path(itinerary)
           %td
             - if itinerary.pink
-              %span.text-pink.fa-fw.fa.fa-lock.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
+              %span.text-pink.fa-fw.fa.fa-lock{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
             - if itinerary.daily
-              %span.fa-fw.fa.fa-repeat.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:daily) }
+              %span.fa-fw.fa.fa-repeat{ rel: 'tooltip', title: Itinerary.human_attribute_name(:daily) }
             - if itinerary.round_trip
-              %span.fa-fw.fa.fa-exchange.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:round_trip) }
+              %span.fa-fw.fa.fa-exchange{ rel: 'tooltip', title: Itinerary.human_attribute_name(:round_trip) }
           - if edit
             %td.btn-toolbar
               = link_to edit_itinerary_path(itinerary), class: 'btn btn-sm btn-default' do

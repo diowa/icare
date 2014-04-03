@@ -9,7 +9,7 @@
       - if @feedback.user
         = @feedback.user_name
       - else
-        %i
+        %em
           \#Former User #{@feedback.user_id}
     %p
       %strong= model_class.human_attribute_name(:type) + ':'

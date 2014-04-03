@@ -2,11 +2,7 @@
   .gmaps-popup-image
     %img{ width: 50, height: 50, alt: "", src: "{{user.image}}" }
   .gmaps-popup-text
-    %p.gmaps-popup-p-title
-      %a{ href: "{{url}}" }
-        {{start_address}}
-        %br
-        {{end_address}}
+    %h4.no-margin-bottom= link_to "{{title}}", "{{url}}", class: 'pre-line'
     %p.gmaps-popup-p-content
       {{user.name}}
   .gmaps-popup-div-details
