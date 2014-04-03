@@ -12,7 +12,7 @@
       = f.label :vehicle_avg_consumption, class: 'control-label col-sm-2'
       .col-sm-10
         .input-group
-          = f.default_tag :text_field, :vehicle_avg_consumption, class: 'form-control'
+          = f.default_tag :text_field, :vehicle_avg_consumption, class: 'form-control input-number-sm'
           %span.input-group-addon>
             &euro; / km
         - if @user.errors.include?(:vehicle_avg_consumption)
