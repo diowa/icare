@@ -20,18 +20,18 @@
           %td= link_to itinerary.end_address, itinerary_path(itinerary)
           %td
             - if itinerary.pink
-              %i.text-pink.icon-lock.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
+              %span.text-pink.fa-fw.fa.fa-lock.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
             - if itinerary.daily
-              %span.fa.fa-repeat.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:daily) }
+              %span.fa-fw.fa.fa-repeat.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:daily) }
             - if itinerary.round_trip
-              %span.fa.fa-exchange.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:round_trip) }
+              %span.fa-fw.fa.fa-exchange.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:round_trip) }
           - if edit
             %td.btn-toolbar
-              = link_to edit_itinerary_path(itinerary), class: 'btn btn-s btn-default' do
-                %span.fa.fa-edit
+              = link_to edit_itinerary_path(itinerary), class: 'btn btn-sm btn-default' do
+                %span.fa.fa-pencil
                 = t('helpers.links.edit')
               = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-danger' do
-                %span.fa.fa-trash-o
+                %span.fa.fa-times
                 = t('helpers.links.destroy')
           - else
             %td= link_to itinerary.user, user_path(itinerary.user)

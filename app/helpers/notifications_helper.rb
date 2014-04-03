@@ -15,7 +15,7 @@ module NotificationsHelper
 =begin
     case notification.class
     when Notifications
-      content_tag :i, nil, class: 'icon-comment'
+      content_tag :span, nil, class: 'fa fa-comment'
     end
 =end
   end

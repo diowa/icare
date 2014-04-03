@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'References' do
-  POSITIVE_ICON = 'icon-thumbs-up'
-  NEGATIVE_ICON = 'icon-thumbs-down'
+  POSITIVE_ICON = 'span.fa.fa-thumbs-up'
+  NEGATIVE_ICON = 'span.fa.fa-thumbs-down'
 
   let(:driver) { FactoryGirl.create :user }
   let(:passenger) { FactoryGirl.create :user }
@@ -55,8 +55,8 @@ describe 'References' do
     driver.itineraries.each_with_index do |itinerary, index|
       row = find(:xpath, "//a[text()='#{references[index].outgoing.body}']/../..")
       expect(row).to_not be_nil
-      expect(row).to have_css "i.#{POSITIVE_ICON}" if references[index].outgoing.rating == 1
-      expect(row).to have_css "i.#{NEGATIVE_ICON}" if references[index].outgoing.rating == -1
+      expect(row).to have_css POSITIVE_ICON if references[index].outgoing.rating == 1
+      expect(row).to have_css NEGATIVE_ICON if references[index].outgoing.rating == -1
     end
   end
 

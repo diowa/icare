@@ -11,19 +11,10 @@
         %span.hidden-xs= APP_CONFIG.app_name
     - if logged_in?
       %ul#navbar-notifications-list.nav.navbar-nav
-        =# navbar_notifications Message.model_name.human(count: :lot),
-                               id: 'messages',
-                               icon: 'comments',
-                               unread: current_user.unread_conversations_count,
-                               link: link_to(t('.see_all_messages'), :conversations),
-                               ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0),
-                               content: t('.no_new_messages')
-        =# navbar_notifications Notification.model_name.human(count: :lot),
-                               id: 'notifications',
-                               icon: 'globe',
-                               mock: true
+        = render 'shared/notifications', title: Message.model_name.human(count: :lot), id: 'messages', icon: 'comments', unread: current_user.unread_conversations_count, mock: false, link: link_to(t('.see_all_messages'), :conversations), ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0), content: t('.no_new_messages')
+        = render 'shared/notifications', title: Notification.model_name.human(count: :lot), id: 'notifications', icon: 'globe', unread: 0, mock: true, link: nil, content: nil, ajax: nil
         - if current_user.admin?
-          =# navbar_notifications 'Reports', id: 'reports', icon: 'flag', mock: true
+          = render 'shared/notifications', title: 'Reports', id: 'reports', icon: 'flag', unread: 0, mock: true, link: nil, content: nil, ajax: nil
       %ul.nav.navbar-nav.navbar-right
         %li#navbar-user-info
           = link_to user_path(current_user), class: 'navbar-profile-link' do

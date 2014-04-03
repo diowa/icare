@@ -23,3 +23,15 @@ if ClientSideValidations?
     $errorClassTarget.removeClass errorClass
     $errorMessageContainer.find(".#{errorBlockClass}").remove()
     callback
+
+$(document).on 'change', '#itinerary_round_trip', ->
+  status = $(this).prop 'checked'
+  $('select[id^="itinerary_return_date"]').prop 'disabled', !status
+
+$(document).on 'click', '#search-form-advanced-link', (e) ->
+  e.preventDefault()
+  me = this
+  $('#search-form-advanced').slideToggle ->
+    $(me).find('span.fa')
+      .toggleClass('fa-chevron-up')
+      .toggleClass('fa-chevron-down')

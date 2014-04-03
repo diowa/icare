@@ -1,8 +1,8 @@
 - title t('.title')
-.row
-  .span12
+.container
+  .page-header
     %h1= yield :title
-  .span12
+  .table-responsive
     %table.table.table-striped
       %thead
         %th
@@ -15,7 +15,7 @@
           - if reference.incoming
             %tr{ class: ('unread' if reference.unread?) }
               %td
-                %span.fa.fa-download
+                %span.fa.fa-arrow-up
               %td= link_to reference.referencing_user, user_path(reference.referencing_user)
               %td= driver_or_passenger reference
               %td= make_thumbs reference.incoming.rating
@@ -23,7 +23,7 @@
           - if reference.outgoing && reference.outgoing.body?
             %tr
               %td
-                %span.fa.fa-upload
+                %span.fa.fa-arrow-down
               %td= link_to reference.referencing_user, user_path(reference.referencing_user)
               %td= driver_or_passenger reference
               %td= make_thumbs reference.outgoing.rating

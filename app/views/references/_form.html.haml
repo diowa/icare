@@ -1,20 +1,11 @@
-= bootstrap_form_for [current_user, @reference], validate: true, html: { class: 'form-vertical' } do |f|
+= bootstrap_form_for [current_user, @reference], validate: true do |f|
   = hidden_field_tag :itinerary_id, @itinerary.id
   = f.error_messages
-  = f.text_area :body, rows: 5, class: 'input-xxlarge', placeholder: t('.write_a_reference'), skip_label: true
-  .control-group
-    .controls
-      .btn-group.btn-group-radio
-        = f.default_tag :radio_button, :rating, -1
-        = f.label :rating, value: -1, class: 'btn' do
-          %span.fa.fa-thumbs-down
-          = Reference.human_attribute_name(:rating_negative)
-        = f.default_tag :radio_button, :rating, 0
-        = f.label :rating, value: 0, class: 'btn' do
-          = Reference.human_attribute_name(:rating_neutral)
-        = f.default_tag :radio_button, :rating, 1
-        = f.label :rating, value: 1, class: 'btn' do
-          %span.fa.fa-thumbs-up
-          = Reference.human_attribute_name(:rating_positive)
-  .form-actions
-    = f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')
+  .form-group= f.text_area :body, rows: 5, class: 'input-xxlarge', placeholder: t('.write_a_reference'), skip_label: true
+  .form-group
+    .btn-group{ data: { toggle: 'buttons' } }
+      - %i(rating_negative rating_neutral rating_positive).each_with_index do |rating, index|
+        = f.label :rating, value: index - 1, class: 'btn btn-default' do
+          = f.default_tag :radio_button, :rating, index - 1
+          = Reference.human_attribute_name(rating)
+  = f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')

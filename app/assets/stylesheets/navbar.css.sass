@@ -35,6 +35,39 @@
     span
       margin-left: 35px
 
+.navbar-default .navbar-nav > li.notifications
+  position: relative
+
+  &.active > a
+    color: $navbar-default-link-active-color
+
+  &.read > a
+    color: fade-out(darken($navbar-default-bg, 40%), 0.55)
+
+  > a
+    height: $navbar-height
+
+    &:focus
+    &:hover,
+      color: $navbar-default-link-hover-color
+
+  .unread-count
+    position: absolute
+    top: 2px
+    right: 2px
+    @include square(18px)
+    line-height: 18px
+    text-align: center
+    font-size: 12px
+    border-radius: 100%
+    background-color: $brand-danger
+    color: $white !important
+
+.notifications-icon.fa
+  font-size: 20px
+  @include square(20px)
+  line-height: 20px
+
 /*
  * @media (min-width: 768px) {
  *   #navbar-user-info {

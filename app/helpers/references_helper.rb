@@ -1,8 +1,8 @@
 module ReferencesHelper
   def make_thumbs(rating)
     case rating
-    when -1 then content_tag :i, nil, class: 'icon-thumbs-down'
-    when 1 then content_tag :i, nil, class: 'icon-thumbs-up'
+    when -1 then content_tag :span, nil, class: 'fa fa-thumbs-down'
+    when 1 then content_tag :span, nil, class: 'fa fa-thumbs-up'
     end
   end
 

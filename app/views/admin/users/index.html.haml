@@ -1,11 +1,11 @@
 = title User.model_name.human(count: :lots)
-.row
-  .span12
-    = render 'shared/flash_messages'
+.container
+  = render 'shared/flash_messages'
+  .page-header
     %h1
       = yield :title
       %small= @users.all.count
-  .span12
+  .table-responsive
     %table.table.table-striped
       %thead
         %th= User.human_attribute_name :name

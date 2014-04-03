@@ -228,9 +228,6 @@ initItineraryNew = ->
     else
       $('#daily').fadeOut ->
         $('#single').fadeIn()
-  $('#itinerary_round_trip').change ->
-    status = $(this).prop 'checked'
-    $('select[id^="itinerary_return_date"]').prop 'disabled', !status
 
 # jQuery Turbolinks
 $ ->

@@ -48,7 +48,7 @@
                     = t('.report_itinerary')
           - else
             = link_to edit_itinerary_path(@itinerary), class: 'btn btn-default' do
-              %span.fa.fa-edit
+              %span.fa.fa-pencil
               = t('helpers.titles.edit', model: Itinerary.model_name.human)
         - else
           = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do

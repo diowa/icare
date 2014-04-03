@@ -17,13 +17,13 @@ module ItinerariesHelper
     if background_jobs_available?
       (form.label :share_on_facebook_timeline, class: "btn btn-facebook btn-checkbox#{' disabled' unless has_publish_stream_permission}" do
         form.default_tag(:check_box, :share_on_facebook_timeline, disabled: !has_publish_stream_permission, checked: has_publish_stream_permission) +
-        content_tag(:i, nil, class: 'icon-check-empty check') + ' ' +
+        content_tag(:span, nil, class: 'fa fa-square-o check') + ' ' +
         t('helpers.links.share_on_facebook_timeline')
       end) +
       (unless has_publish_stream_permission
         content_tag(:p, class: 'text-muted') do
           content_tag(:small) do
-            content_tag(:i, nil, class: 'icon-ban-circle') + ' ' +
+            content_tag(:span, nil, class: 'fa fa-ban') + ' ' +
             t('.missing_publish_stream_permission', appname: APP_CONFIG.app_name)
           end
         end
