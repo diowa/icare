@@ -21,20 +21,6 @@
   &:focus
     background-color: darken($brand-facebook, 5%)
 
-#navbar-user-info
-  .navbar-profile-link
-    position: relative
-
-    img
-      position: absolute
-      top: 7px
-      left: 15px
-      @include square(26px)
-      border-radius: 100%
-
-    span
-      margin-left: 35px
-
 .navbar-default .navbar-nav > li.notifications
   position: relative
 
@@ -67,6 +53,30 @@
   font-size: 20px
   @include square(20px)
   line-height: 20px
+
+#navbar-user-info
+  .navbar-profile-link
+    position: relative
+
+    img
+      position: absolute
+      top: 7px
+      left: 15px
+      @include square(26px)
+      border-radius: 100%
+
+    span
+      margin-left: 35px
+
+@media (max-width: #{$grid-float-breakpoint-max})
+  #list-navbar-notifications
+    position: absolute
+    top: 0
+    left: 50%
+    margin: 0 0 0 -75px /* half size */
+
+    li
+      float: left
 
 /*
  * @media (min-width: 768px) {

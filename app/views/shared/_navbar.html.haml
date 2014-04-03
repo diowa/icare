@@ -1,35 +1,35 @@
 %nav.navbar.navbar-fixed-top.navbar-internal.navbar-default{ role: 'navigation' }
   .container
     .navbar-header
-      - unless logged_in?
-        %button.navbar-toggle{ type: 'button', data: { toggle: 'collapse', target: '.navbar-responsive-collapse' } }
-          %span.icon-bar
-          %span.icon-bar
-          %span.icon-bar
+      %button.navbar-toggle{ type: 'button', data: { toggle: 'collapse', target: '.navbar-responsive-collapse' } }
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
       = link_to logged_in? ? :dashboard : root_path, class: 'navbar-brand' do
         = image_tag 'turtle_dark.svg', class: 'navbar-brand-logo'
         %span.hidden-xs= APP_CONFIG.app_name
     - if logged_in?
-      %ul#navbar-notifications-list.nav.navbar-nav
+      %ul#list-navbar-notifications.nav.navbar-nav
         = render 'shared/notifications', title: Message.model_name.human(count: :lot), id: 'messages', icon: 'comments', unread: current_user.unread_conversations_count, mock: false, link: link_to(t('.see_all_messages'), :conversations), ajax: (unread_conversations_path(format: :json) if current_user.unread_conversations_count > 0), content: t('.no_new_messages')
         = render 'shared/notifications', title: Notification.model_name.human(count: :lot), id: 'notifications', icon: 'globe', unread: 0, mock: true, link: nil, content: nil, ajax: nil
         - if current_user.admin?
           = render 'shared/notifications', title: 'Reports', id: 'reports', icon: 'flag', unread: 0, mock: true, link: nil, content: nil, ajax: nil
-      %ul.nav.navbar-nav.navbar-right
-        %li#navbar-user-info
-          = link_to user_path(current_user), class: 'navbar-profile-link' do
-            = user_profile_picture current_user, size: nil, style: nil
-            %span.hidden-xs= current_user
-        %li.dropdown
-          = link_to '#', data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do
-            %span.fa.fa-cog
-          %ul.dropdown-menu
-            %li= link_to t('.account_settings'), :settings
-            - if current_user.admin?
+      .navbar-collapse.collapse.navbar-responsive-collapse{ role: 'navigation' }
+        %ul.nav.navbar-nav.navbar-right
+          %li#navbar-user-info
+            = link_to user_path(current_user), class: 'navbar-profile-link' do
+              = user_profile_picture current_user, size: nil, style: nil
+              %span= current_user
+          %li.dropdown
+            = link_to '#', data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do
+              %span.fa.fa-cog
+            %ul.dropdown-menu
+              %li= link_to t('.account_settings'), :settings
+              - if current_user.admin?
+                %li.divider
+                %li= link_to t('.admin_users'), admin_users_path
               %li.divider
-              %li= link_to t('.admin_users'), admin_users_path
-            %li.divider
-            %li= link_to t('logout'), :logout
+              %li= link_to t('logout'), :logout
     - else
       .navbar-collapse.collapse.navbar-responsive-collapse{ role: 'navigation' }
         %ul.nav.navbar-nav.navbar-right

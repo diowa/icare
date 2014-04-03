@@ -71,6 +71,10 @@ $navbar-default-bg: fade-out($white, 0.1);
 $navbar-default-brand-color: $link-color;
 $navbar-default-link-color: $link-color;
 
+$navbar-default-toggle-hover-bg: transparent;
+$navbar-default-toggle-icon-bar-bg: #333;
+$navbar-default-toggle-border-color: transparent;
+
 $tooltip-bg: $flat-ui-midnight-blue;
 
 $modal-backdrop-opacity:      .6;
