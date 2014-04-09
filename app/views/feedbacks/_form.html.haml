@@ -1,9 +1,8 @@
-= bootstrap_form_for @feedback, validate: true, html: { class: 'form-horizontal' } do |f|
+= bootstrap_form_for @feedback, validate: true do |f|
   = f.error_messages
-  .form-group= f.select :type, Feedback::TYPE
+  = f.select :type, Feedback::TYPE
   - if permitted_params.feedback_attributes.include? :status
-    .form-group= f.select :status, Feedback::STATUS
-  .form-group= f.text_area :message, rows: 8
-  .form-group= f.text_field :url
-  .form-group
-    .col-sm-10.col-sm-offset-2= f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')
+    = f.select :status, Feedback::STATUS
+  = f.text_area :message, rows: 8
+  = f.text_field :url
+  = f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')

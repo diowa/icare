@@ -20,7 +20,6 @@ gem 'kaminari'
 gem 'mongoid'
 gem 'mongoid_geospatial'
 gem 'mongoid_slug'
-gem 'stringex', '2.5.0' # TODO remove when #159 will be fixed
 gem 'validates_timeliness'
 gem 'strong_parameters'
 

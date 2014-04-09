@@ -16,7 +16,7 @@ Icare::Application.routes.draw do
 
   resources :notifications, only: :index
 
-  resources :users, constraints: { id: /[A-Za-z0-9\.]+/ }, only: [:show, :edit, :update, :destroy] do
+  resources :users, constraints: { id: /[A-Za-z0-9\.]+/ }, only: [:show, :update, :destroy] do
     get :itineraries, on: :member
     resources :references, only: [:show, :new, :create, :update, :index]
   end

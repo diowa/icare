@@ -189,6 +189,7 @@ en-US:
     banned:
       title: Suspended account
       you_were_banned: You were banned!
+      banned_description_html: Contact our staff if you think there was a mistake.
     calculator:
       fuel_type: Fuel type
       fuel_diesel: Diesel

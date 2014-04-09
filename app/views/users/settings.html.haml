@@ -8,7 +8,7 @@
     = f.error_messages
     %legend= t('.vehicle_information')
     %fieldset
-    .form-group{ class: ('has-errors' if @user.errors.include?(:vehicle_avg_consumption)) }
+    .form-group{ class: ('has-error' if @user.errors.include?(:vehicle_avg_consumption)) }
       = f.label :vehicle_avg_consumption, class: 'control-label col-sm-2'
       .col-sm-10
         .input-group

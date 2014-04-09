@@ -189,6 +189,7 @@ it-IT:
     banned:
       title: Account sospeso
       you_were_banned: Sei stato sospeso!
+      banned_description_html: Contatta il nostro staff se pensi che ci sia stato un errore.
     itineraries:
       title: I miei itinerari
     dashboard:

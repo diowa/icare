@@ -20,18 +20,19 @@
           %th=t '.actions', default: t('helpers.actions')
       %tbody
         - @feedbacks.each do |feedback|
-          %tr{ class: ('success' if feedback.fixed?) }
+          %tr.vertical-align-middle{ class: ('success' if feedback.fixed?) }
             %td= feedback.type
             %td= feedback.status.upcase
             %td= link_to feedback.user_name, user_path(feedback.user)
             %td= link_to feedback.message.truncate(100), feedback_path(feedback)
             %td= l feedback.updated_at, format: :long
-            %td.btn-toolbar
-              - if current_user == feedback.user || current_user.admin?
-                = link_to edit_feedback_path(feedback), class: 'btn btn-sm btn-default' do
-                  %span.fa.fa-pencil
-                  = t('helpers.links.edit')
-                = link_to feedback_path(feedback), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-danger' do
-                  %span.fa.fa-times
-                  = t('helpers.links.destroy')
+            %td
+              .btn-toolbar
+                - if current_user == feedback.user || current_user.admin?
+                  = link_to edit_feedback_path(feedback), class: 'btn btn-sm btn-default' do
+                    %span.fa.fa-pencil
+                    = t('helpers.links.edit')
+                  = link_to feedback_path(feedback), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-danger' do
+                    %span.fa.fa-times
+                    = t('helpers.links.destroy')
   = paginate @feedbacks
