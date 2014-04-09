@@ -1,132 +1,10 @@
 @import "twbs-variables"
 @import "twbs/bootstrap/mixins"
 
-#home-top-section
-  position: relative
-  height: 500px
-  margin: -($navbar-height + 10px)
-  margin-bottom: 40px
-  box-shadow: 0 3px 3px fade-out($black, 0.75)
-
-.attribution
-  position: absolute
-  bottom: 5px
-  right: 10px
-  font-size: 10px
-  color: fade-out($white, 0.5)
-  cursor: default
-  user-select: none
-
-.btn-learn-more
-  margin-right: auto
-  margin-left: auto
-  border-bottom-left-radius: 0
-  border-bottom-right-radius: 0
-  border: none
-  text-shadow: none
-
-.learn-more-container
-  position: absolute
-  bottom: 0
-  width: 100%
-  z-index: 1
-
-
-#home-top-section-background
-  position: absolute
-  overflow: hidden
-  @include size(100%, 500px)
-  background: $gray-darker
-
-  img
-    min-height: 500px
-    min-width: 100%
-    height: auto
-
-  &:before
-    position: absolute
-    content: ''
-    @include square(100%)
-    background: fade-out($black, 0.6)
-
-#home-top-section-container
-  position: relative
-  z-index: 1
-  padding: 100px 0 0
-
-  h1,
-  small,
-  h2,
-  p,
-  a
-    color: $white
-    text-shadow: 0 1px 1px fade-out($black, 0.55)
-
-  h1,
-  h2
-    margin: 0
-    color: $white
-
-  h1
-    font-family: "Pacifico"
-    font-weight: 400
-    margin: 10px 0 $line-height-computed
-    line-height: 44px
-    font-size: 70px
-
-  h2
-    margin-bottom: $line-height-computed
-    line-height: 46px
-    font-size: 36px
-    letter-spacing: -1px
-
-  a:not([class^=btn])
-    font-weight: bold
-    text-decoration: underline
-
-.signin-terms
-  line-height: 18px
-  font-size: 12px
-  margin-top: $line-height-computed / 2
-
-.home-description
-  position: relative
-  display: table
-  font-size: 28px
-  line-height: 32px
-  letter-spacing: -1px
-  color: #999
-  text-transform: uppercase
-  margin-bottom: 40px
-  white-space: pre
-
-  &::before,
-  &:after
-    position: absolute
-    display: table-cell
-    width: 100%
-    content: ''
-    border-bottom: 1px solid gray
-
-.home-description-line
-  position: absolute
-  width: 100%
-  margin-top: 15px
-  border: 1px solid #999
-
-.home-description-text
-  display: inline-block
-  position: relative
-  padding: 0 20px
-  background: $body-bg
-
-.home-paragraph
-  margin-bottom: 20px
-  padding: 0 20px
-  font-size: 18px
-  line-height: 24px
-  color: $gray
-  text-align: left
+html,
+#homepage
+  padding: 0
+  height: 100%
 
 #featurettes
   h3
@@ -149,8 +27,86 @@
       vertical-align: middle
       text-align: center
 
-  .featurette
+#splashscreen
+  position: relative
+  height: 100%
+  background: image-url('dash-itineraries.jpg') no-repeat fixed center center
+  background-size: cover
+  margin-bottom: 40px
+  box-shadow: 0 3px 3px fade-out($black, 0.75)
+
+  &:before
+    position: absolute
+    top: 0
+    left: 0
+    display: block
+    @include square(100%)
+    content: ''
+    background: radial-gradient(transparent, fade-out($black, 0.7), fade-out($black, 0.5))
+
+#splashscreen-container
+  position: relative
+  @include square(100%)
+  z-index: 1
+  color: $white
+
+  h1,
+  h2,
+  a,
+  small
+    color: $white
+    text-shadow: 0 1px 1px fade-out($black, 0.1)
+
+  .div-table-cell
+    text-align: center
+    vertical-align: middle
+
+  h1
+    font-family: "Pacifico"
+    margin: 10px 0 $line-height-computed
+    line-height: 44px
+    font-size: 70px
+
+  h2
     margin-bottom: $line-height-computed
+    line-height: 46px
+    font-size: 36px
+    letter-spacing: -1px
+
+  .splashscreen-link
+    font-weight: bold
+    text-decoration: underline
+
+.attribution
+  position: absolute
+  bottom: 5px
+  right: 10px
+  font-size: 10px
+  color: fade-out($white, 0.5)
+  cursor: default
+  user-select: none
+
+.btn-learn-more
+  margin-right: auto
+  margin-left: auto
+  border-bottom-left-radius: 0
+  border-bottom-right-radius: 0
+  border: none
+  text-shadow: none
+
+.featurette
+  margin-bottom: $line-height-computed
+
+.learn-more-container
+  position: absolute
+  bottom: 0
+  width: 100%
+  z-index: 1
+
+.signin-terms
+  line-height: 18px
+  font-size: 12px
+  margin-top: $line-height-computed / 2
 
 @media(min-width: #{$screen-sm-min})
   #featurettes
