@@ -31,6 +31,7 @@ html,
   position: relative
   height: auto
   background: $brand-primary
+  background-size: cover
   margin-bottom: 40px
   box-shadow: 0 3px 3px fade-out($black, 0.75)
 
@@ -87,12 +88,24 @@ html,
   user-select: none
 
 .btn-learn-more
+  border: 2px solid fade-out($white, 0.75)
   margin-right: auto
   margin-left: auto
-  border-bottom-left-radius: 0
-  border-bottom-right-radius: 0
-  border: none
-  text-shadow: none
+  margin-bottom: 15px
+  color: $white
+  background: fade-out($black, 0.85)
+
+  &:hover,
+  &:focus
+    border-color: fade-out($white, 0.60)
+    color: $white
+    background: fade-out($black, 0.65)
+
+  .fa
+    position: relative
+    transform: translate3d(0, 1px, 0)
+    margin-left: 5px
+    animation: pulse-down 4s ease-in 2s infinite
 
 .featurette
   margin-bottom: $line-height-computed
@@ -105,6 +118,18 @@ html,
 
 .signin-terms
   margin-top: $line-height-computed
+
+@keyframes pulse-down
+  0%
+    transform: translate3d(0, 1px, 0)
+  10%
+    transform: translate3d(0, 5px, 0)
+  20%
+    transform: translate3d(0, 1px, 0)
+  30%
+    transform: translate3d(0, 5px, 0)
+  40%
+    transform: translate3d(0, 1px, 0)
 
 @media(min-width: #{$screen-sm-min})
   #splashscreen
