@@ -6,16 +6,16 @@ describe 'Admin' do
     visit '/auth/facebook'
   end
 
-  it "should see reports" do
+  it "sees reports" do
     expect(page).to have_css('#navbar-notifications-reports')
   end
 
-  it "should see users index" do
+  it "sees users index" do
     visit admin_users_path
     expect(current_path).to eq admin_users_path
   end
 
-  it "should be able to ban other users" do
+  it "is able to ban other users" do
     user_to_ban = FactoryGirl.create :user
     visit admin_users_path
     find(:xpath, "//a[contains(@href, '#{ban_admin_user_path(user_to_ban.id)}')]").click
@@ -23,13 +23,13 @@ describe 'Admin' do
     expect(find(:xpath, "//a[contains(@href, '#{unban_admin_user_path(user_to_ban.id)}')]")).to be_true
   end
 
-  it "should not be able to ban himself" do
+  it "is not able to ban himself" do
     visit admin_users_path
     find(:xpath, "//a[contains(@href, '#{ban_admin_user_path(@admin.id)}')]").click
     expect(page).to have_content I18n.t('flash.admin.users.error.ban')
   end
 
-  it "should not be able to unban banned users" do
+  it "is not able to unban banned users" do
     banned_user = FactoryGirl.create :user, banned: true
     visit admin_users_path
     find(:xpath, "//a[contains(@href, '#{unban_admin_user_path(banned_user.id)}')]").click

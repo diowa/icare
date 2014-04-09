@@ -4,9 +4,15 @@
 body
   padding-top: $navbar-height + 10px
 
+h1, .h1,
+h2, .h2,
+h3, .h3
+  letter-spacing: -1px
+
+h4, .h4,
 h5, .h5,
 h6, .h6
-  font-weight: 400
+  letter-spacing: 0
 
 .diowa-logo
   position: relative
@@ -31,10 +37,6 @@ h6, .h6
 .pacifico
   font-family: "Pacifico"
   font-weight: 400
-
-h1.pacifico
-  line-height: 44px
-  margin: 10px 0 $line-height-computed
 
 .no-margin
   margin: 0
@@ -135,36 +137,11 @@ h1.pacifico
   vertical-align: top
   text-align: left
 
-/* ==========================================================================
-   Global styles
-   ========================================================================== */
-
-.form-actions
-  background: none
-
-h1, .h1,
-h2, .h2,
-h3, .h3
-  letter-spacing: -1px
-
-h4, .h4,
-h5, .h5,
-h6, .h6
-  letter-spacing: 0
-
-/* New Buttons
-   ========================================================================== */
-
 .btn-facebook
   @include button-variant($white, $brand-facebook, $brand-facebook)
 
 .btn-pink
   @include button-variant($white, $pink, $pink)
-
-
-
-/* New Text colours
-   ========================================================================== */
 
 .text-pink
   color: $pink

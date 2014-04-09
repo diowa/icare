@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Feedbacks' do
 
-  it "should be created by registered users" do
+  it "allows creation from registered users" do
     FactoryGirl.create :user, uid: '123456', username: 'johndoe'
     visit '/auth/facebook'
     click_link Feedback.model_name.human
@@ -13,7 +13,7 @@ describe 'Feedbacks' do
     expect(page).to have_content I18n.t('flash.feedbacks.success.create')
   end
 
-  it "should be edited by owners" do
+  it "allows editing by owners" do
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
     feedback = FactoryGirl.create :feedback, user: user
     visit '/auth/facebook'
@@ -26,7 +26,7 @@ describe 'Feedbacks' do
     expect(feedback.reload.message).to eq 'This is a modified message'
   end
 
-  it "should be edited by admins" do
+  it "allows editing by admins" do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
     visit '/auth/facebook'
@@ -39,7 +39,7 @@ describe 'Feedbacks' do
     expect(feedback.reload.message).to eq 'This is a modified message'
   end
 
-  it "should be closed by admins" do
+  it "allows closing by admins" do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
     visit '/auth/facebook'
@@ -52,7 +52,7 @@ describe 'Feedbacks' do
     expect(feedback.reload.fixed?).to be_true
   end
 
-  it "should be deleted by owners" do
+  it "allows deletion by owners" do
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
     feedback = FactoryGirl.create :feedback, user: user
     visit '/auth/facebook'
@@ -62,7 +62,7 @@ describe 'Feedbacks' do
     expect(page).to have_content I18n.t('flash.feedbacks.success.destroy')
   end
 
-  it "should be deleted by admins" do
+  it "allows deletion by admins" do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
     visit '/auth/facebook'

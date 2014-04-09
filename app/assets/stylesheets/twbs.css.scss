@@ -66,3 +66,7 @@ th.text-right,
 td.text-right {
   text-right: right;
 }
+
+.btn {
+  transition :background-color .35s ease, border-color .35s ease;
+}

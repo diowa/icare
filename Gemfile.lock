@@ -279,7 +279,7 @@ GEM
       rspec-mocks (~> 2.14.0)
     rubyzip (1.1.2)
     safe_yaml (1.0.1)
-    sass (3.2.18)
+    sass (3.2.19)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)

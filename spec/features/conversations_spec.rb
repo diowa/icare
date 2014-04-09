@@ -5,7 +5,7 @@ describe 'Conversations' do
   let(:passenger) { FactoryGirl.create :user, uid: '123456', username: 'johndoe' }
   let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
 
-  it "should be able to send messages" do
+  it "allows to send messages" do
     message = 'can I come with you?'
     another_message = 'please please please!'
     visit '/auth/facebook'
