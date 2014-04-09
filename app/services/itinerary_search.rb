@@ -16,8 +16,8 @@ class ItinerarySearch
     itineraries = Itinerary.includes(:user).where(filters)
 
     # Getting itineraries from A to B
-    from_a_to_b_itineraries = itineraries.within_spherical_circle(start_location: [ a_location, SPHERE_RADIUS ]) \
-                              & itineraries.within_spherical_circle(end_location: [ b_location, SPHERE_RADIUS ])
+    from_a_to_b_itineraries = itineraries.within_spherical_circle(start_location: [ a_location, SPHERE_RADIUS ]) &
+                              itineraries.within_spherical_circle(end_location: [ b_location, SPHERE_RADIUS ])
 
     # From B to A, unless passenger searched for a round trip
     # NOTE: Think about it - driver may need a travelmate for the whole trip
@@ -31,8 +31,7 @@ class ItinerarySearch
 
   private
   def get_reversed(itineraries, a_location, b_location)
-    itineraries.where(round_trip: true).within_spherical_circle(start_location: [ b_location, SPHERE_RADIUS ]) \
-    & itineraries.within_spherical_circle(end_location: [ a_location, SPHERE_RADIUS ])
+    itineraries.where(round_trip: true).within_spherical_circle(start_location: [ b_location, SPHERE_RADIUS ]) & itineraries.within_spherical_circle(end_location: [ a_location, SPHERE_RADIUS ])
   end
 
   def extract_filters_from_params
