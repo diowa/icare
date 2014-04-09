@@ -29,7 +29,7 @@
                 %li.divider
                 %li= link_to t('.admin_users'), admin_users_path
               %li.divider
-              %li= link_to t('logout'), :logout
+              %li= link_to t('logout'), :logout, method: :delete
     - else
       .navbar-collapse.collapse.navbar-responsive-collapse{ role: 'navigation' }
         %ul.nav.navbar-nav.navbar-right

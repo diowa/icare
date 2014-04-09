@@ -1,4 +1,4 @@
-- title t('meta_description', appname: APP_CONFIG.app_name)
+- title t('meta_title', appname: APP_CONFIG.app_name)
 - content_for :head do
   %meta{ name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name) }
 
@@ -10,21 +10,14 @@
       %h1
         = APP_CONFIG.app_name
         - if APP_CONFIG.demo_mode
-          %small
-            demo
-      %h2= t('.tagline')
+          %small demo
+      %h2= t('.os_carpooling_platform')
       = render 'facebook_login'
   .learn-more-container.hidden-xs.text-center
     = link_to '#', class: 'btn btn-lg btn-learn-more' do
       = t('.learn_more')
       %span.fa.fa-long-arrow-down
-.container
-  #learn-more
-    .ribbon-container
-      .ribbon
-        .ribbon-content
-          %h2= t('.what_is_appname', appname: APP_CONFIG.app_name)
-    %p.lead=  t('meta_description', appname: APP_CONFIG.app_name)
+.container#learn-more
   .ribbon-container
     .ribbon
       .ribbon-content
@@ -62,7 +55,7 @@
         %h2= t('.join_us_today')
   .row
     .col-sm-6
-      #facepile-container.hide
-        .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
+      #facepile-container
+        .fb-facepile{ data: { size: 'medium', max_rows: '1' } }
     .col-sm-6= render 'facebook_login'
   = render 'shared/modal_why_facebook'

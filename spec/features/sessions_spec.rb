@@ -46,7 +46,7 @@ describe 'Sessions' do
   it "allow users to logout" do
     visit '/auth/facebook'
     expect(find("a[href='/signout']")).to be_present
-    visit '/signout'
+    click_link I18n.t('logout')
     expect(page).to have_content I18n.t('login_with_facebook')
   end
 

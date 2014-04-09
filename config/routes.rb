@@ -37,7 +37,7 @@ Icare::Application.routes.draw do
   match 'auth/:provider', to: 'sessions#new', as: :auth_at_provider
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
-  match 'signout', to: 'sessions#destroy', as: :logout
+  delete 'signout', to: 'sessions#destroy', as: :logout
 
   # Root route aliases
   get :dashboard, to: 'users#dashboard'

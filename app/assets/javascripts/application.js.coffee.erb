@@ -54,18 +54,3 @@ String::lpad = (padString, length) ->
   while str.length < length
     str = padString + str
   str
-
-startSpinner = ->
-  @spinner ||= setTimeout ->
-    $('#loading-spinner').show()
-  , 250
-
-stopSpinner = ->
-  clearTimeout @spinner
-  @spinner = null
-  $('#loading-spinner').hide()
-
-# Turbolinks Spinner
-if document.addEventListener?
-  document.addEventListener 'page:fetch', startSpinner
-  document.addEventListener 'page:receive', stopSpinner

@@ -1,0 +1,18 @@
+@import 'twbs-variables'
+@import 'twbs/bootstrap/mixins'
+
+#turbolinks-spinner
+  position: fixed
+  top: 0
+  z-index: ($zindex-navbar-fixed + 1)
+  display: none
+  @include square(100%)
+  text-align: center
+  cursor: default
+  user-select: none
+
+#turbolinks-spinner-label
+  padding: $padding-small-vertical $padding-small-horizontal
+  font-weight: 700
+  background: $state-warning-bg
+  border: 1px solid $state-warning-border

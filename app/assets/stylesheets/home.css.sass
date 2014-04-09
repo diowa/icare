@@ -6,6 +6,9 @@ html,
   padding: 0
   height: 100%
 
+  .btn-why-facebook
+    font-size: $font-size-small
+
 #featurettes
   h3
     margin-top: 10px
@@ -31,7 +34,7 @@ html,
   position: relative
   height: auto
   background: $brand-primary asset-data-url('noise.png')
-  margin-bottom: 40px
+  margin-bottom: 20px
   box-shadow: 0 3px 3px fade-out($black, 0.75)
 
   &:before
@@ -57,21 +60,24 @@ html,
     color: $white
     text-shadow: 0 1px 1px fade-out($black, 0.1)
 
-  .div-table-cell
-    text-align: center
-    vertical-align: middle
-
   h1
     font-family: "Pacifico"
+    font-weight: 400
     margin: 10px 0 $line-height-computed
     line-height: 34px
     font-size: 50px
 
+    small
+      font-size: 30px
+
   h2
     margin-bottom: $line-height-computed
-    line-height: 46px
     font-size: 26px
-    letter-spacing: -1px
+    letter-spacing: 0px
+
+  .div-table-cell
+    text-align: center
+    vertical-align: middle
 
   .splashscreen-link
     font-weight: bold
@@ -118,23 +124,15 @@ html,
 .signin-terms
   margin-top: $line-height-computed
 
-@keyframes pulse-down
-  0%
-    transform: translate3d(0, 1px, 0)
-  10%
-    transform: translate3d(0, 5px, 0)
-  20%
-    transform: translate3d(0, 1px, 0)
-  30%
-    transform: translate3d(0, 5px, 0)
-  40%
-    transform: translate3d(0, 1px, 0)
-
 @media(min-width: #{$screen-sm-min})
   #splashscreen
     height: 100%
+    min-height: 375px
+    margin-bottom: 40px
 
   #splashscreen-container
+    padding-bottom: 62px
+
     h1
       line-height: 44px
       font-size: 70px
@@ -145,6 +143,14 @@ html,
 
     .btn-facebook
       @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
+
+    .btn-toolbar
+      position: relative
+
+    .btn-why-facebook
+      position: absolute
+      top: 5px
+      font-size: $font-size-base
 
   #featurettes
     .fa
@@ -158,6 +164,7 @@ html,
     position: relative
     display: inline-block
     font-family: 'Pacifico'
+    font-weight: 400
     font-size: 16px !important
     /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
     background: $ribbon-color
@@ -210,3 +217,15 @@ html,
       right: 0
       border-width: 1em 1em 0 0
       box-shadow: -1px 0 0 fade-out($black, 0.75)
+
+@keyframes pulse-down
+  0%
+    transform: translate3d(0, 1px, 0)
+  10%
+    transform: translate3d(0, 5px, 0)
+  20%
+    transform: translate3d(0, 1px, 0)
+  30%
+    transform: translate3d(0, 5px, 0)
+  40%
+    transform: translate3d(0, 1px, 0)
