@@ -128,11 +128,35 @@
   color: $gray
   text-align: left
 
-#home-text-snippets
+#featurettes
   h3
-    margin: 0
+    margin-top: 10px
+    text-align: center
 
-@media(min-width: 768px)
+  .fa
+    display: table
+    margin: 0 auto
+    border: 0.2em solid $link-color
+    width: 1.618em
+    height: 1.618em
+    font-size: 3em
+    border-radius: 1.618em
+    color: $body-bg
+    background: $link-color
+
+    &:before
+      display: table-cell
+      vertical-align: middle
+      text-align: center
+
+  .featurette
+    margin-bottom: $line-height-computed
+
+@media(min-width: #{$screen-sm-min})
+  #featurettes
+    .fa
+      font-size: 4em
+
   .ribbon-container
     text-align: center
 
@@ -193,18 +217,3 @@
       right: 0
       border-width: 1em 1em 0 0
       box-shadow: -1px 0 0 fade-out($black, 0.75)
-
-.icon-home-style
-  display: inline-table
-  border: 0.2em solid $link-color
-  width: 1.618em
-  height: 1.618em
-  font-size: 4em
-  border-radius: 1.618em
-  color: $body-bg
-  background: $link-color
-
-  &:before
-    display: table-cell
-    vertical-align: middle
-    text-align: center

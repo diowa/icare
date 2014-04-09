@@ -30,9 +30,7 @@
           %button.btn.btn-warning.dropdown-toggle{ data: { toggle: 'dropdown' } }
             %span.caret
           %ul.dropdown-menu{ role: 'menu' }
-            %li
-              %a{ href: '#' }
-                = t('.report_itinerary')
+            %li= link_to t('.report_itinerary'), '#'
       - else
         = link_to edit_itinerary_path(@itinerary), class: 'btn btn-default' do
           %span.fa.fa-pencil

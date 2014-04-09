@@ -44,7 +44,7 @@
       {{translate "mongoid.attributes.itinerary.tolls"}}:
       {{tolls}}.00 &euro;
     .btn-toolbar
-      %a.btn.btn-xs.btn-default.show-itinerary-on-map{ href: "#", data: { id: "{{id}}" } }
+      = link_to '#', class: 'btn btn-xs btn-default show-itinerary-on-map', data: { id: "{{id}}" } do
         {{translate "templates.itineraries.show_on_map"}}
-      %a.btn.btn-xs.btn-primary{ href: "{{url}}" }
+      = link_to '{{url}}', class: 'btn btn-xs btn-primary' do
         {{translate "templates.itineraries.read_more"}}

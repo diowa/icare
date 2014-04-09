@@ -6,7 +6,7 @@
   #fb-root
   #home-top-section
     .learn-more-container.hidden-xs.text-center
-      %a.btn.btn-default.btn-lg.btn-learn-more{ href: '#' }= t('.learn_more')
+      = link_to t('.learn_more'), '#', class: 'btn btn-lg btn-default btn-learn-more'
     #home-top-section-background
       .attribution
         _IGP5461 | 70 by Ben Fredericson (xjrlokix), on Flickr
@@ -21,56 +21,50 @@
       %h2= t('.tagline')
       = render 'facebook_login'
   .container
-    .row
-      .span12
-        #learn-more
-          .ribbon-container
-            .ribbon
-              .ribbon-content
-                %h2= t('.what_is_appname', appname: APP_CONFIG.app_name)
-          %p.lead=  t('meta_description', appname: APP_CONFIG.app_name)
-    .row
-      .span12
-        .ribbon-container
-          .ribbon
-            .ribbon-content
-              %h2= t('.main_features')
-    #home-text-snippets
+    #learn-more
+      .ribbon-container
+        .ribbon
+          .ribbon-content
+            %h2= t('.what_is_appname', appname: APP_CONFIG.app_name)
+      %p.lead=  t('meta_description', appname: APP_CONFIG.app_name)
+    .ribbon-container
+      .ribbon
+        .ribbon-content
+          %h2= t('.main_features')
+    #featurettes
       .row
-        .span4
-          %span.fa.fa-road.icon-home-style
+        .col-sm-4.featurette
+          %span.fa.fa-road
           %h3= t('.share_itinerary_title')
           %p= t('.share_itinerary_content')
-        .span4
-          %span.fa.fa-group.icon-home-style
+        .col-sm-4.featurette
+          %span.fa.fa-group
           %h3= t('.make_new_connections_title')
           %p= t('.make_new_connections_content')
-        .span4
-          %span.fa.fa-money.icon-home-style
+        .col-sm-4.featurette
+          %span.fa.fa-money
           %h3= t('.save_money_title')
           %p= t('.save_money_content')
       .row
-        .span4
-          %span.fa.fa-magic.icon-home-style
+        .col-sm-4.featurette
+          %span.fa.fa-magic
           %h3= t('.thats_easy_title')
           %p= t('.thats_easy_content')
-        .span4
-          %span.fa.fa-leaf.icon-home-style
+        .col-sm-4.featurette
+          %span.fa.fa-leaf
           %h3= t('.help_environment_title')
           %p= t('.help_environment_content')
-        .span4
-          %span.fa.fa-github.icon-home-style
+        .col-sm-4.featurette
+          %span.fa.fa-github
           %h3= t('.open_source_title')
           %p= t('.open_source_content', appname: APP_CONFIG.app_name, source_code_link: link_to(t('.source_code'), APP_CONFIG.repository_url)).html_safe
+    .ribbon-container
+      .ribbon
+        .ribbon-content
+          %h2= t('.join_us_today')
     .row
-      .span12
-        .ribbon-container
-          .ribbon
-            .ribbon-content
-              %h2= t('.join_us_today')
-    .row
-      .span6
+      .col-sm-6
         #facepile-container.hide
           .fb-facepile{ data: { size: 'medium', :"max-rows" => '1' } }
-      .span6= render 'facebook_login'
+      .col-sm-6= render 'facebook_login'
     = render 'shared/modal_why_facebook'
