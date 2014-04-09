@@ -29,9 +29,8 @@ html,
 
 #splashscreen
   position: relative
-  height: 100%
-  background: image-url('dash-itineraries.jpg') no-repeat fixed center center
-  background-size: cover
+  height: auto
+  background: $brand-primary
   margin-bottom: 40px
   box-shadow: 0 3px 3px fade-out($black, 0.75)
 
@@ -46,6 +45,7 @@ html,
 
 #splashscreen-container
   position: relative
+  padding: 15px
   @include square(100%)
   z-index: 1
   color: $white
@@ -64,13 +64,13 @@ html,
   h1
     font-family: "Pacifico"
     margin: 10px 0 $line-height-computed
-    line-height: 44px
-    font-size: 70px
+    line-height: 34px
+    font-size: 50px
 
   h2
     margin-bottom: $line-height-computed
     line-height: 46px
-    font-size: 36px
+    font-size: 26px
     letter-spacing: -1px
 
   .splashscreen-link
@@ -104,11 +104,24 @@ html,
   z-index: 1
 
 .signin-terms
-  line-height: 18px
-  font-size: 12px
-  margin-top: $line-height-computed / 2
+  margin-top: $line-height-computed
 
 @media(min-width: #{$screen-sm-min})
+  #splashscreen
+    height: 100%
+
+  #splashscreen-container
+    h1
+      line-height: 44px
+      font-size: 70px
+
+    h2
+      line-height: 46px
+      font-size: 36px
+
+    .btn-facebook
+      @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
+
   #featurettes
     .fa
       font-size: 4em
