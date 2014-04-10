@@ -80,10 +80,10 @@ module UsersHelper
 
   def work_and_education_tags(user, field)
     return unless user[field] && user[field].any?
-    user_work_or_edu = remap_work_or_edu_tags user[field]
+    user_work_or_edu = remap_work_or_edu_tags(user[field], field)
     my_field = current_user[field]
     if (render_common_work_or_edu = (user != current_user) && my_field && my_field.any?)
-      my_work_or_edu = remap_work_or_edu_tags my_field
+      my_work_or_edu = remap_work_or_edu_tags(my_field, field)
     end
     render_tags user_work_or_edu, my_work_or_edu, render_common_tags: render_common_work_or_edu, content: User.human_attribute_name(field), class: 'tag tag-facebook'
   end
@@ -94,8 +94,9 @@ module UsersHelper
   end
 
   private
-  def remap_work_or_edu_tags(field)
-    field.map { |el| { 'name' => el.first.second['name'], 'id' => el.first.second['id'] } }
+  def remap_work_or_edu_tags(field, type)
+    key = (type == :work ? 'employer' : 'school')
+    field.map { |h| { 'name' => h[key]['name'], 'id' => h[key]['id'] } }
   end
 
   def get_common_tags(my_tags, user_tags)
