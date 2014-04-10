@@ -6,19 +6,8 @@ html,
   padding: 0
   height: 100%
 
-  .btn-why-facebook
-    font-size: $font-size-small
-
-#featurettes
-  h3
-    margin-top: 10px
-    text-align: center
-
-  .fa
-    display: block
-    text-align: center
-    font-size: 3em
-    color: $headings-color
+.btn-why-facebook
+  font-size: $font-size-small
 
 #splashscreen
   position: relative
@@ -27,7 +16,7 @@ html,
   height: auto
   background: $brand-primary asset-data-url('noise.png')
   margin-bottom: 0
-  box-shadow: 0 3px 3px fade-out($black, 0.75)
+  box-shadow: 0 3px 3px fade-out(black, 0.75)
 
   &:before
     position: absolute
@@ -36,7 +25,7 @@ html,
     display: block
     @include square(100%)
     content: ''
-    background: radial-gradient(transparent, fade-out($black, 0.7), fade-out($black, 0.5))
+    background: radial-gradient(transparent, fade-out(black, 0.7), fade-out(black, 0.5))
 
 #splashscreen-container
   position: relative
@@ -45,14 +34,14 @@ html,
   padding: 15px
   text-align: center
   vertical-align: middle
-  color: $white
+  color: white
 
   h1,
   h2,
   a,
   small
-    color: $white
-    text-shadow: 0 1px 1px fade-out($black, 0.1)
+    color: white
+    text-shadow: 0 1px 1px fade-out(black, 0.1)
 
   h1
     font-family: "Pacifico"
@@ -66,7 +55,6 @@ html,
 
   h2
     margin-bottom: $line-height-computed
-    font-size: 26px
     letter-spacing: 0px
 
   .div-table-cell
@@ -74,7 +62,7 @@ html,
     vertical-align: middle
 
   .splashscreen-link
-    font-weight: bold
+    font-weight: 700
     text-decoration: underline
 
 .attribution
@@ -82,21 +70,21 @@ html,
   bottom: 5px
   right: 10px
   font-size: 10px
-  color: fade-out($white, 0.5)
+  color: fade-out(white, 0.5)
   cursor: default
   user-select: none
 
 .btn-learn-more
   margin: 0 auto 15px
-  border: 2px solid fade-out($white, 0.75)
-  color: $white
-  background-color: fade-out($black, 0.85)
+  border: 2px solid fade-out(white, 0.75)
+  color: white
+  background-color: fade-out(black, 0.85)
 
   &:hover,
   &:focus
-    border-color: fade-out($white, 0.60)
-    color: $white
-    background-color: fade-out($black, 0.65)
+    border-color: fade-out(white, 0.60)
+    color: white
+    background-color: fade-out(black, 0.65)
 
   .fa
     position: relative
@@ -105,7 +93,21 @@ html,
     animation: pulse-down 4s ease-in 2s infinite
 
 .featurette
+  padding: 20px 0
   margin-bottom: $line-height-computed
+
+  h3
+    margin-top: 10px
+
+  .fa
+    display: block
+    float: left
+    font-size: 5em
+    margin-right: 20px
+    color: $flat-ui-asbestos
+
+  &:nth-child(even)
+    background-color: $flat-ui-clouds
 
 .learn-more-container
   position: absolute
@@ -118,6 +120,12 @@ html,
   margin-top: $line-height-computed
 
 @media(min-width: #{$screen-sm-min})
+  .btn-facebook
+    @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
+
+  .btn-why-facebook
+    font-size: $font-size-base
+
   #splashscreen
     height: 100%
     min-height: 375px
@@ -133,9 +141,6 @@ html,
       line-height: 46px
       font-size: 36px
 
-    .btn-facebook
-      @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large)
-
     .btn-toolbar
       position: relative
 
@@ -144,71 +149,25 @@ html,
       top: 5px
       font-size: $font-size-base
 
-  #featurettes
+  .featurette
+    padding: 60px 0
+
+    h3
+      font-size: $font-size-h1
+
+    p
+      font-size: 21px
+      font-weight: 300
+
     .fa
-      font-size: 4em
+      font-size: 10em
+      margin-right: 60px
 
-  .ribbon-container
-    text-align: center
-
-  .ribbon
-    $ribbon-color: $headings-color
-    position: relative
-    display: inline-block
-    font-family: 'Pacifico'
-    font-weight: 400
-    font-size: 16px !important
-    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
-    background: $ribbon-color
-    box-shadow: 0 1px 1px fade-out($black, 0.75)
-
-    h2
-      margin: 0
-      line-height: 1.5
-      color: $white
-      text-shadow: 0 -1px 0 fade-out($black, 0.75)
-
-    padding: 6px 2em /* Adjust to suit */
-    margin: 2em auto 4em /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
-
-    &:before,
-    &:after
-      z-index: -1
-      position: absolute
-      display: block
-      bottom: -1em
-      border: 1.7em solid darken($ribbon-color, 2%)
-      content: ""
-      box-shadow: 0 1px 0 fade-out($black, 0.75)
-
-    &:before
-      left: -2.3em
-      border-right-width: 1.7em
-      border-left-color: transparent
-
-    &:after
-      right: -2.3em
-      border-left-width: 1.7em
-      border-right-color: transparent
-
-    .ribbon-content:before,
-    .ribbon-content:after
-      position: absolute
-      display: block
-      bottom: -1em
-      border-style: solid
-      border-color: darken($ribbon-color, 5%) transparent transparent transparent
-      content: ""
-
-    .ribbon-content:before
-      left: 0
-      border-width: 1em 0 0 1em
-      box-shadow: 1px 0 0 fade-out($black, 0.75)
-
-    .ribbon-content:after
-      right: 0
-      border-width: 1em 1em 0 0
-      box-shadow: -1px 0 0 fade-out($black, 0.75)
+    &:nth-child(even)
+      .fa
+        float: right
+        margin-right: 0
+        margin-left: 60px
 
 @keyframes pulse-down
   0%

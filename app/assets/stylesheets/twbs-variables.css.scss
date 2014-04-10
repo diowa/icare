@@ -40,8 +40,6 @@ $flat-ui-concrete:      #95a5a6;
 $flat-ui-asbestos:      #7f8c8d;
 
 /* Colors */
-$white: #fff;
-$black: #000;
 $pink: #c3325f;
 $brand-facebook: #3b5998;
 $brand-icare: $flat-ui-midnight-blue;
@@ -66,7 +64,7 @@ $headings-color: $flat-ui-wet-asphalt;
 $headings-font-weight: 300;
 
 $navbar-height: 40px;
-$navbar-default-bg: fade-out($white, 0.1);
+$navbar-default-bg: fade-out(white, 0.1);
 $navbar-default-brand-color: $link-color;
 $navbar-default-link-color: $link-color;
 
