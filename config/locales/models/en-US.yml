@@ -72,6 +72,8 @@ en-US:
         rating_negative: Negative
         rating_neutral: Neutral
         rating_positive: Positive
+      message:
+        body: Message
     errors:
       models:
         user:

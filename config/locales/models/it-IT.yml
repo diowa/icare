@@ -72,6 +72,8 @@ it-IT:
         rating_negative: Negativa
         rating_neutral: Neutrale
         rating_positive: Positiva
+      message:
+        body: Messaggio
     errors:
       models:
         user:
