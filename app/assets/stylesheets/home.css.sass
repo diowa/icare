@@ -32,6 +32,8 @@ html,
 
 #splashscreen
   position: relative
+  display: table
+  @include size(100%, auto)
   height: auto
   background: $brand-primary asset-data-url('noise.png')
   margin-bottom: 20px
@@ -48,9 +50,11 @@ html,
 
 #splashscreen-container
   position: relative
-  padding: 15px
+  display: table-cell
   @include square(100%)
-  z-index: 1
+  padding: 15px
+  text-align: center
+  vertical-align: middle
   color: $white
 
   h1,
@@ -93,18 +97,16 @@ html,
   user-select: none
 
 .btn-learn-more
+  margin: 0 auto 15px
   border: 2px solid fade-out($white, 0.75)
-  margin-right: auto
-  margin-left: auto
-  margin-bottom: 15px
   color: $white
-  background: fade-out($black, 0.85)
+  background-color: fade-out($black, 0.85)
 
   &:hover,
   &:focus
     border-color: fade-out($white, 0.60)
     color: $white
-    background: fade-out($black, 0.65)
+    background-color: fade-out($black, 0.65)
 
   .fa
     position: relative
@@ -118,8 +120,8 @@ html,
 .learn-more-container
   position: absolute
   bottom: 0
+  @include center-block
   width: 100%
-  z-index: 1
 
 .signin-terms
   margin-top: $line-height-computed

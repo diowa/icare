@@ -4,19 +4,18 @@
 
 #fb-root
 #splashscreen
-  .div-table#splashscreen-container
-    .div-table-cell
-      = render 'shared/flash_messages'
-      %h1
-        = APP_CONFIG.app_name
-        - if APP_CONFIG.demo_mode
-          %small demo
-      %h2= t('.os_carpooling_platform')
-      = render 'facebook_login'
-  .learn-more-container.hidden-xs.text-center
-    = link_to '#', class: 'btn btn-lg btn-learn-more' do
-      = t('.learn_more')
-      %span.fa.fa-long-arrow-down
+  #splashscreen-container
+    = render 'shared/flash_messages'
+    %h1
+      = APP_CONFIG.app_name
+      - if APP_CONFIG.demo_mode
+        %small demo
+    %h2= t('.os_carpooling_platform')
+    = render 'facebook_login'
+    .learn-more-container.hidden-xs
+      = link_to '#', class: 'btn btn-lg btn-learn-more' do
+        = t('.learn_more')
+        %span.fa.fa-long-arrow-down
 .container#learn-more
   .ribbon-container
     .ribbon
