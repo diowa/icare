@@ -6,23 +6,28 @@ describe 'Itineraries' do
   PINK_ICON = 'span.fa.fa-lock'
   XSS_ALERT = "<script>alert('toasty!);</script>"
 
-  describe 'Registered Users' do
+  context 'Registered Users' do
     def login_as_male
       @user = FactoryGirl.create :user, uid: '123456', gender: 'male'
-      visit '/auth/facebook'
+
+      visit auth_at_provider_path(provider: :facebook)
     end
 
     def login_as_female
       @user = FactoryGirl.create :user, uid: '123456', gender: 'female'
       @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
-      visit '/auth/facebook'
+
+      visit auth_at_provider_path(provider: :facebook)
+    ensure
       OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
     end
 
     it "are allowed to create itineraries", js: true do
       login_as_female
+
       visit new_itinerary_path
+
       fill_in 'itinerary_start_address', with: 'Milan'
       fill_in 'itinerary_end_address', with: 'Turin'
       click_button 'get-route'
@@ -75,7 +80,9 @@ describe 'Itineraries' do
       login_as_male
       FactoryGirl.create :itinerary, round_trip: true
       FactoryGirl.create :itinerary
+
       visit itineraries_path
+
       fill_in 'itineraries_search_from', with: 'Milan'
       fill_in 'itineraries_search_to', with: 'Turin'
       click_button 'itineraries-search'
@@ -89,7 +96,9 @@ describe 'Itineraries' do
       FactoryGirl.create :itinerary, user: @user, round_trip: true
       FactoryGirl.create :itinerary, user: @user, daily: true
       FactoryGirl.create :itinerary, user: @user, pink: true, daily: true
+
       visit itineraries_user_path(@user)
+
       expect(page).to have_css('tbody > tr', count: 4)
       @user.itineraries.each do |itinerary|
         row = find(:xpath, "//a[@href='#{itinerary_path(itinerary)}' and text()='#{itinerary.start_address}']/../..")
@@ -103,8 +112,10 @@ describe 'Itineraries' do
     it "allow users to delete their own ones" do
       login_as_male
       itinerary = FactoryGirl.create :itinerary, user: @user
+
       visit itineraries_user_path(@user)
-      find(:xpath, "//a[@data-method='delete' and @href='#{itinerary_path(itinerary)}']").click
+
+      find("a[data-method=\"delete\"][href=\"#{itinerary_path(itinerary)}\"]").click
       expect(page).to have_content I18n.t('flash.itineraries.success.destroy')
       expect(page).to_not have_content itinerary.title
     end
@@ -112,8 +123,10 @@ describe 'Itineraries' do
     it "allow users to edit their own ones" do
       login_as_male
       itinerary = FactoryGirl.create :itinerary, user: @user, description: 'Old description'
+
       visit itineraries_user_path(@user)
-      find(:xpath, "//a[contains(@href, '#{edit_itinerary_path(itinerary)}')]").click
+
+      find("a[href=\"#{edit_itinerary_path(itinerary)}\"]").click
       fill_in 'itinerary_description', with: 'New Description'
       click_button I18n.t('helpers.submit.update', model: Itinerary.model_name.human)
       expect(page).to have_content I18n.t('flash.itineraries.success.update')
@@ -124,16 +137,20 @@ describe 'Itineraries' do
       login_as_male
       female_user = FactoryGirl.create :user, gender: 'female'
       pink_itinerary = FactoryGirl.create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
+
       visit itinerary_path(pink_itinerary)
+
       expect(current_path).to eq dashboard_path
       expect(page).to have_content I18n.t('flash.itineraries.error.pink')
     end
   end
 
-  describe 'Guests' do
+  context 'Guests' do
     it "allow guests to see itineraries" do
       itinerary = FactoryGirl.create :itinerary, description: 'Itinerary for guest users'
+
       visit itinerary_path(itinerary)
+
       expect(current_path).to eq itinerary_path(itinerary)
       expect(page).to have_content itinerary.description
     end
@@ -141,7 +158,9 @@ describe 'Itineraries' do
     it "doesn't allow guests to see pink itineraries" do
       female_user = FactoryGirl.create :user, gender: 'female'
       pink_itinerary = FactoryGirl.create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
+
       visit itinerary_path(pink_itinerary)
+
       expect(current_path).to eq root_path
     end
   end

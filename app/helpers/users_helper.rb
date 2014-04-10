@@ -67,7 +67,7 @@ module UsersHelper
 
   def favorite_tags(user, user_favorites)
     return unless user_favorites && user_favorites.any?
-    render_tags user_favorites, current_user.facebook_favorites, render_common_tags: (user != current_user), content: t('.likes'), class: 'tag tag-facebook'
+    render_tags user_favorites, current_user.facebook_favorites, render_common_tags: (user != current_user), content: t('.likes'), class: 'tag tag-facebook tag-sm', css_class: 'tag-sm'
   end
 
   private
@@ -88,17 +88,17 @@ module UsersHelper
     end
   end
 
-  def render_tag(tag_text, common)
-    content_tag :div, tag_text, class: ("tag#{' common' if common}")
-  end
-
   def render_tags(user_tags, my_tags, opts = {})
     options = { render_common_tags: false }.merge(opts)
     common_tags = get_common_tags(my_tags, user_tags) if options[:render_common_tags]
     html = content_tag(:div, options[:content], class: options[:class])
     user_tags.each do |tag|
-      html << render_tag(tag['name'], options[:render_common_tags] && common_tags.include?(tag['id']))
+      html << render_tag(tag['name'], options[:render_common_tags] && common_tags.include?(tag['id']), css_class = options[:css_class])
     end
     html
+  end
+
+  def render_tag(tag_text, common, css_class = nil)
+    content_tag :div, tag_text, class: ['tag', ('common' if common), css_class].compact.join(' ')
   end
 end

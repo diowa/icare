@@ -4,7 +4,9 @@ describe 'Feedbacks' do
 
   it "allows creation from registered users" do
     FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
+
     click_link Feedback.model_name.human
     click_link I18n.t('helpers.links.new')
     fill_in 'feedback_message', with: 'This is a new feedback'
@@ -16,8 +18,10 @@ describe 'Feedbacks' do
   it "allows editing by owners" do
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
     feedback = FactoryGirl.create :feedback, user: user
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
     visit feedback_path(feedback)
+
     click_link I18n.t('helpers.links.edit')
     fill_in 'feedback_message', with: 'This is a modified message'
     click_button I18n.t('helpers.submit.update', model: Feedback)
@@ -29,8 +33,10 @@ describe 'Feedbacks' do
   it "allows editing by admins" do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
     visit feedback_path(feedback)
+
     click_link I18n.t('helpers.links.edit')
     fill_in 'feedback_message', with: 'This is a modified message'
     click_button I18n.t('helpers.submit.update', model: Feedback)
@@ -42,8 +48,10 @@ describe 'Feedbacks' do
   it "allows closing by admins" do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
     visit feedback_path(feedback)
+
     click_link I18n.t('helpers.links.edit')
     select 'fixed', from: 'feedback_status'
     click_button I18n.t('helpers.submit.update', model: Feedback)
@@ -55,9 +63,11 @@ describe 'Feedbacks' do
   it "allows deletion by owners" do
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
     feedback = FactoryGirl.create :feedback, user: user
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
     visit feedbacks_path
-    find(:xpath, "//a[@data-method='delete' and @href='#{feedback_path(feedback)}']").click
+
+    find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
     expect(current_path).to eq feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.destroy')
   end
@@ -65,9 +75,11 @@ describe 'Feedbacks' do
   it "allows deletion by admins" do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
     visit feedbacks_path
-    find(:xpath, "//a[@data-method='delete' and @href='#{feedback_path(feedback)}']").click
+
+    find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
     expect(current_path).to eq feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.destroy')
   end

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ReferenceBuild do
-  describe 'reference' do
+  context '.reference' do
     let(:driver) { FactoryGirl.create :user }
     let(:passenger) { FactoryGirl.create :user }
     let(:itinerary) { FactoryGirl.create :itinerary, user: driver }

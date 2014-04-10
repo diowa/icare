@@ -2,7 +2,7 @@ class References::Outgoing < References::Base
 
   embedded_in :reference
 
-  set_callback(:save, :after) do
+  after_save do
     # Notifications and Incoming Reference
     if changed?
       other_user = User.find reference.referencing_user_id

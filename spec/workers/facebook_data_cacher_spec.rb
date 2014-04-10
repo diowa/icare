@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe FacebookDataCacher do
-  describe '.perform' do
+  context '.perform' do
     let(:user) { FactoryGirl.create :user, oauth_token: 'test' }
 
     before do
