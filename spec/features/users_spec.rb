@@ -151,7 +151,7 @@ describe 'Users' do
       expect(find(:xpath, "//div[@class='tag common' and text()='A College']")).to be_true
     end
 
-    it "does not fail with detailed educations" do
+    it "does not fail with detailed education" do
       user_with_detailed_education = FactoryGirl.create :user, education: [{"school"=>{"id"=>"301", "name"=>"A High School"}, "type"=>"High School", "year"=>{"id"=>"1", "name"=>"1999"}}, {"concentration"=>[{"id"=>"400", "name"=>"A concentration"}], "school"=>{"id"=>"300", "name"=>"A College"}, "type"=>"College", "year"=>{"id"=>"2", "name"=>"2003"}}]
       visit user_path(user_with_detailed_education)
       expect(find(:xpath, "//div[@class='tag common' and text()='A College']")).to be_true

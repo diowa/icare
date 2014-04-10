@@ -5,13 +5,6 @@
 /* New variables
    ========================================================================== */
 
-/* Colors */
-$white: #fff;
-$black: #000;
-$pink: #c3325f;
-$brand-facebook: #3b5998;
-$brand-icare: #2c3e50;
-
 /* Flat UI Palettes */
 $flat-ui-turquoise:     #1abc9c;
 $flat-ui-green-sea:     #16a085;
@@ -46,6 +39,12 @@ $flat-ui-silver:        #bdc3c7;
 $flat-ui-concrete:      #95a5a6;
 $flat-ui-asbestos:      #7f8c8d;
 
+/* Colors */
+$white: #fff;
+$black: #000;
+$pink: #c3325f;
+$brand-facebook: #3b5998;
+$brand-icare: $flat-ui-midnight-blue;
 
 /* Bootstrap variables override
    ========================================================================== */
@@ -63,7 +62,7 @@ $link-color:            $flat-ui-belize-hole;
 $link-hover-color:      darken($link-color, 15%);
 
 $font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$headings-color: $brand-primary;
+$headings-color: $flat-ui-wet-asphalt;
 $headings-font-weight: 300;
 
 $navbar-height: 40px;
