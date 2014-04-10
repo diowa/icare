@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.4
+
+* Fixed issue with detailed education
+* Updated gems
+
 ## 0.10.3
 
 * Updated gems
