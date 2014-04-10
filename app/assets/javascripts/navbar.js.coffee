@@ -8,28 +8,28 @@ $(document).on 'click', '.popover a', (e) ->
 
 $(document).on 'click', '.notifications', (e) ->
   e.preventDefault()
-  $me = $(this)
-  $('.notifications').not("##{$me.attr('id')}").removeClass('active').find('a').popover 'hide'
-  $popoverElement = $me.toggleClass('active').find 'a'
-  if $me.find('.popover')[0]?
-    $popoverElement.popover 'hide'
-  else
-    $popoverElement.popover 'show'
-  if $('.popover.in')[0]? and $popoverElement.data('load')?
+  $this = $(this)
+  $('.notifications').not("##{$this.attr('id')}").removeClass('active').find('a').popover 'hide'
+  $this.toggleClass 'active'
+  false
+
+$(document).on 'shown.bs.popover', (e) ->
+  $target = $(e.target)
+  $popover = $target.closest('.notifications').find('.popover')
+  if remote = $target.data('remote')
     $.ajax
-      url: $popoverElement.data 'load'
+      url: remote
       success: (data) ->
         messages = ''
         for message in data
           messages += HandlebarsTemplates['messages/show_in_popup'](message)
         if data.length > 0
-          $popoverElement.find('span.count').text data.length
-          $('.popover-ajax-content').html """
+          $target.find('span.count').text data.length
+          $('.popover-content').html """
             <ul class="unstyled popover-elements">
               #{messages}
             </ul>
           """
         else
-          $popoverElement.find('span.count').remove()
-          $('.popover-ajax-content').html I18n.t('shared.navbar.no_new_messages')
-  false
+          $target.find('span.count').remove()
+          $popover.find('.popover-content').text I18n.t('shared.navbar.no_new_messages')

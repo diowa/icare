@@ -5,3 +5,4 @@
 # jQuery Turbolinks
 $ ->
   $('[rel~="tooltip"]').tooltip()
+  $('[rel~="popover"]').popover()

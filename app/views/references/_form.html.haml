@@ -3,9 +3,7 @@
   = f.error_messages
   .form-group= f.text_area :body, rows: 5, class: 'input-xxlarge', placeholder: t('.write_a_reference'), skip_label: true
   .form-group
-    .btn-group{ data: { toggle: 'buttons' } }
-      - %i(rating_negative rating_neutral rating_positive).each_with_index do |rating, index|
-        = f.label :rating, value: index - 1, class: 'btn btn-default' do
-          = f.default_tag :radio_button, :rating, index - 1
-          = Reference.human_attribute_name(rating)
+    %label= Reference.human_attribute_name(:rating)
+    %br
+    = reference_radio_buttons(f)
   = f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')
