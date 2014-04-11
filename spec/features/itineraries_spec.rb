@@ -70,10 +70,11 @@ describe 'Itineraries' do
       expect(page).to have_content 'MUSIC VERY LOUD!!!'
     end
 
-    it "sanitize malicious description" do
+    it "sanitize malicious description", js: true do
       login_as_male
       malicious_itinerary = FactoryGirl.create :itinerary, user: @user, description: XSS_ALERT
-      #pending
+      visit itinerary_path(malicious_itinerary)
+      expect(-> { page.driver.browser.switch_to.alert }).to raise_error
     end
 
     it "allow users to search them", js: true do

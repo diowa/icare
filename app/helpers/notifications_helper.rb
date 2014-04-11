@@ -1,22 +1,9 @@
 module NotificationsHelper
-  def notification_message(notification)
-=begin
-    actor = User.find notification.actor_id
-    actor_link = content_tag :a, actor, href: user_path(actor)
-    case notification.class
-    when Notifications
-      link = content_tag(:a, HospitalityRequest.model_name.human.downcase, href: show_or_edit_incoming_invite(notification.request, notification.incoming_invite))
-      t(notification.translation_key, user: actor_link, hospitality_request: link).html_safe
+  def notifications_tag(type, icon)
+    content_tag :li, class: 'notifications', id: "notifications-#{type}" do
+      link_to send(:"#{type}_path"), data: { notifications_type: type, toggle: 'popover', unread: current_user.send(:"unread_#{type}_count"), remote: send(:"unread_#{type}_path", format: :json) } do
+        content_tag(:span, nil, class: "notifications-icon fa fa-#{icon}") + content_tag(:span, nil, class: 'unread-count')
+      end
     end
-=end
-  end
-
-  def notification_icon(notification)
-=begin
-    case notification.class
-    when Notifications
-      content_tag :span, nil, class: 'fa fa-comment'
-    end
-=end
   end
 end

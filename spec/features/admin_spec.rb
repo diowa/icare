@@ -7,9 +7,11 @@ describe 'Admin' do
     visit auth_at_provider_path(provider: :facebook)
   end
 
+=begin
   it "sees reports" do
     expect(page).to have_css('#navbar-notifications-reports')
   end
+=end
 
   it "sees users index" do
     visit admin_users_path

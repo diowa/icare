@@ -229,7 +229,6 @@ initItineraryNew = ->
       $('#daily').fadeOut ->
         $('#single').fadeIn()
 
-# jQuery Turbolinks
 $ ->
   if google? && $('#new_itinerary')[0]?
     initItineraryNew()

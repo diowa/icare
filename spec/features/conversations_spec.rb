@@ -20,4 +20,25 @@ describe 'Conversations' do
     expect(page).to have_content message
     expect(page).to have_content another_message
   end
+
+  it "displays unread messages in the navbar", js: true do
+    receiver = FactoryGirl.create :user, uid: '123456'
+    sender = FactoryGirl.create :user
+    itinerary = FactoryGirl.create :itinerary, user: receiver
+    conversation = FactoryGirl.create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation.messages << FactoryGirl.build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+
+    visit auth_at_provider_path(provider: :facebook)
+
+    within('#navbar-notifications') do
+      expect(page).to have_css '.unread-count'
+      expect(page).to have_xpath "//span[@class='unread-count' and text()='1']"
+      find('#notifications-conversations > a').click
+      within('.popover') do
+        expect(page).to have_content sender.to_s
+        expect(page).to have_content "<script>alert('toasty!);</script>"
+        expect(-> { page.driver.browser.switch_to.alert }).to raise_error
+      end
+    end
+  end
 end

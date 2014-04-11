@@ -105,9 +105,8 @@ describe 'Sessions' do
 
       visit auth_at_provider_path(provider: :facebook)
 
-      expect(User.count).to_not be_zero
-      expect(page).to have_css "a[href=\"#{logout_path}\"]"
-      expect(page).to have_css('#navbar-notifications-reports')
+      visit admin_users_path
+      expect(current_path).to eq admin_users_path
     end
   end
 end

@@ -146,7 +146,6 @@ initItineraryIndex = ->
     $(window).scrollTop('#index-itineraries-map')
     false
 
-# jQuery Turbolinks
 $ ->
   if google? && $('#index-itineraries-map')[0]?
     initItineraryIndex()

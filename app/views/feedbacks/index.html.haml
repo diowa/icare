@@ -9,7 +9,7 @@
       - else
         = link_to t('.hide_fixed'), feedbacks_path(hide_fixed: true), class: 'btn btn-default'
   .table-responsive
-    %table.table.table-striped
+    %table.table
       %thead
         %tr
           %th= Feedback.human_attribute_name(:type)

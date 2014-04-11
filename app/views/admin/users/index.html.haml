@@ -6,7 +6,7 @@
       = yield :title
       %small= @users.all.count
   .table-responsive
-    %table.table.table-striped
+    %table.table
       %thead
         %th= User.human_attribute_name :name
         %th= User.human_attribute_name :email

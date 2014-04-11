@@ -3,14 +3,95 @@
 
 $background: lighten($brand-success, 5%)
 
+.navbar-default .navbar-nav > li.notifications
+  position: relative
+
+  &.read > a
+    color: fade-out(darken($navbar-default-bg, 40%), 0.55)
+
+  &.active > a
+    color: $navbar-default-link-active-color
+
+  > a
+    height: $navbar-height
+
+    &:focus
+    &:hover,
+      color: $navbar-default-link-hover-color
+
+  .unread-count
+    display: none
+    position: absolute
+    top: 4px
+    right: 4px
+    @include square(16px)
+    line-height: 16px
+    text-align: center
+    font-size: 10px
+    border-radius: 100%
+    background-color: $brand-danger
+    color: white !important
+
+.notifications-icon.fa
+  font-size: 20px
+  @include square(20px)
+  line-height: 20px
+
+.notifications
+  .popover
+    min-width: 300px
+
+    ul
+      padding-left: 0
+      margin: -9px -14px
+      list-style: none
+
+      li
+        a
+          display: block
+          padding: 5px
+          line-height: 16px
+          color: $text-color
+          text-decoration: none
+
+          &:focus,
+          &:hover
+            background-color: darken(white, 5%)
+
+
+          small,
+          strong
+            display: block
+
+        & + li
+          border-top: 1px solid #ccc
+
+  .popover-title
+    background-color: white
+
+  .popover-ajax-spinner
+    display: none
+
+  .popover-ajax-spinner-img
+    display: block
+    margin: 10px auto
+
+  .popover-footer
+    padding: 8px 14px
+    line-height: 18px
+    border-top: 1px solid darken($popover-title-bg, 5%)
+    border-radius: 0 0 ($border-radius-large - 1) ($border-radius-large - 1)
+    text-align: center
+
 .notification-unread
   background-color: $background
 
-.table-striped
-  tbody
-    tr:nth-child(odd) td.notification-unread
-      background-color: darken($background, 1%)
+@media (max-width: #{$grid-float-breakpoint-max})
+  #navbar-notifications
+    position: absolute
+    top: 0
+    left: 50%
+    margin: 0 0 0 -75px /* half size */
 
-.table
-  tbody tr:hover td.notification-unread
-    background-color: darken($background, 3%)
+    li
+      float: left

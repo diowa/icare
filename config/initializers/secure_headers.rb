@@ -5,7 +5,7 @@ if defined?(SecureHeaders)
     config.x_content_type_options = 'nosniff'
     config.x_xss_protection = { value: 1, mode: false }
     config.csp = {
-      default_src: 'https://* http://* http://*:3000 inline eval',
+      default_src: 'https://* http://* inline eval',
       img_src: 'https://* http://* data:',
       frame_src: 'https://* http://* https://*.facebook.com'
     }

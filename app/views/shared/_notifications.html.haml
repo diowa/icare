@@ -1,12 +1,2 @@
-- content_for :"navbar-notifications-#{id}" do
-  .popover-ajax-content{ id: id }
-    - if remote
-      .text-center=image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...'
-    - elsif link
-      .popover-static-content= content
-      %p.small= link
-%li.notifications{ class: [('read' if unread == 0), ('mock' if mock)].compact.join(' '), id: "navbar-notifications-#{id}" }
-  = link_to '#', rel: 'popover', data: { toggle: 'popover', placement: 'bottom', title: title, html: true, remote: remote } do
-    %span.notifications-icon.fa{ class: "fa-#{icon}" }
-    - if unread > 0
-      %span.unread-count= unread
+%ul#navbar-notifications.nav.navbar-nav
+  = notifications_tag :conversations, 'comments'

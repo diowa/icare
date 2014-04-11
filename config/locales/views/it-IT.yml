@@ -147,8 +147,6 @@ it-IT:
       account_settings: Impostazioni account
       admin_users: Gestione utenti
       language: Lingua
-      no_new_messages: Non ci sono nuovi messaggi
-      see_all_messages: Mostra tutti
     footer:
       message: La riservatezza non è garantita in questo stato di sviluppo
     turbolinks_spinner:
@@ -379,3 +377,12 @@ it-IT:
     not_found: Percorso non trovato
     zero_results: Nessun risultato
     setup_route_first: Calcola prima il percorso
+    notifications:
+      conversations:
+        title: Messaggi
+        see_all: Mostra tutti
+        no_new: Non ci sono nuovi messaggi
+      notifications:
+        title: Notifiche
+        see_all: Mostra tutte
+        no_new: Non ci sono nuove notifiche
