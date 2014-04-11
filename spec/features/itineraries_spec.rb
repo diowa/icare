@@ -78,7 +78,7 @@ describe 'Itineraries' do
 
     it "allow users to search them", js: true do
       login_as_male
-      FactoryGirl.create :itinerary, round_trip: true
+      itinerary = FactoryGirl.create :itinerary, round_trip: true
       FactoryGirl.create :itinerary
 
       visit itineraries_path
@@ -87,7 +87,14 @@ describe 'Itineraries' do
       fill_in 'itineraries_search_to', with: 'Turin'
       click_button 'itineraries-search'
       expect(page).to have_css('.itinerary-thumbnail', count: 2)
-      pending 'Test if the thumbnail has details'
+      within(".itinerary-thumbnail[data-itinerary-id=\"#{itinerary.id}\"]") do
+        expect(page).to have_content itinerary.title
+        expect(page).to have_content itinerary.user.to_s
+        expect(page).to have_content I18n.l(itinerary.leave_date, format: :long)
+        expect(page).to have_content I18n.l(itinerary.leave_date.to_time, format: :time_only)
+        expect(page).to have_content I18n.l(itinerary.return_date, format: :long)
+        expect(page).to have_content I18n.l(itinerary.return_date.to_time, format: :time_only)
+      end
     end
 
     it "allow users to view their own ones" do

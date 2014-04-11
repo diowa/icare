@@ -1,5 +1,6 @@
-.itinerary-thumbnail.col-md-6
-  .caption.itinerary-thumb-stroke{ style: 'border-color: {{borderColor}}' }
+.col-lg-6
+  .itinerary-thumbnail{ data: { itinerary_id: '{{id}}' } }
+    .itinerary-thumb-stroke{ style: 'background-color: {{backgroundColor}}' }
     .media
       .pull-left
         .img-outset
@@ -21,30 +22,30 @@
       {{#if daily}}
       %br
       %span.fa.fa-repeat
-      {{translate "mongoid.attributes.itinerary.daily"}}
+      %span.text-muted {{translate "mongoid.attributes.itinerary.daily"}}
       %span.fa.fa-clock-o
       {{localize "time.formats.time_only" leave_date}}
       {{else}}
-      {{translate "mongoid.attributes.itinerary.leave_date"}}:
+      %span.text-muted {{translate "mongoid.attributes.itinerary.leave_date"}}:
       {{localize "date.formats.long" leave_date}}
       %span.fa.fa-clock-o
       {{localize "time.formats.time_only" leave_date}}
       {{#if round_trip}}
       %br
-      {{translate "mongoid.attributes.itinerary.return_date"}}:
+      %span.text-muted {{translate "mongoid.attributes.itinerary.return_date"}}:
       {{localize "date.formats.long" return_date}}
       %span.fa.fa-clock-o
       {{localize "time.formats.time_only" return_date}}
       {{/if}}
       {{/if}}
       %br
-      {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
+      %span.text-muted {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
       {{fuel_cost}}.00 &euro;
       %br
-      {{translate "mongoid.attributes.itinerary.tolls"}}:
+      %span.text-muted {{translate "mongoid.attributes.itinerary.tolls"}}:
       {{tolls}}.00 &euro;
     .btn-toolbar
-      = link_to '#', class: 'btn btn-xs btn-default show-itinerary-on-map', data: { id: '{{id}}' } do
+      = link_to '#', class: 'btn btn-xs btn-default show-itinerary-on-map' do
         {{translate "templates.itineraries.show_on_map"}}
       = link_to '{{url}}', class: 'btn btn-xs btn-primary' do
         {{translate "templates.itineraries.read_more"}}

@@ -1,71 +1,15 @@
 @import "twbs-variables"
 @import "twbs/bootstrap/mixins"
 
-.itinerary-header
-  margin-bottom: 20px
-
-.itinerary-step
-  border-bottom: 1px solid $gray-light
-  margin-bottom: 20px
-
-  h3
-    color: $gray-light
-
-  &.active,
-  &.active h3
-    color: $headings-color
-    border-color: $headings-color
-
-  &.done,
-  &.done h3
-    color: $brand-success
-    border-color: $brand-success
-
-#table-daily-itinerary
+#daily-itinerary-table
   td
     vertical-align: middle
 
   select
     margin-bottom: 0
 
-.profile-picture-cell
-  width: 55px
-
-  img
-    @include square(50px)
-    background: white
-
 #itinerary-preview
   background-color: $brand-warning
-
-.itinerary-thumb-stroke
-  padding-top: 5px
-  border: 0
-  border-top: 3px solid #ff0000
-
-.itinerary-thumbnail
-  display: block
-  padding: 4px
-  border: 1px solid #ddd
-  margin-bottom: $line-height-computed
-  border-radius: $border-radius-base
-  box-shadow: 0 1px 1px fade-out(black, 0.925)
-  background-color: white
-
-  table
-    margin-bottom: 2px
-
-  td
-    padding-top: 3px
-    vertical-align: top
-
-    &.user-profile-picture
-      width: 50px
-      padding-right: 5px
-
-  .btn-toolbar
-    text-align: right
-    margin: 0
 
 #itineraries-spinner
   display: none
@@ -90,22 +34,57 @@
   input[type="checkbox"]
     margin-top: 2px
 
-.pink-itinerary
-  color: $pink
-  font-size: 1.2em
+#user-media
+  margin-top: 20px
 
-.itinerary-details
-  font-size: 13px
-  line-height: 15px
+.itinerary-header
+  margin-bottom: 20px
 
-.itinerary-title,
-.itinerary-subtitle
-  small,
-  span
-    display: block
+.itinerary-step
+  border-bottom: 1px solid $gray-light
+  margin-bottom: 20px
+
+  h3
+    color: $gray-light
+
+  &.active,
+  &.active h3
+    color: $headings-color
+    border-color: $headings-color
+
+  &.done,
+  &.done h3
+    color: $brand-success
+    border-color: $brand-success
+
+.itinerary-thumbnail
+  display: block
+  padding: 4px
+  border: 1px solid #ccc
+  margin-bottom: 10px
+  border-radius: $border-radius-base
+  box-shadow: 0 1px 1px fade-out(black, 0.925)
+  background-color: white
+
+  .btn-toolbar
+    text-align: right
+    margin: 0
+
+  .media
+    margin-top: 0
+
+.itinerary-thumb-stroke
+  height: 5px
+  margin-bottom: 5px
+  background-color: #ff0000
+  border-radius: $border-radius-small
 
 .itinerary-title
   margin: 0
+
+  small,
+  span
+    display: block
 
   small
     font-size: $font-size-base * 1.25
@@ -114,13 +93,20 @@
     line-height: $line-height-computed * 1.5
     font-size: $font-size-base * 1.75
 
-.itinerary-subtitle
-  small
-    font-size: $font-size-base
+.profile-picture-cell
+  width: 55px
 
-  span
-    line-height: $line-height-computed * 1.25
-    font-size: $font-size-base * 1.5
+  img
+    @include square(50px)
+    background: white
 
-#user-media
-  margin-top: 20px
+@media(min-width: #{$screen-lg-min})
+  .itinerary-thumbnail
+    position: relative
+    height: 205px
+    overflow: hidden
+
+    .btn-toolbar
+      position: absolute
+      bottom: 5px
+      right: 5px
