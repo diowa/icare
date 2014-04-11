@@ -170,7 +170,7 @@ it-IT:
       help_environment_title: "Ecosostenibile"
       help_environment_content: "Meno auto, meno traffico, meno stress e nuovi compagni di avventure! Rendi più piacevoli i tuoi spostamenti e nel contempo aiuti l'ambiente."
       open_source_title: "Open Source"
-      open_source_content: "Il %{source_code_link} di %{appname} è a disposizione di tutti su github, la più vasta comunità open source al mondo."
+      open_source_content: "Il %{source_code_link} di %{appname} è a disposizione di tutti su GitHub, la più vasta comunità open source al mondo."
       source_code: "codice sorgente"
       signin_terms: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
       demo_mode: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."

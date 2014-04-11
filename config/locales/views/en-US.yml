@@ -170,7 +170,7 @@ en-US:
       help_environment_title: "Eco-friendly"
       help_environment_content: "Less cars, less traffic, less stress and new companions of adventures! Make your travel more enjoyable and help the environment at the same time."
       open_source_title: "Open Source"
-      open_source_content: "The %{source_code_link} of %{appname} is available to everyone on github, the world's largest open source community."
+      open_source_content: "The %{source_code_link} of %{appname} is available to everyone on GitHub, the world's largest open source community."
       source_code: "source code"
       signin_terms: "By clicking \"Sign In\", you agree to %{terms_link} of %{appname} and that you have read and understand our %{policy_link}."
       demo_mode: "This is a demo application. By clicking on \"Sign In\" you agree to our %{demo_terms_link}."
