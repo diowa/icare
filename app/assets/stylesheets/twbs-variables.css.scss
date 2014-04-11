@@ -56,6 +56,18 @@ $brand-warning:         $flat-ui-orange;
 $brand-danger:          $flat-ui-pomegranate;
 $brand-info:            $flat-ui-peter-river;
 
+$state-danger-text:             white;
+$state-danger-bg:               $flat-ui-alizarin;
+$state-danger-border:           darken(adjust-hue($state-danger-bg, -10), 5%);
+
+$state-success-text:            white;
+$state-success-bg:              $flat-ui-emerald;
+$state-success-border:          darken(adjust-hue($state-success-bg, -10), 5%);
+
+$state-warning-text:            white;
+$state-warning-bg:              $flat-ui-orange;
+$state-warning-border:          darken(adjust-hue($state-warning-bg, -10), 5%);
+
 $link-color:            $flat-ui-belize-hole;
 $link-hover-color:      darken($link-color, 15%);
 

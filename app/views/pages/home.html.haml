@@ -3,9 +3,9 @@
   %meta{ name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name) }
 
 #fb-root
+= render 'shared/flash_messages'
 #splashscreen
   #splashscreen-container
-    = render 'shared/flash_messages'
     %h1
       = APP_CONFIG.app_name
       - if APP_CONFIG.demo_mode
