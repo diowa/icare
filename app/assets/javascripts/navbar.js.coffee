@@ -16,18 +16,16 @@ $(document).on 'hide.bs.popover', '.notifications', (e) ->
 $(document).on 'shown.bs.popover', '.notifications', (e) ->
   $target = $(e.target)
   $popover = $target.closest('.notifications').find('.popover')
-  if (remote = $target.data('remote')) && $target.data('unread') > 0
+  if $target.data('remote')
     $.ajax
-      url: remote
+      url: $target.data('remote')
       beforeSend: ->
         $('.popover-content').html $('.popover-ajax-spinner').html()
       success: (messages) ->
+        $target.data('unread', messages.length).find('span.unread-count').text(if messages.length > 0 then messages.length else '')
         if messages.length > 0
-          $target.find('span.count').text messages.length
-          $('.popover-content').html HandlebarsTemplates['notifications/messages']
-            messages: messages
+          $('.popover-content').html HandlebarsTemplates['notifications/messages']({ messages: messages })
         else
-          $target.find('span.count').remove()
           $popover.find('.popover-content').text I18n.t("javascript.notifications.#{$target.data('notificationsType')}.no_new")
 
 $ ->
@@ -46,7 +44,6 @@ $ ->
       e.preventDefault()
       false
     ).popover
-      content: I18n.t("javascript.notifications.#{notificationsType}.no_new")
       placement: 'bottom'
       template: HandlebarsTemplates['notifications/base'](popoverData)
       title: I18n.t("javascript.notifications.#{notificationsType}.title")
