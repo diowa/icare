@@ -18,7 +18,7 @@
           = link_to Feedback.model_name.human(count: :lot), feedbacks_url
         - if APP_CONFIG.demo_mode
           %li
-            = link_to user_path(current_user), method: :delete, class: 'btn btn-danger btn-sm', data: { confirm: t('helpers.links.confirm') } do
+            = link_to user_path(current_user), method: :delete, class: 'text-danger', data: { confirm: t('helpers.links.confirm') } do
               %span.fa.fa-times
               = t('delete_account')
       - if APP_CONFIG.demo_mode
