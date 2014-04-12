@@ -68,7 +68,12 @@ td.text-right {
 }
 
 .btn {
+  box-shadow: inset 0 -3px 0 fade-out(black, 0.9);
   transition :background-color .35s ease, border-color .35s ease;
+}
+
+.btn-link {
+  box-shadow: none;
 }
 
 .lead {

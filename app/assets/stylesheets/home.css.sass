@@ -103,18 +103,20 @@ html,
   padding: 20px 0
   margin-bottom: $line-height-computed
 
+  &:nth-child(even)
+    background-color: $flat-ui-clouds
+
   h3
     margin-top: 10px
+  .container
+    max-width: $container-md
 
   .fa
     display: block
     float: left
     font-size: 5em
     margin-right: 20px
-    color: $flat-ui-asbestos
-
-  &:nth-child(even)
-    background-color: $flat-ui-clouds
+    color: $brand-primary
 
 .learn-more-container
   position: absolute

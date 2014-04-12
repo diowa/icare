@@ -41,7 +41,7 @@ $flat-ui-asbestos:      #7f8c8d;
 
 /* Colors */
 $brand-facebook: #3b5998;
-$brand-icare: $flat-ui-midnight-blue;
+$brand-icare: #3D7098;
 $pink: #c3325f;
 
 /* Bootstrap variables override
@@ -72,7 +72,7 @@ $link-color:            $flat-ui-belize-hole;
 $link-hover-color:      darken($link-color, 15%);
 
 $font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$headings-color: $flat-ui-wet-asphalt;
+$headings-color: $brand-primary;
 $headings-font-weight: 300;
 
 $navbar-height: 40px;

@@ -1,7 +1,11 @@
 module UsersHelper
 
   def facebook_profile_picture(user, type = :square)
-    "http://graph.facebook.com/#{user.class == User ? user.uid : user}/picture?type=#{type}"
+    if logged_in?
+      "http://graph.facebook.com/#{user.class == User ? user.uid : user}/picture?type=#{type}"
+    else
+      "https://fbstatic-a.akamaihd.net/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif"
+    end
   end
 
   def user_profile_picture(user, size: [50, 50], type: :square, style: 'img-responsive', opts: {})

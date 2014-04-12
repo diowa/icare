@@ -4,21 +4,6 @@
   .col-sm-6
     = image_tag @itinerary.static_map, class: 'google-static-map img-responsive', alt: ''
   .col-sm-6
-    %h2.h4
-      %span.text-muted #{Itinerary.human_attribute_name :start_address}:
-      = @itinerary.start_address
-    %h2.h4
-      %span.text-muted #{Itinerary.human_attribute_name :end_address}:
-      = @itinerary.end_address
-    - if @itinerary.daily?
-    - else
-      %h3.h4
-        %span.text-muted #{Itinerary.human_attribute_name :leave_date}:
-        = l(@itinerary.leave_date, format: :long)
-      - if @itinerary.round_trip?
-        %h3.h4
-          %span.text-muted #{Itinerary.human_attribute_name :return_date}:
-          %span= l(@itinerary.return_date, format: :long)
     .media#user-media
       = link_to user_path(@itinerary.user), class: 'pull-left' do
         = user_profile_picture @itinerary.user, style: 'media-object'
@@ -29,3 +14,29 @@
           - else
             = t('.app_user', appname: APP_CONFIG.app_name)
         %p.pre-line= @itinerary.description
+    .tag-list
+      %span.tag.tag-icare= Itinerary.human_attribute_name :start_address
+      %span.tag= @itinerary.start_address
+    .tag-list
+      %span.tag.tag-icare= Itinerary.human_attribute_name :end_address
+      %span.tag= @itinerary.end_address
+    - if @itinerary.daily?
+    - else
+      .tag-list
+        %span.tag.tag-icare= Itinerary.human_attribute_name :leave_date
+        %span.tag= l(@itinerary.leave_date, format: :long)
+      - if @itinerary.round_trip?
+        .tag-list
+          %span.tag.tag-icare= Itinerary.human_attribute_name :return_date
+          %span.tag= l(@itinerary.return_date, format: :long)
+    .tag-list
+      %span.tag.tag-icare= t('.expenses_to_share')
+      %span.tag #{Itinerary.human_attribute_name(:fuel_cost)}: #{@itinerary.fuel_cost}.00 &euro;
+      %span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}.00 &euro;
+    .tag-list
+      - if @itinerary.pink?
+        %span.tag.tag-pink{ rel: 'tooltip', title: t('itineraries.form.pink_help') }
+          %span.fa.fa-lock
+          = Itinerary.human_attribute_name(:pink)
+      = boolean_tag @itinerary.smoking_allowed?, 'smoking'
+      = boolean_tag @itinerary.pets_allowed?, 'pets'

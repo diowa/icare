@@ -254,12 +254,13 @@ en-US:
     index:
       title: Search itineraries
     show:
-      app_user: "An user of %{appname}"
       contact: "Contact %{user}"
       expenses_to_share: Expenses to share
-      leave_reference: Leave a reference
+      send_reference: Send a reference
       report_itinerary: "Report this itinerary"
       login_to_contact: "Log in to contact this user"
+    header:
+      app_user: "A user of %{appname}"
       smoking:
         allowed: Smoking allowed
         forbidden: Smoking forbidden

@@ -3,28 +3,35 @@
 
 $ribbon-color: $headings-color
 
-@media(min-width: #{$screen-sm-min})
-  .ribbon-container
-    text-align: center
+.ribbon-container
+  text-align: center
 
+.ribbon
+  position: relative
+  display: inline-block
+  margin: 1em auto 3em
+  font-family: 'Pacifico'
+  font-weight: 400
+
+  h2
+    margin: 0
+    font-size: $font-size-h2
+    line-height: 1.6
+
+@media(min-width: #{$screen-sm-min})
   .ribbon
-    position: relative
-    display: inline-block
-    font-family: 'Pacifico'
-    font-weight: 400
-    font-size: 16px !important
-    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+    margin: 2em auto 5em
     background: $ribbon-color
     box-shadow: 0 1px 1px fade-out(black, 0.75)
 
     h2
-      margin: 0
-      line-height: 1.5
+      position: relative
+      top: -4px
+      font-size: $font-size-h1
       color: white
-      text-shadow: 0 -1px 0 fade-out(black, 0.75)
+      text-shadow: -1px -1px 0 fade-out(black, 0.65)
 
     padding: 6px 2em /* Adjust to suit */
-    margin: 2em auto 4em /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
 
     &:before,
     &:after
@@ -32,18 +39,18 @@ $ribbon-color: $headings-color
       position: absolute
       display: block
       bottom: -1em
-      border: 1.7em solid darken($ribbon-color, 2%)
+      border: 1.9em solid darken($ribbon-color, 2%)
       content: ""
       box-shadow: 0 1px 0 fade-out(black, 0.75)
 
     &:before
-      left: -2.3em
-      border-right-width: 1.7em
+      left: -2.8em
+      border-right-width: 3em
       border-left-color: transparent
 
     &:after
-      right: -2.3em
-      border-left-width: 1.7em
+      right: -2.8em
+      border-left-width: 3em
       border-right-color: transparent
 
   .ribbon-content
@@ -53,15 +60,15 @@ $ribbon-color: $headings-color
       display: block
       bottom: -1em
       border-style: solid
-      border-color: darken($ribbon-color, 5%) transparent transparent transparent
+      border-color: darken($ribbon-color, 15%) transparent transparent transparent
       content: ""
 
     &:before
       left: 0
-      border-width: 1em 0 0 1em
+      border-width: 1em 0 0 2em
       box-shadow: 1px 0 0 fade-out(black, 0.75)
 
     &:after
       right: 0
-      border-width: 1em 1em 0 0
+      border-width: 1em 2em 0 0
       box-shadow: -1px 0 0 fade-out(black, 0.75)

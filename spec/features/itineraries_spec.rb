@@ -65,8 +65,8 @@ describe 'Itineraries' do
       expect(page).to have_content '5.00'
       expect(page).to have_content '3.00'
       expect(page).to have_content Itinerary.human_attribute_name(:pink)
-      expect(page).to have_content I18n.t("itineraries.show.pets.allowed")
-      expect(page).to have_content I18n.t("itineraries.show.smoking.forbidden")
+      expect(page).to have_content I18n.t("itineraries.header.pets.allowed")
+      expect(page).to have_content I18n.t("itineraries.header.smoking.forbidden")
       expect(page).to have_content 'MUSIC VERY LOUD!!!'
     end
 
@@ -155,12 +155,15 @@ describe 'Itineraries' do
 
   context 'Guests' do
     it "allow guests to see itineraries" do
-      itinerary = FactoryGirl.create :itinerary, description: 'Itinerary for guest users'
+      user = FactoryGirl.create :user, name: 'John Doe', uid: '123456'
+      itinerary = FactoryGirl.create :itinerary, description: 'Itinerary for guest users', user: user
 
       visit itinerary_path(itinerary)
 
       expect(current_path).to eq itinerary_path(itinerary)
       expect(page).to have_content itinerary.description
+      expect(page).to_not have_content 'John Doe'
+      expect(page).to_not have_css("img[src=\"http://graph.facebook.com/123456/picture?type=square\"]")
     end
 
     it "doesn't allow guests to see pink itineraries" do
