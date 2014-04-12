@@ -12,10 +12,7 @@
     = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lato:300,400,400italic,700|Pacifico', 'application', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true
 
     / Touch icons
-    %link{ href: asset_path('apple-touch-icon.png'), rel: 'apple-touch-icon' }
-    %link{ href: asset_path('apple-touch-icon-72x72.png'), rel: 'apple-touch-icon', sizes: '72x72' }
-    %link{ href: asset_path('apple-touch-icon-114x114.png'), rel: 'apple-touch-icon', sizes: '114x114' }
-    %link{ href: asset_path('apple-touch-icon-144x144.png'), rel: 'apple-touch-icon', sizes: '144x144' }
+    / %link{ href: asset_path('apple-touch-icon-144x144.png'), rel: 'apple-touch-icon', sizes: '144x144' }
 
     / Placed at the top of the document 'cause of turbolinks
     = javascript_include_tag 'http://maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry', 'application', 'data-turbolinks-track' => true
@@ -23,14 +20,12 @@
 
     /[if lt IE 9]
       = stylesheet_link_tag 'ie8'
-      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js", asset_path('respond.js')
+      = javascript_include_tag 'http://html5shim.googlecode.com/svn/trunk/html5.js', asset_path('respond.js')
 
   %body{ id: ('homepage' if action_name == 'home') }
-    - if action_name == 'home'
-      = yield
-    - else
-      = render 'shared/navbar'
-      #main-content= yield
+    = render 'shared/navbar' unless action_name == 'home'
+
+    = yield
 
     = render 'shared/footer'
     = render 'shared/turbolinks_spinner'

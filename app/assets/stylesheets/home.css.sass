@@ -3,10 +3,11 @@
 
 html,
 #homepage
-  padding: 0
   height: 100%
 
 #homepage
+  padding: 0
+
   .alert
     z-index: 1
     position: absolute
@@ -69,15 +70,6 @@ html,
     font-weight: 700
     text-decoration: underline
 
-.attribution
-  position: absolute
-  bottom: 5px
-  right: 10px
-  font-size: 10px
-  color: fade-out(white, 0.5)
-  cursor: default
-  user-select: none
-
 .btn-learn-more
   margin: 0 auto 15px
   border: 2px solid fade-out(white, 0.75)
@@ -94,7 +86,7 @@ html,
     position: relative
     transform: translate3d(0, 1px, 0)
     margin-left: 5px
-    animation: pulse-down 4s ease-in 2s infinite
+    animation: pulse-down 5s ease-in infinite
 
 .btn-why-facebook
   font-size: $font-size-small
@@ -179,13 +171,13 @@ html,
         margin-left: 60px
 
 @keyframes pulse-down
-  0%
+  80%
     transform: translate3d(0, 1px, 0)
-  10%
+  85%
     transform: translate3d(0, 5px, 0)
-  20%
+  90%
     transform: translate3d(0, 1px, 0)
-  30%
+  95%
     transform: translate3d(0, 5px, 0)
-  40%
+  100%
     transform: translate3d(0, 1px, 0)
