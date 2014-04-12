@@ -16,7 +16,7 @@ $(document).on 'hide.bs.popover', '.notifications', (e) ->
 $(document).on 'shown.bs.popover', '.notifications', (e) ->
   $target = $(e.target)
   $popover = $target.closest('.notifications').find('.popover')
-  if remote = $target.data('remote')
+  if (remote = $target.data('remote')) && $target.data('unread') > 0
     $.ajax
       url: remote
       beforeSend: ->
@@ -44,7 +44,9 @@ $ ->
 
     $target.on('click', (e) ->
       e.preventDefault()
+      false
     ).popover
+      content: I18n.t("javascript.notifications.#{notificationsType}.no_new")
       placement: 'bottom'
-      title: I18n.t("javascript.notifications.#{notificationsType}.title")
       template: HandlebarsTemplates['notifications/base'](popoverData)
+      title: I18n.t("javascript.notifications.#{notificationsType}.title")
