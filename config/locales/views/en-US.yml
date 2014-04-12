@@ -27,7 +27,7 @@ en-US:
       confirm: Are you sure?
       show: Show
       edit: Edit
-      destroy: Destroy
+      destroy: Delete
       user:
         ban: Ban
         unban: Unban
