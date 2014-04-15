@@ -1,0 +1,22 @@
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
+
+.fb-facepile {
+  width: 100% !important;
+  margin-bottom: 18px;
+  & > span,
+  iframe {
+    display: block;
+    width: 100% !important;
+    min-width: 100%;
+    overflow: hidden;
+    /* NOTE: 19px right offset, consider fixed width */
+  }
+  iframe {
+    height: auto !important;
+  }
+}
+
+#facepile-container {
+  display: none;
+}

@@ -1,0 +1,42 @@
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
+
+#navbar-user-info {
+  .navbar-profile-link {
+    position: relative;
+    img {
+      position: absolute;
+      top: 7px;
+      left: 15px;
+      @include square(26px);
+      border-radius: $border-radius-small;
+    }
+    span {
+      margin-left: 35px;
+    }
+  }
+}
+
+.navbar-brand {
+  font-family: "Pacifico";
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.navbar-brand-logo {
+  position: relative;
+  display: inline-block;
+  top: 4px;
+  @include size(38px, 15px);
+  vertical-align: top;
+}
+
+.navbar-default .navbar-nav > li.facebook-link > a {
+  color: white;
+  background-color: $brand-facebook;
+  &:hover,
+  &:focus {
+    background-color: darken($brand-facebook, 5%);
+  }
+}
