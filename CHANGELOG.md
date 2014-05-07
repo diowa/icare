@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.10.5
+
+* Rails 3.2.18
+* Updated gems
+
 ## 0.10.4
 
 * Fixed issue with detailed education
