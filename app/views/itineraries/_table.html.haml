@@ -28,10 +28,10 @@
           - if edit
             %td
               .btn-toolbar
-                = link_to edit_itinerary_path(itinerary), class: 'btn btn-sm btn-default' do
+                = link_to edit_itinerary_path(itinerary), class: 'btn btn-xs btn-default' do
                   %span.fa.fa-pencil
                   = t('helpers.links.edit')
-                = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-danger' do
+                = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-danger' do
                   %span.fa.fa-times
                   = t('helpers.links.destroy')
           - else

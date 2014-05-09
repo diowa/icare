@@ -5,12 +5,40 @@ footer {
   margin-top: $line-height-computed;
   border-top: 1px solid $hr-border;
   padding: $line-height-computed 0;
-  background-color: transparent !important;
   font-size: $font-size-base + 1;
   color: $gray;
+  background-color: transparent !important;
+
   a,
   a:hover,
   a:focus {
     color: $gray;
+  }
+}
+
+.list-footer {
+  margin-bottom: 0;
+
+  li {
+    display: block;
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.diowa-footer {
+      display: block;
+      clear: both;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@media(min-width: #{$screen-sm-min}) {
+  .list-footer > li,
+  .list-footer > li.diowa-footer {
+    display: inline-block;
+    margin-bottom: 0;
   }
 }

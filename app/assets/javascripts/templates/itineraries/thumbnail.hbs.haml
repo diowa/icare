@@ -46,6 +46,8 @@
       {{tolls}}.00 &euro;
     .btn-toolbar
       = link_to '#', class: 'btn btn-xs btn-default show-itinerary-on-map' do
+        %span.fa.fa-map-marker
         {{translate "templates.itineraries.show_on_map"}}
       = link_to '{{url}}', class: 'btn btn-xs btn-primary' do
+        %span.fa.fa-info-circle
         {{translate "templates.itineraries.read_more"}}
