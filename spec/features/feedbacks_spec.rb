@@ -5,7 +5,7 @@ describe 'Feedbacks' do
   it "allows creation from registered users" do
     FactoryGirl.create :user, uid: '123456', username: 'johndoe'
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
 
     click_link Feedback.model_name.human
     click_link I18n.t('helpers.links.new')
@@ -19,7 +19,7 @@ describe 'Feedbacks' do
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
     feedback = FactoryGirl.create :feedback, user: user
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     visit feedback_path(feedback)
 
     click_link I18n.t('helpers.links.edit')
@@ -34,7 +34,7 @@ describe 'Feedbacks' do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     visit feedback_path(feedback)
 
     click_link I18n.t('helpers.links.edit')
@@ -49,7 +49,7 @@ describe 'Feedbacks' do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     visit feedback_path(feedback)
 
     click_link I18n.t('helpers.links.edit')
@@ -64,7 +64,7 @@ describe 'Feedbacks' do
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
     feedback = FactoryGirl.create :feedback, user: user
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
@@ -76,7 +76,7 @@ describe 'Feedbacks' do
     feedback = FactoryGirl.create :feedback
     FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click

@@ -4,7 +4,7 @@ describe 'Admin' do
   before(:each) do
     @admin = FactoryGirl.create :user, admin: true, uid: '123456', username: 'johndoe'
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
   end
 
 =begin

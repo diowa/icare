@@ -9,7 +9,7 @@
         = user_profile_picture @itinerary.user, style: 'media-object'
       .media-body
         %h4.media-heading
-          - if logged_in?
+          - if user_signed_in?
             = link_to @itinerary.user, user_path(@itinerary.user)
           - else
             = t('.app_user', appname: APP_CONFIG.app_name)

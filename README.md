@@ -17,6 +17,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [Twitter Bootstrap][6]
 * [Font Awesome][7] (retina ready vectorial icons)
 * [Mongoid][8] (ODM for MongoDB)
+* [Devise][19]
 * Asynchronous tasks with [Resque][9] - Redis
 * [RABL][10] API Builder
 * Facebook Open Graph / Rest API with [Koala][11]
@@ -45,6 +46,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [16]: http://github.com/airbrake/airbrake
  [17]: http://newrelic.com/
  [18]: http://github.com/rails/strong_parameters
+ [19]: https://github.com/plataformatec/devise
 
 A working demo is available at http://icare.diowa.com/
 

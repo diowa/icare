@@ -5,7 +5,7 @@ describe 'Users' do
   context "Settings" do
     it "allows to edit profile" do
       user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-      visit auth_at_provider_path(provider: :facebook)
+      visit user_omniauth_authorize_path(provider: :facebook)
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
       click_button I18n.t('helpers.submit.update', model: User)
@@ -15,7 +15,7 @@ describe 'Users' do
 
     it "recovers from errors" do
       user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-      visit auth_at_provider_path(provider: :facebook)
+      visit user_omniauth_authorize_path(provider: :facebook)
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
       click_button I18n.t('helpers.submit.update', model: User)
@@ -28,7 +28,7 @@ describe 'Users' do
     FactoryGirl.create_list :itinerary, 5
     FactoryGirl.create :itinerary, pink: true, user: female_user
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     expect(page).to have_css('.table-itinerary tbody tr', count: 5)
   end
 
@@ -38,14 +38,14 @@ describe 'Users' do
     FactoryGirl.create_list :itinerary, 1, pink: true, user: female_user
     @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
     OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     expect(page).to have_css('.table-itinerary tbody tr', count: 6)
     OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
   end
 
   it "allows to delete user account" do
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     click_link I18n.t('delete_account')
     expect(current_path).to eq root_path
     expect(User.count).to be 0
@@ -56,7 +56,7 @@ describe 'Users' do
   context 'without admin permissions' do
     before(:each) do
       @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-      visit auth_at_provider_path(provider: :facebook)
+      visit user_omniauth_authorize_path(provider: :facebook)
     end
 
     it "does not see reports" do
@@ -78,7 +78,7 @@ describe 'Users' do
 
     before(:each) do
       @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-      visit auth_at_provider_path(provider: :facebook)
+      visit user_omniauth_authorize_path(provider: :facebook)
       visit user_path(@user)
     end
 
@@ -180,7 +180,7 @@ describe 'Users' do
           OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
           verified_user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
 
-          visit auth_at_provider_path(provider: :facebook)
+          visit user_omniauth_authorize_path(provider: :facebook)
           visit user_path(verified_user)
 
           expect(page).to have_css '.facebook-verified'

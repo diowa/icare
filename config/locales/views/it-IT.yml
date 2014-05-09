@@ -139,7 +139,6 @@ it-IT:
       error:
         create: Si è verificato un errore durante la creazione del messaggio.
     errors:
-      not_authenticated: Effettua prima l'accesso.
       not_allowed: Non hai i permessi per accedere a questa pagina
 
   shared:

@@ -1,7 +1,7 @@
 module UsersHelper
 
   def facebook_profile_picture(user, type = :square)
-    if logged_in?
+    if user_signed_in?
       "http://graph.facebook.com/#{user.class == User ? user.uid : user}/picture?type=#{type}"
     else
       "https://fbstatic-a.akamaihd.net/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif"

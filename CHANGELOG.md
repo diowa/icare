@@ -3,6 +3,7 @@
 ## 0.11.0
 
 * Bootstrap 3
+* Devise
 
 ## 0.10.5
 

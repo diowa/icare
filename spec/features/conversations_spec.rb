@@ -9,7 +9,7 @@ describe 'Conversations' do
     message = 'can I come with you?'
     another_message = 'please please please!'
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
     visit new_conversation_path(itinerary_id: itinerary.id)
 
     fill_in 'conversation_message_body', with: message
@@ -28,7 +28,7 @@ describe 'Conversations' do
     conversation = FactoryGirl.create :conversation, users: [receiver, sender], conversable: itinerary
     conversation.messages << FactoryGirl.build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
 
-    visit auth_at_provider_path(provider: :facebook)
+    visit user_omniauth_authorize_path(provider: :facebook)
 
     within('#navbar-notifications') do
       expect(page).to have_css '.unread-count'

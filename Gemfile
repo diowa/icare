@@ -23,6 +23,9 @@ gem 'mongoid_slug'
 gem 'validates_timeliness'
 gem 'strong_parameters'
 
+# Authentication framework
+gem 'devise'
+
 # Geospatial data library
 gem 'rgeo'
 
@@ -56,6 +59,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -75,7 +79,6 @@ group :test do
   gem 'mongoid-rspec'
   gem 'selenium-webdriver'
   gem 'rspec'
-  gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'webmock', require: false
 end

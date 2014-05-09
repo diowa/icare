@@ -1,6 +1,6 @@
 class ItinerariesController < ApplicationController
 
-  skip_before_filter :require_login, only: [:show, :search]
+  skip_before_filter :authenticate_user!, only: [:show]
 
   before_filter :set_itinerary, only: [:show]
   before_filter :check_gender, only: [:show]
@@ -18,7 +18,7 @@ class ItinerariesController < ApplicationController
   def show
     @conversation = @itinerary.conversations.find_or_initialize_by(user_ids: [current_user.id, @itinerary.user.id]) if current_user
     @reference = current_user.references.find_or_initialize_by(itinerary_id: @itinerary.id) if current_user
-    session[:redirect_to] = itinerary_path(@itinerary) unless logged_in?
+    session[:redirect_to] = itinerary_path(@itinerary) unless user_signed_in?
   end
 
   def create
@@ -63,7 +63,7 @@ class ItinerariesController < ApplicationController
 
   def check_gender
     return unless @itinerary.pink?
-    if !logged_in?
+    if !user_signed_in?
       redirect_to root_path
     elsif current_user.male?
       redirect_to :dashboard, flash: { error: t('flash.itineraries.error.pink') }

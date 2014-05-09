@@ -10,7 +10,7 @@ describe 'Itineraries' do
     def login_as_male
       @user = FactoryGirl.create :user, uid: '123456', gender: 'male'
 
-      visit auth_at_provider_path(provider: :facebook)
+      visit user_omniauth_authorize_path(provider: :facebook)
     end
 
     def login_as_female
@@ -18,7 +18,7 @@ describe 'Itineraries' do
       @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
 
-      visit auth_at_provider_path(provider: :facebook)
+      visit user_omniauth_authorize_path(provider: :facebook)
     ensure
       OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
     end
