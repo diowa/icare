@@ -12,7 +12,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [Turbolinks][2]
 * [Strong Parameters][18]
 * [CoffeeScript][3]
-* [Handlebars][4] (JavaScript semantic templates)
+* [Handlebars.js][4] (JavaScript semantic templates)
 * [HAML][5]
 * [Twitter Bootstrap][6]
 * [Font Awesome][7] (retina ready vectorial icons)
@@ -46,7 +46,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [16]: http://github.com/airbrake/airbrake
  [17]: http://newrelic.com/
  [18]: http://github.com/rails/strong_parameters
- [19]: https://github.com/plataformatec/devise
+ [19]: http://github.com/plataformatec/devise
 
 A working demo is available at http://icare.diowa.com/
 
