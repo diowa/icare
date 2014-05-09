@@ -5,6 +5,7 @@
 * Bootstrap 3
 * Devise
 * Moved 'rspec-rails' to proper gem group
+* Ruby 2.1.2
 * Updated gems
 
 ## 0.10.5
