@@ -22,7 +22,7 @@ html,
   display: table;
   @include size(100%, auto);
   height: auto;
-  background: $brand-primary asset-data-url("noise.png");
+  background: lighten($brand-primary, 20%) asset-data-url("noise.png");
   margin-bottom: 0;
   box-shadow: 0 3px 3px fade-out(black, 0.75);
   &:before {
