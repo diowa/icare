@@ -1,7 +1,7 @@
-.container
-  %footer
-    %ul.unstyled
-      %li
+%footer
+  .container
+    %ul.list-inline.list-footer
+      %li.diowa-footer
         = link_to 'http://diowa.com' do
           = image_tag transparent_gif_image_data, alt: 'diowa', height: 25, width: 80, title: 'diowa', class: 'diowa-logo'
       - if logged_in?
@@ -10,18 +10,18 @@
         - unless APP_CONFIG.demo_mode
           %li= link_to t('terms'), :terms
       %li
-        %i.icon-github
+        %span.fa.fa-github
         = link_to 'diowa/icare', APP_CONFIG.repository_url
       - if logged_in?
         %li
-          %i.icon-bullhorn
+          %span.fa.fa-bullhorn
           = link_to Feedback.model_name.human(count: :lot), feedbacks_url
         - if APP_CONFIG.demo_mode
           %li
-            = link_to user_path(current_user), method: :delete, class: 'btn btn-danger btn-mini', data: { confirm: t('helpers.links.confirm') } do
-              %i.icon-remove
+            = link_to user_path(current_user), method: :delete, class: 'text-danger', data: { confirm: t('helpers.links.confirm') } do
+              %span.fa.fa-times
               = t('delete_account')
       - if APP_CONFIG.demo_mode
         %li
-          %i.icon-warning-sign
+          %span.fa.fa-warning
           = t('demo_mode')

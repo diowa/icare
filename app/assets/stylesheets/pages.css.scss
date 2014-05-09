@@ -1,11 +1,9 @@
-@import "stubs/variables_overrides.css.less";
-@import "twitter/bootstrap/mixins";
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
 
 .fb-facepile {
   width: 100% !important;
   margin-bottom: 18px;
-  .box-sizing(border-box);
-
   & > span,
   iframe {
     display: block;
@@ -14,12 +12,11 @@
     overflow: hidden;
     /* NOTE: 19px right offset, consider fixed width */
   }
-
   iframe {
     height: auto !important;
   }
 }
 
-.why-facebook {
-  margin-left: 5px;
+#facepile-container {
+  display: none;
 }

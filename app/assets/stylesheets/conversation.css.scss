@@ -1,5 +1,5 @@
-@import "stubs/variables_overrides.css.less";
-@import "twitter/bootstrap/mixins";
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
 
 .conversation-title {
   font-size: 24px;
@@ -8,39 +8,35 @@
 
 tr.unread td,
 .unread {
-  background: @warningBackground !important;
+  background-color: $state-warning-bg !important;
 }
 
-.conversation {
+.list-conversation {
+  padding-left: 0;
+  list-style: none;
   li {
     display: table;
     width: 100%;
     padding: 12px 0;
-    .transition(background 1s ease-out);
-
+    transition: background 1s ease-out;
     &.alternate {
-      background: darken(@white, 5%);
+      background-color: darken($body-bg, 5%);
+    }
+    & + li {
+      border-top: 1px solid #cccccc;
     }
   }
-
-  li + li {
-    border-top: 1px solid #ccc;
-  }
-
   .message-avatar,
   .message {
     display: table-cell;
     vertical-align: top;
   }
-
   .message-avatar {
     width: 60px;
-
     img {
-      .square(50px);
+      @include square(50px);
     }
   }
-
   .message-body {
     margin-bottom: 0;
   }

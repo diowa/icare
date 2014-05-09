@@ -1,0 +1,55 @@
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
+
+.tag-list {
+  margin-left: -5px;
+  @include clearfix;
+  .tag {
+    display: block;
+    float: left;
+    margin: 0 0 12px 5px;
+    padding: $padding-small-vertical $padding-small-horizontal;
+    background-color: $flat-ui-clouds;
+    &.tag-sm {
+      padding: $padding-small-vertical $padding-small-horizontal;
+      font-size: $font-size-small;
+    }
+    &.tag-mutual-friend {
+      position: relative;
+      padding-left: 34px;
+      img {
+        position: absolute;
+        @include square(28px);
+        top: 0;
+        left: 0;
+      }
+    }
+    &.tag-clear,
+    &.tag-facebook,
+    &.tag-icare {
+      clear: left;
+    }
+    &.tag-allowed,
+    &.tag-facebook,
+    &.tag-forbidden,
+    &.tag-icare,
+    &.tag-pink {
+      color: white;
+    }
+    &.tag-allowed, {
+      background-color: $brand-success;
+    }
+    &.tag-facebook {
+      background-color: $brand-facebook;
+    }
+    &.tag-forbidden {
+      background-color: $brand-danger;
+    }
+    &.tag-icare {
+      background-color: $brand-primary;
+    }
+    &.tag-pink {
+      background-color: $pink;
+    }
+  }
+}

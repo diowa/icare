@@ -3,43 +3,54 @@ require 'spec_helper'
 describe 'Admin' do
   before(:each) do
     @admin = FactoryGirl.create :user, admin: true, uid: '123456', username: 'johndoe'
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
   end
 
-  it "should see reports" do
+=begin
+  it "sees reports" do
     expect(page).to have_css('#navbar-notifications-reports')
   end
+=end
 
-  it "should see users index" do
+  it "sees users index" do
     visit admin_users_path
+
     expect(current_path).to eq admin_users_path
   end
 
-  it "should be able to ban other users" do
+  it "is able to ban other users" do
     user_to_ban = FactoryGirl.create :user
+
     visit admin_users_path
-    find(:xpath, "//a[contains(@href, '#{ban_admin_user_path(user_to_ban.id)}')]").click
+
+    find("a[href=\"#{ban_admin_user_path(user_to_ban.id)}\"]").click
     expect(page).to have_content I18n.t('flash.admin.users.success.ban')
-    expect(find(:xpath, "//a[contains(@href, '#{unban_admin_user_path(user_to_ban.id)}')]")).to be_true
+    expect(page).to have_xpath "//a[contains(@href, '#{unban_admin_user_path(user_to_ban.id)}')]"
   end
 
-  it "should not be able to ban himself" do
+  it "is not able to ban himself" do
     visit admin_users_path
-    find(:xpath, "//a[contains(@href, '#{ban_admin_user_path(@admin.id)}')]").click
+
+    find("a[href=\"#{ban_admin_user_path(@admin.id)}\"]").click
     expect(page).to have_content I18n.t('flash.admin.users.error.ban')
   end
 
-  it "should not be able to unban banned users" do
+  it "is not able to unban banned users" do
     banned_user = FactoryGirl.create :user, banned: true
+
     visit admin_users_path
-    find(:xpath, "//a[contains(@href, '#{unban_admin_user_path(banned_user.id)}')]").click
+
+    find("a[href=\"#{unban_admin_user_path(banned_user.id)}\"]").click
     expect(page).to have_content I18n.t('flash.admin.users.success.unban')
-    expect(find(:xpath, "//a[contains(@href, '#{ban_admin_user_path(banned_user.id)}')]")).to be_true
+    expect(page).to have_xpath "//a[contains(@href, '#{ban_admin_user_path(banned_user.id)}')]"
   end
 
   it 'could login as another user' do
     regular_user = FactoryGirl.create :user, name: 'act_as_me'
+
     visit login_as_admin_user_path(regular_user.id)
+
     expect(current_path).to eq dashboard_path
     expect(page).to have_content regular_user.name
   end

@@ -70,7 +70,6 @@ class User
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
   #validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 
-
   def age
     ((Time.now.to_s(:number).to_i - birthday.to_time.to_s(:number).to_i) / 10e9.to_i) if birthday?
   end

@@ -1,0 +1,203 @@
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
+
+html,
+#homepage {
+  height: 100%;
+}
+
+#homepage {
+  padding: 0;
+  .alert {
+    z-index: 1;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    min-width: 200px;
+  }
+}
+
+#splashscreen {
+  position: relative;
+  display: table;
+  @include size(100%, auto);
+  height: auto;
+  background: $brand-primary asset-data-url("noise.png");
+  margin-bottom: 0;
+  box-shadow: 0 3px 3px fade-out(black, 0.75);
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    @include square(100%);
+    content: "";
+    background: radial-gradient(fade-out(black, 0.9), fade-out(black, 0.6), fade-out(black, 0.3));
+  }
+}
+
+#splashscreen-container {
+  position: relative;
+  display: table-cell;
+  @include square(100%);
+  padding: 15px;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  h1,
+  h2,
+  a,
+  small {
+    color: white;
+    text-shadow: 0 1px 1px fade-out(black, 0.1);
+  }
+  h1 {
+    font-family: "Pacifico";
+    font-weight: 400;
+    margin: 10px 0 $line-height-computed;
+    line-height: 34px;
+    font-size: 50px;
+    small {
+      font-size: 30px;
+    }
+  }
+  h2 {
+    margin-bottom: $line-height-computed;
+    letter-spacing: 0px;
+  }
+  .btn-why-facebook {
+    text-decoration: underline;
+  }
+  .splashscreen-link {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.btn-learn-more {
+  margin: 0 auto 15px;
+  border: 2px solid fade-out(white, 0.75);
+  color: white;
+  background-color: fade-out(black, 0.85);
+  &:hover,
+  &:focus {
+    border-color: fade-out(white, 0.6);
+    color: white;
+    background-color: fade-out(black, 0.65);
+  }
+  .fa {
+    position: relative;
+    transform: translate3d(0, 1px, 0);
+    margin-left: 5px;
+    animation: pulse-down 5s ease-in infinite;
+  }
+}
+
+.btn-why-facebook {
+  font-size: $font-size-small;
+}
+
+.featurette {
+  padding: 20px 0;
+  margin-bottom: $line-height-computed;
+  &:nth-child(even) {
+    background-color: $flat-ui-clouds;
+  }
+  h3 {
+    margin-top: 10px;
+  }
+  .container {
+    max-width: $container-md;
+  }
+  .fa {
+    display: block;
+    float: left;
+    font-size: 4em;
+    margin-right: 20px;
+    color: $brand-primary;
+  }
+}
+
+.learn-more-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  @include center-block;
+  width: 100%;
+}
+
+.signin-terms {
+  margin-top: $line-height-computed;
+}
+
+@media(min-width: #{$screen-sm-min}) {
+  .btn-facebook {
+    @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+  }
+  .btn-why-facebook {
+    font-size: $font-size-base;
+  }
+  #splashscreen {
+    height: 100%;
+    min-height: 375px;
+  }
+  #splashscreen-container {
+    padding-bottom: 62px;
+    h1 {
+      line-height: 44px;
+      font-size: 70px;
+    }
+    h2 {
+      line-height: 46px;
+      font-size: 36px;
+    }
+    .btn-toolbar {
+      position: relative;
+    }
+    .btn-why-facebook {
+      position: absolute;
+      top: 5px;
+      font-size: $font-size-base;
+    }
+  }
+  .featurette {
+    padding: 60px 0;
+    h3 {
+      font-size: $font-size-h1;
+    }
+    p {
+      font-size: 21px;
+      font-weight: 300;
+    }
+    .fa {
+      font-size: 10em;
+      margin-right: 60px;
+    }
+    &:nth-child(even) {
+      .fa {
+        float: right;
+        margin-right: 0;
+        margin-left: 60px;
+      }
+    }
+  }
+}
+
+
+@keyframes pulse-down {
+  80% {
+    transform: translate3d(0, 1px, 0);
+  }
+  85% {
+    transform: translate3d(0, 5px, 0);
+  }
+  90% {
+    transform: translate3d(0, 1px, 0);
+  }
+  95% {
+    transform: translate3d(0, 5px, 0);
+  }
+  100% {
+    transform: translate3d(0, 1px, 0);
+  }
+}

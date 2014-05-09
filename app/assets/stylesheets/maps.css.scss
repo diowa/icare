@@ -1,0 +1,90 @@
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
+
+.google-maps {
+  @include size(100%, 300px);
+  label {
+    display:inline {}
+    width: auto;
+  }
+  img {
+    max-width: none;
+  }
+}
+
+.google-static-map,
+.google-maps {
+  margin-bottom: $line-height-computed;
+  border: 1px solid #dddddd;
+}
+
+#error,
+#result {
+  display: none;
+}
+
+.gmaps-popup-image,
+.gmaps-popup-text {
+  display: table-cell;
+}
+
+.gmaps-popup-image {
+  padding-right: 10px;
+  img {
+    display: block;
+    @include square(50px);
+  }
+}
+
+.gmaps-popup-text {
+  vertical-align: top;
+  font-size: 12px;
+}
+
+.gmaps-popup-p-content {
+  margin: 0;
+  color: #666666;
+}
+
+.gmaps-popup-div-details {
+  margin: 10px 0 0;
+  span {
+    display: inline-block;
+    margin-right: 12px;
+    text-align: center;
+  }
+}
+
+.arrow-box {
+  display: block;
+  border: 1px solid $gray-light;
+  background-color: white;
+  box-shadow: 1px 1px 1px fade-out(black, 0.8);
+  cursor: pointer;
+  img {
+    position: relative;
+    top: 1px;
+    left: 1px;
+  }
+  &:after,
+  &:before {
+    position: absolute;
+    top: 100%;
+    @include square(0);
+    border: solid transparent;
+    content: " ";
+    pointer-events: none;
+  }
+  &:after {
+    left: 50%;
+    margin-left: -4px;
+    border-top-color: white;
+    border-width: 4px;
+  }
+  &:before {
+    border-top-color: $gray-light;
+    border-width: 5px;
+    left: 50%;
+    margin-left: -5px;
+  }
+}

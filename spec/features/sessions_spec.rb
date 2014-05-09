@@ -2,8 +2,9 @@ require 'spec_helper'
 
 describe 'Sessions' do
   it "allow users to sign in from Facebook" do
-    visit '/auth/facebook'
-    expect(find("a[href='/signout']")).to be_present
+    visit auth_at_provider_path(provider: :facebook)
+
+    expect(page).to have_css "a[href=\"#{logout_path}\"]"
     expect(User.count).to_not be_zero
   end
 
@@ -11,7 +12,9 @@ describe 'Sessions' do
     @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
     OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Duncan MacLeod' }, extra: { raw_info: { birthday: nil } }
     highlander = FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
+
     expect(current_path).to eq dashboard_path
     expect(page).to have_content highlander.name
     OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
@@ -19,7 +22,9 @@ describe 'Sessions' do
 
   it "fills user profile with data from facebook" do
     user = FactoryGirl.create :user, uid: '123456'
-    visit '/auth/facebook'
+
+    visit auth_at_provider_path(provider: :facebook)
+
     user.reload
 
     expect(user.oauth_token).to      eq OMNIAUTH_MOCKED_AUTHHASH.credentials.token
@@ -44,21 +49,24 @@ describe 'Sessions' do
   end
 
   it "allow users to logout" do
-    visit '/auth/facebook'
-    expect(find("a[href='/signout']")).to be_present
-    visit '/signout'
+    visit auth_at_provider_path(provider: :facebook)
+
+    expect(page).to have_css "a[href=\"#{logout_path}\"]"
+    click_link I18n.t('logout')
     expect(page).to have_content I18n.t('login_with_facebook')
   end
 
   it "redirect to itinerary viewed by guests" do
     itinerary = FactoryGirl.create :itinerary
+
     visit itinerary_path(itinerary)
+
     find('a', text: I18n.t('login_with_facebook')).click
     expect(page.title).to eq itinerary.title
     expect(page).to have_content itinerary.user_name
   end
 
-  describe 'RestrictedMode' do
+  context 'RestrictedMode' do
     before(:all) do
       APP_CONFIG.facebook.set :restricted_group_id, '10'
     end
@@ -71,7 +79,9 @@ describe 'Sessions' do
       groups = [{ "name"=>"A group", "version"=>1, "id"=>"1", "administrator"=>true },
                 { "name"=>"Another group", "version"=>1, "id"=>"2" }]
       stub_http_request(:get, /graph.facebook.com\/me/).to_return body: groups.to_json
-      visit '/auth/facebook'
+
+      visit auth_at_provider_path(provider: :facebook)
+
       expect(User.count).to be_zero
       expect(current_path).to eq root_path
       expect(page).to have_content I18n.t('flash.sessions.error.restricted')
@@ -81,19 +91,22 @@ describe 'Sessions' do
       groups = [{ "name"=>"A group", "version"=>1, "id"=>"1", "administrator"=>true },
                 { "name"=>"ICARE GROUP", "version"=>1, "id"=>"10" }]
       stub_http_request(:get, /graph.facebook.com\/me/).to_return body: groups.to_json
-      visit '/auth/facebook'
+
+      visit auth_at_provider_path(provider: :facebook)
+
       expect(User.count).to_not be_zero
-      expect(find("a[href='/signout']")).to be_present
+      expect(page).to have_css "a[href=\"#{logout_path}\"]"
     end
 
     it "sets admin attribute to group admins" do
       groups = [{ "name"=>"A group", "version"=>1, "id"=>"1" },
                 { "name"=>"ICARE GROUP", "version"=>10, "id"=>"10", "administrator"=>true }]
       stub_http_request(:get, /graph.facebook.com\/me/).to_return body: groups.to_json
-      visit '/auth/facebook'
-      expect(User.count).to_not be_zero
-      expect(find("a[href='/signout']")).to be_present
-      expect(page).to have_css('#navbar-notifications-reports')
+
+      visit auth_at_provider_path(provider: :facebook)
+
+      visit admin_users_path
+      expect(current_path).to eq admin_users_path
     end
   end
 end

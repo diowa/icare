@@ -1,37 +1,39 @@
-%table.table.table-itinerary
-  %thead
-    %tr
-      %th= Itinerary.human_attribute_name(:start_address)
-      %th= Itinerary.human_attribute_name(:end_address)
-      %th
-        %span.visible-phone
-          %i.icon-info-sign{ rel: 'tooltip', title: t('itineraries.common.features') }
-        %span.hidden-phone= t('itineraries.common.features')
-      - if edit
-        %th= t('helpers.actions')
-      - else
-        %th= User.model_name.human
-        %th= Itinerary.human_attribute_name(:leave_date)
-  %tbody
-    - itineraries.each_with_index do |itinerary, index|
-      %tr.vertical-align-middle
-        %td= link_to itinerary.start_address, itinerary_path(itinerary)
-        %td= link_to itinerary.end_address, itinerary_path(itinerary)
-        %td
-          - if itinerary.pink
-            %i.text-pink.icon-lock.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
-          - if itinerary.daily
-            %i.icon-repeat.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:daily) }
-          - if itinerary.round_trip
-            %i.icon-exchange.tooltipable{ rel: 'tooltip', title: Itinerary.human_attribute_name(:round_trip) }
+.table-responsive
+  %table.table.table-itinerary
+    %thead
+      %tr
+        %th= Itinerary.human_attribute_name(:start_address)
+        %th= Itinerary.human_attribute_name(:end_address)
+        %th
+          %span.visible-xs
+            %span.fa.fa-info-circle{ rel: 'tooltip', title: t('itineraries.common.features') }
+          %span.hidden-xs= t('itineraries.common.features')
         - if edit
-          %td.btn-toolbar
-            = link_to edit_itinerary_path(itinerary), class: 'btn btn-small' do
-              %i.icon-edit
-              = t('helpers.links.edit')
-            = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-small btn-danger' do
-              %i.icon-trash
-              = t('helpers.links.destroy')
+          %th= t('helpers.actions')
         - else
-          %td= link_to itinerary.user, user_path(itinerary.user)
-          %td= l(itinerary.leave_date.in_time_zone, format: :short)
+          %th= User.model_name.human
+          %th= Itinerary.human_attribute_name(:leave_date)
+    %tbody
+      - itineraries.each_with_index do |itinerary, index|
+        %tr.vertical-align-middle
+          %td= link_to itinerary.start_address, itinerary_path(itinerary)
+          %td= link_to itinerary.end_address, itinerary_path(itinerary)
+          %td
+            - if itinerary.pink
+              %span.text-pink.fa-fw.fa.fa-lock{ rel: 'tooltip', title: Itinerary.human_attribute_name(:pink) }
+            - if itinerary.daily
+              %span.fa-fw.fa.fa-repeat{ rel: 'tooltip', title: Itinerary.human_attribute_name(:daily) }
+            - if itinerary.round_trip
+              %span.fa-fw.fa.fa-exchange{ rel: 'tooltip', title: Itinerary.human_attribute_name(:round_trip) }
+          - if edit
+            %td
+              .btn-toolbar
+                = link_to edit_itinerary_path(itinerary), class: 'btn btn-xs btn-default' do
+                  %span.fa.fa-pencil
+                  = t('helpers.links.edit')
+                = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-danger' do
+                  %span.fa.fa-times
+                  = t('helpers.links.destroy')
+          - else
+            %td= link_to itinerary.user, user_path(itinerary.user)
+            %td= l(itinerary.leave_date.in_time_zone, format: :short)

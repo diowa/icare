@@ -1,21 +1,18 @@
 - title t('.title')
-.row
-  .span12
-    = render 'shared/flash_messages'
-.row.dashboard
-  .span4
-    = link_to itineraries_path, class: 'btn btn-large btn-block btn-primary' do
-      %i.icon-search
-      = t('.search_itineraries')
-  .span4
-    = link_to new_itinerary_path, class: 'btn btn-large btn-block' do
-      %i.icon-plus
-      = t('.new_itinerary')
-  .span4
-    = link_to itineraries_user_path(current_user), class: 'btn btn-large btn-block' do
-      %i.icon-road
-      = t('.your_itineraries')
-.row
-  .span12
-    %h3= t('.latest_itineraries')
-    = render 'itineraries/table', itineraries: @latest_itineraries, edit: false
+.container
+  = render 'shared/flash_messages'
+  .row.dashboard-buttons
+    .col-sm-4
+      = link_to itineraries_path, class: 'btn btn-lg btn-block btn-default' do
+        %span.fa.fa-search
+        = t('.search_itineraries')
+    .col-sm-4
+      = link_to new_itinerary_path, class: 'btn btn-lg btn-block btn-default' do
+        %span.fa.fa-plus
+        = t('.new_itinerary')
+    .col-sm-4
+      = link_to itineraries_user_path(current_user), class: 'btn btn-lg btn-block btn-default' do
+        %span.fa.fa-road
+        = t('.your_itineraries')
+  %h3= t('.latest_itineraries')
+  = render 'itineraries/table', itineraries: @latest_itineraries, edit: false

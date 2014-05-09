@@ -132,31 +132,20 @@ initItineraryIndex = ->
         $('#itineraries-thumbs').html ''
         index = 0
         icare.latLngBounds = new google.maps.LatLngBounds()
-        row_template = $("""<div class="row-fluid"></div>""")
-        row = row_template
         $(data).each ->
-          $('#itineraries-thumbs').append(row = row_template.clone(true)) if (index % 2) is 0
           color = routeColoursArray[index++ % routeColoursArray.length]
           drawPath this, color
-          this.borderColor = hexToRgba(color, 0.45) # borderColor injection, waiting for proper @data support in handlebars
-          row.append HandlebarsTemplates['itineraries/thumbnail'](this)
+          this.backgroundColor = hexToRgba(color, 0.45) # backgroundColor injection, waiting for proper @data support in handlebars
+          $('#itineraries-thumbs').append HandlebarsTemplates['itineraries/thumbnail'](this)
         icare.map.fitBounds icare.latLngBounds
         $('.facebook-verified-tooltip').tooltip()
 
-  $('#itineraries-thumbs').on 'click', '.show-itinerary-on-map', (e) ->
+  $(document).on 'click', '.show-itinerary-on-map', (e) ->
     e.preventDefault()
-    google.maps.event.trigger icare.customMarkers[$(this).data('id')], 'click'
+    google.maps.event.trigger icare.customMarkers[$(this).closest('.itinerary-thumbnail').data('itineraryId')], 'click'
+    $(window).scrollTop('#index-itineraries-map')
     false
 
-  $('#search-form-advanced-link').on 'click', (e) ->
-    e.preventDefault()
-    me = this
-    $('#search-form-advanced').slideToggle ->
-      $(me).find('i')
-        .toggleClass('icon-chevron-up')
-        .toggleClass('icon-chevron-down')
-
-# jQuery Turbolinks
 $ ->
-  if $('#index-itineraries-map')[0]?
+  if google? && $('#index-itineraries-map')[0]?
     initItineraryIndex()

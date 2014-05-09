@@ -1,56 +1,53 @@
-.span6.itinerary-thumbnail.border-box
-  .caption.itinerary-thumb-stroke{ style: "border-color: {{borderColor}}" }
-    %table
-      %tbody
-        %tr
-          %td.user-profile-picture.verified
-            .img-outset
-              %img{ src: "{{user.profile_picture}}", width: 50, height: 50, alt: "" }
-          %td
-            %strong.it-title
-              %a.pre-line{ href: "{{url}}" }><
-                {{start_address}}
-                %br
-                {{end_address}}
-            %p.it-user
-              {{user.name}}
-              {{#if user.facebook_verified}}
-              %i.icon-ok.text-success.facebook-verified-tooltip.inline-block{ rel: "tooltip", title: "{{translate \"templates.itineraries.facebook_verified\"}}" }
-              {{/if}}
+.col-lg-6
+  .itinerary-thumbnail{ data: { itinerary_id: '{{id}}' } }
+    .itinerary-thumb-stroke{ style: 'background-color: {{backgroundColor}}' }
+    .media
+      .pull-left
+        .img-outset
+          %img.media-object{ src: '{{user.profile_picture}}', width: 50, height: 50, alt: '' }
+      .media-body
+        %h4.media-heading= link_to '{{title}}', '{{url}}', class: 'pre-line'
+        %p
+          {{user.name}}
+          {{#if user.facebook_verified}}
+          %span.fa.fa-check.text-success.facebook-verified-tooltip{ rel: "tooltip", title: '{{translate "templates.itineraries.facebook_verified"}}' }
+          {{/if}}
     %p.itinerary-details
       {{#if pink}}
       %span.text-pink
-        %i.icon-lock
+        %span.fa.fa-lock
         {{translate "mongoid.attributes.itinerary.pink"}}
       %br
       {{/if}}
       {{#if daily}}
       %br
-      %i.icon-repeat
-      {{translate "mongoid.attributes.itinerary.daily"}}
-      %i.icon-time
+      %span.fa.fa-repeat
+      %span.text-muted {{translate "mongoid.attributes.itinerary.daily"}}
+      %span.fa.fa-clock-o
       {{localize "time.formats.time_only" leave_date}}
       {{else}}
-      {{translate "mongoid.attributes.itinerary.leave_date"}}:
+      %span.text-muted {{translate "mongoid.attributes.itinerary.leave_date"}}:
       {{localize "date.formats.long" leave_date}}
-      %i.icon-time
+      %span.fa.fa-clock-o
       {{localize "time.formats.time_only" leave_date}}
       {{#if round_trip}}
       %br
-      {{translate "mongoid.attributes.itinerary.return_date"}}:
+      %span.text-muted {{translate "mongoid.attributes.itinerary.return_date"}}:
       {{localize "date.formats.long" return_date}}
-      %i.icon-time
+      %span.fa.fa-clock-o
       {{localize "time.formats.time_only" return_date}}
       {{/if}}
       {{/if}}
       %br
-      {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
+      %span.text-muted {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
       {{fuel_cost}}.00 &euro;
       %br
-      {{translate "mongoid.attributes.itinerary.tolls"}}:
+      %span.text-muted {{translate "mongoid.attributes.itinerary.tolls"}}:
       {{tolls}}.00 &euro;
     .btn-toolbar
-      %a.btn.btn-mini.show-itinerary-on-map{ href: "#", data: { id: "{{id}}" } }
+      = link_to '#', class: 'btn btn-xs btn-default show-itinerary-on-map' do
+        %span.fa.fa-map-marker
         {{translate "templates.itineraries.show_on_map"}}
-      %a.btn.btn-mini.btn-primary{ href: "{{url}}" }
+      = link_to '{{url}}', class: 'btn btn-xs btn-primary' do
+        %span.fa.fa-info-circle
         {{translate "templates.itineraries.read_more"}}

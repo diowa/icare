@@ -2,14 +2,25 @@ require 'spec_helper'
 
 describe 'Users' do
 
-  it "allows to edit their profile" do
-    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    visit '/auth/facebook'
-    visit '/settings'
-    fill_in 'user_vehicle_avg_consumption', with: '0.29'
-    click_button I18n.t('helpers.submit.update', model: User)
-    expect(user.reload.vehicle_avg_consumption).to eq 0.29
-    expect(find('#user_vehicle_avg_consumption').value).to eq '0.29'
+  context "Settings" do
+    it "allows to edit profile" do
+      user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+      visit auth_at_provider_path(provider: :facebook)
+      visit settings_path
+      fill_in 'user_vehicle_avg_consumption', with: '0.29'
+      click_button I18n.t('helpers.submit.update', model: User)
+      expect(user.reload.vehicle_avg_consumption).to eq 0.29
+      expect(find('#user_vehicle_avg_consumption').value).to eq '0.29'
+    end
+
+    it "recovers from errors" do
+      user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+      visit auth_at_provider_path(provider: :facebook)
+      visit settings_path
+      fill_in 'user_vehicle_avg_consumption', with: nil
+      click_button I18n.t('helpers.submit.update', model: User)
+      expect(page).to have_css '.alert.alert-danger'
+    end
   end
 
   it "allows to see latest itineraries in dashboard" do
@@ -17,7 +28,7 @@ describe 'Users' do
     FactoryGirl.create_list :itinerary, 5
     FactoryGirl.create :itinerary, pink: true, user: female_user
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    visit '/auth/facebook'
+    visit auth_at_provider_path(provider: :facebook)
     expect(page).to have_css('.table-itinerary tbody tr', count: 5)
   end
 
@@ -27,14 +38,14 @@ describe 'Users' do
     FactoryGirl.create_list :itinerary, 1, pink: true, user: female_user
     @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
     OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
-    visit '/auth/facebook'
+    visit auth_at_provider_path(provider: :facebook)
     expect(page).to have_css('.table-itinerary tbody tr', count: 6)
     OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
   end
 
   it "allows to delete user account" do
     user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    visit '/auth/facebook'
+    visit auth_at_provider_path(provider: :facebook)
     click_link I18n.t('delete_account')
     expect(current_path).to eq root_path
     expect(User.count).to be 0
@@ -42,10 +53,10 @@ describe 'Users' do
     expect(page).to have_content I18n.t('flash.users.success.destroy')
   end
 
-  describe 'without admin permissions' do
+  context 'without admin permissions' do
     before(:each) do
       @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-      visit '/auth/facebook'
+      visit auth_at_provider_path(provider: :facebook)
     end
 
     it "does not see reports" do
@@ -58,25 +69,7 @@ describe 'Users' do
     end
   end
 
-  describe 'verified' do
-    before(:all) do
-      @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
-      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
-    end
-    after(:all) do
-      OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
-    end
-    before(:each) do
-      @verified_user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-      visit '/auth/facebook'
-    end
-    it "adds the verified box" do
-      visit user_path(@verified_user)
-      expect(find('.facebook-verified')).to be_true
-    end
-  end
-
-  describe 'Profile' do
+  context 'Profile' do
     def create_friends_and_refresh(friends)
       @user.update_attribute :facebook_friends, friends.to_i.times.map { |i| { 'id' => "90110#{i}", 'name' => "Friend #{i}" } }
       @user.reload
@@ -85,22 +78,22 @@ describe 'Users' do
 
     before(:each) do
       @user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-      visit '/auth/facebook'
+      visit auth_at_provider_path(provider: :facebook)
       visit user_path(@user)
     end
 
     it "shows the rough number of friends" do
-      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '10-')}']")).to be_true
+      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '10-')}']"
       create_friends_and_refresh 6
-      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '10-')}']")).to be_true
+      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '10-')}']"
       create_friends_and_refresh 11
-      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '10+')}']")).to be_true
+      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '10+')}']"
       create_friends_and_refresh 101
-      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '100+')}']")).to be_true
+      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '100+')}']"
       create_friends_and_refresh 1001
-      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '1000+')}']")).to be_true
+      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '1000+')}']"
       create_friends_and_refresh 5001
-      expect(find(:xpath, "//div[text()='#{I18n.t('users.show.friends', count: '5000')}']")).to be_true
+      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '5000')}']"
     end
 
     it "shows reference tags" do
@@ -128,33 +121,33 @@ describe 'Users' do
       end
       @user.reload
       visit user_path(@user)
-      expect(has_content?(I18n.t('references.snippet.positives', count: @user.references.positives.count))).to be_true
-      expect(has_content?(I18n.t('references.snippet.neutrals', count: @user.references.neutrals.count))).to be_true
-      expect(has_content?(I18n.t('references.snippet.negatives', count: @user.references.negatives.count))).to be_true
+      expect(page).to have_content I18n.t('references.snippet.positives', count: @user.references.positives.count)
+      expect(page).to have_content I18n.t('references.snippet.neutrals', count: @user.references.neutrals.count)
+      expect(page).to have_content I18n.t('references.snippet.negatives', count: @user.references.negatives.count)
     end
 
     it "highlights common languages" do
       user_with_common_languages = FactoryGirl.create :user, languages: [{ id: '106059522759137', name: 'English' }]
       visit user_path(user_with_common_languages)
-      expect(find(:xpath, "//div[@class='tag common' and text()='#{I18n.t('users.show.language', language: 'English')}']")).to be_true
+      expect(page).to have_xpath "//div[@class='tag common' and text()='#{I18n.t('users.show.language', language: 'English')}']"
     end
 
     it "highlights common jobs" do
       user_with_common_works = FactoryGirl.create :user, work: [ { employer: { id: '100', name: 'First Inc.' }, start_date: '0000-00' } ]
       visit user_path(user_with_common_works)
-      expect(find(:xpath, "//div[@class='tag common' and text()='First Inc.']")).to be_true
+      expect(page).to have_xpath "//div[@class='tag common' and text()='First Inc.']"
     end
 
     it "highlights common schools" do
       user_with_common_education = FactoryGirl.create :user, education: [{ school: { id: '300', name: 'A College' }, type: 'College' }]
       visit user_path(user_with_common_education)
-      expect(find(:xpath, "//div[@class='tag common' and text()='A College']")).to be_true
+      expect(page).to have_xpath "//div[@class='tag common' and text()='A College']"
     end
 
     it "does not fail with detailed education" do
       user_with_detailed_education = FactoryGirl.create :user, education: [{"school"=>{"id"=>"301", "name"=>"A High School"}, "type"=>"High School", "year"=>{"id"=>"1", "name"=>"1999"}}, {"concentration"=>[{"id"=>"400", "name"=>"A concentration"}], "school"=>{"id"=>"300", "name"=>"A College"}, "type"=>"College", "year"=>{"id"=>"2", "name"=>"2003"}}]
       visit user_path(user_with_detailed_education)
-      expect(find(:xpath, "//div[@class='tag common' and text()='A College']")).to be_true
+      expect(page).to have_xpath "//div[@class='tag common' and text()='A College']"
     end
 
     it "shows mutual friends" do
@@ -165,9 +158,9 @@ describe 'Users' do
       user_with_mutual_friends = FactoryGirl.create :user,
                                                     facebook_friends: [{ 'id' => '910100', 'name' => 'Not a mutual friend' }, { 'id' => '910101', 'name' => 'Not a mutual friend' } ] + mutual_friends
       visit user_path(user_with_mutual_friends)
-      expect(all(:xpath, "//div[text()[contains(.,'Mutual friend named ')]]").size).to be 5
-      expect(has_content?(I18n.t('users.show.and_others', count: 1))).to be_true
-      expect(has_content?('Not a common friend')).to be_false
+      expect(page).to have_xpath "//div[text()[contains(.,'Mutual friend named ')]]", count: 5
+      expect(page).to have_content I18n.t('users.show.and_others', count: 1)
+      expect(page).to_not have_content 'Not a common friend'
     end
 
     it "highlights common likes" do
@@ -176,8 +169,25 @@ describe 'Users' do
       @user_with_common_friends = FactoryGirl.create :user,
                                                      facebook_favorites: [ { 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' } ]
       visit user_path(@user_with_common_friends)
-      expect(find(:xpath, "//div[@class='tag common' and text()='Common like']")).to be_true
-      expect(-> { find(:xpath, "//div[@class='tag common' and text()='Not a common like']") }).to raise_error Capybara::ElementNotFound
+      expect(page).to have_xpath "//div[@class='tag common tag-sm' and text()='Common like']"
+      expect(page).to_not have_xpath "//div[@class='tag common tag-sm' and text()='Not a common like']"
+    end
+
+    context 'verified' do
+      it "adds the verified box" do
+        begin
+          old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
+          OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
+          verified_user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+
+          visit auth_at_provider_path(provider: :facebook)
+          visit user_path(verified_user)
+
+          expect(page).to have_css '.facebook-verified'
+        ensure
+          OmniAuth.config.mock_auth[:facebook] = old_mocked_authhash
+        end
+      end
     end
   end
 end

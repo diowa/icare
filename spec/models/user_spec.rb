@@ -5,7 +5,7 @@ describe User do
   let(:male_user) { FactoryGirl.create :user, gender: 'male' }
   let(:female_user) { FactoryGirl.create :user, gender: 'female' }
 
-  describe '.age' do
+  context '.age' do
     let(:born_on_1960_10_30) { FactoryGirl.create :user, birthday: '1960-10-30' }
     let(:born_on_1972_02_29) { FactoryGirl.create :user, birthday: '1972-02-29' }
     let(:unknown_birthday) { FactoryGirl.create :user, birthday: nil }
@@ -31,7 +31,7 @@ describe User do
     end
   end
 
-  describe '.first_name' do
+  context '.first_name' do
     let(:jack_black) { FactoryGirl.create :user, name: 'Jack Black' }
     let(:anonymous) { FactoryGirl.create :user, name: nil }
 
@@ -44,7 +44,7 @@ describe User do
     end
   end
 
-  describe '.to_s' do
+  context '.to_s' do
     let(:jack_black) { FactoryGirl.create :user, name: 'Jack Black' }
     let(:anonymous) { FactoryGirl.create :user, name: nil }
 
@@ -58,7 +58,7 @@ describe User do
     end
   end
 
-  describe '.to_param' do
+  context '.to_param' do
     let(:jackblack) { FactoryGirl.create :user, username: 'jackblack', uid: '123456' }
     let(:uid123456) { FactoryGirl.create :user, username: nil, uid: '123456' }
     let(:anonymous) { FactoryGirl.create :user, username: nil, uid: nil }
@@ -76,13 +76,13 @@ describe User do
     end
   end
 
-  describe '.profile_picture' do
+  context '.profile_picture' do
     it "returns facebook profile picture of type square (by default)" do
       expect(user.profile_picture).to eq "http://graph.facebook.com/#{user.uid}/picture?type=square"
     end
   end
 
-  describe '.male?' do
+  context '.male?' do
     it "answers true if user is male" do
       expect(male_user.male?).to be_true
     end
@@ -92,7 +92,7 @@ describe User do
     end
   end
 
-  describe '.female?' do
+  context '.female?' do
     it "answers true if user is female" do
       expect(female_user.female?).to be_true
     end

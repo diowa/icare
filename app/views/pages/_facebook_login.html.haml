@@ -1,17 +1,12 @@
-.hidden-phone
-  = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-large btn-facebook', data: { :"no-turbolink" => true } do
-    %i.icon-facebook-sign.icon-large
+.btn-toolbar
+  = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { no_turbolink: true } do
+    %span.fa.fa-facebook-square
     = t('login_with_facebook')
-  %small.inline-block.why-facebook= link_to t('why_facebook'), '#why-facebook', data: { toggle: 'modal' }
-.visible-phone
-  = link_to auth_at_provider_path(provider: :facebook), class: 'btn btn-facebook', data: { :"no-turbolink" => true } do
-    %i.icon-facebook-sign
-    = t('login_with_facebook')
-  %small.inline-block.why-facebook= link_to t('why_facebook'), '#why-facebook', data: { toggle: 'modal' }
+  = link_to t('why_facebook'), '#why-facebook', class: 'btn btn-link btn-why-facebook', data: { toggle: 'modal' }
 %p.signin-terms
   %b= t('we_will_never_post')
   %br
   - if APP_CONFIG.demo_mode
-    = t('pages.home.demo_mode', demo_terms_link: link_to(t('demo_terms'), :demo_terms), data: { :"no-turbolink" => true }).html_safe
+    = t('pages.home.demo_mode', demo_terms_link: link_to(t('demo_terms'), :demo_terms, class: 'splashscreen-link')).html_safe
   - else
-    = t('pages.home.signin_terms', appname: APP_CONFIG.app_name, terms_link: link_to(t('terms'), :terms, data: { :"no-turbolink" => true }), policy_link: link_to(t('policy'), :policy)).html_safe
+    = t('pages.home.signin_terms', appname: APP_CONFIG.app_name, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy)).html_safe
