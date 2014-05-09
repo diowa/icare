@@ -4,6 +4,10 @@
 SimpleConfig.for :application do
   set :secret_token, 'SECRET_TOKEN'
 
+  group :devise do
+    set :secret_key, 'ANOTHER_SECRET_TOKEN'
+  end
+
   group :facebook do
     set :namespace, 'NAMESPACE'
     set :app_id, 'FACEBOOK_APP_ID'
