@@ -139,7 +139,6 @@ en-US:
       error:
         create: An error occurred while creating this message.
     errors:
-      not_authenticated: Please login first.
       not_allowed: You don't have permissions to access this page.
 
   shared:

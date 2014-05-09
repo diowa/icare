@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def yield_or_default(section, default = '')
-    content_for?(section) ? content_for(section) + (" | #{APP_CONFIG.app_name}" unless (logged_in? || content_for(section) == APP_CONFIG.app_name)) : default
+    content_for?(section) ? content_for(section) + (" | #{APP_CONFIG.app_name}" unless (user_signed_in? || content_for(section) == APP_CONFIG.app_name)) : default
   end
 
   def twitterized_type(type)

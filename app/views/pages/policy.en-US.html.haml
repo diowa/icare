@@ -33,7 +33,7 @@
     so that you can make meaningful choices about how it is used. For example, you can:
     %ul
       %li
-        = link_to_if logged_in?, 'Delete', :settings
+        = link_to_if user_signed_in?, 'Delete', :settings
         your account
   You may also set your browser to block all cookies, including cookies associated with our services, or to indicate
   when a cookie is being set by us. However, it’s important to remember that many of our services may not function

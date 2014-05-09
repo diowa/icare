@@ -7,8 +7,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def login_as
-    session[:user_id] = @user.id.to_s
-    redirect_to :dashboard
+    sign_in_and_redirect :user, @user
   end
 
   def ban

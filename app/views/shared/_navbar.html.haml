@@ -5,10 +5,10 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to logged_in? ? :dashboard : root_path, class: 'navbar-brand' do
+      = link_to user_signed_in? ? :dashboard : root_path, class: 'navbar-brand' do
         = image_tag 'turtle_dark.svg', class: 'navbar-brand-logo'
         %span.hidden-xs= APP_CONFIG.app_name
-    - if logged_in?
+    - if user_signed_in?
       = render 'shared/notifications'
       .navbar-collapse.collapse.navbar-responsive-collapse{ role: 'navigation' }
         %ul.nav.navbar-nav.navbar-right
@@ -25,7 +25,7 @@
                 %li.divider
                 %li= link_to t('.admin_users'), admin_users_path
               %li.divider
-              %li= link_to t('logout'), :logout, method: :delete
+              %li= link_to t('logout'), destroy_user_session_path, method: :delete
     - else
       .navbar-collapse.collapse.navbar-responsive-collapse{ role: 'navigation' }
         %ul.nav.navbar-nav.navbar-right
@@ -40,6 +40,6 @@
                 - if code != I18n.locale
                   %li=link_to native_name, "?locale=#{code}"
           %li.facebook-link
-            = link_to auth_at_provider_path(provider: :facebook), data: { no_turbolink: true } do
+            = link_to user_omniauth_authorize_path(provider: :facebook), data: { no_turbolink: true } do
               %span.fa.fa-facebook-square
               = t('login_with_facebook')

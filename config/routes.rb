@@ -1,5 +1,10 @@
 Icare::Application.routes.draw do
 
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
+  end
+
   root to: 'pages#home'
 
   resources :conversations, only: [:show, :new, :create, :update, :index] do
@@ -30,14 +35,6 @@ Icare::Application.routes.draw do
   end
 
   mount Resque::Server, at: "/resque" if defined?(Resque::Server)
-
-  # Sessions
-  resources :sessions, only: [:create, :destroy]
-
-  match 'auth/:provider', to: 'sessions#new', as: :auth_at_provider
-  match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
-  delete 'signout', to: 'sessions#destroy', as: :logout
 
   # Root route aliases
   get :dashboard, to: 'users#dashboard'
