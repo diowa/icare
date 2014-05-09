@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.0
+
+* Bootstrap 3
+
 ## 0.10.5
 
 * Rails 3.2.18
