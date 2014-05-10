@@ -1,17 +1,17 @@
 - title t('.title')
 .container
   = render 'shared/flash_messages'
-  .row.dashboard-buttons
-    .col-sm-4
-      = link_to itineraries_path, class: 'btn btn-lg btn-block btn-default' do
+  %ul.nav.nav-justified.lead
+    %li
+      = link_to itineraries_path do
         %span.fa.fa-search
         = t('.search_itineraries')
-    .col-sm-4
-      = link_to new_itinerary_path, class: 'btn btn-lg btn-block btn-default' do
+    %li
+      = link_to new_itinerary_path do
         %span.fa.fa-plus
         = t('.new_itinerary')
-    .col-sm-4
-      = link_to itineraries_user_path(current_user), class: 'btn btn-lg btn-block btn-default' do
+    %li
+      = link_to itineraries_user_path(current_user) do
         %span.fa.fa-road
         = t('.your_itineraries')
   %h3= t('.latest_itineraries')

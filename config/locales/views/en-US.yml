@@ -213,7 +213,7 @@ en-US:
       latest_itineraries: Latest Itineraries
       by: by
     itineraries:
-      title: My itineraries
+      title: Your itineraries
     show:
       member_since: "Member since %{date}"
       see_all: See All

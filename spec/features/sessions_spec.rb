@@ -66,6 +66,20 @@ describe 'Sessions' do
     expect(page).to have_content itinerary.user_name
   end
 
+  context "when authorization fails" do
+    it "redirects to root path" do
+      @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
+      OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
+      highlander = FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
+
+      visit user_omniauth_authorize_path(provider: :facebook)
+
+      expect(current_path).to eq root_path
+      expect(page).to have_content I18n.t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
+      OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
+    end
+  end
+
   context 'RestrictedMode' do
     before(:all) do
       APP_CONFIG.facebook.set :restricted_group_id, '10'

@@ -33,7 +33,7 @@ GEM
       builder
       multi_json
     arel (3.0.3)
-    autoprefixer-rails (1.1.20140430)
+    autoprefixer-rails (1.1.20140510)
       execjs
     bcrypt (3.1.7)
     better_errors (1.1.0)

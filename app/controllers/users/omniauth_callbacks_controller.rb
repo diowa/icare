@@ -6,4 +6,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to root_path, flash: { error: t(APP_CONFIG.facebook.restricted_group_id ? 'flash.sessions.error.restricted' : 'flash.sessions.error.create') }
     end
   end
+
+  protected
+  def after_omniauth_failure_path_for(scope)
+    root_path
+  end
 end
