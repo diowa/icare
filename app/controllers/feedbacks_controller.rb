@@ -18,7 +18,6 @@ class FeedbacksController < ApplicationController
     if @feedback.save
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.create') }
     else
-      flash.now[:error] = @feedback.errors.full_messages
       render :new
     end
   end
@@ -27,7 +26,6 @@ class FeedbacksController < ApplicationController
     if @feedback.update_attributes(permitted_params.feedback)
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.update') }
     else
-      flash.now[:error] = @feedback.errors.full_messages
       render :edit
     end
   end

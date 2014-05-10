@@ -129,6 +129,8 @@ it-IT:
         update: Itinerario aggiornato con successo.
         destroy: Itinerario eliminato con successo.
       error:
+        create: Si è verificato un errore durante la creazione dell'itinerario.
+        update: Si è verificato un errore durante l'aggiornamento dell'itinerario.
         destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.
         pink: Gli itinerari rosa sono visibili solo dalle donne.
     sessions:

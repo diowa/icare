@@ -151,6 +151,27 @@ describe 'Itineraries' do
       expect(current_path).to eq dashboard_path
       expect(page).to have_content I18n.t('flash.itineraries.error.pink')
     end
+
+    it "does not fail when creating with wrong parameters" do
+      login_as_male
+
+      visit new_itinerary_path
+
+      find('#new_itinerary_submit').click
+      expect(page).to have_css '.alert-danger'
+    end
+
+    it "does not fail when updating with wrong parameters" do
+      login_as_male
+      itinerary = FactoryGirl.create :itinerary, user: @user, description: 'Old description'
+
+      visit itineraries_user_path(@user)
+
+      find("a[href=\"#{edit_itinerary_path(itinerary)}\"]").click
+      fill_in 'itinerary_description', with: ''
+      click_button I18n.t('helpers.submit.update', model: Itinerary.model_name.human)
+      expect(page).to have_css '.alert-danger'
+    end
   end
 
   context 'Guests' do

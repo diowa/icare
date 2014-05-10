@@ -83,4 +83,25 @@ describe 'Feedbacks' do
     expect(current_path).to eq feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.destroy')
   end
+
+  it "doesn't fail when creating with wrong parameters" do
+    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+
+    visit user_omniauth_authorize_path(provider: :facebook)
+    visit new_feedback_path
+
+    click_button I18n.t('helpers.submit.create', model: Feedback)
+    expect(page).to have_css '.alert-danger'
+  end
+
+  it "doesn't fail when updating with wrong parameters" do
+    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+    feedback = FactoryGirl.create :feedback, user: user
+
+    visit user_omniauth_authorize_path(provider: :facebook)
+    visit edit_feedback_path(feedback)
+    fill_in 'feedback_message', with: ''
+    click_button I18n.t('helpers.submit.update', model: Feedback)
+    expect(page).to have_css '.alert-danger'
+  end
 end

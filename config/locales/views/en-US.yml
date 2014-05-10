@@ -129,6 +129,8 @@ en-US:
         update: Itinerary successfully updated.
         destroy: Itinerary successfully destroyed.
       error:
+        create: An error occurred while creating this itinerary.
+        update: An error occurred while updating this itinerary.
         destroy: An error occurred while destroying this itinerary.
         pink: Pink itineraries are visible only to women.
     sessions:
