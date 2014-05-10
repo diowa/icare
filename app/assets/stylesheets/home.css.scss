@@ -32,7 +32,7 @@ html,
     display: block;
     @include square(100%);
     content: "";
-    background: radial-gradient(fade-out(black, 0.9), fade-out(black, 0.6), fade-out(black, 0.3));
+    background: radial-gradient(fade-out(black, 0.95), fade-out(black, 0.59), fade-out(black, 0.36));
   }
 }
 
@@ -44,12 +44,13 @@ html,
   text-align: center;
   vertical-align: middle;
   color: white;
+  text-shadow: 0 1px 1px fade-out(black, 0.1);
+
   h1,
   h2,
   a,
   small {
     color: white;
-    text-shadow: 0 1px 1px fade-out(black, 0.1);
   }
   h1 {
     font-family: "Pacifico";
