@@ -1,10 +1,10 @@
-- model_class = @feedback.class
+- title Feedback.model_name.human
 .container
   .page-header
-    %h1=t '.title', default: model_class.model_name.human
+    %h1= yield :title
 
   %p
-    %strong= model_class.human_attribute_name(:user_id) + ':'
+    %strong #{User.model_name.human}:
     %br
     - if @feedback.user
       = @feedback.user_name
@@ -12,15 +12,15 @@
       %em
         \#Former User #{@feedback.user_id}
   %p
-    %strong= model_class.human_attribute_name(:type) + ':'
+    %strong #{Feedback.human_attribute_name(:type)}:
     %br
     = @feedback.type
   %p.pre-line><
-    %strong><= model_class.human_attribute_name(:message) + ':'
+    %strong>< #{Feedback.human_attribute_name(:message)}:
     %br
     ~ @feedback.message.strip.gsub(/\r/, '')
   %p
-    %strong= model_class.human_attribute_name(:url) + ':'
+    %strong #{Feedback.human_attribute_name(:url)}:
     %br
     = link_to @feedback.url, @feedback.url
   .btn-toolbar

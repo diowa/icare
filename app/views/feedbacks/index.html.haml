@@ -1,7 +1,8 @@
+- title Feedback.model_name.human(count: :lot)
 .container
   = render 'shared/flash_messages'
   .page-header
-    %h1=t '.title', default: Feedback.model_name.human(count: :lot)
+    %h1= yield :title
     .btn-toolbar
       = link_to t('helpers.links.new'), new_feedback_path, class: 'btn btn-primary'
       - if params[:hide_fixed]
