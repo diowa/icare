@@ -98,9 +98,12 @@ html,
   font-size: $font-size-small;
 }
 
+.featurettes {
+  margin-bottom: $line-height-computed;
+}
+
 .featurette {
   padding: 20px 0;
-  margin-bottom: $line-height-computed;
   &:nth-child(even) {
     background-color: $flat-ui-clouds;
   }
