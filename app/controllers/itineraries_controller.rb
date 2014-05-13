@@ -1,7 +1,8 @@
 class ItinerariesController < ApplicationController
 
-  skip_before_filter :require_login, only: [:show, :search]
+  skip_before_filter :authenticate_user!, only: [:show]
 
+  before_filter :set_itinerary, only: [:show]
   before_filter :check_gender, only: [:show]
 
   before_filter :check_permissions
@@ -17,7 +18,7 @@ class ItinerariesController < ApplicationController
   def show
     @conversation = @itinerary.conversations.find_or_initialize_by(user_ids: [current_user.id, @itinerary.user.id]) if current_user
     @reference = current_user.references.find_or_initialize_by(itinerary_id: @itinerary.id) if current_user
-    session[:redirect_to] = itinerary_path(@itinerary) unless logged_in?
+    session[:redirect_to] = itinerary_path(@itinerary) unless user_signed_in?
   end
 
   def create
@@ -44,13 +45,8 @@ class ItinerariesController < ApplicationController
 
   def destroy
     @itinerary = current_user.itineraries.find params[:id]
-    if @itinerary.destroy
-      redirect_to itineraries_user_path(current_user), flash: { success: t('flash.itineraries.success.destroy') }
-    else
-      redirect_to itineraries_user_path(current_user), flash: { error: t('flash.itineraries.error.destroy') }
-    end
-  rescue
-    redirect_to itineraries_user_path(current_user), flash: { error: t('flash.itineraries.error.destroy') }
+    @itinerary.destroy
+    redirect_to itineraries_user_path(current_user), flash: { success: t('flash.itineraries.success.destroy') }
   end
 
   def search
@@ -61,10 +57,13 @@ class ItinerariesController < ApplicationController
   def check_permissions
   end
 
-  def check_gender
+  def set_itinerary
     @itinerary = Itinerary.find params[:id]
+  end
+
+  def check_gender
     return unless @itinerary.pink?
-    if !logged_in?
+    if !user_signed_in?
       redirect_to root_path
     elsif current_user.male?
       redirect_to :dashboard, flash: { error: t('flash.itineraries.error.pink') }

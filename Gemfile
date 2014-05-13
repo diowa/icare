@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.1.2'
 gem 'rails', '3.2.18'
 
 # Servers
@@ -22,6 +22,9 @@ gem 'mongoid_geospatial'
 gem 'mongoid_slug'
 gem 'validates_timeliness'
 gem 'strong_parameters'
+
+# Authentication framework
+gem 'devise'
 
 # Geospatial data library
 gem 'rgeo'
@@ -56,6 +59,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -75,7 +79,6 @@ group :test do
   gem 'mongoid-rspec'
   gem 'selenium-webdriver'
   gem 'rspec'
-  gem 'rspec-rails'
   gem 'simplecov', require: false
   gem 'webmock', require: false
 end
@@ -83,17 +86,15 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'autoprefixer-rails'
   gem 'coffee-rails'
   gem 'compass-rails'
   gem 'haml_assets'
   gem 'handlebars_assets'
   gem 'i18n-js'
   gem 'jquery-turbolinks'
-  gem 'less-rails'
   gem 'sass-rails'
-  gem 'therubyracer'
-  gem 'turbolinks'
-  gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', ref: '61c14a7a853abefcaa9e6878ade5a48a6856fb55'
+  gem 'twbs_sass_rails'
   gem 'uglifier'
 end
 

@@ -1,6 +1,6 @@
 - title t('.title')
-.row
-  .span12
-    = render 'shared/flash_messages'
+.container
+  = render 'shared/flash_messages'
+  .page-header
     %h1= yield :title
-  .span12= render 'itineraries/table', itineraries: @itineraries, edit: true
+  = render 'itineraries/table', itineraries: @itineraries, edit: true

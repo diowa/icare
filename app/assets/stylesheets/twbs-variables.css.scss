@@ -1,0 +1,82 @@
+/* Override Bootstrap variables here
+ * Example: $brand-primary: navy;
+ */
+
+/* New variables
+   ========================================================================== */
+
+/* Flat UI Palettes */
+$flat-ui-turquoise:     #1abc9c;
+$flat-ui-green-sea:     #16a085;
+
+$flat-ui-emerald:       #2ecc71;
+$flat-ui-nephritis:     #27ae60;
+
+$flat-ui-peter-river:   #3498db;
+$flat-ui-belize-hole:   #2980b9;
+
+$flat-ui-amethyst:      #9b59b6;
+$flat-ui-wisteria:      #8e44ad;
+
+$flat-ui-wet-asphalt:   #34495e;
+$flat-ui-midnight-blue: #2c3e50;
+
+$flat-ui-wet-asphalt:   #34495e;
+$flat-ui-midnight-blue: #2c3e50;
+
+$flat-ui-sun-flower:    #f1c40f;
+$flat-ui-orange:        #f39c12;
+
+$flat-ui-carrot:        #e67e22;
+$flat-ui-pumpkin:       #d35400;
+
+$flat-ui-alizarin:      #e74c3c;
+$flat-ui-pomegranate:   #c0392b;
+
+$flat-ui-clouds:        #ecf0f1;
+$flat-ui-silver:        #bdc3c7;
+
+$flat-ui-concrete:      #95a5a6;
+$flat-ui-asbestos:      #7f8c8d;
+
+/* Colors */
+$brand-facebook: #3b5998;
+$brand-icare: #3D7098;
+$pink: #c3325f;
+
+/* Bootstrap variables override
+   ========================================================================== */
+
+// Brand colors
+// -------------------------
+
+$brand-primary:         $brand-icare;
+$brand-success:         $flat-ui-nephritis;
+$brand-warning:         $flat-ui-orange;
+$brand-danger:          $flat-ui-pomegranate;
+$brand-info:            $flat-ui-peter-river;
+
+$link-color:            $flat-ui-belize-hole;
+$link-hover-color:      darken($link-color, 15%);
+
+$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-color: $brand-primary;
+$headings-font-weight: 300;
+
+$navbar-height: 40px;
+$navbar-default-bg: lighten($flat-ui-clouds, 5%);
+$navbar-default-brand-color: $link-color;
+$navbar-default-link-color: $link-color;
+
+$navbar-default-toggle-hover-bg: transparent;
+$navbar-default-toggle-icon-bar-bg: #333;
+$navbar-default-toggle-border-color: transparent;
+
+$tooltip-bg: $flat-ui-midnight-blue;
+
+$modal-backdrop-opacity:      .6;
+
+$page-header-border-color: transparent;
+
+/* Do not edit below this line */
+@import "twbs/bootstrap/variables";

@@ -5,14 +5,16 @@ describe Itinerary do
   let(:female_user) { FactoryGirl.create :user, gender: 'female' }
   let(:itinerary) { FactoryGirl.create :itinerary }
 
-  it "caches driver gender and verification status before create" do
-    female_verified_user = FactoryGirl.create :user, gender: 'female', facebook_verified: true
-    itinerary = FactoryGirl.create :itinerary, user: female_verified_user
-    expect(itinerary.driver_gender).to eq 'female'
-    expect(itinerary.verified).to be_true
+  context "before create" do
+    it "caches driver gender and verification status" do
+      female_verified_user = FactoryGirl.create :user, gender: 'female', facebook_verified: true
+      itinerary = FactoryGirl.create :itinerary, user: female_verified_user
+      expect(itinerary.driver_gender).to eq 'female'
+      expect(itinerary.verified).to be_true
+    end
   end
 
-  describe 'return_date_validator' do
+  context '.return_date_validator' do
     let(:invalid_itinerary) { FactoryGirl.build :itinerary, leave_date: Time.now + 1.day, return_date: Time.now - 1.day, round_trip: true }
 
     it "adds an error on the return_date field if it's before leave_date" do
@@ -29,7 +31,7 @@ describe Itinerary do
     end
   end
 
-  describe 'driver_is_female' do
+  context '.driver_is_female' do
     let(:invalid_pink_itinerary) { FactoryGirl.build :itinerary, user: male_user, pink: true }
     let(:valid_pink_itinerary) { FactoryGirl.build :itinerary, user: female_user, pink: true }
 
@@ -44,7 +46,7 @@ describe Itinerary do
     end
   end
 
-  describe '.to_s' do
+  context '.to_s' do
     it "returns itinerary's title" do
       expect(itinerary.to_s).to eq itinerary.title
     end
@@ -77,7 +79,7 @@ describe Itinerary do
       expect(built_itinerary.overview_polyline).to eq itinerary.overview_polyline
     end
 
-    describe 'inside_bounds' do
+    context '.inside_bounds' do
 
       before do
         APP_CONFIG.itineraries.set :geo_restricted, true
@@ -126,13 +128,13 @@ describe Itinerary do
       end
     end
 
-    describe '.static_map' do
+    context '.static_map' do
       it "returns a url of the itinerary's static map" do
         expect(itinerary.static_map).to eq URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&sensor=false&markers=color:green|label:B|#{itinerary.end_location.to_latlng_a.join(",")}&markers=color:green|label:A|#{itinerary.start_location.to_latlng_a.join(",")}&path=enc:#{itinerary.overview_polyline}")
       end
     end
 
-    describe '.to_latlng_array' do
+    context '.to_latlng_array' do
       it "converts Point in latitude, longitude array" do
         latlng_start_location_a = itinerary.start_location.to_latlng_a
         expect(itinerary.start_location.to_latlng_a.class).to be Array
@@ -142,7 +144,7 @@ describe Itinerary do
       end
     end
 
-    describe '.to_latlng_hash' do
+    context '.to_latlng_hash' do
       it "converts Point in lat: latitude, lng: longitude hash" do
         latlng_start_location_hash = itinerary.start_location.to_latlng_hash
         expect(latlng_start_location_hash.class).to be Hash

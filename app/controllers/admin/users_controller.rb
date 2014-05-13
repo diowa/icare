@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::BaseController
+  before_filter :set_user, only: [:login_as, :ban, :unban]
   before_filter :prevent_autoban, only: [:ban, :unban]
 
   def index
@@ -6,9 +7,7 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def login_as
-    user = User.find params[:id]
-    session[:user_id] = user.id.to_s
-    redirect_to :dashboard
+    sign_in_and_redirect :user, @user
   end
 
   def ban
@@ -28,8 +27,11 @@ class Admin::UsersController < Admin::BaseController
   end
 
   private
-  def prevent_autoban
+  def set_user
     @user = User.find params[:id]
+  end
+
+  def prevent_autoban
     redirect_to admin_users_path, flash: { error: t('flash.admin.users.error.ban') } if @user == current_user
   end
 end

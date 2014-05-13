@@ -22,7 +22,6 @@ it-IT:
     form:
       error: Correggi i seguenti errori
     links:
-      share_on_facebook_timeline: Condividi su Facebook
       new: Nuovo
       confirm: Sei sicuro?
       show: Mostra
@@ -49,6 +48,7 @@ it-IT:
       show_on_map: Mostra sulla mappa
       facebook_verified: Verificato su Facebook
 
+  meta_title: "Piattaforma Open Source di Carpooling: %{appname}"
   meta_description: "%{appname} è una piattaforma open source per il carpooling. Condividi i tuoi itinerari, risparmia soldi e guadagna amici."
 
   login: Accedi
@@ -128,6 +128,8 @@ it-IT:
         update: Itinerario aggiornato con successo.
         destroy: Itinerario eliminato con successo.
       error:
+        create: Si è verificato un errore durante la creazione dell'itinerario.
+        update: Si è verificato un errore durante l'aggiornamento dell'itinerario.
         destroy: Si è verificato un errore durante l'eliminazione dell'itinerario.
         pink: Gli itinerari rosa sono visibili solo dalle donne.
     sessions:
@@ -138,7 +140,6 @@ it-IT:
       error:
         create: Si è verificato un errore durante la creazione del messaggio.
     errors:
-      not_authenticated: Effettua prima l'accesso.
       not_allowed: Non hai i permessi per accedere a questa pagina
 
   shared:
@@ -146,14 +147,15 @@ it-IT:
       account_settings: Impostazioni account
       admin_users: Gestione utenti
       language: Lingua
-      no_new_messages: Non ci sono nuovi messaggi
-      see_all_messages: Mostra tutti
     footer:
       message: La riservatezza non è garantita in questo stato di sviluppo
+    turbolinks_spinner:
+      loading: Loading...
 
   pages:
     home:
       tagline: "Condividi l'asfalto e risparmia."
+      os_carpooling_platform: "La Piattaforma Open Source di Carpooling"
       learn_more: "Continua a leggere"
       what_is_appname: "Cos'è %{appname}?"
       main_features: "Caratteristiche Principali"
@@ -168,7 +170,7 @@ it-IT:
       help_environment_title: "Ecosostenibile"
       help_environment_content: "Meno auto, meno traffico, meno stress e nuovi compagni di avventure! Rendi più piacevoli i tuoi spostamenti e nel contempo aiuti l'ambiente."
       open_source_title: "Open Source"
-      open_source_content: "Il %{source_code_link} di %{appname} è a disposizione di tutti su github, la più vasta comunità open source al mondo."
+      open_source_content: "Il %{source_code_link} di %{appname} è a disposizione di tutti su GitHub, la più vasta comunità open source al mondo."
       source_code: "codice sorgente"
       signin_terms: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
       demo_mode: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."
@@ -189,8 +191,9 @@ it-IT:
     banned:
       title: Account sospeso
       you_were_banned: Sei stato sospeso!
+      banned_description_html: Contatta il nostro staff se pensi che ci sia stato un errore.
     itineraries:
-      title: I miei itinerari
+      title: I tuoi itinerari
     dashboard:
       title: Cruscotto
       reminder: Promemoria
@@ -263,12 +266,13 @@ it-IT:
     index:
       title: Cerca itinerari
     show:
-      app_user: "Un utente di %{appname}"
       contact: "Contatta %{user}"
       expenses_to_share: Costi da dividere
-      leave_reference: Lascia una referenza
+      send_reference: Invia una referenza
       report_itinerary: "Segnala questo itinerario"
       login_to_contact: "Accedi per contattare questo utente"
+    header:
+      app_user: "Un utente di %{appname}"
       smoking:
         allowed: Si fuma a bordo
         forbidden: Vietato fumare
@@ -311,7 +315,6 @@ it-IT:
       leave_time: Ora andata
       return_time: Ora ritorno
       edit_all_times: Modifica tutti gli orari insieme
-      fuel_help_text: "Il percorso è di {km} km. Considerando un consumo medio di %{avg_consumption} €/km, il costo stimato è di {est}.00 €."
       more_accurate_data: "Vuoi dati più accurati per il tuo veicolo?"
       pink_help: Gli itinerari rosa possono essere creati solo dalle donne e sono visibili solo alle donne.
 
@@ -371,6 +374,16 @@ it-IT:
   javascript:
     no_itineraries_found: Nessun itinerario trovato
     an_error_occurred: Ops! Si è verificato un errore nella ricerca degli itinerari
+    fuel_help_text: "Il percorso è di %{km} km. Considerando un consumo medio di %{avg_consumption} €/km, il costo stimato è di %{est}.00 €."
     not_found: Percorso non trovato
     zero_results: Nessun risultato
     setup_route_first: Calcola prima il percorso
+    notifications:
+      conversations:
+        title: Messaggi
+        see_all: Mostra tutti
+        no_new: Non ci sono nuovi messaggi
+      notifications:
+        title: Notifiche
+        see_all: Mostra tutte
+        no_new: Non ci sono nuove notifiche

@@ -1,5 +1,10 @@
 Icare::Application.routes.draw do
 
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
+  end
+
   root to: 'pages#home'
 
   resources :conversations, only: [:show, :new, :create, :update, :index] do
@@ -16,7 +21,7 @@ Icare::Application.routes.draw do
 
   resources :notifications, only: :index
 
-  resources :users, constraints: { id: /[A-Za-z0-9\.]+/ }, only: [:show, :edit, :update, :destroy] do
+  resources :users, constraints: { id: /[A-Za-z0-9\.]+/ }, only: [:show, :update, :destroy] do
     get :itineraries, on: :member
     resources :references, only: [:show, :new, :create, :update, :index]
   end
@@ -31,14 +36,6 @@ Icare::Application.routes.draw do
 
   mount Resque::Server, at: "/resque" if defined?(Resque::Server)
 
-  # Sessions
-  resources :sessions, only: [:create, :destroy]
-
-  match 'auth/:provider', to: 'sessions#new', as: :auth_at_provider
-  match 'auth/:provider/callback', to: 'sessions#create'
-  match 'auth/failure', to: redirect('/')
-  match 'signout', to: 'sessions#destroy', as: :logout
-
   # Root route aliases
   get :dashboard, to: 'users#dashboard'
   get :settings, to: 'users#settings'
@@ -50,4 +47,5 @@ Icare::Application.routes.draw do
   get :terms, to: 'pages#terms'
   get :demo_terms, to: 'pages#demo_terms'
   get :fbjssdk_channel, to: 'pages#fbjssdk_channel'
+  post :report_uri, to: 'pages#report_uri'
 end

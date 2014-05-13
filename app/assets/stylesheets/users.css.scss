@@ -1,0 +1,19 @@
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
+
+.facebook-verified {
+  color: $brand-success;
+  font-size: 1.2em;
+}
+
+.user-blockquote {
+  position: relative;
+  border: none;
+  padding: 0;
+}
+
+.facebook-verified-blockquote {
+  border-color: $brand-success;
+  font-size: $font-size-base;
+  padding: 0 10px;
+}

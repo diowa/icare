@@ -1,43 +1,38 @@
 - title t('.title')
-- if @itinerary.errors.any?
+.container
+  - if @itinerary.errors.any?
+    .alert.alert-block.alert-danger.fade.in
+      %button{ type: 'button', class: 'close', data: { dismiss: 'alert' } } &times;
+      %h4.alert-heading= t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
+      = t('errors.template.body')
+      %ul
+        - @itinerary.errors.full_messages.each do |message|
+          %li= message
   .row
-    .span12
-      .alert.alert-block.alert-error.fade.in
-        %button{ type: 'button', class: 'close', data: { dismiss: 'alert' } } &times;
-        %h4.alert-heading= t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
-        = t('errors.template.body')
-        %ul
-          - @itinerary.errors.full_messages.each do |message|
-            %li= message
-.row
-  #wizard-step-1-title.span6.itinerary-step.active
-    %h3.no-margin
-      = t('.plan_route')
-  #wizard-step-2-title.span6.itinerary-step.hidden-phone
-    %h3.no-margin
-      = t('.insert_details_and_confirm')
-.spacer
-= bootstrap_form_for @itinerary, validate: true do |f|
-  #wizard-step-1-content{ data: { step: 1 } }= render 'route_step', f: f
-  #wizard-step-2-content.hide{ data: { step: 2 } }
-    .row
-      .span4
-        = image_tag transparent_gif_image_data, class: 'google-static-map', id: 'itinerary-preview-image', alt: ''
-      .span8
-        %h1.itinerary-title
-          %small= Itinerary.human_attribute_name :start_address
-          %span#itinerary-preview-from
-          %small= Itinerary.human_attribute_name :end_address
-          %span#itinerary-preview-to
-    .spacer
-    = render 'form', f: f
-    .spacer
-    .row
-      .span12.text-center
-        = share_on_facebook_timeline_checkbutton(f)
-  .form-actions.pagination-centered
-    = f.hidden_field :route
-    = f.hidden_field :via_waypoints
-    = button_tag t('.previous_step'), type: 'button', class: 'btn btn-large hide', name: 'back_button', id: 'wizard-prev-step-button', disabled: true
-    = f.submit t('.next_step'), type: 'button', class: 'btn btn-large btn-primary', name: 'next_button', id: 'wizard-next-step-button', disabled: false
-    = f.submit t('.confirm_and_share'), class: 'btn btn-large btn-success hide', id: 'new_itinerary_submit', disabled: true, disable_with: t('helpers.disable_with')
+    .col-sm-6
+      #wizard-step-1-title.itinerary-step.active
+        %h3= t('.plan_route')
+    .col-sm-6
+      #wizard-step-2-title.itinerary-step.hidden-xs
+        %h3= t('.insert_details_and_confirm')
+  = bootstrap_form_for @itinerary, validate: true do |f|
+    .form-group
+      #wizard-step-1-content{ data: { step: 1 } }= render 'route_step', f: f
+      #wizard-step-2-content{ data: { step: 2 } }
+        .row
+          .col-sm-4
+            = image_tag transparent_gif_image_data, class: 'img-responsive google-static-map', id: 'itinerary-preview-image', alt: ''
+          .col-sm-8
+            %h1.itinerary-title
+              %small= Itinerary.human_attribute_name :start_address
+              %span#itinerary-preview-from
+              %small= Itinerary.human_attribute_name :end_address
+              %span#itinerary-preview-to
+        = render 'form', f: f
+        .text-center= share_on_facebook_timeline_checkbutton(f)
+    .form-group.text-center
+      = f.hidden_field :route
+      = f.hidden_field :via_waypoints
+      = button_tag t('.previous_step'), type: 'button', class: 'btn btn-lg btn-default', name: 'back_button', id: 'wizard-prev-step-button', disabled: true
+      = f.submit t('.next_step'), type: 'button', class: 'btn btn-lg btn-primary', name: 'next_button', id: 'wizard-next-step-button', disabled: false
+      = f.submit t('.confirm_and_share'), class: 'btn btn-lg btn-primary', id: 'new_itinerary_submit', disabled: true, disable_with: t('helpers.disable_with')

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ConversationBuild do
-  describe 'conversation' do
+  context '.conversation' do
     let(:driver) { FactoryGirl.create :user }
     let(:passenger) { FactoryGirl.create :user }
     let(:itinerary) { FactoryGirl.create :itinerary, user: driver }

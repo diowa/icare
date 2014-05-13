@@ -1,13 +1,9 @@
 class PagesController < ApplicationController
 
-  skip_before_filter :require_login
+  skip_before_filter :authenticate_user!
 
   def home
-    if logged_in?
-      redirect_to :dashboard
-    else
-      render layout: false
-    end
+    redirect_to :dashboard if user_signed_in?
   end
 
   def fbjssdk_channel

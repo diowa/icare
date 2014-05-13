@@ -59,7 +59,7 @@ class Itinerary
     self.errors.add(:pink, :driver_must_be_female) unless user.female?
   end
 
-  set_callback(:create, :before) do
+  before_create do
     self.driver_gender = user.gender
     self.verified = user.facebook_verified
     true

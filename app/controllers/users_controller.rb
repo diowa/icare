@@ -6,9 +6,6 @@ class UsersController < ApplicationController
     @user = find_user params[:id]
   end
 
-  def edit
-  end
-
   def update
     if @user.update_attributes(permitted_params.user)
       redirect_to :settings, flash: { success: t('flash.users.success.update') }
@@ -18,12 +15,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if current_user.destroy
-      session[:user_id] = nil
-      redirect_to root_path, flash: { success: t('flash.users.success.destroy') }
-    else
-      redirect_to dashboard_path, flash: { error: t('flash.users.error.destroy') }
-    end
+    current_user.destroy
+    session[:user_id] = nil
+    redirect_to root_path, flash: { success: t('flash.users.success.destroy') }
   end
 
   def dashboard

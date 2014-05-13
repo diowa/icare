@@ -22,12 +22,11 @@ en-US:
     form:
       error: Fix the following errors
     links:
-      share_on_facebook_timeline: Share on Facebook
       new: New
       confirm: Are you sure?
       show: Show
       edit: Edit
-      destroy: Destroy
+      destroy: Delete
       user:
         ban: Ban
         unban: Unban
@@ -49,7 +48,8 @@ en-US:
       show_on_map: Show on map
       facebook_verified: Verified on Facebook
 
-  meta_description: "%{appname} is an open source carpooling platform. Share your itineraries, save money and earn friends."
+  meta_title: "Open Source Carpooling Platform: %{appname}"
+  meta_description: "Share your itineraries, save money and earn friends."
 
   login: Log in
   login_with_facebook: Login with Facebook
@@ -128,6 +128,8 @@ en-US:
         update: Itinerary successfully updated.
         destroy: Itinerary successfully destroyed.
       error:
+        create: An error occurred while creating this itinerary.
+        update: An error occurred while updating this itinerary.
         destroy: An error occurred while destroying this itinerary.
         pink: Pink itineraries are visible only to women.
     sessions:
@@ -138,7 +140,6 @@ en-US:
       error:
         create: An error occurred while creating this message.
     errors:
-      not_authenticated: Please login first.
       not_allowed: You don't have permissions to access this page.
 
   shared:
@@ -146,14 +147,15 @@ en-US:
       account_settings: Account Settings
       admin_users: Manage Users
       language: Language
-      no_new_messages: No new messages
-      see_all_messages: See All
     footer:
       message: Privacy is not guaranteed at this stage of development
+    turbolinks_spinner:
+      loading: Loading...
 
   pages:
     home:
       tagline: "Street to share, money to save."
+      os_carpooling_platform: "The Open Source Carpooling Platform"
       learn_more: "Learn more"
       what_is_appname: "What is %{appname}?"
       main_features: "Main Features"
@@ -168,7 +170,7 @@ en-US:
       help_environment_title: "Eco-friendly"
       help_environment_content: "Less cars, less traffic, less stress and new companions of adventures! Make your travel more enjoyable and help the environment at the same time."
       open_source_title: "Open Source"
-      open_source_content: "The %{source_code_link} of %{appname} is available to everyone on github, the world's largest open source community."
+      open_source_content: "The %{source_code_link} of %{appname} is available to everyone on GitHub, the world's largest open source community."
       source_code: "source code"
       signin_terms: "By clicking \"Sign In\", you agree to %{terms_link} of %{appname} and that you have read and understand our %{policy_link}."
       demo_mode: "This is a demo application. By clicking on \"Sign In\" you agree to our %{demo_terms_link}."
@@ -189,6 +191,7 @@ en-US:
     banned:
       title: Suspended account
       you_were_banned: You were banned!
+      banned_description_html: Contact our staff if you think there was a mistake.
     calculator:
       fuel_type: Fuel type
       fuel_diesel: Diesel
@@ -208,22 +211,10 @@ en-US:
       new_itinerary: New itinerary
       search_itineraries: Search itineraries
       your_itineraries: Your itineraries
-      new_messages:
-        zero: No new messages
-        one: "%{count} new message"
-        other: "%{count} new messages"
-      new_notifications:
-        zero: No notifications
-        one: "%{count} notification"
-        other: "%{count} notifications"
-      new_references:
-        zero: No new references
-        one: "%{count} new reference"
-        other: "%{count} new references"
       latest_itineraries: Latest Itineraries
       by: by
     itineraries:
-      title: My itineraries
+      title: Your itineraries
     show:
       member_since: "Member since %{date}"
       see_all: See All
@@ -263,12 +254,13 @@ en-US:
     index:
       title: Search itineraries
     show:
-      app_user: "An user of %{appname}"
       contact: "Contact %{user}"
       expenses_to_share: Expenses to share
-      leave_reference: Leave a reference
+      send_reference: Send a reference
       report_itinerary: "Report this itinerary"
       login_to_contact: "Log in to contact this user"
+    header:
+      app_user: "A user of %{appname}"
       smoking:
         allowed: Smoking allowed
         forbidden: Smoking forbidden
@@ -308,7 +300,6 @@ en-US:
       leave_time: Leave time
       return_time: Return time
       edit_all_times: Edit all times
-      fuel_help_text: "The route is {km} km long. Considering an average consumption of %{avg_consumption} €/km, the estimate cost is {est}.00 €."
       more_accurate_data: "Need more accurate data for your vehicle?"
       pink_help: Pink itineraries can be created only by women and are visible only to women.
 
@@ -368,6 +359,16 @@ en-US:
   javascript:
     no_itineraries_found: No itineraries found
     an_error_occurred: Ops! An error occurred while searching for itineraries.
+    fuel_help_text: "The route is %{km} km long. Considering an average consumption of %{avg_consumption} €/km, the estimate cost is %{est}.00 €."
     not_found: Route not found
     zero_results: No results
     setup_route_first: Setup the route first
+    notifications:
+      conversations:
+        title: Messages
+        see_all: See all
+        no_new: No new messages
+      notifications:
+        title: Notifications
+        see_all: See all
+        no_new: No new messages

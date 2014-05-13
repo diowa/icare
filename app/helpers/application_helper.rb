@@ -5,12 +5,13 @@ module ApplicationHelper
   end
 
   def yield_or_default(section, default = '')
-    content_for?(section) ? content_for(section) + (" | #{APP_CONFIG.app_name}" unless (logged_in? || content_for(section) == APP_CONFIG.app_name)) : default
+    content_for?(section) ? content_for(section) + (" | #{APP_CONFIG.app_name}" unless (user_signed_in? || content_for(section) == APP_CONFIG.app_name)) : default
   end
 
   def twitterized_type(type)
     case type
     when :alert then 'warning'
+    when :error then 'danger'
     when :notice then 'info'
     else type.to_s
     end

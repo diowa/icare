@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'References' do
-  POSITIVE_ICON = 'icon-thumbs-up'
-  NEGATIVE_ICON = 'icon-thumbs-down'
+  POSITIVE_ICON = 'span.fa.fa-thumbs-up'
+  NEGATIVE_ICON = 'span.fa.fa-thumbs-down'
 
   let(:driver) { FactoryGirl.create :user }
   let(:passenger) { FactoryGirl.create :user }
@@ -10,20 +10,22 @@ describe 'References' do
 
   def login_as_driver
     driver.update_attributes uid: '123456', username: 'johndoe'
-    visit '/auth/facebook'
+
+    visit user_omniauth_authorize_path(provider: :facebook)
   end
 
   def login_as_passenger
     passenger.update_attributes uid: '123456', username: 'johndoe'
-    visit '/auth/facebook'
+
+    visit user_omniauth_authorize_path(provider: :facebook)
   end
 
   it "allow passengers to send references" do
     login_as_passenger
-
     body = 'Very good driver'
 
     visit new_user_reference_path(passenger, itinerary_id: itinerary.id)
+
     fill_in 'reference_body', with: body
     choose('reference_rating_1')
 
@@ -51,12 +53,13 @@ describe 'References' do
     references[2].save
 
     visit user_references_path(driver)
+
     expect(page).to have_css('tbody > tr', count: 3)
     driver.itineraries.each_with_index do |itinerary, index|
       row = find(:xpath, "//a[text()='#{references[index].outgoing.body}']/../..")
       expect(row).to_not be_nil
-      expect(row).to have_css "i.#{POSITIVE_ICON}" if references[index].outgoing.rating == 1
-      expect(row).to have_css "i.#{NEGATIVE_ICON}" if references[index].outgoing.rating == -1
+      expect(row).to have_css POSITIVE_ICON if references[index].outgoing.rating == 1
+      expect(row).to have_css NEGATIVE_ICON if references[index].outgoing.rating == -1
     end
   end
 
@@ -69,6 +72,7 @@ describe 'References' do
     driver.reload
 
     visit user_reference_path(driver, driver.references.first)
+
     fill_in 'reference_body', with: 'Thanks'
     choose('reference_rating_1')
 

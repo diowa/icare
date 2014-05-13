@@ -16,7 +16,7 @@ if google?
       $.extend true, @options =
        infoWindowContent: null
        image: 'http://placehold.it/50x50'
-       cssClasses: 'markers-home'
+       cssClasses: ''
        type: 'sprite'
        imageOverlay: null
       , opts
@@ -28,9 +28,9 @@ if google?
 
       switch @options.type
         when 'user_profile_picture'
-          div.setAttribute 'class', "#{@options.cssClasses} arrow_box"
-          div.style.width = '27px'
-          div.style.height = '27px'
+          div.setAttribute 'class', "#{@options.cssClasses} arrow-box"
+          div.style.width = '29px'
+          div.style.height = '29px'
           img = document.createElement 'img'
           img.setAttribute 'width', '25px'
           img.setAttribute 'height', '25px'

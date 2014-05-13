@@ -26,7 +26,7 @@ setItinerary = (route) ->
   $('#result').show()
   route_km = (Number) route.legs[0].distance.value / 1000
   route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
-  $('#fuel-help-text').text $('#fuel-help').data('text').replace("{km}", route_km.toFixed(2)).replace("{est}", Math.ceil(route_gasoline))
+  $('#fuel-help-text').text I18n.t('javascript.fuel_help_text', { km: route_km.toFixed(2), est: Math.ceil(route_gasoline), avg_consumption: $('#fuel-help').data('avg-consumption') })
   $('#fuel-help').show()
   $('#itinerary_fuel_cost').val Math.ceil(route_gasoline)
 
@@ -64,10 +64,10 @@ wizardPrevStep = ->
     $('#wizard-next-step-button').prop('disabled', false).show()
     $('#new_itinerary_submit').prop('disabled', true).hide()
 
-    $("#wizard-step-#{step}-title").addClass('hidden-phone').removeClass 'active'
+    $("#wizard-step-#{step}-title").addClass('hidden-xs').removeClass 'active'
 
     $("#wizard-step-#{step}-title")
-      .removeClass('hidden-phone').addClass('active')
+      .removeClass('hidden-xs').addClass('active')
 
     --step
 
@@ -100,13 +100,13 @@ wizardNextStep = ->
 
   $("#wizard-step-#{step}-content").fadeOut ->
     $("#wizard-step-#{step}-title")
-      .removeClass('active').addClass('hidden-phone')
+      .removeClass('active').addClass('hidden-xs')
 
     ++step
 
     if step is lastStep
       lastStepInit()
-    $("#wizard-step-#{step}-title").removeClass('hidden-phone').addClass 'active'
+    $("#wizard-step-#{step}-title").removeClass('hidden-xs').addClass 'active'
 
     $("#wizard-step-#{step}-content").fadeIn ->
       $('#new_itinerary').enableClientSideValidations() # Enable validation for new fields
@@ -228,11 +228,7 @@ initItineraryNew = ->
     else
       $('#daily').fadeOut ->
         $('#single').fadeIn()
-  $('#itinerary_round_trip').change ->
-    status = $(this).prop 'checked'
-    $('select[id^="itinerary_return_date"]').prop 'disabled', !status
 
-# jQuery Turbolinks
 $ ->
-  if $('#new_itinerary')[0]?
+  if google? && $('#new_itinerary')[0]?
     initItineraryNew()

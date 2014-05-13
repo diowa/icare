@@ -9,6 +9,10 @@ SimpleConfig.for :application do
   set :google_analytics_id, ENV['GOOGLE_ANALYTICS_ID']
   set :google_maps_api_key, ENV['GOOGLE_MAPS_API_KEY']
 
+  group :devise do
+    set :secret_key, ENV['DEVISE_SECRET_KEY']
+  end
+
   group :facebook do
     # NOTE: If you don't want to use 'FACEBOOK_APP_ID' as variable name,
     # edit 'assets/javascripts/fbjssdk.js.coffee' too

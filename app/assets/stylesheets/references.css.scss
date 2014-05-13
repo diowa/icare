@@ -1,0 +1,15 @@
+@import "twbs-variables";
+@import "twbs/bootstrap/mixins";
+
+.didntwrite {
+  margin-left: 10px;
+}
+
+.outgoing-reference-cell {
+  margin-left: 65px;
+}
+
+.incoming-reference-cell {
+  min-height: 50px;
+  margin-bottom: 15px;
+}

@@ -1,6 +1,4 @@
 class UserMailer < ActionMailer::Base
-
-  default from: APP_CONFIG.mailer.from
 =begin
   # Example
   def activation_success_email(user)

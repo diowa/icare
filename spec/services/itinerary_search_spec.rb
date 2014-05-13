@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ItinerarySearch do
-  describe 'itineraries' do
+  context '.itineraries' do
     let(:male_user) { FactoryGirl.create :user, gender: 'male' }
     let(:female_user) { FactoryGirl.create :user, gender: 'female' }
     let(:search_params) {
@@ -12,7 +12,7 @@ describe ItinerarySearch do
     }
 
     it "rescues on errors" do
-      itineraries = ItinerarySearch.new({}, male_user).itineraries
+      itineraries = ItinerarySearch.new({ start_location_lng: Hash }, male_user).itineraries
       expect(itineraries).to be_empty
     end
 

@@ -1,9 +1,9 @@
 - title t('.title')
-.row
-  .span12
+.container
+  .page-header
     %h1= yield :title
-  .span12
-    %table.table.table-striped
+  .table-responsive
+    %table.table
       %tbody
         - @notifications.each do |notification|
           %tr

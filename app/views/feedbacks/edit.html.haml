@@ -1,5 +1,5 @@
-- model_class = @feedback.class
-.row
-  .span12
-    %h1=t '.title', default: t('helpers.titles.edit', model: model_class.model_name.human, default: "Edit #{model_class.model_name.human}")
-    = render "form"
+- title t 'helpers.titles.edit', model: Feedback.model_name.human
+.container
+  .page-header
+    %h1= yield :title
+  = render 'form'
