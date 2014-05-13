@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.11.1
+
+* Fixed coveralls
+
 ## 0.11.0
 
 * Bootstrap 3
