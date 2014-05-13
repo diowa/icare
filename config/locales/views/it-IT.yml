@@ -22,7 +22,6 @@ it-IT:
     form:
       error: Correggi i seguenti errori
     links:
-      share_on_facebook_timeline: Condividi su Facebook
       new: Nuovo
       confirm: Sei sicuro?
       show: Mostra
