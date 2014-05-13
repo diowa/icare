@@ -1,3 +1,8 @@
+if ENV['CI']
+  require 'coveralls'
+  Coveralls.wear! 'rails'
+end
+
 require 'simplecov'
 SimpleCov.command_name 'Rpec'
 SimpleCov.start 'rails'
