@@ -2,6 +2,11 @@
 
 ## 0.11.1
 
+* Removed unneeded gems
+* Updated gems
+
+## 0.11.1
+
 * Fixed coveralls
 
 ## 0.11.0
