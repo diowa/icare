@@ -82,8 +82,6 @@ mongoid_slug is licensed under the MIT License
 
 newrelic_rpm is licensed by New Relic
 
-nokogiri is licensed under the MIT License
-
 omniauth-facebook is licensed under the MIT License
 
 pry is licensed under the MIT License
@@ -99,8 +97,6 @@ rabl is licensed under the MIT License
 rails_12factor is licensed under the 2-clause BSD License
 
 resque is licensed under the MIT License
-
-rest-client is licensed under the MIT License
 
 rspec is licensed under the MIT License
 
