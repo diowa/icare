@@ -1,6 +1,11 @@
 # Changelog
 
-## 0.11.1
+## 0.11.3
+
+* Fixed changelog
+* Updated gems
+
+## 0.11.2
 
 * Removed unneeded gems
 * Updated gems
