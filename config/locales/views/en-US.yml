@@ -63,6 +63,8 @@ en-US:
   terms: Terms
   demo_terms: Demo Terms
 
+  former_user: A former user
+
   last_modified: "Last modified: %{date}"
 
   save: Save
@@ -305,8 +307,8 @@ en-US:
 
   feedbacks:
     index:
-      new: New
       hide_fixed: Hide fixed
+      new: New
       show_fixed: Show fixed
 
   notifications:
