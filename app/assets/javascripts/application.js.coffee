@@ -41,9 +41,6 @@
 window.icare = window.icare || {}
 icare = window.icare
 
-I18n.defaultLocale = '<%= I18n.default_locale %>'
-I18n.locale = $('html').attr 'lang'
-
 String::capitalize = ->
   this.replace /(?:^|\s)\S/g, (c) ->
     c.toUpperCase()
@@ -53,3 +50,6 @@ String::lpad = (padString, length) ->
   while str.length < length
     str = padString + str
   str
+
+$ ->
+  I18n.locale = $('html').attr 'lang'
