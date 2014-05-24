@@ -1,7 +1,3 @@
-###global Handlebars:false, I18n:false###
-
-'use strict'
-
 Handlebars.registerHelper 'toLowerCase', (string) ->
   return '' unless string
   new Handlebars.SafeString string.toLowerCase()

@@ -7,10 +7,6 @@ Itineraries
 
 # From https://google-developers.appspot.com/maps/customize_ae458c7692ac994187feb6f58834b6af.frame
 
-###global $:false, google:false, I18n:false###
-
-'use strict'
-
 window.icare = window.icare || {}
 icare = window.icare
 

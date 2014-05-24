@@ -1,7 +1,3 @@
-###global google:false###
-
-'use strict'
-
 window.icare = window.icare || {}
 icare = window.icare
 

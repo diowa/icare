@@ -6,11 +6,10 @@
   %p
     %strong #{User.model_name.human}:
     %br
-    - if @feedback.user
-      = @feedback.user_name
+    - if @feedback.user?
+      = link_to @feedback.user_name, user_path(@feedback.user)
     - else
-      %em
-        \#Former User #{@feedback.user_id}
+      %span.text-muted= t('former_user')
   %p
     %strong #{Feedback.human_attribute_name(:type)}:
     %br

@@ -24,7 +24,7 @@
 # require twbs/bootstrap/tab
 # require twbs/bootstrap/affix
 
-# JS TEMPLATES
+# HANDLEBARS TEMPLATES
 #= require handlebars.runtime
 
 # I18n
@@ -34,14 +34,9 @@
 # ALL THE REST
 #= require_tree .
 
-###global $:false, I18n:false###
-
-'use strict'
-
 window.icare = window.icare || {}
 icare = window.icare
 
-I18n.defaultLocale = '<%= I18n.default_locale %>'
 I18n.locale = $('html').attr 'lang'
 
 String::capitalize = ->

@@ -63,6 +63,8 @@ it-IT:
   terms: "Condizioni d'uso"
   demo_terms: "Condizioni d'uso della versione dimostrativa"
 
+  former_user: Un ex utente
+
   last_modified: "Ultima modifica: %{date}"
 
   save: Salva
@@ -320,8 +322,8 @@ it-IT:
 
   feedbacks:
     index:
-      new: Nuovo
       hide_fixed: Nascondi corretti
+      new: Nuovo
       show_fixed: Mostra corretti
 
   notifications:
