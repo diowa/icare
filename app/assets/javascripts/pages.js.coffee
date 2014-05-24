@@ -1,6 +1,3 @@
-###global $:false, ClientSideValidations:false###
-'use strict'
-
 # Prevent disabled links from being clicked
 # Bind to document, so this is compatible with turbolinks
 $(document).on 'click', 'a.disabled', (e) ->

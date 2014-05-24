@@ -1,7 +1,3 @@
-###global $:false, I18n:false, HandlebarsTemplates:false###
-
-'use strict'
-
 # Needed to follow links in popovers
 $(document).on 'click', '.popover a', (e) ->
   e.stopPropagation()
