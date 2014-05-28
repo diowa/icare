@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.12.1
+
+* Updated gems
+
 ## 0.12.0
 
 * Fixed feedbacks
