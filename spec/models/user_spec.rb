@@ -84,21 +84,21 @@ describe User do
 
   context '.male?' do
     it "answers true if user is male" do
-      expect(male_user.male?).to be_true
+      expect(male_user.male?).to be true
     end
 
     it "answers false if user is male" do
-      expect(female_user.male?).to be_false
+      expect(female_user.male?).to be false
     end
   end
 
   context '.female?' do
     it "answers true if user is female" do
-      expect(female_user.female?).to be_true
+      expect(female_user.female?).to be true
     end
 
     it "answers false if user is male" do
-      expect(male_user.female?).to be_false
+      expect(male_user.female?).to be false
     end
   end
 end
