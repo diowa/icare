@@ -7,8 +7,8 @@ describe Feedback do
       fixed_feedback = FactoryGirl.create :feedback, status: 'fixed'
       open_feedback = FactoryGirl.create :feedback
 
-      expect(fixed_feedback.fixed?).to be_true
-      expect(open_feedback.fixed?).to be_false
+      expect(fixed_feedback.fixed?).to be true
+      expect(open_feedback.fixed?).to be false
     end
   end
 end

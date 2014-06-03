@@ -14,7 +14,7 @@ describe ConversationBuild do
                                      ConversationBuild.new({ itinerary_id: itinerary.id, conversation: { sender: passenger } }, passenger, itinerary)]
       invalid_conversation_builds.each do |invalid_conversation_build|
         expect(-> { invalid_conversation_build.conversation }).to_not raise_error Exception
-        expect(invalid_conversation_build.conversation.valid?).to be_false if invalid_conversation_build.conversation
+        expect(invalid_conversation_build.conversation.valid?).to be false if invalid_conversation_build.conversation
       end
     end
 
@@ -23,11 +23,11 @@ describe ConversationBuild do
       conversation.save
       driver.reload
       passenger.reload
-      expect(conversation.valid?).to be_true
-      expect(conversation.users.include?(driver)).to be_true
-      expect(conversation.users.include?(passenger)).to be_true
-      expect(driver.conversations.include?(conversation)).to be_true
-      expect(passenger.conversations.include?(conversation)).to be_true
+      expect(conversation.valid?).to be true
+      expect(conversation.users.include?(driver)).to be true
+      expect(conversation.users.include?(passenger)).to be true
+      expect(driver.conversations.include?(conversation)).to be true
+      expect(passenger.conversations.include?(conversation)).to be true
     end
   end
 end

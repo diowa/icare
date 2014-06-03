@@ -9,8 +9,8 @@ describe Conversation do
   context '.unread?' do
     it "knows if there are unread messages for user" do
       conversation.messages << FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
-      expect(conversation.unread?(driver)).to be_true
-      expect(conversation.unread?(passenger)).to be_false
+      expect(conversation.unread?(driver)).to be true
+      expect(conversation.unread?(passenger)).to be false
     end
   end
 
@@ -21,15 +21,15 @@ describe Conversation do
       expect(conversation.users_except(passenger).size).to be 1
       expect(conversation.users_except(passenger).first).to be driver
       expect(conversation.users_except(nil).size).to be 2
-      expect(conversation.users_except(nil).include?(passenger)).to be_true
-      expect(conversation.users_except(nil).include?(driver)).to be_true
+      expect(conversation.users_except(nil).include?(passenger)).to be true
+      expect(conversation.users_except(nil).include?(driver)).to be true
     end
   end
 
   context '.mark_as_read' do
     it "marks the conversation as read for provided user" do
       conversation.mark_as_read(driver)
-      expect(conversation.unread?(driver)).to be_false
+      expect(conversation.unread?(driver)).to be false
     end
   end
 
@@ -50,7 +50,7 @@ describe Conversation do
       it "knows when message is unread" do
         message = FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
         conversation.messages << message
-        expect(message.unread?).to be_true
+        expect(message.unread?).to be true
       end
     end
   end
