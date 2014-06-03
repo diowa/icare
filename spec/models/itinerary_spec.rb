@@ -10,7 +10,7 @@ describe Itinerary do
       female_verified_user = FactoryGirl.create :user, gender: 'female', facebook_verified: true
       itinerary = FactoryGirl.create :itinerary, user: female_verified_user
       expect(itinerary.driver_gender).to eq 'female'
-      expect(itinerary.verified).to be_true
+      expect(itinerary.verified).to be true
     end
   end
 
@@ -18,14 +18,14 @@ describe Itinerary do
     let(:invalid_itinerary) { FactoryGirl.build :itinerary, leave_date: Time.now + 1.day, return_date: Time.now - 1.day, round_trip: true }
 
     it "adds an error on the return_date field if it's before leave_date" do
-      expect(invalid_itinerary.valid?).to be_false
+      expect(invalid_itinerary.valid?).to be false
       expect(invalid_itinerary.errors.size).to be 1
       expect(invalid_itinerary.errors.messages).to have_key :return_date
     end
 
     it "adds an error on the return_date field if it's blank" do
       nil_return_date_itinerary = FactoryGirl.build :itinerary, leave_date: Time.now + 1.day, return_date: nil, round_trip: true
-      expect(nil_return_date_itinerary.valid?).to be_false
+      expect(nil_return_date_itinerary.valid?).to be false
       expect(nil_return_date_itinerary.errors.size).to be 1
       expect(nil_return_date_itinerary.errors.messages).to have_key :return_date
     end
@@ -36,13 +36,13 @@ describe Itinerary do
     let(:valid_pink_itinerary) { FactoryGirl.build :itinerary, user: female_user, pink: true }
 
     it "adds an error on the pink field if the user is male" do
-      expect(invalid_pink_itinerary.valid?).to be_false
+      expect(invalid_pink_itinerary.valid?).to be false
       expect(invalid_pink_itinerary.errors.size).to be 1
       expect(invalid_pink_itinerary.errors.messages).to have_key :pink
     end
 
     it "does not add errors if the user is female" do
-      expect(valid_pink_itinerary.valid?).to be_true
+      expect(valid_pink_itinerary.valid?).to be true
     end
   end
 
@@ -65,7 +65,7 @@ describe Itinerary do
                              FactoryGirl.build(:itinerary, start_location: nil, end_location: nil, route: { bad: 'guy' }),
                              FactoryGirl.build(:itinerary, start_location: nil, end_location: nil, route: { start_location: 'bad' })]
       invalid_itineraries.each do |invalid_itinerary|
-        expect(invalid_itinerary.valid?).to be_false
+        expect(invalid_itinerary.valid?).to be false
         expect(invalid_itinerary.errors.messages).to have_key :start_location
         expect(invalid_itinerary.errors.messages).to have_key :end_location
       end
@@ -106,25 +106,25 @@ describe Itinerary do
                                                                     end_location:   { lat: 2, lng: 5 } }
 
       it "adds an error on the base objects if both start_position and end_position are outside bounds" do
-        expect(start_end_outside_bounds_itinerary.valid?).to be_false
+        expect(start_end_outside_bounds_itinerary.valid?).to be false
         expect(start_end_outside_bounds_itinerary.errors.size).to be 1
         expect(start_end_outside_bounds_itinerary.errors.messages).to have_key :base
       end
 
       it "adds an error on the base objects if start_position is outside bounds" do
-        expect(start_outside_bounds_itinerary.valid?).to be_false
+        expect(start_outside_bounds_itinerary.valid?).to be false
         expect(start_outside_bounds_itinerary.errors.size).to be 1
         expect(start_outside_bounds_itinerary.errors.messages).to have_key :base
       end
 
       it "adds an error on the base objects if end_position is outside bounds" do
-        expect(end_outside_bounds_itinerary.valid?).to be_false
+        expect(end_outside_bounds_itinerary.valid?).to be false
         expect(end_outside_bounds_itinerary.errors.size).to be 1
         expect(end_outside_bounds_itinerary.errors.messages).to have_key :base
       end
 
       it "does not add errors if the itinerary is inside bounds" do
-        expect(inside_bounds_itinerary.valid?).to be_true
+        expect(inside_bounds_itinerary.valid?).to be true
       end
     end
 

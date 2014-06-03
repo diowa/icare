@@ -17,25 +17,25 @@ describe FacebookDataCacher do
     end
 
     it "caches user data when it is nil" do
-      expect(FacebookDataCacher.perform user.id).to be_true
+      expect(FacebookDataCacher.perform user.id).to be true
     end
 
     it "caches user data when it is expired" do
-      expect(FacebookDataCacher.perform user.id).to be_true
-      expect(FacebookDataCacher.perform user.id).to be_false
+      expect(FacebookDataCacher.perform user.id).to be true
+      expect(FacebookDataCacher.perform user.id).to be nil
       Delorean.time_travel_to APP_CONFIG.facebook.cache_expiry_time.from_now
-      expect(FacebookDataCacher.perform user.id).to be_true
-      expect(FacebookDataCacher.perform user.id).to be_false
+      expect(FacebookDataCacher.perform user.id).to be true
+      expect(FacebookDataCacher.perform user.id).to be nil
     end
 
     it "doesn't cache user data when it is still valid" do
       user.facebook_data_cached_at = Time.now
-      expect(FacebookDataCacher.perform user.id).to be_false
+      expect(FacebookDataCacher.perform user.id).to be nil
     end
 
     it "doesn't fail when response is wrong" do
       stub_http_request(:post, /graph.facebook.com/).to_return code: 500
-      expect(FacebookDataCacher.perform user.id).to be_false
+      expect(FacebookDataCacher.perform user.id).to be nil
     end
   end
 end

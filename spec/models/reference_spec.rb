@@ -9,20 +9,20 @@ describe Reference do
   context '.not_by_myself' do
     it "adds an error on user field when a malicious user tries to reference himself" do
       invalid_reference = FactoryGirl.build :reference, user: driver, itinerary: itinerary
-      expect(invalid_reference.valid?).to be_false
+      expect(invalid_reference.valid?).to be false
       expect(invalid_reference.errors.messages).to have_key :user
     end
   end
 
   context '.unread?' do
     it "knows if a reference is unread" do
-      expect(reference.unread?).to be_true
+      expect(reference.unread?).to be true
     end
   end
 
   context '.driver?' do
     it "knows if the referencing user is the driver" do
-      expect(reference.driver?).to be_true
+      expect(reference.driver?).to be true
     end
   end
 

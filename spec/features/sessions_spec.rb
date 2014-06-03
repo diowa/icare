@@ -32,7 +32,7 @@ describe 'Sessions' do
 
     expect(user.email).to             eq OMNIAUTH_MOCKED_AUTHHASH.info.email
     expect(user.name).to              eq OMNIAUTH_MOCKED_AUTHHASH.info.name
-    expect(user.facebook_verified).to be_false
+    expect(user.facebook_verified).to be false
 
     expect(user.username).to  eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.username
     expect(user.gender).to    eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.gender

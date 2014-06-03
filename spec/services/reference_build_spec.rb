@@ -18,14 +18,14 @@ describe ReferenceBuild do
 
         invalid_reference = invalid_reference_build.reference
         expect(invalid_reference).to_not be_nil
-        expect(invalid_reference.valid?).to be_false
+        expect(invalid_reference.valid?).to be false
       end
     end
 
     it "builds reference starting from itinerary, user and outgoing" do
       reference = ReferenceBuild.new(params, passenger, itinerary).reference
       expect(reference).to_not be_nil
-      expect(reference.valid?).to be_true
+      expect(reference.valid?).to be true
     end
   end
 end

@@ -57,7 +57,7 @@ describe 'Feedbacks' do
     click_button I18n.t('helpers.submit.update', model: Feedback)
     expect(current_path).to eq feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.update')
-    expect(feedback.reload.fixed?).to be_true
+    expect(feedback.reload.fixed?).to be true
   end
 
   it "allows deletion by owners" do
