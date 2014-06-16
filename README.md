@@ -51,9 +51,10 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 A working demo is available at http://icare.diowa.com/
 
 
+
 ## Name and logo
 
-**icare** name and logo are temporary. **icare** is a summary of "I care", "Car" and "Environment". No copyright violation is intended.
+**icare** name and logo are temporary. **icare** is a portmanteau of "I care", "Car" and "Environment". No copyright violation is intended.
 
 
 
