@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.1
+
+* Updated gems
+* Improved README
+
 ## 0.13.0
 
 * RSpec 3
