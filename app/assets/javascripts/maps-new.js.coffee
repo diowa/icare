@@ -33,7 +33,7 @@ setItinerary = (route) ->
     end_location: [rleg.end_location.lng(), rleg.end_location.lat()]
     via_waypoints: []
     overview_path: []
-    overview_polyline: route.overview_polyline.points
+    overview_polyline: route.overview_polyline
 
   for waypoint in rleg.via_waypoints
     data.via_waypoints.push [waypoint.lng(), waypoint.lat()]
