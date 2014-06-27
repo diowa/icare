@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.2
+
+* Updated gems
+* Fixed unpermitted params
+
 ## 0.13.1
 
 * Updated gems
