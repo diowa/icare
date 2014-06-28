@@ -33,7 +33,7 @@ GEM
       builder
       multi_json
     arel (3.0.3)
-    autoprefixer-rails (2.0.0.20140622)
+    autoprefixer-rails (2.0.1.20140626)
       execjs
     bcrypt (3.1.7)
     better_errors (1.1.0)
@@ -124,7 +124,7 @@ GEM
     haml_assets (0.2.2)
       haml
       tilt
-    handlebars_assets (0.17)
+    handlebars_assets (0.17.1)
       execjs (>= 1.2.9)
       multi_json
       sprockets (>= 2.0.3)

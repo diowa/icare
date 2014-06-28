@@ -4,6 +4,7 @@
 
 * Updated gems
 * Fixed unpermitted params
+* Fixed route generation
 
 ## 0.13.1
 
