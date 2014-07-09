@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.13.4
+
+* Updated gems
+
 ## 0.13.3
 
 * Rails 3.2.19
