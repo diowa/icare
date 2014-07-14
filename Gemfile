@@ -91,7 +91,9 @@ group :assets do
   gem 'handlebars_assets'
   gem 'i18n-js'
   gem 'jquery-turbolinks'
-  gem 'sass-rails'
+  gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
+  gem 'sprockets-rails', '=2.0.0.backport1'
+  gem 'sprockets', '=2.2.2.backport2'
   gem 'twbs_sass_rails'
   gem 'uglifier'
 end

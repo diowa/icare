@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.13.5
+
+* Updated gems
+* Fixed issues with Bootstrap 3.2.0
+
 ## 0.13.4
 
 * Updated gems
