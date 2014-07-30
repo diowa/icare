@@ -73,6 +73,6 @@ module Icare
     end
 
     # Logging with Unicorn on Heroku
-    #config.logger = Logger.new(STDOUT)
+    # config.logger = Logger.new(STDOUT)
   end
 end

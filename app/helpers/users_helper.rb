@@ -2,9 +2,9 @@ module UsersHelper
 
   def facebook_profile_picture(user, type = :square)
     if user_signed_in?
-      "http://graph.facebook.com/#{user.class == User ? user.uid : user}/picture?type=#{type}"
+      "//graph.facebook.com/#{user.class == User ? user.uid : user}/picture?type=#{type}"
     else
-      "https://fbstatic-a.akamaihd.net/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif"
+      '//fbstatic-a.akamaihd.net/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif'
     end
   end
 
@@ -23,11 +23,11 @@ module UsersHelper
     when 0...10
       '10-'
     when 10...100
-      "#{friends/10}0+"
+      "#{friends / 10}0+"
     when 100...1000
-      "#{friends/100}00+"
+      "#{friends / 100}00+"
     when 1000...5000
-      "#{friends/1000}000+"
+      "#{friends / 1000}000+"
     else
       '5000'
     end

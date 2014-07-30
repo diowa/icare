@@ -5,7 +5,7 @@ class FacebookTimelinePublisher
     itinerary = Itinerary.find itinerary_id
     itinerary_url = Rails.application.routes.url_helpers.itinerary_url itinerary, host: APP_CONFIG.base_url
     user = itinerary.user
-    return unless user.has_facebook_permission?(:publish_stream)
+    return unless user.facebook_permission?(:publish_stream)
     user.facebook do |fb|
       if APP_CONFIG.facebook.restricted_group_id
         fb.put_wall_post itinerary.title,

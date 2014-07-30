@@ -74,7 +74,7 @@ initItineraryIndex = ->
 
   clearItineraries()
 
-  # TODO clean this mess... directions service again?
+  # TODO: clean this mess... directions service again?
   $('#itineraries-search').on 'click', ->
     return false unless $("#new_itineraries_search").isValid(window.ClientSideValidations.forms["new_itineraries_search"].validators)
     $("#error").hide()
@@ -119,7 +119,7 @@ initItineraryIndex = ->
         """
       false
     .on 'ajax:success', (evt, data, status, xhr) ->
-      # TODO fix browser back, it calls ajax:success many times
+      # FIXME: browser back calls ajax:success multiple times
       if data.length is 0
         $('#itineraries-thumbs').html """
           <h3 class="no-margin">#{I18n.t("javascript.no_itineraries_found")}</h3>

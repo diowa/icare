@@ -5,18 +5,18 @@ if defined?(Mongoid::Geospatial)
   module Mongoid
     module Geospatial
       class Point
-        alias :lat :y
-        alias :lng :x
+        alias_method :lat, :y
+        alias_method :lng, :x
 
-        # TODO this needs proper testing
+        # TODO: this needs proper testing
         def to_latlng_hsh
           { lat: y, lng: x }
         end
-        alias :to_latlng_hash :to_latlng_hsh
+        alias_method :to_latlng_hash, :to_latlng_hsh
 
-        # TODO this needs proper testing
+        # TODO: this needs proper testing
         def to_latlng_a
-          [ y, x ]
+          [y, x]
         end
       end
     end

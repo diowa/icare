@@ -23,7 +23,7 @@ class ConversationsController < ApplicationController
     if @conversation.save
       redirect_to conversation_path(@conversation)
     else
-      # TODO conversation may be nil
+      # TODO: conversation may be nil
       flash.now[:error] = @conversation.errors.full_messages
       render :new
     end
