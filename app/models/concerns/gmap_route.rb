@@ -33,13 +33,15 @@ module Concerns
       end
 
       def route=(param)
-        json_route = JSON.parse param
-        self.start_location    = json_route['start_location']
-        self.end_location      = json_route['end_location']
-        self.via_waypoints     = json_route['via_waypoints']
-        self.overview_path     = json_route['overview_path']
-        self.overview_polyline = json_route['overview_polyline']
+        json_route = JSON.parse(param)
+        self.start_location, self.end_location,
+          self.via_waypoints, self.overview_path,
+            self.overview_polyline = json_route.values_at('start_location', 'end_location', 'via_waypoints', 'overview_path', 'overview_polyline')
       rescue
+      end
+
+      def sample_path(precision = 10)
+        overview_path.in_groups(precision).map { |g| g.first }.insert(-1, overview_path.last).compact
       end
 
       def static_map(width = 640, height = 360)

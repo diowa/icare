@@ -65,8 +65,8 @@ describe 'Itineraries' do
       expect(page).to have_content '5.00'
       expect(page).to have_content '3.00'
       expect(page).to have_content Itinerary.human_attribute_name(:pink)
-      expect(page).to have_content I18n.t("itineraries.header.pets.allowed")
-      expect(page).to have_content I18n.t("itineraries.header.smoking.forbidden")
+      expect(page).to have_content I18n.t('itineraries.header.pets.allowed')
+      expect(page).to have_content I18n.t('itineraries.header.smoking.forbidden')
       expect(page).to have_content 'MUSIC VERY LOUD!!!'
     end
 

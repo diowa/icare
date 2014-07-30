@@ -52,7 +52,7 @@ loadFBsdk = ->
 $ ->
   if $('#fb-root')[0]?
     if FB?
-      # TODO fix
+      # FIXME
       FB.XFBML.parse($('body')[0], checkFBLoginStatus)
     else
       loadFBsdk()
