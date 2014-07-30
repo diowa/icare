@@ -45,7 +45,7 @@ class User
 
   paginates_per 25
 
-  index({ username_or_uid: 1 })
+  index(username_or_uid: 1)
 
   has_and_belongs_to_many :conversations
 
@@ -92,7 +92,7 @@ class User
   field :telephone
   field :admin, type: Boolean, default: false
 
-  #field :access_level, type: Integer, default: 0
+  # field :access_level, type: Integer, default: 0
   field :banned, type: Boolean, default: false
 
   field :send_email_messages, type: Boolean, default: false
@@ -101,7 +101,7 @@ class User
   validates :gender, inclusion: GENDER, allow_blank: true
   validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map(&:name).keys, allow_blank: true
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
-  #validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
+  # validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 
   def self.serialize_into_session(record)
     [record.to_key.map(&:to_s), record.authenticatable_salt]

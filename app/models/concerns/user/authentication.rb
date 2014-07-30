@@ -31,7 +31,7 @@ module Concerns
         rescue Redis::CannotConnectError
         end
 
-        def has_access?
+        def can_access?
           return true unless APP_CONFIG.facebook.restricted_group_id
           facebook do |fb|
             groups = fb.get_connections('me', 'groups')
@@ -61,7 +61,7 @@ module Concerns
         end
 
         def set_extra_raw_info_special_permissions(raw_info)
-          self.birthday = Date.strptime(raw_info.birthday, "%m/%d/%Y").at_midnight if raw_info.birthday
+          self.birthday = Date.strptime(raw_info.birthday, '%m/%d/%Y').at_midnight if raw_info.birthday
           self.work = raw_info.work || {}
           self.education = raw_info.education || {}
         end
@@ -76,7 +76,7 @@ module Concerns
       module ClassMethods
         def from_omniauth(auth)
           user = where(auth.slice(:provider, :uid)).first_or_initialize
-          return nil if user.new_record? && !user.has_access?
+          return nil if user.new_record? && !user.can_access?
           user.provider = auth.provider
           user.uid = auth.uid
           user.set_fields_from_omniauth auth

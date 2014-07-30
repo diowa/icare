@@ -5,7 +5,7 @@ class EmailSender
     user = User.find(user_id)
     mailer_class = Kernel.const_get(mailer)
     mail = mailer_class.send(method.to_sym, user)
-    if defined?(ActionMailer) and mailer_class.superclass == ActionMailer::Base
+    if defined?(ActionMailer) && mailer_class.superclass == ActionMailer::Base
       mail.deliver
     end
   end

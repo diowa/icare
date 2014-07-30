@@ -7,7 +7,7 @@ class FacebookDataCacher
       if user.cache_facebook_data?
         user.update_attribute :facebook_data_cached_at, Time.now.utc
       else
-        # TODO add to task rescheduling list
+        # TODO: add to task rescheduling list
       end
     end
   end

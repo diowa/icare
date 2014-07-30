@@ -37,7 +37,7 @@ class Itinerary
 
   slug :start_address, :end_address, reserve: %w(new)
 
-  #default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
+  # default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
 
   validates :description, length: { maximum: 1000 }, presence: true
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
@@ -63,11 +63,6 @@ class Itinerary
     self.driver_gender = user.gender
     self.verified = user.facebook_verified
     true
-  end
-
-  def sample_path(precision = 10)
-    # TODO move outside model
-    overview_path.in_groups(precision).map { |g| g.first }.insert(-1, overview_path.last).compact
   end
 
   def title

@@ -27,8 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_user(param)
-    # TODO Optimization?
-    User.find_by({ username_or_uid: param })
+    User.find_by(username_or_uid: param)
   end
 
   private
