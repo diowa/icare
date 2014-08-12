@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.1.2'
-gem 'rails', '3.2.19'
+gem 'rails', '4.1.4'
 
 # Servers
 gem 'thin'
@@ -19,9 +19,9 @@ gem 'client_side_validations-turbolinks'
 gem 'kaminari'
 gem 'mongoid'
 gem 'mongoid_geospatial'
+gem 'mongoid_paranoia'
 gem 'mongoid_slug'
 gem 'validates_timeliness'
-gem 'strong_parameters'
 
 # Authentication framework
 gem 'devise'
@@ -47,6 +47,17 @@ gem 'haml'
 gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'resque', require: 'resque/server' # Resque web interface
+
+# Assets
+gem 'autoprefixer-rails'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'haml_assets'
+gem 'handlebars_assets'
+gem 'i18n-js'
+gem 'jquery-turbolinks'
+gem 'sass-rails', '~> 4.0.3'
+gem 'twbs_sass_rails'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'bullet'
@@ -79,23 +90,6 @@ group :test do
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'webmock', require: false
-end
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'autoprefixer-rails'
-  gem 'coffee-rails'
-  gem 'compass-rails'
-  gem 'haml_assets'
-  gem 'handlebars_assets'
-  gem 'i18n-js'
-  gem 'jquery-turbolinks'
-  gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
-  gem 'sprockets-rails', '=2.0.0.backport1'
-  gem 'sprockets', '=2.2.2.backport2'
-  gem 'twbs_sass_rails'
-  gem 'uglifier'
 end
 
 group :staging, :production do
