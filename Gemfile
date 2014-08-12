@@ -14,8 +14,6 @@ gem 'simpleconfig'
 gem 'rabl'
 
 # ODM and related
-gem 'client_side_validations'
-gem 'client_side_validations-turbolinks'
 gem 'kaminari'
 gem 'mongoid'
 gem 'mongoid_geospatial'
@@ -57,6 +55,7 @@ gem 'i18n-js'
 gem 'jquery-turbolinks'
 gem 'sass-rails', '~> 4.0.3'
 gem 'twbs_sass_rails'
+gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do

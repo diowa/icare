@@ -7,8 +7,8 @@
 #= require jquery.ba-throttle-debounce
 
 # CLIENT SIDE VALIDATIONS
-#= require rails.validations
-#= require rails.validations.turbolinks
+# require rails.validations
+# require rails.validations.turbolinks
 
 # BOOTSTRAP
 #= require twbs/bootstrap/transition
