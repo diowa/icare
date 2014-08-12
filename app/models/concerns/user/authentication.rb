@@ -68,7 +68,7 @@ module Concerns
 
         def set_permissions
           facebook do |fb|
-            self.facebook_permissions = fb.get_connections('me', 'permissions')[0].to_a
+            self.facebook_permissions = fb.get_connections('me', 'permissions')[0]
           end
         end
       end

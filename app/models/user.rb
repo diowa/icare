@@ -60,7 +60,7 @@ class User
   field :uid
   field :oauth_token
   field :oauth_expires_at
-  field :facebook_permissions, type: Array, default: []
+  field :facebook_permissions, type: Hash, default: {}
 
   # Cached Facebook data
   field :facebook_friends, type: Array, default: []
