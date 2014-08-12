@@ -28,7 +28,7 @@ module Concerns
               end
             end
             if result.any?
-              self.facebook_friends = result[0] ? result[0] : []
+              self.facebook_friends = result[0] ? result[0].to_a : []
               self.facebook_favorites = result[1] ? result[1..-1].flatten : []
               return true
             end

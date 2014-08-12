@@ -63,8 +63,8 @@ class User
   field :facebook_permissions, type: Array, default: []
 
   # Cached Facebook data
-  field :facebook_friends, type: Hash, default: {}
-  field :facebook_favorites, type: Hash, default: {}
+  field :facebook_friends, type: Array, default: []
+  field :facebook_favorites, type: Array, default: []
   field :facebook_data_cached_at, type: DateTime, default: '2012-09-06'
 
   # Info
@@ -79,8 +79,8 @@ class User
 
   # More info requiring special permissions
   field :birthday, type: Date
-  field :work, type: Hash, default: {}
-  field :education, type: Hash, default: {}
+  field :work, type: Array, default: []
+  field :education, type: Array, default: []
 
   # Icare
   field :username_or_uid
