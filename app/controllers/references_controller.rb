@@ -1,8 +1,8 @@
 class ReferencesController < ApplicationController
 
-  before_filter :check_not_myself, only: [:new, :create]
+  before_action :check_not_myself, only: [:new, :create]
 
-  after_filter :mark_as_read, only: [:show]
+  after_action :mark_as_read, only: [:show]
 
   def index
     @user = find_user params[:user_id]

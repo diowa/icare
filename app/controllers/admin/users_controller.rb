@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
-  before_filter :set_user, only: [:login_as, :ban, :unban]
-  before_filter :prevent_autoban, only: [:ban, :unban]
+  before_action :set_user, only: [:login_as, :ban, :unban]
+  before_action :prevent_autoban, only: [:ban, :unban]
 
   def index
     @users = User.asc(:name).page params[:page]
