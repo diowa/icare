@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.14.0
+
+* Improved scopes
+* Improved itinerary search
+* Updated gems
+
 ## 0.13.6
 
 * Updated gems
