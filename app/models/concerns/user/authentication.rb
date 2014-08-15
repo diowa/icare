@@ -57,13 +57,13 @@ module Concerns
           self.username = raw_info.username
           self.gender = raw_info.gender
           self.bio = raw_info.bio
-          self.languages = raw_info.languages || {}
+          self.languages = raw_info.languages || []
         end
 
         def set_extra_raw_info_special_permissions(raw_info)
           self.birthday = Date.strptime(raw_info.birthday, '%m/%d/%Y').at_midnight if raw_info.birthday
-          self.work = raw_info.work || {}
-          self.education = raw_info.education || {}
+          self.work = raw_info.work || []
+          self.education = raw_info.education || []
         end
 
         def set_permissions
