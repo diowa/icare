@@ -129,25 +129,25 @@ describe 'Users' do
     it "highlights common languages" do
       user_with_common_languages = FactoryGirl.create :user, languages: [{ id: '106059522759137', name: 'English' }]
       visit user_path(user_with_common_languages)
-      expect(page).to have_xpath "//div[@class='tag common' and text()='#{I18n.t('users.show.language', language: 'English')}']"
+      expect(page).to have_xpath "//div[@class='tag tag-common' and text()='#{I18n.t('users.show.language', language: 'English')}']"
     end
 
     it "highlights common jobs" do
       user_with_common_works = FactoryGirl.create :user, work: [ { employer: { id: '100', name: 'First Inc.' }, start_date: '0000-00' } ]
       visit user_path(user_with_common_works)
-      expect(page).to have_xpath "//div[@class='tag common' and text()='First Inc.']"
+      expect(page).to have_xpath "//div[@class='tag tag-common' and text()='First Inc.']"
     end
 
     it "highlights common schools" do
       user_with_common_education = FactoryGirl.create :user, education: [{ school: { id: '300', name: 'A College' }, type: 'College' }]
       visit user_path(user_with_common_education)
-      expect(page).to have_xpath "//div[@class='tag common' and text()='A College']"
+      expect(page).to have_xpath "//div[@class='tag tag-common' and text()='A College']"
     end
 
     it "does not fail with detailed education" do
       user_with_detailed_education = FactoryGirl.create :user, education: [{"school"=>{"id"=>"301", "name"=>"A High School"}, "type"=>"High School", "year"=>{"id"=>"1", "name"=>"1999"}}, {"concentration"=>[{"id"=>"400", "name"=>"A concentration"}], "school"=>{"id"=>"300", "name"=>"A College"}, "type"=>"College", "year"=>{"id"=>"2", "name"=>"2003"}}]
       visit user_path(user_with_detailed_education)
-      expect(page).to have_xpath "//div[@class='tag common' and text()='A College']"
+      expect(page).to have_xpath "//div[@class='tag tag-common' and text()='A College']"
     end
 
     it "shows mutual friends" do
@@ -169,8 +169,8 @@ describe 'Users' do
       @user_with_common_friends = FactoryGirl.create :user,
                                                      facebook_favorites: [ { 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' } ]
       visit user_path(@user_with_common_friends)
-      expect(page).to have_xpath "//div[@class='tag common tag-sm' and text()='Common like']"
-      expect(page).to_not have_xpath "//div[@class='tag common tag-sm' and text()='Not a common like']"
+      expect(page).to have_xpath "//div[@class='tag tag-common tag-sm' and text()='Common like']"
+      expect(page).to_not have_xpath "//div[@class='tag tag-common tag-sm' and text()='Not a common like']"
     end
 
     context 'verified' do

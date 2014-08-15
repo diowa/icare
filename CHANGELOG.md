@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.14.1
+
+* Fixed Italian translation
+* Fixed common tags
+* Removed highlighting of age and gender
+
 ## 0.14.0
 
 * Improved scopes

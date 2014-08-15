@@ -10,10 +10,12 @@
     margin: 0 0 12px 5px;
     padding: $padding-small-vertical $padding-small-horizontal;
     background-color: $flat-ui-clouds;
+
     &.tag-sm {
       padding: $padding-small-vertical $padding-small-horizontal;
       font-size: $font-size-small;
     }
+
     &.tag-mutual-friend {
       position: relative;
       padding-left: 34px;
@@ -24,30 +26,39 @@
         left: 0;
       }
     }
+
     &.tag-clear,
     &.tag-facebook,
     &.tag-icare {
       clear: left;
     }
+
     &.tag-allowed,
+    &.tag-common,
     &.tag-facebook,
     &.tag-forbidden,
     &.tag-icare,
     &.tag-pink {
       color: white;
     }
-    &.tag-allowed, {
+
+    &.tag-allowed,
+    &.tag-common {
       background-color: $brand-success;
     }
+
     &.tag-facebook {
       background-color: $brand-facebook;
     }
+
     &.tag-forbidden {
       background-color: $brand-danger;
     }
+
     &.tag-icare {
       background-color: $brand-primary;
     }
+
     &.tag-pink {
       background-color: $pink;
     }
