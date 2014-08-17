@@ -152,7 +152,7 @@ it-IT:
     footer:
       message: La riservatezza non è garantita in questo stato di sviluppo
     turbolinks_spinner:
-      loading: Loading...
+      loading: Caricamento...
 
   pages:
     home:

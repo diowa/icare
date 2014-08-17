@@ -45,10 +45,6 @@ module UsersHelper
     html
   end
 
-  def check_common_field(user, field)
-    'common' if user != current_user && user.send(field) == current_user.send(field)
-  end
-
   def language_tags(user)
     return unless user.languages && user.languages.any?
     render_common_tags = (user != current_user)
@@ -103,6 +99,6 @@ module UsersHelper
   end
 
   def render_tag(tag_text, common, css_class = nil)
-    content_tag :div, tag_text, class: ['tag', ('common' if common), css_class].compact.join(' ')
+    content_tag :div, tag_text, class: ['tag', ('tag-common' if common), css_class].compact.join(' ')
   end
 end
