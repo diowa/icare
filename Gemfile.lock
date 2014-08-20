@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/tagliala/client_side_validations.git
+  revision: e431ba00e2d786f8782d13abf568d0b1e8fabaa5
+  branch: rails4
+  specs:
+    client_side_validations (3.2.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -58,6 +65,9 @@ GEM
     childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
     chronic (0.10.2)
+    client_side_validations-turbolinks (1.1.1)
+      client_side_validations (~> 3.2.0)
+      turbolinks (~> 1.1.1)
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -330,7 +340,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.2.2)
+    turbolinks (1.1.1)
       coffee-rails
     twbs_sass_rails (0.7.2)
       rails (>= 3.2.18)
@@ -369,6 +379,8 @@ DEPENDENCIES
   bullet
   byebug
   capybara
+  client_side_validations!
+  client_side_validations-turbolinks
   coffee-rails (~> 4.0.0)
   coveralls
   database_cleaner
