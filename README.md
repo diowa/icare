@@ -1,5 +1,5 @@
 # icare
-[![Build Status](https://secure.travis-ci.org/diowa/icare.png?branch=master)](https://travis-ci.org/diowa/icare) [![Dependency Status](https://gemnasium.com/diowa/icare.png)](https://gemnasium.com/diowa/icare) [![Code Climate](https://codeclimate.com/github/diowa/icare.png)](https://codeclimate.com/github/diowa/icare) [![Coverage Status](https://coveralls.io/repos/diowa/icare/badge.png?branch=master)](https://coveralls.io/r/diowa/icare)
+[![Build Status](https://secure.travis-ci.org/diowa/icare.svg?branch=master)](https://travis-ci.org/diowa/icare) [![Dependency Status](https://gemnasium.com/diowa/icare.svg)](https://gemnasium.com/diowa/icare) [![Code Climate](https://codeclimate.com/github/diowa/icare/badges/gpa.svg)](https://codeclimate.com/github/diowa/icare) [![Coverage Status](https://img.shields.io/coveralls/diowa/icare.svg?branch=master)](https://coveralls.io/r/diowa/icare?branch=master)
 
 
 **icare** is an open source [carpooling](http://en.wikipedia.org/wiki/Carpool) platform.
