@@ -1,11 +1,15 @@
 class ReferencesController < ApplicationController
 
+<<<<<<< HEAD
   before_action :check_not_myself, only: [:new, :create]
+=======
+  before_filter :set_user, only: [:index, :show, :update]
+  before_filter :check_not_myself, only: [:new, :create]
+>>>>>>> develop
 
   after_action :mark_as_read, only: [:show]
 
   def index
-    @user = find_user params[:user_id]
     @references = @user.references.desc(:updated_at).page params[:page]
   end
 
@@ -26,7 +30,6 @@ class ReferencesController < ApplicationController
   end
 
   def show
-    @user = find_user params[:user_id]
     @reference = @user.references.find params[:id]
     @itinerary = @reference.itinerary
   end
@@ -36,7 +39,6 @@ class ReferencesController < ApplicationController
     if @reference.build_outgoing(permitted_params.reference) && @reference.save
       redirect_to user_reference_path(current_user, @reference)
     else
-      @user = find_user params[:user_id]
       @itinerary = @reference.itinerary
       flash.now[:error] = @reference.errors.full_messages
       render :show
@@ -51,5 +53,9 @@ class ReferencesController < ApplicationController
 
   def mark_as_read
     @reference.update_attribute :read_at, Time.now.utc
+  end
+
+  def set_user
+    @user = find_user params[:user_id]
   end
 end

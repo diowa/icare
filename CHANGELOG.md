@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.2
+
+* Updated badges
+* Updated gems
+
 ## 0.14.1
 
 * Fixed Italian translation
