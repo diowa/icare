@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.14.3
+
+* Fix: Removed expired results from search (#22)
+* Improved references controller
+* Updated gems
+
 ## 0.14.2
 
 * Updated badges
