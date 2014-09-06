@@ -1,11 +1,7 @@
 class ReferencesController < ApplicationController
 
-<<<<<<< HEAD
-  before_action :check_not_myself, only: [:new, :create]
-=======
   before_filter :set_user, only: [:index, :show, :update]
   before_filter :check_not_myself, only: [:new, :create]
->>>>>>> develop
 
   after_action :mark_as_read, only: [:show]
 
