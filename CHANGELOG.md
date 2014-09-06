@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.14.3
+
+* Fix: Search doesn't show anymore expired results (#22)
+* Updated gems
+
 ## 0.14.2
 
 * Updated badges
