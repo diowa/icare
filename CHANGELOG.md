@@ -2,7 +2,8 @@
 
 ## 0.14.3
 
-* Fix: Search doesn't show anymore expired results (#22)
+* Fix: Removed expired results from search (#22)
+* Improved references controller
 * Updated gems
 
 ## 0.14.2
