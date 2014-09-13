@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.14.4
+
+* Improved application layout
+* Font Awesome 4.2.0
+* Updated gems
+
 ## 0.14.3
 
 * Fix: Removed expired results from search (#22)
