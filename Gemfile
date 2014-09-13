@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.1.2'
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.6'
 
 # Servers
 gem 'thin'
@@ -21,7 +21,7 @@ gem 'mongoid'
 gem 'mongoid_geospatial'
 gem 'mongoid_paranoia'
 gem 'mongoid_slug'
-gem 'validates_timeliness'
+gem 'jc-validates_timeliness'
 
 # Authentication framework
 gem 'devise'
