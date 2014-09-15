@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.15.0
+
+* Added Gitter badge to the README (#25)
+* Updated gems
+
 ## 0.14.4
 
 * Improved application layout
