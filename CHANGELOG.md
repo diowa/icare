@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.15.1
+
+* Ruby 2.1.3
+* Updated gems
+
 ## 0.15.0
 
 * Added Gitter badge to the README (#25)
