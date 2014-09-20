@@ -9,9 +9,6 @@
         %li= link_to t('how_it_works'), :how_it_works
         - unless APP_CONFIG.demo_mode
           %li= link_to t('terms'), :terms
-      %li
-        %span.fa.fa-github
-        = link_to 'Blacoin', APP_CONFIG.repository_url
       - if user_signed_in?
         %li
           %span.fa.fa-bullhorn
