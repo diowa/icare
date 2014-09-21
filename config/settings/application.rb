@@ -5,14 +5,14 @@
 # SET SENSITIVE DATA ONLY IN 'local.rb'
 
 SimpleConfig.for :application do
-  set :app_name, 'icare'
-  set :repository_url, 'http://github.com/diowa/icare'
+  set :app_name, 'blacoin'
+  set :repository_url, 'http://www.blacoin.com'
 
   set :available_locales, Hash[{ :"en-US" => 'English (US)',
                                  :"it-IT" => 'Italiano' }.sort_by { |_, native_name| native_name }]
 
-  set :demo_mode, true
-  set :base_url, '127.0.0.1:5000'
+  set :demo_mode, false
+  set :base_url, 'http://www.blacoin.com'
   set :secret_token, '197241fc4c041de6402aa732e0004c5401536237a1c39178005ddf9994695cfc71fb32b543f8fb216f272b416974e3ea3cece241278a40a8516291aec598a948'
   set :single_process_mode, true
 
@@ -64,7 +64,7 @@ SimpleConfig.for :application do
   end
 
   group :mailer do
-    set :from, "\"Icare\" <no-reply@i.care>"
+    set :from, "\"Icare\" <no-reply@blacoin.com>"
     set :host, '127.0.0.1'
 
     group :smtp_settings do
