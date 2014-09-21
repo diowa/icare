@@ -48,7 +48,7 @@ en-US:
       show_on_map: Show on map
       facebook_verified: Verified on Facebook
 
-  meta_title: "%{appname} :Carpooling Platform"
+  meta_title: "Carpooling Platform: %{appname}"
   meta_description: "Share your itineraries, save money and earn friends."
 
   login: Log in
