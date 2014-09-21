@@ -157,7 +157,7 @@ en-US:
   pages:
     home:
       tagline: "Street to share, money to save."
-      os_carpooling_platform: "The Carpooling Platform"
+      os_carpooling_platform: "The Open Source Carpooling Platform"
       learn_more: "Learn more"
       what_is_appname: "What is %{appname}?"
       main_features: "Main Features"
