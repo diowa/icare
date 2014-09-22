@@ -49,7 +49,7 @@ en-US:
       facebook_verified: Verified on Facebook
 
   meta_title: " Carpooling Platform: %{appname}"
-  meta_description: "Share your itineraries, save money and earn friends."
+  meta_description: "Share your itineraries, save money and earn friends!"
 
   login: Log in
   login_with_facebook: Login with Facebook
