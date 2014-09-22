@@ -1,14 +1,9 @@
-# icare
-[![Build Status](https://secure.travis-ci.org/diowa/icare.svg?branch=master)](https://travis-ci.org/diowa/icare) [![Dependency Status](https://gemnasium.com/diowa/icare.svg)](https://gemnasium.com/diowa/icare) [![Code Climate](https://codeclimate.com/github/diowa/icare/badges/gpa.svg)](https://codeclimate.com/github/diowa/icare) [![Coverage Status](https://img.shields.io/coveralls/diowa/icare.svg?branch=master)](https://coveralls.io/r/diowa/icare?branch=master)
-
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/diowa/icare?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-
-**icare** is an open source [carpooling](http://en.wikipedia.org/wiki/Carpool) platform.
+**Blacoin** is an open source [carpooling](http://en.wikipedia.org/wiki/Carpool) platform.
 
 Carpooling (also known as car-sharing, ride-sharing, lift-sharing and covoiturage), is the sharing of car journeys so that more than one person travels in a car.
 By having more people using one vehicle, carpooling reduces each person’s travel costs such as fuel costs, tolls, and the stress of driving. Carpooling is also seen as a more environmentally friendly and sustainable way to travel as sharing journeys reduces carbon emissions, traffic congestion on the roads, and the need for parking spaces. Authorities often encourage carpooling, especially during high pollution periods and high fuel prices. (From Wikipedia)
 
-**icare** uses the following technologies:
+**Blacoin** uses the following technologies:
 
 * [Ruby on Rails][1]
 * [Turbolinks][2]
@@ -49,26 +44,25 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [18]: http://github.com/rails/strong_parameters
  [19]: http://github.com/plataformatec/devise
 
-A working demo is available at http://icare.diowa.com/
+A working demo is available at http://www.blacoin.com/
 
 
 
 ## Name and logo
 
-**icare** name and logo are temporary. **icare** is a portmanteau of "I care", "Car" and "Environment". No copyright violation is intended.
+**Blacoin** name and logo are temporary. **Blacoin** is a portmanteau of "I care", "Car" and "Environment". No copyright violation is intended.
 
 
 
 ## Roadmap
 
-Immediate: Check out our [To Do](http://github.com/diowa/icare/wiki/To-Do) list.
 Long-term: TODO
 
 
 
 ## Internationalization (i18n)
 
-**icare** uses standard [Rails Internationalization (I18n) API](http://guides.rubyonrails.org/i18n.html). If you translated **icare** in your own language, make a pull request.
+**Blacoin** uses standard [Rails Internationalization (I18n) API](http://guides.rubyonrails.org/i18n.html). If you translated **Blacoin** in your own language, make a pull request.
 
 
 
@@ -80,27 +74,12 @@ More over, if your pull request contains patches or features, you must include r
 
 Editor preferences are available in the [editor config](.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
 
-If you are interested in feature development, we have priorities. Check out our [To Do](http://github.com/diowa/icare/wiki/To-Do) list.
-
-
-
-## Authors
-
-**Geremia Taglialatela**
-
-+ http://github.com/tagliala
-+ http://twitter.com/gtagliala
-
-**Cesidio Di Landa**
-
-+ http://github.com/cesidio
-+ http://twitter.com/cesid
 
 
 
 ## Copyright and license
 
-**icare** is licensed under the BSD 2-Clause License
+**Blacoin** is licensed under the BSD 2-Clause License
 
 Check the LICENSE file for more information
 
