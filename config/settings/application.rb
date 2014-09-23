@@ -8,8 +8,8 @@ SimpleConfig.for :application do
   set :app_name, 'Blacoin'
   set :repository_url, 'http://www.blacoin.com'
 
-  set :available_locales, Hash[{ :"en-US" => 'English (US)',
-                                 :"it-IT" => 'Italiano' }.sort_by { |_, native_name| native_name }]
+  set :available_locales, Hash[{ :"en-US" => 'English (US)'}.sort_by { |_, native_name| native_name }]
+  #  set :available_locales, Hash[{ :"en-US" => 'English (US)', :"it-IT" => 'Italiano' }.sort_by { |_, native_name| native_name }]
 
   set :demo_mode, false
   set :base_url, '127.0.0.1:5000'
