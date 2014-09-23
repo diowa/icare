@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
       = link_to user_signed_in? ? :dashboard : root_path, class: 'navbar-brand' do
-        = image_tag 'turtle_dark.svg', class: 'navbar-brand-logo'
+        = image_tag 'B.png', class: 'navbar-brand-logo'
         %span.hidden-xs= APP_CONFIG.app_name
     - if user_signed_in?
       = render 'shared/notifications'
