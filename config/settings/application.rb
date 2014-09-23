@@ -18,8 +18,8 @@ SimpleConfig.for :application do
 
   set :costs_calculation_service_link, 'http://servizi.aci.it/CKInternet/'
 
-  set :google_analytics_id, 73526326
-  set :google_maps_api_key, AIzaSyAOqKhzIt6GYQS7eplWxl1VadWMzJspwTo
+  set :google_analytics_id, nil
+  set :google_maps_api_key, nil
 
   group :devise do
     set :secret_key, 'eb72ea40d147d8cc0c87dda38b498f7650ccd9286d38dc220fb16d69d4a0623b12b6ca294e098420df506352470addf14aaf2dcff980aa49f1529578de500dda'
