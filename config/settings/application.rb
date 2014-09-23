@@ -9,7 +9,6 @@ SimpleConfig.for :application do
   set :repository_url, 'http://www.blacoin.com'
 
   set :available_locales, Hash[{ :"en-US" => 'English (US)', :"fr-FR" => 'French', :"ar-AR" => 'Arabic'  }.sort_by { |_, native_name| native_name }]
-  #  set :available_locales, Hash[{ :"en-US" => 'English (US)', :"it-IT" => 'Italiano' }.sort_by { |_, native_name| native_name }]
 
   set :demo_mode, false
   set :base_url, '127.0.0.1:5000'
@@ -29,7 +28,8 @@ SimpleConfig.for :application do
     set :namespace, 'FACEBOOK_NAMESPACE'
     set :app_id, 'FACEBOOK_APP_ID'
     set :secret, 'FACEBOOK_SECRET'
-    set :scope, 'email, publish_stream, user_birthday, user_about_me, user_education_history, user_interests, user_likes, user_religion_politics, user_work_history'
+    set :scope, 'publish_stream'
+    #set :scope, 'email, publish_stream, user_birthday, user_about_me, user_education_history, user_interests, user_likes, user_religion_politics, user_work_history'
     set :cache_expiry_time, 7.days
     # If set, only users of the following facebook group id will be able to use the application
     # It will automatically add 'user_groups' permission to facebook scope
