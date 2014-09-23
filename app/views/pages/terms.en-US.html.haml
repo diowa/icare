@@ -2,20 +2,17 @@
 .container
   .page-header
     %h1= yield :title
-    %h5.text-muted= t('last_modified', date: l(Date.parse('2012-09-01'), format: :long))
+    %h5.text-muted= t('last_modified', date: l(Date.parse('2014-09-22'), format: :long))
 
   %h3 Welcome to #{APP_CONFIG.app_name}
   %p
-    Thanks for using our service (“Service”).
+    Thanks for using our service (“Blacoin”).
   %p
     By using our Service you are agreeing to these terms. Please read them carefully.
 
   %h3 Using our Service
   %p
-    This is a demo application of the open source carpooling platform #{APP_CONFIG.app_name}.
-  %p
-    The source code is available at
-    = link_to 'http://github.com/diowa/icare', APP_CONFIG.repository_url
+    Blacoin is a carpooling platform.
 
   %h3 Privacy Protection
   %p
