@@ -64,7 +64,7 @@ SimpleConfig.for :application do
   end
 
   group :mailer do
-    set :from, "\"Icare\" <no-reply@i.care>"
+    set :from, "\"blacoin\" <no-reply@blacoin.com>"
     set :host, '127.0.0.1'
 
     group :smtp_settings do
