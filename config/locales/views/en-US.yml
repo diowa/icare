@@ -48,7 +48,7 @@ en-US:
       show_on_map: Show on map
       facebook_verified: Verified on Facebook
 
-  meta_title: "Open Source Carpooling Platform: %{appname}"
+  meta_title: "Carpooling Platform: %{appname}"
   meta_description: "Share your itineraries, save money and earn friends."
 
   login: Log in
@@ -157,7 +157,7 @@ en-US:
   pages:
     home:
       tagline: "Street to share, money to save."
-      os_carpooling_platform: "The Open Source Carpooling Platform"
+      os_carpooling_platform: "The Carpooling Platform"
       learn_more: "Learn more"
       what_is_appname: "What is %{appname}?"
       main_features: "Main Features"
