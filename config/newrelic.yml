@@ -1,11 +1,11 @@
 #
-# This file configures the New Relic Agent.  New Relic monitors
-# Ruby, Java, .NET, PHP, and Python applications with deep visibility and low overhead.
-# For more information, visit www.newrelic.com.
+# This file configures the New Relic Agent.  New Relic monitors Ruby, Java,
+# .NET, PHP, Python and Node applications with deep visibility and low
+# overhead.  For more information, visit www.newrelic.com.
 #
-# Generated June 03, 2013
+# Generated September 25, 2014
 #
-# This configuration file is custom generated for Barsoom
+# This configuration file is custom generated for covoituma Heroku
 
 
 # Here are the settings that are common to all environments
@@ -15,7 +15,7 @@ common: &default_settings
   # You must specify the license key associated with your New Relic
   # account.  This key binds your Agent's data to your account in the
   # New Relic service.
-  license_key: '<%= ENV["NEW_RELIC_LICENSE_KEY"] %>'
+  license_key: 'c0f42898e62e17a6dd7ccc58a878f7df2d17b8d7'
 
   # Agent Enabled (Ruby/Rails Only)
   # Use this setting to force the agent to run or not run.
@@ -42,7 +42,14 @@ common: &default_settings
   #       - Ajax Service
   #       - All Services
   #
-  app_name: <%= ENV["NEW_RELIC_APP_NAME"] %>
+  # Caution: If you change this name, a new application will appear in the New
+  # Relic user interface with the new name, and data will stop reporting to the
+  # app with the old name.
+  #
+  # See https://newrelic.com/docs/site/renaming-applications for more details
+  # on renaming your New Relic applications.
+  #
+  app_name: Blacoin
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
@@ -160,11 +167,6 @@ common: &default_settings
     # product levels.
     enabled: true
 
-    # Rails Only - tells error collector whether or not to capture a
-    # source snippet around the place of the error when errors are View
-    # related.
-    capture_source: true
-
     # To stop specific errors from reporting to New Relic, set this property
     # to comma-separated values.  Default is to ignore routing errors,
     # which are how 404's get triggered.
@@ -188,11 +190,9 @@ common: &default_settings
 
 development:
   <<: *default_settings
-  # Turn off communication to New Relic service in development mode (also
-  # 'enabled').
-  # NOTE: for initial evaluation purposes, you may want to temporarily
-  # turn the agent on in development mode.
-  monitor_mode: false
+  # Turn on communication to New Relic service in development mode
+  monitor_mode: true
+  app_name: Blacoin (Development)
 
   # Rails Only - when running in Developer Mode, the New Relic Agent will
   # present performance information on the last 100 transactions you have
@@ -200,9 +200,6 @@ development:
   # NOTE: There is substantial overhead when running in developer mode.
   # Do not use for production or load testing.
   developer_mode: true
-
-  # Enable textmate links
-  # textmate: true
 
 test:
   <<: *default_settings
@@ -224,4 +221,4 @@ production:
 staging:
   <<: *default_settings
   monitor_mode: true
-  app_name: <%= ENV["NEW_RELIC_APP_NAME"] %> (Staging)
+  app_name: Blacoin (Staging)
