@@ -28,7 +28,7 @@ SimpleConfig.for :application do
     set :namespace, 'FACEBOOK_NAMESPACE'
     set :app_id, 'FACEBOOK_APP_ID'
     set :secret, 'FACEBOOK_SECRET'
-    set :scope, 'publish_stream'
+    set :scope, 'publish_stream, email'
     #set :scope, 'email, publish_stream, user_birthday, user_about_me, user_education_history, user_interests, user_likes, user_religion_politics, user_work_history'
     set :cache_expiry_time, 7.days
     # If set, only users of the following facebook group id will be able to use the application
