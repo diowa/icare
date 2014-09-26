@@ -4,3 +4,4 @@
 # User-Agent: *
 # Disallow: /
 Sitemap: /sitemap.xml
+Sitemap: /sitemap.txt

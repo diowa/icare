@@ -1,0 +1,13 @@
+http://www.blacoin.com/
+http://www.blacoin.com/terms
+http://www.blacoin.com/policy
+http://www.blacoin.com/how_it_works
+http://www.blacoin.com/about
+http://www.blacoin.com/terms?locale=ar-AR
+http://www.blacoin.com/terms?locale=fr-FR
+http://www.blacoin.com/policy?locale=ar-AR
+http://www.blacoin.com/policy?locale=fr-FR
+http://www.blacoin.com/how_it_works?locale=ar-AR
+http://www.blacoin.com/how_it_works?locale=fr-FR
+http://www.blacoin.com/about?locale=ar-AR
+http://www.blacoin.com/about?locale=fr-FR
