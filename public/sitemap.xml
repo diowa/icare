@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>http://www.blacoin.com/</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/terms</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/policy</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/how_it_works</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/about</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/terms?locale=ar-AR</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/terms?locale=fr-FR</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/policy?locale=ar-AR</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/policy?locale=fr-FR</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/how_it_works?locale=ar-AR</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/how_it_works?locale=fr-FR</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/about?locale=ar-AR</loc>
+</url>
+<url>
+  <loc>http://www.blacoin.com/about?locale=fr-FR</loc>
+</url>
+</urlset>
