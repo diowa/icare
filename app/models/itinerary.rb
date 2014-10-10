@@ -21,7 +21,7 @@ class Itinerary
   field :num_people, type: Integer
   field :smoking_allowed, type: Boolean, default: false
   field :pets_allowed, type: Boolean, default: false
-  field :fuel_cost, type: Integer
+  field :fuel_cost, type: Integer, default: 0
   field :tolls, type: Integer, default: 0
   field :pink, type: Boolean, default: false
   field :round_trip, type: Boolean, default: false

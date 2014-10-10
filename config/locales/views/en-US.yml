@@ -1,4 +1,6 @@
 en-US:
+  lang_native_name: English (US)
+
   date:
     formats:
       full_day: ! '%A %B %e'
@@ -237,8 +239,8 @@ en-US:
       user_profile_details: Profile details are updated from Facebook after each login.
       vehicle_avg_consumption_help: Use a point to separate decimals. This value is used in the fuel cost estimate when creating a new itinerary.
       vehicle_avg_consumption_note: "Note: Write in this field the %{fuel} value of %{proportional_costs} table"
-      fuel: Carburante
-      proportional_costs: "COSTI PROPORZIONALI €/km"
+      fuel: Fuel
+      proportional_costs: "PROPORTIONAL COSTS %{fuel_currency}/km"
       km_costs_calculation_link: Calculate the kilometrical cost of your vehicle on the ACI website (Italian)
       send_email: Send an email when
       send_email_at_address: "We will send emails at the following address: %{email}"
@@ -361,7 +363,7 @@ en-US:
   javascript:
     no_itineraries_found: No itineraries found
     an_error_occurred: Ops! An error occurred while searching for itineraries.
-    fuel_help_text: "The route is %{km} km long. Considering an average consumption of %{avg_consumption} €/km, the estimate cost is %{est}.00 €."
+    fuel_help_text: "The route is %{km} km long. Considering an average consumption of %{avg_consumption} %{fuel_currency}/km, the estimate cost is %{est}%{currency}."
     not_found: Route not found
     zero_results: No results
     setup_route_first: Setup the route first

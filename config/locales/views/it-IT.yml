@@ -1,4 +1,6 @@
 it-IT:
+  lang_native_name: Italiano
+
   date:
     formats:
       full_day: ! '%A %e %B'
@@ -250,7 +252,7 @@ it-IT:
       vehicle_avg_consumption_help: Utilizza il punto per separare i decimali. Questo valore viene usato nella stima del costo carburante quando si crea un nuovo itinerario.
       vehicle_avg_consumption_note: "Nota: Riporta in questo modulo il valore %{fuel} della tabella %{proportional_costs}"
       fuel: Carburante
-      proportional_costs: "COSTI PROPORZIONALI €/km"
+      proportional_costs: "COSTI PROPORZIONALI %{fuel_currency}/km"
       km_costs_calculation_link: Calcola il costo chilometrico del tuo veicolo sul sito ACI
       send_email: Invia e-mail quando
       send_email_at_address: "Invieremo le e-mail al seguente indirizzo: %{email}"
@@ -376,7 +378,7 @@ it-IT:
   javascript:
     no_itineraries_found: Nessun itinerario trovato
     an_error_occurred: Ops! Si è verificato un errore nella ricerca degli itinerari
-    fuel_help_text: "Il percorso è di %{km} km. Considerando un consumo medio di %{avg_consumption} €/km, il costo stimato è di %{est}.00 €."
+    fuel_help_text: "Il percorso è di %{km} km. Considerando un consumo medio di %{avg_consumption} %{fuel_currency}/km, il costo stimato è di %{est}%{currency}."
     not_found: Percorso non trovato
     zero_results: Nessun risultato
     setup_route_first: Calcola prima il percorso

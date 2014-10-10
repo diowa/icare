@@ -84,7 +84,7 @@ class User
 
   # Icare
   field :username_or_uid
-  field :vehicle_avg_consumption, type: Float, default: (1.741*7.0/100.0).round(2)
+  field :vehicle_avg_consumption, type: Float, default: APP_CONFIG.fuel_consumption
 
   # Account
   field :locale

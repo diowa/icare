@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.16.0
+
+* Basic currency customization (Closes #27)
+* Removed unneeded locale settings
+* Updated gems
+
 ## 0.15.1
 
 * Ruby 2.1.3

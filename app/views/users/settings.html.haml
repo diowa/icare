@@ -11,10 +11,10 @@
     .form-group{ class: ('has-error' if @user.errors.include?(:vehicle_avg_consumption)) }
       = f.label :vehicle_avg_consumption, class: 'control-label col-sm-2'
       .col-sm-10
-        .input-group
+        .input-group.input-group-number
           = f.default_tag :text_field, :vehicle_avg_consumption, class: 'form-control input-number-sm'
           %span.input-group-addon>
-            &euro; / km
+            #{APP_CONFIG.fuel_currency}/km
         - if @user.errors.include?(:vehicle_avg_consumption)
           %span.help-block
             = @user.errors.messages[:vehicle_avg_consumption].join(', ')
@@ -23,10 +23,10 @@
           = link_to t('.km_costs_calculation_link'), APP_CONFIG.costs_calculation_service_link, target: '_blank'
           %br
           %small
-            = t('.vehicle_avg_consumption_note', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs'))).html_safe
+            = t('.vehicle_avg_consumption_note', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs', fuel_currency: APP_CONFIG.fuel_currency))).html_safe
     %legend= t('.application_settings')
     %fieldset
-      .form-group= f.select :locale, options_for_select(APP_CONFIG.available_locales.map { |code, native_name| [ native_name, code] }, @user.locale), {}, disabled: (APP_CONFIG.available_locales.size == 1)
+      .form-group= f.select :locale, options_for_select(I18n.available_locales.map { |locale| [ t('lang_native_name', locale: locale), locale] }, @user.locale), {}, disabled: (I18n.available_locales.one?)
       .form-group= f.time_zone_select :time_zone, nil, {}, html: { class: 'form-control' }
       .form-group
         .col-sm-10.col-sm-offset-2

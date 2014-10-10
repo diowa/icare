@@ -1,5 +1,5 @@
 !!!
-%html{ lang: I18n.locale.to_s }
+%html{ lang: I18n.locale.to_s, data: { currency: APP_CONFIG.currency, fuel_currency: APP_CONFIG.fuel_currency } }
   %head{ prefix: "og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# #{APP_CONFIG.facebook.namespace}: http://ogp.me/ns/fb/#{APP_CONFIG.facebook.namespace}#" }
     %title= yield_or_default :title, controller.action_name.titlecase
     %meta{ charset: 'utf-8' }

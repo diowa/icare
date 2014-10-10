@@ -50,12 +50,9 @@
   .form-group{ class: ('has-error' if @itinerary.errors.include?(:fuel_cost)) }
     = f.label :fuel_cost, class: 'control-label col-sm-2'
     .col-sm-10
-      .input-group
-        %span.input-group-addon>
-          €
-        = f.default_tag :text_field, :fuel_cost, class: 'form-control input-number-sm'
-        %span.input-group-addon>
-          \.00
+      .input-group.input-group-number
+        = f.default_tag :text_field, :fuel_cost, class: 'form-control'
+        %span.input-group-addon= APP_CONFIG.currency
       - if @itinerary.errors.include?(:fuel_cost)
         %span.help-inline
           = @itinerary.errors.messages[:fuel_cost].join(', ')
@@ -64,12 +61,9 @@
   .form-group{ class: ('has-error' if @itinerary.errors.include?(:tolls)) }
     = f.label :tolls, class: 'control-label col-sm-2'
     .col-sm-10
-      .input-group
-        %span.input-group-addon>
-          €
-        = f.default_tag :text_field, :tolls, class: 'form-control input-number-sm'
-        %span.input-group-addon>
-          \.00
+      .input-group.input-group-number
+        = f.default_tag :text_field, :tolls, class: 'form-control'
+        %span.input-group-addon= APP_CONFIG.currency
       - if @itinerary.errors.include?(:tolls)
         %span.help-inline
           = @itinerary.errors.messages[:tolls].join(', ')
