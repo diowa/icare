@@ -40,10 +40,10 @@
       {{/if}}
       %br
       %span.text-muted {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
-      {{fuel_cost}}.00 &euro;
+      {{currency fuel_cost}}
       %br
       %span.text-muted {{translate "mongoid.attributes.itinerary.tolls"}}:
-      {{tolls}}.00 &euro;
+      {{currency tolls}}
     .btn-toolbar
       = link_to '#', class: 'btn btn-xs btn-default show-itinerary-on-map' do
         %span.fa.fa-map-marker

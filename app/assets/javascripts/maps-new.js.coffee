@@ -22,7 +22,7 @@ setItinerary = (route) ->
   $('#result').show()
   route_km = (Number) route.legs[0].distance.value / 1000
   route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
-  $('#fuel-help-text').text I18n.t('javascript.fuel_help_text', { km: route_km.toFixed(2), est: Math.ceil(route_gasoline), avg_consumption: $('#fuel-help').data('avg-consumption') })
+  $('#fuel-help-text').text I18n.t('javascript.fuel_help_text', { km: route_km.toFixed(2), est: Math.ceil(route_gasoline), avg_consumption: $('#fuel-help').data('avg-consumption'), fuel_currency: $('html').data('fuelCurrency'), currency: $('html').data('currency') })
   $('#fuel-help').show()
   $('#itinerary_fuel_cost').val Math.ceil(route_gasoline)
 
