@@ -63,7 +63,6 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'bullet'
   gem 'byebug'
-  gem 'delorean'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry'

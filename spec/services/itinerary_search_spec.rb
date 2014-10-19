@@ -33,18 +33,20 @@ describe ItinerarySearch do
     end
 
     it "discards expired itineraries" do
-      Delorean.time_travel_to '2013-01-01'
-      FactoryGirl.create :itinerary, start_location: [0, 0], end_location: [1, 1], leave_date: '2013-01-02'
-      FactoryGirl.create :itinerary, start_location: [1, 1], end_location: [0, 0], leave_date: '2013-01-02', return_date: '2013-01-03', round_trip: true
+      travel_to '2013-01-01' do
+        FactoryGirl.create :itinerary, start_location: [0, 0], end_location: [1, 1], leave_date: '2013-01-02'
+        FactoryGirl.create :itinerary, start_location: [1, 1], end_location: [0, 0], leave_date: '2013-01-02', return_date: '2013-01-03', round_trip: true
 
-      valid_itinerary_1 = FactoryGirl.create :itinerary, start_location: [0, 0], end_location: [1, 1], leave_date: '2013-01-05'
-      valid_itinerary_2 = FactoryGirl.create :itinerary, start_location: [1, 1], end_location: [0, 0], leave_date: '2013-01-02', return_date: '2013-01-05', round_trip: true
-      Delorean.time_travel_to '2013-01-04'
+        valid_itinerary_1 = FactoryGirl.create :itinerary, start_location: [0, 0], end_location: [1, 1], leave_date: '2013-01-05'
+        valid_itinerary_2 = FactoryGirl.create :itinerary, start_location: [1, 1], end_location: [0, 0], leave_date: '2013-01-02', return_date: '2013-01-05', round_trip: true
 
-      itineraries = ItinerarySearch.new(search_params, male_user).itineraries
-      expect(itineraries.count).to be 2
-      expect(itineraries).to include valid_itinerary_1
-      expect(itineraries).to include valid_itinerary_2
+        travel_to '2013-01-04' do
+          itineraries = ItinerarySearch.new(search_params, male_user).itineraries
+          expect(itineraries.count).to be 2
+          expect(itineraries).to include valid_itinerary_1
+          expect(itineraries).to include valid_itinerary_2
+        end
+      end
     end
 
     it "hides pink itineraries to male users" do

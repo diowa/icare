@@ -42,9 +42,5 @@ RSpec.configure do |config|
   config.color = true
   config.formatter = :documentation
 
-  config.include Delorean
-
-  config.before(:each) do
-    back_to_the_present
-  end
+  config.include ActiveSupport::Testing::TimeHelpers
 end
