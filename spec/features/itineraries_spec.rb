@@ -92,9 +92,9 @@ describe 'Itineraries' do
         expect(page).to have_content itinerary.title
         expect(page).to have_content itinerary.user.to_s
         expect(page).to have_content I18n.l(itinerary.leave_date, format: :long)
-        expect(page).to have_content I18n.l(itinerary.leave_date.to_time, format: :time_only)
+        expect(page).to have_content I18n.l(itinerary.leave_date.to_time.utc, format: :time_only)
         expect(page).to have_content I18n.l(itinerary.return_date, format: :long)
-        expect(page).to have_content I18n.l(itinerary.return_date.to_time, format: :time_only)
+        expect(page).to have_content I18n.l(itinerary.return_date.to_time.utc, format: :time_only)
       end
     end
 

@@ -32,8 +32,8 @@ FactoryGirl.define do
     tolls 9
 
     round_trip false
-    leave_date { Time.now  + 1.day }
-    return_date { Time.now  + 2.day }
+    leave_date { 1.day.from_now.utc }
+    return_date { 2.days.from_now.utc }
   end
 
   factory :conversation do
