@@ -37,30 +37,29 @@ FactoryGirl.define do
   end
 
   factory :conversation do
-    conversable { FactoryGirl.build(:itinerary) }
+    association :conversable, factory: :itinerary
     users { [ FactoryGirl.build(:user), itinerary.user ] }
   end
 
   factory :message do
-    sender { FactoryGirl.build(:user) }
+    association :sender, factory: :user
     body 'Hello'
   end
 
   factory :reference do
-    user { FactoryGirl.create(:user) }
-    itinerary { FactoryGirl.create(:itinerary) }
+    user
+    itinerary
     referencing_user_id { itinerary.user.id }
   end
 
   factory :outgoing_reference, class: References::Outgoing.model_name do
-    reference { FactoryGirl.create(:reference) }
-
+    reference
     rating 1
     body 'Positive!'
   end
 
   factory :feedback do
-    user { FactoryGirl.create(:user) }
+    user
     message 'Generic Feedback'
   end
 end
