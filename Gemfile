@@ -50,7 +50,7 @@ gem 'resque', require: 'resque/server' # Resque web interface
 
 # Assets
 gem 'autoprefixer-rails'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'haml_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
