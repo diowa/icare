@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/tagliala/client_side_validations.git
-  revision: aa6e4a8077c5e656ce1e688343b07fcd2239f5df
+  revision: 275358f21035ebb1a5a08d9ddb6875f3a4b6b929
   branch: rails4
   specs:
     client_side_validations (3.2.6)
