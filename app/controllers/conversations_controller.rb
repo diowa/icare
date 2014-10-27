@@ -1,6 +1,6 @@
 class ConversationsController < ApplicationController
 
-  after_filter :mark_as_read, only: [:show]
+  after_action :mark_as_read, only: [:show]
 
   def index
     # NOTE nested eager loading is not available

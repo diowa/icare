@@ -65,6 +65,13 @@ class Itinerary
     true
   end
 
+  after_create do
+    begin
+      Resque.enqueue(FacebookTimelinePublisher, id) if share_on_facebook_timeline
+    rescue Redis::CannotConnectError
+    end
+  end
+
   def title
     [start_address, end_address].join ' - '
   end

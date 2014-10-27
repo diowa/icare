@@ -2,11 +2,11 @@ class ApplicationController < ActionController::Base
   ensure_security_headers
   protect_from_forgery
 
-  before_filter :authenticate_user!
-  before_filter :check_banned, except: [:banned]
+  before_action :authenticate_user!
+  before_action :check_banned, except: [:banned]
 
-  around_filter :set_locale
-  around_filter :set_user_time_zone, if: :user_signed_in?
+  around_action :set_locale
+  around_action :set_user_time_zone, if: :user_signed_in?
 
   helper_method :permitted_params
 

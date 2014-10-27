@@ -11,19 +11,29 @@ describe User do
     let(:unknown_birthday) { FactoryGirl.create :user, birthday: nil }
 
     it "returns user's age" do
-      Delorean.time_travel_to '2011-02-28'
-      expect(born_on_1972_02_29.age).to be 38
-      Delorean.time_travel_to '2011-03-01'
-      expect(born_on_1972_02_29.age).to be 39
-      Delorean.time_travel_to '2012-02-28'
-      expect(born_on_1972_02_29.age).to be 39
-      Delorean.time_travel_to '2012-02-29'
-      expect(born_on_1972_02_29.age).to be 40
+      travel_to '2011-02-28' do
+        expect(born_on_1972_02_29.age).to be 38
+      end
 
-      Delorean.time_travel_to '2012-10-29'
-      expect(born_on_1960_10_30.age).to be 51
-      Delorean.time_travel_to '2012-10-30'
-      expect(born_on_1960_10_30.age).to be 52
+      travel_to '2011-03-01' do
+        expect(born_on_1972_02_29.age).to be 39
+      end
+
+      travel_to '2012-02-28' do
+        expect(born_on_1972_02_29.age).to be 39
+      end
+
+      travel_to '2012-02-29' do
+        expect(born_on_1972_02_29.age).to be 40
+      end
+
+      travel_to '2012-10-29' do
+        expect(born_on_1960_10_30.age).to be 51
+      end
+
+      travel_to '2012-10-30' do
+        expect(born_on_1960_10_30.age).to be 52
+      end
     end
 
     it "does not raise exceptions if user has no birthday" do

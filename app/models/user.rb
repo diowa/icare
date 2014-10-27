@@ -60,7 +60,7 @@ class User
   field :uid
   field :oauth_token
   field :oauth_expires_at
-  field :facebook_permissions, type: Array, default: []
+  field :facebook_permissions, type: Hash, default: {}
 
   # Cached Facebook data
   field :facebook_friends, type: Array, default: []
@@ -79,8 +79,8 @@ class User
 
   # More info requiring special permissions
   field :birthday, type: Date
-  field :work, type: Hash, default: {}
-  field :education, type: Hash, default: {}
+  field :work, type: Array, default: []
+  field :education, type: Array, default: []
 
   # Icare
   field :username_or_uid

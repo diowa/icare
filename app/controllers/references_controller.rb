@@ -3,7 +3,7 @@ class ReferencesController < ApplicationController
   before_filter :set_user, only: [:index, :show, :update]
   before_filter :check_not_myself, only: [:new, :create]
 
-  after_filter :mark_as_read, only: [:show]
+  after_action :mark_as_read, only: [:show]
 
   def index
     @references = @user.references.desc(:updated_at).page params[:page]

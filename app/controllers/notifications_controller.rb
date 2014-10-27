@@ -1,6 +1,6 @@
 class NotificationsController < ApplicationController
 
-  after_filter :consume_notifications, only: :index
+  after_action :consume_notifications, only: :index
 
   def index
     @notifications = current_user.notifications.desc(:created_at)

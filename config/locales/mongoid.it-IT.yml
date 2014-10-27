@@ -1,38 +1,9 @@
 it-IT:
   mongoid:
-    inspection:
-      criteria: "#<Mongoid::Criteria\n
-        \ selector: %{selector},\n
-        \ options:  %{options},\n
-        \ class:    %{klass},\n
-        \ embedded: %{embedded}>\n"
-      metadata: "#<Mongoid::Relations::Metadata\n
-        \ autobuild:    %{autobuild},\n
-        \ class_name:   %{class_name},\n
-        \ cyclic:       %{cyclic},\n
-        \ dependent:    %{dependent},\n
-        \ inverse_of:   %{inverse_of},\n
-        \ key:          %{key},\n
-        \ macro:        %{macro},\n
-        \ name:         %{name},\n
-        \ order:        %{order},\n
-        \ polymorphic:  %{polymorphic},\n
-        \ relation:     %{relation},\n
-        \ setter:       %{setter},\n
-        \ versioned:    %{versioned}>\n"
-      map_reduce: "#<Mongoid::Contextual::MapReduce\n
-        \ selector: %{selector},\n
-        \ class:    %{klass},\n
-        \ map:      %{map},\n
-        \ reduce:   %{reduce},\n
-        \ finalize: %{finalize},\n
-        \ out:      %{out}>\n"
     errors:
       messages:
-        blank:
-          "non può essere lasciato in bianco"
         blank_in_locale:
-          "non può essere lasciato in bianco in %{location}"
+          "can't be blank in %{location}"
         ambiguous_relationship:
           message: "Ambiguous relations %{candidates} defined on %{klass}."
           summary:
@@ -60,6 +31,13 @@ it-IT:
           resolution: "Most likely this is caused by passing parameters directly
             through to the find, and the parameter either is not present or the
             key from which it is accessed is incorrect."
+        document_not_destroyed:
+          message: "%{klass} with id %{id} was not destroyed."
+          summary: "When calling %{klass}#destroy! and a callback halts the destroy
+            callback chain by returning a false value, the deletion will not
+            actually occur."
+          resolution: "Check the before/after destroy callbacks to ensure that the
+            return values are truthy for the chain to continue."
         document_not_found:
           message: "Document(s) not found for class %{klass} with id(s) %{missing}."
           summary: "When calling %{klass}.find with an id or array of ids, each
@@ -104,14 +82,6 @@ it-IT:
             expecting the option to be there, please consult the following page
             with repect to Mongoid's configuration:\n\n
             \_\_http://mongoid.org/en/mongoid/docs/installation.html"
-        invalid_database:
-          message: "Database should be a Mongo::DB, not %{name}."
-          summary: "When setting a master database in the Mongoid configuration
-            it must be an actual instance of a Mongo::DB, and not just a name
-            of the database. This check is performed when calling
-            Mongoid.master = object."
-          resolution: "Make sure that when setting the configuration
-            programatically that you are passing an actual db instance."
         invalid_field:
           message: "Defining a field named '%{name}' is not allowed."
           summary: "Defining this field would override the method '%{name}',
@@ -156,6 +126,7 @@ it-IT:
             has the correct options.\n\n
             Valid options are:\n
             \_\_background: true|false\n
+            \_\_database: 'database_name'\n
             \_\_drop_dups: true|false\n
             \_\_name: 'index_name'\n
             \_\_sparse: true|false\n
@@ -164,7 +135,9 @@ it-IT:
             \_\_max: 1\n
             \_\_bits: 26\n
             \_\_bucket_size : 1\n
-            Valid types are: 1, -1, '2d', 'geoHaystack'\n\n
+            \_\_weights: { content: 1, title: 2 }\n
+            \_\_expire_after_seconds: number_of_seconds\n
+            Valid types are: 1, -1, '2d', '2dsphere', 'geoHaystack', 'text', 'hashed'\n\n
             Example:\n
             \_\_class Band\n
             \_\_\_\_include Mongoid::Document\n
@@ -178,18 +151,25 @@ it-IT:
             slip by."
           resolution: "Valid options are: %{valid}, make sure these are the ones
             you are using."
+        invalid_path:
+          message: "Having a root path assigned for %{klass} is invalid."
+          summary: "Mongoid has two different path objects for determining
+            the location of a document in the database, Root and Embedded.
+            This error is raised when an embedded document somehow gets a
+            root path assigned."
+          resolution: "Most likely your embedded model, %{klass} is also
+            referenced via a has_many from a root document in another
+            collection. Double check the relation definitions and fix any
+            instances where embedded documents are improperly referenced
+            from other collections."
         invalid_scope:
           message: "Defining a scope of value %{value} on %{klass} is not
             allowed."
-          summary: "Scopes in Mongoid must be either criteria objects or procs
-            that wrap criteria objects."
-          resolution: "Change the scope to be a criteria or proc wrapped
-            critera.\n\n
+          summary: "Scopes in Mongoid must be procs that wrap criteria objects."
+          resolution: "Change the scope to be a proc wrapped critera.\n\n
             Example:\n
             \_\_class Band\n
             \_\_\_\_include Mongoid::Document\n
-            \_\_\_\_field :active, type: Boolean, default: true\n
-            \_\_\_\_scope :active, where(active: true)\n
             \_\_\_\_scope :inactive, ->{ where(active: false) }\n
             \_\_end\n\n"
         invalid_storage_options:
@@ -204,6 +184,12 @@ it-IT:
             \_\_\_\_include Mongoid::Document\n
             \_\_\_\_store_in collection: 'artists', database: 'secondary'\n
             \_\_end\n\n"
+        invalid_storage_parent:
+          message: "Invalid store_in call on class %{klass}."
+          summary: "The :store_in macro can only be called on a base Mongoid Document"
+          resolution: "Remove the store_in call on class %{klass}, as it will use its
+            parent store configuration. Or remove the hierarchy extension for this
+            class."
         invalid_time:
           message: "'%{value}' is not a valid Time."
           summary: "Mongoid tries to serialize the values for Date, DateTime, and
@@ -247,6 +233,10 @@ it-IT:
             from the child side which relation to go in."
           resolution: "Set the values from the parent, or redefine the relation
             with only a single definition in the parent."
+        invalid_value:
+          message: "Value of type %{value_class} cannot be written to a field of type %{field_class}"
+          summary: "Tried to set a value of type %{value_class} to a field of type %{field_class}"
+          resolution: "Verify if the value to be set correspond to field definition"
         mixed_relations:
           message: "Referencing a(n) %{embedded} document from the %{root}
             document via a relational association is not allowed since the
@@ -346,7 +336,7 @@ it-IT:
             %{klass}.create! without setting the parent document as an
             attribute."
           resolution: "Ensure that you've set the parent relation if
-            instantiating the embedded document direcly, or always create new
+            instantiating the embedded document directly, or always create new
             embedded documents via the parent relation."
         no_session_config:
           message: "No configuration could be found for a session named
@@ -412,6 +402,12 @@ it-IT:
             can only have values set when the document is a new record."
           resolution: "Don't define '%{name}' as readonly, or do not attempt
             to update its value after the document is persisted."
+        readonly_document:
+          message: "Attempted to persist the readonly document '%{klass}'."
+          summary: "Documents loaded from the database using #only
+            cannot be persisted."
+          resolution: "Don't attempt to persist documents that are flagged as
+            readonly."
         scope_overwrite:
           message: "Cannot create scope :%{scope_name}, because of existing
             method %{model_name}.%{scope_name}."
@@ -436,12 +432,12 @@ it-IT:
         unknown_attribute:
           message: "Attempted to set a value for '%{name}' which is not
             allowed on the model %{klass}."
-          summary: "When setting Mongoid.allow_dynamic_fields to false and the
-            attribute does not already exist in the attributes hash, attempting
-            to call %{klass}#%{name}= for it is not allowed. This is also
-            triggered by passing the attribute to any method that accepts an
+          summary: "Without including Mongoid::Attributes::Dynamic in your model
+            and the attribute does not already exist in the attributes hash,
+            attempting to call %{klass}#%{name}= for it is not allowed. This is
+            also triggered by passing the attribute to any method that accepts an
             attributes hash, and is raised instead of getting a NoMethodError."
-          resolution: "You can set Mongoid.allow_dynamic_fields to true if you
+          resolution: "You can include Mongoid::Attributes::Dynamic if you
             expect to be writing values for undefined fields often."
         unsaved_document:
           message: "Attempted to save %{document} before the parent %{base}."
@@ -464,13 +460,6 @@ it-IT:
           summary: "The following errors were found: %{errors}"
           resolution: "Try persisting the document with valid data or remove
             the validations."
-        versioning_not_on_root:
-          message: "Versioning not allowed on embedded document: %{klass}."
-          summary: "Mongoid::Versioning behaviour is only allowed on documents
-            that are the root document in the hierarchy."
-          resolution: "Remove the versioning from the embedded %{klass} or
-            consider moving it to a root location in the hierarchy if
-            versioning is needed."
         delete_restriction:
           message: "Cannot delete %{document} because of dependent '%{relation}'."
           summary: "When defining '%{relation}' with a :dependent => :restrict,

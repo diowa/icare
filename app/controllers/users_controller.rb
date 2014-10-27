@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_filter :set_user_as_current_user, only: [:update, :dashboard, :settings, :itineraries]
+  before_action :set_user_as_current_user, only: [:update, :dashboard, :settings, :itineraries]
 
   def show
     @user = find_user params[:id]
