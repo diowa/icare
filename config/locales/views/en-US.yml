@@ -153,8 +153,6 @@ en-US:
       language: Language
     footer:
       message: Privacy is not guaranteed at this stage of development
-    turbolinks_spinner:
-      loading: Loading...
 
   pages:
     home:

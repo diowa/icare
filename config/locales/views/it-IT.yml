@@ -153,8 +153,6 @@ it-IT:
       language: Lingua
     footer:
       message: La riservatezza non è garantita in questo stato di sviluppo
-    turbolinks_spinner:
-      loading: Caricamento...
 
   pages:
     home:
