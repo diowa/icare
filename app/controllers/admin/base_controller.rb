@@ -1,5 +1,5 @@
 class Admin::BaseController < ApplicationController
-  before_filter :check_admin
+  before_action :check_admin
 
   private
   def check_admin

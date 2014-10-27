@@ -6,4 +6,4 @@ require File.expand_path('../config/application', __FILE__)
 
 require File.join(Rails.root.to_s, "config", "configuration.rb")
 
-Icare::Application.load_tasks
+Rails.application.load_tasks

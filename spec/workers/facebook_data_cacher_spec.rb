@@ -23,14 +23,15 @@ describe FacebookDataCacher do
     it "caches user data when it is expired" do
       expect(FacebookDataCacher.perform user.id).to be true
       expect(FacebookDataCacher.perform user.id).to be nil
-      Delorean.time_travel_to APP_CONFIG.facebook.cache_expiry_time.from_now
-      expect(FacebookDataCacher.perform user.id).to be true
-      expect(FacebookDataCacher.perform user.id).to be nil
+      travel_to APP_CONFIG.facebook.cache_expiry_time.from_now do
+        expect(FacebookDataCacher.perform user.id).to be true
+        expect(FacebookDataCacher.perform user.id).to be nil
+      end
     end
 
     it "doesn't cache user data when it is still valid" do
-      user.facebook_data_cached_at = Time.now
-      expect(FacebookDataCacher.perform user.id).to be nil
+      user_with_fresh_data = FactoryGirl.create :user, oauth_token: 'test', facebook_data_cached_at: Time.now
+      expect(FacebookDataCacher.perform user_with_fresh_data.id).to be nil
     end
 
     it "doesn't fail when response is wrong" do

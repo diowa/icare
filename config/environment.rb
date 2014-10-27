@@ -1,10 +1,8 @@
-# Load the rails application
+# Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
-require File.join(Rails.root.to_s, "config", "configuration.rb")
+# TODO: Replace with figaro
+require Rails.root.join('config', 'configuration.rb').to_s
 
-# Initialize the rails application
-Icare::Application.initialize!
-
-# Enable the Haml ugly option
-Haml::Template.options[:ugly] = true
+# Initialize the Rails application.
+Rails.application.initialize!

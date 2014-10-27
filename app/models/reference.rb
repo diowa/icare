@@ -6,8 +6,8 @@ class Reference
 
   embedded_in :user
 
-  embeds_one :incoming, class_name: References::Incoming.model_name, cascade_callbacks: true
-  embeds_one :outgoing, class_name: References::Outgoing.model_name, cascade_callbacks: true
+  embeds_one :incoming, class_name: References::Incoming.model_name.to_s, cascade_callbacks: true
+  embeds_one :outgoing, class_name: References::Outgoing.model_name.to_s, cascade_callbacks: true
 
   field :referencing_user_id
   field :read_at, type: DateTime

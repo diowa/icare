@@ -8,13 +8,14 @@ SimpleConfig.for :application do
   set :app_name, 'icare'
   set :repository_url, 'http://github.com/diowa/icare'
 
-  set :available_locales, Hash[{ :"en-US" => 'English (US)',
-                                 :"it-IT" => 'Italiano' }.sort_by { |_, native_name| native_name }]
-
   set :demo_mode, true
   set :base_url, '127.0.0.1:5000'
   set :secret_token, '197241fc4c041de6402aa732e0004c5401536237a1c39178005ddf9994695cfc71fb32b543f8fb216f272b416974e3ea3cece241278a40a8516291aec598a948'
   set :single_process_mode, true
+
+  set :currency, '.00 €'
+  set :fuel_consumption, 0.12
+  set :fuel_currency, '€'
 
   set :costs_calculation_service_link, 'http://servizi.aci.it/CKInternet/'
 

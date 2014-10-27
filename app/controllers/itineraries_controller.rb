@@ -1,11 +1,11 @@
 class ItinerariesController < ApplicationController
 
-  skip_before_filter :authenticate_user!, only: [:show]
+  skip_before_action :authenticate_user!, only: [:show]
 
-  before_filter :set_itinerary, only: [:show]
-  before_filter :check_gender, only: [:show]
+  before_action :set_itinerary, only: [:show]
+  before_action :check_gender, only: [:show]
 
-  before_filter :check_permissions
+  before_action :check_permissions
 
   def new
     @itinerary = Itinerary.new

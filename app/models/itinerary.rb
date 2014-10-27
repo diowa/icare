@@ -21,7 +21,7 @@ class Itinerary
   field :num_people, type: Integer
   field :smoking_allowed, type: Boolean, default: false
   field :pets_allowed, type: Boolean, default: false
-  field :fuel_cost, type: Integer
+  field :fuel_cost, type: Integer, default: 0
   field :tolls, type: Integer, default: 0
   field :pink, type: Boolean, default: false
   field :round_trip, type: Boolean, default: false
@@ -63,6 +63,13 @@ class Itinerary
     self.driver_gender = user.gender
     self.verified = user.facebook_verified
     true
+  end
+
+  after_create do
+    begin
+      Resque.enqueue(FacebookTimelinePublisher, id) if share_on_facebook_timeline
+    rescue Redis::CannotConnectError
+    end
   end
 
   def title

@@ -3,7 +3,7 @@ class Message
   include Mongoid::Timestamps
   include Mongoid::Paranoia
 
-  belongs_to :sender, class_name: User.model_name
+  belongs_to :sender, class_name: User.model_name.to_s
 
   embedded_in :conversation
 

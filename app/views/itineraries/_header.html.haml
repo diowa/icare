@@ -31,8 +31,8 @@
           %span.tag= l(@itinerary.return_date, format: :long)
     .tag-list
       %span.tag.tag-icare= t('.expenses_to_share')
-      %span.tag #{Itinerary.human_attribute_name(:fuel_cost)}: #{@itinerary.fuel_cost}.00 &euro;
-      %span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}.00 &euro;
+      %span.tag #{Itinerary.human_attribute_name(:fuel_cost)}: #{@itinerary.fuel_cost}#{APP_CONFIG.currency}
+      %span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}#{APP_CONFIG.currency}
     .tag-list
       - if @itinerary.pink?
         %span.tag.tag-pink{ rel: 'tooltip', title: t('itineraries.form.pink_help') }
