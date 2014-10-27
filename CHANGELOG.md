@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.17.0
+
+* Rails 4
+* Turbolinks progress bar
+* Updated gems
+
 ## 0.16.0
 
 * Basic currency customization (Closes #27)
