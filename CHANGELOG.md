@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.18.1
+
+* Rails 4.1.7
+* Updated gems
+
 ## 0.18.0
 
 * Bootstrap 3.3.0
