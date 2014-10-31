@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.18.2
+
+* Ruby 2.1.4
+* Updated gems
+
 ## 0.18.1
 
 * Rails 4.1.7
