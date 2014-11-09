@@ -35,7 +35,7 @@ describe FacebookDataCacher do
     end
 
     it "doesn't fail when response is wrong" do
-      stub_http_request(:post, /graph.facebook.com/).to_return code: 500
+      stub_http_request(:post, /graph.facebook.com/).to_return status: 500
       expect(FacebookDataCacher.perform user.id).to be nil
     end
   end

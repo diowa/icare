@@ -6,13 +6,13 @@ describe FacebookTimelinePublisher do
     let(:itinerary) { FactoryGirl.create :itinerary, user: user }
 
     it "publishes itinerary on facebook timeline" do
-      stub_http_request(:post, /graph.facebook.com\/me/).to_return body: 123
+      stub_http_request(:post, /graph.facebook.com\/me/).to_return body: '123'
       expect(FacebookTimelinePublisher.perform itinerary.id).to_not be_nil
     end
 
     it "publishes itinerary on facebook group in restricted mode" do
       APP_CONFIG.facebook.set :restricted_group_id, '10'
-      stub_http_request(:post, /graph.facebook.com\/10/).to_return body: 123456
+      stub_http_request(:post, /graph.facebook.com\/10/).to_return body: '123456'
       expect(FacebookTimelinePublisher.perform itinerary.id).to_not be_nil
       APP_CONFIG.facebook.set :restricted_group_id, nil
     end
