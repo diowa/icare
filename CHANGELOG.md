@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.18.3
+
+* Updated gems
+
 ## 0.18.2
 
 * Ruby 2.1.4
