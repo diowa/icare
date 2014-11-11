@@ -345,7 +345,7 @@ GEM
     tilt (1.4.1)
     timeliness (0.3.7)
     tins (1.3.3)
-    turbolinks (2.5.1)
+    turbolinks (2.5.2)
       coffee-rails
     twbs_sass_rails (1.0.1)
       rails (>= 3.2.20, < 5.0.0)
