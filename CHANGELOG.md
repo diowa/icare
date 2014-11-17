@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.18.5
+
+* Rails 4.1.8
+* Updated gems
+* Fixed version number
+
 ## 0.18.4
 
 * Updated gems
