@@ -10,10 +10,10 @@ module ApplicationHelper
 
   def twitterized_type(type)
     case type
-    when :alert then 'warning'
-    when :error then 'danger'
-    when :notice then 'info'
-    else type.to_s
+    when 'alert' then 'warning'
+    when 'error' then 'danger'
+    when 'notice' then 'info'
+    else type
     end
   end
 
