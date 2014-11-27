@@ -85,7 +85,7 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
-  gem 'mongoid-rspec'
+  gem 'mongoid-rspec', '~> 2.0.0.rc1'
   gem 'selenium-webdriver'
   gem 'rspec'
   gem 'simplecov', require: false
