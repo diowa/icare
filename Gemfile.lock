@@ -1,15 +1,15 @@
 GIT
   remote: git://github.com/tagliala/client_side_validations-turbolinks.git
-  revision: 2685a9834934a21a85de8579c0f4b34f4fabe31e
+  revision: 3e29588d486c81ef208be7cef231f839bf0bb502
   branch: rails4
   specs:
     client_side_validations-turbolinks (2.5.0)
       client_side_validations (~> 4.1.0)
-      turbolinks (~> 2.5.2)
+      turbolinks (~> 2.5)
 
 GIT
   remote: git://github.com/tagliala/client_side_validations.git
-  revision: 61520a160b10cae314b24de6503366d8c33ffdf2
+  revision: 791a4ca861afa0223f0b27ab35a2a39d98b57e92
   branch: rails4
   specs:
     client_side_validations (4.1.0)
@@ -174,10 +174,10 @@ GEM
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
-    mongoid-rspec (1.10.0)
-      mongoid (>= 3.0.1)
+    mongoid-rspec (2.0.0.rc1)
+      mongoid (~> 4.0.0)
       rake
-      rspec (>= 2.14)
+      rspec (~> 3.0)
     mongoid_geospatial (3.1.0)
       activemodel (>= 3.2)
       activesupport (>= 3.2)
@@ -200,7 +200,7 @@ GEM
       moped
       newrelic_rpm (~> 3.0, >= 3.7)
     newrelic_rpm (3.9.7.266)
-    nokogiri (1.6.4.1)
+    nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
@@ -350,7 +350,7 @@ GEM
     twbs_sass_rails (2.0.2)
       rails (>= 4.0.0, < 5.0.0)
       sass-rails (~> 4.0)
-    tzinfo (1.1.0)
+    tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
@@ -405,7 +405,7 @@ DEPENDENCIES
   launchy
   meta_request
   mongoid
-  mongoid-rspec
+  mongoid-rspec (~> 2.0.0.rc1)
   mongoid_geospatial
   mongoid_paranoia
   mongoid_slug
