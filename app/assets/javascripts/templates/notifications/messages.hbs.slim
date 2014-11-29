@@ -1,0 +1,16 @@
+ul
+  | {{#each messages}}
+  li
+    = link_to '{{url}}' do
+      .media
+        .pull-left
+          img.media-object  src: '{{message.sender.profile_picture}}', width: 50, height: 50, alt: ''
+        .media-body
+          strong.text-overflow
+            | {{message.sender.name}}
+          .text-muted
+            span.text-overflow
+              | {{message.body}}
+            small
+              | {{localize "datetime.formats.message" message.date_sent}}
+  | {{/each}}

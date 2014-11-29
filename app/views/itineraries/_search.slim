@@ -1,0 +1,26 @@
+= bootstrap_form_for Itineraries::Search.new, url: search_itineraries_path, method: :post, validate: true, remote: true do |f|
+  = f.text_field :from, label: Itinerary.human_attribute_name(:start_address)
+  = f.text_field :to, label: Itinerary.human_attribute_name(:end_address)
+  = link_to '#', id: 'search-form-advanced-link' do
+    span.fa.fa-chevron-up
+    = t('.advanced_search')
+  #search-form-advanced
+    .form-group
+      - if current_user.female?
+        = f.check_box :filter_pink, label: Itinerary.human_attribute_name(:pink)
+        .checkbox
+          p.help-block
+            span.fa.fa-lock
+            = t('itineraries.form.pink_help')
+      = f.check_box :filter_verified, label: t('.verified_users')
+      = f.check_box :filter_round_trip, label: Itinerary.human_attribute_name(:round_trip)
+    - [:smoking_allowed, :pets_allowed].each do |boolean_field|
+      = f.select "filter_#{boolean_field}".to_sym, boolean_options_for_select, { include_blank: true }, class: 'input-sm form-control', label: Itinerary.human_attribute_name(boolean_field)
+    = f.select :filter_driver_gender, options_for_array_collection(User, :gender), { include_blank: true }, class: 'input-sm form-control', label: Itinerary.human_attribute_name(:driver_gender)
+  .form-group
+    = f.hidden_field :start_location_lat
+    = f.hidden_field :start_location_lng
+    = f.hidden_field :end_location_lat
+    = f.hidden_field :end_location_lng
+    = f.default_tag :button, t('.search'), type: 'button', class: 'btn btn-primary', id: 'itineraries-search', disable_with: t('helpers.disable_with')
+    = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...', id: 'itineraries-spinner'

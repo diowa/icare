@@ -1,0 +1,30 @@
+doctype html
+html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency fuel_currency=APP_CONFIG.fuel_currency
+  head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# #{APP_CONFIG.facebook.namespace}: http://ogp.me/ns/fb/#{APP_CONFIG.facebook.namespace}#"
+    title= yield_or_default :title, controller.action_name.titlecase
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
+    meta name="mobile-web-app-capable" content="yes"
+    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    = csrf_meta_tags
+    = yield :head
+
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Lato:300,400,400italic,700|Pacifico', 'application', '//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css', media: 'all', 'data-turbolinks-track' => true
+
+    /! Touch icons
+    /! %link{ href: asset_path('apple-touch-icon-144x144.png'), rel: 'apple-touch-icon', sizes: '144x144' }
+
+    /! Placed at the top of the document 'cause of turbolinks
+    = javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry', 'application', 'data-turbolinks-track' => true
+    = analytics_init if APP_CONFIG.google_analytics_id.present?
+
+    /![if lt IE 9]
+      = stylesheet_link_tag 'ie8'
+      = javascript_include_tag '//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', 'respond.js'
+
+  body id=('homepage' if action_name == 'home')
+    = render 'shared/navbar' unless action_name == 'home'
+
+    = yield
+
+    = render 'shared/footer'

@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/tagliala/client_side_validations.git
-  revision: 791a4ca861afa0223f0b27ab35a2a39d98b57e92
+  revision: a1627325b9feb43c772f78b5e02a8e9fc0bb784a
   branch: rails4
   specs:
     client_side_validations (4.1.0)
@@ -123,11 +123,6 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
     google-analytics-rails (0.0.6)
-    haml (4.0.5)
-      tilt
-    haml_assets (0.2.2)
-      haml
-      tilt
     handlebars_assets (0.18)
       execjs (>= 1.2.9)
       multi_json
@@ -320,6 +315,17 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.4)
       tilt (~> 1.3, >= 1.3.4)
+    slim (2.1.0)
+      temple (~> 0.6.9)
+      tilt (>= 1.3.3, < 2.1)
+    slim-rails (2.1.5)
+      actionpack (>= 3.0, < 4.2)
+      activesupport (>= 3.0, < 4.2)
+      railties (>= 3.0, < 4.2)
+      slim (~> 2.0)
+    slim_assets (0.0.2)
+      slim
+      tilt
     slop (3.6.0)
     spring (1.2.0)
     spring-commands-rspec (1.0.2)
@@ -334,6 +340,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     stringex (2.5.2)
+    temple (0.6.10)
     term-ansicolor (1.3.0)
       tins (~> 1.0)
     thin (1.6.3)
@@ -392,8 +399,6 @@ DEPENDENCIES
   factory_girl_rails
   faker
   google-analytics-rails
-  haml
-  haml_assets
   handlebars_assets
   http_accept_language
   i18n-js
@@ -427,6 +432,8 @@ DEPENDENCIES
   selenium-webdriver
   simpleconfig
   simplecov
+  slim-rails
+  slim_assets
   spring
   spring-commands-rspec
   thin
