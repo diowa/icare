@@ -8,13 +8,13 @@
     = f.error_messages
     legend= t('.vehicle_information')
     fieldset
-    .form-group  class: ('has-error' if @user.errors.include?(:vehicle_avg_consumption))  
+    .form-group class=('has-error' if @user.errors.include?(:vehicle_avg_consumption))
       = f.label :vehicle_avg_consumption, class: 'control-label col-sm-2'
       .col-sm-10
         .input-group.input-group-number
           = f.default_tag :text_field, :vehicle_avg_consumption, class: 'form-control input-number-sm'
           span.input-group-addon
-            #{APP_CONFIG.fuel_currency}/km
+            | #{APP_CONFIG.fuel_currency}/km
         - if @user.errors.include?(:vehicle_avg_consumption)
           span.help-block
             = @user.errors.messages[:vehicle_avg_consumption].join(', ')
@@ -26,8 +26,8 @@
             = t('.vehicle_avg_consumption_note', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs', fuel_currency: APP_CONFIG.fuel_currency))).html_safe
     legend= t('.application_settings')
     fieldset
-      .form-group= f.select :locale, options_for_select(I18n.available_locales.map   |locale| [ t('lang_native_name', locale: locale), locale] }, @user.locale), { , disabled: (I18n.available_locales.one?)
-      .form-group= f.time_zone_select :time_zone, nil,  }, html: { class: 'form-control'  
+      .form-group= f.select :locale, options_for_select(I18n.available_locales.map{ |locale| [ t('lang_native_name', locale: locale), locale] }, @user.locale), {} , disabled: (I18n.available_locales.one?)
+      .form-group= f.time_zone_select :time_zone, nil, {}, html: { class: 'form-control' }
       .form-group
         .col-sm-10.col-sm-offset-2
           = label_tag :notification_group, t('.send_email'), class: 'control-label'

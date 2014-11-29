@@ -36,9 +36,9 @@
                     = check_box_tag "day-#{index}"
                 td= label_tag "day-# index ", t('date.day_names')[index]
                 td
-                  = time_select 'uni', 'dye', { minute_step: 10, default: { hour: 8 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
+                  = time_select 'one', 'two', { minute_step: 10, default: { hour: 8 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
                 td
-                  = time_select 'uni', 'due', { minute_step: 10, default: { hour: 18 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
+                  = time_select 'one', 'two', { minute_step: 10, default: { hour: 18 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
           tfoot
             tr
               td colspan="2"
@@ -56,7 +56,7 @@
       - if @itinerary.errors.include?(:fuel_cost)
         span.help-inline
           = @itinerary.errors.messages[:fuel_cost].join(', ')
-      p.help-block#fuel-help  data: { avg_consumption: current_user.vehicle_avg_consumption }
+      p.help-block#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
         span#fuel-help-text
   .form-group class=('has-error' if @itinerary.errors.include?(:tolls))
     = f.label :tolls, class: 'control-label col-sm-2'

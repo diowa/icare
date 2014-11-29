@@ -14,7 +14,7 @@
             = t('itineraries.form.pink_help')
       = f.check_box :filter_verified, label: t('.verified_users')
       = f.check_box :filter_round_trip, label: Itinerary.human_attribute_name(:round_trip)
-    - [:smoking_allowed, :pets_allowed].each do |boolean_field|
+    - for boolean_field in [:smoking_allowed, :pets_allowed]
       = f.select "filter_#{boolean_field}".to_sym, boolean_options_for_select, { include_blank: true }, class: 'input-sm form-control', label: Itinerary.human_attribute_name(boolean_field)
     = f.select :filter_driver_gender, options_for_array_collection(User, :gender), { include_blank: true }, class: 'input-sm form-control', label: Itinerary.human_attribute_name(:driver_gender)
   .form-group

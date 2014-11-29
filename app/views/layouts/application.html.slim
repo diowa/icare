@@ -2,10 +2,10 @@ doctype html
 html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency fuel_currency=APP_CONFIG.fuel_currency
   head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# #{APP_CONFIG.facebook.namespace}: http://ogp.me/ns/fb/#{APP_CONFIG.facebook.namespace}#"
     title= yield_or_default :title, controller.action_name.titlecase
-    meta charset="utf-8"
-    meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"
-    meta name="mobile-web-app-capable" content="yes"
-    meta content="IE=edge" http-equiv="X-UA-Compatible"
+    meta charset='utf-8'
+    meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0'
+    meta name='mobile-web-app-capable' content='yes'
+    meta content='IE=edge' http-equiv='X-UA-Compatible'
     = csrf_meta_tags
     = yield :head
 
@@ -22,7 +22,7 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency fuel_currency=APP_C
       = stylesheet_link_tag 'ie8'
       = javascript_include_tag '//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', 'respond.js'
 
-  body id=('homepage' if action_name == 'home')
+  body class=('homepage' if action_name == 'home')
     = render 'shared/navbar' unless action_name == 'home'
 
     = yield

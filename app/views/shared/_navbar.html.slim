@@ -1,7 +1,7 @@
-nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role="navigation"
+nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role='navigation'
   .container
     .navbar-header
-      button.navbar-toggle type="button" data-toggle="collapse" target=".navbar-responsive-collapse"
+      button.navbar-toggle type='button' data-toggle='collapse' target='.navbar-responsive-collapse'
         span.icon-bar
         span.icon-bar
         span.icon-bar
@@ -36,7 +36,7 @@ nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role="navigation"
               = t('lang_native_name')
               span.caret
             ul.dropdown-menu
-              - (I18n.available_locales - [I18n.locale]).each do |locale|
+              - for locale in (I18n.available_locales - [I18n.locale])
                 li=link_to t('lang_native_name', locale: locale), url_for(locale: locale)
           li.facebook-link
             = link_to user_omniauth_authorize_path(provider: :facebook), data: { no_turbolink: true } do

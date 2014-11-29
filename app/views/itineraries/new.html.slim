@@ -2,11 +2,11 @@
 .container
   - if @itinerary.errors.any?
     .alert.alert-block.alert-danger.fade.in
-      button  type: 'button', class: 'close', data: { dismiss: 'alert' }   &times;
+      button type='button' class='close' data-dismiss='alert' &times;
       h4.alert-heading= t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
       = t('errors.template.body')
       ul
-        - @itinerary.errors.full_messages.each do |message|
+        - for message in @itinerary.errors.full_messages
           li= message
   .row
     .col-sm-6
@@ -17,8 +17,9 @@
         h3= t('.insert_details_and_confirm')
   = bootstrap_form_for @itinerary, validate: true do |f|
     .form-group
-      #wizard-step-1-content  data: { step: 1 }  = render 'route_step', f: f
-      #wizard-step-2-content  data: { step: 2 }  
+      #wizard-step-1-content data-step='1'
+        = render 'route_step', f: f
+      #wizard-step-2-content data-step='2'
         .row
           .col-sm-4
             = image_tag transparent_gif_image_data, class: 'img-responsive google-static-map', id: 'itinerary-preview-image', alt: ''

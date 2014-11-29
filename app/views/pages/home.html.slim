@@ -1,6 +1,6 @@
 - title t('meta_title', appname: APP_CONFIG.app_name)
 - content_for :head do
-  meta  name: 'description', content: t('meta_description', appname: APP_CONFIG.app_name)  
+  meta name='description' content=t('meta_description', appname: APP_CONFIG.app_name)
 
 #fb-root
 = render 'shared/flash_messages'
@@ -55,6 +55,6 @@
   .row
     .col-sm-6
       #facepile-container
-        .fb-facepile  data: { size: 'medium', max_rows: '1' }  
+        .fb-facepile data-size='medium' data-max-rows='1'
     .col-sm-6= render 'facebook_login'
   = render 'shared/modal_why_facebook'

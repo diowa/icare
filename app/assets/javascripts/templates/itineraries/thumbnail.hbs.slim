@@ -1,54 +1,58 @@
 .col-lg-6
-  .itinerary-thumbnail data-itinerary-id="{{id}}"
-    .itinerary-thumb-stroke style="background-color: {{backgroundColor}}"
+  .itinerary-thumbnail data-itinerary-id='{{id}}'
+    .itinerary-thumb-stroke style='background-color: {{backgroundColor}}'
     .media
       .pull-left
         .img-outset
-          img.media-object src="{{user.profile_picture}}" width=50 height=50 alt=""
+          img.media-object src='{{user.profile_picture}}' width='50' height='50' alt=''
       .media-body
         h4.media-heading= link_to '{{title}}', '{{url}}', class: 'pre-line'
         p
           | {{user.name}}
           | {{#if user.facebook_verified}}
-          span.fa.fa-check.text-success.facebook-verified-tooltip rel="tooltip", title="{{translate 'templates.itineraries.facebook_verified'}}"
+          span.fa.fa-check.text-success.facebook-verified-tooltip<> rel='tooltip' title=='{{translate "templates.itineraries.facebook_verified"}}'
           | {{/if}}
     p.itinerary-details
       | {{#if pink}}
       span.text-pink
         span.fa.fa-lock
-        | {{translate "mongoid.attributes.itinerary.pink"}}
+        ' {{translate "mongoid.attributes.itinerary.pink"}}
       br
       | {{/if}}
       | {{#if daily}}
       br
       span.fa.fa-repeat
       span.text-muted
-        | {translate "mongoid.attributes.itinerary.daily"}
-      span.fa.fa-clock-o
-      | {{localize "time.formats.time_only" leave_date}}
+        ' {{translate "mongoid.attributes.itinerary.daily"}}
+      span.fa.fa-clock-o<>
+      ' {{localize "time.formats.time_only" leave_date}}
       | {{else}}
-      span.text-muted
-        | {translate "mongoid.attributes.itinerary.leave_date"}: {{localize "date.formats.long" leave_date}}
-      span.fa.fa-clock-o
-      | {{localize "time.formats.time_only" leave_date}}
+      span.text-muted<
+        ' {{translate "mongoid.attributes.itinerary.leave_date"}}:
+      ' {{localize "date.formats.long" leave_date}}
+      span.fa.fa-clock-o<>
+      ' {{localize "time.formats.time_only" leave_date}}
       | {{#if round_trip}}
       br
       span.text-muted
-        | {translate "mongoid.attributes.itinerary.return_date"}: {{localize "date.formats.long" return_date}}
+        ' {{translate "mongoid.attributes.itinerary.return_date"}}:
+      ' {{localize "date.formats.long" return_date}}
       span.fa.fa-clock-o
-      | {{localize "time.formats.time_only" return_date}}
+      ' {{localize "time.formats.time_only" return_date}}
       | {{/if}}
       | {{/if}}
       br
       span.text-muted
-        | {translate "mongoid.attributes.itinerary.fuel_cost"}: {{currency fuel_cost}}
+        ' {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
+      ' {{currency fuel_cost}}
       br
       span.text-muted
-        | {translate "mongoid.attributes.itinerary.tolls"} : {{currency tolls}}
+        ' {{translate "mongoid.attributes.itinerary.tolls"}}:
+      ' {{currency tolls}}
     .btn-toolbar
       = link_to '#', class: 'btn btn-xs btn-default show-itinerary-on-map' do
-        span.fa.fa-map-marker
+        span.fa.fa-map-marker>
         | {{translate "templates.itineraries.show_on_map"}}
       = link_to '{{url}}', class: 'btn btn-xs btn-primary' do
-        span.fa.fa-info-circle
+        span.fa.fa-info-circle>
         | {{translate "templates.itineraries.read_more"}}

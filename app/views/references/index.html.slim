@@ -11,9 +11,9 @@
         th= Reference.human_attribute_name(:rating)
         th= Reference.human_attribute_name(:body)
       tbody
-        - @references.each do |reference|
+        - for reference in @references
           - if reference.incoming
-            tr  class: ('unread' if reference.unread?)  
+            tr class=('unread' if reference.unread?)
               td
                 span.fa.fa-arrow-up
               td= link_to reference.referencing_user, user_path(reference.referencing_user)
