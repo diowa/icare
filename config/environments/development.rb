@@ -32,7 +32,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  # Indent html for pretty debugging and do not sort attributes
-  Slim::Engine.set_default_options pretty: true, sort_attrs: false
 end
