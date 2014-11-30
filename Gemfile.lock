@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/tagliala/client_side_validations.git
-  revision: 791a4ca861afa0223f0b27ab35a2a39d98b57e92
+  revision: a1627325b9feb43c772f78b5e02a8e9fc0bb784a
   branch: rails4
   specs:
     client_side_validations (4.1.0)
@@ -329,7 +329,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sprockets-rails (2.2.1)
+    sprockets-rails (2.2.2)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
