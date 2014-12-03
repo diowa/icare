@@ -1,6 +1,6 @@
 - title t('.account_settings')
 .container
-  = render 'shared/flash_messages'
+  == render 'shared/flash_messages'
   .page-header
     h1= yield :title
   p.lead= t('.user_profile_details')

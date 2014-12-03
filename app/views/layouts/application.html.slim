@@ -23,8 +23,8 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
       = javascript_include_tag '//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', 'respond.js'
 
   body class=('homepage' if action_name == 'home')
-    = render 'shared/navbar' unless action_name == 'home'
+    == render 'shared/navbar' unless action_name == 'home'
 
     = yield
 
-    = render 'shared/footer'
+    == render 'shared/footer'

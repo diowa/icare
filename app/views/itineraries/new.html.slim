@@ -18,7 +18,7 @@
   = bootstrap_form_for @itinerary, validate: true do |f|
     .form-group
       #wizard-step-1-content data-step='1'
-        = render 'route_step', f: f
+        == render 'route_step', f: f
       #wizard-step-2-content data-step='2'
         .row
           .col-sm-4
@@ -29,7 +29,7 @@
               span#itinerary-preview-from
               small= Itinerary.human_attribute_name :end_address
               span#itinerary-preview-to
-        = render 'form', f: f
+        == render 'form', f: f
         .text-center= share_on_facebook_timeline_checkbutton(f)
     .form-group.text-center
       = f.hidden_field :route

@@ -1,6 +1,6 @@
 - title t('.title')
 .container
-  = render 'shared/flash_messages'
+  == render 'shared/flash_messages'
   ul.nav.nav-justified.lead
     li
       = link_to itineraries_path do
@@ -15,4 +15,4 @@
         span.fa.fa-road<>
         = t('.your_itineraries')
   h3= t('.latest_itineraries')
-  = render 'itineraries/table', itineraries: @latest_itineraries, edit: false
+  == render 'itineraries/table', itineraries: @latest_itineraries, edit: false

@@ -1,8 +1,8 @@
 - title @itinerary.title
-= render 'opengraph_head_contents', itinerary: @itinerary
+== render 'opengraph_head_contents', itinerary: @itinerary
 .container
-  = render 'shared/flash_messages'
-  = render 'header'
+  == render 'shared/flash_messages'
+  == render 'header'
   hr
   .btn-toolbar.text-center
     - if user_signed_in?
