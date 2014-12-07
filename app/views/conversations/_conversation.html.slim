@@ -1,0 +1,7 @@
+ul.list-conversation
+  - alternate = false
+  - prev_sender = nil
+  - for message in @conversation.messages
+    - alternate = !alternate if prev_sender != message.sender && prev_sender
+    == render 'message', message: message, alternate: alternate
+    - prev_sender = message.sender

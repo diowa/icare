@@ -1,0 +1,27 @@
+- title Feedback.model_name.human
+.container
+  .page-header
+    h1= yield :title
+
+  p
+    strong= User.model_name.human
+    br
+    - if @feedback.user?
+      = link_to @feedback.user_name, user_path(@feedback.user)
+    - else
+      span.text-muted= t('former_user')
+  p
+    strong= Feedback.human_attribute_name(:type)
+    br
+    = @feedback.type
+  p.pre-line
+    strong= Feedback.human_attribute_name(:message)
+    br
+    = @feedback.message.strip.gsub(/\r/, '')
+  p
+    strong= Feedback.human_attribute_name(:url)
+    br
+    = link_to @feedback.url, @feedback.url
+  .btn-toolbar
+    = link_to t('.back', default: t('helpers.links.back')), feedbacks_path, class: 'btn btn-default'
+    = link_to t('.edit', default: t('helpers.links.edit')), edit_feedback_path(@feedback), class: 'btn btn-default'

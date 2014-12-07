@@ -1,0 +1,6 @@
+- title t('.title')
+.container
+  == render 'shared/flash_messages'
+  .page-header
+    h1= yield :title
+  == render 'itineraries/table', itineraries: @itineraries, edit: true

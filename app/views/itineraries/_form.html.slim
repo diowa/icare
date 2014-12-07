@@ -1,0 +1,86 @@
+/!
+  .control-group.hide
+    .controls
+      = label_tag nil, class: 'radio inline' do
+        = f.default_tag :radio_button, :daily, false, class: 'inline', checked: true
+        = t('.single_itinerary')
+      | &nbsp;
+      = label_tag nil, class: 'radio inline mock' do
+        = f.default_tag :radio_button, :daily, true, class: 'inline'
+        = t('.daily_itinerary')
+.form-horizontal
+  fieldset#single
+    .form-group
+      .col-sm-10.col-sm-offset-2= f.check_box :round_trip
+    .form-group
+      = f.label :leave_date, class: 'control-label col-sm-2'
+      .col-sm-10= f.default_tag :datetime_select, :leave_date, default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm')  , class: 'form-control date-time'
+    .form-group
+      = f.label :return_date, class: 'control-label col-sm-2'
+      .col-sm-10= f.default_tag :datetime_select, :return_date, default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm')  , class: 'form-control date-time', disabled: !@itinerary.round_trip
+  fieldset#daily.hide.mock
+    .control-group
+      .controls
+        table.table.table-condensed#daily-itinerary-table
+          thead
+            tr
+              th
+              th= t('.day')
+              th= t('.leave_time')
+              th= t('.return_time')
+          tbody
+            - (0..6).each_with_index do |index|
+              tr
+                td
+                  p.text-center
+                    = check_box_tag "day-#{index}"
+                td= label_tag "day-# index ", t('date.day_names')[index]
+                td
+                  = time_select 'one', 'two', { minute_step: 10, default: { hour: 8 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
+                td
+                  = time_select 'one', 'two', { minute_step: 10, default: { hour: 18 }, ampm: t('time.ampm') }, class: 'date-time', disabled: (index > 0)
+          tfoot
+            tr
+              td colspan="2"
+              td colspan="2"
+                = label_tag 'edit-all-times', class: 'checkbox inline' do
+                  = check_box_tag 'edit-all-times', nil, checked: true
+                  = t('.edit_all_times')
+
+  .form-group class=('has-error' if @itinerary.errors.include?(:fuel_cost))
+    = f.label :fuel_cost, class: 'control-label col-sm-2'
+    .col-sm-10
+      .input-group.input-group-number
+        = f.default_tag :text_field, :fuel_cost, class: 'form-control'
+        span.input-group-addon= APP_CONFIG.currency
+      - if @itinerary.errors.include?(:fuel_cost)
+        span.help-inline
+          = @itinerary.errors.messages[:fuel_cost].join(', ')
+      p.help-block#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
+        span#fuel-help-text
+  .form-group class=('has-error' if @itinerary.errors.include?(:tolls))
+    = f.label :tolls, class: 'control-label col-sm-2'
+    .col-sm-10
+      .input-group.input-group-number
+        = f.default_tag :text_field, :tolls, class: 'form-control'
+        span.input-group-addon= APP_CONFIG.currency
+      - if @itinerary.errors.include?(:tolls)
+        span.help-inline
+          = @itinerary.errors.messages[:tolls].join(', ')
+  .form-group class=('has-error' if @itinerary.errors.include?(:description))
+    = f.label :description, class: 'control-label col-sm-2'
+    .col-sm-10
+      = f.default_tag :text_area, :description, rows: 5, help: true, class: 'form-control'
+      p.help-block= t('.description_help')
+      - if @itinerary.errors.include?(:description)
+        span.help-inline
+          = @itinerary.errors.messages[:description].join(', ')
+  .form-group
+    .col-sm-10.col-sm-offset-2
+      - if current_user.female?
+        = f.check_box :pink, disabled: (current_user.male?), class: 'checkbox inline'
+        p.help-block
+          span.fa.fa-lock
+          = t('.pink_help')
+      = f.check_box :smoking_allowed, class: 'checkbox inline'
+      = f.check_box :pets_allowed, class: 'checkbox inline'

@@ -1,0 +1,42 @@
+- title t('.title')
+.container
+  .page-header
+    h1= yield :title
+    h5.text-muted= t('last_modified', date: l(Date.parse('2012-09-01'), format: :long))
+
+  h3 Welcome to # APP_CONFIG.app_name 
+  p
+    | Thanks for using our service (“Service”).
+  p
+    | By using our Service you are agreeing to these terms. Please read them carefully.
+
+  h3 Using our Service
+  p
+    | This is a demo application of the open source carpooling platform #{APP_CONFIG.app_name}.
+  p
+    | The source code is available at
+    = link_to 'http://github.com/diowa/icare', APP_CONFIG.repository_url
+
+  h3 Privacy Protection
+  p
+    #{APP_CONFIG.app_name}'s
+    = link_to "privacy policy", :policy
+    | explain how we treat your personal data and protect your privacy when you use our Service.
+  p
+    | By using our Service, you agree that #{APP_CONFIG.app_name} can use such data in accordance with our privacy policy.
+
+  h3 Modifying and Terminating our Service
+  p
+    | We are constantly changing and improving our Service.
+  p
+    | You can stop using this Service at any time.
+  p
+    | We may also stop providing this Service to you, or add or create new limits to this Service at any time.
+
+  h3 Our Warranties and Disclaimers
+  p
+    | WE DON'T MAKE ANY PROMISE ABOUT THIS SERVICE. FOR EXAMPLE, WE DON’T MAKE ANY COMMITMENTS
+    | ABOUT THE CONTENT WITHIN THIS SERVICE, THE SPECIFIC FUNCTION OF THIS SERVICE, OR ITS RELIABILITY,
+    | AVAILABILITY, OR ABILITY TO MEET YOUR NEEDS. WE PROVIDE THIS SERVICE “AS IS”.
+  p
+    | WE EXCLUDE ALL WARRANTIES.

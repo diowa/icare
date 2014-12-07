@@ -1,0 +1,17 @@
+- title t('.title')
+.container
+  .page-header
+    h1= yield :title
+  .table-responsive
+    table.table
+      tbody
+        - for notification in @notifications
+          tr
+            td class=('notification-unread' if notification.unread?)
+              = notification_icon notification
+              = notification_message notification
+            td.text-right class=('notification-unread' if notification.unread?)
+              p
+                small
+                  abbr title=l(notification.created_at.in_time_zone(current_user.time_zone), format: :long)
+                    #{distance_of_time_in_words(notification.created_at, Time.now.utc, true)} #{t("time_ago")}
