@@ -39,7 +39,7 @@ gem 'newrelic_rpm'
 gem 'newrelic_moped'
 
 # Security
-gem 'secure_headers'
+gem 'secure_headers', github: 'twitter/secureheaders'
 
 # Miscellanea
 gem 'google-analytics-rails'
