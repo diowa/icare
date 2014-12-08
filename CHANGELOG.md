@@ -4,7 +4,6 @@
 
 * SLIM instead of haml
 
-
 ## 0.18.7
 
 * Updated gems
