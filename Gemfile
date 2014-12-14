@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.1.4'
-gem 'rails', '4.2.0.rc2'
+ruby '2.1.5'
+gem 'rails', '4.2.0.rc3'
 
 # Servers
 gem 'thin'
