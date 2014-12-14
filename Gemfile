@@ -43,7 +43,7 @@ gem 'secure_headers', github: 'twitter/secureheaders'
 
 # Miscellanea
 gem 'google-analytics-rails'
-gem 'haml'
+gem 'slim-rails'
 gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'resque', require: 'resque/server' # Resque web interface
@@ -51,7 +51,7 @@ gem 'resque', require: 'resque/server' # Resque web interface
 # Assets
 gem 'autoprefixer-rails'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'haml_assets'
+gem 'slim_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'

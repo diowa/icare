@@ -1,0 +1,31 @@
+= title User.model_name.human(count: :lots)
+.container
+  == render 'shared/flash_messages'
+  .page-header
+    h1
+      = yield :title
+      small<= @users.all.count
+  .table-responsive
+    table.table
+      thead
+        th= User.human_attribute_name :name
+        th= User.human_attribute_name :email
+        th= t('helpers.actions')
+      tbody
+        - for user in @users
+          tr.vertical-align-middle
+            td= link_to user, user_path(user)
+            td= user.email
+            td
+              .btn-toolbar
+                - if user.banned?
+                  = link_to unban_admin_user_path(user.id), method: :post, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-warning' do
+                    = t('helpers.links.user.unban')
+                - else
+                  = link_to ban_admin_user_path(user.id), method: :post, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-warning' do
+                    span.fa.fa-ban>
+                    = t('helpers.links.user.ban')
+                  = link_to login_as_admin_user_path(user.id), method: :get, class: 'btn btn-xs btn-default' do
+                    span.fa.fa-sign-in>
+                    = t('.login_as')
+    = paginate @users

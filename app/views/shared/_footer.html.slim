@@ -1,0 +1,27 @@
+footer
+  .container
+    ul.list-inline.list-footer
+      li.diowa-footer
+        = link_to 'http://diowa.com' do
+          = image_tag transparent_gif_image_data, alt: 'diowa', height: 25, width: 80, title: 'diowa', class: 'diowa-logo'
+      - if user_signed_in?
+        li= link_to t('about'), :about
+        li= link_to t('how_it_works'), :how_it_works
+        - unless APP_CONFIG.demo_mode
+          li= link_to t('terms'), :terms
+      li
+        span.fa.fa-github<>
+        = link_to 'diowa/icare', APP_CONFIG.repository_url
+      - if user_signed_in?
+        li
+          span.fa.fa-bullhorn<>
+          = link_to Feedback.model_name.human(count: :lot), feedbacks_url
+        - if APP_CONFIG.demo_mode
+          li
+            = link_to user_path(current_user), method: :delete, class: 'text-danger', data: { confirm: t('helpers.links.confirm') } do
+              span.fa.fa-times<>
+              = t('delete_account')
+      - if APP_CONFIG.demo_mode
+        li
+          span.fa.fa-warning<>
+          = t('demo_mode')

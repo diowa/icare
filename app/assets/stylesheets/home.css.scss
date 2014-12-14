@@ -2,11 +2,11 @@
 @import "twbs/bootstrap/mixins";
 
 html,
-#homepage {
+.homepage {
   height: 100%;
 }
 
-#homepage {
+.homepage {
   padding: 0;
   .alert {
     z-index: 1;

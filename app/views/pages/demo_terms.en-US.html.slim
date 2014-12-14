@@ -1,0 +1,35 @@
+- title t('.title')
+.container
+  .page-header
+    h1= yield :title
+    h5.text-muted= t('last_modified', date: l(Date.parse('2012-12-01'), format: :long))
+
+  h2 Welcome to # APP_CONFIG.app_name 
+  p
+    | This is a demo application of the open source
+    = link_to 'carpooling', 'http://en.wikipedia.org/wiki/Carpool'
+    | platform #{APP_CONFIG.app_name}.
+  p
+    | The source code is available at
+    = link_to 'http://github.com/diowa/icare', APP_CONFIG.repository_url
+
+  h3 Our Warranties and Disclaimers
+  p
+    | WE PROVIDE THIS DEMO "AS IS", WITHOUT ANY WARRANTY.
+
+  h3 Privacy policy
+  p
+    | We cache the following Facebook data on our local database for performance reasons:
+    ul
+      li
+        | Email, name, birthday, work, education, about, friends, favorites, known languages.
+    | We do not store your public profile picture.
+    | Your username on #{APP_CONFIG.app_name} will be the same of Facebook.
+  p
+    | We will not send you any email.
+  p
+    | The "Share on Facebook Timeline" feature is available, but the Open Graph actions
+    | were not submitted via the App Dashboard for review. It means that only developers
+    | and testers of this app will be able to see your activity.
+  p
+    | You can permanently delete your data by logging in and clicking the "Delete account" button on the footer.

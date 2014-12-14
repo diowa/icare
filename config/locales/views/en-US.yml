@@ -25,6 +25,7 @@ en-US:
       error: Fix the following errors
     links:
       new: New
+      back: Back
       confirm: Are you sure?
       show: Show
       edit: Edit
@@ -53,6 +54,7 @@ en-US:
   meta_title: "Open Source Carpooling Platform: %{appname}"
   meta_description: "Share your itineraries, save money and earn friends."
 
+  loading: Loading...
   login: Log in
   login_with_facebook: Login with Facebook
   logout: Log Out

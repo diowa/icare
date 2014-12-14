@@ -25,6 +25,7 @@ it-IT:
       error: Correggi i seguenti errori
     links:
       new: Nuovo
+      back: Indietro
       confirm: Sei sicuro?
       show: Mostra
       edit: Modifica
@@ -53,6 +54,7 @@ it-IT:
   meta_title: "Piattaforma Open Source di Carpooling: %{appname}"
   meta_description: "%{appname} è una piattaforma open source per il carpooling. Condividi i tuoi itinerari, risparmia soldi e guadagna amici."
 
+  loading: Caricamento...
   login: Accedi
   login_with_facebook: Accedi con Facebook
   logout: Esci

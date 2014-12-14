@@ -15,7 +15,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [Strong Parameters][18]
 * [CoffeeScript][3]
 * [Handlebars.js][4] (JavaScript semantic templates)
-* [HAML][5]
+* [SLIM][5]
 * [Twitter Bootstrap][6]
 * [Font Awesome][7] (retina ready vectorial icons)
 * [Mongoid][8] (ODM for MongoDB)
@@ -34,7 +34,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [2]: http://github.com/rails/turbolinks
  [3]: http://coffeescript.org/
  [4]: http://handlebarsjs.com/
- [5]: http://haml.info/
+ [5]: http://slim-lang.com/
  [6]: http://getbootstrap.com
  [7]: http://fontawesome.io
  [8]: http://mongoid.org/en/mongoid/index.html
