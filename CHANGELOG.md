@@ -3,6 +3,8 @@
 ## 0.19.0
 
 * SLIM instead of haml
+* Ruby 2.1.5
+* Updated gems
 
 ## 0.18.8
 
