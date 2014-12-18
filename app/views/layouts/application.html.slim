@@ -18,8 +18,7 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
     = javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry', 'application', 'data-turbolinks-track' => true
     = analytics_init if APP_CONFIG.google_analytics_id.present?
 
-    /![if lt IE 9]
-      = stylesheet_link_tag 'ie8'
+    /[if lt IE 9]
       = javascript_include_tag '//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js', 'respond.js'
 
   body class=('homepage' if action_name == 'home')
