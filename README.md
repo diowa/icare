@@ -24,7 +24,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * Google Maps API
 * [RSpec][12]
 * [Heroku][14] Cloud Application Platform
-* [Multi environment configuration][15]
+* [Multi-Environment configuration][15]
 * [Airbrake][16] Exception Notification
 * [New Relic][13] Application Performance Management service
 

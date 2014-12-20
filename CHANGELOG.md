@@ -4,6 +4,7 @@
 
 * SLIM instead of haml
 * Ruby 2.1.5
+* Rails 4.2.0
 * Updated gems
 
 ## 0.18.8
