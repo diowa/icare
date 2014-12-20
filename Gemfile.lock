@@ -14,6 +14,12 @@ GIT
   specs:
     client_side_validations (4.2.0)
 
+GIT
+  remote: git://github.com/twitter/secureheaders.git
+  revision: db5f4dba61407ad88408dacab81e06146b7e1c51
+  specs:
+    secure_headers (2.0.0.pre2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -322,7 +328,6 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
-    secure_headers (1.4.1)
     selenium-webdriver (2.44.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -448,7 +453,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   sass-rails (~> 4.0.3)
-  secure_headers
+  secure_headers!
   selenium-webdriver
   simpleconfig
   simplecov
