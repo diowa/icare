@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.1.5'
-gem 'rails', '4.2.0.rc3'
+gem 'rails', '4.2.0'
 
 # Servers
 gem 'thin'
@@ -39,7 +39,7 @@ gem 'newrelic_rpm'
 gem 'newrelic_moped'
 
 # Security
-gem 'secure_headers', github: 'twitter/secureheaders'
+gem 'secure_headers'
 
 # Miscellanea
 gem 'google-analytics-rails'
