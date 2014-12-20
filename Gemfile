@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.1.5'
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.0'
 
 # Servers
 gem 'thin'
@@ -39,7 +39,7 @@ gem 'newrelic_rpm'
 gem 'newrelic_moped'
 
 # Security
-gem 'secure_headers'
+gem 'secure_headers', github: 'twitter/secureheaders'
 
 # Miscellanea
 gem 'google-analytics-rails'
@@ -69,6 +69,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'web-console'
 end
 
 group :development do

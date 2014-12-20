@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
 require "active_model/railtie"
+require "active_job/railtie"
 # require "active_record/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
@@ -25,12 +26,8 @@ module Icare
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
-    I18n.enforce_available_locales = false
+    config.i18n.enforce_available_locales = false
     config.i18n.default_locale = :'en-US'
     config.i18n.available_locales = %i(en-US it-IT)
-
-    config.generators do |g|
-      g.template_engine :haml
-    end
   end
 end
