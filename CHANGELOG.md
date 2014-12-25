@@ -3,7 +3,7 @@
 ## 0.19.0
 
 * SLIM instead of haml
-* Ruby 2.1.5
+* Ruby 2.2.0
 * Rails 4.2.0
 * Updated gems
 
