@@ -9,6 +9,6 @@
 
 li class=('disabled' if current_page.first?)
   - if current_page.first?
-    = link_to raw(t 'views.pagination.first'), '#'
+    == link_to raw(t 'views.pagination.first'), '#'
   - else
-    = link_to raw(t 'views.pagination.first'), url, remote: remote
+    == link_to raw(t 'views.pagination.first'), url, remote: remote
