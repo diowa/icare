@@ -28,4 +28,4 @@
                   = link_to login_as_admin_user_path(user.id), method: :get, class: 'btn btn-xs btn-default' do
                     span.fa.fa-sign-in<>
                     = t('.login_as')
-    = paginate @users
+    == paginate @users
