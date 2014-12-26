@@ -9,6 +9,6 @@
 
 li.next class=('disabled' if current_page.last?)
   - if current_page.last?
-    = link_to raw(t 'views.pagination.next'), '#'
+    == link_to raw(t 'views.pagination.next'), '#'
   - else
-    = link_to raw(t 'views.pagination.next'), url, rel: 'next', remote: remote
+    == link_to raw(t 'views.pagination.next'), url, rel: 'next', remote: remote
