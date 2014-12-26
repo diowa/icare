@@ -80,7 +80,7 @@
       - if current_user.female?
         = f.check_box :pink, disabled: (current_user.male?), class: 'checkbox inline'
         p.help-block
-          span.fa.fa-lock
+          span.fa.fa-lock<>
           = t('.pink_help')
       = f.check_box :smoking_allowed, class: 'checkbox inline'
       = f.check_box :pets_allowed, class: 'checkbox inline'

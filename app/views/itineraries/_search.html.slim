@@ -2,7 +2,7 @@
   = f.text_field :from, label: Itinerary.human_attribute_name(:start_address)
   = f.text_field :to, label: Itinerary.human_attribute_name(:end_address)
   = link_to '#', id: 'search-form-advanced-link' do
-    span.fa.fa-chevron-up
+    span.fa.fa-chevron-up<>
     = t('.advanced_search')
   #search-form-advanced
     .form-group
@@ -10,7 +10,7 @@
         = f.check_box :filter_pink, label: Itinerary.human_attribute_name(:pink)
         .checkbox
           p.help-block
-            span.fa.fa-lock
+            span.fa.fa-lock<>
             = t('itineraries.form.pink_help')
       = f.check_box :filter_verified, label: t('.verified_users')
       = f.check_box :filter_round_trip, label: Itinerary.human_attribute_name(:round_trip)
