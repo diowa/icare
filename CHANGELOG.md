@@ -1,8 +1,14 @@
 # Changelog
 
+## 0.19.2
+
+* Fixed pagination
+* Fixed changelog
+* Fixed icons in slim templates
+
 ## 0.19.1
 
-* Fixed pagination templates
+* Fixed kaminari templates
 
 ## 0.19.0
 

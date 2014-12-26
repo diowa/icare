@@ -29,10 +29,10 @@
             td
               .btn-toolbar
                 = link_to edit_itinerary_path(itinerary), class: 'btn btn-xs btn-default' do
-                  span.fa.fa-pencil
+                  span.fa.fa-pencil<>
                   = t('helpers.links.edit')
                 = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-danger' do
-                  span.fa.fa-times
+                  span.fa.fa-times<>
                   = t('helpers.links.destroy')
           - else
             td= link_to itinerary.user, user_path(itinerary.user)
