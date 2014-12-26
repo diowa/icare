@@ -9,6 +9,7 @@
     h1
       = APP_CONFIG.app_name
       - if APP_CONFIG.demo_mode
+        '
         small demo
     h2= t('.os_carpooling_platform')
     == render 'facebook_login'
