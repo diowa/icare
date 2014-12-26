@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.5
+
+* Fixed db config
+
 ## 0.19.4
 
 * Fixed kaminari templates
