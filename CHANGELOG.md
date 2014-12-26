@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.1
+
+* Fixed pagination templates
+
 ## 0.19.0
 
 * SLIM instead of haml
