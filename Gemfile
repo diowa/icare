@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.1.4'
-gem 'rails', '4.1.8'
+ruby '2.2.0'
+gem 'rails', '4.2.0'
 
 # Servers
 gem 'thin'
@@ -39,11 +39,11 @@ gem 'newrelic_rpm'
 gem 'newrelic_moped'
 
 # Security
-gem 'secure_headers'
+gem 'secure_headers', github: 'twitter/secureheaders'
 
 # Miscellanea
 gem 'google-analytics-rails'
-gem 'haml'
+gem 'slim-rails'
 gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'resque', require: 'resque/server' # Resque web interface
@@ -51,7 +51,7 @@ gem 'resque', require: 'resque/server' # Resque web interface
 # Assets
 gem 'autoprefixer-rails'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'haml_assets'
+gem 'slim_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'
@@ -69,6 +69,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
+  gem 'web-console'
 end
 
 group :development do

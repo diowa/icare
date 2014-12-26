@@ -11,30 +11,28 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 **icare** uses the following technologies:
 
 * [Ruby on Rails][1]
-* [Turbolinks][2]
-* [Strong Parameters][18]
 * [CoffeeScript][3]
 * [Handlebars.js][4] (JavaScript semantic templates)
-* [HAML][5]
+* [SLIM][5]
 * [Twitter Bootstrap][6]
 * [Font Awesome][7] (retina ready vectorial icons)
 * [Mongoid][8] (ODM for MongoDB)
-* [Devise][19]
+* [Devise][2]
 * Asynchronous tasks with [Resque][9] - Redis
 * [RABL][10] API Builder
 * Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
 * [RSpec][12]
 * [Heroku][14] Cloud Application Platform
-* [Multi environment configuration][15]
+* [Multi-Environment configuration][15]
 * [Airbrake][16] Exception Notification
-* [New Relic][17] Application Performance Management service
+* [New Relic][13] Application Performance Management service
 
  [1]: http://rubyonrails.org/
- [2]: http://github.com/rails/turbolinks
+ [2]: http://github.com/plataformatec/devise
  [3]: http://coffeescript.org/
  [4]: http://handlebarsjs.com/
- [5]: http://haml.info/
+ [5]: http://slim-lang.com/
  [6]: http://getbootstrap.com
  [7]: http://fontawesome.io
  [8]: http://mongoid.org/en/mongoid/index.html
@@ -42,12 +40,10 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [10]: http://github.com/nesquena/rabl
  [11]: http://github.com/arsduo/koala
  [12]: http://rspec.info/
+ [13]: http://newrelic.com/
  [14]: http://www.heroku.com/
  [15]: http://github.com/lukeredpath/simpleconfig
  [16]: http://github.com/airbrake/airbrake
- [17]: http://newrelic.com/
- [18]: http://github.com/rails/strong_parameters
- [19]: http://github.com/plataformatec/devise
 
 A working demo is available at http://icare.diowa.com/
 

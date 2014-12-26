@@ -1,0 +1,46 @@
+.row
+  .col-sm-4
+    = f.text_field :start_address
+    = f.text_field :end_address
+    .form-group
+      = f.check_box :avoid_highways
+      = f.check_box :avoid_tolls
+    = f.button t('.get_route'), type: 'button', class: 'btn btn-primary', id: 'get-route'
+    = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...', id: 'itineraries-spinner', class: 'hide'
+    #error.alert.alert-danger
+    #result.alert.alert-info
+      = t('.distance')
+      b#distance<
+      br
+      = t('.duration')
+      b#duration<
+  .col-sm-8
+    #new-itinerary-map.google-maps
+    p#route-helper.hide
+      small
+        = Itinerary.human_attribute_name :start_location
+        b#from-helper
+        br
+        = Itinerary.human_attribute_name :end_location
+        b#to-helper
+        br
+        span#copyrights
+.row
+  .col-sm-4
+    h3
+      span.fa.fa-eye-slash<>
+      = t('.hint_privacy_title')
+    p
+      = t('.hint_privacy_content')
+  .col-sm-4
+    h3
+      span.fa.fa-wrench<>
+      = t('.hint_customize_title')
+    p
+      = t('.hint_customize_content')
+  .col-sm-4
+    h3
+      span.fa.fa-search<>
+      = t('.hint_search_before_title')
+    p
+      = t('.hint_search_before_content', search_link: (link_to t('.search_link'), itineraries_path)).html_safe

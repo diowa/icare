@@ -1,0 +1,13 @@
+li class=message_classes(alternate, message, current_user)
+  .message-avatar
+    .img-outset= user_profile_picture message.sender, style: nil
+  .message
+    .message-header
+      = message_timestamp message
+      span
+        strong= link_to message.sender, user_path(message.sender)
+    p.message-body
+      span.pre-line= message.body.strip
+      - if (message.sender == current_user && !message.unread?)
+        br
+        = message_readat message

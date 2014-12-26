@@ -1,0 +1,40 @@
+.modal.hide#fuel-cost-calculator
+  .modal-header
+    btn.close type='button' data-dismiss='modal' &times;
+    h3 Calcola consumi
+  .modal-body
+    = form_tag "consumption-calculator-form", class: "form-horizontal" do
+      .control-group
+        = label_tag :fuel_type, t(".fuel_type"), class: "control-label"
+        .controls
+          = select_tag :fuel_type, options_for_select(%w(diesel petrol lpg methane).map { |f| [t(".fuel_#{f}"), f] })
+      .control-group
+        = label_tag :vehicle_type, t(".vehicle_type"), class: "control-label"
+        .controls
+          = select_tag :vehicle_type, options_for_select(%w(compact standard high_consumption).map { |f| [t(".vehicle_#{f}"), f] }, selected: "standard")
+      .control-group
+        = label_tag :fuel_price, t(".fuel_price"), class: "control-label"
+        .controls
+          .input-append
+            = text_field_tag :fuel_price, nil, class: "input-mini text-right"
+            span.add-on
+              = t(".100_km")
+      .control-group
+        = label_tag :fuel_price, t(".fuel_price"), class: "control-label"
+        .controls
+          .input-append
+            = text_field_tag :fuel_price, nil, class: "input-mini text-right"
+            span.add-on
+              | &euro;
+              = t(".per_liter")
+          p.help-block
+            | Prezzi medi al 16/07/2012: Benzina: 1,758 - Diesel: 1,649 - GPL: 0,741 - Metano: 0,972
+      .control-group
+        .controls
+          h3
+            #{t(".fuel_cost_estimate")}:
+            span#fuel-cost
+            span &euro; / km
+  .modal-footer
+    = link_to t("save"), "#", data: { dismiss: "modal" }, id: "save-fuel-cost", class: "btn btn-primary"
+    = link_to t("close"), "#", data: { dismiss: "modal" }, class: "btn"
