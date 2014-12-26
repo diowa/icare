@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.19.4
+
+* Fixed kaminari templates
+* Fixed why facebook modal
+* Fixed homepage title
+
 ## 0.19.3
 
 * Fixed kaminari templates
