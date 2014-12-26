@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.3
+
+* Fixed kaminari templates
+
 ## 0.19.2
 
 * Fixed pagination
