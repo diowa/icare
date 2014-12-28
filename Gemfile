@@ -20,7 +20,7 @@ gem 'kaminari'
 gem 'mongoid'
 gem 'mongoid_geospatial'
 gem 'mongoid_paranoia'
-gem 'mongoid_slug'
+gem 'mongoid-slug'
 gem 'jc-validates_timeliness'
 
 # Authentication framework
