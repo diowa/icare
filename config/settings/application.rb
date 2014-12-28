@@ -10,7 +10,6 @@ SimpleConfig.for :application do
 
   set :demo_mode, true
   set :base_url, '127.0.0.1:5000'
-  set :secret_token, '197241fc4c041de6402aa732e0004c5401536237a1c39178005ddf9994695cfc71fb32b543f8fb216f272b416974e3ea3cece241278a40a8516291aec598a948'
   set :single_process_mode, true
 
   set :currency, '.00 €'
@@ -21,10 +20,6 @@ SimpleConfig.for :application do
 
   set :google_analytics_id, nil
   set :google_maps_api_key, nil
-
-  group :devise do
-    set :secret_key, 'eb72ea40d147d8cc0c87dda38b498f7650ccd9286d38dc220fb16d69d4a0623b12b6ca294e098420df506352470addf14aaf2dcff980aa49f1529578de500dda'
-  end
 
   group :facebook do
     set :namespace, 'FACEBOOK_NAMESPACE'

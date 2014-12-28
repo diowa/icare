@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.19.6
+
+* Fixed mongoid-slug dependency
+* Removed Rails < 4.1 secret token  configuration
+* Improved secrets.yml
+
 ## 0.19.5
 
 * Fixed db config

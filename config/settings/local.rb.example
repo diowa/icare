@@ -2,12 +2,6 @@
 # Since this file is not part of the git repository, you can set here sensitive data for local development.
 
 SimpleConfig.for :application do
-  set :secret_token, 'SECRET_TOKEN'
-
-  group :devise do
-    set :secret_key, 'ANOTHER_SECRET_TOKEN'
-  end
-
   group :facebook do
     set :namespace, 'NAMESPACE'
     set :app_id, 'FACEBOOK_APP_ID'
