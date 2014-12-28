@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.19.7
+
+* Fixed sass dependency
+* Improved reference template
+
 ## 0.19.6
 
 * Fixed mongoid-slug dependency
