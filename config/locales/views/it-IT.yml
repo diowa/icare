@@ -351,7 +351,7 @@ it-IT:
       role: Ruolo
       driver: Guidatore
       passenger: Passeggero
-    _reference:
+    reference:
       didnt_write_yet: "%{name} non ha ancora scritto"
     index:
       title: Referenze

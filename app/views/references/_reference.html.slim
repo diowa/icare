@@ -8,10 +8,10 @@
           .balloon.for-profile-picture
             h5.no-margin
               = link_to reference.referencing_user, user_path(reference.referencing_user)
-              span.text-muted
-                 ' (#{driver_or_passenger(reference)})
+              span.text-muted<>
+                ' (#{driver_or_passenger(reference)})
               = make_thumbs(reference.incoming.rating)
-            p.pre-line= reference.incoming.body
+            = simple_format(reference.incoming.body)
         - else
           p.text-muted.didntwrite= t('.didnt_write_yet', name: reference.referencing_user.first_name)
   .div-table.outgoing-reference-cell
@@ -24,7 +24,8 @@
             .balloon.for-profile-picture
               h5.no-margin
                 = link_to reference.user, user_path(reference.user)
+                '
                 = make_thumbs(reference.outgoing.rating)
-              p.pre-line= reference.outgoing.body
+              = simple_format(reference.outgoing.body)
           - else
             p.text-muted.didntwrite= t('.didnt_write_yet', name: reference.user.first_name)

@@ -73,7 +73,7 @@ describe 'References' do
 
     visit user_reference_path(driver, driver.references.first)
 
-    fill_in 'reference_body', with: 'Thanks'
+    fill_in 'reference_body', with: "Thanks\nMate!"
     choose('reference_rating_1')
 
     click_button I18n.t('helpers.submit.update', model: Reference.model_name.human)

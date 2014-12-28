@@ -55,7 +55,7 @@ gem 'slim_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0'
 gem 'twbs_sass_rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
@@ -69,7 +69,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'web-console'
+  gem 'web-console', '~> 2.0'
 end
 
 group :development do
