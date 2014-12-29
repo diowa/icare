@@ -1,8 +1,13 @@
 # Changelog
 
+## 0.19.8
+
+* Removed deprecated .css extension in Sass files
+* Added quiet_assets gem
+
 ## 0.19.7
 
-* Fixed sass dependency
+* Fixed Sass dependency
 * Improved reference template
 
 ## 0.19.6
