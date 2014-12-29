@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.19.9
+
+* Updated gems
+
 ## 0.19.8
 
 * Removed deprecated .css extension in Sass files
