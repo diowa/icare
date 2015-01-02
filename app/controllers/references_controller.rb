@@ -1,7 +1,7 @@
 class ReferencesController < ApplicationController
 
-  before_filter :set_user, only: [:index, :show, :update]
-  before_filter :check_not_myself, only: [:new, :create]
+  before_action :set_user, only: [:index, :show, :update]
+  before_action :check_not_myself, only: [:new, :create]
 
   after_action :mark_as_read, only: [:show]
 
