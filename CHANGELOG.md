@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.19.10
+
+* Fixed filters
+* Updated gems
+* Updated License
+
 ## 0.19.9
 
 * Updated gems

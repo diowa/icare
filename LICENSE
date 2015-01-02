@@ -1,4 +1,4 @@
-Copyright (c) 2014, diowa
+Copyright (c) 2015, diowa
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -38,6 +38,10 @@ Bootstrap for Sass is licensed under the MIT License
 
 Capybara is licensed under the MIT License
 
+client_side_validations is licensed under the MIT License
+
+client_side_validations-turbolinks is licensed under the MIT License
+
 Database Cleaner is licensed under the MIT License
 
 Email Spec is licensed under the MIT License
@@ -54,13 +58,11 @@ FontAwesome pictograms are licensed under the CC BY 3.0 License
 
 google-analytics-rails is licensed under the MIT license
 
-haml is licensed under the MIT License
-
-haml_assets is licensed under the MIT License
-
 http_accept_language is licensed under the MIT License
 
 i18n-js is licensed under the MIT License
+
+jc-validates_timeliness is licensed under the MIT License
 
 jquery is licensed under the MIT License
 
@@ -110,6 +112,8 @@ simpleconfig is licensed under the MIT License
 
 simplecov is licensed under the MIT License
 
+slim-rails is licensed under the MIT License
+
 spring_commands_rspec is licensed under the MIT License
 
 twbs_sass_rails is licensed under the 2-clause BSD License
@@ -117,7 +121,5 @@ twbs_sass_rails is licensed under the 2-clause BSD License
 unicorn is licensed under the GPLv2 License
 
 uglifier is licensed under the MIT License
-
-validates_timeliness is licensed under the MIT License
 
 webmock is licensed under the MIT License
