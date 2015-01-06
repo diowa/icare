@@ -3,7 +3,7 @@ OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new({
   provider: 'facebook',
   uid: '123456',
   info: {
-    email: 'test@127.0.0.1',
+    email: 'test@example.com',
     name: 'John Doe',
     first_name: 'John',
     last_name: 'Doe',
@@ -31,7 +31,7 @@ OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new({
         { id: '201', name: 'Second Athlete' }],
       education: [{ school: { id: '300', name: 'A College' }, type: 'College' }],
       gender: 'male',
-      email: 'test@127.0.0.1',
+      email: 'test@example.com',
       timezone: 1,
       locale: 'en_US',
       languages: [

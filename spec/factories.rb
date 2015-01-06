@@ -2,7 +2,7 @@ FactoryGirl.define do
 
   sequence(:uid)      { |n| "100#{n}" }
   sequence(:username) { |n| "person#{n}" }
-  sequence(:email)    { |n| "person#{n}@127.0.0.1" }
+  sequence(:email)    { |n| "person#{n}@example.com" }
 
   factory :user do
     uid
