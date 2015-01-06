@@ -3,6 +3,8 @@
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/diowa/icare?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 **icare** is an open source [carpooling](http://en.wikipedia.org/wiki/Carpool) platform.
 
 Carpooling (also known as car-sharing, ride-sharing, lift-sharing and covoiturage), is the sharing of car journeys so that more than one person travels in a car.

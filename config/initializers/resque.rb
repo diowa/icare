@@ -1,6 +1,6 @@
-uri = URI.parse(APP_CONFIG.redis.url)
-REDIS = Redis.new(host: uri.host, port: uri.port, password: uri.password)
-Resque.redis = REDIS if defined?(Resque)
+if defined?(Resque) && defined?(Redis)
+  Resque.redis = Redis.new(url: APP_CONFIG.redis.url)
+end
 
 # Web interface
 if defined?(Resque::Server)
