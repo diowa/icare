@@ -1,4 +1,4 @@
-# From Diaspora
+# Code borrowed from Diaspora
 
 worker_processes 3
 timeout 30
@@ -6,24 +6,19 @@ preload_app true
 
 @resque_pid = nil
 
-before_fork do |server, worker|
-  unless APP_CONFIG.single_process_mode
-    # Clean up Resque workers killed by previous deploys/restarts
-    Resque.workers.each { |w| w.unregister_worker }
-    @resque_pid ||= spawn('bundle exec rake resque:work QUEUE=*')
-  end
+unless APP_CONFIG.single_process_mode
+  if defined?(Resque) && defined?(Redis)
+    before_fork do |server, worker|
+      # Clean up Resque workers killed by previous deploys/restarts
+      Resque.workers.each { |w| w.unregister_worker }
+      @resque_pid ||= spawn('bundle exec rake resque:work QUEUE=*')
 
-  # disconnect redis if in use
-  unless APP_CONFIG.single_process_mode
-    Resque.redis.client.disconnect
-  end
-end
+      # disconnect Redis if in use
+      Resque.redis.client.disconnect
+    end
 
-after_fork do |server, worker|
-  # copy pasta from resque.rb because i'm a bad person
-  unless APP_CONFIG.single_process_mode
-    uri = URI.parse(APP_CONFIG.redis.url)
-    REDIS = Redis.new(host: uri.host, port: uri.port, password: uri.password)
-    Resque.redis = REDIS if defined?(Resque)
+    after_fork do |server, worker|
+      Resque.redis = Redis.new(url: APP_CONFIG.redis.url)
+    end
   end
 end
