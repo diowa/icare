@@ -6,7 +6,7 @@ preload_app true
 
 @resque_pid = nil
 
-unless APP_CONFIG.single_process_mode
+unless ::APP_CONFIG.single_process_mode
   if defined?(Resque) && defined?(Redis)
     before_fork do |server, worker|
       # Clean up Resque workers killed by previous deploys/restarts
