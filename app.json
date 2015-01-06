@@ -1,0 +1,73 @@
+{
+  "name": "icare",
+  "description": "Open Source Carpooling Platform. icare requires a valid Facebook application, check our Wiki for more information.",
+  "keywords": [
+    "Carpooling",
+    "Rails",
+    "MongoDB"
+  ],
+  "website": "http://icare.diowa.com/",
+  "repository": "https://github.com/diowa/icare",
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:mongoid:create_indexes"
+  },
+  "env": {
+    "RAILS_ENV": "production",
+    "APP_BASE_URL": {
+      "description": "Pick up a name for your application like \"yourname\" and enter here http://yourname.herokuapp.com"
+    },
+    "RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR": {
+      "description": "Reduces RGenGC's memory consumption.",
+      "value": "1.3"
+    },
+    "FACEBOOK_NAMESPACE": {
+      "description": "The namespace of your Facebook application. Check our Wiki for more information."
+    },
+    "FACEBOOK_APP_ID": {
+      "description": "The ID of your Facebook application. Check our Wiki for more information."
+    },
+    "FACEBOOK_SECRET": {
+      "description": "The secret of your Facebook application. Check our Wiki for more information."
+    },
+    "FACEBOOK_RESTRICTED_GROUP_ID": {
+      "description": "Set this if you want to restrict the user registration to a specific Facebook group. (OPTIONAL)",
+      "required": false
+    },
+    "NEW_RELIC_APP_NAME": {
+      "description": "Sets the name of your application as it will appear on the New Relic dashboard.",
+      "value": "icare"
+    },
+    "AIRBRAKE_API_KEY": {
+      "description": "Airbrake API key. (OPTIONAL)",
+      "required": false
+    },
+    "AIRBRAKE_HOST": {
+      "description": "Airbrake host. (OPTIONAL)",
+      "required": false
+    },
+    "AIRBRAKE_PORT": {
+      "description": "Airbrake port. (OPTIONAL)",
+      "required": false
+    },
+    "GOOGLE_ANALYTICS_ID": {
+      "description": "Google Analytics tracker code. (OPTIONAL)",
+      "required": false
+    },
+    "SECRET_KEY_BASE": {
+      "generator": "secret"
+    },
+    "DEVISE_SECRET_KEY": {
+      "generator": "secret"
+    },
+    "DEVISE_PEPPER": {
+      "generator": "secret"
+    }
+  },
+  "addons": [
+    "mongolab:sandbox",
+    "newrelic:stark",
+    "papertrail",
+    "redistogo:nano"
+  ]
+}

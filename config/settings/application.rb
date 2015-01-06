@@ -9,7 +9,7 @@ SimpleConfig.for :application do
   set :repository_url, 'http://github.com/diowa/icare'
 
   set :demo_mode, true
-  set :base_url, '127.0.0.1:5000'
+  set :base_url, 'localhost:3000'
   set :single_process_mode, true
 
   set :currency, '.00 €'
@@ -61,13 +61,13 @@ SimpleConfig.for :application do
 
   group :mailer do
     set :from, "\"Icare\" <no-reply@i.care>"
-    set :host, '127.0.0.1'
+    set :host, 'localhost'
 
     group :smtp_settings do
-      set :address, '127.0.0.1'
+      set :address, 'localhost'
       set :port, 587
       set :authentication, :plain
-      set :domain, '127.0.0.1'
+      set :domain, 'localhost'
 
       set :user_name, 'test'
       set :password, 'test'
