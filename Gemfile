@@ -84,10 +84,10 @@ end
 group :test do
   gem 'capybara'
   gem 'coveralls', require: false
-  gem 'database_cleaner'
+  gem 'database_cleaner', '1.3.0' # NOTE: DatabaseCleaner/database_cleaner issue #299
   gem 'email_spec'
   gem 'launchy'
-  gem 'mongoid-rspec', '~> 2.0.0.rc1'
+  gem 'mongoid-rspec'
   gem 'selenium-webdriver'
   gem 'rspec'
   gem 'simplecov', require: false

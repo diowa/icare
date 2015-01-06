@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.20.0
+
+* Deploy to Heroku button
+* Updated gems
+
 ## 0.19.10
 
 * Fixed filters

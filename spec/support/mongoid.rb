@@ -3,8 +3,8 @@ RSpec.configure do |config|
   config.include Mongoid::Matchers
 
   config.before(:suite) do
-    DatabaseCleaner[:mongoid].strategy = :truncation
-    DatabaseCleaner[:mongoid].start
+    DatabaseCleaner.orm = :mongoid
+    DatabaseCleaner.strategy = :truncation
   end
 
   config.before(:each) { DatabaseCleaner[:mongoid].start }
