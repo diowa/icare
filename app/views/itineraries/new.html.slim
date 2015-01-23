@@ -37,4 +37,4 @@
       .btn-toolbar
         = button_tag t('.previous_step'), type: 'button', class: 'btn btn-lg btn-default', name: 'back_button', id: 'wizard-prev-step-button', disabled: true
         = f.submit t('.next_step'), type: 'button', class: 'btn btn-lg btn-primary', name: 'next_button', id: 'wizard-next-step-button', disabled: false
-        = f.submit t('.confirm_and_share'), class: 'btn btn-lg btn-primary', id: 'new_itinerary_submit', disabled: true, disable_with: t('helpers.disable_with')
+        = f.submit t('.confirm_and_share'), class: 'btn btn-lg btn-primary', id: 'new_itinerary_submit', disabled: true, data: { disable_with: t('helpers.disable_with') }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.20.1
+
+* Fix disable_with
+* Update gems
+* Refactor itinerary search
+
 ## 0.20.0
 
 * Deploy to Heroku button
