@@ -14,8 +14,8 @@ gem 'simpleconfig'
 gem 'rabl'
 
 # ODM and related
-gem 'client_side_validations', github: 'tagliala/client_side_validations', branch: 'rails4'
-gem 'client_side_validations-turbolinks', github: 'tagliala/client_side_validations-turbolinks', branch: 'rails4'
+gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
+gem 'client_side_validations-turbolinks', github: 'DavyJonesLocker/client_side_validations-turbolinks'
 gem 'kaminari'
 gem 'mongoid'
 gem 'mongoid_geospatial'
@@ -39,7 +39,7 @@ gem 'newrelic_rpm'
 gem 'newrelic_moped'
 
 # Security
-gem 'secure_headers', github: 'twitter/secureheaders'
+gem 'secure_headers'
 
 # Miscellanea
 gem 'google-analytics-rails'
@@ -84,7 +84,8 @@ end
 group :test do
   gem 'capybara'
   gem 'coveralls', require: false
-  gem 'database_cleaner', '1.3.0' # NOTE: DatabaseCleaner/database_cleaner issue #299
+  gem 'mongoid-tree' # NOTE: DatabaseCleaner/database_cleaner issue #299
+  gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'

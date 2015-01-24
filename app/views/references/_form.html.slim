@@ -6,4 +6,4 @@
     label= Reference.human_attribute_name(:rating)
     br
     = reference_radio_buttons(f)
-  = f.submit class: 'btn btn-primary', disable_with: t('helpers.disable_with')
+  = f.submit class: 'btn btn-primary', data: { disable_with: t('helpers.disable_with') }
