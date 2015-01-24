@@ -2,9 +2,10 @@
 
 ## 0.20.1
 
-* Fix disable_with
-* Update gems
+* Fix disable_with in submit buttons
 * Refactor itinerary search
+* Remove coveralls token
+* Update gems
 
 ## 0.20.0
 
