@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.20.2
+
+* Fix responsive menu
+* Update gems
+
 ## 0.20.1
 
 * Fix disable_with in submit buttons
