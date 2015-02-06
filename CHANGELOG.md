@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.20.3
+
+* Update gems
+
 ## 0.20.2
 
 * Fix responsive menu
