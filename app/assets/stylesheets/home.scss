@@ -135,7 +135,7 @@ html,
 }
 
 @media(min-width: #{$screen-sm-min}) {
-  .btn-facebook {
+  .btn-fb {
     @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
   }
   .btn-why-facebook {

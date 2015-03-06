@@ -14,13 +14,14 @@ describe 'Itineraries' do
     end
 
     def login_as_female
-      @user = FactoryGirl.create :user, uid: '123456', gender: 'female'
-      @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
-      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
+      begin
+        @user = FactoryGirl.create :user, uid: '123456', gender: 'female'
+        OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
 
-      visit user_omniauth_authorize_path(provider: :facebook)
-    ensure
-      OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
+        visit user_omniauth_authorize_path(provider: :facebook)
+      ensure
+        OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+      end
     end
 
     it "are allowed to create itineraries", js: true do

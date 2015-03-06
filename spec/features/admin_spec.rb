@@ -26,7 +26,7 @@ describe 'Admin' do
 
     find("a[href=\"#{ban_admin_user_path(user_to_ban.id)}\"]").click
     expect(page).to have_content I18n.t('flash.admin.users.success.ban')
-    expect(page).to have_xpath "//a[contains(@href, '#{unban_admin_user_path(user_to_ban.id)}')]"
+    expect(page).to have_css "a[href=\"#{unban_admin_user_path(user_to_ban.id)}\"]"
   end
 
   it "is not able to ban himself" do
@@ -43,7 +43,7 @@ describe 'Admin' do
 
     find("a[href=\"#{unban_admin_user_path(banned_user.id)}\"]").click
     expect(page).to have_content I18n.t('flash.admin.users.success.unban')
-    expect(page).to have_xpath "//a[contains(@href, '#{ban_admin_user_path(banned_user.id)}')]"
+    expect(page).to have_css "a[href=\"#{ban_admin_user_path(banned_user.id)}\"]"
   end
 
   it 'could login as another user' do
