@@ -14,6 +14,13 @@ GIT
       jquery-rails (>= 3.1.2, < 5.0.0)
       rails (>= 4.0.0, < 4.3.0)
 
+GIT
+  remote: git://github.com/ismaild/icare-engine.git
+  revision: 4372d0c744729aa609884193b99aa46d19bbfc6a
+  specs:
+    icare-engine (0.0.1)
+      rails (~> 4.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -439,6 +446,7 @@ DEPENDENCIES
   handlebars_assets
   http_accept_language
   i18n-js
+  icare-engine!
   jc-validates_timeliness
   jquery-rails
   jquery-turbolinks

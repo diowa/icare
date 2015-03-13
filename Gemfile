@@ -60,6 +60,8 @@ gem 'twbs_sass_rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'icare-engine', github: 'ismaild/icare-engine'
+
 group :development, :test do
   gem 'bullet'
   gem 'byebug'

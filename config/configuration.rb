@@ -9,6 +9,9 @@ SimpleConfig.for :application do
   # Settings stored here will overwrite settings with the same name stored in application.rb
   load File.join(Rails.root.to_s, "config", "settings", "#{Rails.env}.rb"),  :if_exists? => true
 
+  # Per Site settings
+  load File.join(Rails.root.to_s, "config", "settings", "site.rb"),  :if_exists? => true
+
   # Local settings. It is designed as a place for you to override variables
   # specific to your own development environment.
   # Make sure your version control system ignores this file otherwise
