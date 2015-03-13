@@ -1,7 +1,0 @@
-@import "twbs-variables";
-@import "twbs/bootstrap/mixins";
-
-html.turbolinks-progress-bar::before {
-  background-color: $progress-bar-bg !important;
-  z-index: $zindex-navbar-fixed + 1 !important;
-}
