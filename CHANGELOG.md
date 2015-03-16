@@ -7,6 +7,7 @@
 * Improve specs
 * Update gems
 * Change Facebook button class to avoid ad-block filters
+* Remove override of serialize_into_session and serialize_into_cookie since mongoid 4.0.2 automatically maps ids to strings
 
 ## 0.20.3
 

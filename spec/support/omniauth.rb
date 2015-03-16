@@ -40,4 +40,5 @@ OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new({
         { id: '108224912538348', name: 'French' }],
       updated_time: '2012-12-16T08:49:27+0000' } } })
 
+OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
