@@ -33,14 +33,16 @@ describe 'Users' do
   end
 
   it "allows to see latest itineraries in dashboard including pink if they are women" do
-    female_user = FactoryGirl.create :user, gender: 'female'
-    FactoryGirl.create_list :itinerary, 5
-    FactoryGirl.create_list :itinerary, 1, pink: true, user: female_user
-    @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
-    OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
-    visit user_omniauth_authorize_path(provider: :facebook)
-    expect(page).to have_css('.table-itinerary tbody tr', count: 6)
-    OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
+    begin
+      female_user = FactoryGirl.create :user, gender: 'female'
+      FactoryGirl.create_list :itinerary, 5
+      FactoryGirl.create_list :itinerary, 1, pink: true, user: female_user
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
+      visit user_omniauth_authorize_path(provider: :facebook)
+      expect(page).to have_css('.table-itinerary tbody tr', count: 6)
+    ensure
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+    end
   end
 
   it "allows to delete user account" do
@@ -178,10 +180,9 @@ describe 'Users' do
         begin
           old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
           OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
-          verified_user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
 
           visit user_omniauth_authorize_path(provider: :facebook)
-          visit user_path(verified_user)
+          visit user_path(@user)
 
           expect(page).to have_css '.facebook-verified'
         ensure

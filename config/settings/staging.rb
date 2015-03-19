@@ -14,6 +14,7 @@ SimpleConfig.for :application do
     set :namespace, ENV['FACEBOOK_NAMESPACE']
     set :app_id, ENV['FACEBOOK_APP_ID']
     set :secret, ENV['FACEBOOK_SECRET']
+    set :restricted_group_id, ENV['FACEBOOK_RESTRICTED_GROUP_ID']
   end
 
   group :airbrake do
