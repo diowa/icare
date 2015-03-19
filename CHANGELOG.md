@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.21.0
+
+* Rails 4.2.1
+* Ruby 2.2.1
+* Improve specs
+* Update gems
+* Change Facebook button class to avoid ad-block filters
+* Remove override of serialize_into_session since mongoid 4.0.2 automatically maps ids to strings
+
 ## 0.20.3
 
 * Update gems

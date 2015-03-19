@@ -41,7 +41,7 @@
   }
 }
 
-@media(min-width: #{$grid-float-breakpoint}) {
+@media (min-width: $grid-float-breakpoint) {
   .navbar-default {
     background-color: fade-out($navbar-default-bg, 0.1);
   }

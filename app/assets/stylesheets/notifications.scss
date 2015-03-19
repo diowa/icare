@@ -91,7 +91,7 @@ $background: lighten($brand-success, 5%);
   background-color: $background;
 }
 
-@media (max-width: #{$grid-float-breakpoint-max}) {
+@media (max-width: $grid-float-breakpoint-max) {
   #navbar-notifications {
     position: absolute;
     top: 0;

@@ -9,15 +9,17 @@ describe 'Sessions' do
   end
 
   it "allow users without birthday (???) to sign in from Facebook" do
-    @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
-    OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Duncan MacLeod' }, extra: { raw_info: { birthday: nil } }
-    highlander = FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
+    begin
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Duncan MacLeod' }, extra: { raw_info: { birthday: nil } }
+      highlander = FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_omniauth_authorize_path(provider: :facebook)
 
-    expect(current_path).to eq dashboard_path
-    expect(page).to have_content highlander.name
-    OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
+      expect(current_path).to eq dashboard_path
+      expect(page).to have_content highlander.name
+    ensure
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+    end
   end
 
   it "fills user profile with data from facebook" do
@@ -68,15 +70,17 @@ describe 'Sessions' do
 
   context "when authorization fails" do
     it "redirects to root path" do
-      @old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
-      OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
-      highlander = FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
+      begin
+        OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
+        highlander = FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
 
-      visit user_omniauth_authorize_path(provider: :facebook)
+        visit user_omniauth_authorize_path(provider: :facebook)
 
-      expect(current_path).to eq root_path
-      expect(page).to have_content I18n.t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
-      OmniAuth.config.mock_auth[:facebook] = @old_mocked_authhash
+        expect(current_path).to eq root_path
+        expect(page).to have_content I18n.t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
+      ensure
+        OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+      end
     end
   end
 
