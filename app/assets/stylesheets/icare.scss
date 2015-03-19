@@ -164,7 +164,7 @@ h6, .h6 {
   color: $pink;
 }
 
-@media(min-width: #{$screen-sm-min}) {
+@media (min-width: $screen-sm-min) {
   .display-table-sm {
     display: table;
     width: 100%;

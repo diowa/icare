@@ -134,7 +134,7 @@ html,
   margin-top: $line-height-computed;
 }
 
-@media(min-width: #{$screen-sm-min}) {
+@media (min-width: $screen-sm-min) {
   .btn-fb {
     @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
   }

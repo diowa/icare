@@ -57,7 +57,7 @@ GEM
       builder
       multi_json
     arel (6.0.0)
-    autoprefixer-rails (5.1.7)
+    autoprefixer-rails (5.1.7.1)
       execjs
       json
     bcrypt (3.1.10)
@@ -72,9 +72,8 @@ GEM
     bullet (4.14.4)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
-    byebug (4.0.1)
+    byebug (4.0.3)
       columnize (= 0.9.0)
-      rb-readline (= 0.5.2)
     callsite (0.0.11)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -102,7 +101,7 @@ GEM
       thor (~> 0.19.1)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
-    daemons (1.2.1)
+    daemons (1.2.2)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     devise (3.4.1)
@@ -207,7 +206,7 @@ GEM
     newrelic_moped (0.0.12)
       moped
       newrelic_rpm (~> 3.0, >= 3.7)
-    newrelic_rpm (3.10.0.279)
+    newrelic_rpm (3.11.0.283)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
@@ -262,7 +261,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.5)
+    rails-dom-testing (1.0.6)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -280,7 +279,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.4.2)
-    rb-readline (0.5.2)
     redis (3.2.1)
     redis-namespace (1.5.1)
       redis (~> 3.0, >= 3.0.4)
@@ -395,7 +393,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
-    uniform_notifier (1.7.0)
+    uniform_notifier (1.8.0)
     vegas (0.1.11)
       rack (>= 1.0.0)
     warden (1.2.3)
