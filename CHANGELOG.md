@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.21.1
+
+* Remove Client Side Validations Turbolinks plugin
+* Update gems
+
 ## 0.21.0
 
 * Rails 4.2.1
