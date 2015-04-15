@@ -1,0 +1,206 @@
+sr:
+  date:
+    abbr_day_names:
+    - Ned
+    - Pon
+    - Uto
+    - Sre
+    - Čet
+    - Pet
+    - Sub
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - Maj
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Nedelja
+    - Ponedeljak
+    - Utorak
+    - Sreda
+    - Četvrtak
+    - Petak
+    - Subota
+    formats:
+      default: ! '%d-%m-%Y'
+      long: ! '%d %B %Y'
+      short: ! '%d %b'
+    month_names:
+    -
+    - Januar
+    - Februar
+    - Mart
+    - April
+    - Maj
+    - Jun
+    - Jul
+    - Avgust
+    - Septembar
+    - Oktobar
+    - Novembar
+    - Decembar
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: otprilike 1 sat
+        other: otprilike %{count} sati
+      about_x_months:
+        one: otprilike 1 month
+        other: otprilike %{count} meseci
+      about_x_years:
+        one: otprilike 1 year
+        other: otprilike %{count} godina
+      almost_x_years:
+        one: skoro 1 godina
+        other: otprilike %{count} godina
+      half_a_minute: pola minuta
+      less_than_x_minutes:
+        one: manje od minuta
+        other: manje od %{count} minuta
+      less_than_x_seconds:
+        one: manje od 1 sekundi
+        other: manje od %{count} sekundi
+      over_x_years:
+        one: više od 1 godine
+        other: više od %{count} godine
+      x_days:
+        one: 1 dana
+        other: ! '%{count} dana'
+      x_minutes:
+        one: 1 minuta
+        other: ! '%{count} minuta'
+      x_months:
+        one: 1 mesec
+        other: ! '%{count} meseci'
+      x_seconds:
+        one: 1 sekund
+        other: ! '%{count} sekundi'
+    prompts:
+      day: Dan
+      hour: Sat
+      minute: Minut
+      month: Mesec
+      second: Sekund
+      year: Godina
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: mora biti prihvaćeno
+      blank: mora biti popunjeno
+      presence: mora biti popunjeno
+      confirmation: nije u skladu
+      empty: mora biti popunjeno
+      equal_to: mora biti jednako %{count}
+      even: mora biti jednako
+      exclusion: rezervisano
+      greater_than: mora biti veće od %{count}
+      greater_than_or_equal_to: mora biti veće ili jednako %{count}
+      inclusion: nije u listi
+      invalid: nevažeći
+      less_than: mora biti manje od %{count}
+      less_than_or_equal_to: mora biti manje ili jednako %{count}
+      not_a_number: nije broj
+      not_an_integer: nije int
+      odd: mora biti nepar
+      record_invalid: ! 'Validacija invalidna: %{errors}'
+      taken: već zauzeto
+      too_long:
+        one: previše dugačko
+        other: previše dugačko
+      too_short:
+        one: previše kratko
+        other: previše kratko
+      wrong_length:
+        one: pogrešne dužine
+        other: pogrešne dužine
+    template:
+      body: ! 'Problem sa:'
+      header:
+        one: 1 greška sa %{model}
+        other: ! '%{count} greške sprečuju %{model} da se sačuva'
+  helpers:
+    select:
+      prompt: Molim vas izaberite
+    submit:
+      create: Napravi %{model}
+      submit: Sačuvaj %{model}
+      update: Ažuriraj %{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u%n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: €
+    format:
+      delimiter: ! ','
+      precision: 1
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: Bilik
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', i '
+      two_words_connector: ! ' i '
+      words_connector: ! ', '
+  time:
+    am: am
+    formats:
+      default: ! '%a %d %b %Y, %H:%M:%S %z'
+      long: ! '%d %B %Y %H:%M'
+      short: ! '%d %b %H:%M'
+    pm: pm
+  # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors

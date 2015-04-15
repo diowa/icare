@@ -1,0 +1,17 @@
+sr:
+  mongoid:
+    errors:
+      messages:
+        invalid_date: "datum nije validan"
+        invalid_time: "vreme nije validno"
+        invalid_datetime: "datum i vreme nisu validni"
+        is_at: "mora biti %{restriction}"
+        before: "mora biti %{restriction}"
+        on_or_before: "mora biti pre %{restriction}"
+        after: "mora biti posle %{restriction}"
+        on_or_after: "mora biti posle %{restriction}"
+  validates_timeliness:
+    error_value_formats:
+      date: '%Y-%m-%d'
+      time: '%H:%M:%S'
+      datetime: '%Y-%m-%d %H:%M:%S %Z'

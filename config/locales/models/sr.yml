@@ -1,0 +1,108 @@
+sr:
+  mongoid:
+    models:
+      user:
+        one: Korisnik
+        other: Korisnici
+      reference:
+        one: Ocene
+        other: Ocene
+      itinerary:
+        one: Maršute
+        other: Maršute
+      feedback:
+        one: Komentar naše usluge
+        other: Komentar naše usluge
+      notification:
+        one: Obaveštenje
+        other: Obaveštenje
+      conversation:
+        one: Konverzacija
+        other: Konverzacija
+      message:
+        one: Poruka
+        other: Poruka
+    attributes:
+      user:
+        email: mejl
+        name: Ime
+        facebook_verified: Verifikovan na Facebook-u
+        about: O nama
+        username: korisničko ime
+        gender: Pol
+        age: Godine
+        locale: Mesto
+        gender_male: Muško
+        gender_female: Žensko
+        birthday: Rođendan
+        education: Edukacija
+        work: Posao
+        time_zone: Vremenska zona
+        vehicle_avg_consumption: Trošak benzina
+        send_email_messages: Nova poruka
+        send_email_references: Nova ocena
+      feedback:
+        type: Tip
+        status: Status
+        message: Poruka
+        updated_at: Modifikovano
+        url: link
+      itinerary:
+        start_address: Početna adresa
+        end_address: Krajnja adresa
+        avoid_highways: Izbegavaj autoput
+        avoid_tolls: Izbegavaj naplatne rampe
+        start_location: Početak lokacije
+        end_location: Kraj lokacije
+        title: Naslov
+        description: Opis
+        share_on_facebook_timeline: Podeli na Facebook-u
+        smoking_allowed: Pušenje dozvoljeno
+        pets_allowed: Kućni ljubmici dozvoljeni
+        fuel_cost: Cena benzina
+        tolls: Naplatne rampe
+        pink: Maršuta (samo za žene)
+        round_trip: Povratni put
+        leave_date: Datum odlaska
+        return_date: Datum povratka
+        driver_gender: Vozačev pol
+        daily: Dnevna
+      reference:
+        body: Poruka
+        rating: Ocena
+        rating_negative: Negativna
+        rating_neutral: Neutralna
+        rating_positive: Pozitivna
+      message:
+        body: Poruka
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: nije validan mejl
+        itinerary:
+          attributes:
+            route:
+              out_of_boundaries: trenutno željena lokacija nije dozvoljena.
+            pink:
+              driver_must_be_female: samo za žene
+        conversation:
+          attributes:
+            user_ids:
+              already_exists: već imate konverzacju vezanu za ovu maršutu.
+        reference:
+          attributes:
+            user:
+              yourself: hej, to nije fer...
+            referencing_user_id:
+              already_present: već ste napravili ocenu...
+
+  activemodel:
+    attributes:
+    errors:
+      models:
+        login:
+          attributes:
+            email:
+              invalid: vaš mejl nije validan

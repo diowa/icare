@@ -1,0 +1,369 @@
+sr:
+  lang_native_name: Serbian
+
+  date:
+    formats:
+      full_day: ! '%A %B %e'
+      birthday: ! '%B %-d, %Y'
+      month_year: ! '%B %Y'
+  time:
+    ampm: true
+    formats:
+      time_only: '%I:%M %p'
+  datetime:
+    formats:
+      message: ! '%A %B %e, %I:%M'
+
+  boolean:
+    "true": "Da"
+    "false": "Ne"
+
+  helpers:
+    actions: Akcija
+    disable_with: Molimo vas sačekajte...
+    form:
+      error: Popravite greške
+    links:
+      new: Novo
+      back: Natrag
+      confirm: Da li ste sigurni?
+      show: Prikaži
+      edit: Promeni
+      destroy: Obriši
+      user:
+        ban: Blokirajte
+        unban: Odblokirajte
+    titles:
+      new: "Novi %{model}"
+      edit: "Promena %{model}"
+
+  views:
+    pagination:
+      first: "&laquo; Prvi"
+      last: "Poslednji &raquo;"
+      previous: "&lsaquo; Predhodni"
+      next: "Sledeći &rsaquo;"
+      truncate: "&hellip;"
+
+  templates:
+    itineraries:
+      read_more: Pročitaj još
+      show_on_map: Prikaži na mapi
+      facebook_verified: Verifikovan na Facebook-u
+
+  meta_title: "Platforma za moto ture: %{appname}"
+  meta_description: "Organizuj svoju ekipu, i vozite slobodno."
+
+  loading: Čekam...
+  login: Uloguj se
+  login_with_facebook: Uloguj se sa Facebook-om
+  logout: Izloguj se
+  we_will_never_post: Nikada nećemo postaviti objavu u vaše ime.
+  why_facebook: "Zašto Facebook?"
+
+  about: O nama
+  how_it_works: Kako funkcioniše
+  policy: Polisa
+  terms: Uslovi
+
+  former_user: Prošli korisnik
+
+  last_modified: "Poslednje modifikovano: %{date}"
+
+  save: Sačuvaj
+  close: Zatvori
+
+  delete_account: Obriši nalog
+  demo_mode: Ovo je demo aplikacija
+
+  user_mailer:
+    activation_needed_email:
+      subject: "Dobrodošli u %{website}"
+      welcome: "Dobrodošli u %{website}, %{username}"
+      successfully_signed_up: "Uspešno ste se prijavali %{website},"
+      your_username: "vaše korisničko ime: %{username}."
+      to_login_follow_link: "Klikni da bi se ulogovao: %{url}"
+      thanks_for_joining: Hvala!
+    activation_success_email:
+      subject: Vaš račun je aktiviran
+      congratulations: "Čestitamo, %{username}"
+      successfully_activated: "Uspešno se aktivirali %{website} račun,"
+      your_username: "korisničko ime: %{username}."
+      to_login_follow_link: "Klikni da bi se ulogovao: %{url}"
+      thanks_for_joining: Hvala za pridruživanje!
+    reset_password_email:
+      subject: Resetuj šifru
+      hello: "Cao, %{username}"
+      request: "Uspešno ste tražili promenu šifre."
+      new_password_follow_link: "Klikni da promeniš šifru: %{url}"
+      have_a_great_day: "Hvala!"
+
+  recaptcha:
+    errors:
+      incorrect-captcha-sol: loše upisana šifra
+    enter_words: Ukucajte simbole gore
+
+  flash:
+    admin:
+      users:
+        success:
+          ban: Korisnik je banovan.
+          unban: Korisnik više nije banovan.
+        error:
+          ban: Greška pri banovanju korisnika.
+          unban: Greška.
+    users:
+      success:
+        update: Korisnik je ažuriran.
+        destroy: Korisnik je obrisan.
+      error:
+        update: Greška pri ažuriranju korisnika.
+    feedbacks:
+      success:
+        create: Komentar naše usluge je napravljen.
+        update: Komentar naše usluge je ažuriran.
+        destroy: Komentar naše usluge je obrisan.
+      error:
+        create: Greška pri pravljenu komentara na naše usluge.
+        update: Greška pri ažuriranju komentara na naše usluge.
+        destroy: Greška pri brisanju komentara na naše usluge.
+    itineraries:
+      success:
+        create: Maršuta je napravljena.
+        update: Maršuta je ažurirana.
+        destroy: Maršuta je obrisana.
+      error:
+        create: An error occurred while creating this itinerary.
+        update: An error occurred while updating this itinerary.
+        destroy: An error occurred while destroying this itinerary.
+        pink: Pink itineraries are visible only to women.
+    sessions:
+      error:
+        create: Greška pri pristupu.
+        restricted: "Niste član facebook grupe, pošaljite nam mejl na MOTORiTURE@gmail.com."
+    messages:
+      error:
+        create: Greška pri pravljenu poruke.
+    errors:
+      not_allowed: Nemate privilegije za pristupanje ovoj stranici.
+
+  shared:
+    navbar:
+      account_settings: Podešavanja
+      admin_users: Menađment Korisnika
+      language: Jezik
+    footer:
+      message: Samo za ozbiljne.
+
+  pages:
+    home:
+      tagline: "Vozi sa ortacima."
+      os_carpooling_platform: "Samo za ozbiljne bajkere"
+      learn_more: "Saznaj više"
+      what_is_appname: "Šta je %{appname}?"
+      main_features: "Glave mogućnosti"
+      share_itinerary_title: Podeli maršutu
+      share_itinerary_content: "Može da organizuješ vožnje kad god poželiš? Podeli sa svima na facebook-u i napravi svoju ekipu."
+      make_new_connections_title: Napravi nove prijatelje.
+      make_new_connections_content: "Organizuj grupne vožnje. Mi ćemo da ti pomognemo da pronađeš pratioce."
+      save_money_title: Uštedi pare
+      save_money_content: "Vožnja u grupi se isplati. Podeli troškove sa ostalima iz ekipe."
+      thats_easy_title: "Ovo je veoma lako"
+      thats_easy_content: "Jednostavna proces konektovan na Google Maps iz tri koraka do gotove maršute."
+      signin_terms: "Klikom na\" Uloguj se sa Facebook-om\", slažež se sa %{terms_link} od %{appname} i moraš da pročitaš i razumeš %{policy_link}."
+      join_us_today: "Pridruži se!"
+    policy:
+      title: Polisa korišćena
+    terms:
+      title: Uslovi korišćenja
+
+  admin:
+    users:
+      index:
+        login_as: Uloguj se kao
+
+  users:
+    banned:
+      title: Suspendovan račun
+      you_were_banned: Vaš račun je suspendovan!
+      banned_description_html: Konataktriajte nas na motoriture@gmail.com.
+    calculator:
+      fuel_type: Fuel type
+      fuel_diesel: Diesel
+      fuel_petrol: Petrol
+      fuel_lpg: LPG
+      fuel_methane: Methane
+      fuel_price: Fuel price
+      vehicle_type: Vehicle
+      vehicle_compact: Compact
+      vehicle_standard: Standard
+      vehicle_high_consumption: High consumption
+      per_liter: per liter
+      fuel_cost_estimate: Fuel cost estimate
+    dashboard:
+      title: Kontrolna table
+      reminder: Pocetnik
+      new_itinerary: Nova maršuta
+      search_itineraries: Pretraga maršute
+      your_itineraries: Vaše maršute
+      latest_itineraries: Najnovije maršute
+      by: by
+    itineraries:
+      title: Vaše maršute
+    show:
+      member_since: "Korisnik od %{date}"
+      see_all: Vidi sve
+      facebook_verified: "Verifikovan korisnik preko Facebook-a."
+      basic_info: Osnovne informacije
+      friends: "%{count} prijatelja"
+      age: "%{count} godina"
+      language: "%{language} jezik"
+      common_friends: Zajednički prijatelji
+      likes: lajkova
+      and_others:
+        one: i jođ jedan
+        other: "i %{count} drugi"
+    settings:
+      account_settings: Podešavanja
+      general_information: Opšte
+      vehicle_information: Motor
+      user_profile_details: Sve informacije su preuzete sa Facebook-a.
+      vehicle_avg_consumption_help: Stavite tačku da napravite decimalu.
+      vehicle_avg_consumption_note: "Troškovi izračunati orientaciono."
+      fuel: Fuel
+      proportional_costs: "PROPORTIONAL COSTS %{fuel_currency}/km"
+      km_costs_calculation_link:
+      send_email: Send an email when
+      send_email_at_address: "Podcetnik će biti poslat na: %{email}"
+      application_settings: Podešavanja aplikacije
+
+  itineraries:
+    common:
+      about: "o %{itinerary_link} by %{user_link}"
+      features: Vrsta
+    search:
+      advanced_search: Napredno pretraživanje
+      the_same: Nije određeno
+      search: Pretraga
+      verified_users: Verifikovan korisnik
+    index:
+      title: Pretraži maršute
+    show:
+      contact: "Kontakt %{user}"
+      expenses_to_share: Troškovi
+      send_reference: Pošalji referencu
+      report_itinerary: "Prijavi ovu maršutu"
+      login_to_contact: "Uloguj se da kontaktiraš ovog korisnika"
+    header:
+      app_user: "Korisnik %{appname}"
+      smoking:
+        allowed: Pušenje dozvoljeno
+        forbidden: Pušenje zabranjeno
+      pets:
+        allowed: Pets allowed
+        forbidden: Pets forbidden
+    edit:
+      title: "Uredi maršutu"
+    new:
+      title: Nova maršuta
+      step_1: Prvi korak
+      step_2: Drugi korak
+      step_3: Treći korak
+      plan_route: Napravi maršutu
+      insert_itinerary_details: "Napiši detalje maršute."
+      confirm_and_share: "Potvrdi i podeli"
+      next_step: "Sledeći korak"
+      previous_step: "Nazad"
+      missing_publish_stream_permission: "%{appname} nema dozvolu da postavi na tvoju facebook timeline."
+      share_on_timeline_unavailable: "Greška sa Facebook integracijo ."
+    route_step:
+      get_route: Napravi rutu
+      distance: Distanca
+      duration: Trajanje
+      hint_privacy_title: "Privatnost"
+      hint_privacy_content: "Da li ste zabrinuti za privatnost? Nema potrebe da budete detaljni u opisu, a možete prvo i da uoznate buduće saborce."
+      hint_customize_title: "Modifikujte rutu"
+      hint_customize_content: "Poznajete bolju putanju? Samo povucite tačku na mapi i napravite rutu iz snova."
+      hint_search_before_title: "Pretražite ostale maršute"
+      hint_search_before_content: "Možda je neko već napravio sličnu maršutu? %{search_link} pregledajte ostale..."
+      search_link: "Search"
+    form:
+      description_help: "Opišite ukratko vašu maršutu. Navedite važne detalje."
+      single_itinerary: Maršuta
+      daily_itinerary: Maršuta
+      day: dan
+      leave_time: Vreme odlaska
+      return_time: Vreme dolaska
+      edit_all_times: Izmeni sva vremena
+      more_accurate_data: "Need more accurate data for your vehicle?"
+      pink_help: Pink itineraries can be created only by women and are visible only to women.
+
+  feedbacks:
+    index:
+      hide_fixed: Sakri
+      new: New
+      show_fixed: Prikaži
+
+  notifications:
+    index:
+      title: Obaveštenja
+
+  conversations:
+    index:
+      title: Konverzacije
+    show:
+      title: Konverzacija
+    new:
+      title: Nova konverzacija
+    messages:
+      time_ago: "pre %{time}"
+      seen: "Pregledan %{date}"
+    form:
+      write_a_message: Napišite poruku...
+      send: Pošalji
+
+  references:
+    common:
+      role: Čin
+      driver: Organizator
+      passenger: Saborac
+    reference:
+      didnt_write_yet: "%{name} nije napisao ocenu."
+    index:
+      title: Ocene
+    show:
+      title: Ocene
+    new:
+      title: Nova ocena
+    snippet:
+      positives:
+        zero: 0 pozitivna
+        one: "%{count} pozitivna"
+        other: "%{count} pozitivnih"
+      neutrals:
+        zero: 0 neutralnih
+        one: "%{count} neutralna"
+        other: "%{count} neutralnih"
+      negatives:
+        zero: 0 negativnih
+        one: "%{count} negativna"
+        other: "%{count} negativnih"
+    form:
+      write_a_reference: Napišite ocenu...
+
+  javascript:
+    no_itineraries_found: Nema pronađenih maršuta.
+    an_error_occurred: Ops! Greška pri traženju.. Pokušajte ponovo.
+    fuel_help_text: "Ova maršuta je %{km} km dugačka. Prosečna potrošnja goriva %{avg_consumption} %{fuel_currency}/km, cena je %{est}%{currency}."
+    not_found: Maršuta nije pronađena
+    zero_results: Nema rezultata
+    setup_route_first: Prvo, napravi maršutu
+    notifications:
+      conversations:
+        title: Poruke
+        see_all: Vidi sve
+        no_new: Nema novih poruka
+      notifications:
+        title: Poruke
+        see_all: Vidi sve
+        no_new: Nema novih poruka
