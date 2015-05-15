@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.1'
+ruby '2.2.2'
 gem 'rails', '4.2.1'
 
 # Servers
@@ -55,6 +55,7 @@ gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'
 gem 'sass-rails', '~> 5.0'
+gem 'sprockets', '~> 2.12' # TODO: resolve issue with slim_assets
 gem 'twbs_sass_rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
