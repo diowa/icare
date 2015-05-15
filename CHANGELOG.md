@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.21.2
+
+* Ruby 2.2.2
+* Remove Client Side Validations middleware
+* Add Company Carpool advertising
+* Update gems
+
 ## 0.21.1
 
 * Remove Client Side Validations Turbolinks plugin
