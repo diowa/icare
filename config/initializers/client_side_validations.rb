@@ -2,6 +2,7 @@
 
 # Uncomment to disable uniqueness validator, possible security issue
 ClientSideValidations::Config.disabled_validators = [:uniqueness]
+ClientSideValidations::Engine.config.app_middleware.delete ClientSideValidations::Middleware::Validators
 
 # Uncomment to validate number format with current I18n locale
 # ClientSideValidations::Config.number_format_with_locale = true

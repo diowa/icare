@@ -149,6 +149,9 @@ en-US:
       not_allowed: You don't have permissions to access this page.
 
   shared:
+    advertising:
+      enterprises: Looking for an Enterprise Carpooling solution?
+      contact_us_html: "Take a look at <strong><a href=\"http://www.companycarpool.com\" target=\"_blank\">Company Carpool</a></strong>"
     navbar:
       account_settings: Account Settings
       admin_users: Manage Users

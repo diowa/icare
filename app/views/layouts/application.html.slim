@@ -23,6 +23,7 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
 
   body class=('homepage' if action_name == 'home')
     == render 'shared/navbar' unless action_name == 'home'
+    == render 'shared/advertising' if action_name == 'home' && APP_CONFIG.advertising
 
     = yield
 

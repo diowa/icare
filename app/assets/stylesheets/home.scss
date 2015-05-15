@@ -17,6 +17,16 @@ html,
   }
 }
 
+.homepage .advertising {
+  position: relative;
+  width: 100%;
+  top: 0;
+  right: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
 #splashscreen {
   position: relative;
   display: table;
@@ -135,6 +145,9 @@ html,
 }
 
 @media (min-width: $screen-sm-min) {
+  .homepage .advertising {
+    position: absolute;
+  }
   .btn-fb {
     @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
   }
