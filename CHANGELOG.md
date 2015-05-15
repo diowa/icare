@@ -2,7 +2,7 @@
 
 ## 0.21.2
 
-* Ruby 2.2
+* Ruby 2.2.2
 * Remove Client Side Validations middleware
 * Add Company Carpool advertising
 * Update gems
