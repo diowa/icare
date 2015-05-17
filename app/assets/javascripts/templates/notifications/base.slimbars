@@ -1,0 +1,9 @@
+.popover
+  .arrow
+  h3.popover-title
+  .popover-ajax-spinner
+    img-popover-ajax-spinner-img src='ajax-spinner-24x17.gif' width=24 height=17 alt=I18n.t('loading')
+  .popover-content
+  .popover-footer
+    a href='{{footer_url}}'
+      | {{footer_link_text}}

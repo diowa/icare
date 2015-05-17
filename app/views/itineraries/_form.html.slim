@@ -14,10 +14,10 @@
       .col-sm-10.col-sm-offset-2= f.check_box :round_trip
     .form-group
       = f.label :leave_date, class: 'control-label col-sm-2'
-      .col-sm-10= f.default_tag :datetime_select, :leave_date, default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm')  , class: 'form-control date-time'
+      .col-sm-10= f.default_tag :datetime_select, :leave_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm') }, class: 'form-control date-time'
     .form-group
       = f.label :return_date, class: 'control-label col-sm-2'
-      .col-sm-10= f.default_tag :datetime_select, :return_date, default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm')  , class: 'form-control date-time', disabled: !@itinerary.round_trip
+      .col-sm-10= f.default_tag :datetime_select, :return_date, { default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm') }, class: 'form-control date-time', disabled: !@itinerary.round_trip
   fieldset#daily.hide.mock
     .control-group
       .controls

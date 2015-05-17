@@ -1,7 +1,7 @@
 ul
   | {{#each messages}}
   li
-    = link_to '{{url}}' do
+    a href='{{url}}'
       .media
         .pull-left
           img.media-object src='{{message.sender.profile_picture}}' width='50' height='50' alt=''

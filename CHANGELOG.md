@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.21.3
+
+* Fix date fields style
+* Use .slimbars template extension
+* Update sprockets to 3.0
+
 ## 0.21.2
 
 * Ruby 2.2.2
