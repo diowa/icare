@@ -6,7 +6,9 @@
         .img-outset
           img.media-object src='{{user.profile_picture}}' width='50' height='50' alt=''
       .media-body
-        h4.media-heading= link_to '{{title}}', '{{url}}', class: 'pre-line'
+        h4.media-heading
+          a.pre-line href='{{url}}'
+            | {{title}}
         p
           | {{user.name}}
           | {{#if user.facebook_verified}}
@@ -50,9 +52,9 @@
         ' {{translate "mongoid.attributes.itinerary.tolls"}}:
       ' {{currency tolls}}
     .btn-toolbar
-      = link_to '#', class: 'btn btn-xs btn-default show-itinerary-on-map' do
+      a.btn.btn-xs.btn-default.show-itinerary-on-map href='#'
         span.fa.fa-map-marker<>
         | {{translate "templates.itineraries.show_on_map"}}
-      = link_to '{{url}}', class: 'btn btn-xs btn-primary' do
+      a.btn.btn-xs.btn-primary href='{{url}}'
         span.fa.fa-info-circle<>
         | {{translate "templates.itineraries.read_more"}}
