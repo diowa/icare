@@ -50,12 +50,11 @@ gem 'resque', require: 'resque/server' # Resque web interface
 # Assets
 gem 'autoprefixer-rails'
 gem 'coffee-rails', '~> 4.1.0'
-gem 'slim_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'
 gem 'sass-rails', '~> 5.0'
-gem 'sprockets', '~> 2.12' # TODO: resolve issue with slim_assets
+gem 'sprockets'
 gem 'twbs_sass_rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
