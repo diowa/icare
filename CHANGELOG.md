@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.22.0
+
+* Rails 4.2.2
+* Bootstrap for Sass 3.3.5
+* Update gems
+
 ## 0.21.3
 
 * Fix date fields style
