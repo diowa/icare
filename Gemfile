@@ -1,11 +1,10 @@
 source 'https://rubygems.org'
 
 ruby '2.2.2'
-gem 'rails', '4.2.2'
+gem 'rails', '4.2.3'
 
 # Servers
 gem 'thin'
-gem 'unicorn'
 
 # Multi-environment configuration
 gem 'simpleconfig'
@@ -95,4 +94,5 @@ end
 
 group :staging, :production do
   gem 'rails_12factor' # Only for heroku
+  gem 'unicorn'
 end
