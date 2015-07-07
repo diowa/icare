@@ -8,12 +8,17 @@ html,
 
 .homepage {
   padding: 0;
+
   .alert {
     z-index: 1;
     position: absolute;
     right: 15px;
     top: 15px;
     min-width: 200px;
+  }
+
+  .btn-toolbar {
+    display: inline-block;
   }
 }
 
