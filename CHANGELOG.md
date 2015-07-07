@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.23.0
+
+* Rails 4.2.3
+* Font Awesome 4.3.0
+* Fix homepage button style
+* Update gems
+
 ## 0.22.0
 
 * Rails 4.2.2
