@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.23.1
+
+* Update gems
+
 ## 0.23.0
 
 * Rails 4.2.3
