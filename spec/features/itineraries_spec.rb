@@ -75,7 +75,7 @@ describe 'Itineraries' do
       login_as_male
       malicious_itinerary = FactoryGirl.create :itinerary, user: @user, description: XSS_ALERT
       visit itinerary_path(malicious_itinerary)
-      expect(-> { page.driver.browser.switch_to.alert }).to raise_error
+      expect(-> { page.driver.browser.switch_to.alert }).to raise_error Selenium::WebDriver::Error::NoAlertPresentError
     end
 
     it "allow users to search them", js: true do

@@ -37,7 +37,7 @@ describe 'Conversations' do
       within('.popover') do
         expect(page).to have_content sender.to_s
         expect(page).to have_content "<script>alert('toasty!);</script>"
-        expect(-> { page.driver.browser.switch_to.alert }).to raise_error
+        expect(-> { page.driver.browser.switch_to.alert }).to raise_error Selenium::WebDriver::Error::NoAlertPresentError
       end
     end
   end
