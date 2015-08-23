@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.24.0
+
+* Font Awesome 4.4.0
+* Improve specs
+* Update gems
+
 ## 0.23.1
 
 * Update gems
