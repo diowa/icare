@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.25.0
+
+* Rails 4.2.4
+* Update gems
+
 ## 0.24.0
 
 * Font Awesome 4.4.0
