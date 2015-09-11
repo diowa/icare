@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.25.1
+
+* Fix for app.json
+* Update gems
+
 ## 0.25.0
 
 * Rails 4.2.4

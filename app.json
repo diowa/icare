@@ -67,7 +67,7 @@
   },
   "addons": [
     "mongolab:sandbox",
-    "newrelic:stark",
+    "newrelic",
     "papertrail",
     "redistogo:nano"
   ]
