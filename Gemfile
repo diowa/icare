@@ -82,7 +82,7 @@ end
 group :test do
   gem 'capybara'
   gem 'coveralls', require: false
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.4.1'
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'
