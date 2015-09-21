@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.26.0
+
+* Update bullet configuration
+* Update Travis CI configuration
+* Update gems
+
 ## 0.25.1
 
 * Fix for app.json

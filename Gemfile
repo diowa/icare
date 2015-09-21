@@ -15,7 +15,7 @@ gem 'rabl'
 # ODM and related
 gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
 gem 'kaminari'
-gem 'mongoid'
+gem 'mongoid', '~> 4.0'
 gem 'mongoid_geospatial'
 gem 'mongoid_paranoia'
 gem 'mongoid-slug'
