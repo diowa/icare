@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.27.0.dev
+
+* Fix Facebook related issues (#34)
+
 ## 0.26.0
 
 * Update bullet configuration
