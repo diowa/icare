@@ -3,6 +3,7 @@
 ## 0.27.0.dev
 
 * Fix Facebook related issues (#34)
+* Ruby 2.2.3
 
 ## 0.26.0
 

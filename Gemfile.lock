@@ -127,11 +127,11 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     google-analytics-rails (0.0.6)
-    handlebars_assets (0.19.1)
-      execjs (>= 1.2.9)
-      multi_json
-      sprockets (>= 2.0.3)
-      tilt
+    handlebars_assets (0.20.2)
+      execjs (~> 2.0)
+      multi_json (~> 1.0)
+      sprockets (>= 2.0.0, < 4.0)
+      tilt (~> 1.2)
     hashie (3.4.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -177,19 +177,24 @@ GEM
       moped (~> 2.0.0)
       origin (~> 2.1)
       tzinfo (>= 0.3.37)
+    mongoid-compatibility (0.2.0)
+      activesupport
+      mongoid (>= 3.0.0)
     mongoid-rspec (2.2.0)
       mongoid (~> 4.0.0)
       rake
       rspec (~> 3.1)
-    mongoid-slug (4.0.0)
+    mongoid-slug (5.0.0)
       mongoid (>= 3.0)
+      mongoid-compatibility
       stringex (~> 2.0)
     mongoid_geospatial (3.1.0)
       activemodel (>= 3.2)
       activesupport (>= 3.2)
       mongoid (>= 3.0.0)
-    mongoid_paranoia (0.1.2)
-      mongoid (> 3)
+    mongoid_paranoia (0.2.0)
+      mongoid (>= 4)
+      mongoid-compatibility
     mono_logger (1.1.0)
     moped (2.0.7)
       bson (~> 3.0)
@@ -202,7 +207,7 @@ GEM
     newrelic_moped (1.0.1)
       moped
       newrelic_rpm (~> 3.11)
-    newrelic_rpm (3.13.0.299)
+    newrelic_rpm (3.13.1.300)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth2 (1.0.0)
@@ -366,7 +371,7 @@ GEM
       rack (~> 1.0)
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (2.0.1)
+    tilt (1.4.1)
     timeliness (0.3.7)
     tins (1.6.0)
     turbolinks (2.5.3)
@@ -470,3 +475,6 @@ DEPENDENCIES
   unicorn
   web-console (~> 2.0)
   webmock
+
+BUNDLED WITH
+   1.10.6
