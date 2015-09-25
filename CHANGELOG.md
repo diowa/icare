@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.27.0
+
+* Fix Facebook related issues (#34)
+* Ruby 2.2.3
+* Update gems
+
 ## 0.26.0
 
 * Update bullet configuration

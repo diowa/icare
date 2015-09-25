@@ -22,6 +22,20 @@ describe 'Sessions' do
     end
   end
 
+  it "allow users without locale (???) to sign in from Facebook" do
+    begin
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Duncan MacLeod' }, extra: { raw_info: { locale: nil } }
+      highlander = FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
+
+      visit user_omniauth_authorize_path(provider: :facebook)
+
+      expect(current_path).to eq dashboard_path
+      expect(page).to have_content highlander.name
+    ensure
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+    end
+  end
+
   it "fills user profile with data from facebook" do
     user = FactoryGirl.create :user, uid: '123456'
 
