@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.27.0.dev
+## 0.27.0
 
 * Fix Facebook related issues (#34)
 * Ruby 2.2.3
