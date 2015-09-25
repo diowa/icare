@@ -4,6 +4,7 @@
 
 * Fix Facebook related issues (#34)
 * Ruby 2.2.3
+* Update gems
 
 ## 0.26.0
 
