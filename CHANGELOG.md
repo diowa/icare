@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.27.1
+
+* Mongoid 5
+* Update gems
+
 ## 0.27.0
 
 * Fix Facebook related issues (#34)

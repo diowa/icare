@@ -15,7 +15,7 @@ gem 'rabl'
 # ODM and related
 gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations'
 gem 'kaminari'
-gem 'mongoid', '~> 4.0'
+gem 'mongoid'
 gem 'mongoid_geospatial'
 gem 'mongoid_paranoia'
 gem 'mongoid-slug'
@@ -49,6 +49,7 @@ gem 'resque', require: 'resque/server' # Resque web interface
 # Assets
 gem 'autoprefixer-rails'
 gem 'coffee-rails', '~> 4.1.0'
+gem 'slim_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'
@@ -82,7 +83,7 @@ end
 group :test do
   gem 'capybara'
   gem 'coveralls', require: false
-  gem 'database_cleaner', '~> 1.4.1'
+  gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'
