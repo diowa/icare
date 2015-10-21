@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.27.2
+
+* Improve mongoid config
+* Update gems
+
 ## 0.27.1
 
 * Mongoid 5
