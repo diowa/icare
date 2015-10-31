@@ -16,8 +16,12 @@ staging:
   clients:
     default:
       uri: <%= ENV['MONGOLAB_URI'] %>
+      options:
+       connect_timeout: 15
 
 production:
   clients:
     default:
       uri: <%= ENV['MONGOLAB_URI'] %>
+      options:
+       connect_timeout: 15
