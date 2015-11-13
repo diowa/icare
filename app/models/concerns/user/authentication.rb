@@ -75,7 +75,7 @@ module Concerns
 
       module ClassMethods
         def from_omniauth(auth)
-          user = where(auth.slice(:provider, :uid)).first_or_initialize
+          user = where(provider: auth.provider, uid: auth.uid).first_or_initialize
           return nil if user.new_record? && !user.can_access?
           user.provider = auth.provider
           user.uid = auth.uid
