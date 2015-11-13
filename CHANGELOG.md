@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.28.0
+
+* Rails 4.2.5
+* Improve authenticable model
+* Improve mongoid config
+* Update gems
+
 ## 0.27.3
 
 * Improve mongoid config
