@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.28.2
+
+* Update gems
+
 ## 0.28.1
 
 * Update gems
