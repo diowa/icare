@@ -11,7 +11,7 @@ OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new({
     urls: { "Facebook" => 'http://www.facebook.com/profile.php?id=123456' } },
   credentials: {
     token: "facebook token",
-    expires_at: 1361304575,
+    expires_at: 2.days.from_now.to_i,
     expires: true },
   extra: {
     raw_info: {

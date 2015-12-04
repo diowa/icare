@@ -11,14 +11,18 @@ describe 'Itineraries' do
       @user = FactoryGirl.create :user, uid: '123456', gender: 'male'
 
       visit user_omniauth_authorize_path(provider: :facebook)
+      # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
+      expect(current_path).to eq dashboard_path
     end
 
     def login_as_female
       begin
-        @user = FactoryGirl.create :user, uid: '123456', gender: 'female'
-        OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
+        OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
+        @user = FactoryGirl.create :user, uid: '123456', name: 'Johanna Doe', gender: 'female'
 
         visit user_omniauth_authorize_path(provider: :facebook)
+        # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
+        expect(current_path).to eq dashboard_path
       ensure
         OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
       end
