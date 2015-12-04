@@ -5,6 +5,20 @@ describe 'Conversations' do
   let(:passenger) { FactoryGirl.create :user, uid: '123456', username: 'johndoe' }
   let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
 
+  it "allows to see own notifications" do
+    receiver = FactoryGirl.create :user, uid: '123456'
+    sender = FactoryGirl.create :user, name: 'Message Sender'
+    itinerary = FactoryGirl.create :itinerary, user: receiver
+    conversation = FactoryGirl.create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation.messages << FactoryGirl.build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+
+    visit user_omniauth_authorize_path(provider: :facebook)
+    visit conversations_path
+
+    expect(page).to have_content 'Message Sender'
+    expect(page).to have_css "a[href=\"#{conversation_path(conversation)}\"]"
+  end
+
   it "allows to send messages" do
     message = 'can I come with you?'
     another_message = 'please please please!'

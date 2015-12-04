@@ -9,7 +9,6 @@ Rails.application.routes.draw do
 
   resources :conversations, only: [:show, :new, :create, :update, :index] do
     get :unread, on: :collection
-    resources :messages, only: [:create]
   end
 
   resources :feedbacks, only: [:show, :new, :create, :edit, :update, :destroy, :index]
