@@ -36,7 +36,7 @@ module ReferencesHelper
   private
   def reference_radio_button(form, field, info)
     form.label :rating, value: info[:value], class: 'btn btn-default' do
-      concat form.default_tag :radio_button, :rating, info[:value]
+      concat form.radio_button, :rating, info[:value]
       concat content_tag(:span, nil, class: "fa #{info[:icon]}") + ' ' if info[:icon]
       concat Reference.human_attribute_name(field)
     end
