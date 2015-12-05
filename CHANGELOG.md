@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.29.1
+
+* Fix itineraries spec
+
 ## 0.29.0
 
 * Remove old code
