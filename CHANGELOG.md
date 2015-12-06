@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.29.2
+
+* Improve itineraries spec
+* Update gems
+
 ## 0.29.1
 
 * Fix itineraries spec
