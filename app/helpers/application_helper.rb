@@ -22,7 +22,7 @@ module ApplicationHelper
   end
 
   def options_for_array_collection(model, attr_name, *args)
-    options_for_select("#{model}::#{attr_name.to_s.upcase}".safe_constantize.map { |e| [ model.human_attribute_name("#{attr_name}_#{e}"), e] }, *args)
+    "#{model}::#{attr_name.to_s.upcase}".safe_constantize.map { |e| [ model.human_attribute_name("#{attr_name}_#{e}"), e] }
   end
 
   def background_jobs_available?

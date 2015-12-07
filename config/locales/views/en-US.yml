@@ -300,7 +300,7 @@ en-US:
       hint_search_before_content: "And if your itinerary was already there? %{search_link} among the available itineraries and check if there is one that matches your needs."
       search_link: "Search"
     form:
-      description_help: "Enter a brief description of your itinerary. If there are things that your fellow travelers need to know, add them here (example: \"loud music in the car!\")."
+      description_hint: "Enter a brief description of your itinerary. If there are things that your fellow travelers need to know, add them here (example: \"loud music in the car!\")."
       single_itinerary: Single Itinerary
       daily_itinerary: Daily Itinerary
       day: Day
@@ -308,7 +308,7 @@ en-US:
       return_time: Return time
       edit_all_times: Edit all times
       more_accurate_data: "Need more accurate data for your vehicle?"
-      pink_help: Pink itineraries can be created only by women and are visible only to women.
+      pink_hint: Pink itineraries can be created only by women and are visible only to women.
 
   feedbacks:
     index:
