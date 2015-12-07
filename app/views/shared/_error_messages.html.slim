@@ -1,0 +1,7 @@
+- if object.errors.full_messages.any?
+  .alert.alert-block.alert-danger.fade.in
+    button.close type='button' data-dismiss='alert' &times;
+    h4= t('helpers.form.error')
+    - for msg in object.errors.full_messages
+      = msg
+      br
