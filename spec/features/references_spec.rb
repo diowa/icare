@@ -33,6 +33,15 @@ describe 'References' do
     expect(page).to have_content body
   end
 
+  it "rescues from creation errors" do
+    login_as_passenger
+
+    visit new_user_reference_path(passenger, itinerary_id: itinerary.id)
+
+    click_button I18n.t('helpers.submit.create', model: Reference.model_name.human)
+    expect(page).to have_css 'form .alert.alert-danger'
+  end
+
   it "allow users to view their own ones" do
     login_as_driver
 
@@ -72,6 +81,10 @@ describe 'References' do
     driver.reload
 
     visit user_reference_path(driver, driver.references.first)
+
+    click_button I18n.t('helpers.submit.update', model: Reference.model_name.human)
+
+    expect(page).to have_css 'form .alert.alert-danger'
 
     fill_in 'reference_body', with: "Thanks\nMate!"
     choose('reference_rating_1')
