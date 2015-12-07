@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.30.0.dev
+
+* Move to simple form
+* Update gems
+
 ## 0.29.2
 
 * Improve itineraries spec

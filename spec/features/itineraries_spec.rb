@@ -38,16 +38,16 @@ describe 'Itineraries' do
       click_button 'get-route'
       click_button 'wizard-next-step-button'
 
-      expect(page).to have_css('#itinerary_return_date_3i[disabled]')
-      check 'itinerary_round_trip'
-      expect(page).to_not have_css('#itinerary_return_date_3i[disabled]')
-
       leave_date = Time.parse("#{10.days.from_now.to_date} 8:30")
       select leave_date.day, from: 'itinerary_leave_date_3i'
       select I18n.t('date.month_names')[leave_date.month], from: 'itinerary_leave_date_2i'
       select leave_date.year, from: 'itinerary_leave_date_1i'
       select '08 AM', from: 'itinerary_leave_date_4i'
       select leave_date.min, from: 'itinerary_leave_date_5i'
+
+      expect(page).to have_css('#itinerary_return_date_3i[disabled]')
+      check 'itinerary_round_trip'
+      expect(page).to_not have_css('#itinerary_return_date_3i[disabled]')
 
       return_date = Time.parse("#{35.days.from_now.to_date} 9:10")
       select return_date.day, from: 'itinerary_return_date_3i'
