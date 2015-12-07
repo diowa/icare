@@ -1,8 +1,8 @@
-= bootstrap_form_for @feedback, validate: true do |f|
-  = f.error_messages
-  = f.select :type, Feedback::TYPE
+= simple_form_for @feedback, validate: true do |f|
+  == render 'shared/error_messages', object: f.object
+  = f.input :type, collection: Feedback::TYPE
   - if permitted_params.feedback_attributes.include? :status
-    = f.select :status, Feedback::STATUS
-  = f.text_area :message, rows: 8
-  = f.text_field :url
-  = f.submit class: 'btn btn-primary', data: { disable_with: t('helpers.disable_with') }
+    = f.input :status, collection: Feedback::STATUS
+  = f.input :message, as: :text, input_html: { rows: 8 }
+  = f.input :url
+  = f.button :button, class: 'btn btn-primary', data: { disable_with: t('helpers.disable_with') }

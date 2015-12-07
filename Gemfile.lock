@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/DavyJonesLocker/client_side_validations-simple_form.git
+  revision: e6b61d5a82537a4d1d6d5259b8fd07f865ef89c9
+  specs:
+    client_side_validations-simple_form (3.2.0)
+      client_side_validations (~> 4.2.0)
+      simple_form (~> 3.2)
+
+GIT
   remote: git://github.com/DavyJonesLocker/client_side_validations.git
   revision: f388e15b4a93902d880aec3448b61019b66f5a7f
   specs:
@@ -335,6 +343,9 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    simple_form (3.2.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     simpleconfig (2.0.1)
     simplecov (0.11.1)
       docile (~> 1.1.0)
@@ -430,6 +441,7 @@ DEPENDENCIES
   byebug
   capybara
   client_side_validations!
+  client_side_validations-simple_form!
   coffee-rails (~> 4.1.0)
   coveralls
   database_cleaner

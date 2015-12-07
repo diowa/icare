@@ -23,6 +23,8 @@ en-US:
         one: Message
         other: Messages
     attributes:
+      conversation:
+        messages: Messages
       user:
         email: Email
         name: Name

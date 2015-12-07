@@ -1,11 +1,11 @@
 .row
   .col-sm-4
-    = f.text_field :start_address
-    = f.text_field :end_address
+    = f.input :start_address
+    = f.input :end_address
     .form-group
-      = f.check_box :avoid_highways
-      = f.check_box :avoid_tolls
-    = f.button t('.get_route'), type: 'button', class: 'btn btn-primary', id: 'get-route'
+      = f.input :avoid_highways, as: :boolean, wrapper: false
+      = f.input :avoid_tolls, as: :boolean, wrapper: false
+    .form-group= f.button :button, t('.get_route'), type: 'button', class: 'btn btn-primary', id: 'get-route'
     = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...', id: 'itineraries-spinner', class: 'hide'
     #error.alert.alert-danger
     #result.alert.alert-info
