@@ -29,7 +29,7 @@
               span#itinerary-preview-from
               small= Itinerary.human_attribute_name :end_address
               span#itinerary-preview-to
-        == render 'form', f: f
+        .form-horizontal== render 'form', f: f
         .text-center= share_on_facebook_timeline_checkbutton(f)
     .form-group.text-center
       = f.hidden_field :route
