@@ -23,6 +23,8 @@ it-IT:
         one: Messaggio
         other: Messaggi
     attributes:
+      conversation:
+        messages: Messaggi
       user:
         email: E-mail
         name: Nome

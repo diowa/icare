@@ -35,6 +35,30 @@ describe 'Conversations' do
     expect(page).to have_content another_message
   end
 
+  it "rescues from creation errors" do
+    visit user_omniauth_authorize_path(provider: :facebook)
+    visit new_conversation_path(itinerary_id: itinerary.id)
+
+    click_button I18n.t('conversations.form.send')
+
+    expect(page).to have_css '.alert-danger'
+  end
+
+  it "rescues from update errors" do
+    receiver = FactoryGirl.create :user, uid: '123456'
+    sender = FactoryGirl.create :user
+    itinerary = FactoryGirl.create :itinerary, user: receiver
+    conversation = FactoryGirl.create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation.messages << FactoryGirl.build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+
+    visit user_omniauth_authorize_path(provider: :facebook)
+    visit conversation_path(conversation, itinerary_id: itinerary.id)
+
+    click_button I18n.t('conversations.form.send')
+
+    expect(page).to have_css '.alert-danger'
+  end
+
   it "displays unread messages in the navbar", js: true do
     receiver = FactoryGirl.create :user, uid: '123456'
     sender = FactoryGirl.create :user
@@ -53,6 +77,16 @@ describe 'Conversations' do
         expect(page).to have_content "<script>alert('toasty!);</script>"
         expect(-> { page.driver.browser.switch_to.alert }).to raise_error Selenium::WebDriver::Error::NoAlertPresentError
       end
+    end
+  end
+
+  context "when visiting unread" do
+    it "redirects to conversations path" do
+      visit user_omniauth_authorize_path(provider: :facebook)
+
+      visit unread_conversations_path
+
+      expect(current_path).to eq conversations_path
     end
   end
 end
