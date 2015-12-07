@@ -262,12 +262,12 @@ en-US:
       title: Search itineraries
     show:
       contact: "Contact %{user}"
-      expenses_to_share: Expenses to share
       send_reference: Send a reference
       report_itinerary: "Report this itinerary"
       login_to_contact: "Log in to contact this user"
     header:
       app_user: "A user of %{appname}"
+      expenses_to_share: Expenses to share
       smoking:
         allowed: Smoking allowed
         forbidden: Smoking forbidden

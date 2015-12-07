@@ -274,12 +274,12 @@ it-IT:
       title: Cerca itinerari
     show:
       contact: "Contatta %{user}"
-      expenses_to_share: Costi da dividere
       send_reference: Invia una referenza
       report_itinerary: "Segnala questo itinerario"
       login_to_contact: "Accedi per contattare questo utente"
     header:
       app_user: "Un utente di %{appname}"
+      expenses_to_share: Costi da dividere
       smoking:
         allowed: Si fuma a bordo
         forbidden: Vietato fumare

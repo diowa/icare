@@ -6,32 +6,38 @@
     h1= yield :title
   p.lead= t('.user_profile_details')
 
-  = simple_form_for @user, validate: true do |f|
+  = simple_form_for @user, validate: true, html: { class: 'form-horizontal' } do |f|
     == render 'shared/error_messages', object: f.object
 
     fieldset
       legend= t('.vehicle_information')
-      .form-group
-        = f.label :vehicle_avg_consumption, class: 'control-label'
+      = f.input :vehicle_avg_consumption, wrapper: :horizontal_form do
         .input-group.input-group-number
           = f.text_field :vehicle_avg_consumption, class: 'form-control input-number-sm'
           span.input-group-addon
             | #{APP_CONFIG.fuel_currency}/km
-      p.help-block
-        = t('.vehicle_avg_consumption_help')
-        = link_to t('.km_costs_calculation_link'), APP_CONFIG.costs_calculation_service_link, target: '_blank'
-        br
-        small
-          = t('.vehicle_avg_consumption_note', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs', fuel_currency: APP_CONFIG.fuel_currency))).html_safe
+      .row
+        .col-sm-10.col-sm-offset-2
+          p.help-block
+            = t('.vehicle_avg_consumption_help')
+            '
+            = link_to t('.km_costs_calculation_link'), APP_CONFIG.costs_calculation_service_link, target: '_blank'
+            br
+            small
+              = t('.vehicle_avg_consumption_note', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs', fuel_currency: APP_CONFIG.fuel_currency))).html_safe
 
     fieldset
       legend= t('.application_settings')
-      = f.input :locale, collection: I18n.available_locales.map{ |locale| [ t('lang_native_name', locale: locale), locale] }, disabled: (I18n.available_locales.one?)
-      = f.input :time_zone
+      = f.input :locale, collection: I18n.available_locales.map{ |locale| [ t('lang_native_name', locale: locale), locale] }, disabled: (I18n.available_locales.one?), wrapper: :horizontal_form
+      = f.input :time_zone, wrapper: :horizontal_form
       .form-group
-        = label_tag :notification_group, t('.send_email'), class: 'control-label'
-        = f.input :send_email_messages, as: :boolean, wrapper: false
-        = f.input :send_email_references, as: :boolean, wrapper: false
-        p.help-block
-          = t('.send_email_at_address', email: content_tag(:b,current_user.email)).html_safe
-      .form-group= f.button :button, class: 'btn btn-primary', data: { disable_with: t('helpers.disable_with') }
+        .col-sm-10.col-sm-offset-2
+          = label_tag :notification_group, t('.send_email'), class: 'control-label'
+          = f.input :send_email_messages, as: :boolean, wrapper: false
+          = f.input :send_email_references, as: :boolean, wrapper: false
+          p.help-block
+            = t('.send_email_at_address', email: content_tag(:b,current_user.email)).html_safe
+
+    .row
+      .col-sm-10.col-sm-offset-2
+        = f.button :button, class: 'btn btn-primary', data: { disable_with: t('helpers.disable_with') }
