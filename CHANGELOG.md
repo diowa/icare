@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.30.0.dev
+## 0.30.0
 
 * Move to simple form
 * Update gems
