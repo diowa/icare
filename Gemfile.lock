@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/DavyJonesLocker/client_side_validations-simple_form.git
+  revision: e6b61d5a82537a4d1d6d5259b8fd07f865ef89c9
+  specs:
+    client_side_validations-simple_form (3.2.0)
+      client_side_validations (~> 4.2.0)
+      simple_form (~> 3.2)
+
+GIT
   remote: git://github.com/DavyJonesLocker/client_side_validations.git
   revision: f388e15b4a93902d880aec3448b61019b66f5a7f
   specs:
@@ -44,7 +52,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    addressable (2.3.8)
+    addressable (2.4.0)
     airbrake (4.3.4)
       builder
       multi_json
@@ -59,7 +67,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bson (3.2.6)
+    bson (4.0.0)
     builder (3.2.2)
     bullet (4.14.10)
       activesupport (>= 3.0.0)
@@ -83,7 +91,6 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
-    connection_pool (2.2.0)
     coveralls (0.8.10)
       json (~> 1.8)
       rest-client (>= 1.6.8, < 2)
@@ -173,8 +180,8 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
-    mongo (2.1.2)
-      bson (~> 3.0)
+    mongo (2.2.0)
+      bson (~> 4.0)
     mongoid (5.0.1)
       activemodel (~> 4.0)
       mongo (~> 2.1)
@@ -199,10 +206,7 @@ GEM
       mongoid (>= 4)
       mongoid-compatibility
     mono_logger (1.1.0)
-    moped (2.0.7)
-      bson (~> 3.0)
-      connection_pool (~> 2.0)
-      optionable (~> 0.2.0)
+    moped (1.5.3)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -227,7 +231,6 @@ GEM
     omniauth-oauth2 (1.4.0)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    optionable (0.2.0)
     origin (2.1.1)
     orm_adapter (0.5.0)
     pry (0.10.3)
@@ -241,7 +244,7 @@ GEM
       pry (>= 0.9.10)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
-    rabl (0.11.6)
+    rabl (0.11.7)
       activesupport (>= 2.3.14)
     rack (1.6.4)
     rack-contrib (1.4.0)
@@ -335,6 +338,9 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
+    simple_form (3.2.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     simpleconfig (2.0.1)
     simplecov (0.11.1)
       docile (~> 1.1.0)
@@ -361,7 +367,7 @@ GEM
     spring (1.5.0)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
-    sprockets (3.5.1)
+    sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
     sprockets-rails (2.3.3)
@@ -430,6 +436,7 @@ DEPENDENCIES
   byebug
   capybara
   client_side_validations!
+  client_side_validations-simple_form!
   coffee-rails (~> 4.1.0)
   coveralls
   database_cleaner

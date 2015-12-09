@@ -1,6 +1,6 @@
 module ItinerariesHelper
   def boolean_options_for_select
-    @boolean_options_for_select ||= options_for_select [[t('boolean.true'), true], [t('boolean.false'), false]]
+    @boolean_options_for_select ||= [[t('boolean.true'), true], [t('boolean.false'), false]]
   end
 
   def default_leave_date
@@ -16,7 +16,7 @@ module ItinerariesHelper
     publish_actions_permission = current_user.facebook_permission?(:publish_actions)
     if background_jobs_available?
       (form.label :share_on_facebook_timeline, class: "btn btn-fb btn-checkbox#{' disabled' unless publish_actions_permission}" do
-        form.default_tag(:check_box, :share_on_facebook_timeline, disabled: !publish_actions_permission, checked: publish_actions_permission) +
+        form.check_box_tag(:share_on_facebook_timeline, disabled: !publish_actions_permission, checked: publish_actions_permission) +
         content_tag(:span, nil, class: 'fa fa-square-o check') + ' ' +
         Itinerary.human_attribute_name(:share_on_facebook_timeline)
       end) +

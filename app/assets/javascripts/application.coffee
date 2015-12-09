@@ -8,6 +8,7 @@
 
 # CLIENT SIDE VALIDATIONS
 #= require rails.validations
+#= require rails.validations.simple_form
 
 # BOOTSTRAP
 #= require twbs/bootstrap/transition
