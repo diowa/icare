@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.30.1
+
+* Update gems
+
 ## 0.30.0
 
 * Move to simple form
