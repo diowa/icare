@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.30.2
+
+* Fix share on Facebook
+* Update gems
+
 ## 0.30.1
 
 * Update gems
