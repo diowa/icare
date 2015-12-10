@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   ensure_security_headers
-  protect_from_forgery
+  protect_from_forgery with: :exception
 
   before_action :authenticate_user!
   before_action :check_banned, except: [:banned]
