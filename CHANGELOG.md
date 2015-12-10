@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.30.3
+
+* Protect from forgery with exception (Fix [#38](https://github.com/diowa/icare/issues/38))
+* Update gems
+
 ## 0.30.2
 
 * Fix share on Facebook
