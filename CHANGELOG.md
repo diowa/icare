@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.30.4
+
+* Update gems
+
 ## 0.30.3
 
 * Protect from forgery with exception (Fix [#38](https://github.com/diowa/icare/issues/38))
