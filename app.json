@@ -39,16 +39,16 @@
       "description": "Sets the name of your application as it will appear on the New Relic dashboard.",
       "value": "icare"
     },
-    "AIRBRAKE_API_KEY": {
-      "description": "Airbrake API key. (OPTIONAL)",
+    "AIRBRAKE_PROJECT_ID": {
+      "description": "Airbrake Project ID. (OPTIONAL)",
+      "required": false
+    },
+    "AIRBRAKE_PROJECT_KEY": {
+      "description": "Airbrake Project API Key. (OPTIONAL)",
       "required": false
     },
     "AIRBRAKE_HOST": {
       "description": "Airbrake host. (OPTIONAL)",
-      "required": false
-    },
-    "AIRBRAKE_PORT": {
-      "description": "Airbrake port. (OPTIONAL)",
       "required": false
     },
     "GOOGLE_ANALYTICS_ID": {

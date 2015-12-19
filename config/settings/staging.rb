@@ -18,7 +18,8 @@ SimpleConfig.for :application do
   end
 
   group :airbrake do
-    set :api_key, ENV['AIRBRAKE_API_KEY']
+    set :project_id, ENV['AIRBRAKE_PROJECT_ID']
+    set :project_key, ENV['AIRBRAKE_PROJECT_KEY']
     set :host, ENV['AIRBRAKE_HOST']
   end
 
