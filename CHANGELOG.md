@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.30.5
+
+* Ruby 2.2.4
+* [BREAKING CHANGE] Airbrake 5
+* Update gems
+
 ## 0.30.4
 
 * Update gems
