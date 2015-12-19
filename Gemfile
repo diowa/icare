@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.2.4'
 gem 'rails', '4.2.5'
 
 # Servers
@@ -49,13 +49,14 @@ gem 'resque', require: 'resque/server' # Resque web interface
 
 # Assets
 gem 'autoprefixer-rails'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.1.1'
 gem 'slim_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'
 gem 'sass-rails', '~> 5.0'
 gem 'sprockets'
+gem 'sprockets-rails', '~> 2.3' # TODO: https://github.com/leshill/handlebars_assets/issues/145
 gem 'twbs_sass_rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
@@ -69,7 +70,6 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'web-console', '~> 2.0'
 end
 
 group :development do
@@ -79,6 +79,7 @@ group :development do
   gem 'quiet_assets'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'web-console'
 end
 
 group :test do

@@ -35,9 +35,9 @@ SimpleConfig.for :application do
   end
 
   group :airbrake do
-    set :api_key, 'AIRBRAKE_API_KEY'
-    set :host, 'AIRBRAKE_HOST'
-    set :port, 80
+    set :project_id, 'AIRBRAKE_PROJECT_ID'
+    set :project_key, 'AIRBRAKE_PROJECT_KEY'
+    set :host, 'http://127.0.0.1'
   end
 
   group :map do
