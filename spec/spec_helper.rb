@@ -4,7 +4,6 @@ if ENV['CI']
 end
 
 require 'simplecov'
-SimpleCov.command_name 'Rpec'
 SimpleCov.start 'rails'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
