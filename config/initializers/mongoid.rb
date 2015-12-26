@@ -3,9 +3,9 @@
 module Origin
   module Selectable
     def within_spherical_circle(criterion = nil)
-      __expanded__(criterion, "$geoWithin", "$centerSphere")
+      __expanded__(criterion, '$geoWithin', '$centerSphere')
     end
-    key :within_spherical_circle, :expanded, "$geoWithin", "$centerSphere"
+    key :within_spherical_circle, :expanded, '$geoWithin', '$centerSphere'
   end
 end
 
@@ -19,14 +19,11 @@ end
 
 # encoding: utf-8
 module Mongoid
-
   # Adds Rails' multi-parameter attribute support to Mongoid.
   #
   # @todo: Durran: This module needs an overhaul.
   module MultiParameterAttributes
-
     module Errors
-
       # Raised when an error occurred while doing a mass assignment to an
       # attribute through the <tt>attributes=</tt> method. The exception
       # has an +attribute+ property that is the name of the offending attribute.
@@ -74,8 +71,9 @@ module Mongoid
 
         attrs.each_pair do |key, value|
           if key =~ /\A([^\(]+)\((\d+)([if])\)$/
-            key, index = $1, $2.to_i
-            (multi_parameter_attributes[key] ||= {})[index] = value.empty? ? nil : value.send("to_#{$3}")
+            key = Regexp.last_match(1)
+            index = Regexp.last_match(2).to_i
+            (multi_parameter_attributes[key] ||= {})[index] = value.empty? ? nil : value.send("to_#{Regexp.last_match(3)}")
           else
             attributes[key] = value
           end
@@ -94,8 +92,8 @@ module Mongoid
         end
 
         unless errors.empty?
-          raise Errors::MultiparameterAssignmentErrors.new(errors),
-            "#{errors.size} error(s) on assignment of multiparameter attributes"
+          fail Errors::MultiparameterAssignmentErrors.new(errors),
+               "#{errors.size} error(s) on assignment of multiparameter attributes"
         end
         super(attributes)
       else
@@ -106,7 +104,7 @@ module Mongoid
     protected
 
     def instantiate_object(field, values_with_empty_parameters)
-      return nil if values_with_empty_parameters.all? { |v| v.nil? }
+      return nil if values_with_empty_parameters.all?(&:nil?)
       values = values_with_empty_parameters.collect { |v| v.nil? ? 1 : v }
       klass = field.type
       if klass == DateTime || klass == Date || klass == Time

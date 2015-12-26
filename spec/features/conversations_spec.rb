@@ -5,7 +5,7 @@ describe 'Conversations' do
   let(:passenger) { FactoryGirl.create :user, uid: '123456', username: 'johndoe' }
   let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
 
-  it "allows to see own notifications" do
+  it 'allows to see own notifications' do
     receiver = FactoryGirl.create :user, uid: '123456'
     sender = FactoryGirl.create :user, name: 'Message Sender'
     itinerary = FactoryGirl.create :itinerary, user: receiver
@@ -19,7 +19,7 @@ describe 'Conversations' do
     expect(page).to have_css "a[href=\"#{conversation_path(conversation)}\"]"
   end
 
-  it "allows to send messages" do
+  it 'allows to send messages' do
     message = 'can I come with you?'
     another_message = 'please please please!'
 
@@ -35,7 +35,7 @@ describe 'Conversations' do
     expect(page).to have_content another_message
   end
 
-  it "rescues from creation errors" do
+  it 'rescues from creation errors' do
     visit user_omniauth_authorize_path(provider: :facebook)
     visit new_conversation_path(itinerary_id: itinerary.id)
 
@@ -44,7 +44,7 @@ describe 'Conversations' do
     expect(page).to have_css '.alert-danger'
   end
 
-  it "rescues from update errors" do
+  it 'rescues from update errors' do
     receiver = FactoryGirl.create :user, uid: '123456'
     sender = FactoryGirl.create :user
     itinerary = FactoryGirl.create :itinerary, user: receiver
@@ -59,7 +59,7 @@ describe 'Conversations' do
     expect(page).to have_css '.alert-danger'
   end
 
-  it "displays unread messages in the navbar", js: true do
+  it 'displays unread messages in the navbar', js: true do
     receiver = FactoryGirl.create :user, uid: '123456'
     sender = FactoryGirl.create :user
     itinerary = FactoryGirl.create :itinerary, user: receiver
@@ -80,8 +80,8 @@ describe 'Conversations' do
     end
   end
 
-  context "when visiting unread" do
-    it "redirects to conversations path" do
+  context 'when visiting unread' do
+    it 'redirects to conversations path' do
       visit user_omniauth_authorize_path(provider: :facebook)
 
       visit unread_conversations_path

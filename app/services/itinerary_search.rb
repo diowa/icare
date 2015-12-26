@@ -30,6 +30,7 @@ class ItinerarySearch
   end
 
   private
+
   def get_reversed(itineraries, a_location, b_location)
     itineraries.where round_trip: true, :start_location.within_spherical_circle => [b_location, SPHERE_RADIUS], :end_location.within_spherical_circle => [a_location, SPHERE_RADIUS], :return_date.gt => @now
   end

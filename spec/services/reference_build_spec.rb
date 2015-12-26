@@ -7,7 +7,7 @@ describe ReferenceBuild do
     let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
     let(:params) { { body: 'Positive', rating: '1' } }
 
-    it "does not fail if params are empty or malformed" do
+    it 'does not fail if params are empty or malformed' do
       invalid_reference_builds = [ReferenceBuild.new({}, passenger, itinerary),
                                   ReferenceBuild.new({ body: 'something' }, passenger, itinerary),
                                   ReferenceBuild.new({ body: 'something', rating: 4 }, passenger, itinerary),
@@ -22,7 +22,7 @@ describe ReferenceBuild do
       end
     end
 
-    it "builds reference starting from itinerary, user and outgoing" do
+    it 'builds reference starting from itinerary, user and outgoing' do
       reference = ReferenceBuild.new(params, passenger, itinerary).reference
       expect(reference).to_not be_nil
       expect(reference.valid?).to be true

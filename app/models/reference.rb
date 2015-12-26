@@ -16,15 +16,15 @@ class Reference
 
   scope :unread, -> { where(read_at: nil) }
 
-  scope :positives, -> { where(:"incoming.rating" => 1) }
-  scope :neutrals, -> { where(:"incoming.rating" => 0) }
-  scope :negatives, -> { where(:"incoming.rating" => -1) }
+  scope :positives, -> { where("incoming.rating": 1) }
+  scope :neutrals, -> { where("incoming.rating": 0) }
+  scope :negatives, -> { where("incoming.rating": -1) }
 
   validates :referencing_user_id, uniqueness: { message: :already_present }
   validate :not_by_myself
 
   def not_by_myself
-    self.errors.add(:user, :yourself) if user.id == referencing_user_id
+    errors.add(:user, :yourself) if user.id == referencing_user_id
   end
 
   def unread?
@@ -36,6 +36,6 @@ class Reference
   end
 
   def referencing_user
-    User.where(_id: referencing_user_id).first
+    User.find_by(_id: referencing_user_id)
   end
 end

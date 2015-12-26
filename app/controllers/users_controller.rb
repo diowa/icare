@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :set_user_as_current_user, only: [:update, :dashboard, :settings, :itineraries]
 
   def show
@@ -36,6 +35,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def set_user_as_current_user
     @user = current_user
   end

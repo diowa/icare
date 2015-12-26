@@ -18,10 +18,10 @@ module Concerns
           set_extra_raw_info_special_permissions auth.extra.raw_info
 
           # Locale, with priority to application setting
-          self.locale = auth.extra.raw_info.locale.gsub(/_/,'-') if auth.extra.raw_info.locale && !self.locale?
+          self.locale = auth.extra.raw_info.locale.tr('_', '-') if auth.extra.raw_info.locale && !self.locale?
 
           # Username and uid array
-          self.username_or_uid = [ username, uid ]
+          self.username_or_uid = [username, uid]
 
           # Permissions
           set_permissions
@@ -35,16 +35,17 @@ module Concerns
           return true unless APP_CONFIG.facebook.restricted_group_id
           facebook do |fb|
             groups = fb.get_connections('me', 'groups')
-            group = groups.select{ |g| g['id'] == APP_CONFIG.facebook.restricted_group_id }.first
+            group = groups.find { |g| g['id'] == APP_CONFIG.facebook.restricted_group_id }
             self.admin = group.present? && group['administrator']
             group.present?
           end
         end
 
         private
+
         def set_credentials(credentials)
           self.oauth_token = credentials.token
-          self.oauth_expires_at = Time.at credentials.expires_at
+          self.oauth_expires_at = Time.zone.at credentials.expires_at
         end
 
         def set_info(info)

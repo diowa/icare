@@ -29,7 +29,7 @@ module Concerns
       validate :inside_bounds, if: -> { APP_CONFIG.itineraries.geo_restricted }, on: :create
 
       def inside_bounds
-        self.errors.add(:base, :out_of_boundaries) unless point_inside_bounds?(start_location) && point_inside_bounds?(end_location)
+        errors.add(:base, :out_of_boundaries) unless point_inside_bounds?(start_location) && point_inside_bounds?(end_location)
       end
 
       def route=(param)
@@ -41,16 +41,17 @@ module Concerns
       end
 
       def sample_path(precision = 10)
-        overview_path.in_groups(precision).map { |g| g.first }.insert(-1, overview_path.last).compact
+        overview_path.in_groups(precision).map(&:first).insert(-1, overview_path.last).compact
       end
 
       def static_map(width = 640, height = 360)
-        URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=#{width}x#{height}&scale=2&sensor=false&markers=color:green|label:B|#{end_location.to_latlng_a.join(",")}&markers=color:green|label:A|#{start_location.to_latlng_a.join(",")}&path=enc:#{overview_polyline}")
+        URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=#{width}x#{height}&scale=2&sensor=false&markers=color:green|label:B|#{end_location.to_latlng_a.join(',')}&markers=color:green|label:A|#{start_location.to_latlng_a.join(',')}&path=enc:#{overview_polyline}")
       end
 
       private
+
       def point_inside_bounds?(point)
-        # TODO RGeo???
+        # TODO: RGeo???
         point.lat.between?(BOUNDARIES[0][0], BOUNDARIES[1][0]) && point.lng.between?(BOUNDARIES[0][1], BOUNDARIES[1][1])
       end
     end

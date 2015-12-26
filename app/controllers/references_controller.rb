@@ -1,5 +1,4 @@
 class ReferencesController < ApplicationController
-
   before_action :set_user, only: [:index, :show, :update]
   before_action :check_not_myself, only: [:new, :create]
 
@@ -42,6 +41,7 @@ class ReferencesController < ApplicationController
   end
 
   private
+
   def check_not_myself
     @itinerary = Itinerary.find(params[:itinerary_id])
     redirect_to root_path if @itinerary.user == current_user

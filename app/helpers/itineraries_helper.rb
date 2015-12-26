@@ -4,7 +4,7 @@ module ItinerariesHelper
   end
 
   def default_leave_date
-    @default_leave_date ||= ((Time.now).change(min: (Time.now.min / 10) * 10) + 10.minutes).in_time_zone
+    @default_leave_date ||= (Time.zone.now).change(min: (Time.zone.now.min / 10) * 10) + 10.minutes
   end
 
   def boolean_tag(value, field)
@@ -20,14 +20,14 @@ module ItinerariesHelper
         content_tag(:span, nil, class: 'fa fa-square-o check') + ' ' +
         Itinerary.human_attribute_name(:share_on_facebook_timeline)
       end) +
-      (unless publish_actions_permission
-        content_tag(:p, class: 'text-muted') do
-          content_tag(:small) do
-            content_tag(:span, nil, class: 'fa fa-ban') + ' ' +
-            t('.missing_publish_actions_permission', appname: APP_CONFIG.app_name)
+        unless publish_actions_permission
+          content_tag(:p, class: 'text-muted') do
+            content_tag(:small) do
+              content_tag(:span, nil, class: 'fa fa-ban') + ' ' +
+                t('.missing_publish_actions_permission', appname: APP_CONFIG.app_name)
+            end
           end
         end
-      end)
     else
       t('.share_on_timeline_unavailable', appname: APP_CONFIG.app_name)
     end

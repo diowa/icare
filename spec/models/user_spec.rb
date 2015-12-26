@@ -36,7 +36,7 @@ describe User do
       end
     end
 
-    it "does not raise exceptions if user has no birthday" do
+    it 'does not raise exceptions if user has no birthday' do
       expect(unknown_birthday.age).to be_nil
     end
   end
@@ -49,7 +49,7 @@ describe User do
       expect(jack_black.first_name).to eq 'Jack'
     end
 
-    it "does not raise exceptions if user has no name" do
+    it 'does not raise exceptions if user has no name' do
       expect(anonymous.first_name).to be_nil
     end
   end
@@ -63,7 +63,7 @@ describe User do
       expect(anonymous.to_s).to eq anonymous.id
     end
 
-    it "does not raise exceptions if user has no name" do
+    it 'does not raise exceptions if user has no name' do
       expect(anonymous.first_name).to be_nil
     end
   end
@@ -73,41 +73,41 @@ describe User do
     let(:uid123456) { FactoryGirl.create :user, username: nil, uid: '123456' }
     let(:anonymous) { FactoryGirl.create :user, username: nil, uid: nil }
 
-    it "returns username when all fields are available" do
+    it 'returns username when all fields are available' do
       expect(jackblack.to_param).to eq jackblack.username
     end
 
-    it "returns uid when username is not available" do
+    it 'returns uid when username is not available' do
       expect(uid123456.to_param).to eq uid123456.uid
     end
 
-    it "fallbacks to id when neither the username nor the uid is available" do
+    it 'fallbacks to id when neither the username nor the uid is available' do
       expect(anonymous.to_param).to eq anonymous.id
     end
   end
 
   context '.profile_picture' do
-    it "returns facebook profile picture of type square (by default)" do
+    it 'returns facebook profile picture of type square (by default)' do
       expect(user.profile_picture).to eq "http://graph.facebook.com/#{user.uid}/picture?type=square"
     end
   end
 
   context '.male?' do
-    it "answers true if user is male" do
+    it 'answers true if user is male' do
       expect(male_user.male?).to be true
     end
 
-    it "answers false if user is male" do
+    it 'answers false if user is male' do
       expect(female_user.male?).to be false
     end
   end
 
   context '.female?' do
-    it "answers true if user is female" do
+    it 'answers true if user is female' do
       expect(female_user.female?).to be true
     end
 
-    it "answers false if user is male" do
+    it 'answers false if user is male' do
       expect(male_user.female?).to be false
     end
   end

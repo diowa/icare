@@ -1,5 +1,4 @@
 module UsersHelper
-
   def facebook_profile_picture(user, type = :square)
     if user_signed_in?
       "//graph.facebook.com/#{user.class == User ? user.uid : user}/picture?type=#{type}"
@@ -71,6 +70,7 @@ module UsersHelper
   end
 
   private
+
   def remap_work_or_edu_tags(field, type)
     key = (type == :work ? 'employer' : 'school')
     field.map { |h| { 'name' => h[key]['name'], 'id' => h[key]['id'] } }
@@ -83,8 +83,8 @@ module UsersHelper
 
   def render_mutual_friend(mutual_friend)
     content_tag(:div, class: 'tag tag-mutual-friend') do
-      user_profile_picture(mutual_friend['id'], size: [25,25], style: nil) +
-      mutual_friend['name']
+      user_profile_picture(mutual_friend['id'], size: [25, 25], style: nil) +
+        mutual_friend['name']
     end
   end
 
@@ -93,7 +93,7 @@ module UsersHelper
     common_tags = get_common_tags(my_tags, user_tags) if options[:render_common_tags]
     html = content_tag(:div, options[:content], class: options[:class])
     user_tags.each do |tag|
-      html << render_tag(tag['name'], options[:render_common_tags] && common_tags.include?(tag['id']), css_class = options[:css_class])
+      html << render_tag(tag['name'], options[:render_common_tags] && common_tags.include?(tag['id']), options[:css_class])
     end
     html
   end

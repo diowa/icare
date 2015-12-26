@@ -10,10 +10,10 @@ class User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, omniauth_providers: [:facebook] #:database_authenticatable, :registerable,
-         #:recoverable, :rememberable, :trackable, :validatable
+  #:recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
-  field :email,              type: String, default: ""
+  field :email, type: String, default: ''
   # field :encrypted_password, type: String, default: ""
 
   ## Recoverable

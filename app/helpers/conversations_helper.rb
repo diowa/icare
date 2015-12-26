@@ -12,7 +12,7 @@ module ConversationsHelper
   def message_readat(message)
     content_tag(:small, class: 'text-muted') do
       content_tag(:span, nil, class: 'fa fa-check') + ' ' +
-      I18n.t('conversations.messages.seen', date: l(message.read_at.in_time_zone(current_user.time_zone), format: :short))
+        I18n.t('conversations.messages.seen', date: l(message.read_at.in_time_zone(current_user.time_zone), format: :short))
     end
   end
 
