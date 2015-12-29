@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.32.0
+
+* Active Job
+* Add rubocop
+
 ## 0.31.0
 
 * Ruby 2.3.0

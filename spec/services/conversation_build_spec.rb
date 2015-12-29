@@ -7,7 +7,7 @@ describe ConversationBuild do
     let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
     let(:params) { { message: { sender: passenger, body: 'Test' } } }
 
-    it "does not fail if params are empty or malformed" do
+    it 'does not fail if params are empty or malformed' do
       invalid_conversation_builds = [ConversationBuild.new({}, passenger, itinerary),
                                      ConversationBuild.new({ itinerary_id: itinerary.id }, passenger, itinerary),
                                      ConversationBuild.new({ itinerary_id: itinerary.id, conversation: {} }, passenger, itinerary),
@@ -18,7 +18,7 @@ describe ConversationBuild do
       end
     end
 
-    it "builds conversation from params" do
+    it 'builds conversation from params' do
       conversation = ConversationBuild.new(params, passenger, itinerary).conversation
       conversation.save
       driver.reload

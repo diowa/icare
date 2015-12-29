@@ -1,0 +1,39 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - 'vendor/bundle/**/*'
+  RunRailsCops: true
+
+Metrics/AbcSize:
+  Max: 35.81
+
+Metrics/CyclomaticComplexity:
+  Max: 8
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 33
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/PerceivedComplexity:
+  Max: 10
+
+Rails/HasAndBelongsToMany:
+  Exclude:
+    - 'app/models/conversation.rb'
+    - 'app/models/user.rb'
+
+Style/AccessorMethodName:
+  Exclude:
+    - 'app/models/concerns/user/authentication.rb'
+
+Style/Documentation:
+  Enabled: false

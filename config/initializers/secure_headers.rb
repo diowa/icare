@@ -7,7 +7,7 @@ if defined?(SecureHeaders)
     config.x_download_options = 'noopen'
     config.x_permitted_cross_domain_policies = 'none'
     config.csp = false
-    #config.csp = {
+    # config.csp = {
     #  default_src: 'self https:',
     #  font_src: 'self http://fonts.gstatic.com',
     #  frame_src: 'https: https://*.facebook.com http://*.facebook.com',
@@ -15,6 +15,6 @@ if defined?(SecureHeaders)
     #  report_uri: '/report_uri',
     #  script_src: 'self eval inline http://*.facebook.net http://*.googleapis.com http://maps.gstatic.com https://*.facebook.net https://*.googleapis.com https://maps.gstatic.com',
     #  style_src: 'self inline http://fonts.googleapis.com http://netdna.bootstrapcdn.com https://fonts.googleapis.com https://netdna.bootstrapcdn.com'
-    #}
+    # }
   end
 end

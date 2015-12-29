@@ -1,5 +1,4 @@
 class ConversationsController < ApplicationController
-
   after_action :mark_as_read, only: [:show]
 
   def index
@@ -55,6 +54,7 @@ class ConversationsController < ApplicationController
   end
 
   private
+
   def mark_as_read
     @conversation.mark_as_read(current_user)
   end

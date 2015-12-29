@@ -1,5 +1,5 @@
-class References::Incoming < References::Base
-
-  embedded_in :reference
-
+module References
+  class Incoming < Base
+    embedded_in :reference
+  end
 end

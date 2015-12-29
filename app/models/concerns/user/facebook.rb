@@ -18,7 +18,7 @@ module Concerns
           facebook_permissions[scope.to_s].to_i == 1 if facebook_permissions?
         end
 
-        def cache_facebook_data?
+        def cache_facebook_data!
           favorites = %w(music books movies television games activities interests) # athletes sports_teams sports inspirational_people
           facebook do |fb|
             result = fb.batch do |batch_api|
@@ -30,8 +30,9 @@ module Concerns
             if result.any?
               self.facebook_friends = result[0] ? result[0].to_a : []
               self.facebook_favorites = result[1] ? result[1..-1].flatten : []
-              return true
             end
+            self.facebook_data_cached_at = Time.now.utc
+            return save
           end
           false
         end

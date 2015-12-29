@@ -13,6 +13,6 @@ class ReferenceBuild
     reference.build_outgoing @params
     reference
   rescue
-    # TODO
+    nil
   end
 end

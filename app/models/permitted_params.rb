@@ -1,4 +1,4 @@
-class PermittedParams < Struct.new(:params, :current_user)
+PermittedParams = Struct.new(:params, :current_user) do
   def itinerary
     params.require(:itinerary).permit(*itinerary_attributes)
   end

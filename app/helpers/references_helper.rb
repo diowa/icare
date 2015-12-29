@@ -34,6 +34,7 @@ module ReferencesHelper
   end
 
   private
+
   def reference_radio_button(form, field, info)
     form.label :rating, value: info[:value], class: 'btn btn-default' do
       concat form.radio_button(:rating, info[:value])
@@ -43,6 +44,6 @@ module ReferencesHelper
   end
 
   def reference_tag(user, reference_type)
-    content_tag(:div, t("references.snippet.#{reference_type}", count: @user.references.send(reference_type).count), class: 'tag')
+    content_tag(:div, t("references.snippet.#{reference_type}", count: user.references.send(reference_type).count), class: 'tag')
   end
 end

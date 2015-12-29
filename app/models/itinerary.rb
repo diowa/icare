@@ -41,22 +41,22 @@ class Itinerary
 
   validates :description, length: { maximum: 1000 }, presence: true
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
-  validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
-  validates :tolls, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10000 }
-  validates :leave_date, timeliness: { on_or_after: -> { Time.now } }, on: :create
+  validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10_000 }
+  validates :tolls, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10_000 }
+  validates :leave_date, timeliness: { on_or_after: -> { Time.current } }, on: :create
   validates :return_date, presence: true, if: -> { round_trip }
 
   validate :driver_is_female, if: -> { pink }
   validate :return_date_validator, if: -> { round_trip }
 
   def return_date_validator
-    self.errors.add(:return_date,
-                    I18n.t('mongoid.errors.messages.after',
-                    restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime')))) if return_date && return_date <= leave_date
+    errors.add(:return_date,
+               I18n.t('mongoid.errors.messages.after',
+                      restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime')))) if return_date && return_date <= leave_date
   end
 
   def driver_is_female
-    self.errors.add(:pink, :driver_must_be_female) unless user.female?
+    errors.add(:pink, :driver_must_be_female) unless user.female?
   end
 
   before_create do
@@ -66,10 +66,7 @@ class Itinerary
   end
 
   after_create do
-    begin
-      Resque.enqueue(FacebookTimelinePublisher, id) if share_on_facebook_timeline
-    rescue Redis::CannotConnectError
-    end
+    ShareOnFacebookTimelineJob.perform_later(id.to_s) if share_on_facebook_timeline
   end
 
   def title
@@ -77,6 +74,6 @@ class Itinerary
   end
 
   def to_s
-     title || id
+    title || id
   end
 end

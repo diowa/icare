@@ -8,9 +8,9 @@ class Conversation
   has_and_belongs_to_many :users
   belongs_to :conversable, polymorphic: true
 
-  scope :unread, ->(user) { where(messages: { "$elemMatch" => { read_at: nil, sender_id: { "$ne" => user.id } } }) }
+  scope :unread, ->(user) { where(messages: { '$elemMatch' => { read_at: nil, sender_id: { '$ne' => user.id } } }) }
 
-  validates :user_ids, uniqueness: { scope: [ :conversable_id, :conversable_type ], message: :already_exists }
+  validates :user_ids, uniqueness: { scope: [:conversable_id, :conversable_type], message: :already_exists }
 
   def unread?(user)
     messages.unread.where(:sender_id.ne => user.id).any?

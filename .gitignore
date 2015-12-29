@@ -3,6 +3,7 @@
 !.coveralls.yml
 !.gitignore
 !.rspec
+!.rubocop.yml
 !.slugignore
 !.travis.yml
 *~
