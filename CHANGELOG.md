@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.32.1
+
+* Fix Rakefile
+
 ## 0.32.0
 
 * Active Job
