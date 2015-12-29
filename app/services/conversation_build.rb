@@ -11,7 +11,7 @@ class ConversationBuild
     result.users = [@user, @itinerary.user]
     result
   rescue
-    # TODO
+    nil
   end
 
   def message
