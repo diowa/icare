@@ -10,6 +10,6 @@ require 'rubocop/rake_task'
 
 RuboCop::RakeTask.new
 
-# task default: [:rubocop, :spec]
+task default: [:rubocop, :spec]
 
 Rails.application.load_tasks
