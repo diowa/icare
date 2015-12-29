@@ -27,8 +27,7 @@ module Concerns
           set_permissions
 
           # Schedule facebook data cache
-          Resque.enqueue(FacebookDataCacher, id)
-        rescue Redis::CannotConnectError
+          CacheFacebookDataJob.perform_later id.to_s
         end
 
         def can_access?

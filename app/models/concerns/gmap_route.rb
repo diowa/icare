@@ -38,6 +38,7 @@ module Concerns
           self.via_waypoints, self.overview_path,
             self.overview_polyline = json_route.values_at('start_location', 'end_location', 'via_waypoints', 'overview_path', 'overview_polyline')
       rescue
+        nil
       end
 
       def sample_path(precision = 10)

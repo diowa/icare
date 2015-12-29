@@ -66,10 +66,7 @@ class Itinerary
   end
 
   after_create do
-    begin
-      Resque.enqueue(FacebookTimelinePublisher, id) if share_on_facebook_timeline
-    rescue Redis::CannotConnectError
-    end
+    ShareOnFacebookTimelineJob.perform_later(id.to_s) if share_on_facebook_timeline
   end
 
   def title
