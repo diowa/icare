@@ -43,7 +43,7 @@ class Itinerary
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
   validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10_000 }
   validates :tolls, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10_000 }
-  validates :leave_date, timeliness: { on_or_after: -> { Time.zone.now } }, on: :create
+  validates :leave_date, timeliness: { on_or_after: -> { Time.current } }, on: :create
   validates :return_date, presence: true, if: -> { round_trip }
 
   validate :driver_is_female, if: -> { pink }

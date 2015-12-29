@@ -11,27 +11,27 @@ describe User do
     let(:unknown_birthday) { FactoryGirl.create :user, birthday: nil }
 
     it "returns user's age" do
-      travel_to '2011-02-28' do
+      travel_to '2011-02-28 12:00' do
         expect(born_on_1972_02_29.age).to be 38
       end
 
-      travel_to '2011-03-01' do
+      travel_to '2011-03-01 12:00' do
         expect(born_on_1972_02_29.age).to be 39
       end
 
-      travel_to '2012-02-28' do
+      travel_to '2012-02-28 12:00' do
         expect(born_on_1972_02_29.age).to be 39
       end
 
-      travel_to '2012-02-29' do
+      travel_to '2012-02-29 12:00' do
         expect(born_on_1972_02_29.age).to be 40
       end
 
-      travel_to '2012-10-29' do
+      travel_to '2012-10-29 12:00' do
         expect(born_on_1960_10_30.age).to be 51
       end
 
-      travel_to '2012-10-30' do
+      travel_to '2012-10-30 12:00' do
         expect(born_on_1960_10_30.age).to be 52
       end
     end

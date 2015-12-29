@@ -21,7 +21,7 @@ describe Itinerary do
   end
 
   context '.return_date_validator' do
-    let(:invalid_itinerary) { FactoryGirl.build :itinerary, leave_date: Time.zone.now + 1.day, return_date: Time.zone.now - 1.day, round_trip: true }
+    let(:invalid_itinerary) { FactoryGirl.build :itinerary, leave_date: Time.current + 1.day, return_date: Time.current - 1.day, round_trip: true }
 
     it "adds an error on the return_date field if it's before leave_date" do
       expect(invalid_itinerary.valid?).to be false
@@ -30,7 +30,7 @@ describe Itinerary do
     end
 
     it "adds an error on the return_date field if it's blank" do
-      nil_return_date_itinerary = FactoryGirl.build :itinerary, leave_date: Time.zone.now + 1.day, return_date: nil, round_trip: true
+      nil_return_date_itinerary = FactoryGirl.build :itinerary, leave_date: Time.current + 1.day, return_date: nil, round_trip: true
       expect(nil_return_date_itinerary.valid?).to be false
       expect(nil_return_date_itinerary.errors.size).to be 1
       expect(nil_return_date_itinerary.errors.messages).to have_key :return_date

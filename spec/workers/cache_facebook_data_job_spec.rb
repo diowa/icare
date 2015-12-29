@@ -29,7 +29,7 @@ describe CacheFacebookDataJob do
   end
 
   it "doesn't cache user data when they are still valid" do
-    user_with_fresh_data = FactoryGirl.create :user, oauth_token: 'test', facebook_data_cached_at: Time.zone.now
+    user_with_fresh_data = FactoryGirl.create :user, oauth_token: 'test', facebook_data_cached_at: Time.current
     expect(CacheFacebookDataJob.perform_now user_with_fresh_data.id).to be nil
   end
 

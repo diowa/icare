@@ -4,7 +4,7 @@ module ItinerariesHelper
   end
 
   def default_leave_date
-    @default_leave_date ||= (Time.zone.now).change(min: (Time.zone.now.min / 10) * 10) + 10.minutes
+    @default_leave_date ||= (Time.current).change(min: (Time.current.min / 10) * 10) + 10.minutes
   end
 
   def boolean_tag(value, field)
