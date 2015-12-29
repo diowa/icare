@@ -20,7 +20,7 @@ describe 'References' do
     visit user_omniauth_authorize_path(provider: :facebook)
   end
 
-  it "allow passengers to send references" do
+  it 'allow passengers to send references' do
     login_as_passenger
     body = 'Very good driver'
 
@@ -33,7 +33,7 @@ describe 'References' do
     expect(page).to have_content body
   end
 
-  it "rescues from creation errors" do
+  it 'rescues from creation errors' do
     login_as_passenger
 
     visit new_user_reference_path(passenger, itinerary_id: itinerary.id)
@@ -42,7 +42,7 @@ describe 'References' do
     expect(page).to have_css 'form .alert.alert-danger'
   end
 
-  it "allow users to view their own ones" do
+  it 'allow users to view their own ones' do
     login_as_driver
 
     itineraries = FactoryGirl.create_list :itinerary, 3, user: driver
@@ -64,7 +64,7 @@ describe 'References' do
     visit user_references_path(driver)
 
     expect(page).to have_css('tbody > tr', count: 3)
-    driver.itineraries.each_with_index do |itinerary, index|
+    driver.itineraries.each_with_index do |_itinerary, index|
       row = find(:xpath, "//a[text()='#{references[index].outgoing.body}']/../..")
       expect(row).to_not be_nil
       expect(row).to have_css POSITIVE_ICON if references[index].outgoing.rating == 1
@@ -72,7 +72,7 @@ describe 'References' do
     end
   end
 
-  it "allow drivers to answer references" do
+  it 'allow drivers to answer references' do
     login_as_driver
 
     reference = FactoryGirl.build :reference, user: passenger, itinerary: itinerary

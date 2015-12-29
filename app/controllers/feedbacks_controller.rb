@@ -1,5 +1,4 @@
 class FeedbacksController < ApplicationController
-
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
   before_action :check_owner_or_admin, only: [:edit, :update, :destroy]
 
@@ -36,6 +35,7 @@ class FeedbacksController < ApplicationController
   end
 
   private
+
   def set_feedback
     @feedback = Feedback.find(params[:id])
   end

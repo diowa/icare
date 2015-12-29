@@ -4,6 +4,12 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-require File.join(Rails.root.to_s, "config", "configuration.rb")
+require File.join(Rails.root.to_s, 'config', 'configuration.rb')
+
+require 'rubocop/rake_task'
+
+RuboCop::RakeTask.new
+
+# task default: [:rubocop, :spec]
 
 Rails.application.load_tasks

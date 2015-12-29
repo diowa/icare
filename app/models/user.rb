@@ -10,10 +10,10 @@ class User
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, omniauth_providers: [:facebook] #:database_authenticatable, :registerable,
-         #:recoverable, :rememberable, :trackable, :validatable
+  #:recoverable, :rememberable, :trackable, :validatable
 
   ## Database authenticatable
-  field :email,              type: String, default: ""
+  field :email, type: String, default: ''
   # field :encrypted_password, type: String, default: ""
 
   ## Recoverable
@@ -104,7 +104,7 @@ class User
   # validates :access_level, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: 5 }
 
   def age
-    ((Time.now.to_s(:number).to_i - birthday.to_time.to_s(:number).to_i) / 10e9.to_i) if birthday?
+    ((Time.current.to_s(:number).to_i - birthday.at_midnight.to_s(:number).to_i) / 10e9.to_i) if birthday?
   end
 
   def first_name

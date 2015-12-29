@@ -16,19 +16,17 @@ describe 'Itineraries' do
     end
 
     def login_as_female
-      begin
-        OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
-        @user = FactoryGirl.create :user, uid: '123456', name: 'Johanna Doe', gender: 'female'
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
+      @user = FactoryGirl.create :user, uid: '123456', name: 'Johanna Doe', gender: 'female'
 
-        visit user_omniauth_authorize_path(provider: :facebook)
-        # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
-        expect(current_path).to eq dashboard_path
-      ensure
-        OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
-      end
+      visit user_omniauth_authorize_path(provider: :facebook)
+      # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
+      expect(current_path).to eq dashboard_path
+    ensure
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
     end
 
-    it "are allowed to create itineraries", js: true do
+    it 'are allowed to create itineraries', js: true do
       login_as_female
 
       visit new_itinerary_path
@@ -38,7 +36,7 @@ describe 'Itineraries' do
       click_button 'get-route'
       click_button 'wizard-next-step-button'
 
-      leave_date = Time.parse("#{10.days.from_now.to_date} 8:30")
+      leave_date = Time.zone.parse("#{10.days.from_now.to_date} 8:30")
       select leave_date.day, from: 'itinerary_leave_date_3i'
       select I18n.t('date.month_names')[leave_date.month], from: 'itinerary_leave_date_2i'
       select leave_date.year, from: 'itinerary_leave_date_1i'
@@ -49,7 +47,7 @@ describe 'Itineraries' do
       check 'itinerary_round_trip'
       expect(page).to_not have_css('#itinerary_return_date_3i[disabled]')
 
-      return_date = Time.parse("#{35.days.from_now.to_date} 9:10")
+      return_date = Time.zone.parse("#{35.days.from_now.to_date} 9:10")
       select return_date.day, from: 'itinerary_return_date_3i'
       select I18n.t('date.month_names')[return_date.month], from: 'itinerary_return_date_2i'
       select return_date.year, from: 'itinerary_return_date_1i'
@@ -77,14 +75,14 @@ describe 'Itineraries' do
       expect(page).to have_content 'MUSIC VERY LOUD!!!'
     end
 
-    it "sanitize malicious description", js: true do
+    it 'sanitize malicious description', js: true do
       login_as_male
       malicious_itinerary = FactoryGirl.create :itinerary, user: @user, description: XSS_ALERT
       visit itinerary_path(malicious_itinerary)
       expect(-> { page.driver.browser.switch_to.alert }).to raise_error Selenium::WebDriver::Error::NoAlertPresentError
     end
 
-    it "allow users to search them", js: true do
+    it 'allow users to search them', js: true do
       login_as_male
       itinerary = FactoryGirl.create :itinerary, round_trip: true
       FactoryGirl.create :itinerary
@@ -99,13 +97,13 @@ describe 'Itineraries' do
         expect(page).to have_content itinerary.title
         expect(page).to have_content itinerary.user.to_s
         expect(page).to have_content I18n.l(itinerary.leave_date, format: :long)
-        expect(page).to have_content I18n.l(itinerary.leave_date.to_time.utc, format: :time_only)
+        expect(page).to have_content I18n.l(itinerary.leave_date, format: :time_only)
         expect(page).to have_content I18n.l(itinerary.return_date, format: :long)
-        expect(page).to have_content I18n.l(itinerary.return_date.to_time.utc, format: :time_only)
+        expect(page).to have_content I18n.l(itinerary.return_date, format: :time_only)
       end
     end
 
-    it "allow users to view their own ones" do
+    it 'allow users to view their own ones' do
       login_as_female
       FactoryGirl.create :itinerary, user: @user
       FactoryGirl.create :itinerary, user: @user, round_trip: true
@@ -124,7 +122,7 @@ describe 'Itineraries' do
       end
     end
 
-    it "allow users to delete their own ones" do
+    it 'allow users to delete their own ones' do
       login_as_male
       itinerary = FactoryGirl.create :itinerary, user: @user
 
@@ -135,7 +133,7 @@ describe 'Itineraries' do
       expect(page).to_not have_content itinerary.title
     end
 
-    it "allow users to edit their own ones" do
+    it 'allow users to edit their own ones' do
       login_as_male
       itinerary = FactoryGirl.create :itinerary, user: @user, description: 'Old description'
 
@@ -159,7 +157,7 @@ describe 'Itineraries' do
       expect(page).to have_content I18n.t('flash.itineraries.error.pink')
     end
 
-    it "does not fail when creating with wrong parameters" do
+    it 'does not fail when creating with wrong parameters' do
       login_as_male
 
       visit new_itinerary_path
@@ -168,7 +166,7 @@ describe 'Itineraries' do
       expect(page).to have_css '.alert-danger'
     end
 
-    it "does not fail when updating with wrong parameters" do
+    it 'does not fail when updating with wrong parameters' do
       login_as_male
       itinerary = FactoryGirl.create :itinerary, user: @user, description: 'Old description'
 
@@ -182,7 +180,7 @@ describe 'Itineraries' do
   end
 
   context 'Guests' do
-    it "allow guests to see itineraries" do
+    it 'allow guests to see itineraries' do
       user = FactoryGirl.create :user, name: 'John Doe', uid: '123456'
       itinerary = FactoryGirl.create :itinerary, description: 'Itinerary for guest users', user: user
 

@@ -7,7 +7,7 @@ describe Conversation do
   let(:conversation) { FactoryGirl.create :conversation, users: [driver, passenger], conversable: itinerary }
 
   context '.unread?' do
-    it "knows if there are unread messages for user" do
+    it 'knows if there are unread messages for user' do
       conversation.messages << FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
       expect(conversation.unread?(driver)).to be true
       expect(conversation.unread?(passenger)).to be false
@@ -15,7 +15,7 @@ describe Conversation do
   end
 
   context '.users_except' do
-    it "returns all users except the provided one" do
+    it 'returns all users except the provided one' do
       expect(conversation.users_except(driver).size).to be 1
       expect(conversation.users_except(driver).first).to be passenger
       expect(conversation.users_except(passenger).size).to be 1
@@ -27,14 +27,14 @@ describe Conversation do
   end
 
   context '.mark_as_read' do
-    it "marks the conversation as read for provided user" do
+    it 'marks the conversation as read for provided user' do
       conversation.mark_as_read(driver)
       expect(conversation.unread?(driver)).to be false
     end
   end
 
   context '.last_unread_message' do
-    it "returns the last unread message" do
+    it 'returns the last unread message' do
       conversation.messages << FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
       expect(conversation.last_unread_message(driver).body).to eq 'First unread message from Passenger'
       expect(conversation.last_unread_message(passenger)).to be_nil
@@ -47,7 +47,7 @@ describe Conversation do
 
   describe Message do
     context '.unread?' do
-      it "knows when message is unread" do
+      it 'knows when message is unread' do
         message = FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
         conversation.messages << message
         expect(message.unread?).to be true

@@ -1,5 +1,4 @@
 class ItinerariesController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:show]
 
   before_action :set_itinerary, only: [:show]
@@ -12,7 +11,7 @@ class ItinerariesController < ApplicationController
   end
 
   def index
-    #@itineraries = Itinerary.includes(:user).all
+    # @itineraries = Itinerary.includes(:user).all
   end
 
   def show
@@ -54,6 +53,7 @@ class ItinerariesController < ApplicationController
   end
 
   protected
+
   def check_permissions
   end
 
