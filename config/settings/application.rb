@@ -35,9 +35,10 @@ SimpleConfig.for :application do
   end
 
   group :airbrake do
-    set :project_id, 'AIRBRAKE_PROJECT_ID'
-    set :project_key, 'AIRBRAKE_PROJECT_KEY'
-    set :host, 'http://127.0.0.1'
+    # Set to nil to disable airbrake
+    set :project_id, nil
+    set :project_key, nil
+    set :host, nil
   end
 
   group :map do

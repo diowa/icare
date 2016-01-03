@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.32.2
+
+* Fix Airbrake configuration (Fix [#40](https://github.com/diowa/icare/issues/40))
+* Update gems
+
 ## 0.32.1
 
 * Fix Rakefile
