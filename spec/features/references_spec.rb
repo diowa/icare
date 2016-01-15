@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe 'References' do
-  POSITIVE_ICON = 'span.fa.fa-thumbs-up'
-  NEGATIVE_ICON = 'span.fa.fa-thumbs-down'
+  POSITIVE_ICON = 'span.fa.fa-thumbs-up'.freeze
+  NEGATIVE_ICON = 'span.fa.fa-thumbs-down'.freeze
 
   let(:driver) { FactoryGirl.create :user }
   let(:passenger) { FactoryGirl.create :user }

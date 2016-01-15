@@ -24,7 +24,7 @@ SimpleConfig.for :application do
   end
 
   group :mailer do
-    set :from, "\"Icare\" <no-reply@i.care>"
+    set :from, '"Icare" <no-reply@i.care>'
     set :host, 'heroku.com'
 
     group :smtp_settings do

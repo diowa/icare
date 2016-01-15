@@ -40,19 +40,19 @@ class ItinerarySearch
 
     [:round_trip, :pink, :verified].each do |checkbox_field|
       param = @params["filter_#{checkbox_field}".to_sym]
-      filters.merge!(checkbox_field => true) if param == '1'
+      filters[checkbox_field] = true if param == '1'
     end
 
     # Overrides pink filter for malicious male users
-    filters.merge!(pink: false) if @user.male?
+    filters[:pink] = false if @user.male?
 
     [:smoking_allowed, :pets_allowed].each do |boolean_field|
       param = @params["filter_#{boolean_field}".to_sym]
-      filters.merge!(boolean_field => (param == 'true')) unless param.blank?
+      filters[boolean_field] = (param == 'true') unless param.blank?
     end
 
     filter_driver_gender_param = @params[:filter_driver_gender]
-    filters.merge!(driver_gender: filter_driver_gender_param) if User::GENDER.include?(filter_driver_gender_param)
+    filters[:driver_gender] = filter_driver_gender_param if User::GENDER.include?(filter_driver_gender_param)
     filters
   end
 end
