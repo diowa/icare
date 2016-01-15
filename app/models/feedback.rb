@@ -2,8 +2,8 @@ class Feedback
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  TYPE = %w(bug idea)
-  STATUS = ['open', 'fixed', 'in progress', 'not applicable']
+  TYPE = %w(bug idea).freeze
+  STATUS = ['open', 'fixed', 'in progress', 'not applicable'].freeze
 
   belongs_to :user
   delegate :name, to: :user, prefix: true, allow_nil: true

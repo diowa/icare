@@ -3,7 +3,7 @@ module ReferencesHelper
     rating_negative: { value: -1, icon: 'fa-thumbs-down' },
     rating_neutral: { value: 0 },
     rating_positive: { value: 1, icon: 'fa-thumbs-up' }
-  }
+  }.freeze
 
   def make_thumbs(rating)
     case rating

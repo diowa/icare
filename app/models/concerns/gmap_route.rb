@@ -5,7 +5,7 @@ module Concerns
     included do
       include Mongoid::Geospatial
 
-      BOUNDARIES = [APP_CONFIG.itineraries.bounds.sw, APP_CONFIG.itineraries.bounds.ne]
+      BOUNDARIES = [APP_CONFIG.itineraries.bounds.sw, APP_CONFIG.itineraries.bounds.ne].freeze
 
       # Route from Google Directions Service
       field :start_address

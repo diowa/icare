@@ -1,10 +1,11 @@
+# frozen_string_literal: true
 require 'spec_helper'
 
 describe 'Itineraries' do
-  ROUND_TRIP_ICON = 'span.fa.fa-exchange'
-  DAILY_ICON = 'span.fa.fa-repeat'
-  PINK_ICON = 'span.fa.fa-lock'
-  XSS_ALERT = "<script>alert('toasty!);</script>"
+  ROUND_TRIP_ICON = 'span.fa.fa-exchange'.freeze
+  DAILY_ICON = 'span.fa.fa-repeat'.freeze
+  PINK_ICON = 'span.fa.fa-lock'.freeze
+  XSS_ALERT = "<script>alert('toasty!);</script>".freeze
 
   context 'Registered Users' do
     def login_as_male
@@ -189,7 +190,7 @@ describe 'Itineraries' do
       expect(current_path).to eq itinerary_path(itinerary)
       expect(page).to have_content itinerary.description
       expect(page).to_not have_content 'John Doe'
-      expect(page).to_not have_css("img[src=\"http://graph.facebook.com/123456/picture?type=square\"]")
+      expect(page).to_not have_css('img[src="http://graph.facebook.com/123456/picture?type=square"]')
     end
 
     it "doesn't allow guests to see pink itineraries" do

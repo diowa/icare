@@ -18,7 +18,7 @@ module Concerns
           set_extra_raw_info_special_permissions auth.extra.raw_info
 
           # Locale, with priority to application setting
-          self.locale = auth.extra.raw_info.locale.tr('_', '-') if auth.extra.raw_info.locale && !self.locale?
+          self.locale = auth.extra.raw_info.locale.tr('_', '-') if auth.extra.raw_info.locale && !locale?
 
           # Username and uid array
           self.username_or_uid = [username, uid]

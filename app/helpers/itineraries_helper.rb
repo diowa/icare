@@ -4,7 +4,7 @@ module ItinerariesHelper
   end
 
   def default_leave_date
-    @default_leave_date ||= (Time.current).change(min: (Time.current.min / 10) * 10) + 10.minutes
+    @default_leave_date ||= Time.current.change(min: (Time.current.min / 10) * 10) + 10.minutes
   end
 
   def boolean_tag(value, field)
@@ -24,7 +24,7 @@ module ItinerariesHelper
           content_tag(:p, class: 'text-muted') do
             content_tag(:small) do
               content_tag(:span, nil, class: 'fa fa-ban') + ' ' +
-                t('.missing_publish_actions_permission', appname: APP_CONFIG.app_name)
+              t('.missing_publish_actions_permission', appname: APP_CONFIG.app_name)
             end
           end
         end
