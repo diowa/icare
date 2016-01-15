@@ -80,7 +80,7 @@ describe 'Users' do
 
   context 'Profile' do
     def create_friends_and_refresh(friends)
-      @user.update_attribute :facebook_friends, friends.to_i.times.map { |i| { 'id' => "90110#{i}", 'name' => "Friend #{i}" } }
+      @user.update_attribute :facebook_friends, Array.new(friends.to_i) { |i| { 'id' => "90110#{i}", 'name' => "Friend #{i}" } }
       @user.reload
 
       visit user_path(@user)
@@ -109,7 +109,7 @@ describe 'Users' do
     it 'shows reference tags' do
       itinerary = FactoryGirl.create :itinerary, user: @user
 
-      passengers = 6.times.map { |_| FactoryGirl.create :user }
+      passengers = Array.new(6) { |_| FactoryGirl.create :user }
 
       # 1 negative reference
       reference = FactoryGirl.create :reference, user: passengers.first, itinerary: itinerary
@@ -161,7 +161,7 @@ describe 'Users' do
     end
 
     it 'shows mutual friends' do
-      mutual_friends = 6.times.map { |i| { 'id' => "90110#{i}", 'name' => "Mutual friend named #{i}" } }
+      mutual_friends = Array.new(6) { |i| { 'id' => "90110#{i}", 'name' => "Mutual friend named #{i}" } }
       @user.update_attribute :facebook_friends, [{ 'id' => '900100', 'name' => 'Not a mutual friend' },
                                                  { 'id' => '900101', 'name' => 'Not a mutual friend' }] + mutual_friends
       @user.reload

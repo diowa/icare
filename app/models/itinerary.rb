@@ -8,7 +8,7 @@ class Itinerary
 
   include Concerns::GmapRoute
 
-  DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday)
+  DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).freeze
 
   belongs_to :user
   delegate :name, to: :user, prefix: true
