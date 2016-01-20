@@ -37,6 +37,9 @@ describe 'Itineraries' do
       click_button 'get-route'
       click_button 'wizard-next-step-button'
 
+      # Hide navbar to avoid that inputs go behind and can't be clicked
+      page.execute_script("$('.navbar').hide()")
+
       leave_date = Time.zone.parse("#{10.days.from_now.to_date} 8:30")
       select leave_date.day, from: 'itinerary_leave_date_3i'
       select I18n.t('date.month_names')[leave_date.month], from: 'itinerary_leave_date_2i'
