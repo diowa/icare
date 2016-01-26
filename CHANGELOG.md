@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.32.8
+
+* Remove sensor parameter from gmaps
+
 ## 0.32.7
 
 * Update gems
