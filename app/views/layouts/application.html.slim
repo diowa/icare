@@ -15,7 +15,7 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
     /! %link{ href: asset_path('apple-touch-icon-144x144.png'), rel: 'apple-touch-icon', sizes: '144x144' }
 
     /! Placed at the top of the document 'cause of turbolinks
-    = javascript_include_tag '//maps.googleapis.com/maps/api/js?sensor=true&libraries=geometry', 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag '//maps.googleapis.com/maps/api/js?libraries=geometry', 'application', 'data-turbolinks-track' => true
     = analytics_init if APP_CONFIG.google_analytics_id.present?
 
     /[if lt IE 9]
