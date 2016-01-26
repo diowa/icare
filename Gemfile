@@ -56,7 +56,7 @@ gem 'i18n-js'
 gem 'jquery-turbolinks'
 gem 'sass-rails', '~> 5.0'
 gem 'sprockets'
-gem 'sprockets-rails', '~> 2.3' # TODO: https://github.com/leshill/handlebars_assets/issues/145
+gem 'sprockets-rails'
 gem 'twbs_sass_rails'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
