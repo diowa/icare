@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.32.9
+
+* Improve CSS
+* Update gems
+
 ## 0.32.8
 
 * Remove sensor parameter from gmaps
