@@ -46,6 +46,7 @@ gem 'slim-rails'
 gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'resque', require: 'resque/server' # Resque web interface
+gem 'therubyracer'
 
 # Assets
 gem 'autoprefixer-rails'
