@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 SimpleConfig.for :application do
   # Set here your global configuration.
   # All settings can be overwritten later per-environment.

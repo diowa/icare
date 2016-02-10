@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module UsersHelper
   def facebook_profile_picture(user, type = :square)
     if user_signed_in?
