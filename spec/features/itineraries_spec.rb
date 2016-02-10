@@ -2,10 +2,10 @@
 require 'spec_helper'
 
 describe 'Itineraries' do
-  ROUND_TRIP_ICON = 'span.fa.fa-exchange'.freeze
-  DAILY_ICON = 'span.fa.fa-repeat'.freeze
-  PINK_ICON = 'span.fa.fa-lock'.freeze
-  XSS_ALERT = "<script>alert('toasty!);</script>".freeze
+  ROUND_TRIP_ICON = 'span.fa.fa-exchange'
+  DAILY_ICON = 'span.fa.fa-repeat'
+  PINK_ICON = 'span.fa.fa-lock'
+  XSS_ALERT = "<script>alert('toasty!);</script>"
 
   context 'Registered Users' do
     def login_as_male

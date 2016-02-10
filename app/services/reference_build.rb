@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ReferenceBuild
   def initialize(params, user, itinerary)
     @params = params

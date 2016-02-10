@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 PermittedParams = Struct.new(:params, :current_user) do
   def itinerary
     params.require(:itinerary).permit(*itinerary_attributes)

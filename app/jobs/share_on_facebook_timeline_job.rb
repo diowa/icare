@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ShareOnFacebookTimelineJob < ActiveJob::Base
   queue_as :share_on_facebook_timeline_queue
 

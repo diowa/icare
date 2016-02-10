@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ItinerarySearch
   SPHERE_RADIUS = 5.fdiv Mongoid::Geospatial.earth_radius[:km]
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module ConversationsHelper
   def message_classes(alternate, message, current_user)
     [('alternate' if alternate), ('unread' if message.sender != current_user && message.unread?)].join(' ')

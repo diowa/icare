@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Itineraries
   class Search
     include ::ActiveModel::Model

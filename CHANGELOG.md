@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.32.10
+
+* Make RuboCop happy
+* Update gems
+
 ## 0.32.9
 
 * Improve CSS
