@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # OmniAuth
 OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new(provider: 'facebook',
                                                   uid: '123456',

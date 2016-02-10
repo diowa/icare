@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class UsersController < ApplicationController
   before_action :set_user_as_current_user, only: [:update, :dashboard, :settings, :itineraries]
 

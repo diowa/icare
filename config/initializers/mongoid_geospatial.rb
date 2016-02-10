@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 if defined?(Mongoid::Geospatial)
   Mongoid::Geospatial.with_rgeo!
 

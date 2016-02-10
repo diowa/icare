@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # TODO: Hopefully remove when https://github.com/mongoid/mongoid/issues/3767 will be fixed
 
 module Origin
@@ -92,8 +93,8 @@ module Mongoid
         end
 
         unless errors.empty?
-          fail Errors::MultiparameterAssignmentErrors.new(errors),
-               "#{errors.size} error(s) on assignment of multiparameter attributes"
+          raise Errors::MultiparameterAssignmentErrors.new(errors),
+                "#{errors.size} error(s) on assignment of multiparameter attributes"
         end
         super(attributes)
       else

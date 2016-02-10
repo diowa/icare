@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # ClientSideValidations Initializer
 
 # Disabled validators. The uniqueness validator is disabled by default for security issues. Enable it on your own responsibility!

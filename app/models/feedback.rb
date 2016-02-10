@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Feedback
   include Mongoid::Document
   include Mongoid::Timestamps
