@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.33.1
+
+* Fix Users spec
+
 ## 0.33.0
 
 * Include FactoryGirl syntax methods
