@@ -9,7 +9,7 @@ describe 'Itineraries' do
 
   context 'Registered Users' do
     def login_as_male
-      @user = FactoryGirl.create :user, uid: '123456', gender: 'male'
+      @user = create :user, uid: '123456', gender: 'male'
 
       visit user_omniauth_authorize_path(provider: :facebook)
       # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
@@ -18,7 +18,7 @@ describe 'Itineraries' do
 
     def login_as_female
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
-      @user = FactoryGirl.create :user, uid: '123456', name: 'Johanna Doe', gender: 'female'
+      @user = create :user, uid: '123456', name: 'Johanna Doe', gender: 'female'
 
       visit user_omniauth_authorize_path(provider: :facebook)
       # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
@@ -81,15 +81,15 @@ describe 'Itineraries' do
 
     it 'sanitize malicious description', js: true do
       login_as_male
-      malicious_itinerary = FactoryGirl.create :itinerary, user: @user, description: XSS_ALERT
+      malicious_itinerary = create :itinerary, user: @user, description: XSS_ALERT
       visit itinerary_path(malicious_itinerary)
       expect(-> { page.driver.browser.switch_to.alert }).to raise_error Selenium::WebDriver::Error::NoAlertPresentError
     end
 
-    it 'allow users to search them', js: true do
+    it 'allows users to search them', js: true do
       login_as_male
-      itinerary = FactoryGirl.create :itinerary, round_trip: true
-      FactoryGirl.create :itinerary
+      itinerary = create :itinerary, round_trip: true
+      create :itinerary
 
       visit itineraries_path
 
@@ -107,12 +107,12 @@ describe 'Itineraries' do
       end
     end
 
-    it 'allow users to view their own ones' do
+    it 'allows users to view their own ones' do
       login_as_female
-      FactoryGirl.create :itinerary, user: @user
-      FactoryGirl.create :itinerary, user: @user, round_trip: true
-      FactoryGirl.create :itinerary, user: @user, daily: true
-      FactoryGirl.create :itinerary, user: @user, pink: true, daily: true
+      create :itinerary, user: @user
+      create :itinerary, user: @user, round_trip: true
+      create :itinerary, user: @user, daily: true
+      create :itinerary, user: @user, pink: true, daily: true
 
       visit itineraries_user_path(@user)
 
@@ -126,9 +126,9 @@ describe 'Itineraries' do
       end
     end
 
-    it 'allow users to delete their own ones' do
+    it 'allows users to delete their own ones' do
       login_as_male
-      itinerary = FactoryGirl.create :itinerary, user: @user
+      itinerary = create :itinerary, user: @user
 
       visit itineraries_user_path(@user)
 
@@ -137,9 +137,9 @@ describe 'Itineraries' do
       expect(page).to_not have_content itinerary.title
     end
 
-    it 'allow users to edit their own ones' do
+    it 'allows users to edit their own ones' do
       login_as_male
-      itinerary = FactoryGirl.create :itinerary, user: @user, description: 'Old description'
+      itinerary = create :itinerary, user: @user, description: 'Old description'
 
       visit itineraries_user_path(@user)
 
@@ -152,8 +152,8 @@ describe 'Itineraries' do
 
     it "doesn't allow male users to see pink itineraries" do
       login_as_male
-      female_user = FactoryGirl.create :user, gender: 'female'
-      pink_itinerary = FactoryGirl.create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
+      female_user = create :user, gender: 'female'
+      pink_itinerary = create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
 
       visit itinerary_path(pink_itinerary)
 
@@ -172,7 +172,7 @@ describe 'Itineraries' do
 
     it 'does not fail when updating with wrong parameters' do
       login_as_male
-      itinerary = FactoryGirl.create :itinerary, user: @user, description: 'Old description'
+      itinerary = create :itinerary, user: @user, description: 'Old description'
 
       visit itineraries_user_path(@user)
 
@@ -184,9 +184,9 @@ describe 'Itineraries' do
   end
 
   context 'Guests' do
-    it 'allow guests to see itineraries' do
-      user = FactoryGirl.create :user, name: 'John Doe', uid: '123456'
-      itinerary = FactoryGirl.create :itinerary, description: 'Itinerary for guest users', user: user
+    it 'allows guests to see itineraries' do
+      user = create :user, name: 'John Doe', uid: '123456'
+      itinerary = create :itinerary, description: 'Itinerary for guest users', user: user
 
       visit itinerary_path(itinerary)
 
@@ -197,8 +197,8 @@ describe 'Itineraries' do
     end
 
     it "doesn't allow guests to see pink itineraries" do
-      female_user = FactoryGirl.create :user, gender: 'female'
-      pink_itinerary = FactoryGirl.create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
+      female_user = create :user, gender: 'female'
+      pink_itinerary = create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
 
       visit itinerary_path(pink_itinerary)
 

@@ -2,14 +2,14 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { FactoryGirl.create :user }
-  let(:male_user) { FactoryGirl.create :user, gender: 'male' }
-  let(:female_user) { FactoryGirl.create :user, gender: 'female' }
+  let(:user) { create :user }
+  let(:male_user) { create :user, gender: 'male' }
+  let(:female_user) { create :user, gender: 'female' }
 
   context '.age' do
-    let(:born_on_1960_10_30) { FactoryGirl.create :user, birthday: '1960-10-30' }
-    let(:born_on_1972_02_29) { FactoryGirl.create :user, birthday: '1972-02-29' }
-    let(:unknown_birthday) { FactoryGirl.create :user, birthday: nil }
+    let(:born_on_1960_10_30) { create :user, birthday: '1960-10-30' }
+    let(:born_on_1972_02_29) { create :user, birthday: '1972-02-29' }
+    let(:unknown_birthday) { create :user, birthday: nil }
 
     it "returns user's age" do
       travel_to '2011-02-28 12:00' do
@@ -43,8 +43,8 @@ describe User do
   end
 
   context '.first_name' do
-    let(:jack_black) { FactoryGirl.create :user, name: 'Jack Black' }
-    let(:anonymous) { FactoryGirl.create :user, name: nil }
+    let(:jack_black) { create :user, name: 'Jack Black' }
+    let(:anonymous) { create :user, name: nil }
 
     it "returns user's first name" do
       expect(jack_black.first_name).to eq 'Jack'
@@ -56,8 +56,8 @@ describe User do
   end
 
   context '.to_s' do
-    let(:jack_black) { FactoryGirl.create :user, name: 'Jack Black' }
-    let(:anonymous) { FactoryGirl.create :user, name: nil }
+    let(:jack_black) { create :user, name: 'Jack Black' }
+    let(:anonymous) { create :user, name: nil }
 
     it "returns user's name when available" do
       expect(jack_black.to_s).to eq 'Jack Black'
@@ -70,9 +70,9 @@ describe User do
   end
 
   context '.to_param' do
-    let(:jackblack) { FactoryGirl.create :user, username: 'jackblack', uid: '123456' }
-    let(:uid123456) { FactoryGirl.create :user, username: nil, uid: '123456' }
-    let(:anonymous) { FactoryGirl.create :user, username: nil, uid: nil }
+    let(:jackblack) { create :user, username: 'jackblack', uid: '123456' }
+    let(:uid123456) { create :user, username: nil, uid: '123456' }
+    let(:anonymous) { create :user, username: nil, uid: nil }
 
     it 'returns username when all fields are available' do
       expect(jackblack.to_param).to eq jackblack.username

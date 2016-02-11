@@ -2,17 +2,17 @@
 require 'spec_helper'
 
 describe 'Sessions' do
-  it 'allow users to sign in from Facebook' do
+  it 'allows users to sign in from Facebook' do
     visit user_omniauth_authorize_path(provider: :facebook)
 
     expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
     expect(User.count).to_not be_zero
   end
 
-  it 'allow users without birthday (???) to sign in from Facebook' do
+  it 'allows users without birthday (???) to sign in from Facebook' do
     begin
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Duncan MacLeod' }, extra: { raw_info: { birthday: nil } }
-      FactoryGirl.create :user, uid: '123456'
+      create :user, uid: '123456'
 
       visit user_omniauth_authorize_path(provider: :facebook)
 
@@ -22,10 +22,10 @@ describe 'Sessions' do
     end
   end
 
-  it 'allow users without locale (???) to sign in from Facebook' do
+  it 'allows users without locale (???) to sign in from Facebook' do
     begin
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { locale: nil } }
-      FactoryGirl.create :user, uid: '123456'
+      create :user, uid: '123456'
 
       visit user_omniauth_authorize_path(provider: :facebook)
 
@@ -36,7 +36,7 @@ describe 'Sessions' do
   end
 
   it 'fills user profile with data from facebook' do
-    user = FactoryGirl.create :user, uid: '123456'
+    user = create :user, uid: '123456'
 
     visit user_omniauth_authorize_path(provider: :facebook)
 
@@ -63,7 +63,7 @@ describe 'Sessions' do
     expect(user.username_or_uid).to eq [OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.username, OMNIAUTH_MOCKED_AUTHHASH.uid]
   end
 
-  it 'allow users to logout' do
+  it 'allows users to logout' do
     visit user_omniauth_authorize_path(provider: :facebook)
 
     expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
@@ -72,7 +72,7 @@ describe 'Sessions' do
   end
 
   it 'redirect to itinerary viewed by guests' do
-    itinerary = FactoryGirl.create :itinerary
+    itinerary = create :itinerary
 
     visit itinerary_path(itinerary)
 
@@ -85,7 +85,7 @@ describe 'Sessions' do
     it 'redirects to root path' do
       begin
         OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
-        FactoryGirl.create :user, uid: '123456', name: 'Duncan MacLeod'
+        create :user, uid: '123456', name: 'Duncan MacLeod'
 
         visit user_omniauth_authorize_path(provider: :facebook)
 
