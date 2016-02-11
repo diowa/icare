@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.33.0
+
+* Include FactoryGirl syntax methods
+* Improve specs
+* Update gems
+
 ## 0.32.10
 
 * Make RuboCop happy

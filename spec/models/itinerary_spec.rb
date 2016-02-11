@@ -2,14 +2,14 @@
 require 'spec_helper'
 
 describe Itinerary do
-  let(:male_user) { FactoryGirl.create :user, gender: 'male' }
-  let(:female_user) { FactoryGirl.create :user, gender: 'female' }
-  let(:itinerary) { FactoryGirl.create :itinerary }
+  let(:male_user) { create :user, gender: 'male' }
+  let(:female_user) { create :user, gender: 'female' }
+  let(:itinerary) { create :itinerary }
 
   context 'before create' do
     it 'caches driver gender and verification status' do
-      female_verified_user = FactoryGirl.create :user, gender: 'female', facebook_verified: true
-      itinerary = FactoryGirl.create :itinerary, user: female_verified_user
+      female_verified_user = create :user, gender: 'female', facebook_verified: true
+      itinerary = create :itinerary, user: female_verified_user
       expect(itinerary.driver_gender).to eq 'female'
       expect(itinerary.verified).to be true
     end
@@ -17,12 +17,12 @@ describe Itinerary do
 
   context 'after create' do
     it 'asynchronously publishes on facebook timeline if requested by user' do
-      expect(-> { FactoryGirl.create :itinerary, share_on_facebook_timeline: true }).to_not raise_error Exception
+      expect(-> { create :itinerary, share_on_facebook_timeline: true }).to_not raise_error Exception
     end
   end
 
   context '.return_date_validator' do
-    let(:invalid_itinerary) { FactoryGirl.build :itinerary, leave_date: Time.current + 1.day, return_date: Time.current - 1.day, round_trip: true }
+    let(:invalid_itinerary) { build :itinerary, leave_date: Time.current + 1.day, return_date: Time.current - 1.day, round_trip: true }
 
     it "adds an error on the return_date field if it's before leave_date" do
       expect(invalid_itinerary.valid?).to be false
@@ -31,7 +31,7 @@ describe Itinerary do
     end
 
     it "adds an error on the return_date field if it's blank" do
-      nil_return_date_itinerary = FactoryGirl.build :itinerary, leave_date: Time.current + 1.day, return_date: nil, round_trip: true
+      nil_return_date_itinerary = build :itinerary, leave_date: Time.current + 1.day, return_date: nil, round_trip: true
       expect(nil_return_date_itinerary.valid?).to be false
       expect(nil_return_date_itinerary.errors.size).to be 1
       expect(nil_return_date_itinerary.errors.messages).to have_key :return_date
@@ -39,8 +39,8 @@ describe Itinerary do
   end
 
   context '.driver_is_female' do
-    let(:invalid_pink_itinerary) { FactoryGirl.build :itinerary, user: male_user, pink: true }
-    let(:valid_pink_itinerary) { FactoryGirl.build :itinerary, user: female_user, pink: true }
+    let(:invalid_pink_itinerary) { build :itinerary, user: male_user, pink: true }
+    let(:valid_pink_itinerary) { build :itinerary, user: female_user, pink: true }
 
     it 'adds an error on the pink field if the user is male' do
       expect(invalid_pink_itinerary.valid?).to be false
@@ -69,10 +69,10 @@ describe Itinerary do
     end
 
     it 'does not fail if route json object is empty or malformed' do
-      invalid_itineraries = [FactoryGirl.build(:itinerary, start_location: nil, end_location: nil, route: nil),
-                             FactoryGirl.build(:itinerary, start_location: nil, end_location: nil, route: {}),
-                             FactoryGirl.build(:itinerary, start_location: nil, end_location: nil, route: { bad: 'guy' }),
-                             FactoryGirl.build(:itinerary, start_location: nil, end_location: nil, route: { start_location: 'bad' })]
+      invalid_itineraries = [build(:itinerary, start_location: nil, end_location: nil, route: nil),
+                             build(:itinerary, start_location: nil, end_location: nil, route: {}),
+                             build(:itinerary, start_location: nil, end_location: nil, route: { bad: 'guy' }),
+                             build(:itinerary, start_location: nil, end_location: nil, route: { start_location: 'bad' })]
       invalid_itineraries.each do |invalid_itinerary|
         expect(invalid_itinerary.valid?).to be false
         expect(invalid_itinerary.errors.messages).to have_key :start_location
@@ -81,7 +81,7 @@ describe Itinerary do
     end
 
     it 'builds itinerary from route json object' do
-      built_itinerary = FactoryGirl.build(:itinerary, route: route_param)
+      built_itinerary = build(:itinerary, route: route_param)
       expect(built_itinerary.start_location.to_a).to eq itinerary.start_location.to_a
       expect(built_itinerary.end_location.to_a).to eq itinerary.end_location.to_a
       expect(built_itinerary.overview_path).to eq itinerary.overview_path
@@ -101,24 +101,24 @@ describe Itinerary do
       end
 
       let(:start_end_outside_bounds_itinerary) do
-        FactoryGirl.build :itinerary,
-                          start_location: { lat: 6, lng: 1 },
-                          end_location:   { lat: 9, lng: 5 }
+        build :itinerary,
+              start_location: { lat: 6, lng: 1 },
+              end_location:   { lat: 9, lng: 5 }
       end
       let(:start_outside_bounds_itinerary) do
-        FactoryGirl.build :itinerary,
-                          start_location: { lat: 6, lng: 1 },
-                          end_location:   { lat: 3, lng: 6 }
+        build :itinerary,
+              start_location: { lat: 6, lng: 1 },
+              end_location:   { lat: 3, lng: 6 }
       end
       let(:end_outside_bounds_itinerary) do
-        FactoryGirl.build :itinerary,
-                          start_location: { lat: 3, lng: 6 },
-                          end_location:   { lat: -5, lng: 9 }
+        build :itinerary,
+              start_location: { lat: 3, lng: 6 },
+              end_location:   { lat: -5, lng: 9 }
       end
       let(:inside_bounds_itinerary) do
-        FactoryGirl.build :itinerary,
-                          start_location: { lat: 2, lng: 6 },
-                          end_location:   { lat: 2, lng: 5 }
+        build :itinerary,
+              start_location: { lat: 2, lng: 6 },
+              end_location:   { lat: 2, lng: 5 }
       end
 
       it 'adds an error on the base objects if both start_position and end_position are outside bounds' do

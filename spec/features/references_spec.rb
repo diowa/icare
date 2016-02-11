@@ -5,9 +5,9 @@ describe 'References' do
   POSITIVE_ICON = 'span.fa.fa-thumbs-up'
   NEGATIVE_ICON = 'span.fa.fa-thumbs-down'
 
-  let(:driver) { FactoryGirl.create :user }
-  let(:passenger) { FactoryGirl.create :user }
-  let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
+  let(:driver) { create :user }
+  let(:passenger) { create :user }
+  let(:itinerary) { create :itinerary, user: driver }
 
   def login_as_driver
     driver.update_attributes uid: '123456', username: 'johndoe'
@@ -21,7 +21,7 @@ describe 'References' do
     visit user_omniauth_authorize_path(provider: :facebook)
   end
 
-  it 'allow passengers to send references' do
+  it 'allows passengers to send references' do
     login_as_passenger
     body = 'Very good driver'
 
@@ -43,23 +43,23 @@ describe 'References' do
     expect(page).to have_css 'form .alert.alert-danger'
   end
 
-  it 'allow users to view their own ones' do
+  it 'allows users to view their own ones' do
     login_as_driver
 
-    itineraries = FactoryGirl.create_list :itinerary, 3, user: driver
-    passengers = FactoryGirl.create_list :user, 3
+    itineraries = create_list :itinerary, 3, user: driver
+    passengers = create_list :user, 3
 
     references = []
-    references[0] = FactoryGirl.build :reference, user: passengers[0], itinerary: itineraries[0]
-    FactoryGirl.build :outgoing_reference, reference: references[0], rating: 1, body: 'Positive'
+    references[0] = build :reference, user: passengers[0], itinerary: itineraries[0]
+    build :outgoing_reference, reference: references[0], rating: 1, body: 'Positive'
     references[0].save
 
-    references[1] = FactoryGirl.build :reference, user: passengers[1], itinerary: itineraries[1]
-    FactoryGirl.build :outgoing_reference, reference: references[1], rating: 0, body: 'Neutral'
+    references[1] = build :reference, user: passengers[1], itinerary: itineraries[1]
+    build :outgoing_reference, reference: references[1], rating: 0, body: 'Neutral'
     references[1].save
 
-    references[2] = FactoryGirl.build :reference, user: passengers[2], itinerary: itineraries[2]
-    FactoryGirl.build :outgoing_reference, reference: references[2], rating: -1, body: 'Negative'
+    references[2] = build :reference, user: passengers[2], itinerary: itineraries[2]
+    build :outgoing_reference, reference: references[2], rating: -1, body: 'Negative'
     references[2].save
 
     visit user_references_path(driver)
@@ -73,11 +73,11 @@ describe 'References' do
     end
   end
 
-  it 'allow drivers to answer references' do
+  it 'allows drivers to answer references' do
     login_as_driver
 
-    reference = FactoryGirl.build :reference, user: passenger, itinerary: itinerary
-    FactoryGirl.build :outgoing_reference, reference: reference, rating: 1, body: 'Good Driver'
+    reference = build :reference, user: passenger, itinerary: itinerary
+    build :outgoing_reference, reference: reference, rating: 1, body: 'Good Driver'
     reference.save
     driver.reload
 

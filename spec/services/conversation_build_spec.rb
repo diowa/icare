@@ -3,9 +3,9 @@ require 'spec_helper'
 
 describe ConversationBuild do
   context '.conversation' do
-    let(:driver) { FactoryGirl.create :user }
-    let(:passenger) { FactoryGirl.create :user }
-    let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
+    let(:driver) { create :user }
+    let(:passenger) { create :user }
+    let(:itinerary) { create :itinerary, user: driver }
     let(:params) { { message: { sender: passenger, body: 'Test' } } }
 
     it 'does not fail if params are empty or malformed' do

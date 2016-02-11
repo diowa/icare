@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'Feedbacks' do
   it 'allows creation from registered users' do
-    FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+    create :user, uid: '123456', username: 'johndoe'
 
     visit user_omniauth_authorize_path(provider: :facebook)
 
@@ -16,8 +16,8 @@ describe 'Feedbacks' do
   end
 
   it 'allows editing by owners' do
-    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    feedback = FactoryGirl.create :feedback, user: user
+    user = create :user, uid: '123456', username: 'johndoe'
+    feedback = create :feedback, user: user
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit feedback_path(feedback)
@@ -31,8 +31,8 @@ describe 'Feedbacks' do
   end
 
   it 'allows editing by admins' do
-    feedback = FactoryGirl.create :feedback
-    FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
+    feedback = create :feedback
+    create :user, uid: '123456', username: 'johndoe', admin: true
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit feedback_path(feedback)
@@ -46,8 +46,8 @@ describe 'Feedbacks' do
   end
 
   it 'allows closing by admins' do
-    feedback = FactoryGirl.create :feedback
-    FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
+    feedback = create :feedback
+    create :user, uid: '123456', username: 'johndoe', admin: true
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit feedback_path(feedback)
@@ -61,8 +61,8 @@ describe 'Feedbacks' do
   end
 
   it 'allows deletion by owners' do
-    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    feedback = FactoryGirl.create :feedback, user: user
+    user = create :user, uid: '123456', username: 'johndoe'
+    feedback = create :feedback, user: user
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit feedbacks_path
@@ -73,8 +73,8 @@ describe 'Feedbacks' do
   end
 
   it 'allows deletion by admins' do
-    feedback = FactoryGirl.create :feedback
-    FactoryGirl.create :user, uid: '123456', username: 'johndoe', admin: true
+    feedback = create :feedback
+    create :user, uid: '123456', username: 'johndoe', admin: true
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit feedbacks_path
@@ -85,9 +85,9 @@ describe 'Feedbacks' do
   end
 
   it "doesn't fail when user deletes their account" do
-    FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    feedback = FactoryGirl.create :feedback
-    former_user_feedback = FactoryGirl.create :feedback
+    create :user, uid: '123456', username: 'johndoe'
+    feedback = create :feedback
+    former_user_feedback = create :feedback
     former_user_feedback.user.destroy
 
     visit user_omniauth_authorize_path(provider: :facebook)
@@ -98,7 +98,7 @@ describe 'Feedbacks' do
   end
 
   it "doesn't fail when creating with wrong parameters" do
-    FactoryGirl.create :user, uid: '123456', username: 'johndoe'
+    create :user, uid: '123456', username: 'johndoe'
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit new_feedback_path
@@ -108,8 +108,8 @@ describe 'Feedbacks' do
   end
 
   it "doesn't fail when updating with wrong parameters" do
-    user = FactoryGirl.create :user, uid: '123456', username: 'johndoe'
-    feedback = FactoryGirl.create :feedback, user: user
+    user = create :user, uid: '123456', username: 'johndoe'
+    feedback = create :feedback, user: user
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit edit_feedback_path(feedback)

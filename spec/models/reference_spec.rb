@@ -2,14 +2,14 @@
 require 'spec_helper'
 
 describe Reference do
-  let(:driver) { FactoryGirl.create :user }
-  let(:passenger) { FactoryGirl.create :user }
-  let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
-  let(:reference) { FactoryGirl.create :reference, user: passenger, itinerary: itinerary }
+  let(:driver) { create :user }
+  let(:passenger) { create :user }
+  let(:itinerary) { create :itinerary, user: driver }
+  let(:reference) { create :reference, user: passenger, itinerary: itinerary }
 
   context '.not_by_myself' do
     it 'adds an error on user field when a malicious user tries to reference himself' do
-      invalid_reference = FactoryGirl.build :reference, user: driver, itinerary: itinerary
+      invalid_reference = build :reference, user: driver, itinerary: itinerary
       expect(invalid_reference.valid?).to be false
       expect(invalid_reference.errors.messages).to have_key :user
     end
@@ -36,7 +36,7 @@ describe Reference do
   describe References::Outgoing do
     context 'after save' do
       it 'creates a new reference in the driver and set the incoming reference' do
-        FactoryGirl.create :outgoing_reference, reference: reference
+        create :outgoing_reference, reference: reference
         driver.reload
         expect(driver.references).to_not be_empty
         expect(driver.references.first.itinerary).to eq itinerary

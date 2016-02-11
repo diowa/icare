@@ -42,7 +42,7 @@ GEM
     airbrake-ruby (1.0.4)
     arel (6.0.3)
     ast (2.2.0)
-    autoprefixer-rails (6.3.1)
+    autoprefixer-rails (6.3.2)
       execjs
       json
     bcrypt (3.1.10)

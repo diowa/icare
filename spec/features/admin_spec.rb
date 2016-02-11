@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'Admin' do
   before(:each) do
-    @admin = FactoryGirl.create :user, admin: true, uid: '123456', username: 'johndoe'
+    @admin = create :user, admin: true, uid: '123456', username: 'johndoe'
 
     visit user_omniauth_authorize_path(provider: :facebook)
   end
@@ -19,7 +19,7 @@ describe 'Admin' do
   end
 
   it 'is able to ban other users' do
-    user_to_ban = FactoryGirl.create :user
+    user_to_ban = create :user
 
     visit admin_users_path
 
@@ -36,7 +36,7 @@ describe 'Admin' do
   end
 
   it 'is not able to unban banned users' do
-    banned_user = FactoryGirl.create :user, banned: true
+    banned_user = create :user, banned: true
 
     visit admin_users_path
 
@@ -46,7 +46,7 @@ describe 'Admin' do
   end
 
   it 'could login as another user' do
-    regular_user = FactoryGirl.create :user, name: 'act_as_me'
+    regular_user = create :user, name: 'act_as_me'
 
     visit login_as_admin_user_path(regular_user.id)
 
