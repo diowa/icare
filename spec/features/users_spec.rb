@@ -9,10 +9,10 @@ describe 'Users' do
   it 'does not see users index' do
     visit admin_users_path
 
-    expect(current_path).to eq dashboard_path
+    expect(current_path).to_not eq admin_users_path
   end
 
-  it 'allows to delete user account' do
+  it 'allows to delete account' do
     create :user, uid: '123456', username: 'johndoe'
 
     visit user_omniauth_authorize_path(provider: :facebook)
