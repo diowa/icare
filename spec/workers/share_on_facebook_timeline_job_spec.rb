@@ -2,8 +2,8 @@
 require 'spec_helper'
 
 describe ShareOnFacebookTimelineJob do
-  let(:user) { FactoryGirl.create :user, oauth_token: 'test', facebook_permissions: { 'publish_actions' => 1 } }
-  let(:itinerary) { FactoryGirl.create :itinerary, user: user }
+  let(:user) { create :user, oauth_token: 'test', facebook_permissions: { 'publish_actions' => 1 } }
+  let(:itinerary) { create :itinerary, user: user }
 
   it 'publishes itinerary on facebook timeline' do
     stub_http_request(:post, %r{graph.facebook.com/me}).to_return body: '123'

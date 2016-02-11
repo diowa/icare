@@ -9,7 +9,7 @@ describe 'Application' do
   end
 
   it 'redirects banned users to the banned page' do
-    FactoryGirl.create :user, banned: true, uid: '123456'
+    create :user, banned: true, uid: '123456'
 
     visit user_omniauth_authorize_path(provider: :facebook)
 
@@ -28,7 +28,7 @@ describe 'Application' do
 
   context 'Locale' do
     it 'fallbacks to en-US when user is passing an unknown locale param' do
-      user = FactoryGirl.create :user, uid: '123456'
+      user = create :user, uid: '123456'
 
       visit user_omniauth_authorize_path(provider: :facebook)
       visit itineraries_user_path(user, locale: 'XX-ZZ')
@@ -37,7 +37,7 @@ describe 'Application' do
     end
 
     it 'fallbacks to en-US when user is passing a compatible locale param' do
-      user = FactoryGirl.create :user, uid: '123456'
+      user = create :user, uid: '123456'
 
       visit user_omniauth_authorize_path(provider: :facebook)
       visit itineraries_user_path(user, locale: 'en-XX')
@@ -46,7 +46,7 @@ describe 'Application' do
     end
 
     it 'fallbacks to en-US when user is coming from facebook with a compatible locale' do
-      user = FactoryGirl.create :user, uid: '123456', locale: 'en-YY'
+      user = create :user, uid: '123456', locale: 'en-YY'
 
       visit user_omniauth_authorize_path(provider: :facebook)
       visit itineraries_user_path(user)
@@ -55,7 +55,7 @@ describe 'Application' do
     end
 
     it 'fallbacks to en-US when user is using en locale' do
-      user = FactoryGirl.create :user, uid: '123456', locale: 'en-GB'
+      user = create :user, uid: '123456', locale: 'en-GB'
 
       visit user_omniauth_authorize_path(provider: :facebook)
       visit itineraries_user_path(user, locale: 'en')

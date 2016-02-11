@@ -2,14 +2,14 @@
 require 'spec_helper'
 
 describe Conversation do
-  let(:driver) { FactoryGirl.create :user }
-  let(:passenger) { FactoryGirl.create :user }
-  let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
-  let(:conversation) { FactoryGirl.create :conversation, users: [driver, passenger], conversable: itinerary }
+  let(:driver) { create :user }
+  let(:passenger) { create :user }
+  let(:itinerary) { create :itinerary, user: driver }
+  let(:conversation) { create :conversation, users: [driver, passenger], conversable: itinerary }
 
   context '.unread?' do
     it 'knows if there are unread messages for user' do
-      conversation.messages << FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
+      conversation.messages << build(:message, sender: passenger, body: 'First unread message from Passenger')
       expect(conversation.unread?(driver)).to be true
       expect(conversation.unread?(passenger)).to be false
     end
@@ -36,12 +36,12 @@ describe Conversation do
 
   context '.last_unread_message' do
     it 'returns the last unread message' do
-      conversation.messages << FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
+      conversation.messages << build(:message, sender: passenger, body: 'First unread message from Passenger')
       expect(conversation.last_unread_message(driver).body).to eq 'First unread message from Passenger'
       expect(conversation.last_unread_message(passenger)).to be_nil
-      conversation.messages << FactoryGirl.build(:message, sender: passenger, body: 'Second unread message from Passenger')
+      conversation.messages << build(:message, sender: passenger, body: 'Second unread message from Passenger')
       expect(conversation.last_unread_message(driver).body).to eq 'Second unread message from Passenger'
-      conversation.messages << FactoryGirl.build(:message, sender: driver, body: 'First unread message from Driver')
+      conversation.messages << build(:message, sender: driver, body: 'First unread message from Driver')
       expect(conversation.last_unread_message(passenger).body).to eq 'First unread message from Driver'
     end
   end
@@ -49,7 +49,7 @@ describe Conversation do
   describe Message do
     context '.unread?' do
       it 'knows when message is unread' do
-        message = FactoryGirl.build(:message, sender: passenger, body: 'First unread message from Passenger')
+        message = build(:message, sender: passenger, body: 'First unread message from Passenger')
         conversation.messages << message
         expect(message.unread?).to be true
       end

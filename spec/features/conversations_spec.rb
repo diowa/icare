@@ -2,16 +2,16 @@
 require 'spec_helper'
 
 describe 'Conversations' do
-  let(:driver) { FactoryGirl.create :user }
-  let(:passenger) { FactoryGirl.create :user, uid: '123456', username: 'johndoe' }
-  let(:itinerary) { FactoryGirl.create :itinerary, user: driver }
+  let(:driver) { create :user }
+  let(:passenger) { create :user, uid: '123456', username: 'johndoe' }
+  let(:itinerary) { create :itinerary, user: driver }
 
   it 'allows to see own notifications' do
-    receiver = FactoryGirl.create :user, uid: '123456'
-    sender = FactoryGirl.create :user, name: 'Message Sender'
-    itinerary = FactoryGirl.create :itinerary, user: receiver
-    conversation = FactoryGirl.create :conversation, users: [receiver, sender], conversable: itinerary
-    conversation.messages << FactoryGirl.build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+    receiver = create :user, uid: '123456'
+    sender = create :user, name: 'Message Sender'
+    itinerary = create :itinerary, user: receiver
+    conversation = create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit conversations_path
@@ -46,11 +46,11 @@ describe 'Conversations' do
   end
 
   it 'rescues from update errors' do
-    receiver = FactoryGirl.create :user, uid: '123456'
-    sender = FactoryGirl.create :user
-    itinerary = FactoryGirl.create :itinerary, user: receiver
-    conversation = FactoryGirl.create :conversation, users: [receiver, sender], conversable: itinerary
-    conversation.messages << FactoryGirl.build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+    receiver = create :user, uid: '123456'
+    sender = create :user
+    itinerary = create :itinerary, user: receiver
+    conversation = create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
 
     visit user_omniauth_authorize_path(provider: :facebook)
     visit conversation_path(conversation, itinerary_id: itinerary.id)
@@ -61,11 +61,11 @@ describe 'Conversations' do
   end
 
   it 'displays unread messages in the navbar', js: true do
-    receiver = FactoryGirl.create :user, uid: '123456'
-    sender = FactoryGirl.create :user
-    itinerary = FactoryGirl.create :itinerary, user: receiver
-    conversation = FactoryGirl.create :conversation, users: [receiver, sender], conversable: itinerary
-    conversation.messages << FactoryGirl.build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+    receiver = create :user, uid: '123456'
+    sender = create :user
+    itinerary = create :itinerary, user: receiver
+    conversation = create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
 
     visit user_omniauth_authorize_path(provider: :facebook)
 
