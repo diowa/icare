@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.34.0.dev
+## 0.34.0
 
 * Add slim_lint gem
 * Lint .slim files
