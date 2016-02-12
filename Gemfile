@@ -34,7 +34,7 @@ gem 'koala'
 gem 'omniauth-facebook'
 
 # Performance and Exception management
-gem 'airbrake'
+gem 'airbrake', require: false
 gem 'newrelic_rpm'
 gem 'newrelic_moped'
 
@@ -78,7 +78,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'quiet_assets'
-  gem 'rubocop'
+  gem 'rubocop', require: false
+  gem 'slim_lint', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'web-console'

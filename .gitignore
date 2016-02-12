@@ -4,6 +4,7 @@
 !.gitignore
 !.rspec
 !.rubocop.yml
+!.slim-lint.yml
 !.slugignore
 !.travis.yml
 *~

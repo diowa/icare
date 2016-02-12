@@ -6,7 +6,7 @@
       h4.alert-heading= t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
       = t('errors.template.body')
       ul
-        - for message in @itinerary.errors.full_messages
+        - @itinerary.errors.full_messages.each do |message|
           li= message
   .row
     .col-sm-6

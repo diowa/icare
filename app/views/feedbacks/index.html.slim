@@ -20,7 +20,7 @@
           th= Feedback.human_attribute_name(:updated_at)
           th=t '.actions', default: t('helpers.actions')
       tbody
-        - for feedback in @feedbacks
+        - @feedbacks.each do |feedback|
           tr.vertical-align-middle class=('success' if feedback.fixed?)
             td= feedback.type
             td= feedback.status.upcase
