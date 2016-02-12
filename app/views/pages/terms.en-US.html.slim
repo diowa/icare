@@ -4,7 +4,7 @@
     h1= yield :title
     h5.text-muted= t('last_modified', date: l(Date.parse('2012-09-01'), format: :long))
 
-  h3 Welcome to # APP_CONFIG.app_name 
+  h3 Welcome to # APP_CONFIG.app_name
   p
     | Thanks for using our service (“Service”).
   p
@@ -20,7 +20,7 @@
   h3 Privacy Protection
   p
     #{APP_CONFIG.app_name}'s
-    = link_to "privacy policy", :policy
+    = link_to 'privacy policy', :policy
     | explain how we treat your personal data and protect your privacy when you use our Service.
   p
     | By using our Service, you agree that #{APP_CONFIG.app_name} can use such data in accordance with our privacy policy.

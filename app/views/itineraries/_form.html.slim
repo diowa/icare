@@ -1,7 +1,7 @@
 fieldset#single
-  = f.input :leave_date, as: :datetime, default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm'), input_html: { class: 'date-time' }, wrapper: :horizontal_form
+  = f.input :leave_date, as: :datetime, default: default_leave_date, start_year: Time.current.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm'), input_html: { class: 'date-time' }, wrapper: :horizontal_form
   = f.input :round_trip, as: :boolean, wrapper: :horizontal_boolean
-  = f.input :return_date, as: :datetime, default: default_leave_date, start_year: Time.now.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm'), input_html: { class: 'date-time' }, disabled: !@itinerary.round_trip, wrapper: :horizontal_form
+  = f.input :return_date, as: :datetime, default: default_leave_date, start_year: Time.current.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm'), input_html: { class: 'date-time' }, disabled: !@itinerary.round_trip, wrapper: :horizontal_form
   = f.input :fuel_cost, wrapper: :horizontal_form do
     .input-group.input-group-number
       = f.text_field :fuel_cost, class: 'form-control'

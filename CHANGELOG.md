@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.34.0
+
+* Add slim_lint gem
+* Lint .slim files
+* Update gems
+
 ## 0.33.1
 
 * Fix Users spec

@@ -16,8 +16,18 @@ rescue LoadError
   end
 end
 
+begin
+  require 'slim_lint/rake_task'
+  SlimLint::RakeTask.new
+rescue LoadError
+  desc 'Run Slim-Lint'
+  task :rubocop do
+    $stderr.puts 'Slim-Lint is disabled'
+  end
+end
+
 task test: :spec
 
-task default: [:rubocop, :spec]
+task default: [:rubocop, :slim_lint, :spec]
 
 Rails.application.load_tasks

@@ -11,6 +11,6 @@
   meta property="#{fb_namespace}:route_start_location:longitude" content=itinerary.start_location.lng
   meta property="#{fb_namespace}:route_end_location:latitude" content=itinerary.end_location.lat
   meta property="#{fb_namespace}:route_end_location:longitude" content=itinerary.end_location.lng
-  - for point in itinerary.sample_path
+  - itinerary.sample_path.each do |point|
     meta property="#{fb_namespace}:route_sample_path:latitude" content=point[0]
     meta property="#{fb_namespace}:route_sample_path:longitude" content=point[1]

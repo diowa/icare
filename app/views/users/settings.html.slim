@@ -28,7 +28,7 @@
 
     fieldset
       legend= t('.application_settings')
-      = f.input :locale, collection: I18n.available_locales.map{ |locale| [ t('lang_native_name', locale: locale), locale] }, disabled: (I18n.available_locales.one?), wrapper: :horizontal_form
+      = f.input :locale, collection: I18n.available_locales.map { |locale| [t('lang_native_name', locale: locale), locale] }, disabled: I18n.available_locales.one?, wrapper: :horizontal_form
       = f.input :time_zone, wrapper: :horizontal_form
       .form-group
         .col-sm-10.col-sm-offset-2
@@ -36,7 +36,7 @@
           = f.input :send_email_messages, as: :boolean, wrapper: false
           = f.input :send_email_references, as: :boolean, wrapper: false
           p.help-block
-            = t('.send_email_at_address', email: content_tag(:b,current_user.email)).html_safe
+            = t('.send_email_at_address', email: content_tag(:b, current_user.email)).html_safe
 
     .row
       .col-sm-10.col-sm-offset-2

@@ -133,7 +133,7 @@ GEM
       multi_json (~> 1.0)
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
-    hashdiff (0.2.3)
+    hashdiff (0.3.0)
     hashie (3.4.3)
     htmlentities (4.3.4)
     http-cookie (1.0.2)
@@ -230,7 +230,7 @@ GEM
       omniauth (~> 1.2)
     origin (2.2.0)
     orm_adapter (0.5.0)
-    parser (2.3.0.4)
+    parser (2.3.0.5)
       ast (~> 2.2)
     powerpack (0.1.1)
     pry (0.10.3)
@@ -324,7 +324,7 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
-    rubocop (0.37.1)
+    rubocop (0.37.2)
       parser (>= 2.3.0.4, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
@@ -342,7 +342,7 @@ GEM
       tilt (>= 1.1, < 3)
     secure_headers (2.5.1)
       user_agent_parser
-    selenium-webdriver (2.51.0)
+    selenium-webdriver (2.52.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
@@ -372,6 +372,11 @@ GEM
     slim_assets (0.0.2)
       slim
       tilt
+    slim_lint (0.7.0)
+      rake (~> 10.0)
+      rubocop (>= 0.36.0)
+      slim (~> 3.0)
+      sysexits (~> 1.1)
     slop (3.6.0)
     spring (1.6.3)
     spring-commands-rspec (1.0.4)
@@ -384,6 +389,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     stringex (2.6.0)
+    sysexits (1.2.0)
     temple (0.7.6)
     term-ansicolor (1.3.2)
       tins (~> 1.0)
@@ -491,6 +497,7 @@ DEPENDENCIES
   simplecov
   slim-rails
   slim_assets
+  slim_lint
   spring
   spring-commands-rspec
   sprockets

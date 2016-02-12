@@ -17,7 +17,7 @@
   p.pre-line
     strong= Feedback.human_attribute_name(:message)
     br
-    = @feedback.message.strip.gsub(/\r/, '')
+    = @feedback.message.strip.delete("\r")
   p
     strong= Feedback.human_attribute_name(:url)
     br

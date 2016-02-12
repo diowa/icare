@@ -14,7 +14,7 @@
           th= User.model_name.human
           th= Itinerary.human_attribute_name(:leave_date)
     tbody
-      - for itinerary in itineraries
+      - itineraries.each do |itinerary|
         tr.vertical-align-middle
           td= link_to itinerary.start_address, itinerary_path(itinerary)
           td= link_to itinerary.end_address, itinerary_path(itinerary)

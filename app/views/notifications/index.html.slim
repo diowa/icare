@@ -5,7 +5,7 @@
   .table-responsive
     table.table
       tbody
-        - for notification in @notifications
+        - @notifications.each do |notification|
           tr
             td class=('notification-unread' if notification.unread?)
               = notification_icon notification
@@ -14,4 +14,4 @@
               p
                 small
                   abbr title=l(notification.created_at.in_time_zone(current_user.time_zone), format: :long)
-                    #{distance_of_time_in_words(notification.created_at, Time.now.utc, true)} #{t("time_ago")}
+                    | #{distance_of_time_in_words(notification.created_at, Time.current.utc, true)} #{t('time_ago')}

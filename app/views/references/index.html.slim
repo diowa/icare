@@ -11,7 +11,7 @@
         th= Reference.human_attribute_name(:rating)
         th= Reference.human_attribute_name(:body)
       tbody
-        - for reference in @references
+        - @references.each do |reference|
           - if reference.incoming
             tr class=('unread' if reference.unread?)
               td
