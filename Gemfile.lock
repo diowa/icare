@@ -42,7 +42,7 @@ GEM
     airbrake-ruby (1.0.4)
     arel (6.0.3)
     ast (2.2.0)
-    autoprefixer-rails (6.3.2)
+    autoprefixer-rails (6.3.3)
       execjs
       json
     bcrypt (3.1.10)
@@ -52,7 +52,7 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bson (4.0.1)
+    bson (4.0.2)
     builder (3.2.2)
     bullet (5.0.0)
       activesupport (>= 3.0.0)
@@ -177,9 +177,9 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
-    mongo (2.2.2)
+    mongo (2.2.3)
       bson (~> 4.0)
-    mongoid (5.1.0)
+    mongoid (5.1.1)
       activemodel (~> 4.0)
       mongo (~> 2.1)
       origin (~> 2.2)
@@ -211,7 +211,7 @@ GEM
     newrelic_moped (1.0.1)
       moped
       newrelic_rpm (~> 3.11)
-    newrelic_rpm (3.14.3.313)
+    newrelic_rpm (3.15.0.314)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     oauth2 (1.1.0)
@@ -230,7 +230,7 @@ GEM
       omniauth (~> 1.2)
     origin (2.2.0)
     orm_adapter (0.5.0)
-    parser (2.3.0.5)
+    parser (2.3.0.6)
       ast (~> 2.2)
     powerpack (0.1.1)
     pry (0.10.3)
@@ -302,7 +302,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
-    rgeo (0.5.2)
+    rgeo (0.5.3)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -340,8 +340,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    secure_headers (2.5.1)
-      user_agent_parser
+    secure_headers (3.0.0)
+      useragent
     selenium-webdriver (2.52.0)
       childprocess (~> 0.5)
       multi_json (~> 1.0)
@@ -372,7 +372,7 @@ GEM
     slim_assets (0.0.2)
       slim
       tilt
-    slim_lint (0.7.0)
+    slim_lint (0.7.1)
       rake (~> 10.0)
       rubocop (>= 0.36.0)
       slim (~> 3.0)
@@ -422,7 +422,7 @@ GEM
       rack
       raindrops (~> 0.7)
     uniform_notifier (1.9.0)
-    user_agent_parser (2.3.0)
+    useragent (0.16.3)
     vegas (0.1.11)
       rack (>= 1.0.0)
     warden (1.2.6)
@@ -431,7 +431,7 @@ GEM
       activemodel (>= 4.2)
       debug_inspector
       railties (>= 4.2)
-    webmock (1.22.6)
+    webmock (1.23.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
