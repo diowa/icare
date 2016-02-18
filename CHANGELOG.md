@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.34.2
+
+* Fix secure headers
+* Font Awesome 4.5.0
+* Replace protocol-relative urls with https
+* Update html5shiv to 3.7.3
+
 ## 0.34.1
 
 * Update gems
