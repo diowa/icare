@@ -21,7 +21,7 @@ begin
   SlimLint::RakeTask.new
 rescue LoadError
   desc 'Run Slim-Lint'
-  task :rubocop do
+  task :slim_lint do
     $stderr.puts 'Slim-Lint is disabled'
   end
 end

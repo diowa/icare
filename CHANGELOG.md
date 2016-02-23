@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.34.3
+
+* Fix Rakefile
+* Update gems
+
 ## 0.34.2
 
 * Fix secure headers
