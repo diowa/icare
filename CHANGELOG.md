@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.34.4
+
+* Update gems
+
 ## 0.34.3
 
 * Fix Rakefile
