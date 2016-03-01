@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.34.5
+
+* Rails 4.2.5.2
+* Update gems
+
 ## 0.34.4
 
 * Update gems
