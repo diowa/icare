@@ -69,7 +69,7 @@ describe 'Conversations' do
 
     visit user_omniauth_authorize_path(provider: :facebook)
 
-    within('#navbar-notifications') do
+    within('.navbar-notifications') do
       expect(page).to have_css '.unread-count'
       expect(page).to have_xpath "//span[@class='unread-count' and text()='1']"
       find('#notifications-conversations > a').click

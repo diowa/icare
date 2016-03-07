@@ -15,12 +15,12 @@ checkFBLoginStatus = ->
       #accessToken = response.authResponse.accessToken;
       #document.getElementById('fb-login').innerHTML = 'Logout';
 
-      $('#facepile-container').fadeIn()
+      $('.facepile-container-j').fadeIn()
     else if response.status is 'not_authorized'
       # the user is logged in to Facebook,
       # but has not authenticated your app
 
-      $('#facepile-container').fadeIn()
+      $('.facepile-container-j').fadeIn()
     else
       #the user isn't logged in to Facebook. so don't show the facepile
 

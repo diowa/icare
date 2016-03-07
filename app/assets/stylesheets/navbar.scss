@@ -1,21 +1,19 @@
 @import "twbs-variables";
 @import "twbs/bootstrap/mixins";
 
-#navbar-user-info {
-  .navbar-profile-link {
-    position: relative;
+.navbar-profile-link {
+  position: relative;
 
-    img {
-      position: absolute;
-      top: 7px;
-      left: 15px;
-      @include square(26px);
-      border-radius: $border-radius-small;
-    }
+  img {
+    position: absolute;
+    top: 7px;
+    left: 15px;
+    @include square(26px);
+    border-radius: $border-radius-small;
+  }
 
-    span {
-      margin-left: 35px;
-    }
+  span {
+    margin-left: 35px;
   }
 }
 

@@ -19,7 +19,7 @@ setItinerary = (route) ->
   $('#distance').text route.legs[0].distance.text
   $('#duration').text route.legs[0].duration.text
   $('#copyrights').text route.copyrights
-  $('#result').show()
+  $('#map-result-j').show()
   route_km = (Number) route.legs[0].distance.value / 1000
   route_gasoline = route_km * (Number) $('#fuel-help').data('avg-consumption')
   $('#fuel-help-text').text I18n.t('javascript.fuel_help_text', { km: route_km.toFixed(2), est: Math.ceil(route_gasoline), avg_consumption: $('#fuel-help').data('avg-consumption'), fuel_currency: $('html').data('fuelCurrency'), currency: $('html').data('currency') })
@@ -58,7 +58,7 @@ wizardPrevStep = ->
 
   $("#wizard-step-#{step}-content").fadeOut ->
     $('#wizard-next-step-button').prop('disabled', false).show()
-    $('#new_itinerary_submit').prop('disabled', true).hide()
+    $('#new_itinerary_submit-j').prop('disabled', true).hide()
 
     $("#wizard-step-#{step}-title").addClass('hidden-xs').removeClass 'active'
 
@@ -70,14 +70,14 @@ wizardPrevStep = ->
     $("#wizard-step-#{step}-content").fadeIn()
 
     if step is 1
-      $("#wizard-prev-step-button").prop('disabled', true).hide()
+      $("#wizard-prev-step-button-j").prop('disabled', true).hide()
 
     $(window).scrollTop("#wizard-step-#{step}-title")
 
 wizardNextStep = ->
   # Run validations
   if $('#itinerary_route').val() is ''
-    $('#error').text(I18n.t 'javascript.setup_route_first').show()
+    $('#map-error-j').text(I18n.t 'javascript.setup_route_first').show()
     return false
 
   valid = true
@@ -109,10 +109,10 @@ wizardNextStep = ->
       $(window).scrollTop("#wizard-step-#{step}-title")
 
     if step > 1
-      $("#wizard-prev-step-button").prop('disabled', false).show()
+      $("#wizard-prev-step-button-j").prop('disabled', false).show()
       if step is lastStep
         $('#wizard-next-step-button').prop('disabled', true).hide()
-        $('#new_itinerary_submit').prop('disabled', false).show()
+        $('#new_itinerary_submit-j').prop('disabled', false).show()
 
 dateFieldToString = (field_id) ->
   values = $("select[id^=#{field_id}] option:selected")
@@ -148,9 +148,9 @@ getWaypoints = () ->
 
 calculateRoute = (dr, ds) ->
   return if $('#itinerary_start_address').val() is '' || $('#itinerary_end_address').val() is ''
-  $('#itineraries-spinner').show()
-  $('#error').hide()
-  $('#result').hide()
+  $('#itineraries-spinner-j').show()
+  $('#map-error-j').hide()
+  $('#map-result-j').hide()
   $('#route-helper').hide()
   $('#copyrights').text ''
   $('#distance').text ''
@@ -163,7 +163,7 @@ calculateRoute = (dr, ds) ->
     avoidTolls: $('#itinerary_avoid_tolls').prop 'checked'
     waypoints: getWaypoints()
   , (result, status) ->
-    $('#itineraries-spinner').hide()
+    $('#itineraries-spinner-j').hide()
     if status is google.maps.DirectionsStatus.OK
       setRoute dr, result
     else
@@ -174,7 +174,7 @@ calculateRoute = (dr, ds) ->
           message = I18n.t 'javascript.zero_results'
         else
           message = status
-      $('#error').text(message).show()
+      $('#map-error-j').text(message).show()
 
 createRouteMapInit = (id) ->
   map = icare.initGoogleMaps id
@@ -189,7 +189,7 @@ createRouteMapInit = (id) ->
   google.maps.event.addListener dr, 'directions_changed', ->
     map.fitBounds dr.directions.routes[0].bounds
     setItinerary dr.getDirections().routes[0]
-    $('#new_itinerary_submit').prop 'disabled', false
+    $('#new_itinerary_submit-j').prop 'disabled', false
 
   $itinerary_address_inputs = $('#itinerary_start_address, #itinerary_end_address')
   $itinerary_route_checkboxes = $('#itinerary_avoid_highways, #itinerary_avoid_tolls')
@@ -216,7 +216,7 @@ createRouteMapInit = (id) ->
 initItineraryNew = ->
   createRouteMapInit('#new-itinerary-map')
   $('#wizard-next-step-button').on 'click', wizardNextStep
-  $('#wizard-prev-step-button').on 'click', wizardPrevStep
+  $('#wizard-prev-step-button-j').on 'click', wizardPrevStep
   $('input[name="itinerary[daily]"]').change ->
     if (Boolean) $(this).val() is 'true'
       $('#single').fadeOut ->

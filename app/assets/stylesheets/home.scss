@@ -32,7 +32,7 @@ html,
   border-radius: 0;
 }
 
-#splashscreen {
+.splashscreen {
   position: relative;
   display: table;
   @include size(100%, auto);
@@ -51,7 +51,7 @@ html,
   }
 }
 
-#splashscreen-container {
+.splashscreen-container {
   position: relative;
   display: table-cell;
   padding: 15px;
@@ -173,12 +173,12 @@ html,
     font-size: $font-size-base;
   }
 
-  #splashscreen {
+  .splashscreen {
     height: 100%;
     min-height: 375px;
   }
 
-  #splashscreen-container {
+  .splashscreen-container {
     padding-bottom: 62px;
 
     h1 {

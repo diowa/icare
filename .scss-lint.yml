@@ -83,7 +83,7 @@ linters:
     enabled: true
 
   IdSelector:
-    enabled: false # TODO: fix this
+    enabled: true
 
   ImportantRule:
     enabled: false # NOTE: different from bootstrap's defaults

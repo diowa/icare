@@ -77,7 +77,7 @@ initItineraryIndex = ->
   # TODO: clean this mess... directions service again?
   $('#itineraries-search').on 'click', ->
     return false unless $("#new_itineraries_search").isValid(window.ClientSideValidations.forms["new_itineraries_search"].validators)
-    $("#error").hide()
+    $("#map-error-j").hide()
     geocoder = new google.maps.Geocoder()
     address = $("#itineraries_search_from").val()
     geocoder.geocode
@@ -110,9 +110,9 @@ initItineraryIndex = ->
     .on 'submit', (evt) ->
       clearItineraries()
     .on 'ajax:beforeSend', (evt, xhr, settings) ->
-      $("#itineraries-spinner").show()
+      $("#itineraries-spinner-j").show()
     .on 'ajax:complete', (evt, xhr, settings) ->
-      $("#itineraries-spinner").hide()
+      $("#itineraries-spinner-j").hide()
     .on 'ajax:error', (evt, xhr, settings) ->
       $("#itineraries-thumbs").html """
         <div class="col-xs-12"><h3 class="error-text no-margin">#{I18n.t("javascript.an_error_occurred")}</h3></div>

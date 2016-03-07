@@ -4,8 +4,8 @@
 
 #fb-root
 == render 'shared/flash_messages'
-#splashscreen
-  #splashscreen-container
+.splashscreen
+  .splashscreen-container
     h1
       = APP_CONFIG.app_name
       - if APP_CONFIG.demo_mode
@@ -55,7 +55,7 @@
         h2= t('.join_us_today')
   .row
     .col-sm-6
-      #facepile-container
+      .facepile-container-j
         .fb-facepile data-size='medium' data-max-rows='1'
     .col-sm-6== render 'facebook_login'
   == render 'shared/modal_why_facebook'

@@ -1,7 +1,7 @@
 @import "twbs-variables";
 @import "twbs/bootstrap/mixins";
 
-#daily-itinerary-table {
+.daily-itinerary-table {
   td {
     vertical-align: middle;
   }
@@ -11,16 +11,12 @@
   }
 }
 
-#itinerary-preview {
-  background-color: $brand-warning;
-}
-
-#itineraries-spinner {
+.itineraries-spinner {
   display: none;
   margin-left: 10px;
 }
 
-#search-form-advanced {
+.search-form-advanced {
   font-size: $font-size-small;
 
   .checkbox {
@@ -34,7 +30,7 @@
   }
 }
 
-#user-media {
+.user-media {
   margin-bottom: 20px;
 }
 
