@@ -19,13 +19,13 @@ h6, .h6 {
 
 .diowa-logo {
   position: relative;
-  display: inline-block;
   top: -1px;
+  display: inline-block;
   margin-right: 3px;
   @include size(90px, 28px);
+  line-height: 1px;
   background: asset-data-url("diowa.svg") no-repeat;
   background-size: 90px 28px;
-  line-height: 1px;
 }
 
 .facebook-bg {
@@ -65,64 +65,63 @@ h6, .h6 {
 .pre-line {
   word-break: break-all;
   word-wrap: break-word;
-  white-space: pre;
   white-space: pre-wrap;
 }
 
 .mock {
-  @include opacity(0.6);
+  @include opacity(.6);
 }
 
 .balloon {
   position: relative;
   display: inline-block;
   width: 100%;
-  border: 1px solid #dddddd;
   padding: 8px 10px;
-  background-color: white;
-  box-shadow: 0 1px 1px fade-out(black, 0.925);
-  &:after, &:before {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 1px fade-out(#000, .925);
+  &::after, &::before {
     position: absolute;
-    right: 100%;
     top: 50%;
-    @include square(0);
-    border: solid transparent;
-    content: " ";
+    right: 100%;
     pointer-events: none;
+    @include square(0);
+    content: " ";
+    border: solid transparent;
   }
-  &:after {
-    border-width: 8px;
-    border-right-color: white;
+  &::after {
     margin-top: -8px;
+    border-width: 8px;
+    border-right-color: #fff;
   }
-  &:before {
-    border-width: 9px;
-    border-right-color: #dddddd;
+  &::before {
     margin-top: -9px;
+    border-width: 9px;
+    border-right-color: #ddd;
   }
   &.for-profile-picture {
     min-height: 60 - $line-height-computed;
     margin-left: 5px;
-    &:after,
-    &:before {
+    &::after,
+    &::before {
       top: 25px;
     }
   }
 }
 
 .img-outset {
-  display: inline-block;
   position: relative;
-  &:before {
+  display: inline-block;
+  &::before {
     position: absolute;
     @include square(100%);
-    border: 1px solid fade-out(black, 0.9);
     content: "";
+    border: 1px solid fade-out(#000, .9);
   }
 }
 
-.img-outset-dark:before {
-  border: 1px solid fade-out(black, 0.5);
+.img-outset-dark::before {
+  border: 1px solid fade-out(#000, .5);
 }
 
 .btn-checkbox {
@@ -135,7 +134,7 @@ h6, .h6 {
   input[type=checkbox] {
     position: absolute !important;
     left: -9999px !important;
-    &:checked ~ span.check:before {
+    &:checked ~ span.check::before {
       content: "\f046";
     }
   }
@@ -148,16 +147,16 @@ h6, .h6 {
 
 .div-table-cell {
   display: table-cell;
-  vertical-align: top;
   text-align: left;
+  vertical-align: top;
 }
 
 .btn-fb {
-  @include button-variant(white, $brand-facebook, darken($brand-facebook, 5%));
+  @include button-variant(#fff, $brand-facebook, darken($brand-facebook, 5%));
 }
 
 .btn-pink {
-  @include button-variant(white, $pink, $pink);
+  @include button-variant(#fff, $pink, $pink);
 }
 
 .text-pink {

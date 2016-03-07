@@ -22,57 +22,58 @@ $ribbon-color: $headings-color;
 
 @media (min-width: $screen-sm-min) {
   .ribbon {
+    padding: 6px 2em;
     margin: 2em auto 5em;
     background-color: $ribbon-color;
-    box-shadow: 0 1px 1px fade-out(black, 0.75);
+    box-shadow: 0 1px 1px fade-out(#000, .75);
+
     h2 {
       position: relative;
       top: -4px;
       font-size: $font-size-h1;
-      color: white;
-      text-shadow: -1px -1px 0 fade-out(black, 0.65);
+      color: #fff;
+      text-shadow: -1px -1px 0 fade-out(#000, .65);
     }
-    padding: 6px 2em;
-    &:before,
-    &:after {
-      z-index: -1;
+    &::before,
+    &::after {
       position: absolute;
-      display: block;
       bottom: -1em;
-      border: 1.9em solid darken($ribbon-color, 2%);
+      z-index: -1;
+      display: block;
       content: "";
-      box-shadow: 0 1px 0 fade-out(black, 0.75);
+      border: 1.9em solid darken($ribbon-color, 2%);
+      box-shadow: 0 1px 0 fade-out(#000, .75);
     }
-    &:before {
+    &::before {
       left: -2.8em;
       border-right-width: 3em;
       border-left-color: transparent;
     }
-    &:after {
+    &::after {
       right: -2.8em;
-      border-left-width: 3em;
       border-right-color: transparent;
+      border-left-width: 3em;
     }
   }
   .ribbon-content {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       position: absolute;
-      display: block;
       bottom: -1em;
-      border-style: solid;
-      border-color: darken($ribbon-color, 15%) transparent transparent transparent;
+      display: block;
       content: "";
+      border-color: darken($ribbon-color, 15%) transparent transparent;
+      border-style: solid;
     }
-    &:before {
+    &::before {
       left: 0;
       border-width: 1em 0 0 2em;
-      box-shadow: 1px 0 0 fade-out(black, 0.75);
+      box-shadow: 1px 0 0 fade-out(#000, .75);
     }
-    &:after {
+    &::after {
       right: 0;
       border-width: 1em 2em 0 0;
-      box-shadow: -1px 0 0 fade-out(black, 0.75);
+      box-shadow: -1px 0 0 fade-out(#000, .75);
     }
   }
 }

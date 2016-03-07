@@ -22,8 +22,8 @@ tr.unread td,
     &.alternate {
       background-color: darken($body-bg, 5%);
     }
-    & + li {
-      border-top: 1px solid #cccccc;
+    + li {
+      border-top: 1px solid #ccc;
     }
   }
   .message-avatar,

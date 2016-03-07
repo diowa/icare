@@ -2,12 +2,12 @@
 @import "twbs/bootstrap/mixins";
 
 footer {
-  margin-top: $line-height-computed;
-  border-top: 1px solid $hr-border;
   padding: $line-height-computed 0;
+  margin-top: $line-height-computed;
   font-size: $font-size-base + 1;
   color: $gray;
   background-color: transparent !important;
+  border-top: 1px solid $hr-border;
 
   a,
   a:hover,
@@ -29,8 +29,8 @@ footer {
 
     &.diowa-footer {
       display: block;
-      clear: both;
       margin-bottom: 10px;
+      clear: both;
     }
   }
 }
