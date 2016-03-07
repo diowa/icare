@@ -58,7 +58,7 @@ linters:
     style: same_line # or 'new_line'
 
   EmptyLineBetweenBlocks:
-    enabled: false
+    enabled: true # NOTE: different from bootstrap's defaults
     ignore_single_line_blocks: true
 
   EmptyRule:
@@ -86,7 +86,7 @@ linters:
     enabled: false # TODO: fix this
 
   ImportantRule:
-    enabled: false # NOTE: different from bootstrap
+    enabled: false # NOTE: different from bootstrap's defaults
 
   ImportPath:
     enabled: true
@@ -437,7 +437,7 @@ linters:
     enabled: true
 
   QualifyingElement:
-    enabled: false # NOTE: different from bootstrap
+    enabled: false # NOTE: different from bootstrap's defaults
     allow_element_with_attribute: false
     allow_element_with_class: false
     allow_element_with_id: false

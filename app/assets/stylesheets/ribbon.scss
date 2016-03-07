@@ -13,6 +13,7 @@ $ribbon-color: $headings-color;
   margin: 1em auto 3em;
   font-family: "Pacifico";
   font-weight: 400;
+
   h2 {
     margin: 0;
     font-size: $font-size-h2;
@@ -34,6 +35,7 @@ $ribbon-color: $headings-color;
       color: #fff;
       text-shadow: -1px -1px 0 fade-out(#000, .65);
     }
+
     &::before,
     &::after {
       position: absolute;
@@ -44,17 +46,20 @@ $ribbon-color: $headings-color;
       border: 1.9em solid darken($ribbon-color, 2%);
       box-shadow: 0 1px 0 fade-out(#000, .75);
     }
+
     &::before {
       left: -2.8em;
       border-right-width: 3em;
       border-left-color: transparent;
     }
+
     &::after {
       right: -2.8em;
       border-right-color: transparent;
       border-left-width: 3em;
     }
   }
+
   .ribbon-content {
     &::before,
     &::after {
@@ -65,11 +70,13 @@ $ribbon-color: $headings-color;
       border-color: darken($ribbon-color, 15%) transparent transparent;
       border-style: solid;
     }
+
     &::before {
       left: 0;
       border-width: 1em 0 0 2em;
       box-shadow: 1px 0 0 fade-out(#000, .75);
     }
+
     &::after {
       right: 0;
       border-width: 1em 2em 0 0;

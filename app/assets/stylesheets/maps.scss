@@ -3,10 +3,12 @@
 
 .google-maps {
   @include size(100%, 300px);
+
   label {
     display: inline-block;
     width: auto;
   }
+
   img {
     max-width: none;
   }
@@ -30,6 +32,7 @@
 
 .gmaps-popup-image {
   padding-right: 10px;
+
   img {
     display: block;
     @include square(50px);
@@ -48,6 +51,7 @@
 
 .gmaps-popup-div-details {
   margin: 10px 0 0;
+
   span {
     display: inline-block;
     margin-right: 12px;
@@ -61,11 +65,13 @@
   background-color: #fff;
   border: 1px solid $gray-light;
   box-shadow: 1px 1px 1px fade-out(#000, .8);
+
   img {
     position: relative;
     top: 1px;
     left: 1px;
   }
+
   &::after,
   &::before {
     position: absolute;
@@ -75,12 +81,14 @@
     content: " ";
     border: solid transparent;
   }
+
   &::after {
     left: 50%;
     margin-left: -4px;
     border-width: 4px;
     border-top-color: #fff;
   }
+
   &::before {
     left: 50%;
     margin-left: -5px;

@@ -4,6 +4,7 @@
 #navbar-user-info {
   .navbar-profile-link {
     position: relative;
+
     img {
       position: absolute;
       top: 7px;
@@ -11,6 +12,7 @@
       @include square(26px);
       border-radius: $border-radius-small;
     }
+
     span {
       margin-left: 35px;
     }
@@ -35,6 +37,7 @@
 .navbar-default .navbar-nav > li.facebook-link > a {
   color: #fff;
   background-color: $brand-facebook;
+
   &:hover,
   &:focus {
     background-color: darken($brand-facebook, 5%);

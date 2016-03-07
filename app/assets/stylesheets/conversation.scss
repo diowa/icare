@@ -14,29 +14,36 @@ tr.unread td,
 .list-conversation {
   padding-left: 0;
   list-style: none;
+
   li {
     display: table;
     width: 100%;
     padding: 12px 0;
     transition: background 1s ease-out;
+
     &.alternate {
       background-color: darken($body-bg, 5%);
     }
+
     + li {
       border-top: 1px solid #ccc;
     }
   }
+
   .message-avatar,
   .message {
     display: table-cell;
     vertical-align: top;
   }
+
   .message-avatar {
     width: 60px;
+
     img {
       @include square(50px);
     }
   }
+
   .message-body {
     margin-bottom: 0;
   }

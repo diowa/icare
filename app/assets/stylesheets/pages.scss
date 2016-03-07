@@ -4,6 +4,7 @@
 .fb-facepile {
   width: 100% !important;
   margin-bottom: 18px;
+
   > span,
   iframe {
     display: block;
@@ -12,6 +13,7 @@
     overflow: hidden;
     // NOTE: 19px right offset, consider fixed width
   }
+
   iframe {
     height: auto !important;
   }

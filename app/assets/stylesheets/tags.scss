@@ -19,6 +19,7 @@
     &.tag-mutual-friend {
       position: relative;
       padding-left: 34px;
+
       img {
         position: absolute;
         @include square(28px);

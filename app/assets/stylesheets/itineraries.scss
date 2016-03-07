@@ -5,6 +5,7 @@
   td {
     vertical-align: middle;
   }
+
   select {
     margin-bottom: 0;
   }
@@ -21,10 +22,12 @@
 
 #search-form-advanced {
   font-size: $font-size-small;
+
   .checkbox {
     margin-top: 5px;
     margin-bottom: 5px;
   }
+
   input[type="radio"],
   input[type="checkbox"] {
     margin-top: 2px;
@@ -42,14 +45,17 @@
 .itinerary-step {
   margin-bottom: 20px;
   border-bottom: 1px solid $gray-light;
+
   h3 {
     color: $gray-light;
   }
+
   &.active,
   &.active h3 {
     color: $headings-color;
     border-color: $headings-color;
   }
+
   &.done,
   &.done h3 {
     color: $brand-success;
@@ -65,10 +71,12 @@
   border: 1px solid #ccc;
   border-radius: $border-radius-base;
   box-shadow: 0 1px 1px fade-out(#000, .925);
+
   .btn-toolbar {
     margin: 0;
     text-align: right;
   }
+
   .media {
     margin-top: 0;
   }
@@ -82,13 +90,16 @@
 
 .itinerary-title {
   margin: 0;
+
   small,
   span {
     display: block;
   }
+
   small {
     font-size: $font-size-base * 1.25;
   }
+
   span {
     font-size: $font-size-base * 1.75;
     line-height: $line-height-computed * 1.5;
@@ -97,6 +108,7 @@
 
 .profile-picture-cell {
   width: 55px;
+
   img {
     @include square(50px);
     background-color: #fff;
@@ -108,6 +120,7 @@
     position: relative;
     height: 205px;
     overflow: hidden;
+
     .btn-toolbar {
       position: absolute;
       right: 5px;
