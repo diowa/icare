@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.35.0.dev
+## 0.35.0
 
 * Rails 4.2.6
 * Add scss_lint gem
