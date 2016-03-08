@@ -64,7 +64,7 @@ describe 'Itineraries' do
       fill_in 'itinerary_description', with: 'MUSIC VERY LOUD!!!'
       check 'itinerary_pink'
       check 'itinerary_pets_allowed'
-      click_button 'new_itinerary_submit'
+      click_button 'new_itinerary_submit-j'
 
       expect(page).to have_content I18n.t('flash.itineraries.success.create')
       expect(page).to have_content 'Milan'
@@ -166,7 +166,7 @@ describe 'Itineraries' do
 
       visit new_itinerary_path
 
-      find('#new_itinerary_submit').click
+      find('#new_itinerary_submit-j').click
       expect(page).to have_css '.alert-danger'
     end
 

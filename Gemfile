@@ -2,7 +2,7 @@
 source 'https://rubygems.org'
 
 ruby '2.3.0'
-gem 'rails', '4.2.5.2'
+gem 'rails', '4.2.6'
 
 # Servers
 gem 'thin'
@@ -72,6 +72,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'rubocop', require: false
+  gem 'scss_lint', require: false
   gem 'slim_lint', require: false
 end
 

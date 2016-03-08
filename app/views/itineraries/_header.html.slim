@@ -4,7 +4,7 @@
   .col-sm-6
     = image_tag @itinerary.static_map, class: 'google-static-map img-responsive', alt: ''
   .col-sm-6
-    .media#user-media
+    .media.user-media
       = link_to user_path(@itinerary.user), class: 'pull-left' do
         = user_profile_picture @itinerary.user, style: 'media-object'
       .media-body

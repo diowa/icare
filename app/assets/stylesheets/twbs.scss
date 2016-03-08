@@ -64,16 +64,16 @@
 /* Text class fix */
 th.text-right,
 td.text-right {
-  text-right: right;
+  text-align: right;
 }
 
 .btn {
-  box-shadow: inset 0 -3px 0 fade-out(black, 0.9);
-  transition :background-color .35s ease, border-color .35s ease;
+  box-shadow: inset 0 -3px 0 fade-out(#000, .9);
+  transition: background-color .35s ease, border-color .35s ease;
 }
 
 .btn-xs {
-  box-shadow: inset 0 -2px 0 fade-out(black, 0.9);
+  box-shadow: inset 0 -2px 0 fade-out(#000, .9);
 }
 
 .btn-link {

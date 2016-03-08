@@ -3,10 +3,12 @@
 
 .google-maps {
   @include size(100%, 300px);
+
   label {
-    display:inline {}
+    display: inline-block;
     width: auto;
   }
+
   img {
     max-width: none;
   }
@@ -15,12 +17,7 @@
 .google-static-map,
 .google-maps {
   margin-bottom: $line-height-computed;
-  border: 1px solid #dddddd;
-}
-
-#error,
-#result {
-  display: none;
+  border: 1px solid #ddd;
 }
 
 .gmaps-popup-image,
@@ -30,6 +27,7 @@
 
 .gmaps-popup-image {
   padding-right: 10px;
+
   img {
     display: block;
     @include square(50px);
@@ -37,17 +35,18 @@
 }
 
 .gmaps-popup-text {
+  font-size: $font-size-small;
   vertical-align: top;
-  font-size: 12px;
 }
 
 .gmaps-popup-p-content {
   margin: 0;
-  color: #666666;
+  color: #666;
 }
 
 .gmaps-popup-div-details {
   margin: 10px 0 0;
+
   span {
     display: inline-block;
     margin-right: 12px;
@@ -57,34 +56,38 @@
 
 .arrow-box {
   display: block;
-  border: 1px solid $gray-light;
-  background-color: white;
-  box-shadow: 1px 1px 1px fade-out(black, 0.8);
   cursor: pointer;
+  background-color: #fff;
+  border: 1px solid $gray-light;
+  box-shadow: 1px 1px 1px fade-out(#000, .8);
+
   img {
     position: relative;
     top: 1px;
     left: 1px;
   }
-  &:after,
-  &:before {
+
+  &::after,
+  &::before {
     position: absolute;
     top: 100%;
-    @include square(0);
-    border: solid transparent;
-    content: " ";
     pointer-events: none;
+    @include square(0);
+    content: " ";
+    border: solid transparent;
   }
-  &:after {
+
+  &::after {
     left: 50%;
     margin-left: -4px;
-    border-top-color: white;
     border-width: 4px;
+    border-top-color: #fff;
   }
-  &:before {
-    border-top-color: $gray-light;
-    border-width: 5px;
+
+  &::before {
     left: 50%;
     margin-left: -5px;
+    border-width: 5px;
+    border-top-color: $gray-light;
   }
 }

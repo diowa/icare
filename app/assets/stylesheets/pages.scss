@@ -4,19 +4,21 @@
 .fb-facepile {
   width: 100% !important;
   margin-bottom: 18px;
-  & > span,
+
+  > span,
   iframe {
     display: block;
     width: 100% !important;
     min-width: 100%;
     overflow: hidden;
-    /* NOTE: 19px right offset, consider fixed width */
+    // NOTE: 19px right offset, consider fixed width
   }
+
   iframe {
     height: auto !important;
   }
 }
 
-#facepile-container {
+.facepile-container-j {
   display: none;
 }

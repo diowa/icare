@@ -7,8 +7,8 @@
   .tag {
     display: block;
     float: left;
-    margin: 0 0 12px 5px;
     padding: $padding-small-vertical $padding-small-horizontal;
+    margin: 0 0 12px 5px;
     background-color: $flat-ui-clouds;
 
     &.tag-sm {
@@ -19,6 +19,7 @@
     &.tag-mutual-friend {
       position: relative;
       padding-left: 34px;
+
       img {
         position: absolute;
         @include square(28px);
@@ -39,7 +40,7 @@
     &.tag-forbidden,
     &.tag-icare,
     &.tag-pink {
-      color: white;
+      color: #fff;
     }
 
     &.tag-allowed,
