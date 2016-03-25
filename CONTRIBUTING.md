@@ -34,7 +34,7 @@ Take a look at [git-flow, A successful Git branching model](http://nvie.com/post
 
 ## Coding standards
 
-* Ruby: https://github.com/styleguide/ruby
+* Ruby: https://github.com/bbatsov/ruby-style-guide
 * CoffeeScript: https://github.com/styleguide/javascript
 * CSS: https://github.com/necolas/idiomatic-css
 

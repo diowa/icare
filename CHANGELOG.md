@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.35.2
+
+* Fix Readme
+* Update Contributing Guidelines
+* Update gems
+
 ## 0.35.1
 
 * Update gems
