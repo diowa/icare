@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.35.3
+
+* Update gems
+
 ## 0.35.2
 
 * Fix Readme
