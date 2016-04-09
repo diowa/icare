@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.35.5
+
+* Improve application spec
+* Update gems
+
 ## 0.35.4
 
 * Update gems
