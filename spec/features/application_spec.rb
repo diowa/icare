@@ -27,40 +27,48 @@ describe 'Application' do
   end
 
   context 'Locale' do
-    it 'fallbacks to en-US when user is passing an unknown locale param' do
-      user = create :user, uid: '123456'
+    context 'when user is passing an unknown locale param' do
+      it 'fallbacks to en-US' do
+        user = create :user, uid: '123456'
 
-      visit user_omniauth_authorize_path(provider: :facebook)
-      visit itineraries_user_path(user, locale: 'XX-ZZ')
+        visit user_omniauth_authorize_path(provider: :facebook)
+        visit itineraries_user_path(user, locale: 'XX-ZZ')
 
-      expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+        expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+      end
     end
 
-    it 'fallbacks to en-US when user is passing a compatible locale param' do
-      user = create :user, uid: '123456'
+    context 'when user is passing a compatible locale param' do
+      it 'fallbacks to en-US' do
+        user = create :user, uid: '123456'
 
-      visit user_omniauth_authorize_path(provider: :facebook)
-      visit itineraries_user_path(user, locale: 'en-XX')
+        visit user_omniauth_authorize_path(provider: :facebook)
+        visit itineraries_user_path(user, locale: 'en-XX')
 
-      expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+        expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+      end
     end
 
-    it 'fallbacks to en-US when user is coming from facebook with a compatible locale' do
-      user = create :user, uid: '123456', locale: 'en-YY'
+    context 'when user is coming from facebook with a compatible locale' do
+      it 'fallbacks to en-US ' do
+        user = create :user, uid: '123456', locale: 'en-YY'
 
-      visit user_omniauth_authorize_path(provider: :facebook)
-      visit itineraries_user_path(user)
+        visit user_omniauth_authorize_path(provider: :facebook)
+        visit itineraries_user_path(user)
 
-      expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+        expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+      end
     end
 
-    it 'fallbacks to en-US when user is using en locale' do
-      user = create :user, uid: '123456', locale: 'en-GB'
+    context 'when user is using en-XX locale' do
+      it 'fallbacks to en-US' do
+        user = create :user, uid: '123456', locale: 'en-GB'
 
-      visit user_omniauth_authorize_path(provider: :facebook)
-      visit itineraries_user_path(user, locale: 'en')
+        visit user_omniauth_authorize_path(provider: :facebook)
+        visit itineraries_user_path(user, locale: 'en')
 
-      expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+        expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+      end
     end
   end
 end
