@@ -153,7 +153,7 @@ GEM
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
-    koala (2.2.0)
+    koala (2.3.0)
       addressable
       faraday
       multi_json
@@ -371,7 +371,7 @@ GEM
       slim (~> 3.0)
       sysexits (~> 1.1)
     slop (3.6.0)
-    spring (1.6.4)
+    spring (1.7.1)
     spring-commands-rspec (1.0.4)
       spring (>= 0.9.1)
     sprockets (3.6.0)
@@ -397,7 +397,7 @@ GEM
     tins (1.6.0)
     turbolinks (2.5.3)
       coffee-rails
-    twbs_sass_rails (4.0.1)
+    twbs_sass_rails (4.1.0)
       autoprefixer-rails (~> 6.3)
       rails (>= 4.0.13, < 5.0.0)
       sass-rails (>= 4.0.5, < 6.0.0)
