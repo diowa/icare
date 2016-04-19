@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'Sessions' do
   it 'allows users to sign in from Facebook' do
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
 
     expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
     expect(User.count).to_not be_zero
@@ -14,7 +14,7 @@ describe 'Sessions' do
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Duncan MacLeod' }, extra: { raw_info: { birthday: nil } }
       create :user, uid: '123456'
 
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
 
       expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
     ensure
@@ -27,7 +27,7 @@ describe 'Sessions' do
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { locale: nil } }
       create :user, uid: '123456'
 
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
 
       expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
     ensure
@@ -38,7 +38,7 @@ describe 'Sessions' do
   it 'fills user profile with data from facebook' do
     user = create :user, uid: '123456'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
 
     user.reload
 
@@ -64,7 +64,7 @@ describe 'Sessions' do
   end
 
   it 'allows users to logout' do
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
 
     expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
     click_link I18n.t('logout')
@@ -87,7 +87,7 @@ describe 'Sessions' do
         OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
         create :user, uid: '123456', name: 'Duncan MacLeod'
 
-        visit user_omniauth_authorize_path(provider: :facebook)
+        visit user_facebook_omniauth_authorize_path
 
         expect(current_path).to eq root_path
         expect(page).to have_content I18n.t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
@@ -111,7 +111,7 @@ describe 'Sessions' do
                 { 'name' => 'Another group', 'version' => 1, 'id' => '2' }]
       stub_http_request(:get, %r{graph.facebook.com/me}).to_return body: groups.to_json
 
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
 
       expect(User.count).to be_zero
       expect(current_path).to eq root_path
@@ -123,7 +123,7 @@ describe 'Sessions' do
                 { 'name' => 'ICARE GROUP', 'version' => 1, 'id' => '10' }]
       stub_http_request(:get, %r{graph.facebook.com/me}).to_return body: groups.to_json
 
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
 
       expect(User.count).to_not be_zero
       expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
@@ -134,7 +134,7 @@ describe 'Sessions' do
                 { 'name' => 'ICARE GROUP', 'version' => 10, 'id' => '10', 'administrator' => true }]
       stub_http_request(:get, %r{graph.facebook.com/me}).to_return body: groups.to_json
 
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
 
       visit admin_users_path
       expect(current_path).to eq admin_users_path

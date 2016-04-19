@@ -5,7 +5,7 @@ describe 'Admin' do
   before(:each) do
     @admin = create :user, admin: true, uid: '123456', username: 'johndoe'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
   end
 
   #   it "sees reports" do

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.36.0.dev
+
+* Devise 4
+* Update gems
+
 ## 0.35.6
 
 * Font Awesome 4.6.1
