@@ -3,6 +3,7 @@
 ## 0.36.0.dev
 
 * Devise 4
+* Fix Airbrake configuration
 * Update gems
 
 ## 0.35.6
