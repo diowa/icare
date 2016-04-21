@@ -4,6 +4,7 @@
 
 * Devise 4
 * Fix Airbrake configuration
+* Improve Rake tasks
 * Update gems
 
 ## 0.35.6

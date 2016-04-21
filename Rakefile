@@ -4,10 +4,8 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-require File.join(Rails.root.to_s, 'config', 'configuration.rb')
+require File.expand_path('../config/configuration.rb', __FILE__)
 
 task test: :spec
-
-task default: [:rubocop, :slim_lint, :scss_lint, :spec]
 
 Rails.application.load_tasks
