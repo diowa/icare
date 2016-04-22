@@ -15,7 +15,7 @@ describe 'Users' do
   it 'allows to delete account' do
     create :user, uid: '123456', username: 'johndoe'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
 
     click_link I18n.t('delete_account')
     expect(current_path).to eq root_path
@@ -27,7 +27,7 @@ describe 'Users' do
   context 'Settings' do
     it 'allows to edit profile' do
       user = create :user, uid: '123456', username: 'johndoe'
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
       click_button I18n.t('helpers.submit.update', model: User)
@@ -37,7 +37,7 @@ describe 'Users' do
 
     it 'recovers from errors' do
       create :user, uid: '123456', username: 'johndoe'
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
       click_button I18n.t('helpers.submit.update', model: User)
@@ -52,7 +52,7 @@ describe 'Users' do
       create_list :itinerary, 5
       create :user, uid: '123456', username: 'johndoe'
 
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
 
       expect(page).to have_css('.table-itinerary tbody tr', count: 5)
     end
@@ -65,7 +65,7 @@ describe 'Users' do
           create_list :itinerary, 1, pink: true, user: female_user
           OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
 
-          visit user_omniauth_authorize_path(provider: :facebook)
+          visit user_facebook_omniauth_authorize_path
 
           expect(page).to have_css('.table-itinerary tbody tr', count: 6)
         ensure
@@ -85,7 +85,7 @@ describe 'Users' do
 
     before(:each) do
       @user = create :user, uid: '123456', username: 'johndoe'
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
       visit user_path(@user)
     end
 
@@ -186,7 +186,7 @@ describe 'Users' do
           old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
           OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
 
-          visit user_omniauth_authorize_path(provider: :facebook)
+          visit user_facebook_omniauth_authorize_path
           visit user_path(@user)
 
           expect(page).to have_css '.facebook-verified'

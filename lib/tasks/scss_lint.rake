@@ -1,14 +1,12 @@
 # frozen_string_literal: true
-begin
+if %w(development test).include? Rails.env
   require 'scss_lint/rake_task'
+
   SCSSLint::RakeTask.new do |t|
     # SCSSLint does not respect config file
-    # See https://github.com/brigade/scss-lint/issues/726
+    # Workaround for https://github.com/brigade/scss-lint/issues/726
     t.files = []
   end
-rescue LoadError
-  desc 'Run SCSS-Lint'
-  task :scss_lint do
-    $stderr.puts 'SCSS-Lint is disabled'
-  end
+
+  task(:default).prerequisites.unshift task(:scss_lint)
 end

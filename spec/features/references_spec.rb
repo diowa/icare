@@ -12,13 +12,13 @@ describe 'References' do
   def login_as_driver
     driver.update_attributes uid: '123456', username: 'johndoe'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
   end
 
   def login_as_passenger
     passenger.update_attributes uid: '123456', username: 'johndoe'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
   end
 
   it 'allows passengers to send references' do

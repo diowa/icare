@@ -13,7 +13,7 @@ describe 'Conversations' do
     conversation = create :conversation, users: [receiver, sender], conversable: itinerary
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit conversations_path
 
     expect(page).to have_content 'Message Sender'
@@ -24,7 +24,7 @@ describe 'Conversations' do
     message = 'can I come with you?'
     another_message = 'please please please!'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit new_conversation_path(itinerary_id: itinerary.id)
 
     fill_in 'conversation_message_body', with: message
@@ -37,7 +37,7 @@ describe 'Conversations' do
   end
 
   it 'rescues from creation errors' do
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit new_conversation_path(itinerary_id: itinerary.id)
 
     click_button I18n.t('conversations.form.send')
@@ -52,7 +52,7 @@ describe 'Conversations' do
     conversation = create :conversation, users: [receiver, sender], conversable: itinerary
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit conversation_path(conversation, itinerary_id: itinerary.id)
 
     click_button I18n.t('conversations.form.send')
@@ -67,7 +67,7 @@ describe 'Conversations' do
     conversation = create :conversation, users: [receiver, sender], conversable: itinerary
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
 
     within('.navbar-notifications') do
       expect(page).to have_css '.unread-count'
@@ -83,7 +83,7 @@ describe 'Conversations' do
 
   context 'when visiting unread' do
     it 'redirects to conversations path' do
-      visit user_omniauth_authorize_path(provider: :facebook)
+      visit user_facebook_omniauth_authorize_path
 
       visit unread_conversations_path
 

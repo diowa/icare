@@ -5,7 +5,7 @@ describe 'Feedbacks' do
   it 'allows creation from registered users' do
     create :user, uid: '123456', username: 'johndoe'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
 
     click_link Feedback.model_name.human
     click_link I18n.t('helpers.links.new')
@@ -19,7 +19,7 @@ describe 'Feedbacks' do
     user = create :user, uid: '123456', username: 'johndoe'
     feedback = create :feedback, user: user
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit feedback_path(feedback)
 
     click_link I18n.t('helpers.links.edit')
@@ -34,7 +34,7 @@ describe 'Feedbacks' do
     feedback = create :feedback
     create :user, uid: '123456', username: 'johndoe', admin: true
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit feedback_path(feedback)
 
     click_link I18n.t('helpers.links.edit')
@@ -49,7 +49,7 @@ describe 'Feedbacks' do
     feedback = create :feedback
     create :user, uid: '123456', username: 'johndoe', admin: true
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit feedback_path(feedback)
 
     click_link I18n.t('helpers.links.edit')
@@ -64,7 +64,7 @@ describe 'Feedbacks' do
     user = create :user, uid: '123456', username: 'johndoe'
     feedback = create :feedback, user: user
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
@@ -76,7 +76,7 @@ describe 'Feedbacks' do
     feedback = create :feedback
     create :user, uid: '123456', username: 'johndoe', admin: true
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
@@ -90,7 +90,7 @@ describe 'Feedbacks' do
     former_user_feedback = create :feedback
     former_user_feedback.user.destroy
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit feedbacks_path
 
     expect(page).to have_content feedback.user
@@ -100,7 +100,7 @@ describe 'Feedbacks' do
   it "doesn't fail when creating with wrong parameters" do
     create :user, uid: '123456', username: 'johndoe'
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit new_feedback_path
 
     click_button I18n.t('helpers.submit.create', model: Feedback)
@@ -111,7 +111,7 @@ describe 'Feedbacks' do
     user = create :user, uid: '123456', username: 'johndoe'
     feedback = create :feedback, user: user
 
-    visit user_omniauth_authorize_path(provider: :facebook)
+    visit user_facebook_omniauth_authorize_path
     visit edit_feedback_path(feedback)
     fill_in 'feedback_message', with: ''
     click_button I18n.t('helpers.submit.update', model: Feedback)

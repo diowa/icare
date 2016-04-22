@@ -1,10 +1,7 @@
 # frozen_string_literal: true
-begin
+if %w(development test).include? Rails.env
   require 'rubocop/rake_task'
   RuboCop::RakeTask.new
-rescue LoadError
-  desc 'Run RuboCop'
-  task :rubocop do
-    $stderr.puts 'Rubocop is disabled'
-  end
+
+  task(:default).prerequisites.unshift task(:rubocop)
 end

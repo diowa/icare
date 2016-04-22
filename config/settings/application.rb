@@ -36,10 +36,9 @@ SimpleConfig.for :application do
   end
 
   group :airbrake do
-    # Set to nil to disable airbrake
-    set :project_id, nil
-    set :project_key, nil
-    set :host, nil
+    set :project_id, ''
+    set :project_key, ''
+    set :host, ''
   end
 
   group :map do
