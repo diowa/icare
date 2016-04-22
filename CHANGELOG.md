@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.36.0.dev
+## 0.36.0
 
 * Devise 4
 * Fix Airbrake configuration
