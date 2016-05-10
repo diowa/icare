@@ -36,9 +36,9 @@ SimpleConfig.for :application do
   end
 
   group :airbrake do
-    set :project_id, ''
-    set :project_key, ''
-    set :host, ''
+    set :project_id, nil
+    set :project_key, nil
+    set :host, nil
   end
 
   group :map do
