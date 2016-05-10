@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.37.1
+
+* Temporary fallback for Airbrake
+* Update gems
+
 ## 0.37.0
 
 * Ruby 2.3.1
