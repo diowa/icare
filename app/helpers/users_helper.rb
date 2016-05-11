@@ -14,8 +14,7 @@ module UsersHelper
           height: ("#{size[1]}px" if size),
           src: facebook_profile_picture(user, type),
           alt: '',
-          class: [('verified' if user.class == User.model_name && user.facebook_verified?), style].compact.join(' ')
-        }.merge(opts)
+          class: [('verified' if user.class == User.model_name && user.facebook_verified?), style].compact.join(' ') }.merge(opts)
   end
 
   def friends_with_privacy(friends)

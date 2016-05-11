@@ -13,7 +13,8 @@ describe CacheFacebookDataJob do
       { code: 200,
         headers: [{ name: 'Content-Type',
                     value: 'text/javascript; charset=UTF-8' }],
-        body: '{}' }].to_json
+        body: '{}' }
+    ].to_json
   end
 
   it 'caches user data when they are nil' do
