@@ -3,6 +3,7 @@
 ## 0.37.1
 
 * Temporary fallback for Airbrake
+* Fix Mongoid config
 * Update gems
 
 ## 0.37.0
