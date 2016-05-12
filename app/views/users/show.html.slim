@@ -23,8 +23,10 @@
         = link_to t('.see_all'), user_references_path(@user), class: 'tag'
         .tag.tag-facebook= t('.basic_info')
         .tag= t('.friends', count: friends_with_privacy(@user.facebook_friends.size))
-        .tag= t('.age', count: @user.age)
-        .tag= User.human_attribute_name "gender_#{@user.gender}"
+        - if @user.birthday?
+          .tag= t('.age', count: @user.age)
+        - if @user.gender?
+          .tag= User.human_attribute_name "gender_#{@user.gender}"
         = language_tags @user
         = mutual_friends @user, current_user
         = work_and_education_tags @user, :education

@@ -20,17 +20,17 @@ module Concerns
         end
 
         def cache_facebook_data!
-          favorites = %w(music books movies television games activities) # athletes sports_teams sports inspirational_people
           facebook do |fb|
             result = fb.batch do |batch_api|
               batch_api.get_connections('me', 'friends')
-              favorites.each do |favorite|
+
+              %w(music books movies television games).each do |favorite|
                 batch_api.get_connections('me', favorite)
               end
             end
             if result.any?
-              self.facebook_friends = result[0] ? result[0].to_a : []
-              self.facebook_favorites = result[1] ? result[1..-1].flatten : []
+              self.facebook_friends   = result[0].to_a
+              self.facebook_favorites = result[1..-1].select { |r| r.class == Koala::Facebook::API::GraphCollection }.flatten
             end
             self.facebook_data_cached_at = Time.now.utc
             return save

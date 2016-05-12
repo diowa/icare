@@ -34,26 +34,26 @@ module Concerns
         private
 
         def set_credentials(credentials)
-          self.oauth_token = credentials.token
+          self.oauth_token      = credentials.token
           self.oauth_expires_at = Time.zone.at credentials.expires_at
         end
 
         def set_info(info)
-          self.email = info.email
-          self.name = info.name
+          self.email             = info.email
+          self.name              = info.name
           self.facebook_verified = info.verified || false
         end
 
         def set_extra_raw_info(raw_info)
-          self.username = raw_info.username
-          self.gender = raw_info.gender
-          self.bio = raw_info.bio
+          self.username  = raw_info.username
+          self.gender    = raw_info.gender
+          self.bio       = raw_info.bio
           self.languages = raw_info.languages || []
         end
 
         def set_extra_raw_info_special_permissions(raw_info)
-          self.birthday = Date.strptime(raw_info.birthday, '%m/%d/%Y').at_midnight if raw_info.birthday
-          self.work = raw_info.work || []
+          self.birthday  = Date.strptime(raw_info.birthday, '%m/%d/%Y').at_midnight if raw_info.birthday
+          self.work      = raw_info.work || []
           self.education = raw_info.education || []
         end
 

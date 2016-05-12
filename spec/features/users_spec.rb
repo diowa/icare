@@ -158,6 +158,7 @@ describe 'Users' do
     end
 
     it 'shows mutual friends' do
+      pending "use apis for this"
       mutual_friends = Array.new(6) { |i| { 'id' => "90110#{i}", 'name' => "Mutual friend named #{i}" } }
       @user.update_attribute :facebook_friends, [{ 'id' => '900100', 'name' => 'Not a mutual friend' },
                                                  { 'id' => '900101', 'name' => 'Not a mutual friend' }] + mutual_friends
