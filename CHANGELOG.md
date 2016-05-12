@@ -1,5 +1,9 @@
 # Changelog
 
+## facebook-api-26
+
+* Update gems
+
 ## 0.37.1
 
 * Temporary fallback for Airbrake
