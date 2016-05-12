@@ -20,7 +20,7 @@ module Concerns
         end
 
         def cache_facebook_data!
-          favorites = %w(music books movies television games activities interests) # athletes sports_teams sports inspirational_people
+          favorites = %w(music books movies television games activities) # athletes sports_teams sports inspirational_people
           facebook do |fb|
             result = fb.batch do |batch_api|
               batch_api.get_connections('me', 'friends')

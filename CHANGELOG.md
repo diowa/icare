@@ -2,6 +2,7 @@
 
 ## facebook-api-26
 
+* Remove user_interests Facebook scope
 * Update gems
 
 ## 0.37.1
