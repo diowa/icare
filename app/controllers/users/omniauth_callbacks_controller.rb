@@ -6,7 +6,7 @@ module Users
       if @user
         sign_in_and_redirect @user, event: :authentication
       else
-        redirect_to root_path, flash: { error: t(APP_CONFIG.facebook.restricted_group_id ? 'flash.sessions.error.restricted' : 'flash.sessions.error.create') }
+        redirect_to root_path, flash: { error: 'flash.sessions.error.create' }
       end
     end
 

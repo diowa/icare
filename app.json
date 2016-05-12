@@ -31,10 +31,6 @@
     "FACEBOOK_SECRET": {
       "description": "The secret of your Facebook application. Check our Wiki for more information."
     },
-    "FACEBOOK_RESTRICTED_GROUP_ID": {
-      "description": "Set this if you want to restrict the user registration to a specific Facebook group. (OPTIONAL)",
-      "required": false
-    },
     "NEW_RELIC_APP_NAME": {
       "description": "Sets the name of your application as it will appear on the New Relic dashboard.",
       "value": "icare"

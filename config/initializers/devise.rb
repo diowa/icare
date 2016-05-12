@@ -242,7 +242,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, APP_CONFIG.facebook.app_id, APP_CONFIG.facebook.secret, scope: APP_CONFIG.facebook.restricted_group_id ? APP_CONFIG.facebook.scope.concat(', user_groups') : APP_CONFIG.facebook.scope
+  config.omniauth :facebook, APP_CONFIG.facebook.app_id, APP_CONFIG.facebook.secret, scope: APP_CONFIG.facebook.scope
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

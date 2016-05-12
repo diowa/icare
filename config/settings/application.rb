@@ -29,10 +29,6 @@ SimpleConfig.for :application do
     set :secret, 'FACEBOOK_SECRET'
     set :scope, 'email, publish_actions, user_birthday, user_about_me, user_education_history, user_likes, user_religion_politics, user_work_history'
     set :cache_expiry_time, 7.days
-    # If set, only users of the following facebook group id will be able to use the application
-    # It will automatically add 'user_groups' permission to facebook scope
-    # Example: set :restricted_group_id, '379766462096606'
-    set :restricted_group_id, nil
   end
 
   group :airbrake do

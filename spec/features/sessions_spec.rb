@@ -96,48 +96,4 @@ describe 'Sessions' do
       end
     end
   end
-
-  context 'RestrictedMode' do
-    before(:all) do
-      APP_CONFIG.facebook.set :restricted_group_id, '10'
-    end
-
-    after(:all) do
-      APP_CONFIG.facebook.set :restricted_group_id, nil
-    end
-
-    it 'blocks unauthorized users' do
-      groups = [{ 'name' => 'A group', 'version' => 1, 'id' => '1', 'administrator' => true },
-                { 'name' => 'Another group', 'version' => 1, 'id' => '2' }]
-      stub_http_request(:get, %r{graph.facebook.com/me}).to_return body: groups.to_json
-
-      visit user_facebook_omniauth_authorize_path
-
-      expect(User.count).to be_zero
-      expect(current_path).to eq root_path
-      expect(page).to have_content I18n.t('flash.sessions.error.restricted')
-    end
-
-    it 'allows authorized users' do
-      groups = [{ 'name' => 'A group', 'version' => 1, 'id' => '1', 'administrator' => true },
-                { 'name' => 'ICARE GROUP', 'version' => 1, 'id' => '10' }]
-      stub_http_request(:get, %r{graph.facebook.com/me}).to_return body: groups.to_json
-
-      visit user_facebook_omniauth_authorize_path
-
-      expect(User.count).to_not be_zero
-      expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
-    end
-
-    it 'sets admin attribute to group admins' do
-      groups = [{ 'name' => 'A group', 'version' => 1, 'id' => '1' },
-                { 'name' => 'ICARE GROUP', 'version' => 10, 'id' => '10', 'administrator' => true }]
-      stub_http_request(:get, %r{graph.facebook.com/me}).to_return body: groups.to_json
-
-      visit user_facebook_omniauth_authorize_path
-
-      visit admin_users_path
-      expect(current_path).to eq admin_users_path
-    end
-  end
 end

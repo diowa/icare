@@ -31,16 +31,6 @@ module Concerns
           CacheFacebookDataJob.perform_later id.to_s
         end
 
-        def can_access?
-          return true unless APP_CONFIG.facebook.restricted_group_id
-          facebook do |fb|
-            groups = fb.get_connections('me', 'groups')
-            group = groups.find { |g| g['id'] == APP_CONFIG.facebook.restricted_group_id }
-            self.admin = group.present? && group['administrator']
-            group.present?
-          end
-        end
-
         private
 
         def set_credentials(credentials)
@@ -77,11 +67,13 @@ module Concerns
       module ClassMethods
         def from_omniauth(auth)
           user = where(provider: auth.provider, uid: auth.uid).first_or_initialize
-          return nil if user.new_record? && !user.can_access?
+
           user.provider = auth.provider
-          user.uid = auth.uid
+          user.uid      = auth.uid
+
           user.set_fields_from_omniauth auth
           user.save!
+
           user
         end
       end

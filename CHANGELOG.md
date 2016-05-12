@@ -3,6 +3,7 @@
 ## facebook-api-26
 
 * Remove user_interests Facebook scope
+* Drop restricted mode because of API v2.3 changes
 * Update gems
 
 ## 0.37.1
