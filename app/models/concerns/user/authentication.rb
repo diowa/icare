@@ -5,27 +5,24 @@ module Concerns
       extend ActiveSupport::Concern
 
       included do
-        def set_fields_from_omniauth(auth)
+        def update_fields_from_omniauth(auth)
           # Auth / Credentials (token, expires_at)
-          set_credentials auth.credentials
+          update_credentials auth.credentials
 
           # Info (email, name, verified)
-          set_info auth.info
+          update_info auth.info
 
           # Extra raw info (username, gender, bio, languages)
-          set_extra_raw_info auth.extra.raw_info
+          # set_extra_raw_info auth.extra.raw_info
 
           # Extra raw info requiring special permissions (birthday, work, education)
-          set_extra_raw_info_special_permissions auth.extra.raw_info
+          # set_extra_raw_info_special_permissions auth.extra.raw_info
 
           # Locale, with priority to application setting
-          self.locale = auth.extra.raw_info.locale.tr('_', '-') if auth.extra.raw_info.locale && !locale?
-
-          # Username and uid array
-          self.username_or_uid = [username, uid]
+          # self.locale = auth.extra.raw_info.locale.tr('_', '-') if auth.extra.raw_info.locale && !locale?
 
           # Permissions
-          set_permissions
+          update_permissions
 
           # Schedule facebook data cache
           CacheFacebookDataJob.perform_later id.to_s
@@ -33,31 +30,32 @@ module Concerns
 
         private
 
-        def set_credentials(credentials)
-          self.oauth_token      = credentials.token
-          self.oauth_expires_at = Time.zone.at credentials.expires_at
+        def update_credentials(credentials)
+          self.oauth_token = credentials.token
+          self.oauth_expires_at =
+            (Time.zone.at credentials.expires_at if credentials.expires)
         end
 
-        def set_info(info)
-          self.email             = info.email
-          self.name              = info.name
-          self.facebook_verified = info.verified || false
+        def update_info(info)
+          self.email = info.email
+          self.name  = info.name
+          self.image = info.image
         end
 
-        def set_extra_raw_info(raw_info)
-          self.username  = raw_info.username
-          self.gender    = raw_info.gender
-          self.bio       = raw_info.bio
-          self.languages = raw_info.languages || []
-        end
+        # def set_extra_raw_info(raw_info)
+        #   self.username  = raw_info.username
+        #   self.gender    = raw_info.gender
+        #   self.bio       = raw_info.bio
+        #   self.languages = raw_info.languages || []
+        # end
 
-        def set_extra_raw_info_special_permissions(raw_info)
-          self.birthday  = Date.strptime(raw_info.birthday, '%m/%d/%Y').at_midnight if raw_info.birthday
-          self.work      = raw_info.work || []
-          self.education = raw_info.education || []
-        end
+        # def set_extra_raw_info_special_permissions(raw_info)
+        #   self.birthday  = Date.strptime(raw_info.birthday, '%m/%d/%Y').at_midnight if raw_info.birthday
+        #   self.work      = raw_info.work || []
+        #   self.education = raw_info.education || []
+        # end
 
-        def set_permissions
+        def update_permissions
           facebook do |fb|
             self.facebook_permissions = fb.get_connections('me', 'permissions')[0]
           end
@@ -65,13 +63,10 @@ module Concerns
       end
 
       module ClassMethods
-        def from_omniauth(auth)
-          user = where(provider: auth.provider, uid: auth.uid).first_or_initialize
+        def from_omniauth(auth_hash)
+          user = where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_initialize
 
-          user.provider = auth.provider
-          user.uid      = auth.uid
-
-          user.set_fields_from_omniauth auth
+          user.update_fields_from_omniauth auth_hash
           user.save!
 
           user

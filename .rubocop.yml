@@ -34,9 +34,5 @@ Rails/HasAndBelongsToMany:
     - 'app/models/conversation.rb'
     - 'app/models/user.rb'
 
-Style/AccessorMethodName:
-  Exclude:
-    - 'app/models/concerns/user/authentication.rb'
-
 Style/Documentation:
   Enabled: false

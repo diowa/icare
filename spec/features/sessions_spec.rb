@@ -36,6 +36,8 @@ describe 'Sessions' do
   end
 
   it 'fills user profile with data from facebook' do
+    pending 'move to facebook'
+
     user = create :user, uid: '123456'
 
     visit user_facebook_omniauth_authorize_path
