@@ -46,7 +46,7 @@ describe 'Users' do
   end
 
   context 'Dashboard' do
-    it 'allows to see latest itineraries' do
+    it 'shows latest itineraries' do
       female_user = create :user, gender: 'female'
       create :itinerary, pink: true, user: female_user
       create_list :itinerary, 5
@@ -57,19 +57,30 @@ describe 'Users' do
       expect(page).to have_css('.table-itinerary tbody tr', count: 5)
     end
 
-    context 'when user is female' do
-      it 'includes pink itineraries' do
-        begin
-          female_user = create :user, gender: 'female'
-          create_list :itinerary, 5
-          create_list :itinerary, 1, pink: true, user: female_user
-          OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
+    context 'with pink itineraries' do
+      before :each do
+        female_driver = create :user, gender: 'female'
+        create_list :itinerary, 5
+        create :itinerary, pink: true, user: female_driver
+      end
+
+      context 'when user is female' do
+        it 'shows them' do
+          create :user, uid: '123456', gender: 'female'
 
           visit user_facebook_omniauth_authorize_path
 
           expect(page).to have_css('.table-itinerary tbody tr', count: 6)
-        ensure
-          OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+        end
+      end
+
+      context 'when user is not female' do
+        it 'hides them' do
+          create :user, uid: '123456', gender: 'male'
+
+          visit user_facebook_omniauth_authorize_path
+
+          expect(page).to have_css('.table-itinerary tbody tr', count: 5)
         end
       end
     end
