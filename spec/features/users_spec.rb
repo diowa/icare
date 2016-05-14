@@ -13,7 +13,7 @@ describe 'Users' do
   end
 
   it 'allows to delete account' do
-    create :user, uid: '123456', username: 'johndoe'
+    create :user, uid: '123456'
 
     visit user_facebook_omniauth_authorize_path
 
@@ -26,7 +26,7 @@ describe 'Users' do
 
   context 'Settings' do
     it 'allows to edit profile' do
-      user = create :user, uid: '123456', username: 'johndoe'
+      user = create :user, uid: '123456'
       visit user_facebook_omniauth_authorize_path
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
@@ -36,7 +36,7 @@ describe 'Users' do
     end
 
     it 'recovers from errors' do
-      create :user, uid: '123456', username: 'johndoe'
+      create :user, uid: '123456'
       visit user_facebook_omniauth_authorize_path
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
@@ -50,7 +50,7 @@ describe 'Users' do
       female_user = create :user, gender: 'female'
       create :itinerary, pink: true, user: female_user
       create_list :itinerary, 5
-      create :user, uid: '123456', username: 'johndoe'
+      create :user, uid: '123456'
 
       visit user_facebook_omniauth_authorize_path
 
@@ -84,7 +84,7 @@ describe 'Users' do
     end
 
     before(:each) do
-      @user = create :user, uid: '123456', username: 'johndoe'
+      @user = create :user, uid: '123456'
       visit user_facebook_omniauth_authorize_path
       visit user_path(@user)
     end

@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'Conversations' do
   let(:driver) { create :user }
-  let(:passenger) { create :user, uid: '123456', username: 'johndoe' }
+  let(:passenger) { create :user, uid: '123456' }
   let(:itinerary) { create :itinerary, user: driver }
 
   it 'allows to see own notifications' do

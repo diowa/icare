@@ -46,8 +46,6 @@ class User
 
   paginates_per 25
 
-  index(username_or_uid: 1)
-
   has_and_belongs_to_many :conversations
 
   has_many :itineraries, dependent: :destroy
@@ -73,7 +71,6 @@ class User
   field :facebook_verified, type: Boolean, default: false
 
   # Extra
-  field :username
   field :gender
   field :bio
   field :languages, type: Array, default: []
@@ -84,7 +81,6 @@ class User
   field :education, type: Array, default: []
 
   # Icare
-  field :username_or_uid
   field :vehicle_avg_consumption, type: Float, default: APP_CONFIG.fuel_consumption
 
   # Account
@@ -114,10 +110,6 @@ class User
 
   def to_s
     name || id
-  end
-
-  def to_param
-    username || uid || id
   end
 
   def profile_picture(type = 'square')

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user_as_current_user, only: [:update, :dashboard, :settings, :itineraries]
 
   def show
-    @user = find_user params[:id]
+    @user = User.find(params[:id])
   end
 
   def update

@@ -69,24 +69,6 @@ describe User do
     end
   end
 
-  context '.to_param' do
-    let(:jackblack) { create :user, username: 'jackblack', uid: '123456' }
-    let(:uid123456) { create :user, username: nil, uid: '123456' }
-    let(:anonymous) { create :user, username: nil, uid: nil }
-
-    it 'returns username when all fields are available' do
-      expect(jackblack.to_param).to eq jackblack.username
-    end
-
-    it 'returns uid when username is not available' do
-      expect(uid123456.to_param).to eq uid123456.uid
-    end
-
-    it 'fallbacks to id when neither the username nor the uid is available' do
-      expect(anonymous.to_param).to eq anonymous.id
-    end
-  end
-
   context '.profile_picture' do
     it 'returns facebook profile picture of type square (by default)' do
       expect(user.profile_picture).to eq "http://graph.facebook.com/#{user.uid}/picture?type=square"

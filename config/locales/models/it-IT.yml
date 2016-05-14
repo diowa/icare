@@ -30,7 +30,6 @@ it-IT:
         name: Nome
         facebook_verified: Verificato su Facebook
         about: Su di te
-        username: Nome utente
         gender: Sesso
         age: Età
         locale: Localizzazione
