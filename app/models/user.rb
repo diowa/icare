@@ -68,6 +68,7 @@ class User
 
   # Info
   field :name
+  field :image
   field :facebook_verified, type: Boolean, default: false
 
   # Extra
@@ -110,10 +111,6 @@ class User
 
   def to_s
     name || id
-  end
-
-  def profile_picture(type = 'square')
-    "http://graph.facebook.com/#{uid}/picture?type=#{type}"
   end
 
   def unread_conversations_count

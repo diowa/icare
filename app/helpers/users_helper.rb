@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 module UsersHelper
   def facebook_profile_picture(user, type = :square)
-    if user_signed_in?
-      "//graph.facebook.com/#{user.class == User ? user.uid : user}/picture?type=#{type}"
+    if user_signed_in? && user.image?
+      "#{user.image}?type=#{type}"
     else
-      '//fbstatic-a.akamaihd.net/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif'
+      APP_CONFIG.user_image_placeholder
     end
   end
 
@@ -14,7 +14,7 @@ module UsersHelper
           height: ("#{size[1]}px" if size),
           src: facebook_profile_picture(user, type),
           alt: '',
-          class: [('verified' if user.class == User.model_name && user.facebook_verified?), style].compact.join(' ') }.merge(opts)
+          class: [('verified' if user.facebook_verified?), style].compact.join(' ') }.merge(opts)
   end
 
   def friends_with_privacy(friends)

@@ -69,12 +69,6 @@ describe User do
     end
   end
 
-  context '.profile_picture' do
-    it 'returns facebook profile picture of type square (by default)' do
-      expect(user.profile_picture).to eq "http://graph.facebook.com/#{user.uid}/picture?type=square"
-    end
-  end
-
   context '.male?' do
     it 'answers true if user is male' do
       expect(male_user.male?).to be true
