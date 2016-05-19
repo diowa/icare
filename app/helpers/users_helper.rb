@@ -17,33 +17,6 @@ module UsersHelper
           class: [('verified' if user.facebook_verified?), style].compact.join(' ') }.merge(opts)
   end
 
-  def friends_with_privacy(friends)
-    case friends
-    when 0...10
-      '10-'
-    when 10...100
-      "#{friends / 10}0+"
-    when 100...1000
-      "#{friends / 100}00+"
-    when 1000...5000
-      "#{friends / 1000}000+"
-    else
-      '5000'
-    end
-  end
-
-  def mutual_friends(user1, user2, limit = 5)
-    return if user1 == user2
-    mutual_friends_list = user1.facebook_friends & user2.facebook_friends
-    return unless mutual_friends_list.any?
-    html = content_tag(:div, t('.common_friends'), class: 'tag tag-facebook')
-    mutual_friends_list.sample(limit).each do |mutual_friend|
-      html << render_mutual_friend(mutual_friend)
-    end
-    html << link_to(t('.and_others', count: mutual_friends_list.size - 5), '#', class: 'disabled tag mock') if mutual_friends_list.size - 5 > 0
-    html
-  end
-
   def language_tags(user)
     return unless user.languages && user.languages.any?
     render_common_tags = (user != current_user)
@@ -79,13 +52,6 @@ module UsersHelper
   def get_common_tags(my_tags, user_tags)
     return [] if my_tags.nil? || my_tags.empty?
     my_tags.map { |tag| tag['id'] } & user_tags.map { |tag| tag['id'] }
-  end
-
-  def render_mutual_friend(mutual_friend)
-    content_tag(:div, class: 'tag tag-mutual-friend') do
-      user_profile_picture(mutual_friend['id'], size: [25, 25], style: nil) +
-        mutual_friend['name']
-    end
   end
 
   def render_tags(user_tags, my_tags, opts = {})

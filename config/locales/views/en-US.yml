@@ -229,7 +229,7 @@ en-US:
       friends: "%{count} friends"
       age: "%{count} years"
       language: "%{language} language"
-      common_friends: Common friends
+      mutual_friends: Mutual friends
       likes: Likes
       and_others:
         one: and one other

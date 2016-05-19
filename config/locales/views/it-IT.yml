@@ -241,7 +241,7 @@ it-IT:
       friends: "%{count} amici"
       age: "%{count} anni"
       language: "Lingua %{language}"
-      common_friends: Amici in comune
+      mutual_friends: Amici in comune
       likes: Apprezzamenti
       and_others:
         one: e un altro
