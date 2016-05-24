@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe CacheFacebookDataJob do
-  let(:user) { create :user, oauth_token: 'test' }
+  let(:user) { create :user, access_token: 'test' }
 
   before do
     stub_http_request(:post, /graph.facebook.com/).to_return body: [
@@ -31,7 +31,7 @@ describe CacheFacebookDataJob do
   end
 
   it "doesn't cache user data when they are still valid" do
-    user_with_fresh_data = create :user, oauth_token: 'test', facebook_data_cached_at: Time.current
+    user_with_fresh_data = create :user, access_token: 'test', facebook_data_cached_at: Time.current
     expect(CacheFacebookDataJob.perform_now(user_with_fresh_data.id)).to be nil
   end
 

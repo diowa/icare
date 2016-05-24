@@ -44,11 +44,13 @@ describe 'Sessions' do
 
     user.reload
 
-    expect(user.oauth_token).to eq OMNIAUTH_MOCKED_AUTHHASH.credentials.token
-    expect(user.oauth_expires_at).to eq Time.zone.at OMNIAUTH_MOCKED_AUTHHASH.credentials.expires_at
+    expect(user.access_token).to eq OMNIAUTH_MOCKED_AUTHHASH.credentials.token
+    expect(user.access_token_expires_at).to eq Time.zone.at(OMNIAUTH_MOCKED_AUTHHASH.credentials.expires_at)
 
     expect(user.email).to eq OMNIAUTH_MOCKED_AUTHHASH.info.email
+    expect(user.image).to eq OMNIAUTH_MOCKED_AUTHHASH.info.image
     expect(user.name).to eq OMNIAUTH_MOCKED_AUTHHASH.info.name
+
     expect(user.facebook_verified).to be false
 
     expect(user.username).to eq OMNIAUTH_MOCKED_AUTHHASH.extra.raw_info.username

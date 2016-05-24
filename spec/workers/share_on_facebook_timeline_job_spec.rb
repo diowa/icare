@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe ShareOnFacebookTimelineJob do
-  let(:user) { create :user, oauth_token: 'test', facebook_permissions: { 'publish_actions' => 1 } }
+  let(:user) { create :user, access_token: 'test', facebook_permissions: { 'publish_actions' => 1 } }
   let(:itinerary) { create :itinerary, user: user }
 
   it 'publishes itinerary on facebook timeline' do
