@@ -2,8 +2,7 @@
 class ShareOnFacebookTimelineJob < ActiveJob::Base
   queue_as :share_on_facebook_timeline_queue
 
-  def perform(itinerary_id)
-    itinerary = Itinerary.find itinerary_id
+  def perform(itinerary)
     itinerary_url = Rails.application.routes.url_helpers.itinerary_url itinerary, host: APP_CONFIG.base_url
     user = itinerary.user
     return unless user.facebook_permission?(:publish_actions)
