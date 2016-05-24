@@ -6,6 +6,7 @@ module Users
 
       if @user.persisted?
         @user.update_auth_hash_info! auth_hash
+        CacheFacebookDataJob.perform_later @user
         sign_in_and_redirect @user, event: :authentication
       else
         redirect_to root_path, flash: { error: 'flash.sessions.error.create' }

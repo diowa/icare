@@ -69,9 +69,6 @@ module Concerns
         #
         #   # Permissions
         #   update_permissions
-        #
-        #   # Schedule facebook data cache
-        #   CacheFacebookDataJob.perform_later id.to_s
         # end
 
         private
