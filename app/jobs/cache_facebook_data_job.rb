@@ -4,7 +4,7 @@ class CacheFacebookDataJob < ActiveJob::Base
 
   def perform(user)
     if user.facebook_data_cached_at < APP_CONFIG.facebook.cache_expiry_time.ago.utc
-      user.cache_facebook_data!
+      user.update_facebook_data!
     else
       false
     end

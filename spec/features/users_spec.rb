@@ -95,7 +95,15 @@ describe 'Users' do
     end
 
     before(:each) do
-      @user = create :user, uid: '123456'
+      @user = create :user, uid: '123456',
+                            education: [{ 'school' => { 'id' => '300', 'name' => 'A College' }, 'type' => 'College' }],
+                            facebook_favorites: [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }],
+                            languages: [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
+                            facebook_verified: true,
+                            work: [{ 'employer' => { 'id' => '100', 'name' => 'First Inc.' }, 'start_date' => '0000-00' },
+                                   { 'employer' => { 'id' => '101', 'name' => 'Second Ltd.' }, 'start_date' => '0000-00' },
+                                   { 'employer' => { 'id' => '101', 'name' => 'Third S.p.A.' }, 'start_date' => '0000-00' }]
+
       visit user_facebook_omniauth_authorize_path
       visit user_path(@user)
     end
@@ -155,28 +163,19 @@ describe 'Users' do
     end
 
     it 'highlights common likes' do
-      @user.update_attribute :facebook_favorites, [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }]
-      @user.reload
-      @user_with_mutual_friends = create :user,
-                                         facebook_favorites: [{ 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }]
-      visit user_path(@user_with_mutual_friends)
+      user_with_mutual_friends = create :user,
+                                        facebook_favorites: [{ 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }]
+      visit user_path(user_with_mutual_friends)
       expect(page).to have_xpath "//div[@class='tag tag-common tag-sm' and text()='Common like']"
       expect(page).to_not have_xpath "//div[@class='tag tag-common tag-sm' and text()='Not a common like']"
     end
 
     context 'verified' do
       it 'adds the verified box' do
-        begin
-          old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
-          OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
+        visit user_facebook_omniauth_authorize_path
+        visit user_path(@user)
 
-          visit user_facebook_omniauth_authorize_path
-          visit user_path(@user)
-
-          expect(page).to have_css '.facebook-verified'
-        ensure
-          OmniAuth.config.mock_auth[:facebook] = old_mocked_authhash
-        end
+        expect(page).to have_css '.facebook-verified'
       end
     end
   end

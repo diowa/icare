@@ -23,74 +23,83 @@ module Concerns
           nil # or return a custom object
         end
 
+        def update_facebook_data!
+          update_connection! 'friends'
+          update_connection! 'permissions'
+          update_favorites!
+          update_user_fields!
+          update_attribute :facebook_data_cached_at, Time.now.utc
+        end
+
         def facebook_permission?(permission)
           facebook_permissions? && facebook_permissions.include?('permission' => permission.to_s, 'status' => 'granted')
         end
 
-        def cache_facebook_data!
-          result = facebook do |fb|
-            fb.batch do |batch_api|
-              batch_api.get_connections('me', 'friends')
-
-              %w(music books movies television games).each do |favorite|
-                batch_api.get_connections('me', favorite)
-              end
-            end
-          end
-
-          if result && result.any?
-            self.facebook_friends   = result[0].to_a
-            self.facebook_favorites = result[1..-1].select { |r| r.class == Koala::Facebook::API::GraphCollection }.flatten
-            self.facebook_data_cached_at = Time.now.utc
-            save
-          else
-            false
-          end
-        end
-
-        def update_auth_hash_info!(auth_hash)
+        def update_info_from_auth_hash!(auth_hash)
           update_attributes(
             email:                   auth_hash.info.email,
-            name:                    auth_hash.info.name,
             image:                   auth_hash.info.image,
+            name:                    auth_hash.info.name,
             access_token:            auth_hash.credentials.token,
             access_token_expires_at: Time.zone.at(auth_hash.credentials.expires_at)
           )
         end
 
-        # def update_facebook_info(auth_hash)
-        #   # Extra raw info (username, gender, bio, languages)
-        #   # set_extra_raw_info auth.extra.raw_info
-        #
-        #   # Extra raw info requiring special permissions (birthday, work, education)
-        #   # set_extra_raw_info_special_permissions auth.extra.raw_info
-        #
-        #   # Locale, with priority to application setting
-        #   # self.locale = auth.extra.raw_info.locale.tr('_', '-') if auth.extra.raw_info.locale && !locale?
-        # end
-
         private
 
-        def update_permissions!
-          permissions = facebook do |fb|
-            fb.get_connections('me', 'permissions')
-          end
-
-          update_attribute :facebook_permissions, permissions || []
+        # The person's birthday. This is a fixed format string, like
+        # MM/DD/YYYY. However, people can control who can see the year they
+        # were born separately from the month and day so this string can be
+        # only the year (YYYY) or the month + day (MM/DD)
+        #
+        # Ref: https://developers.facebook.com/docs/graph-api/reference/user/
+        def birthday_from_graph_api(ga_birthday)
+          Date.strptime(ga_birthday, '%m/%d/%Y').at_midnight if ga_birthday =~ %r{\A[0-9]{2}/[0-9]{2}/[0-9]{4}\z}
         end
 
-        # def set_extra_raw_info(raw_info)
-        #   self.username  = raw_info.username
-        #   self.gender    = raw_info.gender
-        #   self.bio       = raw_info.bio
-        #   self.languages = raw_info.languages || []
-        # end
+        def locale_from_graph_api(ga_locale)
+          ga_locale.tr('_', '-') if ga_locale.present? && !locale?
+        end
 
-        # def set_extra_raw_info_special_permissions(raw_info)
-        #   self.birthday  = Date.strptime(raw_info.birthday, '%m/%d/%Y').at_midnight if raw_info.birthday
-        #   self.work      = raw_info.work || []
-        #   self.education = raw_info.education || []
-        # end
+        def update_connection!(connection)
+          result = facebook do |fb|
+            fb.get_connections('me', connection)
+          end
+          return unless result
+
+          update_attribute :"facebook_#{connection}", result
+        end
+
+        def update_favorites!
+          result = facebook do |fb|
+            fb.batch do |batch_api|
+              %w(music books movies television games).each do |favorite|
+                batch_api.get_connections('me', favorite)
+              end
+            end
+          end
+          return unless result
+
+          update_attribute :facebook_favorites, result.select { |r| r.is_a?(Array) }.flatten
+        end
+
+        def update_user_fields!
+          result = facebook do |fb|
+            fb.get_object('me?fields=bio,birthday,education,gender,languages,locale,verified,work')
+          end
+          return unless result
+
+          update_attributes(
+            bio: result['bio'],
+            birthday: birthday_from_graph_api(result['birthday']),
+            education: result['education'] || [],
+            facebook_verified: result['verified'],
+            gender: result['gender'],
+            languages: result['languages'] || [],
+            locale: locale_from_graph_api(result['locale']),
+            work: result['work'] || []
+          )
+        end
       end
     end
   end

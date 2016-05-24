@@ -5,7 +5,7 @@ module Users
       @user = User.from_omniauth(auth_hash)
 
       if @user.persisted?
-        @user.update_auth_hash_info! auth_hash
+        @user.update_info_from_auth_hash! auth_hash
         CacheFacebookDataJob.perform_later @user
         sign_in_and_redirect @user, event: :authentication
       else
