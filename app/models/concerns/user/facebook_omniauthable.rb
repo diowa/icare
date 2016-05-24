@@ -11,40 +11,41 @@ module Concerns
         field :facebook_data_cached_at, type: DateTime, default: '2012-09-06'
         field :facebook_favorites,      type: Array,    default: []
         field :facebook_friends,        type: Array,    default: []
-        field :facebook_permissions,    type: Hash,     default: {}
+        field :facebook_permissions,    type: Array,    default: []
         field :facebook_verified,       type: Boolean,  default: false
 
         def facebook
+          # TODO: Request a Long-Term token
           @facebook ||= Koala::Facebook::API.new(access_token)
           block_given? ? yield(@facebook) : @facebook
         rescue Koala::Facebook::APIError => e
           logger.info e.to_s
-          nil # or consider a custom null object
-          # TODO: Investigate this error:
-          # Koala::Facebook::APIError: OAuthException: Error validating access token: Session does not match current stored session. This may be because the user changed the password since the time the session was created or Facebook has changed the session for security reasons.
+          nil # or return a custom object
         end
 
-        def facebook_permission?(scope)
-          facebook_permissions? && facebook_permissions[scope.to_s].to_i == 1
+        def facebook_permission?(permission)
+          facebook_permissions? && facebook_permissions.include?('permission' => permission.to_s, 'status' => 'granted')
         end
 
         def cache_facebook_data!
-          facebook do |fb|
-            result = fb.batch do |batch_api|
+          result = facebook do |fb|
+            fb.batch do |batch_api|
               batch_api.get_connections('me', 'friends')
 
               %w(music books movies television games).each do |favorite|
                 batch_api.get_connections('me', favorite)
               end
             end
-            if result.any?
-              self.facebook_friends   = result[0].to_a
-              self.facebook_favorites = result[1..-1].select { |r| r.class == Koala::Facebook::API::GraphCollection }.flatten
-            end
-            self.facebook_data_cached_at = Time.now.utc
-            return save
           end
-          false
+
+          if result && result.any?
+            self.facebook_friends   = result[0].to_a
+            self.facebook_favorites = result[1..-1].select { |r| r.class == Koala::Facebook::API::GraphCollection }.flatten
+            self.facebook_data_cached_at = Time.now.utc
+            save
+          else
+            false
+          end
         end
 
         def update_auth_hash_info!(auth_hash)
@@ -66,17 +67,16 @@ module Concerns
         #
         #   # Locale, with priority to application setting
         #   # self.locale = auth.extra.raw_info.locale.tr('_', '-') if auth.extra.raw_info.locale && !locale?
-        #
-        #   # Permissions
-        #   update_permissions
         # end
 
         private
 
-        def update_permissions
-          facebook do |fb|
-            self.facebook_permissions = fb.get_connections('me', 'permissions')[0]
+        def update_permissions!
+          permissions = facebook do |fb|
+            fb.get_connections('me', 'permissions')
           end
+
+          update_attribute :facebook_permissions, permissions || []
         end
 
         # def set_extra_raw_info(raw_info)

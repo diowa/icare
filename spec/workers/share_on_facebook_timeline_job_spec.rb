@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 describe ShareOnFacebookTimelineJob do
-  let(:user) { create :user, access_token: 'test', facebook_permissions: { 'publish_actions' => 1 } }
+  let(:user) { create :user, access_token: 'test', facebook_permissions: [{ 'permission' => 'publish_actions', 'status' => 'granted' }] }
   let(:itinerary) { create :itinerary, user: user }
 
   it 'publishes itinerary on facebook timeline' do
@@ -11,7 +11,7 @@ describe ShareOnFacebookTimelineJob do
   end
 
   it 'does not fail to publish itinerary if user has no publish stream permission' do
-    user.facebook_permissions = {}
+    user.facebook_permissions = []
     expect(ShareOnFacebookTimelineJob.perform_now(itinerary)).to be_nil
   end
 end
