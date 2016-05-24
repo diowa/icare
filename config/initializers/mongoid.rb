@@ -26,6 +26,7 @@ end
 #
 # TODO: Get rid of this
 
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
 module Mongoid
   # Adds Rails' multi-parameter attribute support to Mongoid.
   #
@@ -125,3 +126,4 @@ module Mongoid
     end
   end
 end
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity

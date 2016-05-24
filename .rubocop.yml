@@ -6,25 +6,19 @@ AllCops:
     - 'vendor/bundle/**/*'
 
 Metrics/AbcSize:
-  Max: 35.81
-
-Metrics/CyclomaticComplexity:
-  Max: 8
+  Max: 23.54
 
 Metrics/LineLength:
   Enabled: false
 
 Metrics/MethodLength:
-  Max: 33
+  Max: 18
   Exclude:
     - 'spec/**/*'
 
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*'
-
-Metrics/PerceivedComplexity:
-  Max: 10
 
 Rails:
   Enabled: true
