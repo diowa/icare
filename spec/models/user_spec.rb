@@ -5,8 +5,10 @@ describe User do
   let(:user) { create :user }
   let(:male_user) { create :user, gender: 'male' }
   let(:female_user) { create :user, gender: 'female' }
+  let(:jack_black) { create :user, name: 'Jack Black' }
+  let(:anonymous) { create :user, name: nil }
 
-  context '.age' do
+  context '#age' do
     let(:born_on_1960_10_30) { create :user, birthday: '1960-10-30' }
     let(:born_on_1972_02_29) { create :user, birthday: '1972-02-29' }
     let(:unknown_birthday) { create :user, birthday: nil }
@@ -42,10 +44,17 @@ describe User do
     end
   end
 
-  context '.first_name' do
-    let(:jack_black) { create :user, name: 'Jack Black' }
-    let(:anonymous) { create :user, name: nil }
+  context '#female?' do
+    it 'answers true if user is female' do
+      expect(female_user.female?).to be true
+    end
 
+    it 'answers false if user is male' do
+      expect(male_user.female?).to be false
+    end
+  end
+
+  context '#first_name' do
     it "returns user's first name" do
       expect(jack_black.first_name).to eq 'Jack'
     end
@@ -55,27 +64,35 @@ describe User do
     end
   end
 
-  context '.to_s' do
-    let(:jack_black) { create :user, name: 'Jack Black' }
-    let(:anonymous) { create :user, name: nil }
-
+  context '#to_s' do
     it "returns user's name when available" do
       expect(jack_black.to_s).to eq 'Jack Black'
       expect(anonymous.to_s).to eq anonymous.id
     end
+  end
 
-    it 'does not raise exceptions if user has no name' do
-      expect(anonymous.first_name).to be_nil
+  context '#unread_conversations_count' do
+    it 'returns the number of unread conversations' do
+      driver = create :user
+      passenger = create :user
+      itinerary = create :itinerary, user: driver
+      conversation = create :conversation, users: [driver, passenger], conversable: itinerary
+      conversation.messages << build(:message, sender: driver, body: 'First unread message from Driver')
+
+      expect(passenger.unread_conversations_count).to be 1
     end
   end
 
-  context '.female?' do
-    it 'answers true if user is female' do
-      expect(female_user.female?).to be true
-    end
+  context '#unread_references_count' do
+    it 'returns the number of unread references' do
+      driver = create :user
+      passenger = create :user
+      itinerary = create :itinerary, user: driver
+      reference = build :reference, user: passenger, itinerary: itinerary
+      build :outgoing_reference, reference: reference, rating: 1, body: 'Positive'
+      reference.save
 
-    it 'answers false if user is male' do
-      expect(male_user.female?).to be false
+      expect(passenger.unread_references_count).to be 1
     end
   end
 end
