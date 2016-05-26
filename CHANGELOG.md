@@ -1,6 +1,6 @@
 # Changelog
 
-## facebook-api-26
+## 0.38.0
 
 * Remove user_interests Facebook scope
 * Update Facebook API level to support 2.6
