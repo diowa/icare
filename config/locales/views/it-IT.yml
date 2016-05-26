@@ -141,7 +141,6 @@ it-IT:
     sessions:
       error:
         create: "Impossibile effettuare l'accesso."
-        restricted: "Impossibile effettuare l'accesso. Questa applicazione è ristretta agli utenti di un gruppo Facebook, potresti non avere i diritti necessari ad accedere."
     messages:
       error:
         create: Si è verificato un errore durante la creazione del messaggio.
@@ -242,7 +241,7 @@ it-IT:
       friends: "%{count} amici"
       age: "%{count} anni"
       language: "Lingua %{language}"
-      common_friends: Amici in comune
+      mutual_friends: Amici in comune
       likes: Apprezzamenti
       and_others:
         one: e un altro

@@ -11,7 +11,7 @@ node(:message) do |conversation|
     sender:
       {
         # TODO: Former user object
-        profile_picture: m.sender ? m.sender.profile_picture : 'http://placehold.it/25x25',
+        image: m.sender && m.sender.image? ? m.sender.image : APP_CONFIG.user_image_placeholder,
         name: m.sender ? m.sender.name : 'Former user'
       }
   }

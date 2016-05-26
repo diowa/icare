@@ -13,7 +13,7 @@ describe 'Users' do
   end
 
   it 'allows to delete account' do
-    create :user, uid: '123456', username: 'johndoe'
+    create :user, uid: '123456'
 
     visit user_facebook_omniauth_authorize_path
 
@@ -26,7 +26,7 @@ describe 'Users' do
 
   context 'Settings' do
     it 'allows to edit profile' do
-      user = create :user, uid: '123456', username: 'johndoe'
+      user = create :user, uid: '123456'
       visit user_facebook_omniauth_authorize_path
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
@@ -36,7 +36,7 @@ describe 'Users' do
     end
 
     it 'recovers from errors' do
-      create :user, uid: '123456', username: 'johndoe'
+      create :user, uid: '123456'
       visit user_facebook_omniauth_authorize_path
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
@@ -46,30 +46,41 @@ describe 'Users' do
   end
 
   context 'Dashboard' do
-    it 'allows to see latest itineraries' do
+    it 'shows latest itineraries' do
       female_user = create :user, gender: 'female'
       create :itinerary, pink: true, user: female_user
       create_list :itinerary, 5
-      create :user, uid: '123456', username: 'johndoe'
+      create :user, uid: '123456'
 
       visit user_facebook_omniauth_authorize_path
 
       expect(page).to have_css('.table-itinerary tbody tr', count: 5)
     end
 
-    context 'when user is female' do
-      it 'includes pink itineraries' do
-        begin
-          female_user = create :user, gender: 'female'
-          create_list :itinerary, 5
-          create_list :itinerary, 1, pink: true, user: female_user
-          OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge extra: { raw_info: { gender: 'female' } }
+    context 'with pink itineraries' do
+      before :each do
+        female_driver = create :user, gender: 'female'
+        create_list :itinerary, 5
+        create :itinerary, pink: true, user: female_driver
+      end
+
+      context 'when user is female' do
+        it 'shows them' do
+          create :user, uid: '123456', gender: 'female'
 
           visit user_facebook_omniauth_authorize_path
 
           expect(page).to have_css('.table-itinerary tbody tr', count: 6)
-        ensure
-          OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+        end
+      end
+
+      context 'when user is not female' do
+        it 'hides them' do
+          create :user, uid: '123456', gender: 'male'
+
+          visit user_facebook_omniauth_authorize_path
+
+          expect(page).to have_css('.table-itinerary tbody tr', count: 5)
         end
       end
     end
@@ -84,23 +95,17 @@ describe 'Users' do
     end
 
     before(:each) do
-      @user = create :user, uid: '123456', username: 'johndoe'
+      @user = create :user, uid: '123456',
+                            education: [{ 'school' => { 'id' => '300', 'name' => 'A College' }, 'type' => 'College' }],
+                            facebook_favorites: [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }],
+                            languages: [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
+                            facebook_verified: true,
+                            work: [{ 'employer' => { 'id' => '100', 'name' => 'First Inc.' }, 'start_date' => '0000-00' },
+                                   { 'employer' => { 'id' => '101', 'name' => 'Second Ltd.' }, 'start_date' => '0000-00' },
+                                   { 'employer' => { 'id' => '101', 'name' => 'Third S.p.A.' }, 'start_date' => '0000-00' }]
+
       visit user_facebook_omniauth_authorize_path
       visit user_path(@user)
-    end
-
-    it 'shows the rough number of friends' do
-      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '10-')}']"
-      create_friends_and_refresh 6
-      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '10-')}']"
-      create_friends_and_refresh 11
-      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '10+')}']"
-      create_friends_and_refresh 101
-      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '100+')}']"
-      create_friends_and_refresh 1001
-      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '1000+')}']"
-      create_friends_and_refresh 5001
-      expect(page).to have_xpath "//div[text()='#{I18n.t('users.show.friends', count: '5000')}']"
     end
 
     it 'shows reference tags' do
@@ -157,42 +162,20 @@ describe 'Users' do
       expect(page).to have_xpath "//div[@class='tag tag-common' and text()='A College']"
     end
 
-    it 'shows mutual friends' do
-      mutual_friends = Array.new(6) { |i| { 'id' => "90110#{i}", 'name' => "Mutual friend named #{i}" } }
-      @user.update_attribute :facebook_friends, [{ 'id' => '900100', 'name' => 'Not a mutual friend' },
-                                                 { 'id' => '900101', 'name' => 'Not a mutual friend' }] + mutual_friends
-      @user.reload
-      user_with_mutual_friends = create :user,
-                                        facebook_friends: [{ 'id' => '910100', 'name' => 'Not a mutual friend' }, { 'id' => '910101', 'name' => 'Not a mutual friend' }] + mutual_friends
-      visit user_path(user_with_mutual_friends)
-      expect(page).to have_xpath "//div[text()[contains(.,'Mutual friend named ')]]", count: 5
-      expect(page).to have_content I18n.t('users.show.and_others', count: 1)
-      expect(page).to_not have_content 'Not a common friend'
-    end
-
     it 'highlights common likes' do
-      @user.update_attribute :facebook_favorites, [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }]
-      @user.reload
-      @user_with_common_friends = create :user,
-                                         facebook_favorites: [{ 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }]
-      visit user_path(@user_with_common_friends)
+      user_with_mutual_friends = create :user,
+                                        facebook_favorites: [{ 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }]
+      visit user_path(user_with_mutual_friends)
       expect(page).to have_xpath "//div[@class='tag tag-common tag-sm' and text()='Common like']"
       expect(page).to_not have_xpath "//div[@class='tag tag-common tag-sm' and text()='Not a common like']"
     end
 
     context 'verified' do
       it 'adds the verified box' do
-        begin
-          old_mocked_authhash = OMNIAUTH_MOCKED_AUTHHASH
-          OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { verified: true }
+        visit user_facebook_omniauth_authorize_path
+        visit user_path(@user)
 
-          visit user_facebook_omniauth_authorize_path
-          visit user_path(@user)
-
-          expect(page).to have_css '.facebook-verified'
-        ensure
-          OmniAuth.config.mock_auth[:facebook] = old_mocked_authhash
-        end
+        expect(page).to have_css '.facebook-verified'
       end
     end
   end

@@ -21,7 +21,7 @@ class Conversation
     users.reject { |u| u == user }
   end
 
-  def mark_as_read(user)
+  def mark_as_read!(user)
     messages.unread.where(:sender_id.ne => user.id).update_all(read_at: Time.now.utc)
   end
 

@@ -1,14 +1,11 @@
 # frozen_string_literal: true
 FactoryGirl.define do
   sequence(:uid)      { |n| "100#{n}" }
-  sequence(:username) { |n| "person#{n}" }
   sequence(:email)    { |n| "person#{n}@example.com" }
 
   factory :user do
     uid
-    username
     email
-    username_or_uid { |u| [u.username, u.uid] }
     provider 'facebook'
     name { Faker::Name.name }
     gender 'male'

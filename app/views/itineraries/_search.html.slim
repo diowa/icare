@@ -5,7 +5,7 @@
     span.fa.fa-chevron-down<>
     = t('.advanced_search')
   #search-form-advanced-j.search-form-advanced.collapse
-    - unless current_user.female?
+    - if current_user.female?
       = f.input :filter_pink, as: :boolean, label: Itinerary.human_attribute_name(:pink), hint: t('itineraries.form.pink_hint'), wrapper_class: 'form-group form-group-sm'
     .form-group.form-group-sm
       = f.input :filter_verified, as: :boolean, label: t('.verified_users'), wrapper: false

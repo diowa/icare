@@ -1,5 +1,13 @@
 # Changelog
 
+## facebook-api-26
+
+* Remove user_interests Facebook scope
+* Update Facebook API level to support 2.6
+* Drop restricted mode because of API v2.3 changes
+* Make RuboCop happier
+* Update gems
+
 ## 0.37.1
 
 * Temporary fallback for Airbrake

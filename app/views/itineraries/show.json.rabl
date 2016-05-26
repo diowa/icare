@@ -11,5 +11,8 @@ node(:end_location) { |itinerary| itinerary.end_location.to_latlng_hash }
 node(:url) { |itinerary| itinerary_url(itinerary) }
 
 child :user do
-  attributes :name, :uid, :to_param, :profile_picture, :facebook_verified
+  attributes :name, :uid, :to_param, :facebook_verified
+
+  # TODO: move to front-end
+  node(:image) { |user| user.image? ? user.image : APP_CONFIG.user_image_placeholder }
 end

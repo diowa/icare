@@ -2,11 +2,14 @@
 module Users
   class OmniauthCallbacksController < ::Devise::OmniauthCallbacksController
     def facebook
-      @user = User.from_omniauth(request.env['omniauth.auth'])
-      if @user
+      @user = User.from_omniauth(auth_hash)
+
+      if @user.persisted?
+        @user.update_info_from_auth_hash! auth_hash
+        CacheFacebookDataJob.perform_later @user
         sign_in_and_redirect @user, event: :authentication
       else
-        redirect_to root_path, flash: { error: t(APP_CONFIG.facebook.restricted_group_id ? 'flash.sessions.error.restricted' : 'flash.sessions.error.create') }
+        redirect_to root_path, flash: { error: 'flash.sessions.error.create' }
       end
     end
 
@@ -14,6 +17,10 @@ module Users
 
     def after_omniauth_failure_path_for(_scope)
       root_path
+    end
+
+    def auth_hash
+      request.env['omniauth.auth']
     end
   end
 end

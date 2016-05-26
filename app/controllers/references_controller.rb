@@ -53,6 +53,6 @@ class ReferencesController < ApplicationController
   end
 
   def set_user
-    @user = find_user params[:user_id]
+    @user = User.find(params[:user_id])
   end
 end

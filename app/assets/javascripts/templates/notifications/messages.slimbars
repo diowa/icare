@@ -4,7 +4,7 @@ ul
     a href='{{url}}'
       .media
         .pull-left
-          img.media-object src='{{message.sender.profile_picture}}' width='50' height='50' alt=''
+          img.media-object src='{{message.sender.image}}' width='50' height='50' alt=''
         .media-body
           strong.text-overflow
             | {{message.sender.name}}

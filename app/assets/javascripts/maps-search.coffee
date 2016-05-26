@@ -25,12 +25,12 @@ drawPath = (itinerary, strokeColor = '#0000FF', strokeOpacity = 0.45) ->
   customMarker = new icare.CustomMarker overview_path[0], icare.map,
     infoWindowContent: HandlebarsTemplates['gmaps_popup']
       user:
-        image: itinerary.user.profile_picture
+        image: itinerary.user.image
         name: itinerary.user.name
       url: itinerary.url
       content: itinerary.description
     type: 'user_profile_picture'
-    image: itinerary.user.profile_picture
+    image: itinerary.user.image
   google.maps.event.addListener customMarker, 'click', ->
     icare.infoWindow.setContent customMarker.options.infoWindowContent
     icare.infoWindow.setPosition customMarker.position
