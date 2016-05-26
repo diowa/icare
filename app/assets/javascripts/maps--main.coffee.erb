@@ -10,7 +10,7 @@ if google?
       @setMap map
       $.extend true, @options =
        infoWindowContent: null
-       image: 'http://placehold.it/50x50'
+       image: 'https://fbstatic-a.akamaihd.net/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif'
        cssClasses: ''
        type: 'sprite'
        imageOverlay: null
@@ -52,7 +52,7 @@ if google?
       height = parseInt @_div.style.height, 10
       height += 5 if @type is 'user_profile_picture'
       if point
-        @_div.style.left = "#{point.x - width/2}px"
+        @_div.style.left = "#{point.x - width / 2}px"
         @_div.style.top = "#{point.y - height}px"
       return
 

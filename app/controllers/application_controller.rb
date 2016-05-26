@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!
-  before_action :check_banned, except: [:banned]
+  before_action :check_banned, except: [:banned], if: :user_signed_in?
 
   around_action :set_locale_from_params
   around_action :time_zone_from_user, if: :user_signed_in?
@@ -28,11 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_banned
-    redirect_to :banned if user_signed_in? && current_user.banned?
-  end
-
-  def find_user(param)
-    User.find_by(username_or_uid: param)
+    redirect_to :banned if current_user.banned?
   end
 
   private

@@ -19,7 +19,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 require 'webmock/rspec'
 require 'capybara/rspec'
 
-WebMock.disable_net_connect! allow: 'graph.facebook.com', allow_localhost: true
+WebMock.disable_net_connect! allow_localhost: true
 
 RSpec.configure do |config|
   # == Mock Framework

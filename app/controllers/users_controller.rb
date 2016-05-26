@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user_as_current_user, only: [:update, :dashboard, :settings, :itineraries]
 
   def show
-    @user = find_user params[:id]
+    @user = User.find(params[:id])
   end
 
   def update
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @latest_itineraries = Itinerary.includes(:user).desc(:created_at).limit 10
 
     # Gender filter
-    @latest_itineraries = @latest_itineraries.where(pink: false) if current_user.male?
+    @latest_itineraries = @latest_itineraries.where(pink: false) unless current_user.female?
   end
 
   def itineraries

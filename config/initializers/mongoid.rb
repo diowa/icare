@@ -1,5 +1,14 @@
 # frozen_string_literal: true
-# TODO: Hopefully remove when https://github.com/mongoid/mongoid/issues/3767 will be fixed
+
+# Include GlobalID into Mongoid documents to pass references to Active Job tasks
+Mongoid::Document.send(:include, GlobalID::Identification)
+Mongoid::Relations::Proxy.send(:include, GlobalID::Identification)
+
+# This patch is needed because within_spherical_circle was removed in Mongoid 4.
+#
+# Ref: https://jira.mongodb.org/browse/MONGOID-3767
+#
+# TODO: Get rid of this
 
 module Origin
   module Selectable
@@ -10,15 +19,14 @@ module Origin
   end
 end
 
-# This class is needed since Mongoid doesn't support Multi-parameter
-# attributes in version 4.0 before it's moved to active model in rails 4
+# This class is needed because Mongoid 4 doesn't support Multi-parameter
+# attributes.
 #
-# https://github.com/mongoid/mongoid/issues/2954
+# Ref: https://jira.mongodb.org/browse/MONGOID-2954
 #
-
 # TODO: Get rid of this
 
-# encoding: utf-8
+# rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
 module Mongoid
   # Adds Rails' multi-parameter attribute support to Mongoid.
   #
@@ -118,3 +126,4 @@ module Mongoid
     end
   end
 end
+# rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity

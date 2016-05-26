@@ -45,7 +45,7 @@ class ItinerarySearch
     end
 
     # Overrides pink filter for malicious male users
-    filters[:pink] = false if @user.male?
+    filters[:pink] = false unless @user.female?
 
     [:smoking_allowed, :pets_allowed].each do |boolean_field|
       param = @params["filter_#{boolean_field}".to_sym]

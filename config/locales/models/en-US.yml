@@ -30,7 +30,6 @@ en-US:
         name: Name
         facebook_verified: Verified on Facebook
         about: About
-        username: Username
         gender: Gender
         age: Age
         locale: Localization

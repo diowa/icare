@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe 'Admin' do
   before(:each) do
-    @admin = create :user, admin: true, uid: '123456', username: 'johndoe'
+    @admin = create :user, admin: true, uid: '123456'
 
     visit user_facebook_omniauth_authorize_path
   end

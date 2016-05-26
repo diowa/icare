@@ -7,7 +7,7 @@ describe Conversation do
   let(:itinerary) { create :itinerary, user: driver }
   let(:conversation) { create :conversation, users: [driver, passenger], conversable: itinerary }
 
-  context '.unread?' do
+  context '#unread?' do
     it 'knows if there are unread messages for user' do
       conversation.messages << build(:message, sender: passenger, body: 'First unread message from Passenger')
       expect(conversation.unread?(driver)).to be true
@@ -15,7 +15,7 @@ describe Conversation do
     end
   end
 
-  context '.users_except' do
+  context '#users_except' do
     it 'returns all users except the provided one' do
       expect(conversation.users_except(driver).size).to be 1
       expect(conversation.users_except(driver).first).to be passenger
@@ -27,14 +27,14 @@ describe Conversation do
     end
   end
 
-  context '.mark_as_read' do
+  context '#mark_as_read!' do
     it 'marks the conversation as read for provided user' do
-      conversation.mark_as_read(driver)
+      conversation.mark_as_read!(driver)
       expect(conversation.unread?(driver)).to be false
     end
   end
 
-  context '.last_unread_message' do
+  context '#last_unread_message' do
     it 'returns the last unread message' do
       conversation.messages << build(:message, sender: passenger, body: 'First unread message from Passenger')
       expect(conversation.last_unread_message(driver).body).to eq 'First unread message from Passenger'
@@ -47,7 +47,7 @@ describe Conversation do
   end
 
   describe Message do
-    context '.unread?' do
+    context '#unread?' do
       it 'knows when message is unread' do
         message = build(:message, sender: passenger, body: 'First unread message from Passenger')
         conversation.messages << message

@@ -57,6 +57,6 @@ class ConversationsController < ApplicationController
   private
 
   def mark_as_read
-    @conversation.mark_as_read(current_user)
+    @conversation.mark_as_read!(current_user)
   end
 end

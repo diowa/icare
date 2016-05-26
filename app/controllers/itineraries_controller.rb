@@ -3,7 +3,7 @@ class ItinerariesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
   before_action :set_itinerary, only: [:show]
-  before_action :check_gender, only: [:show]
+  before_action :check_female, only: [:show]
 
   before_action :check_permissions
 
@@ -62,11 +62,12 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.find params[:id]
   end
 
-  def check_gender
+  def check_female
     return unless @itinerary.pink?
+
     if !user_signed_in?
       redirect_to root_path
-    elsif current_user.male?
+    elsif !current_user.female?
       redirect_to :dashboard, flash: { error: t('flash.itineraries.error.pink') }
     end
   end

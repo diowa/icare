@@ -67,7 +67,7 @@ class Itinerary
   end
 
   after_create do
-    ShareOnFacebookTimelineJob.perform_later(id.to_s) if share_on_facebook_timeline
+    ShareOnFacebookTimelineJob.perform_later(self) if share_on_facebook_timeline
   end
 
   def title
