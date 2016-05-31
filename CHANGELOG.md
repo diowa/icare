@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.38.1
+
+* Update gems
+
 ## 0.38.0
 
 * Remove user_interests Facebook scope
