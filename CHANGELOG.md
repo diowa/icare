@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.39.0
+
+* Relax coffee-rails dependency
+* Locks turbolinks to 2.5
+* Update gems
+
 ## 0.38.3
 
 * Update gems

@@ -51,7 +51,7 @@ gem 'resque', require: 'resque/server' # Resque web interface
 
 # Assets
 gem 'autoprefixer-rails'
-gem 'coffee-rails', '~> 4.1.1'
+gem 'coffee-rails', '~> 4.2'
 gem 'slim_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
@@ -60,7 +60,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'sprockets'
 gem 'sprockets-rails'
 gem 'twbs_sass_rails'
-gem 'turbolinks'
+gem 'turbolinks', '~> 2.5'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
