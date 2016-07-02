@@ -39,11 +39,11 @@ it-IT:
 
   views:
     pagination:
-      first: "&laquo; Prima"
-      last: "Ultima &raquo;"
-      previous: "&lsaquo; Precedente"
-      next: "Successiva &rsaquo;"
-      truncate: "&hellip;"
+      first_html: "&laquo; Prima"
+      last_html: "Ultima &raquo;"
+      previous_html: "&lsaquo; Precedente"
+      next_html: "Successiva &rsaquo;"
+      truncate_html: "&hellip;"
 
   templates:
     itineraries:
@@ -176,10 +176,10 @@ it-IT:
       help_environment_title: "Ecosostenibile"
       help_environment_content: "Meno auto, meno traffico, meno stress e nuovi compagni di avventure! Rendi più piacevoli i tuoi spostamenti e nel contempo aiuti l'ambiente."
       open_source_title: "Open Source"
-      open_source_content: "Il %{source_code_link} di %{appname} è a disposizione di tutti su GitHub, la più vasta comunità open source al mondo."
+      open_source_content_html: "Il %{source_code_link} di %{appname} è a disposizione di tutti su GitHub, la più vasta comunità open source al mondo."
       source_code: "codice sorgente"
-      signin_terms: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
-      demo_mode: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."
+      signin_terms_html: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
+      demo_mode_html: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."
       join_us_today: "Registrati adesso!"
     policy:
       title: Normativa sull'utilizzo dei dati
@@ -252,17 +252,17 @@ it-IT:
       vehicle_information: Informazioni sul veicolo
       user_profile_details: I dettagli del profilo vengono aggiornati da Facebook dopo ogni accesso.
       vehicle_avg_consumption_help: Utilizza il punto per separare i decimali. Questo valore viene usato nella stima del costo carburante quando si crea un nuovo itinerario.
-      vehicle_avg_consumption_note: "Nota: Riporta in questo modulo il valore %{fuel} della tabella %{proportional_costs}"
+      vehicle_avg_consumption_note_html: "Nota: Riporta in questo modulo il valore %{fuel} della tabella %{proportional_costs}"
       fuel: Carburante
       proportional_costs: "COSTI PROPORZIONALI %{fuel_currency}/km"
       km_costs_calculation_link: Calcola il costo chilometrico del tuo veicolo sul sito ACI
       send_email: Invia e-mail quando
-      send_email_at_address: "Invieremo le e-mail al seguente indirizzo: %{email}"
+      send_email_at_address: "Invieremo le e-mail al seguente indirizzo:"
       application_settings: Impostazioni dell'applicazione
 
   itineraries:
     common:
-      about: "su %{itinerary_link} di %{user_link}"
+      about_html: "su %{itinerary_link} di %{user_link}"
       features: Caratteristiche
     search:
       advanced_search: Ricerca avanzata
@@ -311,7 +311,7 @@ it-IT:
       hint_customize_title: "Personalizza il percorso"
       hint_customize_content: "Utilizzi una strada alternativa perché devi passare da tua suocera? Trascina il percorso per ottenere l'itinerario desiderato."
       hint_search_before_title: "Cerca prima"
-      hint_search_before_content: "E se il tuo percorso esistesse già? %{search_link} tra quelli disponibili se ne è presente uno adatto alle tue esigenze."
+      hint_search_before_content_html: "E se il tuo percorso esistesse già? %{search_link} tra quelli disponibili se ne è presente uno adatto alle tue esigenze."
       search_link: "Cerca"
     form:
       description_hint: "Inserisci una breve descrizione del tuo itinerario. Se ci sono cose che i tuoi compagni di viaggio devono necessariamente sapere prima di contattarti, aggiungile qui (esempio: \"ascolto musica al massimo del volume\")."

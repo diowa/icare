@@ -9,6 +9,6 @@
 
 li.previous class=('disabled' if current_page.first?)
   - if current_page.first?
-    == link_to t('views.pagination.previous').html_safe, '#'
+    == link_to t('views.pagination.previous_html'), '#'
   - else
-    == link_to t('views.pagination.previous').html_safe, url, rel: 'prev', remote: remote
+    == link_to t('views.pagination.previous_html'), url, rel: 'prev', remote: remote

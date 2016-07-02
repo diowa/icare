@@ -9,6 +9,6 @@
 
 li class=('disabled' if current_page.first?)
   - if current_page.first?
-    == link_to t('views.pagination.first').html_safe, '#'
+    == link_to t('views.pagination.first_html'), '#'
   - else
-    == link_to t('views.pagination.first').html_safe, url, remote: remote
+    == link_to t('views.pagination.first_html'), url, remote: remote

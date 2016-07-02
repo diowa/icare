@@ -7,6 +7,6 @@ p.signin-terms
   b= t('we_will_never_post')
   br
   - if APP_CONFIG.demo_mode
-    = t('pages.home.demo_mode', demo_terms_link: link_to(t('demo_terms'), :demo_terms, class: 'splashscreen-link')).html_safe
+    = t('pages.home.demo_mode_html', demo_terms_link: link_to(t('demo_terms'), :demo_terms, class: 'splashscreen-link'))
   - else
-    = t('pages.home.signin_terms', appname: APP_CONFIG.app_name, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy)).html_safe
+    = t('pages.home.signin_terms_html', appname: APP_CONFIG.app_name, terms_link: link_to(t('terms'), :terms), policy_link: link_to(t('policy'), :policy))
