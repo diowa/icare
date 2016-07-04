@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'Conversations' do
+RSpec.describe 'Conversations' do
   let(:driver) { create :user }
   let(:passenger) { create :user, uid: '123456' }
   let(:itinerary) { create :itinerary, user: driver }

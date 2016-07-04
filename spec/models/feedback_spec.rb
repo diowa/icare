@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe Feedback do
+RSpec.describe Feedback do
   describe '#fixed' do
     context 'when the status of feedback is fixed' do
       it 'returns true' do

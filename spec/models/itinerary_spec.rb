@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe Itinerary do
+RSpec.describe Itinerary do
   let(:male_user) { create :user, gender: 'male' }
   let(:female_user) { create :user, gender: 'female' }
   let(:itinerary) { create :itinerary }

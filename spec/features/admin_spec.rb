@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'Admin' do
+RSpec.describe 'Admin' do
   before(:each) do
     @admin = create :user, admin: true, uid: '123456'
 

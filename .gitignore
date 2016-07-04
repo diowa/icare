@@ -70,3 +70,6 @@ brakeman.html
 
 # Ignore sensitive data
 /config/settings/local.rb
+
+# Ignore RSpec state
+/spec/examples.txt

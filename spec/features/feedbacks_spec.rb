@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'Feedbacks' do
+RSpec.describe 'Feedbacks' do
   it 'allows creation from registered users' do
     create :user, uid: '123456'
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'References' do
+RSpec.describe 'References' do
   POSITIVE_ICON = 'span.fa.fa-thumbs-up'
   NEGATIVE_ICON = 'span.fa.fa-thumbs-down'
 
