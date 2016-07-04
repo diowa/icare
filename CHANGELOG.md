@@ -5,6 +5,7 @@
 * Relax coffee-rails dependency
 * Locks turbolinks to 2.5
 * Update RSpec configuration
+* Update .gitignore
 * Update gems
 
 ## 0.38.3
