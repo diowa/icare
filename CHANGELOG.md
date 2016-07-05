@@ -7,6 +7,7 @@
 * Update RSpec configuration
 * Update .gitignore
 * Update gems
+* Update LICENSE
 
 ## 0.38.3
 
