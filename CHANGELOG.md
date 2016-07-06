@@ -4,6 +4,7 @@
 
 * Relax coffee-rails dependency
 * Locks turbolinks to 2.5
+* Update SCSS-Lint configuration
 * Update RSpec configuration
 * Update .gitignore
 * Update gems

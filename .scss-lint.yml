@@ -86,7 +86,7 @@ linters:
     enabled: true
 
   ImportantRule:
-    enabled: false # NOTE: different from bootstrap's defaults
+    enabled: true
 
   ImportPath:
     enabled: true
@@ -116,8 +116,6 @@ linters:
     enabled: true
     max_depth: 4
     ignore_parent_selectors: false
-    exclude:
-      - app/assets/stylesheets/notifications.scss # TODO: fix this
 
   PlaceholderInExtend:
     enabled: false
@@ -445,8 +443,6 @@ linters:
   SelectorDepth:
     enabled: true
     max_depth: 4
-    exclude:
-      - app/assets/stylesheets/notifications.scss # TODO: fix this
 
   SelectorFormat:
     enabled: false
@@ -454,7 +450,7 @@ linters:
 
   Shorthand:
     enabled: true
-    allowed_shorthands: [1, 2, 3]
+    allowed_shorthands: [1, 2, 3, 4]
 
   SingleLinePerProperty:
     enabled: false

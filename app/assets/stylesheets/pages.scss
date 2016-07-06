@@ -1,6 +1,7 @@
 @import "twbs-variables";
 @import "twbs/bootstrap/mixins";
 
+// scss-lint:disable ImportantRule
 .fb-facepile {
   width: 100% !important;
   margin-bottom: 18px;
@@ -18,6 +19,7 @@
     height: auto !important;
   }
 }
+// scss-lint:enable ImportantRule
 
 .facepile-container-j {
   display: none;
