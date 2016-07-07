@@ -2,11 +2,12 @@
 
 ## 0.39.0
 
-* Relax coffee-rails dependency
-* Locks turbolinks to 2.5
-* Update SCSS-Lint configuration
-* Update RSpec configuration
+* Fix application layout
+* Relax coffee-rails gem version dependency
+* Lock Turbolinks gem to version 2.5
 * Update .gitignore
+* Update RSpec configuration
+* Update SCSS-Lint configuration
 * Update gems
 * Update LICENSE
 
