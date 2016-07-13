@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'Itineraries' do
+RSpec.describe 'Itineraries' do
   ROUND_TRIP_ICON = 'span.fa.fa-exchange'
   DAILY_ICON = 'span.fa.fa-repeat'
   PINK_ICON = 'span.fa.fa-lock'

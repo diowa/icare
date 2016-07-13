@@ -20,11 +20,9 @@ module UsersHelper
   def language_tags(user)
     return unless user.languages && user.languages.any?
     render_common_tags = (user != current_user)
-    render_tags user.languages, current_user.languages, render_common_tags: render_common_tags, content: t('.likes'), class: 'description-facebook'
-
     common_languages = get_common_tags(current_user.languages, user.languages) if render_common_tags
     html = user.languages.map { |language| render_tag t('.language', language: language['name']), (render_common_tags && common_languages.include?(language['id'])) }
-    html.join.html_safe
+    safe_join html
   end
 
   def work_and_education_tags(user, field)

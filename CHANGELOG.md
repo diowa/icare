@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.39.0
+
+* Rails 4.2.7
+* Fix application layout
+* Fix OmniAuth logger
+* Relax coffee-rails gem version dependency
+* Lock Turbolinks gem to version 2.5
+* Update .gitignore
+* Update RSpec configuration
+* Update SCSS-Lint configuration
+* Update gems
+* Update LICENSE
+
 ## 0.38.3
 
 * Update gems

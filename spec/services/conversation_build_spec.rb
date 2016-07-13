@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe ConversationBuild do
+RSpec.describe ConversationBuild do
   context '.conversation' do
     let(:driver) { create :user }
     let(:passenger) { create :user }

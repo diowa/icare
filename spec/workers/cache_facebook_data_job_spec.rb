@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe CacheFacebookDataJob do
+RSpec.describe CacheFacebookDataJob do
   let(:user) { create :user, access_token: 'test' }
 
   let(:friends_response) do

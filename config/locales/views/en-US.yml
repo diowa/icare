@@ -39,11 +39,11 @@ en-US:
 
   views:
     pagination:
-      first: "&laquo; First"
-      last: "Last &raquo;"
-      previous: "&lsaquo; Previous"
-      next: "Next &rsaquo;"
-      truncate: "&hellip;"
+      first_html: "&laquo; First"
+      last_html: "Last &raquo;"
+      previous_html: "&lsaquo; Previous"
+      next_html: "Next &rsaquo;"
+      truncate_html: "&hellip;"
 
   templates:
     itineraries:
@@ -176,10 +176,10 @@ en-US:
       help_environment_title: "Eco-friendly"
       help_environment_content: "Less cars, less traffic, less stress and new companions of adventures! Make your travel more enjoyable and help the environment at the same time."
       open_source_title: "Open Source"
-      open_source_content: "The %{source_code_link} of %{appname} is available to everyone on GitHub, the world's largest open source community."
+      open_source_content_html: "The %{source_code_link} of %{appname} is available to everyone on GitHub, the world's largest open source community."
       source_code: "source code"
-      signin_terms: "By clicking \"Sign In\", you agree to %{terms_link} of %{appname} and that you have read and understand our %{policy_link}."
-      demo_mode: "This is a demo application. By clicking on \"Sign In\" you agree to our %{demo_terms_link}."
+      signin_terms_html: "By clicking \"Sign In\", you agree to %{terms_link} of %{appname} and that you have read and understand our %{policy_link}."
+      demo_mode_html: "This is a demo application. By clicking on \"Sign In\" you agree to our %{demo_terms_link}."
       join_us_today: "Join us today!"
     policy:
       title: Privacy Policy
@@ -240,17 +240,17 @@ en-US:
       vehicle_information: Vehicle info
       user_profile_details: Profile details are updated from Facebook after each login.
       vehicle_avg_consumption_help: Use a point to separate decimals. This value is used in the fuel cost estimate when creating a new itinerary.
-      vehicle_avg_consumption_note: "Note: Write in this field the %{fuel} value of %{proportional_costs} table"
+      vehicle_avg_consumption_note_html: "Note: Write in this field the %{fuel} value of %{proportional_costs} table"
       fuel: Fuel
       proportional_costs: "PROPORTIONAL COSTS %{fuel_currency}/km"
       km_costs_calculation_link: Calculate the kilometrical cost of your vehicle on the ACI website (Italian)
       send_email: Send an email when
-      send_email_at_address: "We will send emails at the following address: %{email}"
+      send_email_at_address: "We will send emails at the following address:"
       application_settings: Application settings
 
   itineraries:
     common:
-      about: "about %{itinerary_link} by %{user_link}"
+      about_html: "about %{itinerary_link} by %{user_link}"
       features: Features
     search:
       advanced_search: Advanced search
@@ -296,7 +296,7 @@ en-US:
       hint_customize_title: "Customize your itinerary"
       hint_customize_content: "You use an alternative route because you have to go to your mother-in-law? Drag the path to achieve the desired route."
       hint_search_before_title: "Search before"
-      hint_search_before_content: "And if your itinerary was already there? %{search_link} among the available itineraries and check if there is one that matches your needs."
+      hint_search_before_content_html: "And if your itinerary was already there? %{search_link} among the available itineraries and check if there is one that matches your needs."
       search_link: "Search"
     form:
       description_hint: "Enter a brief description of your itinerary. If there are things that your fellow travelers need to know, add them here (example: \"loud music in the car!\")."

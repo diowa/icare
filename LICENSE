@@ -1,4 +1,4 @@
-Copyright (c) 2015, diowa
+Copyright (c) 2016, diowa
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
@@ -22,7 +22,7 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-airbrake is licensed by Airbrake
+airbrake is licensed under the MIT License
 
 Autoprefixer Rails is licensed under the MIT License
 
@@ -82,7 +82,7 @@ mongoid_geospatial is licensed under the MIT License
 
 mongoid_slug is licensed under the MIT License
 
-newrelic_rpm is licensed by New Relic
+newrelic_rpm is licensed under the MIT, Ruby and New Relic licenses
 
 omniauth-facebook is licensed under the MIT License
 
@@ -96,7 +96,7 @@ resque is licensed under the MIT License
 
 rabl is licensed under the MIT License
 
-rails_12factor is licensed under the 2-clause BSD License
+rails_12factor is licensed under the BSD 2-Clause License
 
 resque is licensed under the MIT License
 
@@ -116,7 +116,7 @@ slim-rails is licensed under the MIT License
 
 spring_commands_rspec is licensed under the MIT License
 
-twbs_sass_rails is licensed under the 2-clause BSD License
+twbs_sass_rails is licensed under the BSD 2-Clause License
 
 unicorn is licensed under the GPLv2 License
 

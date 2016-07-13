@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'Users' do
+RSpec.describe 'Users' do
   it 'does not see reports' do
     expect(page).to_not have_css('#navbar-notifications-reports')
   end
