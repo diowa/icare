@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe Reference do
+RSpec.describe Reference do
   let(:driver) { create :user }
   let(:passenger) { create :user }
   let(:itinerary) { create :itinerary, user: driver }

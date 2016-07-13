@@ -1,7 +1,9 @@
 @import "twbs-variables";
 @import "twbs/bootstrap/mixins";
 
+// scss-lint:disable ImportantRule
 html.turbolinks-progress-bar::before {
   z-index: $zindex-navbar-fixed + 1 !important;
   background-color: $progress-bar-bg !important;
 }
+// scss-lint:enable ImportantRule

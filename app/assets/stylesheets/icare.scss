@@ -21,11 +21,9 @@ h6, .h6 {
   position: relative;
   top: -1px;
   display: inline-block;
-  margin-right: 3px;
   @include size(90px, 28px);
   line-height: 1px;
-  background: asset-data-url("diowa.svg") no-repeat;
-  background-size: 90px 28px;
+  vertical-align: middle;
 }
 
 .facebook-bg {
@@ -62,9 +60,11 @@ h6, .h6 {
   @include text-overflow;
 }
 
+// scss-lint:disable ImportantRule
 .vertical-align-middle td {
   vertical-align: middle !important;
 }
+// scss-lint:enable ImportantRule
 
 .pre-line {
   word-break: break-all;
@@ -134,8 +134,9 @@ h6, .h6 {
   border: 1px solid fade-out(#000, .5);
 }
 
+// scss-lint:disable ImportantRule
 .btn-checkbox {
-  margin-bottom: $line-height-computed / 2 !important;
+  margin-bottom: ($line-height-computed / 2);
   user-select: none;
 
   span.fa {
@@ -152,6 +153,7 @@ h6, .h6 {
     }
   }
 }
+// scss-lint:enable ImportantRule
 
 .div-table {
   display: table;

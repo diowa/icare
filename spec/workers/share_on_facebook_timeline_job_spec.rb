@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe ShareOnFacebookTimelineJob do
+RSpec.describe ShareOnFacebookTimelineJob do
   let(:user) { create :user, access_token: 'test', facebook_permissions: [{ 'permission' => 'publish_actions', 'status' => 'granted' }] }
   let(:itinerary) { create :itinerary, user: user }
 

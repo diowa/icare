@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe 'Sessions' do
+RSpec.describe 'Sessions' do
   it 'allows users to sign in from Facebook' do
     visit user_facebook_omniauth_authorize_path
 

@@ -6,10 +6,12 @@
   font-weight: normal;
 }
 
+// scss-lint:disable ImportantRule
 tr.unread td,
 .unread {
   background-color: $state-warning-bg !important;
 }
+// scss-lint:enable ImportantRule
 
 .list-conversation {
   padding-left: 0;

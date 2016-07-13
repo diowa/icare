@@ -6,7 +6,6 @@ footer {
   margin-top: $line-height-computed;
   font-size: $font-size-base + 1;
   color: $gray;
-  background-color: transparent !important;
   border-top: 1px solid $hr-border;
 
   a,
@@ -26,18 +25,11 @@ footer {
     &:last-child {
       margin-bottom: 0;
     }
-
-    &.diowa-footer {
-      display: block;
-      margin-bottom: 10px;
-      clear: both;
-    }
   }
 }
 
 @media (min-width: $screen-sm-min) {
-  .list-footer > li,
-  .list-footer > li.diowa-footer {
+  .list-footer > li {
     display: inline-block;
     margin-bottom: 0;
   }

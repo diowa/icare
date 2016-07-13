@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require 'spec_helper'
+require 'rails_helper'
 
-describe User do
+RSpec.describe User do
   let(:user) { create :user }
   let(:male_user) { create :user, gender: 'male' }
   let(:female_user) { create :user, gender: 'female' }
