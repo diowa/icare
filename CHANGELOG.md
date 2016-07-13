@@ -2,6 +2,7 @@
 
 ## 0.39.0
 
+* Rails 4.2.7
 * Fix application layout
 * Fix OmniAuth logger
 * Relax coffee-rails gem version dependency
