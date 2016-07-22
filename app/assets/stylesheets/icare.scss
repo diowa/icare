@@ -85,7 +85,7 @@ h6, .h6 {
   border: 1px solid #ddd;
   box-shadow: 0 1px 1px fade-out(#000, .925);
 
-  &::after, &::before {
+  &:after, &:before {
     position: absolute;
     top: 50%;
     right: 100%;
@@ -95,13 +95,13 @@ h6, .h6 {
     border: solid transparent;
   }
 
-  &::after {
+  &:after {
     margin-top: -8px;
     border-width: 8px;
     border-right-color: #fff;
   }
 
-  &::before {
+  &:before {
     margin-top: -9px;
     border-width: 9px;
     border-right-color: #ddd;
@@ -111,8 +111,8 @@ h6, .h6 {
     min-height: 60 - $line-height-computed;
     margin-left: 5px;
 
-    &::after,
-    &::before {
+    &:after,
+    &:before {
       top: 25px;
     }
   }
@@ -122,7 +122,7 @@ h6, .h6 {
   position: relative;
   display: inline-block;
 
-  &::before {
+  &:before {
     position: absolute;
     @include square(100%);
     content: "";
@@ -130,7 +130,7 @@ h6, .h6 {
   }
 }
 
-.img-outset-dark::before {
+.img-outset-dark:before {
   border: 1px solid fade-out(#000, .5);
 }
 
@@ -148,7 +148,7 @@ h6, .h6 {
     position: absolute !important;
     left: -9999px !important;
 
-    &:checked ~ span.check::before {
+    &:checked ~ span.check:before {
       content: "\f046";
     }
   }

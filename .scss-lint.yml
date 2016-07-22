@@ -432,7 +432,7 @@ linters:
     properties: {}
 
   PseudoElement:
-    enabled: true
+    enabled: false # NOTE: double colons syntax is not supported by IE8
 
   QualifyingElement:
     enabled: false # NOTE: different from bootstrap's defaults
