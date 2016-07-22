@@ -36,8 +36,8 @@ $ribbon-color: $headings-color;
       text-shadow: -1px -1px 0 fade-out(#000, .65);
     }
 
-    &::before,
-    &::after {
+    &:before,
+    &:after {
       position: absolute;
       bottom: -1em;
       z-index: -1;
@@ -47,13 +47,13 @@ $ribbon-color: $headings-color;
       box-shadow: 0 1px 0 fade-out(#000, .75);
     }
 
-    &::before {
+    &:before {
       left: -2.8em;
       border-right-width: 3em;
       border-left-color: transparent;
     }
 
-    &::after {
+    &:after {
       right: -2.8em;
       border-right-color: transparent;
       border-left-width: 3em;
@@ -61,8 +61,8 @@ $ribbon-color: $headings-color;
   }
 
   .ribbon-content {
-    &::before,
-    &::after {
+    &:before,
+    &:after {
       position: absolute;
       bottom: -1em;
       display: block;
@@ -71,13 +71,13 @@ $ribbon-color: $headings-color;
       border-style: solid;
     }
 
-    &::before {
+    &:before {
       left: 0;
       border-width: 1em 0 0 2em;
       box-shadow: 1px 0 0 fade-out(#000, .75);
     }
 
-    &::after {
+    &:after {
       right: 0;
       border-width: 1em 2em 0 0;
       box-shadow: -1px 0 0 fade-out(#000, .75);
