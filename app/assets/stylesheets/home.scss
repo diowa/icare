@@ -40,7 +40,7 @@ html,
   background: lighten($brand-primary, 20%) asset-data-url("noise.png");
   box-shadow: 0 3px 3px fade-out(#000, .75);
 
-  &::before {
+  &:before {
     position: absolute;
     top: 0;
     left: 0;

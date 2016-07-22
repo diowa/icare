@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.39.1
+
+* Begin pseudo elements with single colon (IE8)
+* Update gems
+
 ## 0.39.0
 
 * Rails 4.2.7
