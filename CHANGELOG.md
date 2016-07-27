@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.39.2
+
+* Update gems
+
 ## 0.39.1
 
 * Begin pseudo elements with single colon (IE8)
