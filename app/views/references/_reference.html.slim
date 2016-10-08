@@ -20,7 +20,7 @@
         .div-table-cell.profile-picture-cell
           .img-outset= user_profile_picture reference.user, style: nil
         .div-table-cell
-          - if reference.outgoing && reference.outgoing.body
+          - if reference.outgoing&.body?
             .balloon.for-profile-picture
               h5.no-margin
                 = link_to reference.user, user_path(reference.user)
