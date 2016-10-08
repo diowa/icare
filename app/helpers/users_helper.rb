@@ -18,7 +18,7 @@ module UsersHelper
   end
 
   def language_tags(user)
-    return unless user.languages && user.languages.any?
+    return unless user.languages&.any?
     render_common_tags = (user != current_user)
     common_languages = get_common_tags(current_user.languages, user.languages) if render_common_tags
     html = user.languages.map { |language| render_tag t('.language', language: language['name']), (render_common_tags && common_languages.include?(language['id'])) }
@@ -26,7 +26,7 @@ module UsersHelper
   end
 
   def work_and_education_tags(user, field)
-    return unless user[field] && user[field].any?
+    return unless user[field]&.any?
     user_work_or_edu = remap_work_or_edu_tags(user[field], field)
     my_field = current_user[field]
     if (render_common_work_or_edu = (user != current_user) && my_field && my_field.any?)
@@ -36,7 +36,7 @@ module UsersHelper
   end
 
   def favorite_tags(user, user_favorites)
-    return unless user_favorites && user_favorites.any?
+    return unless user_favorites&.any?
     render_tags user_favorites, current_user.facebook_favorites, render_common_tags: (user != current_user), content: t('.likes'), class: 'tag tag-facebook tag-sm', css_class: 'tag-sm'
   end
 
@@ -48,7 +48,7 @@ module UsersHelper
   end
 
   def get_common_tags(my_tags, user_tags)
-    return [] if my_tags.nil? || my_tags.empty?
+    return [] if my_tags&.empty?
     my_tags.map { |tag| tag['id'] } & user_tags.map { |tag| tag['id'] }
   end
 

@@ -20,7 +20,7 @@
               td= driver_or_passenger reference
               td= make_thumbs reference.incoming.rating
               td= link_to reference.incoming.body.truncate(50), user_reference_path(@user, reference)
-          - if reference.outgoing && reference.outgoing.body?
+          - if reference.outgoing&.body?
             tr
               td
                 span.fa.fa-arrow-down

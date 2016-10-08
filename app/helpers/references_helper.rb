@@ -18,7 +18,7 @@ module ReferencesHelper
   end
 
   def new_or_show_reference_path(reference, itinerary)
-    reference && reference.persisted? ? user_reference_path(current_user, reference) : new_user_reference_path(current_user, itinerary_id: itinerary.id)
+    reference&.persisted? ? user_reference_path(current_user, reference) : new_user_reference_path(current_user, itinerary_id: itinerary.id)
   end
 
   def reference_radio_buttons(form)
