@@ -9,7 +9,7 @@ PermittedParams = Struct.new(:params, :current_user) do
                     :avoid_highways, :avoid_tolls,
                     :round_trip, :leave_date, :return_date, :daily,
                     :route, :share_on_facebook_timeline]
-    basic_fields << :pink if current_user && current_user.female?
+    basic_fields << :pink if current_user&.female?
     basic_fields
   end
 
@@ -27,7 +27,7 @@ PermittedParams = Struct.new(:params, :current_user) do
 
   def feedback_attributes
     basic_fields = [:type, :message, :url]
-    basic_fields << :status if current_user && current_user.admin?
+    basic_fields << :status if current_user&.admin?
     basic_fields
   end
 
