@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.40.0
+
+* Font Awesome 4.7.0
+* Lock selenium-webdriver to 2.53
+* Remove rb-readline dependency
+* Update gems
+
 ## 0.39.4
 
 * Update gems
