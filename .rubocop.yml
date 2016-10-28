@@ -8,6 +8,9 @@ AllCops:
 Metrics/AbcSize:
   Max: 23.54
 
+Metrics/BlockLength:
+  Enabled: false
+
 Metrics/LineLength:
   Enabled: false
 
