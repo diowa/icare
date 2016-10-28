@@ -71,7 +71,6 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rb-readline'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'scss_lint', require: false
@@ -94,7 +93,7 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.53'
   gem 'rspec'
   gem 'simplecov', require: false
   gem 'webmock', require: false
