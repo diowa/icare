@@ -24,10 +24,11 @@ gem 'client_side_validations-simple_form'
 gem 'kaminari'
 gem 'kaminari-mongoid'
 gem 'mongoid'
+gem 'mongoid-slug'
 gem 'mongoid_geospatial'
 gem 'mongoid_paranoia'
-gem 'mongoid-slug'
-gem 'jc-validates_timeliness'
+gem 'validates_timeliness'
+gem 'validates_timeliness-mongoid', github: 'johnnyshields/validates_timeliness-mongoid'
 
 # Authentication framework
 gem 'devise'
@@ -41,31 +42,31 @@ gem 'omniauth-facebook'
 
 # Performance and Exception management
 gem 'airbrake'
-gem 'newrelic_rpm'
 gem 'newrelic_moped'
+gem 'newrelic_rpm'
 
 # Security
 gem 'secure_headers'
 
 # Miscellanea
 gem 'google-analytics-rails'
-gem 'slim-rails'
 gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'resque', require: 'resque/server' # Resque web interface
+gem 'slim-rails'
 
 # Assets
 gem 'autoprefixer-rails'
 gem 'coffee-rails', '~> 4.2'
-gem 'slim_assets'
 gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'jquery-turbolinks'
 gem 'sass-rails', '~> 5.0'
+gem 'slim_assets'
 gem 'sprockets'
 gem 'sprockets-rails'
-gem 'twbs_sass_rails'
 gem 'turbolinks', '~> 2.5'
+gem 'twbs_sass_rails'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
@@ -98,8 +99,8 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'
-  gem 'selenium-webdriver', '~> 2.53'
   gem 'rspec'
+  gem 'selenium-webdriver', '~> 2.53'
   gem 'simplecov', require: false
   gem 'webmock', require: false
 end

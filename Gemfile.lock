@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/johnnyshields/validates_timeliness-mongoid.git
+  revision: 43b053328b8949b75fe80a1e2bc86c213fa22ad8
+  specs:
+    validates_timeliness-mongoid (0.1.0)
+      validates_timeliness (~> 4.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -136,8 +143,6 @@ GEM
     i18n (0.7.0)
     i18n-js (2.1.2)
       i18n
-    jc-validates_timeliness (3.1.1)
-      timeliness (~> 0.3.7)
     jquery-rails (4.2.2)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -411,6 +416,8 @@ GEM
       raindrops (~> 0.7)
     uniform_notifier (1.10.0)
     useragent (0.16.8)
+    validates_timeliness (4.0.2)
+      timeliness (~> 0.3.7)
     vegas (0.1.11)
       rack (>= 1.0.0)
     warden (1.2.6)
@@ -451,7 +458,6 @@ DEPENDENCIES
   handlebars_assets
   http_accept_language
   i18n-js
-  jc-validates_timeliness
   jquery-rails
   jquery-turbolinks
   kaminari
@@ -496,6 +502,8 @@ DEPENDENCIES
   twbs_sass_rails
   uglifier (>= 1.3.0)
   unicorn
+  validates_timeliness
+  validates_timeliness-mongoid!
   web-console
   webmock
 
