@@ -35,10 +35,12 @@ RSpec.describe 'Itineraries' do
       fill_in 'itinerary_start_address', with: 'Milan'
       fill_in 'itinerary_end_address', with: 'Turin'
       click_button 'get-route'
-      click_button 'wizard-next-step-button'
 
-      # Hide navbar to avoid that inputs go behind and can't be clicked
-      page.execute_script("$('.navbar').hide()")
+      Timeout.timeout(5) do
+        sleep(0.1) until page.evaluate_script('$("#map-result-j #distance").text().trim()') != ''
+      end
+
+      click_button 'wizard-next-step-button'
 
       leave_date = Time.zone.parse("#{10.days.from_now.to_date} 8:30")
       select leave_date.day, from: 'itinerary_leave_date_3i'
@@ -83,7 +85,7 @@ RSpec.describe 'Itineraries' do
       login_as_male
       malicious_itinerary = create :itinerary, user: @user, description: XSS_ALERT
       visit itinerary_path(malicious_itinerary)
-      expect(-> { page.driver.browser.switch_to.alert }).to raise_error Selenium::WebDriver::Error::NoAlertPresentError
+      expect(-> { page.accept_alert }).to raise_error Capybara::ModalNotFound
     end
 
     it 'allows users to search them', js: true do

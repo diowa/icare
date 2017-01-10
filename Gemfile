@@ -99,8 +99,8 @@ group :test do
   gem 'email_spec'
   gem 'launchy'
   gem 'mongoid-rspec'
+  gem 'poltergeist'
   gem 'rspec'
-  gem 'selenium-webdriver', '~> 2.53'
   gem 'simplecov', require: false
   gem 'webmock', require: false
 end

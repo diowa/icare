@@ -73,8 +73,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    childprocess (0.5.9)
-      ffi (~> 1.0, >= 1.0.11)
     client_side_validations (4.2.11)
       jquery-rails (>= 3.1.2, < 5.0.0)
       js_regex (~> 1.0, >= 1.0.19)
@@ -82,6 +80,7 @@ GEM
     client_side_validations-simple_form (3.3.1)
       client_side_validations (~> 4.2.9)
       simple_form (~> 3.3)
+    cliver (0.3.2)
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -126,7 +125,6 @@ GEM
       i18n (~> 0.5)
     faraday (0.10.1)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.14)
     git-version-bump (0.15.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -234,6 +232,10 @@ GEM
     orm_adapter (0.5.0)
     parser (2.3.3.1)
       ast (~> 2.2)
+    poltergeist (1.12.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -328,7 +330,6 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
     ruby-progressbar (1.8.1)
-    rubyzip (1.2.0)
     safe_yaml (1.0.4)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -342,10 +343,6 @@ GEM
       sass (~> 3.4.20)
     secure_headers (3.6.0)
       useragent
-    selenium-webdriver (2.53.4)
-      childprocess (~> 0.5)
-      rubyzip (~> 1.0)
-      websocket (~> 1.0)
     simple_form (3.4.0)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
@@ -430,7 +427,9 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    websocket (1.2.3)
+    websocket-driver (0.6.4)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -473,6 +472,7 @@ DEPENDENCIES
   newrelic_moped
   newrelic_rpm
   omniauth-facebook
+  poltergeist
   pry
   pry-byebug
   pry-rails
@@ -487,7 +487,6 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   scss_lint
   secure_headers
-  selenium-webdriver (~> 2.53)
   simpleconfig
   simplecov
   slim-rails
