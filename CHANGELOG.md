@@ -2,8 +2,9 @@
 
 ## 0.40.0
 
+* Ruby 2.3.3
 * Font Awesome 4.7.0
-* Lock selenium-webdriver to 2.53
+* Switch to PhantomJS
 * Remove rb-readline dependency
 * Update gems
 
