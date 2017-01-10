@@ -1,11 +1,8 @@
 language: ruby
 sudo: false
 rvm:
-  - 2.3.1
+  - 2.3.3
 services:
   - mongodb
-before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
 before_script:
   - bundle exec rake db:mongoid:create_indexes
