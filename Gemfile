@@ -94,6 +94,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'coveralls', require: false
   gem 'database_cleaner'
   gem 'email_spec'

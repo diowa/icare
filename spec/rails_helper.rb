@@ -17,6 +17,7 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/poltergeist'
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec' unless ENV['CI']
 require 'webmock/rspec'
 
 Capybara.javascript_driver = :poltergeist
