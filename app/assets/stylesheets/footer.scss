@@ -28,6 +28,11 @@ footer {
   }
 }
 
+.demo-app {
+  margin-top: 10px;
+  color: $text-muted;
+}
+
 @media (min-width: $screen-sm-min) {
   .list-footer > li {
     display: inline-block;
