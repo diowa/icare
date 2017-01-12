@@ -8,8 +8,5 @@
     | per_page:      number of items to fetch per page
     | remote:        data-remote
 
-- page_rel = page.next? ? 'next' : nil
-- page_rel ||= page.prev? ? 'prev' : nil
-
 li.page class=('active' if page.current?)
-  == link_to page, url, remote: remote, rel: page_rel
+  == link_to page, url, remote: remote, rel: page.rel

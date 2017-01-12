@@ -6,7 +6,7 @@
         .img-outset
           img.media-object src='{{user.image}}' width='50' height='50' alt=''
       .media-body
-        h4.media-heading
+        h5.media-heading
           a.pre-line href='{{url}}'
             | {{title}}
         p

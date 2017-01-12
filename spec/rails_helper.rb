@@ -15,9 +15,12 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'webmock/rspec'
+require 'capybara/poltergeist'
 require 'capybara/rspec'
+require 'capybara-screenshot/rspec' unless ENV['CI']
+require 'webmock/rspec'
 
+Capybara.javascript_driver = :poltergeist
 WebMock.disable_net_connect! allow_localhost: true
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
