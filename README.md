@@ -25,6 +25,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
 * [RSpec][12]
+* [PhantomJS][17] + [Poltergeist][18]
 * [Heroku][14] Cloud Application Platform
 * [Multi-Environment configuration][15]
 * [Airbrake][16] Exception Notification
@@ -37,7 +38,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [5]: http://slim-lang.com/
  [6]: http://getbootstrap.com
  [7]: http://fontawesome.io
- [8]: https://docs.mongodb.com/ecosystem/tutorial/ruby-mongoid-tutorial/
+ [8]: https://docs.mongodb.com/ruby-driver/master/mongoid/
  [9]: https://github.com/defunkt/resque
  [10]: https://github.com/nesquena/rabl
  [11]: https://github.com/arsduo/koala
@@ -46,6 +47,8 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [14]: https://www.heroku.com/
  [15]: https://github.com/lukeredpath/simpleconfig
  [16]: https://github.com/airbrake/airbrake
+ [17]: https://github.com/ariya/phantomjs/
+ [18]: https://github.com/teampoltergeist/poltergeist
 
 A working demo is available at http://icare.diowa.com/
 

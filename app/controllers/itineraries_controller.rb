@@ -55,8 +55,7 @@ class ItinerariesController < ApplicationController
 
   protected
 
-  def check_permissions
-  end
+  def check_permissions; end
 
   def set_itinerary
     @itinerary = Itinerary.find params[:id]

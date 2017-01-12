@@ -59,9 +59,22 @@ $brand-info:            $flat-ui-peter-river;
 $link-color:            $flat-ui-belize-hole;
 $link-hover-color:      darken($link-color, 15%);
 
-$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-sans-serif: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $headings-color: $brand-primary;
 $headings-font-weight: 300;
+
+$badge-font-weight: 300;
+$close-font-weight: 300;
+$alert-link-font-weight: 300;
+
+$font-size-base:  16px;
+$font-size-small: floor($font-size-base * .875); // 14px
+$font-size-h1:    floor($font-size-base * 2.5);  // 40px
+$font-size-h2:    floor($font-size-base * 2);    // 32px
+$font-size-h3:    floor($font-size-base * 1.75); // 28px
+$font-size-h5:    floor($font-size-base * 1.5);  // 24px
+$font-size-h5:    floor($font-size-base * 1.25); // 20px
+$font-size-h6:    $font-size-base;
 
 $navbar-height: 40px;
 $navbar-default-bg: lighten($flat-ui-clouds, 5%);

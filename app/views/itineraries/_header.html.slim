@@ -8,7 +8,7 @@
       = link_to user_path(@itinerary.user), class: 'pull-left' do
         = user_profile_picture @itinerary.user, style: 'media-object'
       .media-body
-        h4.media-heading
+        h5.media-heading
           - if user_signed_in?
             = link_to @itinerary.user, user_path(@itinerary.user)
           - else

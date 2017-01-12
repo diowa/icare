@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 RSpec.configure do |config|
-  config.include Mongoid::Matchers
+  config.include Mongoid::Matchers, type: :model
 
   config.before(:suite) do
-    DatabaseCleaner.orm = :mongoid
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner[:mongoid].strategy = :truncation
+    DatabaseCleaner[:mongoid].start
   end
 
   config.before(:each) { DatabaseCleaner[:mongoid].start }

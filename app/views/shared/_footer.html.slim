@@ -21,7 +21,7 @@ footer
             = link_to user_path(current_user), method: :delete, class: 'text-danger', data: { confirm: t('helpers.links.confirm') } do
               span.fa.fa-times<>
               = t('delete_account')
-      - if APP_CONFIG.demo_mode
-        li
-          span.fa.fa-warning<>
-          = t('demo_mode')
+    - if APP_CONFIG.demo_mode
+      p.demo-app
+        span.fa.fa-warning<>
+        = t('demo_mode')
