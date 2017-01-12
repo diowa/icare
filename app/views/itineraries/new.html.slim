@@ -3,7 +3,7 @@
   - if @itinerary.errors.any?
     .alert.alert-danger.fade.in
       button type='button' class='close' data-dismiss='alert' &times;
-      h4.alert-heading= t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
+      h5.alert-heading= t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
       = t('errors.template.body')
       ul
         - @itinerary.errors.full_messages.each do |message|

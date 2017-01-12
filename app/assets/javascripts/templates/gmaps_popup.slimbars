@@ -2,7 +2,7 @@
   .gmaps-popup-image
     img width=50 height=50 alt='' src='{{user.image}}'
   .gmaps-popup-text
-    h4.no-margin-bottom
+    h5.no-margin-bottom
       a.pre-line href='{{url}}' {{title}}
     p.gmaps-popup-p-content
       | {{user.name}}

@@ -4,7 +4,8 @@
 
 * Ruby 2.3.3
 * Font Awesome 4.7.0
-* Switch to PhantomJS
+* Switch to 16px font size
+* Use PhantomJS for feature tests
 * Remove rb-readline dependency
 * Update gems
 
