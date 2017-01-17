@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.40.1
+
+* Update gems
+
 ## 0.40.0
 
 * Ruby 2.3.3
