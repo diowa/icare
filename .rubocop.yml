@@ -31,5 +31,8 @@ Rails/HasAndBelongsToMany:
     - 'app/models/conversation.rb'
     - 'app/models/user.rb'
 
+Rails/SkipsModelValidations:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
