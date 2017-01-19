@@ -53,9 +53,11 @@ module Concerns
         # only the year (YYYY) or the month + day (MM/DD)
         #
         # Ref: https://developers.facebook.com/docs/graph-api/reference/user/
+        # rubocop:disable Performance/RegexpMatch
         def birthday_from_graph_api(ga_birthday)
           Date.strptime(ga_birthday, '%m/%d/%Y').at_midnight if ga_birthday =~ %r{\A[0-9]{2}/[0-9]{2}/[0-9]{4}\z}
         end
+        # rubocop:enable Performance/RegexpMatch
 
         def locale_from_graph_api(ga_locale)
           ga_locale.tr('_', '-') if ga_locale.present? && !locale?

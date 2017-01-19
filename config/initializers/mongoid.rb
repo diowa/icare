@@ -10,20 +10,28 @@ Mongoid::Relations::Proxy.send(:include, GlobalID::Identification)
 #
 # TODO: Get rid of this
 
-module Origin
-  module Selectable
-    def within_spherical_circle(criterion = nil)
-      __expanded__(criterion, '$geoWithin', '$centerSphere')
+module Mongoid
+  class Criteria
+    module Queryable
+      # An queryable selectable is selectable, in that it has the ability to select
+      # document from the database. The selectable module brings all functionality
+      # to the selectable that has to do with building MongoDB selectors.
+      module Selectable
+        def within_spherical_circle(criterion = nil)
+          __expanded__(criterion, '$geoWithin', '$centerSphere')
+        end
+        key :within_spherical_circle, :expanded, '$geoWithin', '$centerSphere'
+      end
     end
-    key :within_spherical_circle, :expanded, '$geoWithin', '$centerSphere'
   end
 end
 
-# This class is needed because Mongoid 4 doesn't support Multi-parameter
-# attributes.
+# This class is needed since Mongoid doesn't support Multi-parameter
+# attributes in version 4.0 before it's moved to active model in rails 4
 #
-# Ref: https://jira.mongodb.org/browse/MONGOID-2954
+# https://github.com/mongoid/mongoid/issues/2954
 #
+
 # TODO: Get rid of this
 
 # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/MethodLength, Metrics/PerceivedComplexity
