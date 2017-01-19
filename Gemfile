@@ -6,8 +6,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.3.3'
-gem 'rails', '4.2.7.1'
+ruby '2.4.0'
+gem 'rails', '5.0.1'
+
+gem 'sinatra', '~> 2.0.0.beta1'
 
 # Servers
 gem 'thin'
@@ -19,8 +21,8 @@ gem 'simpleconfig'
 gem 'rabl'
 
 # ODM and related
-gem 'client_side_validations'
-gem 'client_side_validations-simple_form'
+gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations', branch: 'rails5'
+gem 'client_side_validations-simple_form', github: 'DavyJonesLocker/client_side_validations-simple_form', branch: 'rails5'
 gem 'kaminari'
 gem 'kaminari-mongoid'
 gem 'mongoid'
