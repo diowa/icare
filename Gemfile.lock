@@ -1,23 +1,4 @@
 GIT
-  remote: https://github.com/DavyJonesLocker/client_side_validations-simple_form.git
-  revision: d3466f50f681d2fbd2ec68ee29b8668fec6f51d0
-  branch: rails5
-  specs:
-    client_side_validations-simple_form (3.3.1)
-      client_side_validations (~> 5.0.0)
-      simple_form (~> 3.3)
-
-GIT
-  remote: https://github.com/DavyJonesLocker/client_side_validations.git
-  revision: fe23ff15e115e7fe2e1ee07c129608e6468c7b24
-  branch: rails5
-  specs:
-    client_side_validations (5.0.0)
-      jquery-rails (~> 4.0, >= 4.0.1)
-      js_regex (~> 1.0, >= 1.0.19)
-      rails (>= 5.0.0, < 5.1.0)
-
-GIT
   remote: https://github.com/johnnyshields/validates_timeliness-mongoid.git
   revision: 43b053328b8949b75fe80a1e2bc86c213fa22ad8
   specs:
@@ -97,6 +78,13 @@ GEM
     capybara-screenshot (1.0.14)
       capybara (>= 1.0, < 3)
       launchy
+    client_side_validations (6.0.0)
+      jquery-rails (~> 4.2)
+      js_regex (~> 1.2)
+      rails (~> 5.0.0, >= 5.0.0.1)
+    client_side_validations-simple_form (5.0.0)
+      client_side_validations (~> 6.0)
+      simple_form (~> 3.4)
     cliver (0.3.2)
     coderay (1.1.1)
     coffee-rails (4.2.1)
@@ -468,8 +456,8 @@ DEPENDENCIES
   byebug
   capybara
   capybara-screenshot
-  client_side_validations!
-  client_side_validations-simple_form!
+  client_side_validations
+  client_side_validations-simple_form
   coffee-rails (~> 4.2)
   coveralls
   database_cleaner

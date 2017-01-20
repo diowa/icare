@@ -9,8 +9,6 @@ end
 ruby '2.4.0'
 gem 'rails', '5.0.1'
 
-gem 'sinatra', '~> 2.0.0.beta1'
-
 # Servers
 gem 'thin'
 
@@ -21,8 +19,8 @@ gem 'simpleconfig'
 gem 'rabl'
 
 # ODM and related
-gem 'client_side_validations', github: 'DavyJonesLocker/client_side_validations', branch: 'rails5'
-gem 'client_side_validations-simple_form', github: 'DavyJonesLocker/client_side_validations-simple_form', branch: 'rails5'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 gem 'kaminari'
 gem 'kaminari-mongoid'
 gem 'mongoid'
@@ -55,6 +53,7 @@ gem 'google-analytics-rails'
 gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'resque', require: 'resque/server' # Resque web interface
+gem 'sinatra', '~> 2.0.0.beta1' # Needed by resque/server
 gem 'slim-rails'
 
 # Assets
