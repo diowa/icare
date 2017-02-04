@@ -82,9 +82,8 @@ wizardNextStep = ->
 
   valid = true
   $('#new_itinerary [data-validate]:input:visible').each ->
-    settings = window.ClientSideValidations.forms[this.form.id]
-    unless $(this).isValid(settings.validators)
-      valid = false
+    validators = this.form.ClientSideValidations.settings.validators
+    valid = false unless $(this).isValid(validators)
     return
   return false unless valid
 
@@ -203,8 +202,8 @@ createRouteMapInit = (id) ->
   $('#get-route').on 'click', ->
     valid = true
     $('[data-validate]:input:visible').each ->
-      settings = window.ClientSideValidations.forms[this.form.id]
-      valid = false unless $(this).isValid settings.validators
+      validators = this.form.ClientSideValidations.settings.validators
+      valid = false unless $(this).isValid(validators)
       return
     return unless valid
     calculateRoute dr, ds

@@ -76,7 +76,8 @@ initItineraryIndex = ->
 
   # TODO: clean this mess... directions service again?
   $('#itineraries-search').on 'click', ->
-    return false unless $("#new_itineraries_search").isValid(window.ClientSideValidations.forms["new_itineraries_search"].validators)
+    validators = $("#new_itineraries_search")[0].ClientSideValidations.settings.validators
+    return false unless $("#new_itineraries_search").isValid(validators)
     $("#map-error-j").hide()
     geocoder = new google.maps.Geocoder()
     address = $("#itineraries_search_from").val()
