@@ -108,6 +108,5 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'rails_12factor' # Only for heroku
   gem 'unicorn'
 end
