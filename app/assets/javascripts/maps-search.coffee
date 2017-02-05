@@ -143,6 +143,6 @@ initItineraryIndex = ->
     $(window).scrollTop('#index-itineraries-map')
     false
 
-$ ->
+$(document).on window.initializeOnEvent, ->
   if google? && $('#index-itineraries-map')[0]?
     initItineraryIndex()

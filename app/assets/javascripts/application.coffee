@@ -1,7 +1,7 @@
 #= require jquery
 #= require jquery_ujs
-#= require jquery.turbolinks
 #= require turbolinks
+#= require initialize_on_event
 
 # VENDOR ASSETS
 #= require jquery.ba-throttle-debounce

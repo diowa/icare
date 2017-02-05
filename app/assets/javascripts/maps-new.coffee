@@ -224,6 +224,6 @@ initItineraryNew = ->
       $('#daily').fadeOut ->
         $('#single').fadeIn()
 
-$ ->
+$(document).on window.initializeOnEvent, ->
   if google? && $('#new_itinerary')[0]?
     initItineraryNew()
