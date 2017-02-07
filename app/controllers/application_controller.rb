@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
   around_action :set_locale_from_params
   around_action :time_zone_from_user, if: :user_signed_in?
 
-  helper_method :permitted_params
-
   private
 
   def after_sign_in_path_for(_resource_or_scope)
@@ -27,10 +25,6 @@ class ApplicationController < ActionController::Base
   def locale_from_http_request
     http_accept_language.preferred_language_from(I18n.available_locales) ||
       http_accept_language.compatible_language_from(I18n.available_locales)
-  end
-
-  def permitted_params
-    @permitted_params ||= PermittedParams.new(params, current_user)
   end
 
   def set_locale_from_params

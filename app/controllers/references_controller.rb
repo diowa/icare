@@ -16,7 +16,7 @@ class ReferencesController < ApplicationController
   end
 
   def create
-    @reference = ReferenceBuild.new(permitted_params.reference, current_user, @itinerary).reference
+    @reference = ReferenceBuild.new(reference_params, current_user, @itinerary).reference
     if @reference.save
       redirect_to user_reference_path(current_user, @reference)
     else
@@ -32,7 +32,7 @@ class ReferencesController < ApplicationController
 
   def update
     @reference = current_user.references.find params[:id]
-    if @reference.build_outgoing(permitted_params.reference) && @reference.save
+    if @reference.build_outgoing(reference_params) && @reference.save
       redirect_to user_reference_path(current_user, @reference)
     else
       @itinerary = @reference.itinerary
@@ -43,6 +43,14 @@ class ReferencesController < ApplicationController
 
   private
 
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def reference_params
+    params.require(:reference).permit :body, :rating
+  end
+
   def check_not_myself
     @itinerary = Itinerary.find(params[:itinerary_id])
     redirect_to root_path if @itinerary.user == current_user
@@ -50,9 +58,5 @@ class ReferencesController < ApplicationController
 
   def mark_as_read
     @reference.update_attribute :read_at, Time.now.utc
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
   end
 end
