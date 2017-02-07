@@ -10,12 +10,34 @@ class ApplicationController < ActionController::Base
 
   helper_method :permitted_params
 
-  protected
+  private
+
+  def after_sign_in_path_for(_resource_or_scope)
+    session.delete(:redirect_to) || dashboard_path
+  end
+
+  def check_banned
+    redirect_to :banned if current_user.banned?
+  end
+
+  def check_locale_availability(locale)
+    locale if locale.present? && I18n.available_locales.include?(locale.to_sym)
+  end
+
+  def locale_from_http_request
+    http_accept_language.preferred_language_from(I18n.available_locales) ||
+      http_accept_language.compatible_language_from(I18n.available_locales)
+  end
+
+  def permitted_params
+    @permitted_params ||= PermittedParams.new(params, current_user)
+  end
 
   def set_locale_from_params
     locale = check_locale_availability(params[:locale] || (current_user.locale if user_signed_in?)) ||
              http_accept_language.preferred_language_from(I18n.available_locales) ||
-             http_accept_language.compatible_language_from(I18n.available_locales)
+             http_accept_language.compatible_language_from(I18n.available_locales) ||
+             I18n.default_locale
     I18n.with_locale(locale) do
       yield
     end
@@ -25,23 +47,5 @@ class ApplicationController < ActionController::Base
     Time.use_zone(current_user.time_zone) do
       yield
     end
-  end
-
-  def check_banned
-    redirect_to :banned if current_user.banned?
-  end
-
-  private
-
-  def after_sign_in_path_for(_resource_or_scope)
-    session.delete(:redirect_to) || dashboard_path
-  end
-
-  def check_locale_availability(locale)
-    locale if locale.present? && I18n.available_locales.include?(locale.to_sym)
-  end
-
-  def permitted_params
-    @permitted_params ||= PermittedParams.new(params, current_user)
   end
 end
