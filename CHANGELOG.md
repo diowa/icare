@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.50.0.dev
+
+* Rails 5.0.1
+* Turbolinks 5
+
 ## 0.40.1
 
 * Update gems
