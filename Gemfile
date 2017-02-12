@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.3.3'
-gem 'rails', '4.2.7.1'
+gem 'rails', '5.0.1'
 
 # Servers
 gem 'thin'
@@ -53,6 +53,7 @@ gem 'google-analytics-rails'
 gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'resque', require: 'resque/server' # Resque web interface
+gem 'sinatra', '~> 2.0.0.beta1' # Needed by resque/server
 gem 'slim-rails'
 
 # Assets
@@ -60,12 +61,11 @@ gem 'autoprefixer-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets'
 gem 'i18n-js'
-gem 'jquery-turbolinks'
 gem 'sass-rails', '~> 5.0'
 gem 'slim_assets'
 gem 'sprockets'
 gem 'sprockets-rails'
-gem 'turbolinks', '~> 2.5'
+gem 'turbolinks'
 gem 'twbs_sass_rails'
 gem 'uglifier', '>= 1.3.0'
 
@@ -107,6 +107,5 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'rails_12factor' # Only for heroku
   gem 'unicorn'
 end

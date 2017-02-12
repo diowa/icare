@@ -83,7 +83,7 @@ class User
   field :banned, type: Boolean, default: false
 
   validates :gender, inclusion: GENDER, allow_blank: true
-  validates :time_zone, inclusion: ActiveSupport::TimeZone.zones_map(&:name).keys, allow_blank: true
+  validates :time_zone, inclusion: ActiveSupport::TimeZone.all.map(&:name), allow_blank: true
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
 
   def age

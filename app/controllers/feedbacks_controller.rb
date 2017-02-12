@@ -3,6 +3,8 @@ class FeedbacksController < ApplicationController
   before_action :set_feedback, only: [:show, :edit, :update, :destroy]
   before_action :check_owner_or_admin, only: [:edit, :update, :destroy]
 
+  helper_method :feedback_attributes
+
   def index
     @feedbacks = Feedback.includes(:user).all.desc(:updated_at).page params[:page]
     @feedbacks = @feedbacks.where(:status.ne => 'fixed') if params[:hide_fixed]
@@ -14,7 +16,7 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    @feedback = current_user.feedbacks.build(permitted_params.feedback)
+    @feedback = current_user.feedbacks.build(feedback_params)
     if @feedback.save
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.create') }
     else
@@ -23,7 +25,7 @@ class FeedbacksController < ApplicationController
   end
 
   def update
-    if @feedback.update_attributes(permitted_params.feedback)
+    if @feedback.update_attributes(feedback_params)
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.update') }
     else
       render :edit
@@ -39,6 +41,16 @@ class FeedbacksController < ApplicationController
 
   def set_feedback
     @feedback = Feedback.find(params[:id])
+  end
+
+  def feedback_params
+    params.require(:feedback).permit(*feedback_attributes)
+  end
+
+  def feedback_attributes
+    whitelist = [:type, :message, :url]
+    whitelist << :status if current_user&.admin?
+    whitelist
   end
 
   def check_owner_or_admin

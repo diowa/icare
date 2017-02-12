@@ -22,7 +22,7 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    @itinerary = current_user.itineraries.new(permitted_params.itinerary)
+    @itinerary = current_user.itineraries.new(itinerary_params)
     if @itinerary.save
       redirect_to itinerary_path(@itinerary), flash: { success: t('flash.itineraries.success.create') }
     else
@@ -36,7 +36,7 @@ class ItinerariesController < ApplicationController
 
   def update
     @itinerary = current_user.itineraries.find params[:id]
-    if @itinerary.update_attributes permitted_params.itinerary
+    if @itinerary.update_attributes itinerary_params
       redirect_to itinerary_path(@itinerary), flash: { success: t('flash.itineraries.success.update') }
     else
       render :edit
@@ -59,6 +59,19 @@ class ItinerariesController < ApplicationController
 
   def set_itinerary
     @itinerary = Itinerary.find params[:id]
+  end
+
+  def itinerary_params
+    params.require(:itinerary).permit(*itinerary_attributes)
+  end
+
+  def itinerary_attributes
+    whitelist = [:start_address, :end_address, :description, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls,
+                 :avoid_highways, :avoid_tolls,
+                 :round_trip, :leave_date, :return_date, :daily,
+                 :route, :share_on_facebook_timeline]
+    whitelist << :pink if current_user&.female?
+    whitelist
   end
 
   def check_female

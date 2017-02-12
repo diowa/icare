@@ -1,16 +1,16 @@
 nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role='navigation'
   .container
     .navbar-header
-      button.navbar-toggle type='button' data-toggle='collapse' data-target='.navbar-responsive-collapse'
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
+      button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#main-navbar-collapse'
+        span.icon-bar.icon-bar--top
+        span.icon-bar.icon-bar--middle
+        span.icon-bar.icon-bar--bottom
       = link_to user_signed_in? ? :dashboard : root_path, class: 'navbar-brand' do
         = image_tag 'turtle_dark.svg', height: 15, width: 38, alt: ''
         span.hidden-xs<= APP_CONFIG.app_name
     - if user_signed_in?
       == render 'shared/notifications'
-      .navbar-collapse.collapse.navbar-responsive-collapse role="navigation"
+      .navbar-collapse.collapse#main-navbar-collapse role="navigation"
         ul.nav.navbar-nav.navbar-right
           li#navbar-user-info
             = link_to user_path(current_user), class: 'navbar-profile-link' do
@@ -27,7 +27,7 @@ nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role='navigation'
               li.divider
               li= link_to t('logout'), destroy_user_session_path, method: :delete
     - else
-      .navbar-collapse.collapse.navbar-responsive-collapse role="navigation"
+      .navbar-collapse.collapse#main-navbar-collapse role="navigation"
         ul.nav.navbar-nav.navbar-right
           li= link_to t('how_it_works'), :how_it_works
           li= link_to t('about'), :about

@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 # ClientSideValidations Initializer
 
-# Disabled validators. The uniqueness validator is disabled by default for security issues. Enable it on your own responsibility!
-# ClientSideValidations::Config.disabled_validators = [:uniqueness]
-ClientSideValidations::Engine.config.app_middleware.delete ClientSideValidations::Middleware::Validators
+# Disabled validators
+# ClientSideValidations::Config.disabled_validators = []
 
 # Uncomment to validate number format with current I18n locale
 # ClientSideValidations::Config.number_format_with_locale = true
