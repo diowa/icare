@@ -68,6 +68,11 @@ html,
     color: #fff;
   }
 
+  a:hover,
+  a:focus {
+    color: #fff;
+  }
+
   h1 {
     margin: 10px 0 $line-height-computed;
     font-family: "Pacifico";
@@ -102,7 +107,6 @@ html,
 
   &:hover,
   &:focus {
-    color: #fff;
     background-color: fade-out(#000, .65);
     border-color: fade-out(#fff, .6);
   }
