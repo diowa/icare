@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 class Itinerary
   include Mongoid::Document
-  include Mongoid::Geospatial
   include Mongoid::MultiParameterAttributes
   include Mongoid::Paranoia
   include Mongoid::Slug
   include Mongoid::Timestamps
 
-  include Concerns::GmapRoute
+  include Concerns::GeoItinerary
 
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).freeze
 

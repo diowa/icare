@@ -59,7 +59,7 @@ RSpec.describe Itinerary do
     end
   end
 
-  describe Concerns::GmapRoute do
+  describe Concerns::GeoItinerary do
     let(:route_param) do
       { start_location: [itinerary.start_location.lng, itinerary.start_location.lat],
         end_location: [itinerary.end_location.lng, itinerary.end_location.lat],

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 module Concerns
-  module GmapRoute
+  module GeoItinerary
     extend ActiveSupport::Concern
 
     included do
