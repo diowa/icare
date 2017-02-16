@@ -151,6 +151,11 @@ html,
   width: 100%;
 }
 
+.join-us {
+  margin: .5em 0 1em;
+  text-align: center;
+}
+
 .signin-terms {
   margin-top: $line-height-computed;
 }
@@ -168,6 +173,10 @@ html,
     position: relative;
     top: 5px;
     font-size: $font-size-base;
+  }
+
+  .join-us {
+    font-size: $font-size-h1;
   }
 
   .splashscreen {
