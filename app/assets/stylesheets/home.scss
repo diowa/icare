@@ -33,22 +33,10 @@ html,
 }
 
 .splashscreen {
-  position: relative;
   display: table;
   @include size(100%, auto);
   margin-bottom: 0;
-  background: lighten($brand-primary, 20%) asset-data-url("noise.png");
-  box-shadow: 0 3px 3px fade-out(#000, .75);
-
-  &:before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    @include square(100%);
-    content: "";
-    background: radial-gradient(fade-out(#000, .95), fade-out(#000, .59), fade-out(#000, .36));
-  }
+  background-color: darken($brand-primary, 10%);
 }
 
 .splashscreen-container {
