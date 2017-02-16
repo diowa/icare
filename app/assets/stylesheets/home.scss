@@ -20,6 +20,10 @@ html,
   .btn-toolbar {
     display: inline-block;
   }
+
+  .btn-why-facebook {
+    text-decoration: underline;
+  }
 }
 
 .homepage .advertising {
@@ -161,6 +165,8 @@ html,
   }
 
   .btn-why-facebook {
+    position: relative;
+    top: 5px;
     font-size: $font-size-base;
   }
 
@@ -188,7 +194,6 @@ html,
 
     .btn-why-facebook {
       position: absolute;
-      top: 5px;
       font-size: $font-size-base;
     }
   }
