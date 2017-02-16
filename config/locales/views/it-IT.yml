@@ -63,7 +63,7 @@ it-IT:
 
   about: Su di noi
   how_it_works: Come funziona
-  policy: "Normativa sull'utilizzo dei dati"
+  privacy: "Normativa sull'utilizzo dei dati"
   terms: "Condizioni d'uso"
   demo_terms: "Condizioni d'uso della versione dimostrativa"
 
@@ -178,10 +178,10 @@ it-IT:
       open_source_title: "Open Source"
       open_source_content_html: "Il %{source_code_link} di %{appname} è a disposizione di tutti su GitHub, la più vasta comunità open source al mondo."
       source_code: "codice sorgente"
-      signin_terms_html: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{policy_link}."
+      signin_terms_html: "Cliccando su \"Accedi\", accetti le %{terms_link} di %{appname} e confermi di aver letto e compreso la nostra %{privacy_link}."
       demo_mode_html: "Questa è un'applicazione dimostrativa. Cliccando su \"Accedi\", accetti le nostre %{demo_terms_link}."
       join_us_today: "Registrati adesso!"
-    policy:
+    privacy:
       title: Normativa sull'utilizzo dei dati
     terms:
       title: Condizioni d'uso
