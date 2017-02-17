@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class ShareOnFacebookTimelineJob < ActiveJob::Base
+class ShareOnFacebookTimelineJob < ApplicationJob
   queue_as :share_on_facebook_timeline_queue
 
   def perform(itinerary)
