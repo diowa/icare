@@ -4,6 +4,8 @@
 
 * Rails 5.0.1
 * Turbolinks 5
+* Improve PWA assets
+* Update layout
 
 ## 0.40.1
 
