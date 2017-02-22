@@ -4,6 +4,7 @@ rvm:
   - 2.3.3
 services:
   - mongodb
+  - redis-server
 
 cache:
   directories:
