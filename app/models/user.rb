@@ -4,8 +4,7 @@ class User
   include Mongoid::Timestamps
   include Mongoid::Paranoia
 
-  # Concerns
-  include ::Concerns::User::FacebookOmniauthable
+  include FacebookOmniauthable
 
   # Include default devise modules. Others available are:
   devise :omniauthable, omniauth_providers: [:facebook]

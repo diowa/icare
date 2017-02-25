@@ -6,7 +6,7 @@ class Itinerary
   include Mongoid::Slug
   include Mongoid::Timestamps
 
-  include Concerns::GeoItinerary
+  include GeoItinerary
 
   DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).freeze
 
