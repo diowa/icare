@@ -139,7 +139,7 @@ GEM
       sprockets (>= 2.0.0)
       tilt (>= 1.2)
     hashdiff (0.3.2)
-    hashie (3.5.4)
+    hashie (3.5.5)
     htmlentities (4.3.4)
     http_accept_language (2.1.0)
     i18n (0.8.1)
