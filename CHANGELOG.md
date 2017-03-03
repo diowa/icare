@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.50.0.dev
+## 0.50.0
 
 * Rails 5.0.2
 * Turbolinks 5
