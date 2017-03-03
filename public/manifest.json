@@ -1,0 +1,15 @@
+{
+  "short_name": "icare",
+  "name": "icare",
+  "icons": [
+    {
+      "src": "android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#3d7098",
+  "background_color": "#3d7098"
+}

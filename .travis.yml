@@ -4,12 +4,15 @@ rvm:
   - 2.3.3
 services:
   - mongodb
+  - redis-server
 
 cache:
   directories:
     - "travis_phantomjs"
 
 before_install:
+  - gem update --system 2.6.9
+  - gem install bundler -v '~> 1.14'
   - export PHANTOMJS_VERSION=2.1.1
   - phantomjs --version
   - export PATH=$PWD/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64/bin:$PATH

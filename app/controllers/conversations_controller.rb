@@ -19,7 +19,7 @@ class ConversationsController < ApplicationController
 
   def create
     @itinerary = Itinerary.includes(:user).find(params[:itinerary_id])
-    @conversation = ConversationBuild.new(permitted_params.conversation, current_user, @itinerary).conversation
+    @conversation = ConversationBuild.new(conversation_params, current_user, @itinerary).conversation
     if @conversation.save
       redirect_to conversation_path(@conversation)
     else
@@ -31,7 +31,7 @@ class ConversationsController < ApplicationController
 
   def update
     @conversation = current_user.conversations.find(params[:id])
-    @conversation.messages.build ConversationBuild.new(permitted_params.conversation, current_user, @itinerary).message
+    @conversation.messages.build ConversationBuild.new(conversation_params, current_user, @itinerary).message
     if @conversation.save
       redirect_to conversation_path(@conversation)
     else
@@ -55,6 +55,10 @@ class ConversationsController < ApplicationController
   end
 
   private
+
+  def conversation_params
+    params.require(:conversation).permit message: [:body]
+  end
 
   def mark_as_read
     @conversation.mark_as_read!(current_user)

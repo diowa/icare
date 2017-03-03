@@ -2,7 +2,7 @@
 .container
   .page-header
     h1= yield :title
-    h5.text-muted= t('last_modified', date: l(Date.parse('2012-09-01'), format: :long))
+    h5.text-muted= t('last_modified', date: l(Date.parse('2017-02-16'), format: :long))
 
   h3 Welcome to #{APP_CONFIG.app_name}
   p
@@ -12,16 +12,13 @@
 
   h3 Using our Service
   p
-    | This is a demo application of the open source carpooling platform #{APP_CONFIG.app_name}.
+    ' This is a demo application of the open source #{link_to('carpooling', 'https://en.wikipedia.org/wiki/Carpool')} platform #{APP_CONFIG.app_name}.
   p
-    | The source code is available at
-    = link_to 'http://github.com/diowa/icare', APP_CONFIG.repository_url
+    | The source code is available at #{link_to('https://github.com/diowa/icare', APP_CONFIG.repository_url)}
 
   h3 Privacy Protection
   p
-    #{APP_CONFIG.app_name}'s
-    = link_to 'privacy policy', :policy
-    | explain how we treat your personal data and protect your privacy when you use our Service.
+    | #{APP_CONFIG.app_name}'s #{link_to('privacy policy', :privacy)} explain how we treat your personal data and protect your privacy when you use our Service.
   p
     | By using our Service, you agree that #{APP_CONFIG.app_name} can use such data in accordance with our privacy policy.
 

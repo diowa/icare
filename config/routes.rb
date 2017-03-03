@@ -42,7 +42,7 @@ Rails.application.routes.draw do
 
   get :about, to: 'pages#about'
   get :how_it_works, to: 'pages#how_it_works'
-  get :policy, to: 'pages#policy'
+  get :privacy, to: 'pages#privacy'
   get :terms, to: 'pages#terms'
   get :demo_terms, to: 'pages#demo_terms'
   get :fbjssdk_channel, to: 'pages#fbjssdk_channel'

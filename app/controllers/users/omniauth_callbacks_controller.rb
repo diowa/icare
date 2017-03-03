@@ -9,7 +9,7 @@ module Users
         CacheFacebookDataJob.perform_later @user
         sign_in_and_redirect @user, event: :authentication
       else
-        redirect_to root_path, flash: { error: 'flash.sessions.error.create' }
+        redirect_to root_path, flash: { error: t('flash.sessions.error.create') }
       end
     end
 

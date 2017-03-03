@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.50.0
+
+* Rails 5.0.2
+* Turbolinks 5
+* Improve PWA assets
+* Update layout
+
 ## 0.40.1
 
 * Update gems

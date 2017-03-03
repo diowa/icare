@@ -1,7 +1,7 @@
 = simple_form_for @feedback, validate: true do |f|
   == render 'shared/error_messages', object: f.object
   = f.input :type, collection: Feedback::TYPE
-  - if permitted_params.feedback_attributes.include? :status
+  - if feedback_attributes.include? :status
     = f.input :status, collection: Feedback::STATUS
   = f.input :message, as: :text, input_html: { rows: 8 }
   = f.input :url

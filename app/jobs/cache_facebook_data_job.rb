@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class CacheFacebookDataJob < ActiveJob::Base
+class CacheFacebookDataJob < ApplicationJob
   queue_as :cache_facebook_data_queue
 
   def perform(user)

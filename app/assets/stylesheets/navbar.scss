@@ -42,6 +42,38 @@
   }
 }
 
+.navbar-toggle {
+  .icon-bar {
+    // same duration as bootstrap's collapse
+    transition: all .35s ease-in-out;
+    backface-visibility: hidden;
+  }
+
+  .icon-bar--top {
+    transform: rotate3d(0, 0, 1, 45deg);
+    transform-origin: 17% 200%;
+  }
+
+  .icon-bar--middle {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+
+  .icon-bar--bottom {
+    transform: rotate3d(0, 0, 1, -45deg);
+    transform-origin: 17% -100%;
+  }
+
+  &.collapsed {
+    .icon-bar {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+}
+
+.navbar-default .navbar-collapse {
+  border-color: transparent;
+}
+
 @media (min-width: $grid-float-breakpoint) {
   .navbar-default {
     background-color: fade-out($navbar-default-bg, .1);

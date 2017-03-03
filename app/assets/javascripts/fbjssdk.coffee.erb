@@ -49,7 +49,7 @@ loadFBsdk = ->
     return
   ) document
 
-$ ->
+$(document).on window.initializeOnEvent, ->
   if $('#fb-root')[0]?
     if FB?
       # FIXME

@@ -24,7 +24,7 @@ $(document).on 'shown.bs.popover', '.notifications', (e) ->
         else
           $popover.find('.popover-content').text I18n.t("javascript.notifications.#{$target.data('notificationsType')}.no_new")
 
-$ ->
+$(document).on window.initializeOnEvent, ->
   $('.notifications').each ->
     $target = $(this).find('> a')
     unread = $target.data('unread')

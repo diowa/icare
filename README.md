@@ -16,11 +16,11 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [CoffeeScript][3]
 * [Handlebars.js][4] (JavaScript semantic templates)
 * [SLIM][5]
-* [Twitter Bootstrap][6]
+* [Bootstrap][6]
 * [Font Awesome][7] (retina ready vectorial icons)
 * [Mongoid][8] (ODM for MongoDB)
 * [Devise][2]
-* Asynchronous tasks with [Resque][9] - Redis
+* Asynchronous tasks with [Resque][9] and [Redis][19]
 * [RABL][10] API Builder
 * Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
@@ -49,6 +49,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [16]: https://github.com/airbrake/airbrake
  [17]: https://github.com/ariya/phantomjs/
  [18]: https://github.com/teampoltergeist/poltergeist
+ [19]: https://redis.io/
 
 A working demo is available at http://icare.diowa.com/
 

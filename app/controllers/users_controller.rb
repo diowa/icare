@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(permitted_params.user)
+    if @user.update_attributes(user_params)
       redirect_to :settings, flash: { success: t('flash.users.success.update') }
     else
       render :settings
@@ -39,5 +39,9 @@ class UsersController < ApplicationController
 
   def set_user_as_current_user
     @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit :time_zone, :locale, :vehicle_avg_consumption
   end
 end

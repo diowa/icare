@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 # Load the Rails application.
-require File.expand_path('../application', __FILE__)
+require_relative 'application'
 
 # TODO: Replace with figaro
-require Rails.root.join('config', 'configuration.rb').to_s
+require_relative 'configuration'
 
 # Initialize the Rails application.
 Rails.application.initialize!
