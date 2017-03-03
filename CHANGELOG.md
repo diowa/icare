@@ -2,7 +2,7 @@
 
 ## 0.50.0.dev
 
-* Rails 5.0.1
+* Rails 5.0.2
 * Turbolinks 5
 * Improve PWA assets
 * Update layout
