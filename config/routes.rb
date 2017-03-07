@@ -45,6 +45,5 @@ Rails.application.routes.draw do
   get :privacy, to: 'pages#privacy'
   get :terms, to: 'pages#terms'
   get :demo_terms, to: 'pages#demo_terms'
-  get :fbjssdk_channel, to: 'pages#fbjssdk_channel'
   post :report_uri, to: 'pages#report_uri'
 end
