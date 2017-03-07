@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.50.2
+
+* Remove facepile plugin
+
 ## 0.50.1
 
 * Update gems
