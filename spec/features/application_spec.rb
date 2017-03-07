@@ -20,12 +20,6 @@ RSpec.describe 'Application' do
     end
   end
 
-  it 'fallbacks on fbjssdk_channel' do
-    visit fbjssdk_channel_path
-
-    expect(page.status_code).to eq 200
-  end
-
   context 'Locale' do
     context 'when user is passing an unknown locale param' do
       it 'fallbacks to en-US' do
