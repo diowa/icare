@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.50.3
+
+* Fix blank timezone issue ([#54](https://github.com/diowa/icare/issues/54))
+* Update gems
+
 ## 0.50.2
 
 * Remove facepile plugin
