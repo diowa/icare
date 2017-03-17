@@ -29,7 +29,7 @@
     fieldset
       legend= t('.application_settings')
       = f.input :locale, collection: I18n.available_locales.map { |locale| [t('lang_native_name', locale: locale), locale] }, disabled: I18n.available_locales.one?, wrapper: :horizontal_form
-      = f.input :time_zone, wrapper: :horizontal_form
+      = f.input :time_zone, wrapper: :horizontal_form, include_blank: false
       .form-group
         .col-sm-10.col-sm-offset-2
           = label_tag :notification_group, t('.send_email'), class: 'control-label'
