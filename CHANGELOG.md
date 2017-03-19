@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.50.4
+
+* Update gems
+* Update RuboCop config
+
 ## 0.50.3
 
 * Fix blank timezone issue ([#54](https://github.com/diowa/icare/issues/54))
