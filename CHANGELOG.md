@@ -3,6 +3,7 @@
 ## 0.50.4
 
 * Update gems
+* Update RuboCop config
 
 ## 0.50.3
 
