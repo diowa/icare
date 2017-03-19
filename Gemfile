@@ -53,7 +53,7 @@ gem 'google-analytics-rails'
 gem 'http_accept_language'
 gem 'jquery-rails'
 gem 'resque', require: 'resque/server' # Resque web interface
-gem 'sinatra', '~> 2.0.0.beta1' # Needed by resque/server
+gem 'sinatra', '~> 2.0.0.rc2' # Needed by resque/server
 gem 'slim-rails'
 
 # Assets
