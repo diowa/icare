@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.50.5
+
+* Update gems
+
 ## 0.50.4
 
 * Update gems
