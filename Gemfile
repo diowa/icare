@@ -42,7 +42,6 @@ gem 'omniauth-facebook'
 
 # Performance and Exception management
 gem 'airbrake'
-gem 'newrelic_moped'
 gem 'newrelic_rpm'
 
 # Security
