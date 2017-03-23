@@ -11,7 +11,7 @@ cache:
     - "travis_phantomjs"
 
 before_install:
-  - gem update --system 2.6.9
+  - gem update --system 2.6.11
   - gem install bundler -v '~> 1.14'
   - export PHANTOMJS_VERSION=2.1.1
   - phantomjs --version
