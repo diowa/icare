@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ConversationBuild
   def initialize(params, user, itinerary)
     @params = params

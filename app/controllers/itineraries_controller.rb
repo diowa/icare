@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ItinerariesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
 
@@ -66,10 +67,10 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_attributes
-    whitelist = [:start_address, :end_address, :description, :num_people, :smoking_allowed, :pets_allowed, :fuel_cost, :tolls,
-                 :avoid_highways, :avoid_tolls,
-                 :round_trip, :leave_date, :return_date, :daily,
-                 :route, :share_on_facebook_timeline]
+    whitelist = %i(start_address end_address description num_people smoking_allowed pets_allowed fuel_cost tolls
+                   avoid_highways avoid_tolls
+                   round_trip leave_date return_date daily
+                   route share_on_facebook_timeline)
     whitelist << :pink if current_user&.female?
     whitelist
   end

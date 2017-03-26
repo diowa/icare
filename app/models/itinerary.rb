@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Itinerary
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes

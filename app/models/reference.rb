@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Reference
   include Mongoid::Document
   include Mongoid::Timestamps

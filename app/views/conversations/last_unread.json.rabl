@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 object @conversations
 
 node(:url) { |conversation| conversation_url(conversation) }

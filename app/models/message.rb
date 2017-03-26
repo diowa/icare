@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Message
   include Mongoid::Document
   include Mongoid::Timestamps

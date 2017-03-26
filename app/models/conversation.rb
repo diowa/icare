@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Conversation
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -11,7 +12,7 @@ class Conversation
 
   scope :unread, ->(user) { where(messages: { '$elemMatch' => { read_at: nil, sender_id: { '$ne' => user.id } } }) }
 
-  validates :user_ids, uniqueness: { scope: [:conversable_id, :conversable_type], message: :already_exists }
+  validates :user_ids, uniqueness: { scope: %i(conversable_id conversable_type), message: :already_exists }
 
   def unread?(user)
     messages.unread.where(:sender_id.ne => user.id).any?

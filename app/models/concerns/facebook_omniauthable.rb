@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module FacebookOmniauthable
   extend ActiveSupport::Concern
 
@@ -52,7 +53,7 @@ module FacebookOmniauthable
     #
     # Ref: https://developers.facebook.com/docs/graph-api/reference/user/
     def birthday_from_graph_api(ga_birthday)
-      Date.strptime(ga_birthday, '%m/%d/%Y').at_midnight if ga_birthday =~ %r{\A[0-9]{2}/[0-9]{2}/[0-9]{4}\z}
+      Date.strptime(ga_birthday, '%m/%d/%Y').at_midnight if ga_birthday&.match?(%r{\A[0-9]{2}/[0-9]{2}/[0-9]{4}\z})
     end
 
     def locale_from_graph_api(ga_locale)

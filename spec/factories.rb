@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 FactoryGirl.define do
   sequence(:uid)      { |n| "100#{n}" }
   sequence(:email)    { |n| "person#{n}@example.com" }
