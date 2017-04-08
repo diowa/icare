@@ -10,7 +10,7 @@ FactoryGirl.define do
     provider 'facebook'
     name { Faker::Name.name }
     gender 'male'
-    birthday { Time.zone.at(rand * (18.years.ago.to_f - 50.years.ago.to_f) + 50.years.ago.to_f).to_date }
+    birthday { Faker::Date.birthday(18, 50) }
   end
 
   factory :itinerary do
