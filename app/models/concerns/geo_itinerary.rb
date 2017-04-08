@@ -35,12 +35,9 @@ module GeoItinerary
 
     def route=(param)
       json_route = JSON.parse(param)
-
-      # rubocop:disable Style/RedundantSelf
       self.start_location, self.end_location,
         self.via_waypoints, self.overview_path,
           self.overview_polyline = json_route.values_at('start_location', 'end_location', 'via_waypoints', 'overview_path', 'overview_polyline')
-      # rubocop:enable Style/RedundantSelf
     rescue
       nil
     end

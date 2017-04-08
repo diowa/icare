@@ -31,7 +31,7 @@ module ReferencesHelper
   end
 
   def reference_tags(user)
-    html = %i(positives neutrals negatives).map { |reference_type| reference_tag user, reference_type }
+    html = %i[positives neutrals negatives].map { |reference_type| reference_tag user, reference_type }
     safe_join html
   end
 

@@ -45,7 +45,7 @@ if APP_CONFIG.airbrake.host && APP_CONFIG.airbrake.project_id && APP_CONFIG.airb
     # unwanted environments such as :test.
     # NOTE: This option *does not* work if you don't set the 'environment' option.
     # https://github.com/airbrake/airbrake-ruby#ignore_environments
-    c.ignore_environments = %w(test)
+    c.ignore_environments = %w[test]
 
     # A list of parameters that should be filtered out of what is sent to
     # Airbrake. By default, all "password" attributes will have their contents

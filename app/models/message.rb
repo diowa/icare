@@ -15,7 +15,7 @@ class Message
   validates :body, presence: true, length: { maximum: 1000 }
   validates :sender, presence: true
 
-  scope :unread, -> { where(read_at: nil) }
+  scope(:unread, -> { where(read_at: nil) })
 
   def unread?
     read_at.nil?

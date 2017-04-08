@@ -25,7 +25,7 @@ module Icare
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
     config.i18n.enforce_available_locales = false
     config.i18n.default_locale = :'en-US'
-    config.i18n.available_locales = %i(en-US it-IT)
+    config.i18n.available_locales = %i[en-US it-IT]
 
     config.active_job.queue_adapter = :resque
   end

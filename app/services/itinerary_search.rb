@@ -40,7 +40,7 @@ class ItinerarySearch
   def extract_filters_from_params
     filters = {}
 
-    %i(round_trip pink verified).each do |checkbox_field|
+    %i[round_trip pink verified].each do |checkbox_field|
       param = @params["filter_#{checkbox_field}".to_sym]
       filters[checkbox_field] = true if param == '1'
     end
@@ -48,7 +48,7 @@ class ItinerarySearch
     # Overrides pink filter for malicious male users
     filters[:pink] = false unless @user.female?
 
-    %i(smoking_allowed pets_allowed).each do |boolean_field|
+    %i[smoking_allowed pets_allowed].each do |boolean_field|
       param = @params["filter_#{boolean_field}".to_sym]
       filters[boolean_field] = (param == 'true') if param.present?
     end

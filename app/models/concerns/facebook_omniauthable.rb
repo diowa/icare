@@ -72,7 +72,7 @@ module FacebookOmniauthable
     def update_favorites!
       result = facebook do |fb|
         fb.batch do |batch_api|
-          %w(music books movies television games).each do |favorite|
+          %w[music books movies television games].each do |favorite|
             batch_api.get_connections('me', favorite)
           end
         end

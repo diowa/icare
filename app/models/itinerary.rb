@@ -9,7 +9,7 @@ class Itinerary
 
   include GeoItinerary
 
-  DAYNAME = %w(Sunday Monday Tuesday Wednesday Thursday Friday Saturday).freeze
+  DAYNAME = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday].freeze
 
   belongs_to :user
   delegate :name, to: :user, prefix: true
@@ -36,7 +36,7 @@ class Itinerary
 
   attr_accessor :share_on_facebook_timeline
 
-  slug :start_address, :end_address, reserve: %w(new)
+  slug :start_address, :end_address, reserve: %w[new]
 
   # default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
 

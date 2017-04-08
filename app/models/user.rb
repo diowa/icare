@@ -48,7 +48,7 @@ class User
 
   # The gender selected by this person, male or female. This value will be omitted if the gender is set to a custom value
   # Ref: https://developers.facebook.com/docs/graph-api/reference/user/
-  GENDER = %w(male female).freeze
+  GENDER = %w[male female].freeze
 
   paginates_per 25
 
