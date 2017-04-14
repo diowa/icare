@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 SecureHeaders::Configuration.default do |config|
   config.hsts                              = "max-age=#{20.years.to_i}; includeSubdomains"
   config.x_frame_options                   = 'DENY'

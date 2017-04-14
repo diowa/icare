@@ -1,9 +1,10 @@
 # frozen_string_literal: true
+
 class Feedback
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  TYPE = %w(bug idea).freeze
+  TYPE = %w[bug idea].freeze
   STATUS = ['open', 'fixed', 'in progress', 'not applicable'].freeze
 
   belongs_to :user

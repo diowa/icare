@@ -1,7 +1,7 @@
 language: ruby
 sudo: false
 rvm:
-  - 2.3.3
+  - 2.4.1
 services:
   - mongodb
   - redis-server
@@ -11,7 +11,7 @@ cache:
     - "travis_phantomjs"
 
 before_install:
-  - gem update --system 2.6.9
+  - gem update --system 2.6.11
   - gem install bundler -v '~> 1.14'
   - export PHANTOMJS_VERSION=2.1.1
   - phantomjs --version

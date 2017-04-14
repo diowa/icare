@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 object @itinerary
 
 attributes :description, :fuel_cost, :leave_date, :num_people, :overview_polyline,

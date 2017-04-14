@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Reference
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -15,11 +16,11 @@ class Reference
 
   attr_accessor :body, :rating
 
-  scope :unread, -> { where(read_at: nil) }
+  scope(:unread, -> { where(read_at: nil) })
 
-  scope :positives, -> { where('incoming.rating': 1) }
-  scope :neutrals, -> { where('incoming.rating': 0) }
-  scope :negatives, -> { where('incoming.rating': -1) }
+  scope(:positives, -> { where('incoming.rating': 1) })
+  scope(:neutrals, -> { where('incoming.rating': 0) })
+  scope(:negatives, -> { where('incoming.rating': -1) })
 
   validates :referencing_user_id, uniqueness: { message: :already_present }
   validate :not_by_myself

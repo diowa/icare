@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # From Diaspora
 
 worker_processes 3

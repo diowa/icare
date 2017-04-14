@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module UsersHelper
   def facebook_profile_picture(user, type = :square)
     if user_signed_in? && user.image?
@@ -49,7 +50,7 @@ module UsersHelper
 
   def get_common_tags(my_tags, user_tags)
     return [] if my_tags&.empty?
-    my_tags.map { |tag| tag['id'] } & user_tags.map { |tag| tag['id'] }
+    (my_tags.map { |tag| tag['id'] }) & (user_tags.map { |tag| tag['id'] })
   end
 
   def render_tags(user_tags, my_tags, opts = {})

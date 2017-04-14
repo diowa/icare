@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module References
   class Outgoing < Base
     embedded_in :reference

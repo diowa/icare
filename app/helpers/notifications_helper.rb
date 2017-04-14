@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module NotificationsHelper
   def notifications_tag(type, icon)
     content_tag :li, class: 'notifications', id: "notifications-#{type}" do

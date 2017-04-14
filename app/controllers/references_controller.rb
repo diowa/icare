@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 class ReferencesController < ApplicationController
-  before_action :set_user, only: [:index, :show, :update]
-  before_action :check_not_myself, only: [:new, :create]
+  before_action :set_user, only: %i[index show update]
+  before_action :check_not_myself, only: %i[new create]
 
   after_action :mark_as_read, only: [:show]
 
