@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 FactoryGirl.define do
   sequence(:uid)      { |n| "100#{n}" }
   sequence(:email)    { |n| "person#{n}@example.com" }
@@ -9,7 +10,7 @@ FactoryGirl.define do
     provider 'facebook'
     name { Faker::Name.name }
     gender 'male'
-    birthday { Time.zone.at(rand * (18.years.ago.to_f - 50.years.ago.to_f) + 50.years.ago.to_f).to_date }
+    birthday { Faker::Date.birthday(18, 50) }
   end
 
   factory :itinerary do

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 if defined?(Resque) && defined?(Redis)
   Resque.redis = Redis.new(url: APP_CONFIG.redis.url)
 end

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ItinerarySearch
   SPHERE_RADIUS = 5.fdiv Mongoid::Geospatial.earth_radius[:km]
 
@@ -39,7 +40,7 @@ class ItinerarySearch
   def extract_filters_from_params
     filters = {}
 
-    [:round_trip, :pink, :verified].each do |checkbox_field|
+    %i[round_trip pink verified].each do |checkbox_field|
       param = @params["filter_#{checkbox_field}".to_sym]
       filters[checkbox_field] = true if param == '1'
     end
@@ -47,9 +48,9 @@ class ItinerarySearch
     # Overrides pink filter for malicious male users
     filters[:pink] = false unless @user.female?
 
-    [:smoking_allowed, :pets_allowed].each do |boolean_field|
+    %i[smoking_allowed pets_allowed].each do |boolean_field|
       param = @params["filter_#{boolean_field}".to_sym]
-      filters[boolean_field] = (param == 'true') unless param.blank?
+      filters[boolean_field] = (param == 'true') if param.present?
     end
 
     filter_driver_gender_param = @params[:filter_driver_gender]

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
@@ -7,22 +8,22 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :conversations, only: [:show, :new, :create, :update, :index] do
+  resources :conversations, only: %i[show new create update index] do
     get :unread, on: :collection
   end
 
-  resources :feedbacks, only: [:show, :new, :create, :edit, :update, :destroy, :index]
+  resources :feedbacks, only: %i[show new create edit update destroy index]
 
-  resources :itineraries, only: [:show, :new, :create, :edit, :update, :destroy, :index, :search] do
+  resources :itineraries, only: %i[show new create edit update destroy index search] do
     post :search, on: :collection
     resources :build
   end
 
   resources :notifications, only: :index
 
-  resources :users, only: [:show, :update, :destroy] do
+  resources :users, only: %i[show update destroy] do
     get :itineraries, on: :member
-    resources :references, only: [:show, :new, :create, :update, :index]
+    resources :references, only: %i[show new create update index]
   end
 
   # Admin Area

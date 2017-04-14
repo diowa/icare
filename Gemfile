@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -6,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.3.3'
+ruby '2.4.1'
 gem 'rails', '5.0.2'
 
 # Servers
@@ -61,7 +62,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets'
 gem 'i18n-js'
 gem 'sass-rails', '~> 5.0'
-gem 'slim_assets'
 gem 'sprockets'
 gem 'sprockets-rails'
 gem 'turbolinks'

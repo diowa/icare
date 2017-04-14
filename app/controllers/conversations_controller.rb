@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ConversationsController < ApplicationController
   after_action :mark_as_read, only: [:show]
 

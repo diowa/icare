@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class CacheFacebookDataJob < ApplicationJob
   queue_as :cache_facebook_data_queue
 

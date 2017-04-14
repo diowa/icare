@@ -1,7 +1,8 @@
 # frozen_string_literal: true
+
 class FeedbacksController < ApplicationController
-  before_action :set_feedback, only: [:show, :edit, :update, :destroy]
-  before_action :check_owner_or_admin, only: [:edit, :update, :destroy]
+  before_action :set_feedback, only: %i[show edit update destroy]
+  before_action :check_owner_or_admin, only: %i[edit update destroy]
 
   helper_method :feedback_attributes
 
@@ -48,7 +49,7 @@ class FeedbacksController < ApplicationController
   end
 
   def feedback_attributes
-    whitelist = [:type, :message, :url]
+    whitelist = %i[type message url]
     whitelist << :status if current_user&.admin?
     whitelist
   end
