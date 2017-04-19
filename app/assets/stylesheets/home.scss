@@ -65,7 +65,7 @@ html,
     color: #fff;
   }
 
-  h1 {
+  h2 {
     margin: 10px 0 $line-height-computed;
     font-family: "Pacifico";
     font-size: 50px;
@@ -77,8 +77,9 @@ html,
     }
   }
 
-  h2 {
+  h1 {
     margin-bottom: $line-height-computed;
+    font-size: $font-size-h2;
   }
 
   .btn-why-facebook {
@@ -187,13 +188,13 @@ html,
     padding-bottom: 62px;
 
     h1 {
-      font-size: 70px;
-      line-height: 44px;
+      font-size: 36px;
+      line-height: 46px;
     }
 
     h2 {
-      font-size: 36px;
-      line-height: 46px;
+      font-size: 70px;
+      line-height: 44px;
     }
 
     .btn-toolbar {

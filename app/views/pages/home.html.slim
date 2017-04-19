@@ -5,12 +5,12 @@
 == render 'shared/flash_messages'
 .splashscreen
   .splashscreen-container
-    h1
+    h2
       = APP_CONFIG.app_name
       - if APP_CONFIG.demo_mode
         '
         small demo
-    h2= t('.os_carpooling_platform')
+    h1= t('.os_carpooling_platform')
     == render 'facebook_login'
     .learn-more-container.hidden-xs
       = link_to '#', class: 'btn btn-lg btn-learn-more' do
