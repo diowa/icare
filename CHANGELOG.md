@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.51.2
+
+* Fix turbolinks markup
+* Update gems
+
 ## 0.51.1
 
 * Update gems
