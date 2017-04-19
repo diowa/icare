@@ -39,6 +39,6 @@ nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role='navigation'
               - (I18n.available_locales - [I18n.locale]).each do |locale|
                 li=link_to t('lang_native_name', locale: locale), url_for(locale: locale)
           li.facebook-link
-            = link_to user_facebook_omniauth_authorize_path, data: { no_turbolink: true } do
+            = link_to user_facebook_omniauth_authorize_path, data: { turbolinks: false } do
               span.fa.fa-facebook-square<>
               = t('login_with_facebook')
