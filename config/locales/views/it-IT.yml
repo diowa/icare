@@ -161,7 +161,7 @@ it-IT:
   pages:
     home:
       tagline: "Condividi l'asfalto e risparmia."
-      os_carpooling_platform: "La Piattaforma Open Source di Carpooling"
+      os_carpooling_platform: "Piattaforma Open Source di Carpooling"
       learn_more: "Continua a leggere"
       what_is_appname: "Cos'è %{appname}?"
       main_features: "Caratteristiche Principali"
