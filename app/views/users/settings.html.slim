@@ -21,7 +21,7 @@
           p.help-block
             = t('.vehicle_avg_consumption_help')
             '
-            = link_to t('.km_costs_calculation_link'), APP_CONFIG.costs_calculation_service_link, target: '_blank'
+            = link_to t('.km_costs_calculation_link'), APP_CONFIG.costs_calculation_service_link, target: '_blank', rel: 'noopener'
             br
             small
               = t('.vehicle_avg_consumption_note_html', fuel: content_tag(:u, t('.fuel')), proportional_costs: content_tag(:u, t('.proportional_costs', fuel_currency: APP_CONFIG.fuel_currency)))
