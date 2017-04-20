@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.51.3
+
+* Maintenance hotfix
+
 ## 0.51.2
 
 * Fix turbolinks markup
