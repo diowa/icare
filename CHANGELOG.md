@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.52.0
+
+* Strengthen gem dependencies
+* Update gems
+
 ## 0.51.3
 
 * Maintenance hotfix
