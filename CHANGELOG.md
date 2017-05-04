@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.53.0.dev
+
+* Add GOOGLE_MAPS_API_KEY to app.json
+* Update gems
+
 ## 0.52.0
 
 * Strengthen gem dependencies
