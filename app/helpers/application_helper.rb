@@ -1,6 +1,14 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  def google_maps_api_source
+    if APP_CONFIG.google_maps_api_key
+      "https://maps.googleapis.com/maps/api/js?libraries=geometry&key=#{APP_CONFIG.google_maps_api_key}"
+    else
+      'https://maps.googleapis.com/maps/api/js?libraries=geometry'
+    end
+  end
+
   def title(page_title)
     content_for(:title) { page_title.to_s }
   end

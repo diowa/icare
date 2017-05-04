@@ -23,7 +23,7 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
     meta name='apple-mobile-web-app-status-bar-style' content='#3d7098'
 
     / Turbolinks require javascript tags inside the head
-    = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?libraries=geometry', 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag google_maps_api_source, 'application', 'data-turbolinks-track': 'reload'
     = analytics_init if APP_CONFIG.google_analytics_id.present?
 
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
