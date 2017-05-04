@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.53.0
+
+* Fix Google Maps JavaScript API key support
+* Update gems
+
 ## 0.52.0
 
 * Strengthen gem dependencies

@@ -21,6 +21,19 @@ RSpec.describe 'Application' do
     end
   end
 
+  it 'adds google maps api key' do
+    begin
+      old_google_maps_api_key = APP_CONFIG.google_maps_api_key
+      APP_CONFIG.set :google_maps_api_key, 'API_KEY'
+
+      visit root_path
+
+      expect(page).to have_css('script[src$="&key=API_KEY"]', visible: false)
+    ensure
+      APP_CONFIG.set :google_maps_api_key, old_google_maps_api_key
+    end
+  end
+
   context 'Locale' do
     context 'when user is passing an unknown locale param' do
       it 'fallbacks to en-US' do
