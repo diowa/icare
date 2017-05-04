@@ -65,7 +65,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.0'
-gem 'twbs_sass_rails', '~> 4.5'
+gem 'twbs_sass_rails', '~> 4.6'
 gem 'uglifier', '~> 3.2'
 
 group :development, :test do
@@ -85,21 +85,21 @@ end
 group :development do
   gem 'better_errors', '~> 2.1'
   gem 'binding_of_caller', '~> 0.7.2'
-  gem 'meta_request', '~> 0.4.0'
+  gem 'meta_request', '~> 0.4.2'
   gem 'spring', '~> 2.0'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'web-console', '~> 3.5'
 end
 
 group :test do
-  gem 'capybara', '~> 2.13'
+  gem 'capybara', '~> 2.14'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'coveralls', '~> 0.8.20', require: false
+  gem 'coveralls', '~> 0.8.21', require: false
   gem 'database_cleaner', '~> 1.5'
   gem 'email_spec', '~> 2.1'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
-  gem 'poltergeist', '~> 1.14'
+  gem 'poltergeist', '~> 1.15'
   gem 'rspec', '~> 3.5'
   gem 'simplecov', '~> 0.14.1', require: false
   gem 'webmock', '~> 3.0', require: false
