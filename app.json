@@ -16,7 +16,7 @@
     "RAILS_ENV": "production",
     "RAILS_SERVE_STATIC_FILES": "enabled",
     "APP_BASE_URL": {
-      "description": "Pick up a name for your application like \"yourname\" and enter here http://yourname.herokuapp.com"
+      "description": "Pick up a name for your application like \"yourname\" and enter here https://yourname.herokuapp.com"
     },
     "RUBY_GC_HEAP_OLDOBJECT_LIMIT_FACTOR": {
       "description": "Reduces RGenGC's memory consumption.",
