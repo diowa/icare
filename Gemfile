@@ -19,6 +19,9 @@ gem 'simpleconfig', '~> 2.0'
 # API
 gem 'rabl', '~> 0.13.1'
 
+# Forms
+gem 'simple_form'
+
 # ODM and related
 gem 'client_side_validations', '~> 9.3'
 gem 'client_side_validations-simple_form', '~> 6.2'
@@ -76,7 +79,7 @@ group :development, :test do
   gem 'pry', '~> 0.10.4'
   gem 'pry-byebug', '~> 3.4'
   gem 'pry-rails', '~> 0.3.6'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', '~> 0.48.1', require: false
   gem 'scss_lint', '~> 0.53.0', require: false
   gem 'slim_lint', '~> 0.12.0', require: false
@@ -95,7 +98,7 @@ group :test do
   gem 'capybara', '~> 2.14'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'coveralls', '~> 0.8.21', require: false
-  gem 'database_cleaner', '~> 1.5'
+  gem 'database_cleaner', '~> 1.6'
   gem 'email_spec', '~> 2.1'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
