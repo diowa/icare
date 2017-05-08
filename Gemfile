@@ -56,19 +56,18 @@ gem 'google-analytics-rails', '~> 1.1'
 gem 'http_accept_language', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'resque', '~> 1.27', require: 'resque/server' # Resque web interface
-gem 'sinatra', '~> 2.0.0.rc2' # Needed by resque/server
 gem 'slim-rails', '~> 3.1'
 
 # Assets
-gem 'autoprefixer-rails', '~> 6.7'
+gem 'autoprefixer-rails', '~> 7.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'handlebars_assets', '~> 0.23.1'
+gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.0'
-gem 'twbs_sass_rails', '~> 4.6'
+gem 'twbs_sass_rails', '~> 4.7'
 gem 'uglifier', '~> 3.2'
 
 group :development, :test do
