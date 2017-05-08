@@ -99,7 +99,7 @@ class User
   end
 
   def to_s
-    name || id
+    name || id.to_s
   end
 
   def unread_conversations_count

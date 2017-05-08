@@ -68,7 +68,7 @@ RSpec.describe User do
   context '#to_s' do
     it "returns user's name when available" do
       expect(jack_black.to_s).to eq 'Jack Black'
-      expect(anonymous.to_s).to eq anonymous.id
+      expect(anonymous.to_s).to eq anonymous.id.to_s
     end
   end
 

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.53.2
+
+* Fix advanced search form
+* Fix Airbrake configuration
+* Update gems
+
 ## 0.53.1
 
 * Update gems
