@@ -2,6 +2,7 @@
 
 ## 0.53.1
 
+* Fix advanced search form
 * Update gems
 
 ## 0.53.0
