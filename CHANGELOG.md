@@ -3,6 +3,7 @@
 ## 0.53.1
 
 * Fix advanced search form
+* Fix Airbrake configuration
 * Update gems
 
 ## 0.53.0
