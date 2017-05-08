@@ -10,7 +10,7 @@ nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role='navigation'
         span.hidden-xs<= APP_CONFIG.app_name
     - if user_signed_in?
       == render 'shared/notifications'
-      .navbar-collapse.collapse#main-navbar-collapse role="navigation"
+      .navbar-collapse.collapse#main-navbar-collapse role='navigation'
         ul.nav.navbar-nav.navbar-right
           li#navbar-user-info
             = link_to user_path(current_user), class: 'navbar-profile-link' do
@@ -27,7 +27,7 @@ nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role='navigation'
               li.divider
               li= link_to t('logout'), destroy_user_session_path, method: :delete
     - else
-      .navbar-collapse.collapse#main-navbar-collapse role="navigation"
+      .navbar-collapse.collapse#main-navbar-collapse role='navigation'
         ul.nav.navbar-nav.navbar-right
           li= link_to t('how_it_works'), :how_it_works
           li= link_to t('about'), :about
