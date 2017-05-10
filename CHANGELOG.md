@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.53.5
+
+* Remove unneeded configuration settings
+
 ## 0.53.4
 
 * Fix map defaults
