@@ -10,7 +10,7 @@
 # Configuration details:
 # https://github.com/airbrake/airbrake-ruby#configuration
 
-if defined?(Airbrake)
+if APP_CONFIG.airbrake.host && APP_CONFIG.airbrake.project_id && APP_CONFIG.airbrake.project_key
   Airbrake.configure do |c|
     c.host = APP_CONFIG.airbrake.host
 
