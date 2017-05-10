@@ -44,8 +44,7 @@ gem 'rgeo', '~> 0.6.0'
 gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 4.0'
 
-# Performance and Exception management
-gem 'airbrake', '~> 6.0'
+# Performance
 gem 'newrelic_rpm', '~> 4.1'
 
 # Security
@@ -108,5 +107,6 @@ group :test do
 end
 
 group :staging, :production do
+  gem 'airbrake', '~> 6.0'
   gem 'unicorn', '~> 5.3'
 end

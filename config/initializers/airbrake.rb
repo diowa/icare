@@ -10,7 +10,7 @@
 # Configuration details:
 # https://github.com/airbrake/airbrake-ruby#configuration
 
-if APP_CONFIG.airbrake.host && APP_CONFIG.airbrake.project_id && APP_CONFIG.airbrake.project_key
+if defined?(Airbrake) && APP_CONFIG.airbrake.host.present? && APP_CONFIG.airbrake.project_id.present? && APP_CONFIG.airbrake.project_key.present?
   Airbrake.configure do |c|
     c.host = APP_CONFIG.airbrake.host
 
@@ -51,7 +51,7 @@ if APP_CONFIG.airbrake.host && APP_CONFIG.airbrake.project_id && APP_CONFIG.airb
     # Airbrake. By default, all "password" attributes will have their contents
     # replaced.
     # https://github.com/airbrake/airbrake-ruby#blacklist_keys
-    c.blacklist_keys = [/password/i]
+    c.blacklist_keys = [/password/i, /authorization/i]
 
     # Alternatively, you can integrate with Rails' filter_parameters.
     # Read more: https://goo.gl/gqQ1xS
@@ -63,8 +63,8 @@ if APP_CONFIG.airbrake.host && APP_CONFIG.airbrake.project_id && APP_CONFIG.airb
   # https://github.com/airbrake/airbrake#requestbodyfilter
   # Airbrake.add_filter(Airbrake::Rack::RequestBodyFilter.new)
 
-  # If Airbrake doesn't send any expected exceptions, we suggest to uncomment the
-  # line below. It might simplify debugging of background Airbrake workers, which
-  # can silently die.
-  # Thread.abort_on_exception = ['test', 'development'].include?(Rails.env)
+  # If you want to convert your log messages to Airbrake errors, we offer an
+  # integration with the Logger class from stdlib.
+  # https://github.com/airbrake/airbrake#logger
+  # Rails.logger = Airbrake::AirbrakeLogger.new(Rails.logger)
 end
