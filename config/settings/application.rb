@@ -44,10 +44,6 @@ SimpleConfig.for :application do
     # defaults to Italy
     set :center, [41.87194, 12.567379999999957]
     set :zoom, 8
-    group :bounds do
-      set :sw, '35.49292010, 6.62672010'
-      set :ne, '47.0920, 18.52050150'
-    end
   end
 
   group :itineraries do
