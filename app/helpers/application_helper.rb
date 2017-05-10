@@ -9,6 +9,13 @@ module ApplicationHelper
     end
   end
 
+  def map_config_attributes
+    {
+      'data-map-center': APP_CONFIG.map.center,
+      'data-map-zoom': APP_CONFIG.map.zoom
+    }
+  end
+
   def title(page_title)
     content_for(:title) { page_title.to_s }
   end
