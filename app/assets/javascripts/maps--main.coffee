@@ -101,14 +101,18 @@ if google?
         ]
     ]
 
-    mapBounds = new google.maps.LatLngBounds new google.maps.LatLng(<%= APP_CONFIG.map.bounds.sw %>), new google.maps.LatLng(<%= APP_CONFIG.map.bounds.ne %>)
+    # defaults to Italy
+    elementData = $(id).data()
+    mapConfig =
+      center: elementData.mapCenter || [41.87194, 12.567379999999957]
+      zoom: elementData.mapZoom || 8
+
     map = new google.maps.Map $(id)[0],
-      center: new google.maps.LatLng <%= APP_CONFIG.map.center %>
+      center: new google.maps.LatLng(mapConfig.center[0], mapConfig.center[1])
       mapTypeId: google.maps.MapTypeId.ROADMAP
       scrollwheel: false
       styles: styleArray
-      zoom: <%= APP_CONFIG.map.zoom %>
-    map.fitBounds mapBounds
+      zoom: mapConfig.zoom
     map
 
   window.icare.CustomMarker = CustomMarker

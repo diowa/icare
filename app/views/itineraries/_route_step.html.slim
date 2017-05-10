@@ -16,7 +16,7 @@
       = t('.duration')
       b#duration<
   .col-sm-8
-    #new-itinerary-map.google-maps
+    #new-itinerary-map.google-maps *map_config_attributes
     p#route-helper.hide
       small
         = Itinerary.human_attribute_name :start_location
