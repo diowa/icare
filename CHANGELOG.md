@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.53.4
+
+* Fix map defaults
+
 ## 0.53.3
 
 * Fix Airbrake configuration ([#59](https://github.com/diowa/icare/issues/59))
