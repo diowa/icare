@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.53.3
+
+* Fix Airbrake configuration ([#59](https://github.com/diowa/icare/issues/59))
+* Update gems
+
 ## 0.53.2
 
 * Fix advanced search form
@@ -7,6 +12,7 @@
 
 ## 0.53.1
 
+* Fix Airbrake configuration
 * Update gems
 
 ## 0.53.0
