@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.60.0.dev
+
+* Rails 5.0.3
+* Add Brewfile
+* Update gems
+
 ## 0.53.5
 
 * Remove unneeded configuration settings
