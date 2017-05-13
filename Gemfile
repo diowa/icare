@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.4.1'
-gem 'rails', '5.0.2'
+gem 'rails', '5.0.3'
 
 # Servers
 gem 'thin', '~> 1.7'
@@ -107,6 +107,6 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 6.0'
+  gem 'airbrake', '~> 6.1'
   gem 'unicorn', '~> 5.3'
 end
