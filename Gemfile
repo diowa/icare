@@ -20,7 +20,7 @@ gem 'simpleconfig', '~> 2.0'
 gem 'rabl', '~> 0.13.1'
 
 # Forms
-gem 'simple_form'
+gem 'simple_form', '~> 3.4'
 
 # ODM and related
 gem 'client_side_validations', '~> 9.3'
@@ -35,7 +35,7 @@ gem 'validates_timeliness', '~> 4.0'
 gem 'validates_timeliness-mongoid', github: 'johnnyshields/validates_timeliness-mongoid'
 
 # Authentication framework
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.3'
 
 # Geospatial data library
 gem 'rgeo', '~> 0.6.0'
@@ -58,7 +58,7 @@ gem 'resque', '~> 1.27', require: 'resque/server' # Resque web interface
 gem 'slim-rails', '~> 3.1'
 
 # Assets
-gem 'autoprefixer-rails', '~> 7.0'
+gem 'autoprefixer-rails', '~> 7.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
