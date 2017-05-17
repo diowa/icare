@@ -14,7 +14,7 @@ module GeoItinerary
     field :start_location, type: Mongoid::Geospatial::Point, spatial: true
     field :end_location, type: Mongoid::Geospatial::Point, spatial: true
     field :via_waypoints, type: Array
-    field :overview_path, type: Mongoid::Geospatial::Line
+    field :overview_path, type: Mongoid::Geospatial::LineString
     field :overview_polyline, type: String
     field :avoid_highways, type: Boolean, default: false
     field :avoid_tolls, type: Boolean, default: false

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.60.0
+
+* Rails 5.1.1
+* Use official mongoid-geospatial
+* Add Brewfile
+* Update gems
+
 ## 0.53.5
 
 * Remove unneeded configuration settings

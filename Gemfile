@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.4.1'
-gem 'rails', '5.0.2'
+gem 'rails', '5.1.1'
 
 # Servers
 gem 'thin', '~> 1.7'
@@ -20,7 +20,7 @@ gem 'simpleconfig', '~> 2.0'
 gem 'rabl', '~> 0.13.1'
 
 # Forms
-gem 'simple_form'
+gem 'simple_form', '~> 3.5'
 
 # ODM and related
 gem 'client_side_validations', '~> 9.3'
@@ -28,14 +28,14 @@ gem 'client_side_validations-simple_form', '~> 6.2'
 gem 'kaminari', '~> 1.0'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 6.1'
+gem 'mongoid-geospatial', '~> 5.0'
 gem 'mongoid-slug', '~> 5.3'
-gem 'mongoid_geospatial', '~> 3.1'
 gem 'mongoid_paranoia', '~> 0.3'
 gem 'validates_timeliness', '~> 4.0'
 gem 'validates_timeliness-mongoid', github: 'johnnyshields/validates_timeliness-mongoid'
 
 # Authentication framework
-gem 'devise', '~> 4.2'
+gem 'devise', '~> 4.3'
 
 # Geospatial data library
 gem 'rgeo', '~> 0.6.0'
@@ -58,7 +58,7 @@ gem 'resque', '~> 1.27', require: 'resque/server' # Resque web interface
 gem 'slim-rails', '~> 3.1'
 
 # Assets
-gem 'autoprefixer-rails', '~> 7.0'
+gem 'autoprefixer-rails', '~> 7.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
@@ -86,9 +86,11 @@ end
 group :development do
   gem 'better_errors', '~> 2.1'
   gem 'binding_of_caller', '~> 0.7.2'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'meta_request', '~> 0.4.2'
   gem 'spring', '~> 2.0'
   gem 'spring-commands-rspec', '~> 1.0'
+  gem 'spring-watcher-listen', '~> 2.0'
   gem 'web-console', '~> 3.5'
 end
 
@@ -107,6 +109,9 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 6.0'
+  gem 'airbrake', '~> 6.1'
   gem 'unicorn', '~> 5.3'
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', '~> 1.2017', platforms: %i[mingw mswin x64_mingw jruby]

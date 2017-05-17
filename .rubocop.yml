@@ -3,6 +3,7 @@ AllCops:
   TargetRailsVersion: 5.0
   TargetRubyVersion: 2.4
   Exclude:
+    - Brewfile
     - 'bin/*'
     - 'db/**/*'
     - 'vendor/bundle/**/*'

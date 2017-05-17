@@ -152,7 +152,7 @@ RSpec.describe Itinerary do
       end
     end
 
-    context '#to_latlng_array' do
+    context '#to_latlng_a' do
       it 'converts Point in latitude, longitude array' do
         latlng_start_location_a = itinerary.start_location.to_latlng_a
         expect(itinerary.start_location.to_latlng_a.class).to be Array

@@ -1,26 +1,22 @@
 # frozen_string_literal: true
 
-if defined?(Mongoid::Geospatial)
-  Mongoid::Geospatial.with_rgeo!
+Mongoid::Geospatial.with_rgeo!
 
-  # Adding :lat and :lng aliases; to_latlng_a and to_latlng:hash methods
-  module Mongoid
-    module Geospatial
-      class Point
-        alias lat y
-        alias lng x
+# Monkey Patch Mongoid::Geospatial
+# Add to_latlng_hash method
+# Add :lat, :lng and to_latlng_a aliases
+module Mongoid
+  module Geospatial
+    class Point
+      alias lat y
+      alias lng x
 
-        # TODO: this needs proper testing
-        def to_latlng_hsh
-          { lat: y, lng: x }
-        end
-        alias to_latlng_hash to_latlng_hsh
+      alias to_latlng_a reverse
 
-        # TODO: this needs proper testing
-        def to_latlng_a
-          [y, x]
-        end
+      def to_latlng_hsh
+        { lat: y, lng: x }
       end
+      alias to_latlng_hash to_latlng_hsh
     end
   end
 end
