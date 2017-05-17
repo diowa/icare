@@ -39,15 +39,15 @@ RSpec.describe ItinerarySearch do
         create :itinerary, start_location: [0, 0], end_location: [1, 1], leave_date: '2013-01-02'
         create :itinerary, start_location: [1, 1], end_location: [0, 0], leave_date: '2013-01-02', return_date: '2013-01-03', round_trip: true
 
-        valid_itinerary_one = create :itinerary, start_location: [0, 0], end_location: [1, 1], leave_date: '2013-01-05'
-        valid_itinerary_two = create :itinerary, start_location: [1, 1], end_location: [0, 0], leave_date: '2013-01-02', return_date: '2013-01-05', round_trip: true
+        @valid_itinerary_one = create :itinerary, start_location: [0, 0], end_location: [1, 1], leave_date: '2013-01-05'
+        @valid_itinerary_two = create :itinerary, start_location: [1, 1], end_location: [0, 0], leave_date: '2013-01-02', return_date: '2013-01-05', round_trip: true
+      end
 
-        travel_to '2013-01-04' do
-          itineraries = ItinerarySearch.new(search_params, male_user).itineraries
-          expect(itineraries.count).to be 2
-          expect(itineraries).to include valid_itinerary_one
-          expect(itineraries).to include valid_itinerary_two
-        end
+      travel_to '2013-01-04' do
+        itineraries = ItinerarySearch.new(search_params, male_user).itineraries
+        expect(itineraries.count).to be 2
+        expect(itineraries).to include @valid_itinerary_one
+        expect(itineraries).to include @valid_itinerary_two
       end
     end
 
