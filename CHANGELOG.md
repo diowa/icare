@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.60.0.dev
+## 0.60.0
 
 * Rails 5.1.1
 * Use official mongoid-geospatial
