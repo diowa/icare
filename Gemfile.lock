@@ -206,14 +206,12 @@ GEM
     mongoid-compatibility (0.4.1)
       activesupport
       mongoid (>= 2.0)
+    mongoid-geospatial (5.0.0)
+      mongoid (>= 5.0.0.beta)
     mongoid-slug (5.3.3)
       mongoid (>= 3.0)
       mongoid-compatibility
       stringex (~> 2.0)
-    mongoid_geospatial (3.1.0)
-      activemodel (>= 3.2)
-      activesupport (>= 3.2)
-      mongoid (>= 3.0.0)
     mongoid_paranoia (0.3.0)
       mongoid (>= 6.0.0)
     mono_logger (1.1.0)
@@ -470,9 +468,9 @@ DEPENDENCIES
   launchy (~> 2.4)
   meta_request (~> 0.4.2)
   mongoid (~> 6.1)
+  mongoid-geospatial (~> 5.0)
   mongoid-rspec!
   mongoid-slug (~> 5.3)
-  mongoid_geospatial (~> 3.1)
   mongoid_paranoia (~> 0.3)
   newrelic_rpm (~> 4.1)
   omniauth-facebook (~> 4.0)
