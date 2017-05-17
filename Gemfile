@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.4.1'
-gem 'rails', '5.0.3'
+gem 'rails', '5.1.1'
 
 # Servers
 gem 'thin', '~> 1.7'
@@ -20,7 +20,7 @@ gem 'simpleconfig', '~> 2.0'
 gem 'rabl', '~> 0.13.1'
 
 # Forms
-gem 'simple_form', '~> 3.4'
+gem 'simple_form', '~> 3.5'
 
 # ODM and related
 gem 'client_side_validations', '~> 9.3'
@@ -86,9 +86,11 @@ end
 group :development do
   gem 'better_errors', '~> 2.1'
   gem 'binding_of_caller', '~> 0.7.2'
+  gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'meta_request', '~> 0.4.2'
   gem 'spring', '~> 2.0'
   gem 'spring-commands-rspec', '~> 1.0'
+  gem 'spring-watcher-listen', '~> 2.0'
   gem 'web-console', '~> 3.5'
 end
 
@@ -110,3 +112,6 @@ group :staging, :production do
   gem 'airbrake', '~> 6.1'
   gem 'unicorn', '~> 5.3'
 end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', '~> 1.2017', platforms: %i[mingw mswin x64_mingw jruby]

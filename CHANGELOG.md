@@ -2,7 +2,7 @@
 
 ## 0.60.0.dev
 
-* Rails 5.0.3
+* Rails 5.1.1
 * Use official mongoid-geospatial
 * Add Brewfile
 * Update gems
