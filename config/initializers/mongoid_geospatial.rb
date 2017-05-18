@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Mongoid::Geospatial.with_rgeo!
+# Mongoid::Geospatial.with_rgeo!
 
 # Monkey Patch Mongoid::Geospatial
 # Add to_latlng_hash method
