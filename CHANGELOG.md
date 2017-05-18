@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.60.1
+
+* Fix Rails 5.1.1 configuration
+
 ## 0.60.0
 
 * Rails 5.1.1
