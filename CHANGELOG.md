@@ -3,6 +3,7 @@
 ## 0.60.1
 
 * Fix Rails 5.1.1 configuration
+* Update gems
 
 ## 0.60.0
 
