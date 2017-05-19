@@ -38,7 +38,7 @@ gem 'validates_timeliness-mongoid', github: 'johnnyshields/validates_timeliness-
 gem 'devise', '~> 4.3'
 
 # Geospatial data library
-gem 'rgeo', '~> 0.6.0'
+# gem 'rgeo', '~> 0.6.0'
 
 # Facebook integration
 gem 'koala', '~> 3.0'
