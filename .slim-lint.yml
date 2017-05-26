@@ -4,30 +4,3 @@ exclude:
 linters:
   LineLength:
     enabled: false
-  RuboCop:
-    ignored_cops:
-      - Lint/BlockAlignment
-      - Lint/EndAlignment
-      - Lint/Void
-      - Metrics/BlockLength # TODO: https://github.com/sds/slim-lint/issues/49
-      - Metrics/LineLength
-      - Style/AlignHash
-      - Style/AlignParameters
-      - Style/BlockNesting
-      - Style/FileName
-      - Style/FirstParameterIndentation
-      - Style/FrozenStringLiteralComment
-      - Style/IfUnlessModifier
-      - Style/IndentationConsistency
-      - Style/IndentationWidth
-      - Style/MultilineArrayBraceLayout
-      - Style/MultilineAssignmentLayout
-      - Style/MultilineHashBraceLayout
-      - Style/MultilineMethodCallBraceLayout
-      - Style/MultilineMethodDefinitionBraceLayout
-      - Style/MultilineMethodCallIndentation
-      - Style/MultilineOperationIndentation
-      - Style/Next
-      - Style/TrailingBlankLines
-      - Style/TrailingWhitespace
-      - Style/WhileUntilModifier
