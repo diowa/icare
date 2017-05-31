@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable Rails/RelativeDateConstant
 OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider' => 'facebook',
                                                   'uid' => '123456',
                                                   'info' => {
@@ -20,7 +19,6 @@ OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider' => 'facebook',
                                                       'id' => '123456'
                                                     }
                                                   })
-# rubocop:enable Rails/RelativeDateConstant
 
 OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH

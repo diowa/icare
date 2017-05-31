@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.60.2
+
+* Update gems
+
 ## 0.60.1
 
 * Fix Rails 5.1.1 configuration
