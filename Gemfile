@@ -24,7 +24,7 @@ gem 'simple_form', '~> 3.5'
 
 # ODM and related
 gem 'client_side_validations', '~> 9.3'
-gem 'client_side_validations-simple_form', '~> 6.2'
+gem 'client_side_validations-simple_form', '~> 6.3'
 gem 'kaminari', '~> 1.0'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 6.1'
@@ -45,7 +45,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 4.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 4.1'
+gem 'newrelic_rpm', '~> 4.2'
 
 # Security
 gem 'secure_headers', '~> 3.6'
@@ -78,16 +78,16 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.4'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.6'
-  gem 'rubocop', '~> 0.48.1', require: false
+  gem 'rubocop', '~> 0.49.1', require: false
   gem 'scss_lint', '~> 0.53.0', require: false
-  gem 'slim_lint', '~> 0.12.0', require: false
+  gem 'slim_lint', '~> 0.13.0', require: false
 end
 
 group :development do
   gem 'better_errors', '~> 2.1'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'meta_request', '~> 0.4.2'
+  gem 'meta_request', '~> 0.4.3'
   gem 'spring', '~> 2.0'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
