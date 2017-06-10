@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.60.5
+
+* Fix test coverage
+
 ## 0.60.4
 
 * Update gems
