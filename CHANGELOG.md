@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.61.0
+
+* Use Sucker Punch for background jobs
+* Remove "Share on Facebook" feature
+* Update gems
+
 ## 0.60.5
 
 * Fix test coverage
