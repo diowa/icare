@@ -300,7 +300,6 @@ it-IT:
       next_step: "Passo successivo"
       previous_step: "Torna indietro"
       missing_publish_actions_permission: "%{appname} non ha il permesso di pubblicare sul tuo diario."
-      share_on_timeline_unavailable: "Siamo spiacenti. Al momento %{appname} non può condividere l'itinerario sul diario di Facebook."
     route_step:
       get_route: Calcola percorso
       distance: Distanza

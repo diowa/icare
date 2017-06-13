@@ -34,8 +34,6 @@ class Itinerary
   field :driver_gender
   field :verified
 
-  attr_accessor :share_on_facebook_timeline
-
   slug :start_address, :end_address, reserve: %w[new]
 
   # default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
@@ -65,10 +63,6 @@ class Itinerary
     self.driver_gender = user.gender
     self.verified = user.facebook_verified
     true
-  end
-
-  after_create do
-    ShareOnFacebookTimelineJob.perform_later(self) if share_on_facebook_timeline
   end
 
   def title

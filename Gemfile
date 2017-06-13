@@ -11,7 +11,10 @@ ruby '2.4.1'
 gem 'rails', '5.1.1'
 
 # Servers
-gem 'thin', '~> 1.7'
+gem 'puma', '~> 3.9'
+
+# Background jobs within the same process as web application
+gem 'sucker_punch', '~> 2.0'
 
 # Multi-environment configuration
 gem 'simpleconfig', '~> 2.0'
@@ -54,7 +57,6 @@ gem 'secure_headers', '~> 3.6'
 gem 'google-analytics-rails', '~> 1.1'
 gem 'http_accept_language', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
-gem 'resque', '~> 1.27', require: 'resque/server' # Resque web interface
 gem 'slim-rails', '~> 3.1'
 
 # Assets
@@ -110,7 +112,6 @@ end
 
 group :staging, :production do
   gem 'airbrake', '~> 6.1'
-  gem 'unicorn', '~> 5.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

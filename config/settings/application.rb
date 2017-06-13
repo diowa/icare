@@ -74,9 +74,4 @@ SimpleConfig.for :application do
   group :redis do
     set :url, 'redis://127.0.0.1:6379'
   end
-
-  group :resque do
-    set :user_name, 'admin'
-    set :password, 'admin'
-  end
 end

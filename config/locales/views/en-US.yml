@@ -286,7 +286,6 @@ en-US:
       next_step: "Next step"
       previous_step: "Back"
       missing_publish_actions_permission: "%{appname} doesn't have permissions to publish on your timeline."
-      share_on_timeline_unavailable: "We apologize. %{appname} can't share on Facebook's Timeline right now."
     route_step:
       get_route: Get route
       distance: Distance

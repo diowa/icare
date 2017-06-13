@@ -70,7 +70,7 @@ class ItinerariesController < ApplicationController
     whitelist = %i[start_address end_address description num_people smoking_allowed pets_allowed fuel_cost tolls
                    avoid_highways avoid_tolls
                    round_trip leave_date return_date daily
-                   route share_on_facebook_timeline]
+                   route]
     whitelist << :pink if current_user&.female?
     whitelist
   end
