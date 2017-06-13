@@ -16,12 +16,6 @@ RSpec.describe Itinerary do
     end
   end
 
-  context 'after create' do
-    it 'asynchronously publishes on facebook timeline if requested by user' do
-      expect(-> { create :itinerary, share_on_facebook_timeline: true }).to_not raise_error Exception
-    end
-  end
-
   context '#return_date_validator' do
     let(:invalid_itinerary) { build :itinerary, leave_date: Time.current + 1.day, return_date: Time.current - 1.day, round_trip: true }
 
