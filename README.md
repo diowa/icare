@@ -20,7 +20,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [Font Awesome][7] (retina ready vectorial icons)
 * [Mongoid][8] (ODM for MongoDB)
 * [Devise][2]
-* Asynchronous tasks with [Resque][9] and [Redis][19]
+* Asynchronous tasks with [Sucker Punch][9]
 * [RABL][10] API Builder
 * Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
@@ -39,7 +39,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [6]: http://getbootstrap.com
  [7]: http://fontawesome.io
  [8]: https://docs.mongodb.com/ruby-driver/master/mongoid/
- [9]: https://github.com/defunkt/resque
+ [9]: https://github.com/brandonhilkert/sucker_punch
  [10]: https://github.com/nesquena/rabl
  [11]: https://github.com/arsduo/koala
  [12]: http://rspec.info/
@@ -49,7 +49,6 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [16]: https://github.com/airbrake/airbrake
  [17]: https://github.com/ariya/phantomjs/
  [18]: https://github.com/teampoltergeist/poltergeist
- [19]: https://redis.io/
 
 A working demo is available at http://icare.diowa.com/
 

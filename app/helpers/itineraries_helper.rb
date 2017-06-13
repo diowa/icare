@@ -15,18 +15,6 @@ module ItinerariesHelper
   end
 
   def share_on_facebook_timeline_checkbutton(form)
-    if !background_jobs_available?
-      share_on_facebook_button(form)
-    else
-      content_tag(:p, class: 'text-muted') do
-        t('.share_on_timeline_unavailable', appname: APP_CONFIG.app_name)
-      end
-    end
-  end
-
-  private
-
-  def share_on_facebook_button(form)
     publish_actions_permission = current_user.facebook_permission?(:publish_actions)
 
     html = form.label :share_on_facebook_timeline, class: "btn btn-fb btn-checkbox#{' disabled' unless publish_actions_permission}" do

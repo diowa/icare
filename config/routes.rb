@@ -34,8 +34,6 @@ Rails.application.routes.draw do
     end
   end
 
-  mount Resque::Server, at: '/resque' if defined?(Resque::Server)
-
   # Root route aliases
   get :dashboard, to: 'users#dashboard'
   get :settings, to: 'users#settings'

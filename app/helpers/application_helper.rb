@@ -40,10 +40,4 @@ module ApplicationHelper
   def options_for_array_collection(model, attr_name, *_args)
     "#{model}::#{attr_name.to_s.upcase}".safe_constantize.map { |e| [model.human_attribute_name("#{attr_name}_#{e}"), e] }
   end
-
-  def background_jobs_available?
-    Resque.workers.any?
-  rescue
-    false
-  end
 end

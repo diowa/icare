@@ -40,9 +40,4 @@ SimpleConfig.for :application do
   group :redis do
     set :url, ENV['REDISTOGO_URL']
   end
-
-  group :resque do
-    set :user_name, ENV['RESQUE_WEB_USER']
-    set :password, ENV['RESQUE_WEB_PASSWORD']
-  end
 end
