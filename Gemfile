@@ -75,7 +75,7 @@ group :development, :test do
   gem 'bullet', '~> 5.5'
   gem 'byebug', '~> 9.0'
   gem 'factory_girl_rails', '~> 4.8'
-  gem 'faker', '~> 1.7'
+  gem 'faker', '~> 1.8'
   gem 'pry', '~> 0.10.4'
   gem 'pry-byebug', '~> 3.4'
   gem 'pry-rails', '~> 0.3.6'
@@ -111,7 +111,7 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 6.1'
+  gem 'airbrake', '~> 6.2'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
