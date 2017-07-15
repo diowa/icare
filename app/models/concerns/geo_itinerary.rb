@@ -47,7 +47,7 @@ module GeoItinerary
     end
 
     def static_map(width = 640, height = 360)
-      URI.encode("http://maps.googleapis.com/maps/api/staticmap?size=#{width}x#{height}&scale=2&markers=color:green|label:B|#{end_location.to_latlng_a.join(',')}&markers=color:green|label:A|#{start_location.to_latlng_a.join(',')}&path=enc:#{overview_polyline}")
+      URI.encode("https://maps.googleapis.com/maps/api/staticmap?size=#{width}x#{height}&scale=2&markers=color:green|label:B|#{end_location.to_latlng_a.join(',')}&markers=color:green|label:A|#{start_location.to_latlng_a.join(',')}&path=enc:#{overview_polyline}")
     end
 
     private

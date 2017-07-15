@@ -36,7 +36,7 @@ drawPath = (itinerary, strokeColor = '#0000FF', strokeOpacity = 0.45) ->
     icare.infoWindow.setPosition customMarker.position
     icare.infoWindow.open icare.map
   marker = new google.maps.Marker
-    icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=A|FF0000|000000'
+    icon: 'https://mts.googleapis.com/maps/vt/icon/name=icons/spotlight/spotlight-waypoint-a.png&text=A&psize=16&font=fonts/Roboto-Regular.ttf&color=ff333333&ax=44&ay=48&scale=1'
   directionsPath = new google.maps.Polyline
     clickable: false
     path: overview_path
