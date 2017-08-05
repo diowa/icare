@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.62.0
+
+* Rails 5.1.3
+* Update gems
+
 ## 0.61.2
 
 * Update gems
