@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.4.1'
-gem 'rails', '5.1.2'
+gem 'rails', '5.1.3'
 
 # Servers
 gem 'puma', '~> 3.9'
@@ -48,7 +48,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 4.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 4.2'
+gem 'newrelic_rpm', '~> 4.3'
 
 # Security
 gem 'secure_headers', '~> 3.6'
@@ -72,7 +72,7 @@ gem 'twbs_sass_rails', '~> 4.7'
 gem 'uglifier', '~> 3.2'
 
 group :development, :test do
-  gem 'bullet', '~> 5.5'
+  gem 'bullet', '~> 5.6'
   gem 'byebug', '~> 9.0'
   gem 'factory_girl_rails', '~> 4.8'
   gem 'faker', '~> 1.8'
@@ -86,7 +86,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'better_errors', '~> 2.1'
+  gem 'better_errors', '~> 2.3'
   gem 'binding_of_caller', '~> 0.7.2'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'meta_request', '~> 0.4.3'
@@ -97,7 +97,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.14'
+  gem 'capybara', '~> 2.15'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'coveralls', '~> 0.8.21', require: false
   gem 'database_cleaner', '~> 1.6'
