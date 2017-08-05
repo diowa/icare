@@ -125,7 +125,7 @@ dateFieldToString = (field_id) ->
 
 lastStepInit = ->
   route = window.icare.route
-  $('#itinerary-preview-image').attr 'src', "http://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&markers=color:green|label:B|#{route.end_location[1]},#{route.end_location[0]}&markers=color:green|label:A|#{route.start_location[1]},#{route.start_location[0]}&path=enc:#{route.overview_polyline}"
+  $('#itinerary-preview-image').attr 'src', "https://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&markers=color:green|label:B|#{route.end_location[1]},#{route.end_location[0]}&markers=color:green|label:A|#{route.start_location[1]},#{route.start_location[0]}&path=enc:#{route.overview_polyline}"
 
 setRoute = (dr, result) ->
   dr.setDirections result
