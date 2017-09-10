@@ -8,10 +8,10 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.4.1'
-gem 'rails', '5.1.3'
+gem 'rails', '5.1.4'
 
 # Servers
-gem 'puma', '~> 3.9'
+gem 'puma', '~> 3.10'
 
 # Background jobs within the same process as web application
 gem 'sucker_punch', '~> 2.0'
@@ -48,10 +48,10 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 4.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 4.3'
+gem 'newrelic_rpm', '~> 4.4'
 
 # Security
-gem 'secure_headers', '~> 3.6'
+gem 'secure_headers', '~> 3.7'
 
 # Miscellanea
 gem 'google-analytics-rails', '~> 1.1'
@@ -73,11 +73,11 @@ gem 'uglifier', '~> 3.2'
 
 group :development, :test do
   gem 'bullet', '~> 5.6'
-  gem 'byebug', '~> 9.0'
+  gem 'byebug', '~> 9.1'
   gem 'factory_girl_rails', '~> 4.8'
   gem 'faker', '~> 1.8'
   gem 'pry', '~> 0.10.4'
-  gem 'pry-byebug', '~> 3.4'
+  gem 'pry-byebug', '~> 3.5'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.6'
   gem 'rubocop', '~> 0.49.1', require: false
@@ -104,8 +104,8 @@ group :test do
   gem 'email_spec', '~> 2.1'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
-  gem 'poltergeist', '~> 1.15'
-  gem 'rspec', '~> 3.5'
+  gem 'poltergeist', '~> 1.16'
+  gem 'rspec', '~> 3.6'
   gem 'simplecov', '~> 0.14.1', require: false
   gem 'webmock', '~> 3.0', require: false
 end
