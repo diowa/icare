@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.4.1'
+ruby '2.4.2'
 gem 'rails', '5.1.4'
 
 # Servers
@@ -26,9 +26,9 @@ gem 'rabl', '~> 0.13.1'
 gem 'simple_form', '~> 3.5'
 
 # ODM and related
-gem 'client_side_validations', '~> 9.3'
-gem 'client_side_validations-simple_form', '~> 6.3'
-gem 'kaminari', '~> 1.0'
+gem 'client_side_validations', '~> 10.0'
+gem 'client_side_validations-simple_form', '~> 6.4'
+gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 6.2'
 gem 'mongoid-geospatial', '~> 5.0'
@@ -48,10 +48,10 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 4.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 4.4'
+gem 'newrelic_rpm', '~> 4.5'
 
 # Security
-gem 'secure_headers', '~> 3.7'
+gem 'secure_headers', '~> 5.0'
 
 # Miscellanea
 gem 'google-analytics-rails', '~> 1.1'
@@ -74,20 +74,20 @@ gem 'uglifier', '~> 3.2'
 group :development, :test do
   gem 'bullet', '~> 5.6'
   gem 'byebug', '~> 9.1'
-  gem 'factory_girl_rails', '~> 4.8'
+  gem 'factory_bot_rails', '~> 4.8'
   gem 'faker', '~> 1.8'
-  gem 'pry', '~> 0.10.4'
+  gem 'pry', '~> 0.11.2'
   gem 'pry-byebug', '~> 3.5'
   gem 'pry-rails', '~> 0.3.6'
-  gem 'rspec-rails', '~> 3.6'
-  gem 'rubocop', '~> 0.49.1', require: false
-  gem 'scss_lint', '~> 0.54.0', require: false
-  gem 'slim_lint', '~> 0.13.0', require: false
+  gem 'rspec-rails', '~> 3.7'
+  gem 'rubocop', '~> 0.51.0', require: false
+  gem 'scss_lint', '~> 0.55.0', require: false
+  gem 'slim_lint', '~> 0.15.0', require: false
 end
 
 group :development do
-  gem 'better_errors', '~> 2.3'
-  gem 'binding_of_caller', '~> 0.7.2'
+  gem 'better_errors', '~> 2.4'
+  gem 'binding_of_caller', '~> 0.7.3'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'meta_request', '~> 0.4.3'
   gem 'spring', '~> 2.0'
@@ -105,13 +105,12 @@ group :test do
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
   gem 'poltergeist', '~> 1.16'
-  gem 'rspec', '~> 3.6'
   gem 'simplecov', '~> 0.14.1', require: false
-  gem 'webmock', '~> 3.0', require: false
+  gem 'webmock', '~> 3.1', require: false
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 6.2'
+  gem 'airbrake', '~> 7.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
