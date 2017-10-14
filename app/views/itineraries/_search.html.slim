@@ -18,5 +18,5 @@
     = f.hidden_field :start_location_lng
     = f.hidden_field :end_location_lat
     = f.hidden_field :end_location_lng
-    = f.button :button, t('.search'), class: 'btn btn-primary', id: 'itineraries-search', data: { disable_with: t('helpers.disable_with') }
+    = f.button :button, t('.search'), id: 'itineraries-search', data: { disable_with: t('helpers.disable_with') }
     = image_tag 'ajax-spinner-24x17.gif', width: 24, height: 17, alt: '...', id: 'itineraries-spinner-j', class: 'itineraries-spinner'
