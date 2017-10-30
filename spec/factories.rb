@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:uid)      { |n| "100#{n}" }
   sequence(:email)    { |n| "person#{n}@example.com" }
 
@@ -36,7 +36,7 @@ FactoryGirl.define do
 
   factory :conversation do
     association :conversable, factory: :itinerary
-    users { [FactoryGirl.build(:user), itinerary.user] }
+    users { [FactoryBot.build(:user), itinerary.user] }
   end
 
   factory :message do
