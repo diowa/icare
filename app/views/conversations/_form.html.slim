@@ -4,4 +4,4 @@
   == render 'shared/error_messages', object: f.object
   = f.simple_fields_for Message.new do |m|
     = m.input :body, as: :text, input_html: { rows: 5 }, placeholder: t('.write_a_message')
-  = f.button :button, t('.send'), class: 'btn btn-primary', data: { disable_with: t('helpers.disable_with') }
+  = f.button :button, t('.send'), data: { disable_with: t('helpers.disable_with') }

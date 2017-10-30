@@ -54,7 +54,7 @@ class User
 
   has_and_belongs_to_many :conversations
 
-  has_many :feedbacks
+  has_many :feedbacks, dependent: :nullify
   has_many :itineraries, dependent: :destroy
 
   embeds_many :notifications
