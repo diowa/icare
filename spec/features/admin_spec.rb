@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin' do
-  before(:each) do
-    @admin = create :user, admin: true, uid: '123456'
+  let!(:admin) { create :user, admin: true, uid: '123456' }
 
+  before do
     visit user_facebook_omniauth_authorize_path
   end
 
@@ -16,7 +16,7 @@ RSpec.describe 'Admin' do
   it 'sees users index' do
     visit admin_users_path
 
-    expect(current_path).to eq admin_users_path
+    expect(page).to have_current_path admin_users_path
   end
 
   it 'is able to ban other users' do
@@ -32,7 +32,7 @@ RSpec.describe 'Admin' do
   it 'is not able to ban himself' do
     visit admin_users_path
 
-    find("a[href=\"#{ban_admin_user_path(@admin.id)}\"]").click
+    find("a[href=\"#{ban_admin_user_path(admin.id)}\"]").click
     expect(page).to have_content I18n.t('flash.admin.users.error.ban')
   end
 
@@ -51,7 +51,7 @@ RSpec.describe 'Admin' do
 
     visit login_as_admin_user_path(regular_user.id)
 
-    expect(current_path).to eq dashboard_path
+    expect(page).to have_current_path dashboard_path
     expect(page).to have_content regular_user.name
   end
 end

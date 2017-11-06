@@ -81,7 +81,8 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.51.0', require: false
-  gem 'scss_lint', '~> 0.55.0', require: false
+  gem 'rubocop-rspec', '~> 1.19', require: false
+  gem 'scss_lint', '~> 0.56.0', require: false
   gem 'slim_lint', '~> 0.15.0', require: false
 end
 
@@ -99,13 +100,13 @@ end
 group :test do
   gem 'capybara', '~> 2.15'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'coveralls', '~> 0.8.21', require: false
+  gem 'coveralls_reborn', '~> 0.9.0', require: false
   gem 'database_cleaner', '~> 1.6'
   gem 'email_spec', '~> 2.1'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
   gem 'poltergeist', '~> 1.16'
-  gem 'simplecov', '~> 0.14.1', require: false
+  gem 'simplecov', '~> 0.15.1', require: false
   gem 'webmock', '~> 3.1', require: false
 end
 

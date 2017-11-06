@@ -21,7 +21,7 @@ end
 RSpec.configure do |config|
   config.include MailerMacros
 
-  config.before(:each) do
+  config.before do
     reset_email
   end
 end

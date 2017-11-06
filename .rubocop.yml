@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 AllCops:
   DisplayCopNames: true
   TargetRailsVersion: 5.1
@@ -42,6 +44,20 @@ Rails/HasAndBelongsToMany:
 
 Rails/SkipsModelValidations:
   Enabled: false
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/features/**/*
+    - spec/requests/**/*
+
+RSpec/ExampleLength:
+  Max: 41
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Max: 4
 
 Style/Documentation:
   Enabled: false

@@ -8,22 +8,23 @@ RSpec.describe 'Itineraries' do
   PINK_ICON = 'span.fa.fa-lock'
   XSS_ALERT = "<script>alert('toasty!);</script>"
 
+  let(:male) { create :user, uid: '123456', gender: 'male' }
+  let(:female) { create :user, uid: '123456', gender: 'female' }
+
   context 'Registered Users' do
     def login_as_male
-      @user = create :user, uid: '123456', gender: 'male'
-
+      male
       visit user_facebook_omniauth_authorize_path
       # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
-      expect(current_path).to eq dashboard_path
+      expect(page).to have_current_path dashboard_path
     end
 
     def login_as_female
+      female
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
-      @user = create :user, uid: '123456', name: 'Johanna Doe', gender: 'female'
-
       visit user_facebook_omniauth_authorize_path
       # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
-      expect(current_path).to eq dashboard_path
+      expect(page).to have_current_path dashboard_path
     ensure
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
     end
@@ -52,7 +53,7 @@ RSpec.describe 'Itineraries' do
 
       expect(page).to have_css('#itinerary_return_date_3i[disabled]')
       check 'itinerary_round_trip'
-      expect(page).to_not have_css('#itinerary_return_date_3i[disabled]')
+      expect(page).not_to have_css('#itinerary_return_date_3i[disabled]')
 
       return_date = Time.zone.parse("#{35.days.from_now.to_date} 9:10")
       select return_date.day, from: 'itinerary_return_date_3i'
@@ -84,7 +85,7 @@ RSpec.describe 'Itineraries' do
 
     it 'sanitize malicious description', js: true do
       login_as_male
-      malicious_itinerary = create :itinerary, user: @user, description: XSS_ALERT
+      malicious_itinerary = create :itinerary, user: male, description: XSS_ALERT
       visit itinerary_path(malicious_itinerary)
       expect(-> { page.accept_alert }).to raise_error Capybara::ModalNotFound
     end
@@ -114,17 +115,17 @@ RSpec.describe 'Itineraries' do
 
     it 'allows users to view their own ones' do
       login_as_female
-      create :itinerary, user: @user
-      create :itinerary, user: @user, round_trip: true
-      create :itinerary, user: @user, daily: true
-      create :itinerary, user: @user, pink: true, daily: true
+      create :itinerary, user: female
+      create :itinerary, user: female, round_trip: true
+      create :itinerary, user: female, daily: true
+      create :itinerary, user: female, pink: true, daily: true
 
-      visit itineraries_user_path(@user)
+      visit itineraries_user_path(female)
 
       expect(page).to have_css('tbody > tr', count: 4)
-      @user.itineraries.each do |itinerary|
+      female.itineraries.each do |itinerary|
         row = find(:xpath, "//a[@href='#{itinerary_path(itinerary)}' and text()='#{itinerary.start_address}']/../..")
-        expect(row).to_not be_nil
+        expect(row).not_to be_nil
         expect(row).to have_css ROUND_TRIP_ICON if itinerary.round_trip?
         expect(row).to have_css DAILY_ICON if itinerary.daily?
         expect(row).to have_css PINK_ICON if itinerary.pink?
@@ -133,20 +134,20 @@ RSpec.describe 'Itineraries' do
 
     it 'allows users to delete their own ones' do
       login_as_male
-      itinerary = create :itinerary, user: @user
+      itinerary = create :itinerary, user: male
 
-      visit itineraries_user_path(@user)
+      visit itineraries_user_path(male)
 
       find("a[data-method=\"delete\"][href=\"#{itinerary_path(itinerary)}\"]").click
       expect(page).to have_content I18n.t('flash.itineraries.success.destroy')
-      expect(page).to_not have_content itinerary.title
+      expect(page).not_to have_content itinerary.title
     end
 
     it 'allows users to edit their own ones' do
       login_as_male
-      itinerary = create :itinerary, user: @user, description: 'Old description'
+      itinerary = create :itinerary, user: male, description: 'Old description'
 
-      visit itineraries_user_path(@user)
+      visit itineraries_user_path(male)
 
       find("a[href=\"#{edit_itinerary_path(itinerary)}\"]").click
       fill_in 'itinerary_description', with: 'New Description'
@@ -162,7 +163,7 @@ RSpec.describe 'Itineraries' do
 
       visit itinerary_path(pink_itinerary)
 
-      expect(current_path).to eq dashboard_path
+      expect(page).to have_current_path dashboard_path
       expect(page).to have_content I18n.t('flash.itineraries.error.pink')
     end
 
@@ -177,9 +178,9 @@ RSpec.describe 'Itineraries' do
 
     it 'does not fail when updating with wrong parameters' do
       login_as_male
-      itinerary = create :itinerary, user: @user, description: 'Old description'
+      itinerary = create :itinerary, user: male, description: 'Old description'
 
-      visit itineraries_user_path(@user)
+      visit itineraries_user_path(male)
 
       find("a[href=\"#{edit_itinerary_path(itinerary)}\"]").click
       fill_in 'itinerary_description', with: ''
@@ -195,10 +196,10 @@ RSpec.describe 'Itineraries' do
 
       visit itinerary_path(itinerary)
 
-      expect(current_path).to eq itinerary_path(itinerary)
+      expect(page).to have_current_path itinerary_path(itinerary)
       expect(page).to have_content itinerary.description
-      expect(page).to_not have_content 'John Doe'
-      expect(page).to_not have_css('img[src="http://graph.facebook.com/123456/picture?type=square"]')
+      expect(page).not_to have_content 'John Doe'
+      expect(page).not_to have_css('img[src="http://graph.facebook.com/123456/picture?type=square"]')
     end
 
     it "doesn't allow guests to see pink itineraries" do
@@ -207,7 +208,7 @@ RSpec.describe 'Itineraries' do
 
       visit itinerary_path(pink_itinerary)
 
-      expect(current_path).to eq root_path
+      expect(page).to have_current_path root_path
     end
   end
 end
