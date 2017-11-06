@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Users' do
   it 'does not see reports' do
-    expect(page).to_not have_css('#navbar-notifications-reports')
+    expect(page).not_to have_css('#navbar-notifications-reports')
   end
 
   it 'does not see users index' do
     visit admin_users_path
 
-    expect(current_path).to_not eq admin_users_path
+    expect(page).not_to have_current_path admin_users_path
   end
 
   it 'allows to delete account' do
@@ -19,7 +19,7 @@ RSpec.describe 'Users' do
     visit user_facebook_omniauth_authorize_path
 
     click_link I18n.t('delete_account')
-    expect(current_path).to eq root_path
+    expect(page).to have_current_path root_path
     expect(User.count).to be 0
     expect(User.deleted.count).to be 1
     expect(page).to have_content I18n.t('flash.users.success.destroy')
@@ -59,7 +59,7 @@ RSpec.describe 'Users' do
     end
 
     context 'with pink itineraries' do
-      before :each do
+      before do
         female_driver = create :user, gender: 'female'
         create_list :itinerary, 5
         create :itinerary, pink: true, user: female_driver
@@ -88,29 +88,32 @@ RSpec.describe 'Users' do
   end
 
   context 'Profile' do
-    def create_friends_and_refresh(friends)
-      @user.update_attribute :facebook_friends, Array.new(friends.to_i) { |i| { 'id' => "90110#{i}", 'name' => "Friend #{i}" } }
-      @user.reload
-
-      visit user_path(@user)
+    let(:user) do
+      create :user, uid: '123456',
+                    education: [{ 'school' => { 'id' => '300', 'name' => 'A College' }, 'type' => 'College' }],
+                    facebook_favorites: [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }],
+                    languages: [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
+                    facebook_verified: true,
+                    work: [{ 'employer' => { 'id' => '100', 'name' => 'First Inc.' }, 'start_date' => '0000-00' },
+                           { 'employer' => { 'id' => '101', 'name' => 'Second Ltd.' }, 'start_date' => '0000-00' },
+                           { 'employer' => { 'id' => '101', 'name' => 'Third S.p.A.' }, 'start_date' => '0000-00' }]
     end
 
-    before(:each) do
-      @user = create :user, uid: '123456',
-                            education: [{ 'school' => { 'id' => '300', 'name' => 'A College' }, 'type' => 'College' }],
-                            facebook_favorites: [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }],
-                            languages: [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
-                            facebook_verified: true,
-                            work: [{ 'employer' => { 'id' => '100', 'name' => 'First Inc.' }, 'start_date' => '0000-00' },
-                                   { 'employer' => { 'id' => '101', 'name' => 'Second Ltd.' }, 'start_date' => '0000-00' },
-                                   { 'employer' => { 'id' => '101', 'name' => 'Third S.p.A.' }, 'start_date' => '0000-00' }]
+    def create_friends_and_refresh(friends)
+      user.update_attribute :facebook_friends, Array.new(friends.to_i) { |i| { 'id' => "90110#{i}", 'name' => "Friend #{i}" } }
+      user.reload
 
+      visit user_path(user)
+    end
+
+    before do
+      user
       visit user_facebook_omniauth_authorize_path
-      visit user_path(@user)
+      visit user_path(user)
     end
 
     it 'shows reference tags' do
-      itinerary = create :itinerary, user: @user
+      itinerary = create :itinerary, user: user
 
       passengers = Array.new(6) { |_| create :user }
 
@@ -132,11 +135,11 @@ RSpec.describe 'Users' do
         build :outgoing_reference, reference: reference
         reference.save
       end
-      @user.reload
-      visit user_path(@user)
-      expect(page).to have_content I18n.t('references.snippet.positives', count: @user.references.positives.count)
-      expect(page).to have_content I18n.t('references.snippet.neutrals', count: @user.references.neutrals.count)
-      expect(page).to have_content I18n.t('references.snippet.negatives', count: @user.references.negatives.count)
+      user.reload
+      visit user_path(user)
+      expect(page).to have_content I18n.t('references.snippet.positives', count: user.references.positives.count)
+      expect(page).to have_content I18n.t('references.snippet.neutrals', count: user.references.neutrals.count)
+      expect(page).to have_content I18n.t('references.snippet.negatives', count: user.references.negatives.count)
     end
 
     it 'highlights common languages' do
@@ -168,13 +171,13 @@ RSpec.describe 'Users' do
                                         facebook_favorites: [{ 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }]
       visit user_path(user_with_mutual_friends)
       expect(page).to have_xpath "//div[@class='tag tag-common tag-sm' and text()='Common like']"
-      expect(page).to_not have_xpath "//div[@class='tag tag-common tag-sm' and text()='Not a common like']"
+      expect(page).not_to have_xpath "//div[@class='tag tag-common tag-sm' and text()='Not a common like']"
     end
 
     context 'verified' do
       it 'adds the verified box' do
         visit user_facebook_omniauth_authorize_path
-        visit user_path(@user)
+        visit user_path(user)
 
         expect(page).to have_css '.facebook-verified'
       end

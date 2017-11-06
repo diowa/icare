@@ -7,7 +7,7 @@ RSpec.describe 'Sessions' do
     visit user_facebook_omniauth_authorize_path
 
     expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
-    expect(User.count).to_not be_zero
+    expect(User.count).not_to be_zero
   end
 
   it 'allows users to logout' do
@@ -52,7 +52,7 @@ RSpec.describe 'Sessions' do
 
         visit user_facebook_omniauth_authorize_path
 
-        expect(current_path).to eq root_path
+        expect(page).to have_current_path root_path
         expect(page).to have_content I18n.t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
       ensure
         OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH

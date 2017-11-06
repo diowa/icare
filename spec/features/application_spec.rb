@@ -14,10 +14,10 @@ RSpec.describe 'Application' do
 
     visit user_facebook_omniauth_authorize_path
 
-    expect(current_path).to eq banned_path
+    expect(page).to have_current_path banned_path
     [itineraries_path, new_itinerary_path].each do |path|
       visit path
-      expect(current_path).to eq banned_path
+      expect(page).to have_current_path banned_path
     end
   end
 
