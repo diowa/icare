@@ -9,5 +9,5 @@ if %w[development test].include? Rails.env
     t.files = []
   end
 
-  task(:default).prerequisites.unshift task(:scss_lint)
+  task(:lint).prerequisites.unshift :scss_lint
 end

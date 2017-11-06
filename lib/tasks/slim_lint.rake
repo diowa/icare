@@ -4,5 +4,5 @@ if %w[development test].include? Rails.env
   require 'slim_lint/rake_task'
   SlimLint::RakeTask.new
 
-  task(:default).prerequisites.unshift task(:slim_lint)
+  task(:lint).prerequisites.unshift :slim_lint
 end
