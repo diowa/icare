@@ -39,7 +39,7 @@ RSpec.describe Reference do
       it 'creates a new reference in the driver and set the incoming reference' do
         create :outgoing_reference, reference: reference
         driver.reload
-        expect(driver.references).to_not be_empty
+        expect(driver.references).not_to be_empty
         expect(driver.references.first.itinerary).to eq itinerary
         expect(driver.references.first.referencing_user).to eq passenger
         expect(driver.references.first.incoming.rating).to eq reference.outgoing.rating

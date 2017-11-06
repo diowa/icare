@@ -61,18 +61,18 @@ RSpec.describe CacheFacebookDataJob do
 
   context 'when data is nil' do
     it 'does not fail' do
-      expect(CacheFacebookDataJob.perform_now(user)).to be true
+      expect(described_class.perform_now(user)).to be true
     end
   end
 
   context 'when data is expired' do
     it 'updates user data' do
-      expect(CacheFacebookDataJob.perform_now(user)).to be true
-      expect(CacheFacebookDataJob.perform_now(user)).to be false
+      expect(described_class.perform_now(user)).to be true
+      expect(described_class.perform_now(user)).to be false
 
       travel_to APP_CONFIG.facebook.cache_expiry_time.from_now + 1.second do
-        expect(CacheFacebookDataJob.perform_now(user)).to be true
-        expect(CacheFacebookDataJob.perform_now(user)).to be false
+        expect(described_class.perform_now(user)).to be true
+        expect(described_class.perform_now(user)).to be false
       end
     end
   end
@@ -80,14 +80,14 @@ RSpec.describe CacheFacebookDataJob do
   context 'when data is fresh' do
     it "doesn't cache user data" do
       user_with_fresh_data = create :user, access_token: 'test', facebook_data_cached_at: Time.current
-      expect(CacheFacebookDataJob.perform_now(user_with_fresh_data)).to be false
+      expect(described_class.perform_now(user_with_fresh_data)).to be false
     end
   end
 
   context 'when Graph API returns with an error' do
     it 'does not fail' do
       stub_http_request(:post, /graph.facebook.com/).to_return status: 500
-      expect(CacheFacebookDataJob.perform_now(user)).to be true
+      expect(described_class.perform_now(user)).to be true
     end
   end
 
@@ -96,7 +96,7 @@ RSpec.describe CacheFacebookDataJob do
       stub_request(:get, 'https://graph.facebook.com/me?access_token=test&fields=bio,birthday,education,gender,languages,locale,verified,work')
         .to_return(status: 200, body: me_response.except('locale').to_json, headers: {})
 
-      CacheFacebookDataJob.perform_now(user)
+      described_class.perform_now(user)
 
       user.reload
 
@@ -116,7 +116,7 @@ RSpec.describe CacheFacebookDataJob do
         stub_request(:get, 'https://graph.facebook.com/me?access_token=test&fields=bio,birthday,education,gender,languages,locale,verified,work')
           .to_return(status: 200, body: me_response.except('birthday').to_json, headers: {})
 
-        CacheFacebookDataJob.perform_now(user)
+        described_class.perform_now(user)
 
         user.reload
 
@@ -129,7 +129,7 @@ RSpec.describe CacheFacebookDataJob do
         stub_request(:get, 'https://graph.facebook.com/me?access_token=test&fields=bio,birthday,education,gender,languages,locale,verified,work')
           .to_return(status: 200, body: me_response.merge('birthday' => '1980').to_json, headers: {})
 
-        CacheFacebookDataJob.perform_now(user)
+        described_class.perform_now(user)
 
         user.reload
 
@@ -142,7 +142,7 @@ RSpec.describe CacheFacebookDataJob do
         stub_request(:get, 'https://graph.facebook.com/me?access_token=test&fields=bio,birthday,education,gender,languages,locale,verified,work')
           .to_return(status: 200, body: me_response.merge('birthday' => '08/25').to_json, headers: {})
 
-        CacheFacebookDataJob.perform_now(user)
+        described_class.perform_now(user)
 
         user.reload
 
@@ -152,7 +152,7 @@ RSpec.describe CacheFacebookDataJob do
   end
 
   it 'fills user profile with data from facebook' do
-    CacheFacebookDataJob.perform_now(user)
+    described_class.perform_now(user)
 
     user.reload
 

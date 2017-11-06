@@ -68,7 +68,7 @@ RSpec.describe 'References' do
     expect(page).to have_css('tbody > tr', count: 3)
     driver.itineraries.each_with_index do |_itinerary, index|
       row = find(:xpath, "//a[text()='#{references[index].outgoing.body}']/../..")
-      expect(row).to_not be_nil
+      expect(row).not_to be_nil
       expect(row).to have_css POSITIVE_ICON if references[index].outgoing.rating == 1
       expect(row).to have_css NEGATIVE_ICON if references[index].outgoing.rating == -1
     end

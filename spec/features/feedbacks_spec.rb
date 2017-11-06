@@ -12,7 +12,7 @@ RSpec.describe 'Feedbacks' do
     click_link I18n.t('helpers.links.new')
     fill_in 'feedback_message', with: 'This is a new feedback'
     click_button I18n.t('helpers.submit.create', model: Feedback)
-    expect(current_path).to eq feedbacks_path
+    expect(page).to have_current_path feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.create')
   end
 
@@ -26,7 +26,7 @@ RSpec.describe 'Feedbacks' do
     click_link I18n.t('helpers.links.edit')
     fill_in 'feedback_message', with: 'This is a modified message'
     click_button I18n.t('helpers.submit.update', model: Feedback)
-    expect(current_path).to eq feedbacks_path
+    expect(page).to have_current_path feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.update')
     expect(feedback.reload.message).to eq 'This is a modified message'
   end
@@ -41,7 +41,7 @@ RSpec.describe 'Feedbacks' do
     click_link I18n.t('helpers.links.edit')
     fill_in 'feedback_message', with: 'This is a modified message'
     click_button I18n.t('helpers.submit.update', model: Feedback)
-    expect(current_path).to eq feedbacks_path
+    expect(page).to have_current_path feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.update')
     expect(feedback.reload.message).to eq 'This is a modified message'
   end
@@ -56,7 +56,7 @@ RSpec.describe 'Feedbacks' do
     click_link I18n.t('helpers.links.edit')
     select 'fixed', from: 'feedback_status'
     click_button I18n.t('helpers.submit.update', model: Feedback)
-    expect(current_path).to eq feedbacks_path
+    expect(page).to have_current_path feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.update')
     expect(feedback.reload.fixed?).to be true
   end
@@ -69,7 +69,7 @@ RSpec.describe 'Feedbacks' do
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
-    expect(current_path).to eq feedbacks_path
+    expect(page).to have_current_path feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.destroy')
   end
 
@@ -81,7 +81,7 @@ RSpec.describe 'Feedbacks' do
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
-    expect(current_path).to eq feedbacks_path
+    expect(page).to have_current_path feedbacks_path
     expect(page).to have_content I18n.t('flash.feedbacks.success.destroy')
   end
 

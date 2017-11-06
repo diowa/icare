@@ -88,7 +88,7 @@ RSpec.describe 'Conversations' do
 
       visit unread_conversations_path
 
-      expect(current_path).to eq conversations_path
+      expect(page).to have_current_path conversations_path
     end
   end
 end
