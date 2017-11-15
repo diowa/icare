@@ -25,7 +25,7 @@ RSpec.describe 'Users' do
     expect(page).to have_content I18n.t('flash.users.success.destroy')
   end
 
-  context 'Settings' do
+  describe 'Settings' do
     it 'allows to edit profile' do
       user = create :user, uid: '123456'
       visit user_facebook_omniauth_authorize_path
@@ -46,7 +46,7 @@ RSpec.describe 'Users' do
     end
   end
 
-  context 'Dashboard' do
+  describe 'Dashboard' do
     it 'shows latest itineraries' do
       female_user = create :user, gender: 'female'
       create :itinerary, pink: true, user: female_user
@@ -87,7 +87,7 @@ RSpec.describe 'Users' do
     end
   end
 
-  context 'Profile' do
+  describe 'Profile' do
     let(:user) do
       create :user, uid: '123456',
                     education: [{ 'school' => { 'id' => '300', 'name' => 'A College' }, 'type' => 'College' }],
@@ -174,7 +174,7 @@ RSpec.describe 'Users' do
       expect(page).not_to have_xpath "//div[@class='tag tag-common tag-sm' and text()='Not a common like']"
     end
 
-    context 'verified' do
+    context 'when user is verified' do
       it 'adds the verified box' do
         visit user_facebook_omniauth_authorize_path
         visit user_path(user)

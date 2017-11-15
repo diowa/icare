@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ItinerarySearch do
-  context '.itineraries' do
+  describe '.itineraries' do
     let(:male_user) { create :user, gender: 'male' }
     let(:female_user) { create :user, gender: 'female' }
     let(:search_params) do

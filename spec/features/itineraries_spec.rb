@@ -11,7 +11,7 @@ RSpec.describe 'Itineraries' do
   let(:male) { create :user, uid: '123456', gender: 'male' }
   let(:female) { create :user, uid: '123456', gender: 'female' }
 
-  context 'Registered Users' do
+  context 'with registered Users' do
     def login_as_male
       male
       visit user_facebook_omniauth_authorize_path
@@ -189,7 +189,7 @@ RSpec.describe 'Itineraries' do
     end
   end
 
-  context 'Guests' do
+  context 'with guests' do
     it 'allows guests to see itineraries' do
       user = create :user, name: 'John Doe', uid: '123456'
       itinerary = create :itinerary, description: 'Itinerary for guest users', user: user

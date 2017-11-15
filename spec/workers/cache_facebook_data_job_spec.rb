@@ -110,8 +110,8 @@ RSpec.describe CacheFacebookDataJob do
   # only the year (YYYY) or the month + day (MM/DD)
   #
   # Ref: https://developers.facebook.com/docs/graph-api/reference/user/
-  context "when user's birthday" do
-    context 'is nil' do
+  context "with user's birthday" do
+    context 'when it is nil' do
       it 'does not fail' do
         stub_request(:get, 'https://graph.facebook.com/me?access_token=test&fields=bio,birthday,education,gender,languages,locale,verified,work')
           .to_return(status: 200, body: me_response.except('birthday').to_json, headers: {})
@@ -124,7 +124,7 @@ RSpec.describe CacheFacebookDataJob do
       end
     end
 
-    context 'has YYYY format' do
+    context 'when it has YYYY format' do
       it 'does not store it' do
         stub_request(:get, 'https://graph.facebook.com/me?access_token=test&fields=bio,birthday,education,gender,languages,locale,verified,work')
           .to_return(status: 200, body: me_response.merge('birthday' => '1980').to_json, headers: {})
@@ -137,7 +137,7 @@ RSpec.describe CacheFacebookDataJob do
       end
     end
 
-    context 'has MM/DD format' do
+    context 'when it has MM/DD format' do
       it 'does not store it' do
         stub_request(:get, 'https://graph.facebook.com/me?access_token=test&fields=bio,birthday,education,gender,languages,locale,verified,work')
           .to_return(status: 200, body: me_response.merge('birthday' => '08/25').to_json, headers: {})

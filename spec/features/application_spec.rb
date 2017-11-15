@@ -34,7 +34,7 @@ RSpec.describe 'Application' do
     end
   end
 
-  context 'Locale' do
+  context 'with locale' do
     context 'when user is passing an unknown locale param' do
       it 'fallbacks to en-US' do
         user = create :user, uid: '123456'
