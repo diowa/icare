@@ -9,7 +9,7 @@ RSpec.describe User do
   let(:jack_black) { create :user, name: 'Jack Black' }
   let(:anonymous) { create :user, name: nil }
 
-  context '#age' do
+  describe '#age' do
     let(:born_on_1960_10_30) { create :user, birthday: '1960-10-30' }
     let(:born_on_1972_02_29) { create :user, birthday: '1972-02-29' }
     let(:unknown_birthday) { create :user, birthday: nil }
@@ -45,7 +45,7 @@ RSpec.describe User do
     end
   end
 
-  context '#female?' do
+  describe '#female?' do
     it 'answers true if user is female' do
       expect(female_user.female?).to be true
     end
@@ -55,7 +55,7 @@ RSpec.describe User do
     end
   end
 
-  context '#first_name' do
+  describe '#first_name' do
     it "returns user's first name" do
       expect(jack_black.first_name).to eq 'Jack'
     end
@@ -65,14 +65,14 @@ RSpec.describe User do
     end
   end
 
-  context '#to_s' do
+  describe '#to_s' do
     it "returns user's name when available" do
       expect(jack_black.to_s).to eq 'Jack Black'
       expect(anonymous.to_s).to eq anonymous.id.to_s
     end
   end
 
-  context '#unread_conversations_count' do
+  describe '#unread_conversations_count' do
     it 'returns the number of unread conversations' do
       driver = create :user
       passenger = create :user
@@ -84,7 +84,7 @@ RSpec.describe User do
     end
   end
 
-  context '#unread_references_count' do
+  describe '#unread_references_count' do
     it 'returns the number of unread references' do
       driver = create :user
       passenger = create :user

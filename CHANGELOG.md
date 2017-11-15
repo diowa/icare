@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.65.2
+
+* Update gems
+
 ## 0.65.1
 
 * Fix lint task
