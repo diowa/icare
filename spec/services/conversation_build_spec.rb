@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ConversationBuild do
-  context '.conversation' do
+  describe '.conversation' do
     let(:driver) { create :user }
     let(:passenger) { create :user }
     let(:itinerary) { create :itinerary, user: driver }

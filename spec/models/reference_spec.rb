@@ -8,7 +8,7 @@ RSpec.describe Reference do
   let(:itinerary) { create :itinerary, user: driver }
   let(:reference) { create :reference, user: passenger, itinerary: itinerary }
 
-  context '#not_by_myself' do
+  describe '#not_by_myself' do
     it 'adds an error on user field when a malicious user tries to reference himself' do
       invalid_reference = build :reference, user: driver, itinerary: itinerary
       expect(invalid_reference.valid?).to be false
@@ -16,26 +16,26 @@ RSpec.describe Reference do
     end
   end
 
-  context '#unread?' do
+  describe '#unread?' do
     it 'knows if a reference is unread' do
       expect(reference.unread?).to be true
     end
   end
 
-  context '#driver?' do
+  describe '#driver?' do
     it 'knows if the referencing user is the driver' do
       expect(reference.driver?).to be true
     end
   end
 
-  context '#referencing_user' do
+  describe '#referencing_user' do
     it 'returns the referencing user' do
       expect(reference.referencing_user).to eq driver
     end
   end
 
   describe References::Outgoing do
-    context 'after save' do
+    describe 'after_save' do
       it 'creates a new reference in the driver and set the incoming reference' do
         create :outgoing_reference, reference: reference
         driver.reload
