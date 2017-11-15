@@ -48,7 +48,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 4.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 4.5'
+gem 'newrelic_rpm', '~> 4.6'
 
 # Security
 gem 'secure_headers', '~> 5.0'
@@ -76,7 +76,7 @@ group :development, :test do
   gem 'byebug', '~> 9.1'
   gem 'factory_bot_rails', '~> 4.8'
   gem 'faker', '~> 1.8'
-  gem 'pry', '~> 0.11.2'
+  gem 'pry', '~> 0.11.3'
   gem 'pry-byebug', '~> 3.5'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.7'
@@ -98,9 +98,9 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.15'
+  gem 'capybara', '~> 2.16'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'coveralls_reborn', '~> 0.9.0', require: false
+  gem 'coveralls_reborn', '~> 0.10.0', require: false
   gem 'database_cleaner', '~> 1.6'
   gem 'email_spec', '~> 2.1'
   gem 'launchy', '~> 2.4'
