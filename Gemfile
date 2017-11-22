@@ -11,7 +11,7 @@ ruby '2.4.2'
 gem 'rails', '5.1.4'
 
 # Servers
-gem 'puma', '~> 3.10'
+gem 'puma', '~> 3.11'
 
 # Background jobs within the same process as web application
 gem 'sucker_punch', '~> 2.0'
@@ -81,9 +81,9 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.51.0', require: false
-  gem 'rubocop-rspec', '~> 1.19', require: false
+  gem 'rubocop-rspec', '~> 1.20', require: false
   gem 'scss_lint', '~> 0.56.0', require: false
-  gem 'slim_lint', '~> 0.15.0', require: false
+  gem 'slim_lint', '~> 0.15.1', require: false
 end
 
 group :development do
