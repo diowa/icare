@@ -6,7 +6,7 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
     meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0'
     / The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
 
-    title= yield_or_default :title, controller.action_name.titlecase
+    title= meta_title fallback: controller.action_name.titlecase
     = csrf_meta_tags
     = yield :head
 

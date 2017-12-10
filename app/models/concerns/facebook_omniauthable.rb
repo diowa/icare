@@ -16,7 +16,12 @@ module FacebookOmniauthable
     def facebook
       # TODO: Request a Long-Term token
       @facebook ||= Koala::Facebook::API.new(access_token)
-      block_given? ? yield(@facebook) : @facebook
+
+      if block_given?
+        yield(@facebook)
+      else
+        @facebook
+      end
     rescue Koala::Facebook::APIError => e
       logger.info e.to_s
       nil # or return a custom object
