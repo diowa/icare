@@ -20,8 +20,10 @@ module ApplicationHelper
     content_for(:title) { page_title.to_s }
   end
 
-  def yield_or_default(section, default = '')
-    content_for?(section) ? content_for(section) + (" | #{APP_CONFIG.app_name}" unless user_signed_in? || content_for(section) == APP_CONFIG.app_name) : default
+  def meta_title(options = {})
+    title = content_for(:title) || options[:fallback]
+    title << " | #{APP_CONFIG.app_name}" unless user_signed_in? || title.blank?
+    title
   end
 
   def twitterized_type(type)

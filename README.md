@@ -1,5 +1,5 @@
 # icare
-[![Build Status](https://secure.travis-ci.org/diowa/icare.svg?branch=master)](https://travis-ci.org/diowa/icare) [![Dependency Status](https://gemnasium.com/badges/github.com/diowa/icare.svg)](https://gemnasium.com/github.com/diowa/icare) [![Code Climate](https://codeclimate.com/github/diowa/icare/badges/gpa.svg)](https://codeclimate.com/github/diowa/icare) [![Coverage Status](https://coveralls.io/repos/diowa/icare/badge.svg?branch=master)](https://coveralls.io/r/diowa/icare?branch=master)
+[![Build Status](https://secure.travis-ci.org/diowa/icare.svg?branch=master)](https://travis-ci.org/diowa/icare) [![Dependency Status](https://gemnasium.com/badges/github.com/diowa/icare.svg)](https://gemnasium.com/github.com/diowa/icare) [![Maintainability](https://api.codeclimate.com/v1/badges/b5c7bd31597d298a5d6e/maintainability)](https://codeclimate.com/github/diowa/icare/maintainability) [![Coverage Status](https://coveralls.io/repos/diowa/icare/badge.svg?branch=master)](https://coveralls.io/r/diowa/icare?branch=master)
 
 [![Gitter](https://badges.gitter.im/diowa/icare.svg)](https://gitter.im/diowa/icare?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 

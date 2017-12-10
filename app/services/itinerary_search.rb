@@ -27,8 +27,6 @@ class ItinerarySearch
 
     # Sum results
     from_a_to_b_itineraries + from_b_to_a_itineraries
-  rescue
-    []
   end
 
   private
@@ -40,6 +38,14 @@ class ItinerarySearch
   def extract_filters_from_params
     filters = {}
 
+    add_checkbox_filters(filters)
+    add_boolean_filters(filters)
+    add_gender_filter(filters)
+
+    filters
+  end
+
+  def add_checkbox_filters(filters)
     %i[round_trip pink verified].each do |checkbox_field|
       param = @params["filter_#{checkbox_field}".to_sym]
       filters[checkbox_field] = true if param == '1'
@@ -47,14 +53,17 @@ class ItinerarySearch
 
     # Overrides pink filter for malicious male users
     filters[:pink] = false unless @user.female?
+  end
 
+  def add_boolean_filters(filters)
     %i[smoking_allowed pets_allowed].each do |boolean_field|
       param = @params["filter_#{boolean_field}".to_sym]
       filters[boolean_field] = (param == 'true') if param.present?
     end
+  end
 
+  def add_gender_filter(filters)
     filter_driver_gender_param = @params[:filter_driver_gender]
     filters[:driver_gender] = filter_driver_gender_param if User::GENDER.include?(filter_driver_gender_param)
-    filters
   end
 end

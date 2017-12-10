@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.65.4
+
+* Minor fixes
+* Update gems
+
 ## 0.65.3
 
 * Update gems
