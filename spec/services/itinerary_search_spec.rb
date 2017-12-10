@@ -13,11 +13,6 @@ RSpec.describe ItinerarySearch do
         end_location_lng: 1 }
     end
 
-    it 'rescues on errors' do
-      itineraries = described_class.new({ start_location_lng: Hash }, male_user).itineraries
-      expect(itineraries).to be_empty
-    end
-
     it 'returns itineraries nearby' do
       3.times { create :itinerary, start_location: [0, 0], end_location: [1, 1] }
       2.times { create :itinerary, start_location: [0.001, 0.005], end_location: [1.001, 0.999] }
