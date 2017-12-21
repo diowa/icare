@@ -10,9 +10,6 @@ AllCops:
     - 'db/**/*'
     - 'vendor/bundle/**/*'
 
-Lint/RescueWithoutErrorClass:
-  Enabled: false
-
 Lint/UriEscapeUnescape:
   Enabled: false
 
@@ -60,4 +57,7 @@ RSpec/NestedGroups:
   Max: 4
 
 Style/Documentation:
+  Enabled: false
+
+Style/RescueStandardError:
   Enabled: false
