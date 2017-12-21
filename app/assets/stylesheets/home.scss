@@ -104,7 +104,8 @@ html,
     border-color: fade-out(#fff, .6);
   }
 
-  .fa {
+  .fa,
+  .fab {
     position: relative;
     margin-left: 5px;
     transform: translate3d(0, 1px, 0);
@@ -135,7 +136,8 @@ html,
     max-width: $container-md;
   }
 
-  .fa {
+  .fa,
+  .fab {
     display: block;
     float: left;
     margin-right: 20px;
@@ -219,13 +221,15 @@ html,
       font-weight: 300;
     }
 
-    .fa {
+    .fa,
+    .fab {
       margin-right: 60px;
       font-size: 10em;
     }
 
     &:nth-child(even) {
-      .fa {
+      .fa,
+      .fab {
         float: right;
         margin-right: 0;
         margin-left: 60px;

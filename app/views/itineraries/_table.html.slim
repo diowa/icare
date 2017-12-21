@@ -22,14 +22,14 @@
             - if itinerary.pink
               span.text-pink.fa-fw.fa.fa-lock rel='tooltip' title=Itinerary.human_attribute_name(:pink)
             - if itinerary.daily
-              span.fa-fw.fa.fa-repeat rel='tooltip' title=Itinerary.human_attribute_name(:daily)
+              span.fa-fw.fa.fa-redo rel='tooltip' title=Itinerary.human_attribute_name(:daily)
             - if itinerary.round_trip
-              span.fa-fw.fa.fa-exchange rel='tooltip' title=Itinerary.human_attribute_name(:round_trip)
+              span.fa-fw.fa.fa-exchange-alt rel='tooltip' title=Itinerary.human_attribute_name(:round_trip)
           - if edit
             td
               .btn-toolbar
                 = link_to edit_itinerary_path(itinerary), class: 'btn btn-xs btn-default' do
-                  span.fa.fa-pencil<>
+                  span.fa.fa-pencil-alt<>
                   = t('helpers.links.edit')
                 = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-danger' do
                   span.fa.fa-times<>

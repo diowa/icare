@@ -14,12 +14,14 @@ input[type=text] {
   display: inline-block;
   margin-bottom: 15px;
 
-  .fa {
+  .fa,
+  .fab {
     transition: all .25s ease-in-out;
   }
 
   &.collapsed {
-    .fa {
+    .fa,
+    .fab {
       transform: rotateZ(-90deg);
     }
   }
@@ -31,4 +33,9 @@ input[type=text] {
   input {
     text-align: right;
   }
+}
+
+.fuel-help {
+  margin-top: -10px;
+  margin-bottom: 15px;
 }

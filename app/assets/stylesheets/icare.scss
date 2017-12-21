@@ -5,13 +5,6 @@ body {
   padding-top: $navbar-height + 10px;
 }
 
-// Font Awesome 14px fix
-// TODO: remove when FA 5.0.0 will be released
-.fa {
-  font-size: (14em / 16);
-  vertical-align: (1em / 16);
-}
-
 .diowa-logo {
   position: relative;
   top: -1px;
@@ -134,7 +127,8 @@ body {
   margin-bottom: ($line-height-computed / 2);
   user-select: none;
 
-  span.fa {
+  span.fa,
+  span.fab {
     width: 1em;
     text-align: left;
   }

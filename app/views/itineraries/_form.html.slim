@@ -8,7 +8,7 @@ fieldset#single
       span.input-group-addon= APP_CONFIG.currency
   .row
     .col-sm-10.col-sm-offset-2
-      p.help-block#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
+      p.help-block#fuel-help.fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
         span#fuel-help-text
   = f.input :tolls, wrapper: :horizontal_form do
     .input-group.input-group-number

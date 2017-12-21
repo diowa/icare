@@ -40,5 +40,5 @@ nav.navbar.navbar-fixed-top.navbar-internal.navbar-default role='navigation'
                 li=link_to t('lang_native_name', locale: locale), url_for(locale: locale)
           li.facebook-link
             = link_to user_facebook_omniauth_authorize_path, data: { turbolinks: false } do
-              span.fa.fa-facebook-square<>
+              span.fab.fa-facebook-square<>
               = t('login_with_facebook')

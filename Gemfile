@@ -48,7 +48,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 4.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 4.6'
+gem 'newrelic_rpm', '~> 4.7'
 
 # Security
 gem 'secure_headers', '~> 5.0'
@@ -80,8 +80,8 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.5'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.7'
-  gem 'rubocop', '~> 0.51.0', require: false
-  gem 'rubocop-rspec', '~> 1.20', require: false
+  gem 'rubocop', '~> 0.52.0', require: false
+  gem 'rubocop-rspec', '~> 1.21', require: false
   gem 'scss_lint', '~> 0.56.0', require: false
   gem 'slim_lint', '~> 0.15.1', require: false
 end
@@ -105,7 +105,7 @@ group :test do
   gem 'email_spec', '~> 2.1'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
-  gem 'poltergeist', '~> 1.16'
+  gem 'poltergeist', '~> 1.17'
   gem 'simplecov', '~> 0.15.1', require: false
   gem 'webmock', '~> 3.1', require: false
 end

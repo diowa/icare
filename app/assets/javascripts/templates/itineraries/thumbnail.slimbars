@@ -23,23 +23,23 @@
       | {{/if}}
       | {{#if daily}}
       br
-      span.fa.fa-repeat<>
+      span.fa.fa-redo<>
       span.text-muted
         ' {{translate "mongoid.attributes.itinerary.daily"}}
-      span.fa.fa-clock-o<>
+      span.fa.fa-clock<>
       ' {{localize "time.formats.time_only" leave_date}}
       | {{else}}
       span.text-muted<
         ' {{translate "mongoid.attributes.itinerary.leave_date"}}:
       ' {{localize "date.formats.long" leave_date}}
-      span.fa.fa-clock-o<>
+      span.fa.fa-clock<>
       ' {{localize "time.formats.time_only" leave_date}}
       | {{#if round_trip}}
       br
       span.text-muted
         ' {{translate "mongoid.attributes.itinerary.return_date"}}:
       ' {{localize "date.formats.long" return_date}}
-      span.fa.fa-clock-o<>
+      span.fa.fa-clock<>
       | {{localize "time.formats.time_only" return_date}}
       | {{/if}}
       | {{/if}}
@@ -53,7 +53,7 @@
       ' {{currency tolls}}
     .btn-toolbar
       a.btn.btn-xs.btn-default.show-itinerary-on-map href='#'
-        span.fa.fa-map-marker<>
+        span.fa.fa-map-marker-alt<>
         | {{translate "templates.itineraries.show_on_map"}}
       a.btn.btn-xs.btn-primary href='{{url}}'
         span.fa.fa-info-circle<>
