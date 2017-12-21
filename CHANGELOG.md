@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.66.0
+
+* Font Awesome 5
+* Update gems
+
 ## 0.65.4
 
 * Minor fixes
