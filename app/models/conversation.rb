@@ -8,7 +8,10 @@ class Conversation
   embeds_many :messages, cascade_callbacks: true
 
   has_and_belongs_to_many :users
+  # TODO: False positive ref: bbatsov/rubocop#5236
+  # rubocop:disable Rails/InverseOf
   belongs_to :conversable, polymorphic: true
+  # rubocop:enable Rails/InverseOf
 
   scope(:unread, ->(user) { where(messages: { '$elemMatch' => { read_at: nil, sender_id: { '$ne' => user.id } } }) })
 
