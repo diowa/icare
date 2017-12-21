@@ -295,7 +295,7 @@ en-US:
       hint_customize_title: "Customize your itinerary"
       hint_customize_content: "You use an alternative route because you have to go to your mother-in-law? Drag the path to achieve the desired route."
       hint_search_before_title: "Search before"
-      hint_search_before_content_html: "And if your itinerary was already there? %{search_link} among the available itineraries and check if there is one that matches your needs."
+      hint_search_before_content_html: "What if your itinerary is already here? %{search_link} among the available itineraries and check if there is one that matches your needs."
       search_link: "Search"
     form:
       description_hint: "Enter a brief description of your itinerary. If there are things that your fellow travelers need to know, add them here (example: \"loud music in the car!\")."
