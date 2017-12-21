@@ -12,9 +12,13 @@ class FeedbacksController < ApplicationController
     @url = request.env['HTTP_REFERER']
   end
 
+  def show; end
+
   def new
     @feedback = Feedback.new(url: params[:url])
   end
+
+  def edit; end
 
   def create
     @feedback = current_user.feedbacks.build(feedback_params)

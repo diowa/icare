@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  before_action :set_user_as_current_user, only: %i[update dashboard settings itineraries]
+  before_action :set_user_as_current_user, only: %i[update dashboard itineraries settings]
 
   def show
     @user = User.find(params[:id])
@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     redirect_to root_path, flash: { success: t('flash.users.success.destroy') }
   end
 
+  def banned
+    redirect_to root_path unless current_user.banned?
+  end
+
   def dashboard
     @latest_itineraries = Itinerary.includes(:user).desc(:created_at).limit 10
 
@@ -32,9 +36,7 @@ class UsersController < ApplicationController
     @itineraries = @user.itineraries.desc :created_at
   end
 
-  def banned
-    redirect_to root_path unless current_user.banned?
-  end
+  def settings; end
 
   private
 
