@@ -37,7 +37,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [4]: http://handlebarsjs.com/
  [5]: http://slim-lang.com/
  [6]: http://getbootstrap.com
- [7]: http://fontawesome.io
+ [7]: https://fontawesome.com
  [8]: https://docs.mongodb.com/ruby-driver/master/mongoid/
  [9]: https://github.com/brandonhilkert/sucker_punch
  [10]: https://github.com/nesquena/rabl

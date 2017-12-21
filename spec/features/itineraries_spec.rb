@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Itineraries' do
-  ROUND_TRIP_ICON = 'span.fa.fa-exchange'
-  DAILY_ICON = 'span.fa.fa-repeat'
+  ROUND_TRIP_ICON = 'span.fa.fa-exchange-alt'
+  DAILY_ICON = 'span.fa.fa-redo'
   PINK_ICON = 'span.fa.fa-lock'
   XSS_ALERT = "<script>alert('toasty!);</script>"
 

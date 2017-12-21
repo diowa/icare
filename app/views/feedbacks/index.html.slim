@@ -35,7 +35,7 @@
               .btn-toolbar
                 - if current_user == feedback.user || current_user.admin?
                   = link_to edit_feedback_path(feedback), class: 'btn btn-xs btn-default' do
-                    span.fa.fa-pencil<>
+                    span.fa.fa-pencil-alt<>
                     = t('helpers.links.edit')
                   = link_to feedback_path(feedback), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-xs btn-danger' do
                     span.fa.fa-times<>
