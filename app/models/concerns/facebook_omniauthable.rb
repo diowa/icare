@@ -58,10 +58,7 @@ module FacebookOmniauthable
     #
     # Ref: https://developers.facebook.com/docs/graph-api/reference/user/
     def birthday_from_graph_api(ga_birthday)
-      # TODO: False positive ref: bbatsov/rubocop#5230
-      # rubocop:disable Style/FormatStringToken
       Date.strptime(ga_birthday, '%m/%d/%Y').at_midnight if ga_birthday&.match?(%r{\A[0-9]{2}/[0-9]{2}/[0-9]{4}\z})
-      # rubocop:enable Style/FormatStringToken
     end
 
     def locale_from_graph_api(ga_locale)
