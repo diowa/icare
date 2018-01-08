@@ -15,7 +15,10 @@ class Itinerary
   delegate :name, to: :user, prefix: true
   delegate :first_name, to: :user, prefix: true
 
+  # TODO: False positive ref: bbatsov/rubocop#5236
+  # rubocop:disable Rails/InverseOf
   has_many :conversations, as: :conversable, dependent: :destroy
+  # rubocop:enable Rails/InverseOf
 
   # Details
   field :description
