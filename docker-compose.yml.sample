@@ -1,0 +1,29 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:3.6-jessie
+    volumes:
+      - /xxxxxxxxxxx:/data/db
+  redis:
+    image: redis:4-alpine
+    volumes:
+      - /xxxxxxxxxxx:/data    
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'    
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+      - redis
+    environment:
+      RAILS_ENV: production
+      SECRET_KEY_BASE: xxxxxxxxxxxxxxxx
+      DEVISE_SECRET_KEY: xxxxxxxxxxxxxx
+      DEVISE_PEPPER: xxxxxxxxxxxxxxxxxx
+      RAILS_SERVE_STATIC_FILES: 'true'
+      REDISTOGO_URL: 'redis://redis:6379'
+      MONGODB_URI: 'mongodb://mongodb:27017'
+      FACEBOOK_NAMESPACE: 'xxxxxxxxxxxx'
+      FACEBOOK_APP_ID: 'xxxxxxxxxxxxxxx'
+      FACEBOOK_SECRET: 'xxxxxxxxxxxxxxx'
