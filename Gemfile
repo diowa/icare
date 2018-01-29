@@ -30,7 +30,7 @@ gem 'client_side_validations', '~> 11.0'
 gem 'client_side_validations-simple_form', '~> 6.5'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
-gem 'mongoid', '~> 6.2'
+gem 'mongoid', '~> 6.3'
 gem 'mongoid-geospatial', '~> 5.0'
 gem 'mongoid-slug', '~> 5.3'
 gem 'mongoid_paranoia', '~> 0.3'
@@ -107,7 +107,7 @@ group :test do
   gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
   gem 'poltergeist', '~> 1.17'
   gem 'simplecov', '~> 0.15.1', require: false
-  gem 'webmock', '~> 3.2', require: false
+  gem 'webmock', '~> 3.3', require: false
 end
 
 group :staging, :production do
