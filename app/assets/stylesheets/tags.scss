@@ -1,19 +1,16 @@
-@import "twbs-variables";
-@import "twbs/bootstrap/mixins";
-
 .tag-list {
   margin-left: -5px;
   @include clearfix;
   .tag {
     display: block;
     float: left;
-    padding: $padding-small-vertical $padding-small-horizontal;
+    padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
     margin: 0 0 12px 5px;
-    background-color: $flat-ui-clouds;
+    background-color: $gray-200;
 
     &.tag-sm {
-      padding: $padding-small-vertical $padding-small-horizontal;
-      font-size: $font-size-small;
+      padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
+      font-size: $small-font-size;
     }
 
     &.tag-mutual-friend {
@@ -22,9 +19,10 @@
 
       img {
         position: absolute;
-        @include square(28px);
         top: 0;
         left: 0;
+        width: 28px;
+        height: 28px;
       }
     }
 
@@ -45,7 +43,7 @@
 
     &.tag-allowed,
     &.tag-common {
-      background-color: $brand-success;
+      background-color: $success;
     }
 
     &.tag-facebook {
@@ -53,11 +51,11 @@
     }
 
     &.tag-forbidden {
-      background-color: $brand-danger;
+      background-color: $danger;
     }
 
     &.tag-icare {
-      background-color: $brand-primary;
+      background-color: $info;
     }
 
     &.tag-pink {

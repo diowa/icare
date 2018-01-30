@@ -39,8 +39,9 @@ en-US:
 
   views:
     pagination:
-      first_html: "&laquo; First"
+      first_html: "&laquo; <span class=\"sr-only d-sm-block\">First</span>"
       last_html: "Last &raquo;"
+      page_navigation: Page Navigation
       previous_html: "&lsaquo; Previous"
       next_html: "Next &rsaquo;"
       truncate_html: "&hellip;"
@@ -155,8 +156,10 @@ en-US:
       account_settings: Account Settings
       admin_users: Manage Users
       language: Language
+      settings: Settings
+      toggle_navigation: Toggle navigation
     footer:
-      message: Privacy is not guaranteed at this stage of development
+      github_repository: 'GitHub repository'
 
   pages:
     home:

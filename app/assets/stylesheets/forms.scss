@@ -1,13 +1,10 @@
-@import "twbs-variables";
-@import "twbs/bootstrap/mixins";
-
 select.date-time {
   display: inline-block;
   width: auto;
 }
 
 input[type=text] {
-  @include text-overflow;
+  @include text-truncate;
 }
 
 .collapse-link {
@@ -27,17 +24,4 @@ input[type=text] {
       transform: rotateZ(-90deg);
     }
   }
-}
-
-.input-group-number {
-  max-width: 200px;
-
-  input {
-    text-align: right;
-  }
-}
-
-.fuel-help {
-  margin-top: -10px;
-  margin-bottom: 15px;
 }

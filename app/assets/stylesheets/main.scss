@@ -1,0 +1,78 @@
+@import "twbs";
+
+@import "buttons";
+@import "footer";
+@import "navbar";
+@import "turbolinks-progress-bar";
+
+@import "home";
+
+@import "conversations";
+@import "forms";
+@import "itineraries";
+@import "maps";
+@import "notifications";
+@import "references";
+@import "tags";
+@import "users";
+
+body {
+  padding-top: 4.5rem;
+}
+
+.d-none-soft {
+  display: none;
+}
+
+.page-header {
+  @extend .pb-2;
+  @extend .mt-4;
+  @extend .mb-2;
+}
+
+.text-pink {
+  color: $pink;
+}
+
+.img-outset {
+  position: relative;
+  display: inline-block;
+
+  &:before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "";
+    border: 1px solid fade-out(#000, .9);
+  }
+}
+
+.img-outset-dark:before {
+  border: 1px solid fade-out(#000, .5);
+}
+
+.diowa-logo {
+  position: relative;
+  top: -1px;
+  display: inline-block;
+  width: 90px;
+  height: 28px;
+  line-height: 1px;
+  vertical-align: middle;
+}
+
+// scss-lint:disable ImportantRule
+.vertical-align-middle td {
+  vertical-align: middle !important;
+}
+// scss-lint:enable ImportantRule
+
+.pre-line {
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.mock {
+  opacity: .6;
+}

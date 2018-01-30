@@ -2,16 +2,26 @@
 
 module ReferencesHelper
   RATINGS = {
-    rating_negative: { value: -1, icon: 'fa-thumbs-down' },
-    rating_neutral:  { value: 0 },
-    rating_positive: { value: 1, icon: 'fa-thumbs-up' }
+    -1 => {
+      form_field: 'rating_negative',
+      icon:       'fa-frown'
+    },
+    0  => {
+      form_field: 'rating_neutral',
+      icon:       'fa-meh'
+    },
+    1  => {
+      form_field: 'rating_positive',
+      icon:       'fa-smile'
+    }
   }.freeze
 
-  def make_thumbs(rating)
-    case rating
-    when -1 then content_tag :span, nil, class: 'fas fa-thumbs-down'
-    when 1 then content_tag :span, nil, class: 'fas fa-thumbs-up'
-    end
+  def reference_icon(rating)
+    content_tag :span, nil, class: "fas #{RATINGS[rating][:icon]}" if RATINGS.key?(rating)
+  end
+
+  def reference_text(rating)
+    Reference.human_attribute_name(RATINGS[rating][:form_field]) if RATINGS.key?(rating)
   end
 
   def driver_or_passenger(reference)
@@ -23,9 +33,9 @@ module ReferencesHelper
   end
 
   def reference_radio_buttons(form)
-    content_tag(:div, class: 'btn-group', data: { toggle: 'buttons' }) do
-      RATINGS.each do |field, info|
-        concat reference_radio_button(form, field, info)
+    content_tag(:div, class: 'btn-group btn-group-toggle', role: 'group', aria: { label: Reference.human_attribute_name(:rating) }, data: { toggle: 'buttons' }) do
+      RATINGS.each do |rating, info|
+        concat reference_radio_button(form, rating, info)
       end
     end
   end
@@ -37,11 +47,11 @@ module ReferencesHelper
 
   private
 
-  def reference_radio_button(form, field, info)
-    form.label :rating, value: info[:value], class: 'btn btn-default' do
-      concat form.radio_button(:rating, info[:value])
-      concat content_tag(:span, nil, class: "fa #{info[:icon]}") + ' ' if info[:icon]
-      concat Reference.human_attribute_name(field)
+  def reference_radio_button(form, rating, info)
+    form.label :rating, value: rating, class: 'btn btn-secondary' do
+      concat form.radio_button(:rating, rating)
+      concat reference_icon(rating) + ' '
+      concat Reference.human_attribute_name(info[:form_field])
     end
   end
 

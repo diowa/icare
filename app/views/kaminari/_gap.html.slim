@@ -6,5 +6,5 @@
     | per_page:      number of items to fetch per page
     | remote:        data-remote
 
-li.page.gap.disabled
-  == link_to t('views.pagination.truncate_html'), '#'
+li.page-item.disabled
+  span.page-link == t('views.pagination.truncate_html')

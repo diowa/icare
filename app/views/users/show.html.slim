@@ -1,10 +1,10 @@
 - title @user
 .container
   .row
-    .col-sm-3.text-center-sm
-      = user_profile_picture @user, size: nil, type: :large, style: 'img-responsive heading-margins'
+    .col-sm-3.text-sm-center
+      = user_profile_picture @user, size: nil, type: :large, style: 'img-fluid'
     .col-sm-9
-      h1.no-margin-bottom = @user
+      h1 = @user
       p.text-muted
         small = t('.member_since', date: l(@user.created_at.to_date, format: :month_year))
       - if @user.bio?

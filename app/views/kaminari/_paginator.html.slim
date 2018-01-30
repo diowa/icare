@@ -8,8 +8,8 @@
     | paginator:     the paginator that renders the pagination tags inside
 
 == paginator.render do
-  .text-center
-    ul.pagination
+  nav aria-label=t('views.pagination.page_navigation')
+    ul.pagination.justify-content-center
       == first_page_tag
       == prev_page_tag
       - each_page do |page|

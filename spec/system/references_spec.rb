@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'References' do
-  let(:positive_icon) { 'span.fas.fa-thumbs-up' }
-  let(:negative_icon) { 'span.fas.fa-thumbs-down' }
+  let(:positive_icon) { 'span.fas.fa-smile' }
+  let(:negative_icon) { 'span.fas.fa-frown' }
 
   let(:driver) { create :user }
   let(:passenger) { create :user }

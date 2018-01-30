@@ -1,9 +1,11 @@
-.popover
+.popover.popover--notifications role='tooltip'
   .arrow
-  h3.popover-title
-  .popover-ajax-spinner
-    img-popover-ajax-spinner-img src='ajax-spinner-24x17.gif' width=24 height=17 alt=I18n.t('loading')
-  .popover-content
+  h3.popover-header
+  .popover-body-loading
+    .d-flex.justify-content-center.m-2
+      .spinner-border.text-primary role='status'
+        span.sr-only = I18n.t('loading')
+  .popover-body
   .popover-footer
     a href='{{footer_url}}'
       | {{footer_link_text}}

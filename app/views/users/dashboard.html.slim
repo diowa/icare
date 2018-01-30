@@ -1,16 +1,16 @@
 - title t('.title')
 .container
   == render 'shared/flash_messages'
-  ul.nav.nav-justified.lead
-    li
+  ul.nav.nav-pills.nav-fill.mt-2.mb-2
+    li.nav-item
       = link_to itineraries_path do
         span.fas.fa-search<>
         = t('.search_itineraries')
-    li
+    li.nav-item
       = link_to new_itinerary_path do
         span.fas.fa-plus<>
         = t('.new_itinerary')
-    li
+    li.nav-item
       = link_to itineraries_user_path(current_user) do
         span.fas.fa-route<>
         = t('.your_itineraries')

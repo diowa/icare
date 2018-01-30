@@ -1,41 +1,36 @@
-@import "twbs-variables";
-@import "twbs/bootstrap/mixins";
-
-footer {
-  padding: $line-height-computed 0;
-  margin-top: $line-height-computed;
-  font-size: $font-size-base + 1;
-  color: $gray;
-  border-top: 1px solid $hr-border;
+.main-footer {
+  padding: 1rem 0;
+  margin-top: 1.5rem;
+  font-size: $font-size-sm;
+  color: $gray-600;
+  border-top: $hr-border-width solid $hr-border-color;
 
   a,
   a:hover,
   a:focus {
-    color: $gray;
+    color: $gray-600;
   }
 }
 
 .list-footer {
-  margin-bottom: 0;
+  @extend .list-inline;
+  margin-top: -.5rem;
 
   li {
+    @extend .list-inline-item;
     display: block;
-    margin-bottom: 10px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    margin-top: .5rem;
   }
 }
 
 .demo-app {
-  margin-top: 10px;
-  color: $text-muted;
+  margin: 0;
 }
 
-@media (min-width: $screen-sm-min) {
-  .list-footer > li {
-    display: inline-block;
-    margin-bottom: 0;
+@include media-breakpoint-up(sm) {
+  .list-footer {
+    li {
+      display: inline-block;
+    }
   }
 }

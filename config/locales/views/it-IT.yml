@@ -41,6 +41,7 @@ it-IT:
     pagination:
       first_html: "&laquo; Prima"
       last_html: "Ultima &raquo;"
+      page_navigation: Navigazione pagine
       previous_html: "&lsaquo; Precedente"
       next_html: "Successiva &rsaquo;"
       truncate_html: "&hellip;"
@@ -155,8 +156,10 @@ it-IT:
       account_settings: Impostazioni account
       admin_users: Gestione utenti
       language: Lingua
+      settings: Impostazioni
+      toggle_navigation: Menu di navigazione
     footer:
-      message: La riservatezza non è garantita in questo stato di sviluppo
+      github_repository: 'Repository GitHub'
 
   pages:
     home:
