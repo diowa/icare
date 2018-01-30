@@ -104,7 +104,7 @@ group :test do
   gem 'database_cleaner', '~> 1.6'
   gem 'email_spec', '~> 2.1'
   gem 'launchy', '~> 2.4'
-  gem 'mongoid-rspec', github: 'mongoid-rspec/mongoid-rspec'
+  gem 'mongoid-rspec', '~> 4.0'
   gem 'poltergeist', '~> 1.17'
   gem 'simplecov', '~> 0.15.1', require: false
   gem 'webmock', '~> 3.3', require: false

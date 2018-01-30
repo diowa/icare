@@ -5,16 +5,6 @@ GIT
     validates_timeliness-mongoid (0.1.0)
       validates_timeliness (~> 4.0.0)
 
-GIT
-  remote: https://github.com/mongoid-rspec/mongoid-rspec.git
-  revision: 472f1460c23d880f1f9243854de1ea5d6daaa837
-  specs:
-    mongoid-rspec (4.0.0.pre.alpha1)
-      activesupport (>= 3.0.0)
-      mongoid (>= 2.0)
-      mongoid-compatibility
-      rspec (~> 3.3)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -212,6 +202,11 @@ GEM
       mongoid (>= 2.0)
     mongoid-geospatial (5.0.0)
       mongoid (>= 5.0.0.beta)
+    mongoid-rspec (4.0.0)
+      activesupport (>= 3.0.0)
+      mongoid (>= 2.0)
+      mongoid-compatibility
+      rspec (~> 3.3)
     mongoid-slug (5.3.3)
       mongoid (>= 3.0)
       mongoid-compatibility
@@ -317,7 +312,7 @@ GEM
       rspec-expectations (~> 3.7.0)
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
-    rspec-support (3.7.0)
+    rspec-support (3.7.1)
     rubocop (0.52.1)
       parallel (~> 1.10)
       parser (>= 2.4.0.2, < 3.0)
@@ -460,7 +455,7 @@ DEPENDENCIES
   meta_request (~> 0.5.0)
   mongoid (~> 6.3)
   mongoid-geospatial (~> 5.0)
-  mongoid-rspec!
+  mongoid-rspec (~> 4.0)
   mongoid-slug (~> 5.3)
   mongoid_paranoia (~> 0.3)
   newrelic_rpm (~> 4.7)
