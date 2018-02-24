@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.5.0'
-gem 'rails', '5.1.4'
+gem 'rails', '5.1.5'
 
 # Servers
 gem 'puma', '~> 3.11'
@@ -26,7 +26,7 @@ gem 'rabl', '~> 0.13.1'
 gem 'simple_form', '~> 3.5'
 
 # ODM and related
-gem 'client_side_validations', '~> 11.0'
+gem 'client_side_validations', '~> 11.1'
 gem 'client_side_validations-simple_form', '~> 6.5'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
@@ -35,7 +35,7 @@ gem 'mongoid-geospatial', '~> 5.0'
 gem 'mongoid-slug', '~> 5.3'
 gem 'mongoid_paranoia', '~> 0.3'
 gem 'validates_timeliness', '~> 4.0'
-gem 'validates_timeliness-mongoid', github: 'johnnyshields/validates_timeliness-mongoid'
+gem 'validates_timeliness-mongoid', github: 'diowa/validates_timeliness-mongoid'
 
 # Authentication framework
 gem 'devise', '~> 4.4'
@@ -48,7 +48,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 4.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 4.7'
+gem 'newrelic_rpm', '~> 4.8'
 
 # Security
 gem 'secure_headers', '~> 5.0'
@@ -60,7 +60,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.1'
 
 # Assets
-gem 'autoprefixer-rails', '~> 7.2'
+gem 'autoprefixer-rails', '~> 8.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
@@ -68,20 +68,20 @@ gem 'sass-rails', '~> 5.0'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.1'
-gem 'twbs_sass_rails', '~> 4.7'
+gem 'twbs_sass_rails', '~> 5.0'
 gem 'uglifier', '~> 4.1'
 
 group :development, :test do
   gem 'bullet', '~> 5.7'
-  gem 'byebug', '~> 9.1'
+  gem 'byebug', '~> 10.0'
   gem 'factory_bot_rails', '~> 4.8'
   gem 'faker', '~> 1.8'
   gem 'pry', '~> 0.11.3'
-  gem 'pry-byebug', '~> 3.5'
+  gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.7'
   gem 'rubocop', '~> 0.52.1', require: false
-  gem 'rubocop-rspec', '~> 1.22', require: false
+  gem 'rubocop-rspec', '~> 1.23', require: false
   gem 'scss_lint', '~> 0.56.0', require: false
   gem 'slim_lint', '~> 0.15.1', require: false
 end
@@ -98,7 +98,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 2.17'
+  gem 'capybara', '~> 2.18'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'coveralls_reborn', '~> 0.10.0', require: false
   gem 'database_cleaner', '~> 1.6'
