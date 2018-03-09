@@ -11,13 +11,13 @@ RSpec.describe 'References' do
   let(:itinerary) { create :itinerary, user: driver }
 
   def login_as_driver
-    driver.update_attributes uid: '123456'
+    driver.update uid: '123456'
 
     visit user_facebook_omniauth_authorize_path
   end
 
   def login_as_passenger
-    passenger.update_attributes uid: '123456'
+    passenger.update uid: '123456'
 
     visit user_facebook_omniauth_authorize_path
   end

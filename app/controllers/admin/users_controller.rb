@@ -14,7 +14,7 @@ module Admin
     end
 
     def ban
-      if @user.update_attributes(banned: true)
+      if @user.update(banned: true)
         redirect_to admin_users_path, flash: { success: t('flash.admin.users.success.ban') }
       else
         redirect_to admin_users_path, flash: { error: t('flash.admin.users.error.ban') }
@@ -22,7 +22,7 @@ module Admin
     end
 
     def unban
-      if @user.update_attributes(banned: false)
+      if @user.update(banned: false)
         redirect_to admin_users_path, flash: { success: t('flash.admin.users.success.unban') }
       else
         redirect_to admin_users_path, flash: { error: t('flash.admin.users.error.unban') }

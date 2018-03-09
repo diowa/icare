@@ -37,7 +37,7 @@ class ItinerariesController < ApplicationController
 
   def update
     @itinerary = current_user.itineraries.find params[:id]
-    if @itinerary.update_attributes itinerary_params
+    if @itinerary.update itinerary_params
       redirect_to itinerary_path(@itinerary), flash: { success: t('flash.itineraries.success.update') }
     else
       render :edit

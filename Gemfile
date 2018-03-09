@@ -60,7 +60,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.1'
 
 # Assets
-gem 'autoprefixer-rails', '~> 8.0'
+gem 'autoprefixer-rails', '~> 8.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
@@ -80,9 +80,9 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.7'
-  gem 'rubocop', '~> 0.52.1', require: false
-  gem 'rubocop-rspec', '~> 1.23', require: false
-  gem 'scss_lint', '~> 0.56.0', require: false
+  gem 'rubocop', '~> 0.53.0', require: false
+  gem 'rubocop-rspec', '~> 1.24', require: false
+  gem 'scss_lint', '~> 0.57.0', require: false
   gem 'slim_lint', '~> 0.15.1', require: false
 end
 

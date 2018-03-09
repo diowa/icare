@@ -30,7 +30,7 @@ class FeedbacksController < ApplicationController
   end
 
   def update
-    if @feedback.update_attributes(feedback_params)
+    if @feedback.update(feedback_params)
       redirect_to feedbacks_path, flash: { success: t('flash.feedbacks.success.update') }
     else
       render :edit
