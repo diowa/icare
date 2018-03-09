@@ -40,7 +40,7 @@ module FacebookOmniauthable
     end
 
     def update_info_from_auth_hash!(auth_hash)
-      update_attributes(
+      update(
         email:                   auth_hash.info.email,
         image:                   auth_hash.info.image,
         name:                    auth_hash.info.name,
@@ -93,7 +93,7 @@ module FacebookOmniauthable
       end
       return unless result
 
-      update_attributes(
+      update(
         bio: result['bio'],
         birthday: birthday_from_graph_api(result['birthday']),
         education: result['education'] || [],

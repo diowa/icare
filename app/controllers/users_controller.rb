@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       redirect_to :settings, flash: { success: t('flash.users.success.update') }
     else
       render :settings
