@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.68.0
+
+* Rails 5.1.6
+* Ruby 2.5.1
+* Font Awesome 5.0.9
+* Update dependencies
+
 ## 0.67.1
 
 * Font Awesome 5.0.8
