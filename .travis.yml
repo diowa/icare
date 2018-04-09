@@ -1,7 +1,7 @@
 language: ruby
 sudo: false
 rvm:
-  - 2.5.0
+  - 2.5.1
 services:
   - mongodb
   - redis-server
@@ -19,6 +19,8 @@ before_install:
   - if [ $(phantomjs --version) != $PHANTOMJS_VERSION ]; then wget https://github.com/Medium/phantomjs/releases/download/v$PHANTOMJS_VERSION/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 -O $PWD/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2; fi
   - if [ $(phantomjs --version) != $PHANTOMJS_VERSION ]; then tar -xvf $PWD/travis_phantomjs/phantomjs-$PHANTOMJS_VERSION-linux-x86_64.tar.bz2 -C $PWD/travis_phantomjs; fi
   - phantomjs --version
+  - gem update --system
+  - gem install bundler
 
 before_script:
   - bundle exec rake db:mongoid:create_indexes

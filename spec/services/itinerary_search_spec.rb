@@ -14,17 +14,17 @@ RSpec.describe ItinerarySearch do
     end
 
     it 'returns itineraries nearby' do
-      3.times { create :itinerary, start_location: [0, 0], end_location: [1, 1] }
-      2.times { create :itinerary, start_location: [0.001, 0.005], end_location: [1.001, 0.999] }
-      4.times { create :itinerary, start_location: [0.3, 0.3], end_location: [1.3, 1.3] }
-      7.times { create :itinerary, start_location: [2, 3], end_location: [5, 6] }
+      create_list :itinerary, 3, start_location: [0, 0], end_location: [1, 1]
+      create_list :itinerary, 2, start_location: [0.001, 0.005], end_location: [1.001, 0.999]
+      create_list :itinerary, 4, start_location: [0.3, 0.3], end_location: [1.3, 1.3]
+      create_list :itinerary, 7, start_location: [2, 3], end_location: [5, 6]
       itineraries = described_class.new(search_params, male_user).itineraries
       expect(itineraries.count).to be 5
     end
 
     it 'includes reversed itineraries' do
-      3.times { create :itinerary, start_location: [1, 1], end_location: [0, 0], round_trip: true }
-      1.times { create :itinerary, start_location: [0, 0], end_location: [1, 1] }
+      create_list :itinerary, 3, start_location: [1, 1], end_location: [0, 0], round_trip: true
+      create_list :itinerary, 1, start_location: [0, 0], end_location: [1, 1]
       itineraries = described_class.new(search_params, male_user).itineraries
       expect(itineraries.count).to be 4
     end
@@ -59,21 +59,21 @@ RSpec.describe ItinerarySearch do
 
     it 'manages round trip filter' do
       create :itinerary, start_location: [0, 0], end_location: [1, 1]
-      2.times { create :itinerary, start_location: [0, 0], end_location: [1, 1], round_trip: true }
+      create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], round_trip: true
       itineraries = described_class.new(search_params.merge(filter_round_trip: '1'), male_user).itineraries
       expect(itineraries.count).to be 2
     end
 
     it 'manages pink filter for female users' do
       create :itinerary, start_location: [0, 0], end_location: [1, 1]
-      2.times { create :itinerary, start_location: [0, 0], end_location: [1, 1], pink: true, user: female_user }
+      create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], pink: true, user: female_user
       itineraries = described_class.new(search_params.merge(filter_pink: '1'), female_user).itineraries
       expect(itineraries.count).to be 2
     end
 
     it 'overrides the pink filter for male users' do
       create :itinerary, start_location: [0, 0], end_location: [1, 1]
-      2.times { create :itinerary, start_location: [0, 0], end_location: [1, 1], pink: true, user: female_user }
+      create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], pink: true, user: female_user
       itineraries = described_class.new(search_params.merge(filter_pink: '1'), male_user).itineraries
       expect(itineraries.count).to be 1
     end
@@ -81,14 +81,14 @@ RSpec.describe ItinerarySearch do
     it 'manages verified filter' do
       verified_user = create :user, facebook_verified: true
       create :itinerary, start_location: [0, 0], end_location: [1, 1]
-      2.times { create :itinerary, start_location: [0, 0], end_location: [1, 1], user: verified_user }
+      create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], user: verified_user
       itineraries = described_class.new(search_params.merge(filter_verified: '1'), female_user).itineraries
       expect(itineraries.count).to be 2
     end
 
     it 'manages smoking filter' do
       create :itinerary, start_location: [0, 0], end_location: [1, 1]
-      2.times { create :itinerary, start_location: [0, 0], end_location: [1, 1], smoking_allowed: true }
+      create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], smoking_allowed: true
       smoking_itineraries = described_class.new(search_params.merge(filter_smoking_allowed: 'true'), male_user).itineraries
       no_smoking_itineraries = described_class.new(search_params.merge(filter_smoking_allowed: 'false'), male_user).itineraries
       expect(smoking_itineraries.count).to be 2
@@ -97,7 +97,7 @@ RSpec.describe ItinerarySearch do
 
     it 'manages pets filter' do
       create :itinerary, start_location: [0, 0], end_location: [1, 1]
-      2.times { create :itinerary, start_location: [0, 0], end_location: [1, 1], pets_allowed: true }
+      create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], pets_allowed: true
       pets_itineraries = described_class.new(search_params.merge(filter_pets_allowed: 'true'), male_user).itineraries
       no_pets_itineraries = described_class.new(search_params.merge(filter_pets_allowed: 'false'), male_user).itineraries
       expect(pets_itineraries.count).to be 2
@@ -105,8 +105,8 @@ RSpec.describe ItinerarySearch do
     end
 
     it 'manages gender filter' do
-      2.times { create :itinerary, start_location: [0, 0], end_location: [1, 1], user: male_user }
-      3.times { create :itinerary, start_location: [0, 0], end_location: [1, 1], user: female_user }
+      create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], user: male_user
+      create_list :itinerary, 3, start_location: [0, 0], end_location: [1, 1], user: female_user
       male_itineraries = described_class.new(search_params.merge(filter_driver_gender: 'male'), male_user).itineraries
       female_itineraries = described_class.new(search_params.merge(filter_driver_gender: 'female'), male_user).itineraries
       all_itineraries = described_class.new(search_params.merge(filter_driver_gender: 'samurai'), male_user).itineraries
