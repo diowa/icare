@@ -23,14 +23,14 @@ gem 'simpleconfig', '~> 2.0'
 gem 'rabl', '~> 0.13.1'
 
 # Forms
-gem 'simple_form', '~> 3.5'
+gem 'simple_form', '~> 4.0'
 
 # ODM and related
 gem 'client_side_validations', '~> 11.1'
-gem 'client_side_validations-simple_form', '~> 6.5'
+gem 'client_side_validations-simple_form', '~> 6.6'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
-gem 'mongoid', '~> 6.3'
+gem 'mongoid', '~> 6.4'
 gem 'mongoid-geospatial', '~> 5.0'
 gem 'mongoid-slug', '~> 5.3'
 gem 'mongoid_paranoia', '~> 0.3'
@@ -45,7 +45,7 @@ gem 'devise', '~> 4.4'
 
 # Facebook integration
 gem 'koala', '~> 3.0'
-gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-facebook', '~> 5.0'
 
 # Performance
 gem 'newrelic_rpm', '~> 5.0'
@@ -60,7 +60,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.1'
 
 # Assets
-gem 'autoprefixer-rails', '~> 8.2'
+gem 'autoprefixer-rails', '~> 8.3'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
@@ -80,7 +80,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.7'
-  gem 'rubocop', '~> 0.54.0', require: false
+  gem 'rubocop', '~> 0.55.0', require: false
   gem 'rubocop-rspec', '~> 1.25', require: false
   gem 'scss_lint', '~> 0.57.0', require: false
   gem 'slim_lint', '~> 0.15.1', require: false
@@ -94,14 +94,14 @@ group :development do
   gem 'spring', '~> 2.0'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
-  gem 'web-console', '~> 3.5'
+  gem 'web-console', '~> 3.6'
 end
 
 group :test do
   gem 'capybara', '~> 2.18'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'coveralls_reborn', '~> 0.11.0', require: false
-  gem 'database_cleaner', '~> 1.6'
+  gem 'coveralls_reborn', '~> 0.11.1', require: false
+  gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', '~> 4.0'
@@ -115,4 +115,4 @@ group :staging, :production do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', '~> 1.2017', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', '~> 1.2018', platforms: %i[mingw mswin x64_mingw jruby]
