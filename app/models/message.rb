@@ -5,10 +5,7 @@ class Message
   include Mongoid::Timestamps
   include Mongoid::Paranoia
 
-  # TODO: False positive ref: bbatsov/rubocop#5236
-  # rubocop:disable Rails/InverseOf
   belongs_to :sender, class_name: User.model_name.to_s
-  # rubocop:enable Rails/InverseOf
 
   embedded_in :conversation
 
