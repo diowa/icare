@@ -8,10 +8,13 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.5.1'
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.0'
 
 # Servers
 gem 'puma', '~> 3.11'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', '>= 1.1.0', require: false
 
 # Background jobs within the same process as web application
 gem 'sucker_punch', '~> 2.0'
