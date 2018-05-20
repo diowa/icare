@@ -104,8 +104,9 @@ html,
     border-color: fade-out(#fff, .6);
   }
 
-  .fa,
-  .fab {
+  .fab,
+  .far,
+  .fas {
     position: relative;
     margin-left: 5px;
     transform: translate3d(0, 1px, 0);
@@ -136,8 +137,9 @@ html,
     max-width: $container-md;
   }
 
-  .fa,
-  .fab {
+  .fab,
+  .far,
+  .fas {
     display: block;
     float: left;
     margin-right: 20px;
@@ -221,15 +223,17 @@ html,
       font-weight: 300;
     }
 
-    .fa,
-    .fab {
+    .fab,
+    .far,
+    .fas {
       margin-right: 60px;
       font-size: 10em;
     }
 
     &:nth-child(even) {
-      .fa,
-      .fab {
+      .fab,
+      .far,
+      .fas {
         float: right;
         margin-right: 0;
         margin-left: 60px;

@@ -14,14 +14,16 @@ input[type=text] {
   display: inline-block;
   margin-bottom: 15px;
 
-  .fa,
-  .fab {
+  .fab,
+  .far,
+  .fas {
     transition: all .25s ease-in-out;
   }
 
   &.collapsed {
-    .fa,
-    .fab {
+    .fab,
+    .far,
+    .fas {
       transform: rotateZ(-90deg);
     }
   }

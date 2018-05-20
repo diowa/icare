@@ -12,34 +12,34 @@
         p
           | {{user.name}}
           | {{#if user.facebook_verified}}
-          span.fa.fa-check.text-success.facebook-verified-tooltip<> rel='tooltip' title=='{{translate "templates.itineraries.facebook_verified"}}'
+          span.fas.fa-check.text-success.facebook-verified-tooltip<> rel='tooltip' title=='{{translate "templates.itineraries.facebook_verified"}}'
           | {{/if}}
     p.itinerary-details
       | {{#if pink}}
       span.text-pink
-        span.fa.fa-lock<>
+        span.fas.fa-lock<>
         ' {{translate "mongoid.attributes.itinerary.pink"}}
       br
       | {{/if}}
       | {{#if daily}}
       br
-      span.fa.fa-redo<>
+      span.fas.fa-redo<>
       span.text-muted
         ' {{translate "mongoid.attributes.itinerary.daily"}}
-      span.fa.fa-clock<>
+      span.fas.fa-clock<>
       ' {{localize "time.formats.time_only" leave_date}}
       | {{else}}
       span.text-muted<
         ' {{translate "mongoid.attributes.itinerary.leave_date"}}:
       ' {{localize "date.formats.long" leave_date}}
-      span.fa.fa-clock<>
+      span.fas.fa-clock<>
       ' {{localize "time.formats.time_only" leave_date}}
       | {{#if round_trip}}
       br
       span.text-muted
         ' {{translate "mongoid.attributes.itinerary.return_date"}}:
       ' {{localize "date.formats.long" return_date}}
-      span.fa.fa-clock<>
+      span.fas.fa-clock<>
       | {{localize "time.formats.time_only" return_date}}
       | {{/if}}
       | {{/if}}
@@ -53,8 +53,8 @@
       ' {{currency tolls}}
     .btn-toolbar
       a.btn.btn-xs.btn-default.show-itinerary-on-map href='#'
-        span.fa.fa-map-marker-alt<>
+        span.fas.fa-map-marker-alt<>
         | {{translate "templates.itineraries.show_on_map"}}
       a.btn.btn-xs.btn-primary href='{{url}}'
-        span.fa.fa-info-circle<>
+        span.fas.fa-info-circle<>
         | {{translate "templates.itineraries.read_more"}}
