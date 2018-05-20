@@ -3,9 +3,14 @@
 require 'rails_helper'
 
 RSpec.describe 'Itineraries' do
-  ROUND_TRIP_ICON = 'span.fa.fa-exchange-alt'
-  DAILY_ICON = 'span.fa.fa-redo'
-  PINK_ICON = 'span.fa.fa-lock'
+  FEATURE_ICONS = {
+    daily: '.fa-redo',
+    pets_allowed: '.fa-paw',
+    pink: '.fa-lock',
+    round_trip: '.fa-exchange-alt',
+    smoking_allowed: '.fa-smoking'
+  }.freeze
+
   XSS_ALERT = "<script>alert('toasty!);</script>"
 
   let(:male) { create :user, uid: '123456', gender: 'male' }
@@ -115,20 +120,23 @@ RSpec.describe 'Itineraries' do
 
     it 'allows users to view their own ones' do
       login_as_female
-      create :itinerary, user: female
-      create :itinerary, user: female, round_trip: true
-      create :itinerary, user: female, daily: true
-      create :itinerary, user: female, pink: true, daily: true
+      create_list :itinerary, 2, user: female
 
       visit itineraries_user_path(female)
 
-      expect(page).to have_css('tbody > tr', count: 4)
-      female.itineraries.each do |itinerary|
-        row = find(:xpath, "//a[@href='#{itinerary_path(itinerary)}' and text()='#{itinerary.start_address}']/../..")
-        expect(row).not_to be_nil
-        expect(row).to have_css ROUND_TRIP_ICON if itinerary.round_trip?
-        expect(row).to have_css DAILY_ICON if itinerary.daily?
-        expect(row).to have_css PINK_ICON if itinerary.pink?
+      expect(page).to have_css('tbody > tr', count: 2)
+    end
+
+    FEATURE_ICONS.each do |feature, icon|
+      it "shows #{feature} icon" do
+        login_as_female
+        create :itinerary, user: female, :"#{feature}" => true
+
+        visit itineraries_user_path(female)
+
+        within '.table-itinerary' do
+          expect(page).to have_css icon
+        end
       end
     end
 

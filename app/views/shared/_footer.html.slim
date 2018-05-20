@@ -14,14 +14,14 @@ footer
         = link_to 'diowa/icare', APP_CONFIG.repository_url
       - if user_signed_in?
         li
-          span.fa.fa-bullhorn<>
+          span.fas.fa-bullhorn<>
           = link_to Feedback.model_name.human(count: :lot), feedbacks_url
         - if APP_CONFIG.demo_mode
           li
             = link_to user_path(current_user), method: :delete, class: 'text-danger', data: { confirm: t('helpers.links.confirm') } do
-              span.fa.fa-times<>
+              span.fas.fa-times<>
               = t('delete_account')
     - if APP_CONFIG.demo_mode
       p.demo-app
-        span.fa.fa-warning<>
+        span.fas.fa-warning<>
         = t('demo_mode')

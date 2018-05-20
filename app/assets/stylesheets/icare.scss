@@ -127,8 +127,9 @@ body {
   margin-bottom: ($line-height-computed / 2);
   user-select: none;
 
-  span.fa,
-  span.fab {
+  .fab,
+  .far,
+  .fas {
     width: 1em;
     text-align: left;
   }

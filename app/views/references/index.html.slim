@@ -15,7 +15,7 @@
           - if reference.incoming
             tr class=('unread' if reference.unread?)
               td
-                span.fa.fa-arrow-up
+                span.fas.fa-arrow-up
               td= link_to reference.referencing_user, user_path(reference.referencing_user)
               td= driver_or_passenger reference
               td= make_thumbs reference.incoming.rating
@@ -23,7 +23,7 @@
           - if reference.outgoing&.body?
             tr
               td
-                span.fa.fa-arrow-down
+                span.fas.fa-arrow-down
               td= link_to reference.referencing_user, user_path(reference.referencing_user)
               td= driver_or_passenger reference
               td= make_thumbs reference.outgoing.rating

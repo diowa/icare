@@ -2,7 +2,7 @@
   = f.input :from, label: Itinerary.human_attribute_name(:start_address)
   = f.input :to, label: Itinerary.human_attribute_name(:end_address)
   a.collapse-link.collapsed role='button' data-toggle='collapse' href='#search-form-advanced-j' aria-expanded='false' aria-controls='search-form-advanced-j'
-    span.fa.fa-chevron-down<>
+    span.fas.fa-chevron-down<>
     = t('.advanced_search')
   #search-form-advanced-j.search-form-advanced.collapse role='navigation'
     - if current_user.female?
