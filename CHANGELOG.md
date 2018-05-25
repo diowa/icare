@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.71.1
+
+* Fix Gemfile.lock
+
 ## 0.71.0
 
 * Remove old Facebook permissions
