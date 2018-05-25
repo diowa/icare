@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.71.2
+
+* Fix old Google Analytics tracking
+
 ## 0.71.1
 
 * Fix Gemfile.lock
