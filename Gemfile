@@ -57,7 +57,6 @@ gem 'newrelic_rpm', '~> 5.1'
 gem 'secure_headers', '~> 6.0'
 
 # Miscellanea
-gem 'google-analytics-rails', '~> 1.1'
 gem 'http_accept_language', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.1'
