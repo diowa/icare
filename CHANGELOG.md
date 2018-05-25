@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.71.0
+
+* Remove old Facebook permissions
+* Fix placeholder for users without profile picture
+* Use Google Tag Manager
+* Update dependencies
+
 ## 0.70.0
 
 * Rails 5.2
