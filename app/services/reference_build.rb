@@ -2,16 +2,15 @@
 
 class ReferenceBuild
   def initialize(params, user, itinerary)
-    @params = params
-    @user = user
+    @params    = params
+    @user      = user
     @itinerary = itinerary
   end
 
   def reference
-    reference = @user.references.new
-    reference.itinerary = @itinerary
-    reference.referencing_user_id = @itinerary.user.id
-    reference.read_at = Time.now.utc
+    reference = @user.references.new itinerary: @itinerary,
+                                     referencing_user_id: @itinerary.user.id,
+                                     read_at: Time.now.utc
     reference.build_outgoing @params
     reference
   rescue

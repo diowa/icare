@@ -89,19 +89,15 @@ module FacebookOmniauthable
 
     def update_user_fields!
       result = facebook do |fb|
-        fb.get_object('me?fields=bio,birthday,education,gender,languages,locale,verified,work')
+        fb.get_object('me?fields=birthday,gender,languages,locale,verified')
       end
       return unless result
-
       update(
-        bio: result['bio'],
         birthday: birthday_from_graph_api(result['birthday']),
-        education: result['education'] || [],
         facebook_verified: result['verified'],
         gender: result['gender'],
         languages: result['languages'] || [],
-        locale: locale_from_graph_api(result['locale']),
-        work: result['work'] || []
+        locale: locale_from_graph_api(result['locale'])
       )
     end
   end

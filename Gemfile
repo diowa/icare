@@ -57,7 +57,6 @@ gem 'newrelic_rpm', '~> 5.1'
 gem 'secure_headers', '~> 6.0'
 
 # Miscellanea
-gem 'google-analytics-rails', '~> 1.1'
 gem 'http_accept_language', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.1'
@@ -77,7 +76,7 @@ gem 'uglifier', '~> 4.1'
 group :development, :test do
   gem 'bullet', '~> 5.7'
   gem 'byebug', '~> 10.0'
-  gem 'factory_bot_rails', '~> 4.8'
+  gem 'factory_bot_rails', '~> 4.10'
   gem 'faker', '~> 1.8'
   gem 'pry', '~> 0.11.3'
   gem 'pry-byebug', '~> 3.6'

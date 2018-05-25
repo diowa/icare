@@ -24,13 +24,11 @@ SimpleConfig.for :application do
   set :google_analytics_id, nil
   set :google_maps_api_key, nil
 
-  set :user_image_placeholder, 'https://fbstatic-a.akamaihd.net/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif'
-
   group :facebook do
     set :namespace, 'FACEBOOK_NAMESPACE'
     set :app_id, 'FACEBOOK_APP_ID'
     set :secret, 'FACEBOOK_SECRET'
-    set :scope, 'public_profile, publish_actions, user_birthday, user_about_me, user_education_history, user_likes, user_religion_politics, user_work_history'
+    set :scope, 'public_profile, publish_actions, user_birthday, user_likes'
     set :cache_expiry_time, 7.days
   end
 

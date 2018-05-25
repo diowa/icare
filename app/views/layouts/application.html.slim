@@ -24,13 +24,13 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
 
     / Turbolinks require javascript tags inside the head
     = javascript_include_tag google_maps_api_source, 'application', 'data-turbolinks-track': 'reload'
-    = analytics_init if APP_CONFIG.google_analytics_id.present?
 
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     /[if lt IE 9]
       = javascript_include_tag 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'respond.js'
 
   body class=('homepage' if action_name == 'home')
+    == render 'shared/google_tag_manager' if APP_CONFIG.google_analytics_id.present?
     == render 'shared/navbar' unless action_name == 'home'
     == render 'shared/advertising' if action_name == 'home' && APP_CONFIG.advertising
 

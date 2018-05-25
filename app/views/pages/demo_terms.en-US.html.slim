@@ -2,7 +2,7 @@
 .container
   .page-header
     h1= yield :title
-    h5.text-muted= t('last_modified', date: l(Date.parse('2017-02-16'), format: :long))
+    h5.text-muted= t('last_modified', date: l(Date.parse('2018-05-25'), format: :long))
 
   h2 Welcome to #{APP_CONFIG.app_name}
   p
@@ -19,7 +19,7 @@
     | We cache the following Facebook data on our local database for performance reasons:
     ul
       li
-        | Email, name, birthday, work, education, about, friends, favorites, known languages.
+        | Email, name, birthday, friends, favorites, known languages.
     | We do not store your public profile picture.
   p
     | We will not send you any email.

@@ -1,0 +1,8 @@
+script async='' src="https://www.googletagmanager.com/gtag/js?id=#{APP_CONFIG.google_analytics_id}" data-turbolinks-eval='false'
+
+javascript:
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', '#{APP_CONFIG.google_analytics_id}', { 'anonymize_ip': true, 'page_path': location.pathname });

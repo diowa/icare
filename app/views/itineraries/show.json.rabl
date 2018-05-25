@@ -16,5 +16,5 @@ child :user do
   attributes :name, :uid, :to_param, :facebook_verified
 
   # TODO: move to front-end
-  node(:image) { |user| user.image? ? user.image : APP_CONFIG.user_image_placeholder }
+  node(:image) { |user| user.image? ? user.image : image_path('user.jpg') }
 end

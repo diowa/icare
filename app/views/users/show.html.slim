@@ -27,6 +27,4 @@
         - if @user.gender?
           .tag= User.human_attribute_name "gender_#{@user.gender}"
         = language_tags @user
-        = work_and_education_tags @user, :education
-        = work_and_education_tags @user, :work
         = favorite_tags @user, @user.facebook_favorites
