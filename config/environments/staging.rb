@@ -90,7 +90,4 @@ Rails.application.configure do
     domain: APP_CONFIG.mailer.smtp_settings.domain,
     enable_starttls_auto: true
   }
-
-  # Google Analytics
-  GA.tracker = APP_CONFIG.google_analytics_id if APP_CONFIG.exists? :google_analytics_id
 end
