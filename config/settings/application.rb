@@ -24,8 +24,6 @@ SimpleConfig.for :application do
   set :google_analytics_id, nil
   set :google_maps_api_key, nil
 
-  set :user_image_placeholder, 'https://fbstatic-a.akamaihd.net/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif'
-
   group :facebook do
     set :namespace, 'FACEBOOK_NAMESPACE'
     set :app_id, 'FACEBOOK_APP_ID'

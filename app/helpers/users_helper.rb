@@ -5,7 +5,7 @@ module UsersHelper
     if user_signed_in? && user.image?
       "#{user.image}?type=#{type}"
     else
-      APP_CONFIG.user_image_placeholder
+      image_path('user.jpg')
     end
   end
 

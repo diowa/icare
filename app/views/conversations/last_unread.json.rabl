@@ -13,7 +13,7 @@ node(:message) do |conversation|
     sender:
       {
         # TODO: Former user object
-        image: m.sender&.image? ? m.sender.image : APP_CONFIG.user_image_placeholder,
+        image: m.sender&.image? ? m.sender.image : image_path('user.jpg'),
         name: m.sender ? m.sender.name : 'Former user'
       }
   }
