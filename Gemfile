@@ -77,7 +77,7 @@ gem 'uglifier', '~> 4.1'
 group :development, :test do
   gem 'bullet', '~> 5.7'
   gem 'byebug', '~> 10.0'
-  gem 'factory_bot_rails', '~> 4.8'
+  gem 'factory_bot_rails', '~> 4.10'
   gem 'faker', '~> 1.8'
   gem 'pry', '~> 0.11.3'
   gem 'pry-byebug', '~> 3.6'

@@ -56,7 +56,7 @@ GEM
     airbrake-ruby (2.10.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (8.5.0)
+    autoprefixer-rails (8.5.1)
       execjs
     bcrypt (3.1.12)
     better_errors (2.4.0)
@@ -120,17 +120,17 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.3)
-    docile (1.3.0)
+    docile (1.3.1)
     email_spec (2.2.0)
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
     erubi (1.7.1)
     execjs (2.7.0)
-    factory_bot (4.8.2)
+    factory_bot (4.10.0)
       activesupport (>= 3.0.0)
-    factory_bot_rails (4.8.2)
-      factory_bot (~> 4.8.2)
+    factory_bot_rails (4.10.0)
+      factory_bot (~> 4.10.0)
       railties (>= 3.0.0)
     faker (1.8.7)
       i18n (>= 0.7)
@@ -248,7 +248,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.1.0)
       ast (~> 2.4.0)
-    poltergeist (1.18.0)
+    poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
@@ -450,7 +450,7 @@ DEPENDENCIES
   database_cleaner (~> 1.7)
   devise (~> 4.4)
   email_spec (~> 2.2)
-  factory_bot_rails (~> 4.8)
+  factory_bot_rails (~> 4.10)
   faker (~> 1.8)
   google-analytics-rails (~> 1.1)
   handlebars_assets (~> 0.23.2)
@@ -507,4 +507,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
