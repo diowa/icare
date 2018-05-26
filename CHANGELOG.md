@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.71.3
+
+* Update gems
+
 ## 0.71.2
 
 * Fix old Google Analytics tracking
