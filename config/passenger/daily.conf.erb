@@ -1,0 +1,50 @@
+##############################################################
+# 
+<%= include_passenger_internal_template('global.erb') %>
+
+worker_processes <%= ENV['PASSENGER_WORKER_PROCESSES'] || 4 %>;
+events {
+    worker_connections <%= ENV['PASSENGER_WORKER_CONNECTIONS'] || 8192 %>;
+}
+
+http {
+    <%= include_passenger_internal_template('http.erb', 4) %>
+
+    default_type application/octet-stream;
+    types_hash_max_size 2048;
+    server_names_hash_bucket_size 64;
+    client_max_body_size 1024m;
+    access_log off;
+    keepalive_timeout <%= ENV['PASSENGER_KEEPALIVE_TIMEOUT'] || 60 %>;
+    underscores_in_headers on;
+    gzip on;
+    gzip_comp_level 3;
+    gzip_min_length 150;
+    gzip_proxied any;
+    passenger_friendly_error_pages off;
+    passenger_show_version_in_header off;
+    passenger_max_pool_size <%= ENV.fetch('PASSENGER_MAX_POOL_SIZE', '4') %>;
+    passenger_min_instances <%= ENV.fetch('PASSENGER_MIN_INSTANCES', '1') %>;
+    gzip_types text/plain text/css text/json text/javascript
+        application/javascript application/x-javascript application/json
+        application/rss+xml application/vnd.ms-fontobject application/x-font-ttf
+        application/xml font/opentype image/svg+xml text/xml;
+
+    <% if @app_finder.multi_mode? %>
+        # Default server entry for mass deployment mode.
+        server {
+            <%= include_passenger_internal_template('mass_deployment_default_server.erb', 12) %>
+        }
+    <% end %>
+
+    <% for app in @apps %>
+    server {
+        <%= include_passenger_internal_template('server.erb', 8, true, binding) %>
+        <%= include_passenger_internal_template('rails_asset_pipeline.erb', 8, false) %>
+
+    }
+    passenger_pre_start <%= listen_url(app) %>;
+    passenger_pool_idle_time 0;
+    <% end %>
+    <%= include_passenger_internal_template('footer.erb', 4) %>
+}

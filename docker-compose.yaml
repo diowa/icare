@@ -1,0 +1,47 @@
+version: '3'
+services:
+  web:
+    image: gsviec/icare
+    build: .
+    command: start
+    volumes:
+      - .:/app
+    ports:
+      - 80:80
+      - 3000:3000
+      - 443:443
+    environment:
+      - PASSENGER_APP_ENV=production
+      - PROJECT_NAME=icare
+      - PROJECT_DIR=/app
+      - SECRET_KEY_BASE=xxxxxxxxxxxxxxxx
+      - DEVISE_SECRET_KEY=xxxxxxxxxxxxxx
+      - DEVISE_PEPPER=xxxxxxxxxxxxxxxxxx
+      - RAILS_SERVE_STATIC_FILES='true'
+      - FACEBOOK_NAMESPACE=myicare-dev
+      - FACEBOOK_APP_ID=589922251389321
+      - FACEBOOK_SECRET=302f48b5a294d9f46a6bcaca5631216f
+    depends_on:
+      - db
+      - redis
+  db:
+    image: 'bitnami/mongodb:latest'
+    ports:
+      - 27017:27017
+    environment:
+      - MONGODB_USERNAME=icare
+      - MONGODB_PASSWORD=icare
+      - MONGODB_DATABASE=my_database
+    volumes:
+      - mongodb-persistence:/bitnami
+  redis:
+    image: 'bitnami/redis:latest'
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis-persistence:/bitnami
+volumes:
+    mongodb-persistence: {}
+    redis-persistence: {}

@@ -1,0 +1,5 @@
+{
+ "nginx_config_template": "config/passenger/staging.conf.erb",
+ "port": "4107",
+ "spawn_method": "direct"
+}

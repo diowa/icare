@@ -1,0 +1,5 @@
+{
+ "nginx_config_template": "config/passenger/development.conf.erb",
+ "port": "80",
+ "spawn_method": "direct"
+}
