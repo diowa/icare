@@ -127,3 +127,5 @@ bower.json
 
 # Ignore sensitive data
 /config/settings/local.rb
+
+Passengerfile.json
