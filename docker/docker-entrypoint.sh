@@ -6,7 +6,7 @@ case $1 in
   start)
     bundle check || bundle install --quiet --jobs 2 --without development test capistrano staging --full-index
     rails assets:precompile
-    bundle exec rake resque:work QUEUE=*
+    #bundle exec rake resque:work QUEUE=*
     [ -f Passengerfile.json ] && rm Passengerfile.json
 
     ln -s config/passenger/$PASSENGER_APP_ENV.json Passengerfile.json
