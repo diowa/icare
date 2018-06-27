@@ -2,6 +2,7 @@
 
 ## 0.72.0
 
+* Font Awesome 5.1.0
 * Update gems
 
 ## 0.71.3
