@@ -46,17 +46,15 @@ RSpec.describe 'Sessions' do
 
   context 'when authorization fails' do
     it 'redirects to root path' do
-      begin
-        OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
-        create :user, uid: '123456', name: 'Duncan MacLeod'
+      OmniAuth.config.mock_auth[:facebook] = :invalid_credentials
+      create :user, uid: '123456', name: 'Duncan MacLeod'
 
-        visit user_facebook_omniauth_authorize_path
+      visit user_facebook_omniauth_authorize_path
 
-        expect(page).to have_current_path root_path
-        expect(page).to have_content I18n.t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
-      ensure
-        OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
-      end
+      expect(page).to have_current_path root_path
+      expect(page).to have_content I18n.t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
+    ensure
+      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
     end
   end
 end
