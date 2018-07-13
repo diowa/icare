@@ -97,15 +97,13 @@ module Mongoid
         end
 
         multi_parameter_attributes.each_pair do |key, values|
-          begin
-            values = (values.keys.min..values.keys.max).map { |i| values[i] }
-            field = self.class.fields[database_field_name(key)]
-            attributes[key] = instantiate_object(field, values)
-          rescue => e
-            errors << Errors::AttributeAssignmentError.new(
-              "error on assignment #{values.inspect} to #{key}", e, key
-            )
-          end
+          values = (values.keys.min..values.keys.max).map { |i| values[i] }
+          field = self.class.fields[database_field_name(key)]
+          attributes[key] = instantiate_object(field, values)
+        rescue => e
+          errors << Errors::AttributeAssignmentError.new(
+            "error on assignment #{values.inspect} to #{key}", e, key
+          )
         end
 
         unless errors.empty?
