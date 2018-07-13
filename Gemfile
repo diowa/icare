@@ -77,12 +77,12 @@ group :development, :test do
   gem 'bullet', '~> 5.7'
   gem 'byebug', '~> 10.0'
   gem 'factory_bot_rails', '~> 4.10'
-  gem 'faker', '~> 1.8'
+  gem 'faker', '~> 1.9'
   gem 'pry', '~> 0.11.3'
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.7'
-  gem 'rubocop', '~> 0.57.2', require: false
+  gem 'rubocop', '~> 0.58.1', require: false
   gem 'rubocop-rspec', '~> 1.27', require: false
   gem 'scss_lint', '~> 0.57.0', require: false
   gem 'slim_lint', '~> 0.15.1', require: false
