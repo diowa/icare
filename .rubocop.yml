@@ -1,9 +1,8 @@
 require: rubocop-rspec
 
 AllCops:
-  DisplayCopNames: true
-  TargetRailsVersion: 5.1
-  TargetRubyVersion: 2.4
+  TargetRailsVersion: 5.2
+  TargetRubyVersion: 2.5
   Exclude:
     - Brewfile
     - 'bin/*'
