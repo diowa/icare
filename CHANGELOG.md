@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.73.0
+
+* Update gems
+
 ## 0.72.1
 
 * Update gems
