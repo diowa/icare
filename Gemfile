@@ -11,7 +11,7 @@ ruby '2.5.1'
 gem 'rails', '5.2.0'
 
 # Servers
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -62,7 +62,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.1'
 
 # Assets
-gem 'autoprefixer-rails', '~> 8.6'
+gem 'autoprefixer-rails', '~> 9.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
@@ -70,7 +70,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.1'
-gem 'twbs_sass_rails', '~> 5.0'
+gem 'twbs_sass_rails', '~> 6.0'
 gem 'uglifier', '~> 4.1'
 
 group :development, :test do
@@ -100,7 +100,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.3'
+  gem 'capybara', '~> 3.4'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'coveralls_reborn', '~> 0.11.1', require: false
   gem 'database_cleaner', '~> 1.7'
