@@ -31,7 +31,7 @@ RSpec.describe 'References' do
     fill_in 'reference_body', with: body
     choose('reference_rating_1')
 
-    click_button I18n.t('helpers.submit.create', model: Reference.model_name.human)
+    click_button t('helpers.submit.create', model: Reference.model_name.human)
     expect(page).to have_content body
   end
 
@@ -40,7 +40,7 @@ RSpec.describe 'References' do
 
     visit new_user_reference_path(passenger, itinerary_id: itinerary.id)
 
-    click_button I18n.t('helpers.submit.create', model: Reference.model_name.human)
+    click_button t('helpers.submit.create', model: Reference.model_name.human)
     expect(page).to have_css 'form .alert.alert-danger'
   end
 
@@ -84,14 +84,14 @@ RSpec.describe 'References' do
 
     visit user_reference_path(driver, driver.references.first)
 
-    click_button I18n.t('helpers.submit.update', model: Reference.model_name.human)
+    click_button t('helpers.submit.update', model: Reference.model_name.human)
 
     expect(page).to have_css 'form .alert.alert-danger'
 
     fill_in 'reference_body', with: "Thanks\nMate!"
     choose('reference_rating_1')
 
-    click_button I18n.t('helpers.submit.update', model: Reference.model_name.human)
+    click_button t('helpers.submit.update', model: Reference.model_name.human)
 
     expect(page).to have_content 'Thanks'
   end

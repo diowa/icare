@@ -25,7 +25,7 @@ RSpec.describe 'Admin' do
     visit admin_users_path
 
     find("a[href=\"#{ban_admin_user_path(user_to_ban.id)}\"]").click
-    expect(page).to have_content I18n.t('flash.admin.users.success.ban')
+    expect(page).to have_content t('flash.admin.users.success.ban')
     expect(page).to have_css "a[href=\"#{unban_admin_user_path(user_to_ban.id)}\"]"
   end
 
@@ -33,7 +33,7 @@ RSpec.describe 'Admin' do
     visit admin_users_path
 
     find("a[href=\"#{ban_admin_user_path(admin.id)}\"]").click
-    expect(page).to have_content I18n.t('flash.admin.users.error.ban')
+    expect(page).to have_content t('flash.admin.users.error.ban')
   end
 
   it 'is not able to unban banned users' do
@@ -42,7 +42,7 @@ RSpec.describe 'Admin' do
     visit admin_users_path
 
     find("a[href=\"#{unban_admin_user_path(banned_user.id)}\"]").click
-    expect(page).to have_content I18n.t('flash.admin.users.success.unban')
+    expect(page).to have_content t('flash.admin.users.success.unban')
     expect(page).to have_css "a[href=\"#{ban_admin_user_path(banned_user.id)}\"]"
   end
 

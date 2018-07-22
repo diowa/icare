@@ -51,7 +51,7 @@ RSpec.describe 'Itineraries' do
 
       leave_date = Time.zone.parse("#{10.days.from_now.to_date} 8:30")
       select leave_date.day, from: 'itinerary_leave_date_3i'
-      select I18n.t('date.month_names')[leave_date.month], from: 'itinerary_leave_date_2i'
+      select t('date.month_names')[leave_date.month], from: 'itinerary_leave_date_2i'
       select leave_date.year, from: 'itinerary_leave_date_1i'
       select '08 AM', from: 'itinerary_leave_date_4i'
       select leave_date.min, from: 'itinerary_leave_date_5i'
@@ -62,7 +62,7 @@ RSpec.describe 'Itineraries' do
 
       return_date = Time.zone.parse("#{35.days.from_now.to_date} 9:10")
       select return_date.day, from: 'itinerary_return_date_3i'
-      select I18n.t('date.month_names')[return_date.month], from: 'itinerary_return_date_2i'
+      select t('date.month_names')[return_date.month], from: 'itinerary_return_date_2i'
       select return_date.year, from: 'itinerary_return_date_1i'
       select '09 AM', from: 'itinerary_return_date_4i'
       select return_date.min, from: 'itinerary_return_date_5i'
@@ -75,7 +75,7 @@ RSpec.describe 'Itineraries' do
       check 'itinerary_pets_allowed'
       click_button 'new_itinerary_submit-j'
 
-      expect(page).to have_content I18n.t('flash.itineraries.success.create')
+      expect(page).to have_content t('flash.itineraries.success.create')
       expect(page).to have_content 'Milan'
       expect(page).to have_content 'Turin'
       expect(page).to have_content I18n.l(leave_date, format: :long)
@@ -83,8 +83,8 @@ RSpec.describe 'Itineraries' do
       expect(page).to have_content '5.00'
       expect(page).to have_content '3.00'
       expect(page).to have_content Itinerary.human_attribute_name(:pink)
-      expect(page).to have_content I18n.t('itineraries.header.pets.allowed')
-      expect(page).to have_content I18n.t('itineraries.header.smoking.forbidden')
+      expect(page).to have_content t('itineraries.header.pets.allowed')
+      expect(page).to have_content t('itineraries.header.smoking.forbidden')
       expect(page).to have_content 'MUSIC VERY LOUD!!!'
     end
 
@@ -147,7 +147,7 @@ RSpec.describe 'Itineraries' do
       visit itineraries_user_path(male)
 
       find("a[data-method=\"delete\"][href=\"#{itinerary_path(itinerary)}\"]").click
-      expect(page).to have_content I18n.t('flash.itineraries.success.destroy')
+      expect(page).to have_content t('flash.itineraries.success.destroy')
       expect(page).not_to have_content itinerary.title
     end
 
@@ -159,8 +159,8 @@ RSpec.describe 'Itineraries' do
 
       find("a[href=\"#{edit_itinerary_path(itinerary)}\"]").click
       fill_in 'itinerary_description', with: 'New Description'
-      click_button I18n.t('helpers.submit.update', model: Itinerary.model_name.human)
-      expect(page).to have_content I18n.t('flash.itineraries.success.update')
+      click_button t('helpers.submit.update', model: Itinerary.model_name.human)
+      expect(page).to have_content t('flash.itineraries.success.update')
       expect(page).to have_content 'New Description'
     end
 
@@ -172,7 +172,7 @@ RSpec.describe 'Itineraries' do
       visit itinerary_path(pink_itinerary)
 
       expect(page).to have_current_path dashboard_path
-      expect(page).to have_content I18n.t('flash.itineraries.error.pink')
+      expect(page).to have_content t('flash.itineraries.error.pink')
     end
 
     it 'does not fail when creating with wrong parameters' do
@@ -192,7 +192,7 @@ RSpec.describe 'Itineraries' do
 
       find("a[href=\"#{edit_itinerary_path(itinerary)}\"]").click
       fill_in 'itinerary_description', with: ''
-      click_button I18n.t('helpers.submit.update', model: Itinerary.model_name.human)
+      click_button t('helpers.submit.update', model: Itinerary.model_name.human)
       expect(page).to have_css '.alert-danger'
     end
   end
