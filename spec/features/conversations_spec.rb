@@ -29,10 +29,10 @@ RSpec.describe 'Conversations' do
     visit new_conversation_path(itinerary_id: itinerary.id)
 
     fill_in 'conversation_message_body', with: message
-    click_button I18n.t('conversations.form.send')
+    click_button t('conversations.form.send')
     expect(page).to have_content message
     fill_in 'conversation_message_body', with: another_message
-    click_button I18n.t('conversations.form.send')
+    click_button t('conversations.form.send')
     expect(page).to have_content message
     expect(page).to have_content another_message
   end
@@ -41,7 +41,7 @@ RSpec.describe 'Conversations' do
     visit user_facebook_omniauth_authorize_path
     visit new_conversation_path(itinerary_id: itinerary.id)
 
-    click_button I18n.t('conversations.form.send')
+    click_button t('conversations.form.send')
 
     expect(page).to have_css '.alert-danger'
   end
@@ -56,7 +56,7 @@ RSpec.describe 'Conversations' do
     visit user_facebook_omniauth_authorize_path
     visit conversation_path(conversation, itinerary_id: itinerary.id)
 
-    click_button I18n.t('conversations.form.send')
+    click_button t('conversations.form.send')
 
     expect(page).to have_css '.alert-danger'
   end
