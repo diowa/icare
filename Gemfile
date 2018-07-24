@@ -51,7 +51,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 5.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 5.2'
+gem 'newrelic_rpm', '~> 5.3'
 
 # Security
 gem 'secure_headers', '~> 6.0'
@@ -62,7 +62,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.1'
 
 # Assets
-gem 'autoprefixer-rails', '~> 9.0'
+gem 'autoprefixer-rails', '~> 9.1'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
@@ -81,8 +81,8 @@ group :development, :test do
   gem 'pry', '~> 0.11.3'
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.6'
-  gem 'rspec-rails', '~> 3.7'
-  gem 'rubocop', '~> 0.58.1', require: false
+  gem 'rspec-rails', '~> 3.8'
+  gem 'rubocop', '~> 0.58.2', require: false
   gem 'rubocop-rspec', '~> 1.27', require: false
   gem 'scss_lint', '~> 0.57.0', require: false
   gem 'slim_lint', '~> 0.15.1', require: false
@@ -100,9 +100,9 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.4'
+  gem 'capybara', '~> 3.5'
   gem 'capybara-screenshot', '~> 1.0'
-  gem 'coveralls_reborn', '~> 0.11.1', require: false
+  gem 'coveralls_reborn', '~> 0.12.0', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
