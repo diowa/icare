@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.74.0
+
+* Rails 5.2.1
+* Font Awesome 5.2.0
+* Raise error when a translation is missing in development or test environments
+* Update gems
+
 ## 0.73.0
 
 * Update gems
