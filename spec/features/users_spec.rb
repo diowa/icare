@@ -18,11 +18,11 @@ RSpec.describe 'Users' do
 
     visit user_facebook_omniauth_authorize_path
 
-    click_link I18n.t('delete_account')
+    click_link t('delete_account')
     expect(page).to have_current_path root_path
     expect(User.count).to be 0
     expect(User.deleted.count).to be 1
-    expect(page).to have_content I18n.t('flash.users.success.destroy')
+    expect(page).to have_content t('flash.users.success.destroy')
   end
 
   describe 'Settings' do
@@ -31,7 +31,7 @@ RSpec.describe 'Users' do
       visit user_facebook_omniauth_authorize_path
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
-      click_button I18n.t('helpers.submit.update', model: User)
+      click_button t('helpers.submit.update', model: User)
       expect(user.reload.vehicle_avg_consumption).to eq 0.29
       expect(find('#user_vehicle_avg_consumption').value).to eq '0.29'
     end
@@ -41,7 +41,7 @@ RSpec.describe 'Users' do
       visit user_facebook_omniauth_authorize_path
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
-      click_button I18n.t('helpers.submit.update', model: User)
+      click_button t('helpers.submit.update', model: User)
       expect(page).to have_css '.alert.alert-danger'
     end
   end
@@ -133,15 +133,15 @@ RSpec.describe 'Users' do
       end
       user.reload
       visit user_path(user)
-      expect(page).to have_content I18n.t('references.snippet.positives', count: user.references.positives.count)
-      expect(page).to have_content I18n.t('references.snippet.neutrals', count: user.references.neutrals.count)
-      expect(page).to have_content I18n.t('references.snippet.negatives', count: user.references.negatives.count)
+      expect(page).to have_content t('references.snippet.positives', count: user.references.positives.count)
+      expect(page).to have_content t('references.snippet.neutrals', count: user.references.neutrals.count)
+      expect(page).to have_content t('references.snippet.negatives', count: user.references.negatives.count)
     end
 
     it 'highlights common languages' do
       user_with_common_languages = create :user, languages: [{ id: '106059522759137', name: 'English' }]
       visit user_path(user_with_common_languages)
-      expect(page).to have_xpath "//div[@class='tag tag-common' and text()='#{I18n.t('users.show.language', language: 'English')}']"
+      expect(page).to have_xpath "//div[@class='tag tag-common' and text()='#{t('users.show.language', language: 'English')}']"
     end
 
     it 'highlights common likes' do

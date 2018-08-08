@@ -6,7 +6,7 @@ RSpec.describe 'Application' do
   it 'protects pages from guest users' do
     visit dashboard_path
 
-    expect(page).to have_content I18n.t('devise.failure.unauthenticated')
+    expect(page).to have_content t('devise.failure.unauthenticated')
   end
 
   it 'redirects banned users to the banned page' do
@@ -40,7 +40,7 @@ RSpec.describe 'Application' do
         visit user_facebook_omniauth_authorize_path
         visit itineraries_user_path(user, locale: 'XX-ZZ')
 
-        expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+        expect(page).to have_content t('users.itineraries.title', locale: 'en-US')
       end
     end
 
@@ -51,7 +51,7 @@ RSpec.describe 'Application' do
         visit user_facebook_omniauth_authorize_path
         visit itineraries_user_path(user, locale: 'en-XX')
 
-        expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+        expect(page).to have_content t('users.itineraries.title', locale: 'en-US')
       end
     end
 
@@ -62,7 +62,7 @@ RSpec.describe 'Application' do
         visit user_facebook_omniauth_authorize_path
         visit itineraries_user_path(user)
 
-        expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+        expect(page).to have_content t('users.itineraries.title', locale: 'en-US')
       end
     end
 
@@ -73,7 +73,7 @@ RSpec.describe 'Application' do
         visit user_facebook_omniauth_authorize_path
         visit itineraries_user_path(user, locale: 'en')
 
-        expect(page).to have_content I18n.t('users.itineraries.title', locale: 'en-US')
+        expect(page).to have_content t('users.itineraries.title', locale: 'en-US')
       end
     end
   end

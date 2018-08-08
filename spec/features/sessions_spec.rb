@@ -14,8 +14,8 @@ RSpec.describe 'Sessions' do
     visit user_facebook_omniauth_authorize_path
 
     expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
-    click_link I18n.t('logout')
-    expect(page).to have_content I18n.t('login_with_facebook')
+    click_link t('logout')
+    expect(page).to have_content t('login_with_facebook')
   end
 
   it 'redirect to itinerary viewed by guests' do
@@ -23,7 +23,7 @@ RSpec.describe 'Sessions' do
 
     visit itinerary_path(itinerary)
 
-    find('a', text: I18n.t('login_with_facebook')).click
+    find('a', text: t('login_with_facebook')).click
     expect(page.title).to eq itinerary.title
     expect(page).to have_content itinerary.user_name
   end
@@ -52,7 +52,7 @@ RSpec.describe 'Sessions' do
       visit user_facebook_omniauth_authorize_path
 
       expect(page).to have_current_path root_path
-      expect(page).to have_content I18n.t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
+      expect(page).to have_content t('devise.omniauth_callbacks.failure', kind: 'Facebook', reason: 'Invalid credentials')
     ensure
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
     end
