@@ -14,5 +14,5 @@
       = link_to itineraries_user_path(current_user) do
         span.fas.fa-route<>
         = t('.your_itineraries')
-  h3= t('.latest_itineraries')
+  h3 = t('.latest_itineraries')
   == render 'itineraries/table', itineraries: @latest_itineraries, edit: false

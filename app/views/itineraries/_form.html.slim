@@ -5,7 +5,7 @@ fieldset#single
   = f.input :fuel_cost, wrapper: :horizontal_form do
     .input-group.input-group-number
       = f.text_field :fuel_cost, class: 'form-control'
-      span.input-group-addon= APP_CONFIG.currency
+      span.input-group-addon = APP_CONFIG.currency
   .row
     .col-sm-10.col-sm-offset-2
       p.help-block#fuel-help.fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
@@ -13,7 +13,7 @@ fieldset#single
   = f.input :tolls, wrapper: :horizontal_form do
     .input-group.input-group-number
       = f.text_field :tolls, class: 'form-control'
-      span.input-group-addon= APP_CONFIG.currency
+      span.input-group-addon = APP_CONFIG.currency
     - if @itinerary.errors.include?(:tolls)
       span.help-inline
         = @itinerary.errors.messages[:tolls].join(', ')

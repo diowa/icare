@@ -3,18 +3,18 @@
   - if @itinerary.errors.any?
     .alert.alert-danger.fade.in
       button type='button' class='close' data-dismiss='alert' &times;
-      h5.alert-heading= t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
+      h5.alert-heading = t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
       = t('errors.template.body')
       ul
         - @itinerary.errors.full_messages.each do |message|
-          li= message
+          li = message
   .row
     .col-sm-6
       #wizard-step-1-title.itinerary-step.active
-        h3= t('.plan_route')
+        h3 = t('.plan_route')
     .col-sm-6
       #wizard-step-2-title.itinerary-step.hidden-xs
-        h3= t('.insert_details_and_confirm')
+        h3 = t('.insert_details_and_confirm')
   = simple_form_for @itinerary, validate: true do |f|
     .form-group
       #wizard-step-1-content data-step='1'
@@ -25,11 +25,11 @@
             = image_tag transparent_gif_image_data, class: 'img-responsive google-static-map', id: 'itinerary-preview-image', alt: ''
           .col-sm-8
             h1.itinerary-title
-              small= Itinerary.human_attribute_name :start_address
+              small = Itinerary.human_attribute_name :start_address
               span#itinerary-preview-from
-              small= Itinerary.human_attribute_name :end_address
+              small = Itinerary.human_attribute_name :end_address
               span#itinerary-preview-to
-        .form-horizontal== render 'form', f: f
+        .form-horizontal == render 'form', f: f
     .form-group.text-center
       = f.hidden_field :route
       = f.hidden_field :via_waypoints

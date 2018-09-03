@@ -2,22 +2,22 @@
   table.table.table-itinerary
     thead
       tr
-        th= Itinerary.human_attribute_name(:start_address)
-        th= Itinerary.human_attribute_name(:end_address)
+        th = Itinerary.human_attribute_name(:start_address)
+        th = Itinerary.human_attribute_name(:end_address)
         th
           span.visible-xs
             span.fas.fa-info-circle rel='tooltip' title=t('itineraries.common.features')
-          span.hidden-xs= t('itineraries.common.features')
+          span.hidden-xs = t('itineraries.common.features')
         - if edit
-          th= t('helpers.actions')
+          th = t('helpers.actions')
         - else
-          th= User.model_name.human
-          th= Itinerary.human_attribute_name(:leave_date)
+          th = User.model_name.human
+          th = Itinerary.human_attribute_name(:leave_date)
     tbody
       - itineraries.each do |itinerary|
         tr.vertical-align-middle
-          td= link_to itinerary.start_address, itinerary_path(itinerary)
-          td= link_to itinerary.end_address, itinerary_path(itinerary)
+          td = link_to itinerary.start_address, itinerary_path(itinerary)
+          td = link_to itinerary.end_address, itinerary_path(itinerary)
           td
             - if itinerary.pink?
               span.text-pink.fa-fw.fas.fa-lock rel='tooltip' title=Itinerary.human_attribute_name(:pink)
@@ -39,5 +39,5 @@
                   span.fas.fa-times<>
                   = t('helpers.links.destroy')
           - else
-            td= link_to itinerary.user, user_path(itinerary.user)
-            td= l(itinerary.leave_date.in_time_zone, format: :short)
+            td = link_to itinerary.user, user_path(itinerary.user)
+            td = l(itinerary.leave_date.in_time_zone, format: :short)

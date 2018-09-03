@@ -10,7 +10,7 @@
       - if APP_CONFIG.demo_mode
         '
         small demo
-    h1= t('.os_carpooling_platform')
+    h1 = t('.os_carpooling_platform')
     == render 'facebook_login'
     .learn-more-container.hidden-xs
       = link_to '#', class: 'btn btn-lg btn-learn-more' do
@@ -20,34 +20,34 @@
   .featurette
     .container
       span.fas.fa-road
-      h3= t('.share_itinerary_title')
-      p= t('.share_itinerary_content')
+      h3 = t('.share_itinerary_title')
+      p = t('.share_itinerary_content')
   .featurette
     .container
       span.fas.fa-users
-      h3= t('.make_new_connections_title')
-      p= t('.make_new_connections_content')
+      h3 = t('.make_new_connections_title')
+      p = t('.make_new_connections_content')
   .featurette
     .container
       span.fas.fa-piggy-bank
-      h3= t('.save_money_title')
-      p= t('.save_money_content')
+      h3 = t('.save_money_title')
+      p = t('.save_money_content')
   .featurette
     .container
       span.fas.fa-magic
-      h3= t('.thats_easy_title')
-      p= t('.thats_easy_content')
+      h3 = t('.thats_easy_title')
+      p = t('.thats_easy_content')
   .featurette
     .container
       span.fas.fa-leaf
-      h3= t('.help_environment_title')
-      p= t('.help_environment_content')
+      h3 = t('.help_environment_title')
+      p = t('.help_environment_content')
   .featurette
     .container
       span.fab.fa-github
-      h3= t('.open_source_title')
-      p= t('.open_source_content_html', appname: APP_CONFIG.app_name, source_code_link: link_to(t('.source_code'), APP_CONFIG.repository_url))
+      h3 = t('.open_source_title')
+      p = t('.open_source_content_html', appname: APP_CONFIG.app_name, source_code_link: link_to(t('.source_code'), APP_CONFIG.repository_url))
 .container.text-center
-  .h2.join-us= t('.join_us_today')
+  .h2.join-us = t('.join_us_today')
   == render 'facebook_login'
 == render 'shared/modal_why_facebook'
