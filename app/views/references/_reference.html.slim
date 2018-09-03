@@ -1,7 +1,7 @@
 .reference
   .div-table
     .div-table-cell.profile-picture-cell
-      .img-outset= user_profile_picture reference.referencing_user, style: nil
+      .img-outset = user_profile_picture reference.referencing_user, style: nil
     .div-table-cell
       .incoming-reference-cell
         - if reference.incoming
@@ -13,12 +13,12 @@
               = make_thumbs(reference.incoming.rating)
             = simple_format(reference.incoming.body)
         - else
-          p.text-muted.didntwrite= t('.didnt_write_yet', name: reference.referencing_user.first_name)
+          p.text-muted.didntwrite = t('.didnt_write_yet', name: reference.referencing_user.first_name)
   .div-table.outgoing-reference-cell
     .div-table-cell
       .div-table
         .div-table-cell.profile-picture-cell
-          .img-outset= user_profile_picture reference.user, style: nil
+          .img-outset = user_profile_picture reference.user, style: nil
         .div-table-cell
           - if reference.outgoing&.body?
             .balloon.for-profile-picture
@@ -28,4 +28,4 @@
                 = make_thumbs(reference.outgoing.rating)
               = simple_format(reference.outgoing.body)
           - else
-            p.text-muted.didntwrite= t('.didnt_write_yet', name: reference.user.first_name)
+            p.text-muted.didntwrite = t('.didnt_write_yet', name: reference.user.first_name)

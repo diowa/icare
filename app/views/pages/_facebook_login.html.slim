@@ -4,7 +4,7 @@
     = t('login_with_facebook')
   = link_to t('why_facebook'), '#why-facebook', class: 'btn btn-link btn-why-facebook', data: { toggle: 'modal' }
 p.signin-terms
-  b= t('we_will_never_post')
+  b = t('we_will_never_post')
   br
   - if APP_CONFIG.demo_mode
     = t('pages.home.demo_mode_html', demo_terms_link: link_to(t('demo_terms'), :demo_terms, class: 'splashscreen-link'))

@@ -17,7 +17,7 @@ gem 'puma', '~> 3.12'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Background jobs within the same process as web application
-gem 'sucker_punch', '~> 2.0'
+gem 'sucker_punch', '~> 2.1'
 
 # Multi-environment configuration
 gem 'simpleconfig', '~> 2.0'
@@ -35,13 +35,13 @@ gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 6.4'
 gem 'mongoid-geospatial', '~> 5.0'
-gem 'mongoid-slug', '~> 5.3'
+gem 'mongoid-slug', '~> 6.0'
 gem 'mongoid_paranoia', '~> 0.3'
 gem 'validates_timeliness', '~> 4.0'
 gem 'validates_timeliness-mongoid', github: 'diowa/validates_timeliness-mongoid'
 
 # Authentication framework
-gem 'devise', '~> 4.4'
+gem 'devise', '~> 4.5'
 
 # Geospatial data library
 # gem 'rgeo', '~> 0.6.0'
@@ -69,38 +69,38 @@ gem 'i18n-js', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
-gem 'turbolinks', '~> 5.1'
+gem 'turbolinks', '~> 5.2'
 gem 'twbs_sass_rails', '~> 6.0'
 gem 'uglifier', '~> 4.1'
 
 group :development, :test do
   gem 'bullet', '~> 5.7'
   gem 'byebug', '~> 10.0'
-  gem 'factory_bot_rails', '~> 4.10'
+  gem 'factory_bot_rails', '~> 4.11'
   gem 'faker', '~> 1.9'
   gem 'pry', '~> 0.11.3'
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', '~> 0.58.2', require: false
-  gem 'rubocop-rspec', '~> 1.27', require: false
+  gem 'rubocop-rspec', '~> 1.29', require: false
   gem 'scss_lint', '~> 0.57.0', require: false
-  gem 'slim_lint', '~> 0.15.1', require: false
+  gem 'slim_lint', '~> 0.16.0', require: false
 end
 
 group :development do
-  gem 'better_errors', '~> 2.4'
+  gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.8.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'meta_request', '~> 0.6.0'
   gem 'spring', '~> 2.0'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
-  gem 'web-console', '~> 3.6'
+  gem 'web-console', '~> 3.7'
 end
 
 group :test do
-  gem 'capybara', '~> 3.5'
+  gem 'capybara', '~> 3.7'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'coveralls_reborn', '~> 0.12.0', require: false
   gem 'database_cleaner', '~> 1.7'

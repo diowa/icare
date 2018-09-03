@@ -1,31 +1,31 @@
 - title t('.title')
 .container
   .page-header
-    h1= yield :title
+    h1 = yield :title
   .table-responsive
     table.table
       thead
         th
-        th= User.model_name.human
-        th= t('references.common.role')
-        th= Reference.human_attribute_name(:rating)
-        th= Reference.human_attribute_name(:body)
+        th = User.model_name.human
+        th = t('references.common.role')
+        th = Reference.human_attribute_name(:rating)
+        th = Reference.human_attribute_name(:body)
       tbody
         - @references.each do |reference|
           - if reference.incoming
             tr class=('unread' if reference.unread?)
               td
                 span.fas.fa-arrow-up
-              td= link_to reference.referencing_user, user_path(reference.referencing_user)
-              td= driver_or_passenger reference
-              td= make_thumbs reference.incoming.rating
-              td= link_to reference.incoming.body.truncate(50), user_reference_path(@user, reference)
+              td = link_to reference.referencing_user, user_path(reference.referencing_user)
+              td = driver_or_passenger reference
+              td = make_thumbs reference.incoming.rating
+              td = link_to reference.incoming.body.truncate(50), user_reference_path(@user, reference)
           - if reference.outgoing&.body?
             tr
               td
                 span.fas.fa-arrow-down
-              td= link_to reference.referencing_user, user_path(reference.referencing_user)
-              td= driver_or_passenger reference
-              td= make_thumbs reference.outgoing.rating
-              td= link_to reference.outgoing.body.truncate(50), user_reference_path(@user, reference)
+              td = link_to reference.referencing_user, user_path(reference.referencing_user)
+              td = driver_or_passenger reference
+              td = make_thumbs reference.outgoing.rating
+              td = link_to reference.outgoing.body.truncate(50), user_reference_path(@user, reference)
     == paginate @references

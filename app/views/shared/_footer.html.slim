@@ -5,10 +5,10 @@ footer
         = link_to 'http://diowa.com' do
           = image_tag 'diowa.svg', alt: 'diowa', height: 28, width: 90, class: 'diowa-logo'
       - if user_signed_in?
-        li= link_to t('about'), :about
-        li= link_to t('how_it_works'), :how_it_works
+        li = link_to t('about'), :about
+        li = link_to t('how_it_works'), :how_it_works
         - unless APP_CONFIG.demo_mode
-          li= link_to t('terms'), :terms
+          li = link_to t('terms'), :terms
       li
         span.fab.fa-github<>
         = link_to 'diowa/icare', APP_CONFIG.repository_url
