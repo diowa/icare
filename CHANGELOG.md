@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.75.0
+
+* Font Awesome 5.3.1
+* Update gems
+
 ## 0.74.0
 
 * Rails 5.2.1
