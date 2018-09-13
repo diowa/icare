@@ -50,6 +50,7 @@ class Itinerary
 
   def return_date_validator
     return unless return_date && return_date <= leave_date
+
     errors.add(:return_date,
                I18n.t('mongoid.errors.messages.after',
                       restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime'))))
