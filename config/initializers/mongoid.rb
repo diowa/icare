@@ -120,6 +120,7 @@ module Mongoid
 
     def instantiate_object(field, values_with_empty_parameters)
       return nil if values_with_empty_parameters.all?(&:nil?)
+
       values = values_with_empty_parameters.collect { |v| v.nil? ? 1 : v }
       klass = field.type
       if [DateTime, Date, Time].include?(klass)
