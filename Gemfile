@@ -30,7 +30,7 @@ gem 'simple_form', '~> 4.0'
 
 # ODM and related
 gem 'client_side_validations', '~> 11.1'
-gem 'client_side_validations-simple_form', '~> 6.6'
+gem 'client_side_validations-simple_form', '~> 6.7'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 6.4'
@@ -51,7 +51,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 5.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 5.3'
+gem 'newrelic_rpm', '~> 5.4'
 
 # Security
 gem 'secure_headers', '~> 6.0'
@@ -82,10 +82,10 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', '~> 0.58.2', require: false
+  gem 'rubocop', '~> 0.59.0', require: false
   gem 'rubocop-rspec', '~> 1.29', require: false
   gem 'scss_lint', '~> 0.57.0', require: false
-  gem 'slim_lint', '~> 0.16.0', require: false
+  gem 'slim_lint', '~> 0.16.1', require: false
 end
 
 group :development do

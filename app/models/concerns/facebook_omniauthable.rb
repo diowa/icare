@@ -92,6 +92,7 @@ module FacebookOmniauthable
         fb.get_object('me?fields=birthday,gender,languages,locale,verified')
       end
       return unless result
+
       update(
         birthday: birthday_from_graph_api(result['birthday']),
         facebook_verified: result['verified'],
