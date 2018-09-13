@@ -117,4 +117,4 @@ Special thanks to all developers of open source libraries used in this project.
 
 If you like this project or you are considering to use it (or any part of it) for commercial purposes, please make a donation to the authors.
 
-[![Click here to lend your support to: icare: Ruby on Rails open source carpooling platform and make a donation at pledgie.com !](https://pledgie.com/campaigns/18177.png?skin_name=chrome)](https://pledgie.com/campaigns/18177)
+[![Donate once-off to this project using Bitcoin](https://img.shields.io/badge/bitcoin-donate-blue.svg)](bitcoin:1L6sqoG8xXhYziH9NGjPzgR1dEP2SbJrfM)
