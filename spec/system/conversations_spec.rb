@@ -38,7 +38,6 @@ RSpec.describe 'Conversations' do
   end
 
   it 'rescues from creation errors' do
-    pending 'Skip javascript validations'
     visit user_facebook_omniauth_authorize_path
     visit new_conversation_path(itinerary_id: itinerary.id)
 
@@ -48,7 +47,6 @@ RSpec.describe 'Conversations' do
   end
 
   it 'rescues from update errors' do
-    pending 'Skip javascript validations'
     receiver = create :user, uid: '123456'
     sender = create :user
     itinerary = create :itinerary, user: receiver

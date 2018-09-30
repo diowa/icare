@@ -70,8 +70,6 @@ RSpec.describe 'Feedbacks' do
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
 
-    page.accept_alert
-
     expect(page).to have_current_path feedbacks_path
     expect(page).to have_content t('flash.feedbacks.success.destroy')
   end
@@ -84,8 +82,6 @@ RSpec.describe 'Feedbacks' do
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
-
-    page.accept_alert
 
     expect(page).to have_current_path feedbacks_path
     expect(page).to have_content t('flash.feedbacks.success.destroy')
@@ -105,7 +101,6 @@ RSpec.describe 'Feedbacks' do
   end
 
   it "doesn't fail when creating with wrong parameters" do
-    pending 'Skip javascript validations'
     create :user, uid: '123456'
 
     visit user_facebook_omniauth_authorize_path
@@ -116,7 +111,6 @@ RSpec.describe 'Feedbacks' do
   end
 
   it "doesn't fail when updating with wrong parameters" do
-    pending 'Skip javascript validations'
     user = create :user, uid: '123456'
     feedback = create :feedback, user: user
 

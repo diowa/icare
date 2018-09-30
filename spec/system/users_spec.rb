@@ -20,8 +20,6 @@ RSpec.describe 'Users' do
 
     click_link t('delete_account')
 
-    page.accept_alert
-
     expect(page).to have_current_path root_path
     expect(User.count).to be 0
     expect(User.deleted.count).to be 1
@@ -40,7 +38,6 @@ RSpec.describe 'Users' do
     end
 
     it 'recovers from errors' do
-      pending 'Skip javascript validations'
       create :user, uid: '123456'
       visit user_facebook_omniauth_authorize_path
       visit settings_path
