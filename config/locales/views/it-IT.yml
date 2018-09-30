@@ -299,7 +299,6 @@ it-IT:
       confirm_and_share: "Conferma e condividi"
       next_step: "Passo successivo"
       previous_step: "Torna indietro"
-      missing_publish_actions_permission: "%{appname} non ha il permesso di pubblicare sul tuo diario."
     route_step:
       get_route: Calcola percorso
       distance: Distanza

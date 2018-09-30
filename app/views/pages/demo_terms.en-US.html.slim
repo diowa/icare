@@ -2,7 +2,7 @@
 .container
   .page-header
     h1 = yield :title
-    h5.text-muted = t('last_modified', date: l(Date.parse('2018-05-25'), format: :long))
+    h5.text-muted = t('last_modified', date: l(Date.parse('2018-09-30'), format: :long))
 
   h2 Welcome to #{APP_CONFIG.app_name}
   p
@@ -19,13 +19,9 @@
     | We cache the following Facebook data on our local database for performance reasons:
     ul
       li
-        | Email, name, birthday, friends, favorites, known languages.
+        | Email, name, birthday, likes.
     | We do not store your public profile picture.
   p
     | We will not send you any email.
-  p
-    ' The "Share on Facebook Timeline" feature is available, but the Open Graph actions
-    ' were not submitted via the App Dashboard for review. It means that only developers
-    | and testers of this app will be able to see your activity.
   p
     | You can permanently delete your data by logging in and clicking the "Delete account" button on the footer.
