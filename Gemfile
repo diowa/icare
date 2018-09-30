@@ -100,7 +100,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.7'
+  gem 'capybara', '~> 3.8'
   gem 'capybara-screenshot', '~> 1.0'
   gem 'coveralls_reborn', '~> 0.12.0', require: false
   gem 'database_cleaner', '~> 1.7'
