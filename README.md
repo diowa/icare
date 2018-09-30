@@ -25,7 +25,6 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
 * [RSpec][12]
-* [PhantomJS][17] + [Poltergeist][18]
 * [Heroku][14] Cloud Application Platform
 * [Multi-Environment configuration][15]
 * [Airbrake][16] Exception Notification
@@ -47,8 +46,6 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [14]: https://www.heroku.com/
  [15]: https://github.com/lukeredpath/simpleconfig
  [16]: https://github.com/airbrake/airbrake
- [17]: https://github.com/ariya/phantomjs/
- [18]: https://github.com/teampoltergeist/poltergeist
 
 A working demo is available at http://icare.diowa.com/
 

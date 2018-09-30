@@ -6,14 +6,14 @@ RSpec.describe 'Sessions' do
   it 'allows users to sign in from Facebook' do
     visit user_facebook_omniauth_authorize_path
 
-    expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
+    expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]", visible: false
     expect(User.count).not_to be_zero
   end
 
   it 'allows users to logout' do
     visit user_facebook_omniauth_authorize_path
 
-    expect(page).to have_css "a[href=\"#{destroy_user_session_path}\"]"
+    find('#main-navbar-collapse .dropdown-toggle').click
     click_link t('logout')
     expect(page).to have_content t('login_with_facebook')
   end

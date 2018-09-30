@@ -9,20 +9,18 @@ require 'simplecov'
 SimpleCov.start 'rails'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
-require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
-require 'capybara/poltergeist'
 require 'capybara/rspec'
-require 'capybara-screenshot/rspec' unless ENV['CI']
 require 'webmock/rspec'
 
-Capybara.javascript_driver = :poltergeist
-WebMock.disable_net_connect! allow_localhost: true
+Capybara.server = :puma, { Silent: true }
+WebMock.disable_net_connect! allow: %w[localhost 127.0.0.1 *.lvh.me lvh.me]
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -40,6 +38,9 @@ WebMock.disable_net_connect! allow_localhost: true
 Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
+  # Allow to use `t` instead of `I18n.t` in specs
+  config.include AbstractController::Translation
+
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
@@ -61,4 +62,16 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include ActiveSupport::Testing::TimeHelpers
+
+  config.before(:each, type: :system) do
+    driven_by(:selenium,
+              using: :chrome,
+              options: {
+                desired_capabilities: {
+                  chromeOptions: {
+                    args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage]
+                  }
+                }
+              })
+  end
 end
