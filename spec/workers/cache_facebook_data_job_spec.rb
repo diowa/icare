@@ -13,8 +13,7 @@ RSpec.describe CacheFacebookDataJob do
     [{ 'permission' => 'user_birthday', 'status' => 'granted' },
      { 'permission' => 'user_likes', 'status' => 'granted' },
      { 'permission' => 'email', 'status' => 'granted' },
-     { 'permission' => 'public_profile', 'status' => 'granted' },
-     { 'permission' => 'publish_actions', 'status' => 'granted' }]
+     { 'permission' => 'public_profile', 'status' => 'granted' }]
   end
 
   let(:me_response) do

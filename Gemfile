@@ -101,13 +101,13 @@ end
 
 group :test do
   gem 'capybara', '~> 3.8'
-  gem 'capybara-screenshot', '~> 1.0'
   gem 'coveralls_reborn', '~> 0.12.0', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', '~> 4.0'
   gem 'poltergeist', '~> 1.18'
+  gem 'selenium-webdriver', '~> 3.14'
   gem 'simplecov', '~> 0.16.1', require: false
   gem 'webmock', '~> 3.4', require: false
 end
