@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.76.0
+
+* Use System tests
+* Update gems
+
 ## 0.75.1
 
 * Fix Readme
