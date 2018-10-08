@@ -59,7 +59,7 @@ gem 'secure_headers', '~> 6.0'
 # Miscellanea
 gem 'http_accept_language', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
-gem 'slim-rails', '~> 3.1'
+gem 'slim-rails', '~> 3.2'
 
 # Assets
 gem 'autoprefixer-rails', '~> 9.1'
