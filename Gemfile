@@ -59,10 +59,10 @@ gem 'secure_headers', '~> 6.0'
 # Miscellanea
 gem 'http_accept_language', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
-gem 'slim-rails', '~> 3.1'
+gem 'slim-rails', '~> 3.2'
 
 # Assets
-gem 'autoprefixer-rails', '~> 9.1'
+gem 'autoprefixer-rails', '~> 9.2'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.2'
 gem 'i18n-js', '~> 3.0'
@@ -83,7 +83,7 @@ group :development, :test do
   gem 'pry-rails', '~> 0.3.6'
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', '~> 0.59.2', require: false
-  gem 'rubocop-rspec', '~> 1.29', require: false
+  gem 'rubocop-rspec', '~> 1.30', require: false
   gem 'scss_lint', '~> 0.57.1', require: false
   gem 'slim_lint', '~> 0.16.1', require: false
 end
@@ -100,7 +100,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.8'
+  gem 'capybara', '~> 3.9'
   gem 'coveralls_reborn', '~> 0.12.0', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
@@ -113,7 +113,7 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 7.3'
+  gem 'airbrake', '~> 7.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
