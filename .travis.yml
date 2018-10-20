@@ -1,7 +1,7 @@
 language: ruby
 sudo: false
 rvm:
-  - 2.5.1
+  - 2.5.3
 services:
   - mongodb
   - redis-server
