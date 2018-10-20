@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.77.0
+
+* Font Awesome 5.4.1
+* Ruby 2.5.3
+* Minor fixes
+
 ## 0.76.1
 
 * Improve System tests
