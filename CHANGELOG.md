@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.77.1
+
+* Fix source code conflicts
+
 ## 0.77.0
 
 * Font Awesome 5.4.1
