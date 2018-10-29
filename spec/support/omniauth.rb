@@ -5,10 +5,10 @@ OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider' => 'facebook',
                                                   'info' => {
                                                     'email' => 'test@example.com',
                                                     'name' => 'John Doe',
-                                                    'image'  => 'http://graph.facebook.com/123456/picture'
+                                                    'image' => 'http://graph.facebook.com/123456/picture'
                                                   },
                                                   'credentials' => {
-                                                    'token'  => 'token',
+                                                    'token' => 'token',
                                                     'expires_at' => 2.days.from_now.to_i,
                                                     'expires' => true
                                                   },
