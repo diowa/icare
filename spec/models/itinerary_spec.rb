@@ -56,10 +56,10 @@ RSpec.describe Itinerary do
 
   describe GeoItinerary do
     let(:route_param) do
-      { start_location: [itinerary.start_location.lng, itinerary.start_location.lat],
-        end_location: [itinerary.end_location.lng, itinerary.end_location.lat],
-        via_waypoints: itinerary.via_waypoints,
-        overview_path: itinerary.overview_path,
+      { start_location:    [itinerary.start_location.lng, itinerary.start_location.lat],
+        end_location:      [itinerary.end_location.lng, itinerary.end_location.lat],
+        via_waypoints:     itinerary.via_waypoints,
+        overview_path:     itinerary.overview_path,
         overview_polyline: itinerary.overview_polyline }.to_json.to_s
     end
 
@@ -99,22 +99,22 @@ RSpec.describe Itinerary do
       let(:start_end_outside_bounds_itinerary) do
         build :itinerary,
               start_location: { lat: 6, lng: 1 },
-              end_location: { lat: 9, lng: 5 }
+              end_location:   { lat: 9, lng: 5 }
       end
       let(:start_outside_bounds_itinerary) do
         build :itinerary,
               start_location: { lat: 6, lng: 1 },
-              end_location: { lat: 3, lng: 6 }
+              end_location:   { lat: 3, lng: 6 }
       end
       let(:end_outside_bounds_itinerary) do
         build :itinerary,
               start_location: { lat: 3, lng: 6 },
-              end_location: { lat: -5, lng: 9 }
+              end_location:   { lat: -5, lng: 9 }
       end
       let(:inside_bounds_itinerary) do
         build :itinerary,
               start_location: { lat: 2, lng: 6 },
-              end_location: { lat: 2, lng: 5 }
+              end_location:   { lat: 2, lng: 5 }
       end
 
       it 'adds an error on the base objects if both start_position and end_position are outside bounds' do

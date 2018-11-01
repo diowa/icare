@@ -21,9 +21,9 @@ ValidatesTimeliness.setup do |config|
   #
   # Shorthand date and time symbols for restrictions
   config.restriction_shorthand_symbols.update(
-    now: -> { Time.current },
-    today: -> { Date.current },
-    thirteen_years_ago: -> { 13.years.ago.to_date },
+    now:                 -> { Time.current },
+    today:               -> { Date.current },
+    thirteen_years_ago:  -> { 13.years.ago.to_date },
     latest_request_date: -> { 3.months.from_now.to_date },
     latest_meeting_date: -> { 3.weeks.from_now.to_date }
   )

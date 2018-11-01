@@ -2,7 +2,7 @@
 
 SecureHeaders::Configuration.default do |config|
   config.cookies = {
-    secure: true,
+    secure:   true,
     httponly: true,
     samesite: {
       lax: true

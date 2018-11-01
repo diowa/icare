@@ -9,6 +9,10 @@ AllCops:
     - 'db/**/*'
     - 'vendor/bundle/**/*'
 
+Layout/AlignHash:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
 Lint/UriEscapeUnescape:
   Enabled: false
 

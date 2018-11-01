@@ -9,8 +9,8 @@ RSpec.describe ItinerarySearch do
     let(:search_params) do
       { start_location_lat: 0,
         start_location_lng: 0,
-        end_location_lat: 1,
-        end_location_lng: 1 }
+        end_location_lat:   1,
+        end_location_lng:   1 }
     end
 
     it 'returns itineraries nearby' do

@@ -18,12 +18,12 @@ RSpec.describe CacheFacebookDataJob do
 
   let(:me_response) do
     {
-      'birthday' => '10/15/1981',
-      'gender' => 'male',
+      'birthday'  => '10/15/1981',
+      'gender'    => 'male',
       'languages' => [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
-      'locale' => 'en_US',
-      'verified' => true,
-      'id' => '123456'
+      'locale'    => 'en_US',
+      'verified'  => true,
+      'id'        => '123456'
     }
   end
 
