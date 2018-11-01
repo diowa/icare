@@ -59,5 +59,8 @@ RSpec/NestedGroups:
 Style/Documentation:
   Enabled: false
 
+Style/IfUnlessModifier:
+  Enabled: false
+
 Style/RescueStandardError:
   Enabled: false
