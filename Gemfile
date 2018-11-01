@@ -23,7 +23,7 @@ gem 'sucker_punch', '~> 2.1'
 gem 'simpleconfig', '~> 2.0'
 
 # API
-gem 'rabl', '~> 0.13.1'
+gem 'rabl', '~> 0.14.0'
 
 # Forms
 gem 'simple_form', '~> 4.0'
