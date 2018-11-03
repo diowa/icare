@@ -56,10 +56,10 @@ RSpec.describe Itinerary do
 
   describe GeoItinerary do
     let(:route_param) do
-      { start_location: [itinerary.start_location.lng, itinerary.start_location.lat],
-        end_location: [itinerary.end_location.lng, itinerary.end_location.lat],
-        via_waypoints: itinerary.via_waypoints,
-        overview_path: itinerary.overview_path,
+      { start_location:    [itinerary.start_location.lng, itinerary.start_location.lat],
+        end_location:      [itinerary.end_location.lng, itinerary.end_location.lat],
+        via_waypoints:     itinerary.via_waypoints,
+        overview_path:     itinerary.overview_path,
         overview_polyline: itinerary.overview_polyline }.to_json.to_s
     end
 

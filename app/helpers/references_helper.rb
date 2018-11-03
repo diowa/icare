@@ -3,7 +3,7 @@
 module ReferencesHelper
   RATINGS = {
     rating_negative: { value: -1, icon: 'fa-thumbs-down' },
-    rating_neutral: { value: 0 },
+    rating_neutral:  { value: 0 },
     rating_positive: { value: 1, icon: 'fa-thumbs-up' }
   }.freeze
 

@@ -4,10 +4,10 @@ require 'rails_helper'
 
 RSpec.describe 'Itineraries' do
   FEATURE_ICONS = {
-    daily: '.fa-redo',
-    pets_allowed: '.fa-paw',
-    pink: '.fa-lock',
-    round_trip: '.fa-exchange-alt',
+    daily:           '.fa-redo',
+    pets_allowed:    '.fa-paw',
+    pink:            '.fa-lock',
+    round_trip:      '.fa-exchange-alt',
     smoking_allowed: '.fa-smoking'
   }.freeze
 

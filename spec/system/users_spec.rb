@@ -90,10 +90,10 @@ RSpec.describe 'Users' do
 
   describe 'Profile' do
     let(:user) do
-      create :user, uid: '123456',
+      create :user, uid:                '123456',
                     facebook_favorites: [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }],
-                    languages: [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
-                    facebook_verified: true
+                    languages:          [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
+                    facebook_verified:  true
     end
 
     def create_friends_and_refresh(friends)

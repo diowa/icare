@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider' => 'facebook',
-                                                  'uid' => '123456',
-                                                  'info' => {
+OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider'    => 'facebook',
+                                                  'uid'         => '123456',
+                                                  'info'        => {
                                                     'email' => 'test@example.com',
-                                                    'name' => 'John Doe',
-                                                    'image'  => 'http://graph.facebook.com/123456/picture'
+                                                    'name'  => 'John Doe',
+                                                    'image' => 'http://graph.facebook.com/123456/picture'
                                                   },
                                                   'credentials' => {
-                                                    'token'  => 'token',
+                                                    'token'      => 'token',
                                                     'expires_at' => 2.days.from_now.to_i,
-                                                    'expires' => true
+                                                    'expires'    => true
                                                   },
-                                                  'extra' => {
+                                                  'extra'       => {
                                                     'raw_info' => {
-                                                      'name' => 'test@example.com',
+                                                      'name'  => 'test@example.com',
                                                       'email' => 'John Doe',
-                                                      'id' => '123456'
+                                                      'id'    => '123456'
                                                     }
                                                   })
 

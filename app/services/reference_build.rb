@@ -8,9 +8,9 @@ class ReferenceBuild
   end
 
   def reference
-    reference = @user.references.new itinerary: @itinerary,
+    reference = @user.references.new itinerary:           @itinerary,
                                      referencing_user_id: @itinerary.user.id,
-                                     read_at: Time.now.utc
+                                     read_at:             Time.now.utc
     reference.build_outgoing @params
     reference
   rescue

@@ -94,11 +94,11 @@ module FacebookOmniauthable
       return unless result
 
       update(
-        birthday: birthday_from_graph_api(result['birthday']),
+        birthday:          birthday_from_graph_api(result['birthday']),
         facebook_verified: result['verified'],
-        gender: result['gender'],
-        languages: result['languages'] || [],
-        locale: locale_from_graph_api(result['locale'])
+        gender:            result['gender'],
+        languages:         result['languages'] || [],
+        locale:            locale_from_graph_api(result['locale'])
       )
     end
   end

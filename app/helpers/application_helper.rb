@@ -12,7 +12,7 @@ module ApplicationHelper
   def map_config_attributes
     {
       'data-map-center': APP_CONFIG.map.center,
-      'data-map-zoom': APP_CONFIG.map.zoom
+      'data-map-zoom':   APP_CONFIG.map.zoom
     }
   end
 

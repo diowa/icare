@@ -11,11 +11,11 @@ module UsersHelper
 
   def user_profile_picture(user, size: [50, 50], type: :square, style: 'img-responsive', opts: {})
     tag :img,
-        { width: ("#{size[0]}px" if size),
+        { width:  ("#{size[0]}px" if size),
           height: ("#{size[1]}px" if size),
-          src: facebook_profile_picture(user, type),
-          alt: '',
-          class: [('verified' if user.facebook_verified?), style].compact.join(' ') }.merge(opts)
+          src:    facebook_profile_picture(user, type),
+          alt:    '',
+          class:  [('verified' if user.facebook_verified?), style].compact.join(' ') }.merge(opts)
   end
 
   def language_tags(user)

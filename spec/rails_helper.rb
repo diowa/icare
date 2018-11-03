@@ -69,7 +69,7 @@ RSpec.configure do |config|
 
   config.before(:each, type: :system, js: true) do
     driven_by(:selenium,
-              using: :chrome,
+              using:   :chrome,
               options: {
                 desired_capabilities: {
                   chromeOptions: {
