@@ -26,7 +26,7 @@ gem 'simpleconfig', '~> 2.0'
 gem 'rabl', '~> 0.14.0'
 
 # Forms
-gem 'simple_form', '~> 4.0'
+gem 'simple_form', '~> 4.1'
 
 # ODM and related
 gem 'client_side_validations', '~> 11.1'
