@@ -75,7 +75,7 @@ GEM
       uniform_notifier (~> 1.11)
     byebug (10.0.2)
     callsite (0.0.11)
-    capybara (3.11.1)
+    capybara (3.12.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -450,7 +450,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bullet (~> 5.9)
   byebug (~> 10.0)
-  capybara (~> 3.11)
+  capybara (~> 3.12)
   client_side_validations (~> 11.1)
   client_side_validations-simple_form (~> 6.7)
   coffee-rails (~> 4.2)
