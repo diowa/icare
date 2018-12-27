@@ -63,7 +63,7 @@ if google?
       return
 
   random_nearby_position = (latLng, maxDist = 0.5, km = true) ->
-    #very very very very special thanks to http://www.geomidpoint.com/random/calculation.html
+    #very very very very special thanks to https://www.geomidpoint.com/random/calculation.html
     DEG_TO_RAD = Math.PI / 180
     RAD_TO_DEG = 180 / Math.PI
     startlat = latLng[0] * DEG_TO_RAD
