@@ -429,7 +429,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webmock (3.4.2)
+    webmock (3.5.1)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -509,10 +509,10 @@ DEPENDENCIES
   validates_timeliness (~> 4.0)
   validates_timeliness-mongoid!
   web-console (~> 3.7)
-  webmock (~> 3.4)
+  webmock (~> 3.5)
 
 RUBY VERSION
-   ruby 2.5.3p105
+   ruby 2.6.0p0
 
 BUNDLED WITH
    1.17.2
