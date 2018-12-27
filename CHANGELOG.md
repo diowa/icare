@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.78.0
+
+* Ruby 2.6.0
+* Font Awesome 5.6.3
+* Force SSL on staging and production environments
+* Update gems
+
 ## 0.77.2
 
 * Font Awesome 5.5.0

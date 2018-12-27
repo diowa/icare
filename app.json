@@ -6,7 +6,7 @@
     "Rails",
     "MongoDB"
   ],
-  "website": "http://icare.diowa.com/",
+  "website": "https://icare.diowa.com/",
   "repository": "https://github.com/diowa/icare",
   "success_url": "/",
   "scripts": {
