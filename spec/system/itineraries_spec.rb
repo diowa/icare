@@ -35,6 +35,8 @@ RSpec.describe 'Itineraries' do
     end
 
     it 'are allowed to create itineraries', js: true do
+      pending 'Google Maps API KEY is missing' unless APP_CONFIG.google_maps_api_key
+
       login_as_female
 
       visit new_itinerary_path

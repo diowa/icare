@@ -52,7 +52,7 @@ RSpec/DescribeClass:
     - spec/system/**/*
 
 RSpec/ExampleLength:
-  Max: 41
+  Max: 42
 
 RSpec/MultipleExpectations:
   Enabled: false
