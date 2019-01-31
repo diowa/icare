@@ -2,7 +2,7 @@ require: rubocop-rspec
 
 AllCops:
   TargetRailsVersion: 5.2
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 2.6
   Exclude:
     - Brewfile
     - 'bin/*'
@@ -52,7 +52,7 @@ RSpec/DescribeClass:
     - spec/system/**/*
 
 RSpec/ExampleLength:
-  Max: 41
+  Max: 42
 
 RSpec/MultipleExpectations:
   Enabled: false
