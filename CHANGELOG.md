@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.79.0
+
+* Ruby 2.6.1
+* Font Awesome 5.7.0
+* Update gems
+
 ## 0.78.0
 
 * Ruby 2.6.0
