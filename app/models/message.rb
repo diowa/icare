@@ -5,7 +5,7 @@ class Message
   include Mongoid::Timestamps
   include Mongoid::Paranoia
 
-  belongs_to :sender, class_name: User.model_name.to_s
+  belongs_to :sender, class_name: 'User'
 
   embedded_in :conversation
 
