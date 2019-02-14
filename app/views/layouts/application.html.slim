@@ -10,7 +10,8 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
     = csrf_meta_tags
     = yield :head
 
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700|Pacifico', 'https://use.fontawesome.com/releases/v5.7.0/css/all.css', 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700|Pacifico', 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' integrity='sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr' crossorigin='anonymous' data-turbolinks-track='reload'
 
     / Webapp
     link rel='manifest' href='/manifest.json'

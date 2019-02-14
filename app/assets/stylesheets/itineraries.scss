@@ -111,6 +111,14 @@
   }
 }
 
+.feature-icons {
+  margin-left: -5px;
+}
+
+.feature-icon {
+  margin-left: 5px;
+}
+
 @media (min-width: $screen-lg-min) {
   .itinerary-thumbnail {
     position: relative;

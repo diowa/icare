@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.80.0
+
+* Bootstrap 3.4.1
+* Font Awesome 5.7.2
+* Update gems
+
 ## 0.79.0
 
 * Ruby 2.6.1
