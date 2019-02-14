@@ -41,7 +41,7 @@ gem 'validates_timeliness', '~> 4.0'
 gem 'validates_timeliness-mongoid', github: 'diowa/validates_timeliness-mongoid'
 
 # Authentication framework
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.6'
 
 # Geospatial data library
 # gem 'rgeo', '~> 0.6.0'
@@ -76,13 +76,13 @@ gem 'uglifier', '~> 4.1'
 group :development, :test do
   gem 'bullet', '~> 5.9'
   gem 'byebug', '~> 10.0'
-  gem 'factory_bot_rails', '~> 4.11'
+  gem 'factory_bot_rails', '~> 5.0'
   gem 'faker', '~> 1.9'
   gem 'pry', '~> 0.12.2'
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', '~> 0.63.1', require: false
+  gem 'rubocop', '~> 0.64.0', require: false
   gem 'rubocop-rspec', '~> 1.32', require: false
   gem 'scss_lint', '~> 0.57.1', require: false
   gem 'slim_lint', '~> 0.16.1', require: false
@@ -113,7 +113,7 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 8.0'
+  gem 'airbrake', '~> 7.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
