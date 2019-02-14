@@ -70,7 +70,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
-gem 'twbs_sass_rails', '~> 7.0'
+gem 'twbs_sass_rails', '~> 7.1'
 gem 'uglifier', '~> 4.1'
 
 group :development, :test do
@@ -113,7 +113,7 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 7.4'
+  gem 'airbrake', '~> 8.1', '>= 8.1.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
