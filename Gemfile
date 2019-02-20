@@ -82,7 +82,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.6'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', '~> 0.64.0', require: false
+  gem 'rubocop', '~> 0.65.0', require: false
   gem 'rubocop-rspec', '~> 1.32', require: false
   gem 'scss_lint', '~> 0.57.1', require: false
   gem 'slim_lint', '~> 0.16.1', require: false
