@@ -54,7 +54,7 @@ gem 'omniauth-facebook', '~> 5.0'
 gem 'newrelic_rpm', '~> 6.0'
 
 # Security
-gem 'secure_headers', '~> 6.0'
+gem 'secure_headers', '~> 6.1'
 
 # Miscellanea
 gem 'http_accept_language', '~> 2.1'
