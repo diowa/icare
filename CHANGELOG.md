@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.81.1
+
+* Fix Travis build
+
 ## 0.81.0
 
 * Ruby 2.6.2
