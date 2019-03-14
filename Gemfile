@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.6.1'
+ruby '2.6.2'
 gem 'rails', '5.2.2.1'
 
 # Servers
@@ -29,7 +29,7 @@ gem 'rabl', '~> 0.14.0'
 gem 'simple_form', '~> 4.1'
 
 # ODM and related
-gem 'client_side_validations', '~> 13.0'
+gem 'client_side_validations', '~> 13.1'
 gem 'client_side_validations-simple_form', '~> 6.9'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
@@ -62,7 +62,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.2'
 
 # Assets
-gem 'autoprefixer-rails', '~> 9.4'
+gem 'autoprefixer-rails', '~> 9.5'
 gem 'coffee-rails', '~> 4.2'
 gem 'handlebars_assets', '~> 0.23.3'
 gem 'i18n-js', '~> 3.2'
