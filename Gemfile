@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.6.1'
-gem 'rails', '5.2.2'
+gem 'rails', '5.2.2.1'
 
 # Servers
 gem 'puma', '~> 3.12'
@@ -29,8 +29,8 @@ gem 'rabl', '~> 0.14.0'
 gem 'simple_form', '~> 4.1'
 
 # ODM and related
-gem 'client_side_validations', '~> 12.1'
-gem 'client_side_validations-simple_form', '~> 6.8'
+gem 'client_side_validations', '~> 13.0'
+gem 'client_side_validations-simple_form', '~> 6.9'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 6.4'
@@ -51,10 +51,10 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 5.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 6.0'
+gem 'newrelic_rpm', '~> 6.1'
 
 # Security
-gem 'secure_headers', '~> 6.0'
+gem 'secure_headers', '~> 6.1'
 
 # Miscellanea
 gem 'http_accept_language', '~> 2.1'
@@ -64,7 +64,7 @@ gem 'slim-rails', '~> 3.2'
 # Assets
 gem 'autoprefixer-rails', '~> 9.4'
 gem 'coffee-rails', '~> 4.2'
-gem 'handlebars_assets', '~> 0.23.2'
+gem 'handlebars_assets', '~> 0.23.3'
 gem 'i18n-js', '~> 3.2'
 gem 'sass-rails', '~> 5.0'
 gem 'sprockets', '~> 3.7'
@@ -75,14 +75,14 @@ gem 'uglifier', '~> 4.1'
 
 group :development, :test do
   gem 'bullet', '~> 5.9'
-  gem 'byebug', '~> 10.0'
+  gem 'byebug', '~> 11.0'
   gem 'factory_bot_rails', '~> 5.0'
   gem 'faker', '~> 1.9'
   gem 'pry', '~> 0.12.2'
-  gem 'pry-byebug', '~> 3.6'
+  gem 'pry-byebug', '~> 3.7'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', '~> 0.64.0', require: false
+  gem 'rubocop', '~> 0.65.0', require: false
   gem 'rubocop-rspec', '~> 1.32', require: false
   gem 'scss_lint', '~> 0.57.1', require: false
   gem 'slim_lint', '~> 0.16.1', require: false
@@ -100,7 +100,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.13'
+  gem 'capybara', '~> 3.14'
   gem 'coveralls_reborn', '~> 0.12.0', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
@@ -113,7 +113,7 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 8.1', '>= 8.1.1'
+  gem 'airbrake', '~> 8.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
