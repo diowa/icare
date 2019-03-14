@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.81.0
+
+* Ruby 2.6.2
+* Update gems
+
 ## 0.80.0
 
 * Bootstrap 3.4.1

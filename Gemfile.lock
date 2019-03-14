@@ -57,7 +57,7 @@ GEM
       rbtree3 (~> 0.5)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (9.4.10.2)
+    autoprefixer-rails (9.5.0)
       execjs
     bcrypt (3.1.12)
     better_errors (2.5.1)
@@ -87,10 +87,10 @@ GEM
     character_set (1.1.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    client_side_validations (13.0.0)
+    client_side_validations (13.1.0)
       jquery-rails (~> 4.3)
       js_regex (~> 3.1)
-      rails (>= 5.0.0.1, <= 6.0.0.beta2)
+      rails (>= 5.0.0.1, <= 6.0.0.beta3)
     client_side_validations-simple_form (6.9.0)
       client_side_validations (>= 9.3.2, < 14)
       simple_form (>= 3.5, < 5)
@@ -226,7 +226,7 @@ GEM
       stringex (~> 2.0)
     mongoid_paranoia (0.3.0)
       mongoid (>= 6.0.0)
-    msgpack (1.2.7)
+    msgpack (1.2.9)
     multi_json (1.13.1)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
@@ -448,14 +448,14 @@ PLATFORMS
 
 DEPENDENCIES
   airbrake (~> 8.3)
-  autoprefixer-rails (~> 9.4)
+  autoprefixer-rails (~> 9.5)
   better_errors (~> 2.5)
   binding_of_caller (~> 0.8.0)
   bootsnap (>= 1.1.0)
   bullet (~> 5.9)
   byebug (~> 11.0)
   capybara (~> 3.14)
-  client_side_validations (~> 13.0)
+  client_side_validations (~> 13.1)
   client_side_validations-simple_form (~> 6.9)
   coffee-rails (~> 4.2)
   coveralls_reborn (~> 0.12.0)
@@ -516,7 +516,7 @@ DEPENDENCIES
   webmock (~> 3.5)
 
 RUBY VERSION
-   ruby 2.6.1p33
+   ruby 2.6.2p47
 
 BUNDLED WITH
-   1.17.3
+   2.0.1
