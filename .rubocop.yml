@@ -17,7 +17,7 @@ Lint/UriEscapeUnescape:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 22.23
+  Max: 22.29
 
 Metrics/BlockLength:
   Enabled: false
