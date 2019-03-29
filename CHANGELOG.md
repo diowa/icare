@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.82.0
+
+* Rails 5.2.3
+* Font Awesome 5.8.1
+* Update gems
+
 ## 0.81.1
 
 * Fix Travis build
