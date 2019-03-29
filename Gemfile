@@ -51,7 +51,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 5.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 6.1'
+gem 'newrelic_rpm', '~> 6.2'
 
 # Security
 gem 'secure_headers', '~> 6.1'
@@ -82,7 +82,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.7'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 3.8'
-  gem 'rubocop', '~> 0.65.0', require: false
+  gem 'rubocop', '~> 0.66.0', require: false
   gem 'rubocop-rspec', '~> 1.32', require: false
   gem 'scss_lint', '~> 0.57.1', require: false
   gem 'slim_lint', '~> 0.16.1', require: false
@@ -100,7 +100,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.14'
+  gem 'capybara', '~> 3.15'
   gem 'coveralls_reborn', '~> 0.12.0', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
