@@ -113,7 +113,7 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 8.3'
+  gem 'airbrake', '~> 9.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
