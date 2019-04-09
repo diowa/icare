@@ -67,7 +67,7 @@ GEM
     bindex (0.6.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.4.2)
+    bootsnap (1.4.3)
       msgpack (~> 1.0)
     bson (4.4.2)
     builder (3.2.3)
