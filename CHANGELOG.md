@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.83.0
+
+* Ruby 2.6.3
+* Update gems
+
 ## 0.82.0
 
 * Rails 5.2.3
