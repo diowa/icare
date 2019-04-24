@@ -30,7 +30,7 @@ gem 'simple_form', '~> 4.1'
 
 # ODM and related
 gem 'client_side_validations', '~> 13.1'
-gem 'client_side_validations-simple_form', '~> 6.9'
+gem 'client_side_validations-simple_form', '~> 6.10'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 6.4'
