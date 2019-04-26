@@ -63,7 +63,7 @@ gem 'slim-rails', '~> 3.2'
 
 # Assets
 gem 'autoprefixer-rails', '~> 9.5'
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 5.0'
 gem 'handlebars_assets', '~> 0.23.3'
 gem 'i18n-js', '~> 3.2'
 gem 'sass-rails', '~> 5.0'
