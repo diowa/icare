@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.83.1
+
+* Update gems
+
 ## 0.83.0
 
 * Ruby 2.6.3

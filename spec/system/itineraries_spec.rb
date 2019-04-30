@@ -132,7 +132,7 @@ RSpec.describe 'Itineraries' do
     FEATURE_ICONS.each do |feature, icon|
       it "shows #{feature} icon" do
         login_as_female
-        create :itinerary, user: female, :"#{feature}" => true
+        create :itinerary, user: female, "#{feature}": true
 
         visit itineraries_user_path(female)
 
