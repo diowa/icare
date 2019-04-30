@@ -1,4 +1,6 @@
-require: rubocop-rspec
+require:
+  - rubocop-performance
+  - rubocop-rspec
 
 AllCops:
   TargetRailsVersion: 5.2
