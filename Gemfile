@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.6.4'
-gem 'rails', '5.2.3'
+gem 'rails', '6.0.0'
 
 # Servers
 gem 'puma', '~> 4.1'
@@ -33,7 +33,7 @@ gem 'client_side_validations', '~> 16.0'
 gem 'client_side_validations-simple_form', '~> 8.0'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
-gem 'mongoid', '~> 7.0'
+gem 'mongoid', '~> 7.0', github: 'mongodb/mongoid'
 gem 'mongoid-geospatial', '~> 5.1'
 gem 'mongoid-slug', '~> 6.0'
 gem 'mongoid_paranoia', '~> 0.4.0'
@@ -97,7 +97,7 @@ group :development do
   gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
-  gem 'web-console', '~> 3.7'
+  gem 'web-console', '~> 4.0'
 end
 
 group :test do
