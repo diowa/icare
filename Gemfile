@@ -94,7 +94,7 @@ group :development do
   gem 'binding_of_caller', '~> 0.8.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'meta_request', '~> 0.7.0'
-  gem 'spring', '~> 2.0'
+  gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
   gem 'web-console', '~> 3.7'
