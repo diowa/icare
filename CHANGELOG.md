@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.84.0
+
+* Mongoid 7
+* Font Awesome 5.9.0
+* Drop Rails Panel support
+* Update gems
+
 ## 0.83.1
 
 * Update gems
