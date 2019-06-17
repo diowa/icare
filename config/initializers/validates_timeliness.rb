@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ValidatesTimeliness.setup do |config|
-  # Extend ORM/ODMs for full support (:active_record, :mongoid).
+  # Extend ORM/ODMs for full support (:active_record included).
   config.extend_orms = [:mongoid]
   #
   # Default timezone
@@ -20,13 +20,10 @@ ValidatesTimeliness.setup do |config|
   # config.enable_multiparameter_extension!
   #
   # Shorthand date and time symbols for restrictions
-  config.restriction_shorthand_symbols.update(
-    now:                 -> { Time.current },
-    today:               -> { Date.current },
-    thirteen_years_ago:  -> { 13.years.ago.to_date },
-    latest_request_date: -> { 3.months.from_now.to_date },
-    latest_meeting_date: -> { 3.weeks.from_now.to_date }
-  )
+  # config.restriction_shorthand_symbols.update(
+  #   :now   => lambda { Time.current },
+  #   :today => lambda { Date.current }
+  # )
   #
   # Use the plugin date/time parser which is stricter and extendable
   # config.use_plugin_parser = false
@@ -37,7 +34,7 @@ ValidatesTimeliness.setup do |config|
   # Remove one or more formats making them invalid. e.g. remove_formats(:date, 'dd/mm/yyy')
   # config.parser.remove_formats()
   #
-  # Change the amiguous year threshold when parsing a 2 digit year
+  # Change the ambiguous year threshold when parsing a 2 digit year
   # config.parser.ambiguous_year_threshold =  30
   #
   # Treat ambiguous dates, such as 01/02/1950, as a Non-US date.
