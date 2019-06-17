@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/diowa/validates_timeliness-mongoid.git
-  revision: 7dfb853ce470657f24e082b8079a165aa197a907
+  revision: f9874114c1607f738a62fff78919a358e9c66360
   specs:
     validates_timeliness-mongoid (0.1.0)
-      validates_timeliness (~> 4.0.0)
+      validates_timeliness (~> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -406,7 +406,7 @@ GEM
     thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.9)
-    timeliness (0.3.10)
+    timeliness (0.4.3)
     tins (1.20.2)
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
@@ -421,8 +421,8 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
     uniform_notifier (1.12.1)
-    validates_timeliness (4.0.2)
-      timeliness (~> 0.3.7)
+    validates_timeliness (4.1.0)
+      timeliness (>= 0.3.10, < 1)
     warden (1.2.8)
       rack (>= 2.0.6)
     web-console (3.7.0)
@@ -508,7 +508,7 @@ DEPENDENCIES
   twbs_sass_rails (~> 7.2)
   tzinfo-data (~> 1.2018)
   uglifier (~> 4.1)
-  validates_timeliness (~> 4.0)
+  validates_timeliness (~> 4.1)
   validates_timeliness-mongoid!
   web-console (~> 3.7)
   webmock (~> 3.6)

@@ -37,7 +37,7 @@ gem 'mongoid', '~> 6.4'
 gem 'mongoid-geospatial', '~> 5.1'
 gem 'mongoid-slug', '~> 6.0'
 gem 'mongoid_paranoia', '~> 0.3'
-gem 'validates_timeliness', '~> 4.0'
+gem 'validates_timeliness', '~> 4.1'
 gem 'validates_timeliness-mongoid', github: 'diowa/validates_timeliness-mongoid'
 
 # Authentication framework
