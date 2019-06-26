@@ -51,9 +51,9 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.6.0)
       public_suffix (>= 2.0.2, < 4.0)
-    airbrake (9.2.2)
-      airbrake-ruby (~> 4.4)
-    airbrake-ruby (4.4.0)
+    airbrake (9.3.0)
+      airbrake-ruby (~> 4.5)
+    airbrake-ruby (4.5.0)
       rbtree3 (~> 0.5)
     arel (9.0.0)
     ast (2.4.0)
@@ -460,7 +460,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  airbrake (~> 9.2)
+  airbrake (~> 9.3)
   autoprefixer-rails (~> 9.6)
   better_errors (~> 2.5)
   binding_of_caller (~> 0.8.0)
