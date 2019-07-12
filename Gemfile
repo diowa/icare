@@ -51,7 +51,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 5.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 6.4'
+gem 'newrelic_rpm', '~> 6.5'
 
 # Security
 gem 'secure_headers', '~> 6.1'
@@ -113,7 +113,7 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'airbrake', '~> 9.2'
+  gem 'airbrake', '~> 9.3'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
