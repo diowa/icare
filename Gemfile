@@ -102,14 +102,14 @@ end
 
 group :test do
   gem 'capybara', '~> 3.26'
-  gem 'coveralls_reborn', '~> 0.12.0', require: false
+  gem 'coveralls_reborn', '~> 0.13.0', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', '~> 4.0'
   gem 'poltergeist', '~> 1.18'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '~> 0.16.1', require: false
+  gem 'simplecov', '~> 0.17.0', require: false
   gem 'webmock', '~> 3.6', require: false
 end
 
