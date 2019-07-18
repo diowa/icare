@@ -102,7 +102,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.26'
-  gem 'coveralls_reborn', '~> 0.13.0', require: false
+  gem 'coveralls_reborn', '~> 0.13.1', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
