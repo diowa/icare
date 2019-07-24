@@ -3,18 +3,25 @@
 require 'rails_helper'
 
 RSpec.describe 'Itineraries' do
-  FEATURE_ICONS = {
-    daily:           '.fa-redo',
-    pets_allowed:    '.fa-paw',
-    pink:            '.fa-lock',
-    round_trip:      '.fa-exchange-alt',
-    smoking_allowed: '.fa-smoking'
-  }.freeze
-
-  XSS_ALERT = "<script>alert('toasty!);</script>"
-
   let(:male) { create :user, uid: '123456', gender: 'male' }
   let(:female) { create :user, uid: '123456', gender: 'female' }
+
+  let(:xss_alert) { "<script>alert('toasty!);</script>" }
+
+  shared_examples 'feature icons' do |options|
+    options.each do |feature, icon|
+      it "shows #{feature} icon" do
+        login_as_female
+        create :itinerary, user: female, "#{feature}": true
+
+        visit itineraries_user_path(female)
+
+        within '.table-itinerary' do
+          expect(page).to have_css icon
+        end
+      end
+    end
+  end
 
   context 'with registered Users' do
     def login_as_male
@@ -92,7 +99,7 @@ RSpec.describe 'Itineraries' do
 
     it 'sanitize malicious description', js: true do
       login_as_male
-      malicious_itinerary = create :itinerary, user: male, description: XSS_ALERT
+      malicious_itinerary = create :itinerary, user: male, description: xss_alert
       visit itinerary_path(malicious_itinerary)
       expect(-> { page.accept_alert }).to raise_error Capybara::ModalNotFound
     end
@@ -129,18 +136,11 @@ RSpec.describe 'Itineraries' do
       expect(page).to have_css('tbody > tr', count: 2)
     end
 
-    FEATURE_ICONS.each do |feature, icon|
-      it "shows #{feature} icon" do
-        login_as_female
-        create :itinerary, user: female, "#{feature}": true
-
-        visit itineraries_user_path(female)
-
-        within '.table-itinerary' do
-          expect(page).to have_css icon
-        end
-      end
-    end
+    include_examples 'feature icons', daily:           '.fa-redo',
+                                      pets_allowed:    '.fa-paw',
+                                      pink:            '.fa-lock',
+                                      round_trip:      '.fa-exchange-alt',
+                                      smoking_allowed: '.fa-smoking'
 
     it 'allows users to delete their own ones' do
       login_as_male
