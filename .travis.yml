@@ -9,14 +9,13 @@ services:
 
 addons:
   chrome: stable
-  apt:
-    packages:
-      - chromium-chromedriver
 
 before_install:
   - gem update --system
   - gem install bundler
+  - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
+  - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+  - unzip chromedriver_linux64.zip -d ~/bin
 
 before_script:
   - bundle exec rake db:mongoid:create_indexes
-  - ln -s /usr/lib/chromium-browser/chromedriver ~/bin/chromedriver
