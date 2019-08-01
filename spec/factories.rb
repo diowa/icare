@@ -10,7 +10,7 @@ FactoryBot.define do
     provider { 'facebook' }
     name { Faker::Name.name }
     gender { 'male' }
-    birthday { Faker::Date.birthday(18, 50) }
+    birthday { Faker::Date.birthday(min_age: 18, max_age: 50) }
   end
 
   factory :itinerary do
