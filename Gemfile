@@ -33,6 +33,7 @@ gem 'client_side_validations', '~> 15.0'
 gem 'client_side_validations-simple_form', '~> 7.0'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
+gem 'mongo', '~> 2.8.0' # mongodb/mongo-ruby-driver#1430
 gem 'mongoid', '~> 7.0'
 gem 'mongoid-geospatial', '~> 5.1'
 gem 'mongoid-slug', '~> 6.0'
