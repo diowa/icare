@@ -1,5 +1,6 @@
 require:
   - rubocop-performance
+  - rubocop-rails
   - rubocop-rspec
 
 AllCops:
@@ -43,6 +44,9 @@ Rails/HasAndBelongsToMany:
   Exclude:
     - 'app/models/conversation.rb'
     - 'app/models/user.rb'
+
+Rails/HelperInstanceVariable:
+  Enabled: false
 
 Rails/SkipsModelValidations:
   Enabled: false

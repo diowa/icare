@@ -68,14 +68,6 @@ RSpec.configure do |config|
   end
 
   config.before(:each, type: :system, js: true) do
-    driven_by(:selenium,
-              using:   :chrome,
-              options: {
-                desired_capabilities: {
-                  chromeOptions: {
-                    args: %w[headless disable-gpu no-sandbox disable-dev-shm-usage]
-                  }
-                }
-              })
+    driven_by :selenium, using: :headless_chrome
   end
 end

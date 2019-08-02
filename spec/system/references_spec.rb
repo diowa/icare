@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'References' do
-  POSITIVE_ICON = 'span.fas.fa-thumbs-up'
-  NEGATIVE_ICON = 'span.fas.fa-thumbs-down'
+  let(:positive_icon) { 'span.fas.fa-thumbs-up' }
+  let(:negative_icon) { 'span.fas.fa-thumbs-down' }
 
   let(:driver) { create :user }
   let(:passenger) { create :user }
@@ -69,8 +69,8 @@ RSpec.describe 'References' do
     driver.itineraries.each_with_index do |_itinerary, index|
       row = find(:xpath, "//a[text()='#{references[index].outgoing.body}']/../..")
       expect(row).not_to be_nil
-      expect(row).to have_css POSITIVE_ICON if references[index].outgoing.rating == 1
-      expect(row).to have_css NEGATIVE_ICON if references[index].outgoing.rating == -1
+      expect(row).to have_css positive_icon if references[index].outgoing.rating == 1
+      expect(row).to have_css negative_icon if references[index].outgoing.rating == -1
     end
   end
 
