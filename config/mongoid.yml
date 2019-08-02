@@ -22,6 +22,8 @@ staging:
       uri: <%= ENV['MONGODB_URI'] %>
       options:
        connect_timeout: 15
+       retry_reads: <%= ENV['MONGODB_MODERN_RETRYABLE_READS'] || false %>
+       retry_writes: <%= ENV['MONGODB_MODERN_RETRYABLE_WRITES'] || false %>
 
 production:
   clients:
@@ -29,3 +31,5 @@ production:
       uri: <%= ENV['MONGODB_URI'] %>
       options:
        connect_timeout: 15
+       retry_reads: <%= ENV['MONGODB_MODERN_RETRYABLE_READS'] || false %>
+       retry_writes: <%= ENV['MONGODB_MODERN_RETRYABLE_WRITES'] || false %>
