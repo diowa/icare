@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.85.0
+
+* Font Awesome 5.10.0
+* Allow to disable MongoDB modern retries
+* Update gems
+
 ## 0.84.0
 
 * Mongoid 7
