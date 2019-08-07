@@ -418,7 +418,7 @@ GEM
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
     uniform_notifier (1.12.1)
-    validates_timeliness (4.1.0)
+    validates_timeliness (4.1.1)
       timeliness (>= 0.3.10, < 1)
     warden (1.2.8)
       rack (>= 2.0.6)
