@@ -41,7 +41,7 @@ gem 'validates_timeliness', '~> 4.1'
 gem 'validates_timeliness-mongoid', github: 'diowa/validates_timeliness-mongoid'
 
 # Authentication framework
-gem 'devise', '~> 4.6'
+gem 'devise', '~> 4.7'
 
 # Geospatial data library
 # gem 'rgeo', '~> 0.6.0'
