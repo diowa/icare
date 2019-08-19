@@ -11,7 +11,7 @@ ruby '2.6.3'
 gem 'rails', '5.2.3'
 
 # Servers
-gem 'puma', '~> 4.0'
+gem 'puma', '~> 4.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -66,7 +66,7 @@ gem 'autoprefixer-rails', '~> 9.6'
 gem 'coffee-rails', '~> 5.0'
 gem 'handlebars_assets', '~> 0.23.4'
 gem 'i18n-js', '~> 3.3'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.1'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
@@ -84,10 +84,10 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8'
   gem 'rubocop', '~> 0.74.0', require: false
   gem 'rubocop-performance', '~> 1.4', require: false
-  gem 'rubocop-rails', '~> 2.2', require: false
-  gem 'rubocop-rspec', '~> 1.34', require: false
+  gem 'rubocop-rails', '~> 2.3', require: false
+  gem 'rubocop-rspec', '~> 1.35', require: false
   gem 'scss_lint', '~> 0.58.0', require: false
-  gem 'slim_lint', '~> 0.17.0', require: false
+  gem 'slim_lint', '~> 0.17.1', require: false
 end
 
 group :development do
@@ -101,7 +101,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.27'
+  gem 'capybara', '~> 3.28'
   gem 'coveralls_reborn', '~> 0.13.2', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
