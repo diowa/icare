@@ -21,7 +21,6 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [Mongoid][8] (ODM for MongoDB)
 * [Devise][2]
 * Asynchronous tasks with [Sucker Punch][9]
-* [RABL][10] API Builder
 * Facebook Open Graph / Rest API with [Koala][11]
 * Google Maps API
 * [RSpec][12]
@@ -39,7 +38,6 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [7]: https://fontawesome.com
  [8]: https://docs.mongodb.com/ruby-driver/master/mongoid/
  [9]: https://github.com/brandonhilkert/sucker_punch
- [10]: https://github.com/nesquena/rabl
  [11]: https://github.com/arsduo/koala
  [12]: https://rspec.info/
  [13]: https://newrelic.com/
