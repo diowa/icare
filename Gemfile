@@ -66,11 +66,11 @@ gem 'autoprefixer-rails', '~> 9.6'
 gem 'coffee-rails', '~> 5.0'
 gem 'handlebars_assets', '~> 0.23.4'
 gem 'i18n-js', '~> 3.3'
-gem 'sass-rails', '~> 5.1'
+gem 'sass-rails', '~> 6.0'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
-gem 'twbs_sass_rails', '~> 7.2'
+gem 'twbs_sass_rails', '~> 8.0'
 gem 'uglifier', '~> 4.1'
 
 group :development, :test do
