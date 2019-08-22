@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.9'
 gem 'simple_form', '~> 4.1'
 
 # ODM and related
-gem 'client_side_validations', '~> 15.0'
-gem 'client_side_validations-simple_form', '~> 7.0'
+gem 'client_side_validations', '~> 16.0'
+gem 'client_side_validations-simple_form', '~> 8.0'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 7.0'
@@ -77,7 +77,7 @@ group :development, :test do
   gem 'bullet', '~> 6.0'
   gem 'byebug', '~> 11.0'
   gem 'factory_bot_rails', '~> 5.0'
-  gem 'faker', '~> 2.1'
+  gem 'faker', '~> 2.2'
   gem 'pry', '~> 0.12.2'
   gem 'pry-byebug', '~> 3.7'
   gem 'pry-rails', '~> 0.3.9'
@@ -109,7 +109,7 @@ group :test do
   gem 'mongoid-rspec', '~> 4.0'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.17.0', require: false
-  gem 'webmock', '~> 3.6', require: false
+  gem 'webmock', '~> 3.7', require: false
 end
 
 group :staging, :production do
