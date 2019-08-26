@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Reference
+=begin
   include Mongoid::Document
   include Mongoid::Timestamps
 
@@ -40,4 +41,5 @@ class Reference
   def referencing_user
     User.find_by(_id: referencing_user_id)
   end
+=end
 end

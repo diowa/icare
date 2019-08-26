@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Notification
+=begin
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Paranoia
@@ -10,4 +11,5 @@ class Notification
   field :read_at, type: DateTime
 
   scope(:unread, -> { where(read_at: nil) })
+=end
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Conversation
+=begin
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Paranoia
@@ -29,4 +30,5 @@ class Conversation
   def last_unread_message(user)
     messages.unread.where(:sender_id.ne => user.id).desc(:created_at).limit(1).first
   end
+=end
 end

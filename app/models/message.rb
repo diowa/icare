@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Message
+=begin
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Paranoia
@@ -20,4 +21,5 @@ class Message
   def unread?
     read_at.nil?
   end
+=end
 end

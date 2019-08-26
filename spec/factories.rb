@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
+=begin
   sequence(:uid)      { |n| "100#{n}" }
   sequence(:email)    { |n| "person#{n}@example.com" }
 
@@ -60,4 +61,5 @@ FactoryBot.define do
     user
     message { 'Generic Feedback' }
   end
+=end
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Itinerary
+=begin
   include Mongoid::Document
   include Mongoid::MultiParameterAttributes
   include Mongoid::Paranoia
@@ -73,4 +74,5 @@ class Itinerary
   def to_s
     title || id
   end
+=end
 end

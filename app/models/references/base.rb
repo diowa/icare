@@ -2,6 +2,7 @@
 
 module References
   class Base
+=begin
     include ::Mongoid::Document
     include ::Mongoid::Timestamps
     include ::Mongoid::Paranoia
@@ -11,5 +12,6 @@ module References
 
     validates :body, presence: true
     validates :rating, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: -1, less_than_or_equal_to: 1 }
+=end
   end
 end

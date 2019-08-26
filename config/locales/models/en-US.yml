@@ -1,5 +1,5 @@
 en-US:
-  mongoid:
+  activerecord:
     models:
       user:
         one: User

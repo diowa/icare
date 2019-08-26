@@ -1,5 +1,5 @@
 it-IT:
-  mongoid:
+  activerecord:
     models:
       user:
         one: Utente

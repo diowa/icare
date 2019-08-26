@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ItinerarySearch
-  SPHERE_RADIUS = 5.fdiv Mongoid::Geospatial.earth_radius[:km]
+  SPHERE_RADIUS = 5 #5.fdiv Mongoid::Geospatial.earth_radius[:km]
 
   def initialize(params, user)
     @params = params

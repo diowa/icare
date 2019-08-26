@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Feedback
+=begin
   include Mongoid::Document
   include Mongoid::Timestamps
 
@@ -22,4 +23,5 @@ class Feedback
   def fixed?
     status == 'fixed'
   end
+=end
 end

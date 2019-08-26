@@ -1,17 +1,18 @@
 # frozen_string_literal: true
 
-class User
-  include Mongoid::Document
-  include Mongoid::Timestamps
-  include Mongoid::Paranoia
-
-  include FacebookOmniauthable
-
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   devise :omniauthable, omniauth_providers: [:facebook]
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # :database_authenticatable, :registerable,
   # :recoverable, :rememberable, :trackable, :validatable
+
+=begin
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  include Mongoid::Paranoia
+
+  include FacebookOmniauthable
 
   ## Database authenticatable
   field :email, type: String, default: ''
@@ -117,4 +118,5 @@ class User
       user.name  = auth_hash.info.name
     end
   end
+=end
 end

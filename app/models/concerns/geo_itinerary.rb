@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+=begin
 module GeoItinerary
   extend ActiveSupport::Concern
 
@@ -65,3 +66,4 @@ module GeoItinerary
     end
   end
 end
+=end

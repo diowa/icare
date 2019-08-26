@@ -10,7 +10,7 @@
   "repository": "https://github.com/diowa/icare",
   "success_url": "/",
   "scripts": {
-    "postdeploy": "bundle exec rake db:mongoid:create_indexes"
+    "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
     "RAILS_ENV": "production",

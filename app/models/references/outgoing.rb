@@ -2,6 +2,7 @@
 
 module References
   class Outgoing < Base
+=begin
     embedded_in :reference
 
     after_save do
@@ -15,5 +16,6 @@ module References
         other_reference.save
       end
     end
+=end
   end
 end
