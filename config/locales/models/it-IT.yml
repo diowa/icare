@@ -42,7 +42,7 @@ it-IT:
         vehicle_avg_consumption: Costo carburante
         send_email_messages: Si riceve un messaggio
       feedback:
-        type: Tipo
+        category: Categoria
         status: Stato
         message: Messaggio
         updated_at: Ultima modifica

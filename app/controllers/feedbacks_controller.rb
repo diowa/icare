@@ -7,7 +7,7 @@ class FeedbacksController < ApplicationController
   helper_method :feedback_attributes
 
   def index
-    @feedbacks = Feedback.includes(:user).all.desc(:updated_at).page params[:page]
+    @feedbacks = Feedback.includes(:user).order(updated_at: :desc).page params[:page]
     @feedbacks = @feedbacks.where(:status.ne => 'fixed') if params[:hide_fixed]
     @url = request.env['HTTP_REFERER']
   end
@@ -53,7 +53,7 @@ class FeedbacksController < ApplicationController
   end
 
   def feedback_attributes
-    whitelist = %i[type message url]
+    whitelist = %i[category message url]
     whitelist << :status if current_user&.admin?
     whitelist
   end

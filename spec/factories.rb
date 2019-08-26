@@ -44,10 +44,10 @@ FactoryBot.define do
     association :sender, factory: :user
     body { 'Hello' }
   end
+=end
 
   factory :feedback do
     user
     message { 'Generic Feedback' }
   end
-=end
 end

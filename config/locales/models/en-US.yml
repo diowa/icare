@@ -39,7 +39,7 @@ en-US:
         vehicle_avg_consumption: Fuel cost
         send_email_messages: You receive a message
       feedback:
-        type: Type
+        category: Category
         status: Status
         message: Message
         updated_at: Last modified
