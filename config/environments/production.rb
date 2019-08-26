@@ -117,4 +117,7 @@ Rails.application.configure do
     domain:               APP_CONFIG.mailer.smtp_settings.domain,
     enable_starttls_auto: true
   }
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end

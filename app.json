@@ -72,6 +72,9 @@
   ],
   "buildpacks": [
     {
+      "url": "https://github.com/diowa/heroku-buildpack-vendorbinaries.git"
+    },
+    {
       "url": "heroku/nodejs"
     },
     {
