@@ -22,7 +22,6 @@ RSpec.describe 'Users' do
 
     expect(page).to have_current_path root_path
     expect(User.count).to be 0
-    expect(User.deleted.count).to be 1
     expect(page).to have_content t('flash.users.success.destroy')
   end
 
@@ -94,13 +93,6 @@ RSpec.describe 'Users' do
                     facebook_favorites: [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }],
                     languages:          [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
                     facebook_verified:  true
-    end
-
-    def create_friends_and_refresh(friends)
-      user.update_attribute :facebook_friends, Array.new(friends.to_i) { |i| { 'id' => "90110#{i}", 'name' => "Friend #{i}" } }
-      user.reload
-
-      visit user_path(user)
     end
 
     before do

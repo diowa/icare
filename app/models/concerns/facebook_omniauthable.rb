@@ -4,15 +4,6 @@ module FacebookOmniauthable
   extend ActiveSupport::Concern
 
   included do
-    field :access_token
-    field :access_token_expires_at
-
-    field :facebook_data_cached_at, type: DateTime, default: '2012-09-06'
-    field :facebook_favorites,      type: Array,    default: []
-    field :facebook_friends,        type: Array,    default: []
-    field :facebook_permissions,    type: Array,    default: []
-    field :facebook_verified,       type: Boolean,  default: false
-
     def facebook
       # TODO: Request a Long-Term token
       @facebook ||= Koala::Facebook::API.new(access_token)
@@ -28,7 +19,6 @@ module FacebookOmniauthable
     end
 
     def update_facebook_data!
-      update_connection! 'friends'
       update_connection! 'permissions'
       update_favorites!
       update_user_fields!

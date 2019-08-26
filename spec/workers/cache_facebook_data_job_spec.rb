@@ -5,10 +5,6 @@ require 'rails_helper'
 RSpec.describe CacheFacebookDataJob do
   let(:user) { create :user, access_token: 'test' }
 
-  let(:friends_response) do
-    [{ 'id' => '901101', 'name' => 'Friend 1' }]
-  end
-
   let(:permissions_response) do
     [{ 'permission' => 'user_birthday', 'status' => 'granted' },
      { 'permission' => 'user_likes', 'status' => 'granted' },
@@ -28,9 +24,6 @@ RSpec.describe CacheFacebookDataJob do
   end
 
   before do
-    stub_request(:get, 'https://graph.facebook.com/me/friends?access_token=test')
-      .to_return(status: 200, body: friends_response.to_json, headers: {})
-
     stub_request(:get, 'https://graph.facebook.com/me/permissions?access_token=test')
       .to_return(status: 200, body: permissions_response.to_json, headers: {})
 
@@ -145,7 +138,6 @@ RSpec.describe CacheFacebookDataJob do
 
     user.reload
 
-    expect(user.facebook_friends).to include('id' => '901101', 'name' => 'Friend 1')
     expect(user.facebook_permissions).to include('permission' => 'user_birthday', 'status' => 'granted')
 
     expect(user.facebook_favorites).to eq [{ 'name' => 'Interest 1', 'id' => '1' }, { 'name' => 'Interest 2', 'id' => '2' }, { 'name' => 'Interest 3', 'id' => '3' }]

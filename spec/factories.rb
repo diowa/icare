@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-=begin
   sequence(:uid)      { |n| "100#{n}" }
   sequence(:email)    { |n| "person#{n}@example.com" }
 
@@ -13,6 +12,7 @@ FactoryBot.define do
     gender { 'male' }
     birthday { Faker::Date.birthday(min_age: 18, max_age: 50) }
   end
+=begin
 
   factory :itinerary do
     user

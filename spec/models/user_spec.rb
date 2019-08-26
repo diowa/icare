@@ -83,17 +83,4 @@ RSpec.describe User do
       expect(passenger.unread_conversations_count).to be 1
     end
   end
-
-  describe '#unread_references_count' do
-    it 'returns the number of unread references' do
-      driver = create :user
-      passenger = create :user
-      itinerary = create :itinerary, user: driver
-      reference = build :reference, user: passenger, itinerary: itinerary
-      build :outgoing_reference, reference: reference, rating: 1, body: 'Positive'
-      reference.save
-
-      expect(passenger.unread_references_count).to be 1
-    end
-  end
 end
