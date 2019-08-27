@@ -14,10 +14,11 @@ class User < ApplicationRecord
   paginates_per 25
 
   has_many :feedbacks, dependent: :nullify
+
+  has_many :itineraries, dependent: :destroy
 =begin
   has_and_belongs_to_many :conversations
 
-  has_many :itineraries, dependent: :destroy
 
   embeds_many :notifications
 =end

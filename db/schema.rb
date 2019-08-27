@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_120019) do
+ActiveRecord::Schema.define(version: 2019_08_26_124852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "feedbacks", force: :cascade do |t|
     t.string "category", default: "bug"
@@ -24,6 +25,37 @@ ActiveRecord::Schema.define(version: 2019_08_26_120019) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_feedbacks_on_user_id"
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.string "slug"
+    t.string "description"
+    t.integer "num_people"
+    t.integer "fuel_cost", default: 0
+    t.integer "tolls", default: 0
+    t.boolean "daily", default: false
+    t.boolean "pink", default: false
+    t.boolean "pets_allowed", default: false
+    t.boolean "round_trip", default: false
+    t.boolean "smoking_allowed", default: false
+    t.datetime "leave_date"
+    t.datetime "return_date"
+    t.string "driver_gender"
+    t.boolean "verified", default: false
+    t.string "start_address"
+    t.string "end_address"
+    t.string "overview_polyline"
+    t.geography "start_location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "end_location", limit: {:srid=>4326, :type=>"st_point", :geographic=>true}
+    t.geography "via_waypoints", limit: {:srid=>4326, :type=>"multi_point", :geographic=>true}
+    t.geography "overview_path", limit: {:srid=>4326, :type=>"line_string", :geographic=>true}
+    t.boolean "avoid_highways", default: false
+    t.boolean "avoid_tolls", default: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_itineraries_on_slug", unique: true
+    t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,4 +88,5 @@ ActiveRecord::Schema.define(version: 2019_08_26_120019) do
   end
 
   add_foreign_key "feedbacks", "users"
+  add_foreign_key "itineraries", "users"
 end

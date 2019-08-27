@@ -5,8 +5,8 @@ json.call(itinerary, :description, :fuel_cost, :leave_date, :num_people, :overvi
           :title, :tolls, :via_waypoints)
 
 json.id itinerary.id.to_s
-json.start_location itinerary.start_location.to_latlng_hash
-json.end_location itinerary.end_location.to_latlng_hash
+json.start_location lat: itinerary.start_location.lat, lng: itinerary.start_location.lon
+json.end_location lat: itinerary.end_location.lat, lng: itinerary.end_location.lon
 
 json.url itinerary_url(itinerary)
 
