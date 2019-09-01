@@ -327,7 +327,7 @@ GEM
       unicode-display_width (>= 1.4.0, < 1.7)
     rubocop-performance (1.4.1)
       rubocop (>= 0.71.0)
-    rubocop-rails (2.3.1)
+    rubocop-rails (2.3.2)
       rack (>= 1.1)
       rubocop (>= 0.72.0)
     rubocop-rspec (1.35.0)
@@ -510,7 +510,7 @@ DEPENDENCIES
   webmock (~> 3.7)
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.6.4p104
 
 BUNDLED WITH
    2.0.2
