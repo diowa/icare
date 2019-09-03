@@ -77,7 +77,7 @@ group :development, :test do
   gem 'bullet', '~> 6.0'
   gem 'byebug', '~> 11.0'
   gem 'factory_bot_rails', '~> 5.0'
-  gem 'faker', '~> 2.1'
+  gem 'faker', '~> 2.2'
   gem 'pry', '~> 0.12.2'
   gem 'pry-byebug', '~> 3.7'
   gem 'pry-rails', '~> 0.3.9'
