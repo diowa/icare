@@ -10,6 +10,9 @@ AllCops:
     - Brewfile
     - 'bin/*'
     - 'db/**/*'
+    - 'log/**/*'
+    - 'node_modules/**/*'
+    - 'tmp/**/*'
     - 'vendor/bundle/**/*'
 
 Layout/AlignHash:

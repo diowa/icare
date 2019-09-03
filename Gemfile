@@ -7,8 +7,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.6.3'
-gem 'rails', '5.2.3'
+ruby '2.6.4'
+gem 'rails', '6.0.0'
 
 # Servers
 gem 'puma', '~> 4.1'
@@ -23,17 +23,17 @@ gem 'sucker_punch', '~> 2.1'
 gem 'simpleconfig', '~> 2.0'
 
 # API
-gem 'rabl', '~> 0.14.1'
+gem 'jbuilder', '~> 2.9'
 
 # Forms
 gem 'simple_form', '~> 4.1'
 
 # ODM and related
-gem 'client_side_validations', '~> 15.0'
-gem 'client_side_validations-simple_form', '~> 7.0'
+gem 'client_side_validations', '~> 16.0'
+gem 'client_side_validations-simple_form', '~> 8.0'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
-gem 'mongoid', '~> 7.0'
+gem 'mongoid', '~> 7.0', github: 'mongodb/mongoid'
 gem 'mongoid-geospatial', '~> 5.1'
 gem 'mongoid-slug', '~> 6.0'
 gem 'mongoid_paranoia', '~> 0.4.0'
@@ -41,7 +41,7 @@ gem 'validates_timeliness', '~> 4.1'
 gem 'validates_timeliness-mongoid', github: 'diowa/validates_timeliness-mongoid'
 
 # Authentication framework
-gem 'devise', '~> 4.6'
+gem 'devise', '~> 4.7'
 
 # Geospatial data library
 # gem 'rgeo', '~> 0.6.0'
@@ -66,18 +66,18 @@ gem 'autoprefixer-rails', '~> 9.6'
 gem 'coffee-rails', '~> 5.0'
 gem 'handlebars_assets', '~> 0.23.4'
 gem 'i18n-js', '~> 3.3'
-gem 'sass-rails', '~> 5.1'
+gem 'sassc-rails', '~> 2.1'
 gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
-gem 'twbs_sass_rails', '~> 7.2'
+gem 'twbs_sass_rails', '~> 9.0'
 gem 'uglifier', '~> 4.1'
 
 group :development, :test do
   gem 'bullet', '~> 6.0'
   gem 'byebug', '~> 11.0'
   gem 'factory_bot_rails', '~> 5.0'
-  gem 'faker', '~> 2.1'
+  gem 'faker', '~> 2.2'
   gem 'pry', '~> 0.12.2'
   gem 'pry-byebug', '~> 3.7'
   gem 'pry-rails', '~> 0.3.9'
@@ -97,20 +97,19 @@ group :development do
   gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
-  gem 'web-console', '~> 3.7'
+  gem 'web-console', '~> 4.0'
 end
 
 group :test do
-  gem 'capybara', '~> 3.28'
+  gem 'capybara', '~> 3.29'
   gem 'coveralls_reborn', '~> 0.13.2', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', '~> 4.0'
-  gem 'poltergeist', '~> 1.18'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.17.0', require: false
-  gem 'webmock', '~> 3.6', require: false
+  gem 'webmock', '~> 3.7', require: false
 end
 
 group :staging, :production do

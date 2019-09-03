@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.90.0
+
+* Rails 6
+* Ruby 2.6.4
+* Font Awesome 5.10.2
+* Use Jbuilder instead of rabl
+* Update gems
+
 ## 0.85.0
 
 * Font Awesome 5.10.0
