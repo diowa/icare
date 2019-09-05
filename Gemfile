@@ -110,7 +110,7 @@ group :test do
   gem 'poltergeist', '~> 1.18'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.17.0', require: false
-  gem 'webmock', '~> 3.6', require: false
+  gem 'webmock', '~> 3.7', require: false
 end
 
 group :staging, :production do
