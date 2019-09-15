@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.90.1
+
+* Update dependencies
+
 ## 0.90.0
 
 * Rails 6
