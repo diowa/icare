@@ -108,7 +108,7 @@ group :test do
   gem 'launchy', '~> 2.4'
   gem 'mongoid-rspec', '~> 4.0'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '~> 0.17.0', require: false
+  gem 'simplecov', '~> 0.17.1', require: false
   gem 'webmock', '~> 3.7', require: false
 end
 
