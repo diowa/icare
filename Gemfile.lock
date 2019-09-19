@@ -422,7 +422,7 @@ GEM
     tilt (2.0.9)
     timeliness (0.4.3)
     tins (1.21.1)
-    turbolinks (5.2.0)
+    turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
     twbs_sass_rails (9.0.1)
