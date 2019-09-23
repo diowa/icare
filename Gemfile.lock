@@ -5,14 +5,6 @@ GIT
     validates_timeliness-mongoid (0.1.0)
       validates_timeliness (~> 4.0)
 
-GIT
-  remote: https://github.com/mongodb/mongoid.git
-  revision: 1ee363ca165d26a5a3d52088062dc8503e6683d9
-  specs:
-    mongoid (7.1.0)
-      activemodel (>= 5.1, < 6.1)
-      mongo (>= 2.5.1, < 3.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -224,6 +216,9 @@ GEM
     minitest (5.12.0)
     mongo (2.10.1)
       bson (>= 4.4.2, < 5.0.0)
+    mongoid (7.0.5)
+      activemodel (>= 5.1, < 6.1)
+      mongo (>= 2.5.1, < 3.0.0)
     mongoid-compatibility (0.5.1)
       activesupport
       mongoid (>= 2.0)
@@ -487,7 +482,7 @@ DEPENDENCIES
   koala (~> 3.0)
   launchy (~> 2.4)
   listen (>= 3.0.5, < 3.2)
-  mongoid (~> 7.0)!
+  mongoid (~> 7.0)
   mongoid-geospatial (~> 5.1)
   mongoid-rspec (~> 4.0)
   mongoid-slug (~> 6.0)
