@@ -11,7 +11,7 @@ ruby '2.6.4'
 gem 'rails', '6.0.0'
 
 # Servers
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
