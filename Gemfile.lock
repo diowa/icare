@@ -427,7 +427,7 @@ GEM
       sassc-rails (~> 2.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uglifier (4.1.20)
+    uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.6.0)
     uniform_notifier (1.12.1)
@@ -517,7 +517,7 @@ DEPENDENCIES
   turbolinks (~> 5.2)
   twbs_sass_rails (~> 9.0)
   tzinfo-data (~> 1.2018)
-  uglifier (~> 4.1)
+  uglifier (~> 4.2)
   validates_timeliness (~> 4.1)
   validates_timeliness-mongoid!
   web-console (~> 4.0)
