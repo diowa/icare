@@ -26,11 +26,11 @@ gem 'simpleconfig', '~> 2.0'
 gem 'jbuilder', '~> 2.9'
 
 # Forms
-gem 'simple_form', '~> 4.1'
+gem 'simple_form', '~> 5.0'
 
 # ODM and related
 gem 'client_side_validations', '~> 16.0'
-gem 'client_side_validations-simple_form', '~> 8.0'
+gem 'client_side_validations-simple_form', '~> 9.0'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 7.0'
@@ -77,7 +77,7 @@ group :development, :test do
   gem 'bullet', '~> 6.0'
   gem 'byebug', '~> 11.0'
   gem 'factory_bot_rails', '~> 5.1'
-  gem 'faker', '~> 2.4'
+  gem 'faker', '~> 2.5'
   gem 'pry', '~> 0.12.2'
   gem 'pry-byebug', '~> 3.7'
   gem 'pry-rails', '~> 0.3.9'
