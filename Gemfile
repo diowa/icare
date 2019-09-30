@@ -71,7 +71,7 @@ gem 'sprockets', '~> 3.7'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
 gem 'twbs_sass_rails', '~> 9.0'
-gem 'uglifier', '~> 4.1'
+gem 'uglifier', '~> 4.2'
 
 group :development, :test do
   gem 'bullet', '~> 6.0'
