@@ -77,7 +77,7 @@ RSpec.describe 'Conversations' do
       within('.popover') do
         expect(page).to have_content sender.to_s
         expect(page).to have_content "<script>alert('toasty!);</script>"
-        expect(-> { page.accept_alert }).to raise_error Capybara::ModalNotFound
+        expect { page.accept_alert }.to raise_error Capybara::ModalNotFound
       end
     end
   end
