@@ -81,7 +81,7 @@ group :development, :test do
   gem 'pry', '~> 0.12.2'
   gem 'pry-byebug', '~> 3.7'
   gem 'pry-rails', '~> 0.3.9'
-  gem 'rspec-rails', '~> 3.8'
+  gem 'rspec-rails', '~> 3.9'
   gem 'rubocop', '~> 0.75.0', require: false
   gem 'rubocop-performance', '~> 1.5', require: false
   gem 'rubocop-rails', '~> 2.3', require: false
