@@ -300,7 +300,7 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
-    rake (12.3.3)
+    rake (13.0.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
@@ -361,8 +361,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    scss_lint (0.58.0)
-      rake (>= 0.9, < 13)
+    scss_lint (0.59.0)
       sass (~> 3.5, >= 3.5.5)
     secure_headers (6.1.1)
     selenium-webdriver (3.142.6)
@@ -496,7 +495,7 @@ DEPENDENCIES
   rubocop-rails (~> 2.3)
   rubocop-rspec (~> 1.36)
   sassc-rails (~> 2.1)
-  scss_lint (~> 0.58.0)
+  scss_lint (~> 0.59.0)
   secure_headers (~> 6.1)
   selenium-webdriver (~> 3.142)
   simple_form (~> 5.0)
