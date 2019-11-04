@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.91.0
+
+* Ruby 2.6.5
+* Update gems
+
 ## 0.90.1
 
 * Update dependencies
