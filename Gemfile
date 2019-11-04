@@ -62,7 +62,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.2'
 
 # Assets
-gem 'autoprefixer-rails', '~> 9.6'
+gem 'autoprefixer-rails', '~> 9.7'
 gem 'coffee-rails', '~> 5.0'
 gem 'handlebars_assets', '~> 0.23.5'
 gem 'i18n-js', '~> 3.4'
