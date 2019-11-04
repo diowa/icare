@@ -15,7 +15,7 @@ RSpec.describe ConversationBuild do
                                      described_class.new({ itinerary_id: itinerary.id, conversation: {} }, passenger, itinerary),
                                      described_class.new({ itinerary_id: itinerary.id, conversation: { sender: passenger } }, passenger, itinerary)]
       invalid_conversation_builds.each do |invalid_conversation_build|
-        expect(-> { invalid_conversation_build.conversation }).not_to raise_error Exception
+        expect { invalid_conversation_build.conversation }.not_to raise_error Exception
         expect(invalid_conversation_build.conversation.valid?).to be false if invalid_conversation_build.conversation
       end
     end

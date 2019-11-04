@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 # Include GlobalID into Mongoid documents to pass references to Active Job tasks
-Mongoid::Document.send(:include, GlobalID::Identification)
-Mongoid::Association::Proxy.send(:include, GlobalID::Identification)
+Mongoid::Document.include GlobalID::Identification
+Mongoid::Association::Proxy.include GlobalID::Identification
 
 # This patch is needed because within_spherical_circle was removed in Mongoid 4.
 #

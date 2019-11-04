@@ -101,7 +101,7 @@ RSpec.describe 'Itineraries' do
       login_as_male
       malicious_itinerary = create :itinerary, user: male, description: xss_alert
       visit itinerary_path(malicious_itinerary)
-      expect(-> { page.accept_alert }).to raise_error Capybara::ModalNotFound
+      expect { page.accept_alert }.to raise_error Capybara::ModalNotFound
     end
 
     it 'allows users to search them', js: true do
