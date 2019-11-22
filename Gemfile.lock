@@ -70,7 +70,7 @@ GEM
     airbrake-ruby (4.8.0)
       rbtree3 (~> 0.5)
     ast (2.4.0)
-    autoprefixer-rails (9.7.1)
+    autoprefixer-rails (9.7.2)
       execjs
     bcrypt (3.1.13)
     better_errors (2.5.1)
