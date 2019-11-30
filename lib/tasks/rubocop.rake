@@ -5,5 +5,5 @@ if %w[development test].include? Rails.env
 
   RuboCop::RakeTask.new
 
-  task(:lint).sources.unshift :rubocop
+  task(lint: :environment).sources.unshift :rubocop
 end
