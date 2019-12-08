@@ -15,7 +15,7 @@ AllCops:
     - 'tmp/**/*'
     - 'vendor/bundle/**/*'
 
-Layout/AlignHash:
+Layout/HashAlignment:
   EnforcedColonStyle: table
   EnforcedHashRocketStyle: table
 

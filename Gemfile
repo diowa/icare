@@ -8,10 +8,10 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.6.5'
-gem 'rails', '6.0.0'
+gem 'rails', '6.0.1'
 
 # Servers
-gem 'puma', '~> 4.2'
+gem 'puma', '~> 4.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -64,8 +64,8 @@ gem 'slim-rails', '~> 3.2'
 # Assets
 gem 'autoprefixer-rails', '~> 9.7'
 gem 'coffee-rails', '~> 5.0'
-gem 'handlebars_assets', '~> 0.23.5'
-gem 'i18n-js', '~> 3.4'
+gem 'handlebars_assets', '~> 0.23.7'
+gem 'i18n-js', '~> 3.5'
 gem 'sassc-rails', '~> 2.1'
 gem 'sprockets', '~> 4.0'
 gem 'sprockets-rails', '~> 3.2'
@@ -77,15 +77,15 @@ group :development, :test do
   gem 'bullet', '~> 6.0'
   gem 'byebug', '~> 11.0'
   gem 'factory_bot_rails', '~> 5.1'
-  gem 'faker', '~> 2.7'
+  gem 'faker', '~> 2.8'
   gem 'pry', '~> 0.12.2'
   gem 'pry-byebug', '~> 3.7'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 3.9'
-  gem 'rubocop', '~> 0.76.0', require: false
+  gem 'rubocop', '~> 0.77.0', require: false
   gem 'rubocop-performance', '~> 1.5', require: false
-  gem 'rubocop-rails', '~> 2.3', require: false
-  gem 'rubocop-rspec', '~> 1.36', require: false
+  gem 'rubocop-rails', '~> 2.4', require: false
+  gem 'rubocop-rspec', '~> 1.37', require: false
   gem 'scss_lint', '~> 0.59.0', require: false
   gem 'slim_lint', '~> 0.18.0', require: false
 end
@@ -102,7 +102,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.29'
-  gem 'coveralls_reborn', '~> 0.13.3', require: false
+  gem 'coveralls_reborn', '~> 0.13.4', require: false
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
