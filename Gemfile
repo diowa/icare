@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.6.5'
-gem 'rails', '6.0.1'
+gem 'rails', '6.0.2'
 
 # Servers
 gem 'puma', '~> 4.3'
