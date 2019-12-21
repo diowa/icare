@@ -35,7 +35,7 @@ WebMock.disable_net_connect! allow: %w[localhost 127.0.0.1 *.lvh.me lvh.me]
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 
 RSpec.configure do |config|
   # Allow to use `t` instead of `I18n.t` in specs
