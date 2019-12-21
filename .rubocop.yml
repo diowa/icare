@@ -19,6 +19,9 @@ Layout/HashAlignment:
   EnforcedColonStyle: table
   EnforcedHashRocketStyle: table
 
+Layout/LineLength:
+  Enabled: false
+
 Lint/UriEscapeUnescape:
   Enabled: false
 
@@ -26,9 +29,6 @@ Metrics/AbcSize:
   Max: 22.29
 
 Metrics/BlockLength:
-  Enabled: false
-
-Metrics/LineLength:
   Enabled: false
 
 Metrics/MethodLength:
