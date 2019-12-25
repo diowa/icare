@@ -57,6 +57,7 @@ gem 'newrelic_rpm', '~> 6.7'
 gem 'secure_headers', '~> 6.1'
 
 # Miscellanea
+gem 'addressable', '~> 2.7'
 gem 'http_accept_language', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.2'
