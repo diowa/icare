@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.9'
 gem 'simple_form', '~> 5.0'
 
 # ODM and related
-gem 'client_side_validations', '~> 16.0'
-gem 'client_side_validations-simple_form', '~> 9.1'
+gem 'client_side_validations', '~> 16.1'
+gem 'client_side_validations-simple_form', '~> 9.2'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 7.0'
