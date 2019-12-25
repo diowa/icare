@@ -142,7 +142,7 @@ RSpec.describe Itinerary do
 
     describe '#static_map' do
       it "returns a url of the itinerary's static map" do
-        expect(itinerary.static_map).to eq URI.encode("https://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&markers=color:green|label:B|#{itinerary.end_location.to_latlng_a.join(',')}&markers=color:green|label:A|#{itinerary.start_location.to_latlng_a.join(',')}&path=enc:#{itinerary.overview_polyline}")
+        expect(itinerary.static_map).to eq Addressable::URI.encode("https://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&markers=color:green|label:B|#{itinerary.end_location.to_latlng_a.join(',')}&markers=color:green|label:A|#{itinerary.start_location.to_latlng_a.join(',')}&path=enc:#{itinerary.overview_polyline}")
       end
     end
 

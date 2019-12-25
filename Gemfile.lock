@@ -98,11 +98,11 @@ GEM
       xpath (~> 3.2)
     character_set (1.4.0)
     childprocess (3.0.0)
-    client_side_validations (16.0.3)
+    client_side_validations (16.1.0)
       jquery-rails (~> 4.3)
       js_regex (~> 3.1)
       rails (>= 5.0.0.1, < 6.1)
-    client_side_validations-simple_form (9.1.0)
+    client_side_validations-simple_form (9.2.0)
       client_side_validations (>= 15.0, < 17.0)
       simple_form (~> 5.0)
     coderay (1.1.2)
@@ -302,7 +302,7 @@ GEM
     rainbow (3.0.0)
     rake (13.0.1)
     rb-fsevent (0.10.3)
-    rb-inotify (0.10.0)
+    rb-inotify (0.10.1)
       ffi (~> 1.0)
     rbtree3 (0.5.0)
     regexp_parser (1.6.0)
@@ -338,9 +338,9 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
-    rubocop-performance (1.5.1)
+    rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
-    rubocop-rails (2.4.0)
+    rubocop-rails (2.4.1)
       rack (>= 1.1)
       rubocop (>= 0.72.0)
     rubocop-rspec (1.37.1)
@@ -418,7 +418,7 @@ GEM
       rails (>= 5.0, < 6.1)
       sassc (~> 2.1)
       sassc-rails (~> 2.1)
-    tzinfo (1.2.5)
+    tzinfo (1.2.6)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -448,6 +448,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable (~> 2.7)
   airbrake (~> 9.5)
   autoprefixer-rails (~> 9.7)
   better_errors (~> 2.5)
@@ -456,8 +457,8 @@ DEPENDENCIES
   bullet (~> 6.0)
   byebug (~> 11.0)
   capybara (~> 3.30)
-  client_side_validations (~> 16.0)
-  client_side_validations-simple_form (~> 9.1)
+  client_side_validations (~> 16.1)
+  client_side_validations-simple_form (~> 9.2)
   coffee-rails (~> 5.0)
   coveralls_reborn (~> 0.14.0)
   database_cleaner (~> 1.7)
@@ -517,7 +518,7 @@ DEPENDENCIES
   webmock (~> 3.7)
 
 RUBY VERSION
-   ruby 2.6.5p114
+   ruby 2.7.0p0
 
 BUNDLED WITH
-   2.0.2
+   2.1.2

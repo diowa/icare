@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.6.5'
+ruby '2.7.0'
 gem 'rails', '6.0.2.1'
 
 # Servers
@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.9'
 gem 'simple_form', '~> 5.0'
 
 # ODM and related
-gem 'client_side_validations', '~> 16.0'
-gem 'client_side_validations-simple_form', '~> 9.1'
+gem 'client_side_validations', '~> 16.1'
+gem 'client_side_validations-simple_form', '~> 9.2'
 gem 'kaminari', '~> 1.1'
 gem 'kaminari-mongoid', '~> 1.0'
 gem 'mongoid', '~> 7.0'
@@ -57,6 +57,7 @@ gem 'newrelic_rpm', '~> 6.7'
 gem 'secure_headers', '~> 6.1'
 
 # Miscellanea
+gem 'addressable', '~> 2.7'
 gem 'http_accept_language', '~> 2.1'
 gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.2'

@@ -5,7 +5,7 @@ require:
 
 AllCops:
   TargetRailsVersion: 5.2
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 2.7
   Exclude:
     - Brewfile
     - 'bin/*'
@@ -20,9 +20,6 @@ Layout/HashAlignment:
   EnforcedHashRocketStyle: table
 
 Layout/LineLength:
-  Enabled: false
-
-Lint/UriEscapeUnescape:
   Enabled: false
 
 Metrics/AbcSize:
