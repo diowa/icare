@@ -75,7 +75,7 @@ gem 'twbs_sass_rails', '~> 9.0'
 gem 'uglifier', '~> 4.2'
 
 group :development, :test do
-  gem 'bullet', '~> 6.0'
+  gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.0'
   gem 'factory_bot_rails', '~> 5.1'
   gem 'faker', '~> 2.9'
