@@ -69,38 +69,48 @@ clearItineraries = ->
   icare.itineraries = []
   icare.customMarkers = {}
 
+lookupPosition = (search_field) ->
+  deferred = $.Deferred()
+  geocoder = new google.maps.Geocoder()
+
+  geocoder.geocode
+    address: $("#itineraries_search_#{search_field}").val()
+  , (results, status) ->
+    if status is google.maps.GeocoderStatus.OK
+      first_result = results[0]
+      deferred.resolve
+        formatted_address: first_result.formatted_address
+        lat: first_result.geometry.location.lat()
+        lng: first_result.geometry.location.lng()
+    else
+      deferred.reject status
+
+  deferred.promise()
+
 initItineraryIndex = ->
   indexItinerariesMapInit('#index-itineraries-map')
 
   clearItineraries()
 
-  # TODO: clean this mess... directions service again?
-  $('#itineraries-search').on 'click', ->
+  $('#itineraries-search').on 'click', (e) ->
+    e.preventDefault()
     validators = $("#new_itineraries_search")[0].ClientSideValidations.settings.validators
-    return false unless $("#new_itineraries_search").isValid(validators)
+    return unless $("#new_itineraries_search").isValid(validators)
+
     $("#map-error-j").hide()
-    geocoder = new google.maps.Geocoder()
-    address = $("#itineraries_search_from").val()
-    geocoder.geocode
-      address: address
-    , (results, status) ->
-      if status is google.maps.GeocoderStatus.OK
-        $("#itineraries_search_from").val results[0].formatted_address
-        location = results[0].geometry.location
-        icare.search_center = location
-        $("#itineraries_search_start_location_lat").val results[0].geometry.location.lat()
-        $("#itineraries_search_start_location_lng").val results[0].geometry.location.lng()
-        geocoder = new google.maps.Geocoder()
-        address = $("#itineraries_search_to").val()
-        geocoder.geocode
-          address: address
-        , (results, status) ->
-          if status is google.maps.GeocoderStatus.OK
-            $("#itineraries_search_to").val results[0].formatted_address
-            location = results[0].geometry.location
-            $("#itineraries_search_end_location_lat").val results[0].geometry.location.lat()
-            $("#itineraries_search_end_location_lng").val results[0].geometry.location.lng()
-            $("#new_itineraries_search").submit()
+
+    $.when(
+      lookupPosition('from'),
+      lookupPosition('to')
+    ).then((from_result, to_result) ->
+      $("#itineraries_search_from").val from_result.formatted_address
+      $("#itineraries_search_start_location_lat").val from_result.lat
+      $("#itineraries_search_start_location_lng").val from_result.lng
+      $("#itineraries_search_to").val to_result.formatted_address
+      $("#itineraries_search_end_location_lat").val to_result.lat
+      $("#itineraries_search_end_location_lng").val to_result.lng
+      $("#new_itineraries_search").submit()
+    )
 
   $('#new_itineraries_search').on 'keypress', (e) ->
     if e and e.keyCode is 13
