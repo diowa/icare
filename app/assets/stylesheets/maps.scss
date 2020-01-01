@@ -1,23 +1,19 @@
-@import "twbs-variables";
-@import "twbs/bootstrap/mixins";
-
-.google-maps {
-  @include size(100%, 300px);
-
-  label {
-    display: inline-block;
-    width: auto;
-  }
-
-  img {
-    max-width: none;
-  }
-}
-
 .google-static-map,
 .google-maps {
-  margin-bottom: $line-height-computed;
-  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+  border: 1px solid $input-border-color;
+  border-radius: $border-radius;
+}
+
+// Fix styles in Google Maps which do not play well with css reset
+.gm-style {
+  img {
+    vertical-align: initial;
+  }
+
+  label {
+    margin-bottom: initial;
+  }
 }
 
 .gmaps-popup-image,
@@ -30,12 +26,13 @@
 
   img {
     display: block;
-    @include square(50px);
+    width: 50px;
+    height: 50px;
   }
 }
 
 .gmaps-popup-text {
-  font-size: $font-size-small;
+  font-size: $small-font-size;
   vertical-align: top;
 }
 
@@ -58,7 +55,7 @@
   display: block;
   cursor: pointer;
   background-color: #fff;
-  border: 1px solid $gray-light;
+  border: 1px solid $gray-700;
   box-shadow: 1px 1px 1px fade-out(#000, .8);
 
   img {
@@ -71,8 +68,9 @@
   &:before {
     position: absolute;
     top: 100%;
+    width: 0;
+    height: 0;
     pointer-events: none;
-    @include square(0);
     content: " ";
     border: solid transparent;
   }
@@ -88,6 +86,6 @@
     left: 50%;
     margin-left: -5px;
     border-width: 5px;
-    border-top-color: $gray-light;
+    border-top-color: $gray-700;
   }
 }

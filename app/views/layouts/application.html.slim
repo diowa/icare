@@ -2,9 +2,7 @@ doctype html
 html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=APP_CONFIG.fuel_currency
   head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# #{APP_CONFIG.facebook.namespace}: http://ogp.me/ns/fb/#{APP_CONFIG.facebook.namespace}#"
     meta charset='utf-8'
-    meta content='IE=edge' http-equiv='X-UA-Compatible'
-    meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0'
-    / The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+    meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no'
 
     title = meta_title fallback: controller.action_name.titlecase
     = csrf_meta_tags
@@ -25,10 +23,6 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
 
     / Turbolinks require javascript tags inside the head
     = javascript_include_tag google_maps_api_source, 'application', 'data-turbolinks-track': 'reload'
-
-    / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-    /[if lt IE 9]
-      = javascript_include_tag 'https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js', 'respond.js'
 
   body class=('homepage' if action_name == 'home')
     == render 'shared/google_tag_manager' if APP_CONFIG.google_analytics_id.present?

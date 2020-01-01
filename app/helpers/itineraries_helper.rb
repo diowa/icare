@@ -11,6 +11,9 @@ module ItinerariesHelper
 
   def boolean_tag(value, field)
     status = value ? 'allowed' : 'forbidden'
-    content_tag :span, t(".#{field}.#{status}"), class: "tag tag-#{status}"
+
+    content_tag :div, class: "tag tag-#{status}" do
+      content_tag(:span, nil, class: "fas fa-#{status == 'allowed' ? 'check' : 'ban'}") + ' ' + t(".#{field}.#{status}")
+    end
   end
 end

@@ -80,8 +80,8 @@ RSpec.describe 'Itineraries' do
       fill_in 'itinerary_tolls', with: '3'
 
       fill_in 'itinerary_description', with: 'MUSIC VERY LOUD!!!'
-      check 'itinerary_pink'
-      check 'itinerary_pets_allowed'
+      find('label[for="itinerary_pink"]').click
+      find('label[for="itinerary_pets_allowed"]').click
       click_button 'new_itinerary_submit-j'
 
       expect(page).to have_content t('flash.itineraries.success.create')

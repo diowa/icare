@@ -1,16 +1,15 @@
-ul
+ul.notification-message-list
   | {{#each messages}}
-  li
+  li.notification-message
     a href='{{url}}'
       .media
-        .pull-left
-          img.media-object src='{{message.sender.image}}' width='50' height='50' alt=''
+        img.mr-2 src='{{message.sender.image}}' width='50' height='50' alt=''
         .media-body
-          strong.text-overflow
+          p.mb-0.font-weight-bold.text-truncate
             | {{message.sender.name}}
-          .text-muted
-            span.text-overflow
-              | {{message.body}}
+          p.mb-0.text-muted.text-truncate
+            | {{message.body}}
+          p.mb-0.text-muted
             small
               | {{localize "datetime.formats.message" message.date_sent}}
   | {{/each}}

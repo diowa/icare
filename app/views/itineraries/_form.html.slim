@@ -3,17 +3,19 @@ fieldset#single
   = f.input :round_trip, as: :boolean, wrapper: :horizontal_boolean
   = f.input :return_date, as: :datetime, default: default_leave_date, start_year: Time.current.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm'), input_html: { class: 'date-time' }, disabled: !@itinerary.round_trip, wrapper: :horizontal_form
   = f.input :fuel_cost, wrapper: :horizontal_form do
-    .input-group.input-group-number
-      = f.text_field :fuel_cost, class: 'form-control'
-      span.input-group-addon = APP_CONFIG.currency
+    .input-group.text-right
+      = f.text_field :fuel_cost, class: 'form-control text-right'
+      .input-group-append
+        span.input-group-text = APP_CONFIG.currency
   .row
     .col-sm-10.col-sm-offset-2
-      p.help-block#fuel-help.fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
+      p.form-text#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
         span#fuel-help-text
   = f.input :tolls, wrapper: :horizontal_form do
-    .input-group.input-group-number
-      = f.text_field :tolls, class: 'form-control'
-      span.input-group-addon = APP_CONFIG.currency
+    .input-group
+      = f.text_field :tolls, class: 'form-control text-right'
+      .input-group-append
+        span.input-group-text = APP_CONFIG.currency
     - if @itinerary.errors.include?(:tolls)
       span.help-inline
         = @itinerary.errors.messages[:tolls].join(', ')

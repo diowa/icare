@@ -1,19 +1,19 @@
 .page-header
-  h1.no-margin-bottom = @itinerary.title
+  h1 = @itinerary.title
 .row.itinerary-header
   .col-sm-6
-    = image_tag @itinerary.static_map, class: 'google-static-map img-responsive', alt: ''
+    = image_tag @itinerary.static_map, class: 'google-static-map img-fluid', alt: ''
   .col-sm-6
-    .media.user-media
-      = link_to user_path(@itinerary.user), class: 'pull-left' do
+    .media
+      = link_to user_path(@itinerary.user), class: 'mr-2' do
         = user_profile_picture @itinerary.user, style: 'media-object'
       .media-body
-        h5.media-heading
+        h5.m-0
           - if user_signed_in?
             = link_to @itinerary.user, user_path(@itinerary.user)
           - else
             = t('.app_user', appname: APP_CONFIG.app_name)
-        <p class="pre-line">#{@itinerary.description}</p>
+        p.pre-line = @itinerary.description
     .tag-list
       span.tag.tag-icare = Itinerary.human_attribute_name :start_address
       span.tag = @itinerary.start_address
@@ -35,7 +35,7 @@
       span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}#{APP_CONFIG.currency}
     .tag-list
       - if @itinerary.pink?
-        span.tag.tag-pink rel='tooltip' title=t('itineraries.form.pink_hint')
+        span.tag.tag-pink data-toggle='tooltip' title=t('itineraries.form.pink_hint')
           span.fas.fa-lock<>
           = Itinerary.human_attribute_name(:pink)
       = boolean_tag @itinerary.smoking_allowed?, 'smoking'

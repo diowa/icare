@@ -1,15 +1,47 @@
-@import "twbs-variables";
-@import "twbs/bootstrap/mixins";
-
-.didntwrite {
-  margin-left: 10px;
+.reference {
+  @extend .mb-4;
 }
 
-.outgoing-reference-cell {
-  margin-left: 65px;
-}
+.balloon {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 8px 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: $border-radius;
+  box-shadow: 0 1px 1px fade-out(#000, .925);
 
-.incoming-reference-cell {
-  min-height: 50px;
-  margin-bottom: 15px;
+  &:after, &:before {
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    content: " ";
+    border: solid transparent;
+  }
+
+  &:after {
+    margin-top: -8px;
+    border-width: 8px;
+    border-right-color: #fff;
+  }
+
+  &:before {
+    margin-top: -9px;
+    border-width: 9px;
+    border-right-color: #ddd;
+  }
+
+  &.for-profile-picture {
+    min-height: 60 - $line-height-base;
+    margin-left: 5px;
+
+    &:after,
+    &:before {
+      top: 25px;
+    }
+  }
 }

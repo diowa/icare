@@ -1,7 +1,3 @@
-# Needed to follow links in popovers
-$(document).on 'click', '.popover a', (e) ->
-  e.stopPropagation()
-
 $(document).on 'show.bs.popover', '.notifications', (e) ->
   $notifications = $(e.target).closest('.notifications').addClass 'active'
   $('.notifications').not($notifications).removeClass('active').find('a').popover 'hide'
@@ -16,13 +12,13 @@ $(document).on 'shown.bs.popover', '.notifications', (e) ->
     $.ajax
       url: $target.data('remote')
       beforeSend: ->
-        $('.popover-content').html $('.popover-ajax-spinner').html()
+        $('.popover-body').html $('.popover-body-loading').html()
       success: (messages) ->
         $target.data('unread', messages.length).find('span.unread-count').text(if messages.length > 0 then messages.length else '')
         if messages.length > 0
-          $('.popover-content').html HandlebarsTemplates['notifications/messages']({ messages: messages })
+          $('.popover-body').html HandlebarsTemplates['notifications/messages']({ messages: messages })
         else
-          $popover.find('.popover-content').text I18n.t("javascript.notifications.#{$target.data('notificationsType')}.no_new")
+          $popover.find('.popover-body').text I18n.t("javascript.notifications.#{$target.data('notificationsType')}.no_new")
 
 $(document).on window.initializeOnEvent, ->
   $('.notifications').each ->
@@ -41,5 +37,8 @@ $(document).on window.initializeOnEvent, ->
       false
     ).popover
       placement: 'bottom'
+      html: true
+      container: $(this)
       template: HandlebarsTemplates['notifications/base'](popoverData)
       title: I18n.t("javascript.notifications.#{notificationsType}.title")
+      trigger: 'focus'

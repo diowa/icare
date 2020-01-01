@@ -1,60 +1,57 @@
 .col-lg-6
-  .itinerary-thumbnail data-itinerary-id='{{id}}'
+  .card.mb-2 data-itinerary-id='{{id}}'
     .itinerary-thumb-stroke style='background-color: {{backgroundColor}}'
-    .media
-      .pull-left
-        .img-outset
-          img.media-object src='{{user.image}}' width='50' height='50' alt=''
-      .media-body
-        h5.media-heading
-          a.pre-line href='{{url}}'
-            | {{title}}
-        p
-          | {{user.name}}
-          | {{#if user.facebook_verified}}
-          span.fas.fa-check.text-success.facebook-verified-tooltip<> rel='tooltip' title=='{{translate "templates.itineraries.facebook_verified"}}'
-          | {{/if}}
-    p.itinerary-details
-      | {{#if pink}}
-      span.text-pink
-        span.fas.fa-lock<>
-        ' {{translate "mongoid.attributes.itinerary.pink"}}
-      br
-      | {{/if}}
-      | {{#if daily}}
-      br
-      span.fas.fa-redo<>
-      span.text-muted
-        ' {{translate "mongoid.attributes.itinerary.daily"}}
-      span.fas.fa-clock<>
-      ' {{localize "time.formats.time_only" leave_date}}
-      | {{else}}
-      span.text-muted<
-        ' {{translate "mongoid.attributes.itinerary.leave_date"}}:
-      ' {{localize "date.formats.long" leave_date}}
-      span.fas.fa-clock<>
-      ' {{localize "time.formats.time_only" leave_date}}
-      | {{#if round_trip}}
-      br
-      span.text-muted
-        ' {{translate "mongoid.attributes.itinerary.return_date"}}:
-      ' {{localize "date.formats.long" return_date}}
-      span.fas.fa-clock<>
-      | {{localize "time.formats.time_only" return_date}}
-      | {{/if}}
-      | {{/if}}
-      br
-      span.text-muted
-        ' {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
-      ' {{currency fuel_cost}}
-      br
-      span.text-muted
-        ' {{translate "mongoid.attributes.itinerary.tolls"}}:
-      ' {{currency tolls}}
-    .btn-toolbar
-      a.btn.btn-xs.btn-default.show-itinerary-on-map href='#'
+    .card-body
+      .media
+        img.mr-2 src='{{user.image}}' width='50' height='50' alt=''
+        .media-body
+          h5.mb-0
+            a.pre-line href='{{url}}'
+              | {{title}}
+          p
+            | {{user.name}}
+            | {{#if user.facebook_verified}}
+            span.fas.fa-check.text-success.facebook-verified-tooltip<> data-toggle='tooltip' title=='{{translate "templates.itineraries.facebook_verified"}}'
+            | {{/if}}
+      p.card-text
+        | {{#if pink}}
+        span.text-pink
+          span.fas.fa-lock<>
+          ' {{translate "mongoid.attributes.itinerary.pink"}}
+        br
+        | {{/if}}
+        | {{#if daily}}
+        br
+        span.fas.fa-redo<>
+        span.text-muted
+          ' {{translate "mongoid.attributes.itinerary.daily"}}
+        span.fas.fa-clock<>
+        ' {{localize "time.formats.time_only" leave_date}}
+        | {{else}}
+        span.text-muted<
+          ' {{translate "mongoid.attributes.itinerary.leave_date"}}:
+        ' {{localize "date.formats.long" leave_date}}
+        ' {{localize "time.formats.time_only" leave_date}}
+        | {{#if round_trip}}
+        br
+        span.text-muted
+          ' {{translate "mongoid.attributes.itinerary.return_date"}}:
+        ' {{localize "date.formats.long" return_date}}
+        span.fas.fa-clock<>
+        | {{localize "time.formats.time_only" return_date}}
+        | {{/if}}
+        | {{/if}}
+        br
+        span.text-muted
+          ' {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
+        ' {{currency fuel_cost}}
+        br
+        span.text-muted
+          ' {{translate "mongoid.attributes.itinerary.tolls"}}:
+        ' {{currency tolls}}
+      a.card-link.show-itinerary-on-map href='#'
         span.fas.fa-map-marker-alt<>
         | {{translate "templates.itineraries.show_on_map"}}
-      a.btn.btn-xs.btn-primary href='{{url}}'
+      a.card-link href='{{url}}'
         span.fas.fa-info-circle<>
         | {{translate "templates.itineraries.read_more"}}

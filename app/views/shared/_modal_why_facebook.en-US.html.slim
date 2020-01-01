@@ -1,9 +1,9 @@
 #why-facebook.modal.fade tabindex='-1' role='dialog' aria-labelledby=t('why_facebook') aria-hidden=true
-  .modal-dialog
+  .modal-dialog role='document'
     .modal-content
       .modal-header
-        button.close type='button' data-dismiss='modal' aria-hidden=true &times;
         h3.modal-title = t('why_facebook')
+        button.close type='button' data-dismiss='modal' aria-label=t('close') aria-hidden=true &times;
       .modal-body
         p
           | We know that some people do not use Facebook or do not allow permissions to third party applications.

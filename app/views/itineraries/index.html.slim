@@ -4,7 +4,8 @@
     .col-sm-4
       h3 = yield :title
       == render 'search'
-      #map-error-j.soft-hide.alert.alert-danger
+      #map-error-j.d-none-soft.alert.alert-danger
     .col-sm-8
-      #index-itineraries-map.google-maps *map_config_attributes
+      .embed-responsive.embed-responsive-16by9.google-maps
+        .embed-responsive-item#index-itineraries-map *map_config_attributes
       #itineraries-thumbs.row

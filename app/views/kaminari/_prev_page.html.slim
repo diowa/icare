@@ -7,8 +7,8 @@
     | per_page:      number of items to fetch per page
     | remote:        data-remote
 
-li.previous class=('disabled' if current_page.first?)
+li.page-item class=('disabled' if current_page.first?)
   - if current_page.first?
-    == link_to t('views.pagination.previous_html'), '#'
+    span.page-link == t('views.pagination.previous_html')
   - else
-    == link_to t('views.pagination.previous_html'), url, rel: 'prev', remote: remote
+    == link_to t('views.pagination.previous_html'), url, class: 'page-link', rel: 'prev', remote: remote

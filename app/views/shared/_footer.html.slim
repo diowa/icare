@@ -1,6 +1,6 @@
-footer
+footer.main-footer
   .container
-    ul.list-inline.list-footer
+    ul.list-footer
       li
         = link_to 'https://diowa.com' do
           = image_tag 'diowa.svg', alt: 'diowa', height: 28, width: 90, class: 'diowa-logo'
@@ -10,18 +10,19 @@ footer
         - unless APP_CONFIG.demo_mode
           li = link_to t('terms'), :terms
       li
-        span.fab.fa-github<>
+        span.fab.fa-github<> aria-hidden='true'
+        span.sr-only = t('.github_repository')
         = link_to 'diowa/icare', APP_CONFIG.repository_url
       - if user_signed_in?
         li
-          span.fas.fa-bullhorn<>
+          span.fa.fa-bullhorn<> aria-hidden='true'
           = link_to Feedback.model_name.human(count: :lot), feedbacks_url
         - if APP_CONFIG.demo_mode
           li
             = link_to user_path(current_user), method: :delete, class: 'text-danger', data: { confirm: t('helpers.links.confirm') } do
-              span.fas.fa-times<>
+              span.fa.fa-times<> aria-hidden='true'
               = t('delete_account')
     - if APP_CONFIG.demo_mode
       p.demo-app
-        span.fas.fa-warning<>
+        span.fa.fa-warning<> aria-hidden='true'
         = t('demo_mode')

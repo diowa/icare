@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.96.0
+
+* Bootstrap 4
+* Fix double submission of search form
+* Fix Google Maps static maps
+* Update gems
+
 ## 0.95.0
 
 * Ruby 2.7.0
