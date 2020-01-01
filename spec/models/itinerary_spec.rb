@@ -142,7 +142,12 @@ RSpec.describe Itinerary do
 
     describe '#static_map' do
       it "returns a url of the itinerary's static map" do
-        expect(itinerary.static_map).to eq Addressable::URI.encode("https://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&markers=color:green|label:B|#{itinerary.end_location.to_latlng_a.join(',')}&markers=color:green|label:A|#{itinerary.start_location.to_latlng_a.join(',')}&path=enc:#{itinerary.overview_polyline}")
+        old_google_maps_api_key = APP_CONFIG.google_maps_api_key
+        APP_CONFIG.set :google_maps_api_key, 'API_KEY'
+
+        expect(itinerary.static_map).to eq Addressable::URI.encode("https://maps.googleapis.com/maps/api/staticmap?size=640x360&scale=2&markers=color:green|label:B|#{itinerary.end_location.to_latlng_a.join(',')}&markers=color:green|label:A|#{itinerary.start_location.to_latlng_a.join(',')}&path=enc:#{itinerary.overview_polyline}&key=API_KEY")
+      ensure
+        APP_CONFIG.set :google_maps_api_key, old_google_maps_api_key
       end
     end
 
