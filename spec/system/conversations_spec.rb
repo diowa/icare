@@ -11,8 +11,9 @@ RSpec.describe 'Conversations' do
     receiver = create :user, uid: '123456'
     sender = create :user, name: 'Message Sender'
     itinerary = create :itinerary, user: receiver
-    conversation = create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation = create :conversation, sender: sender, receiver: receiver, conversable: itinerary
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+    conversation.save
 
     visit user_facebook_omniauth_authorize_path
     visit conversations_path
@@ -50,8 +51,9 @@ RSpec.describe 'Conversations' do
     receiver = create :user, uid: '123456'
     sender = create :user
     itinerary = create :itinerary, user: receiver
-    conversation = create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation = create :conversation, sender: sender, receiver: receiver, conversable: itinerary
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+    conversation.save
 
     visit user_facebook_omniauth_authorize_path
     visit conversation_path(conversation, itinerary_id: itinerary.id)
@@ -65,8 +67,9 @@ RSpec.describe 'Conversations' do
     receiver = create :user, uid: '123456'
     sender = create :user
     itinerary = create :itinerary, user: receiver
-    conversation = create :conversation, users: [receiver, sender], conversable: itinerary
+    conversation = create :conversation, sender: sender, receiver: receiver, conversable: itinerary
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
+    conversation.save
 
     visit user_facebook_omniauth_authorize_path
 

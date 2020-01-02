@@ -6,7 +6,7 @@ nav.navbar.main-navbar
     button.navbar-toggler.navbar-toggler-right type='button' data-toggle='collapse' data-target='#main-navbar-collapse' aria-controls='main-navbar-collapse' aria-expanded='false' aria-label=t('.toggle_navigation')
       span.navbar-toggler-icon
     - if user_signed_in?
-      //== render 'shared/notifications'
+      == render 'shared/notifications'
       #main-navbar-collapse.collapse.navbar-collapse
         ul.navbar-nav.main-navbar-nav
           li.nav-item#navbar-user-info

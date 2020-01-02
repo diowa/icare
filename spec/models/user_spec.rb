@@ -77,8 +77,9 @@ RSpec.describe User do
       driver = create :user
       passenger = create :user
       itinerary = create :itinerary, user: driver
-      conversation = create :conversation, users: [driver, passenger], conversable: itinerary
+      conversation = create :conversation, sender: passenger, receiver: driver, conversable: itinerary
       conversation.messages << build(:message, sender: driver, body: 'First unread message from Driver')
+      conversation.save
 
       expect(passenger.unread_conversations_count).to be 1
     end

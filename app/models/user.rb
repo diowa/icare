@@ -16,12 +16,10 @@ class User < ApplicationRecord
   has_many :feedbacks, dependent: :nullify
 
   has_many :itineraries, dependent: :destroy
-=begin
-  has_and_belongs_to_many :conversations
 
+  has_many :conversations, ->(user) { unscope(:where).where(sender: user).or(where(receiver: user)) }, inverse_of: :sender
 
-  embeds_many :notifications
-=end
+  #   embeds_many :notifications
 
   validates :gender, inclusion: GENDER, allow_blank: true
   validates :time_zone, inclusion: ActiveSupport::TimeZone.all.map(&:name)
@@ -43,11 +41,9 @@ class User < ApplicationRecord
     name || id.to_s
   end
 
-=begin
   def unread_conversations_count
-    conversations.unread(self).size
+    conversations.unread(self).count
   end
-=end
 
   def self.from_omniauth(auth_hash)
     where(provider: auth_hash.provider, uid: auth_hash.uid).first_or_create do |user|

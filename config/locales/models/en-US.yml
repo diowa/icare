@@ -79,8 +79,8 @@ en-US:
               driver_must_be_female: only women can create pink itineraries
         conversation:
           attributes:
-            user_ids:
-              already_exists: you already have a conversation about this itinerary
+            receiver:
+              yourself: you cannot start a conversation with yourself
         reference:
           attributes:
             user:

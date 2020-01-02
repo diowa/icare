@@ -17,7 +17,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @conversation = [] # @itinerary.conversations.find_or_initialize_by(user_ids: [current_user.id, @itinerary.user.id]) if current_user
+    @conversation = @itinerary.conversations.find_or_initialize_by(sender: current_user, receiver: @itinerary.user) if current_user
     session[:redirect_to] = itinerary_path(@itinerary) unless user_signed_in?
   end
 

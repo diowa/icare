@@ -34,17 +34,16 @@ FactoryBot.define do
     return_date { 2.days.from_now.utc }
   end
 
-=begin
   factory :conversation do
     association :conversable, factory: :itinerary
-    users { [FactoryBot.build(:user), itinerary.user] }
+    sender { FactoryBot.build(:user) }
+    receiver { conversable.user }
   end
 
   factory :message do
     association :sender, factory: :user
     body { 'Hello' }
   end
-=end
 
   factory :feedback do
     user

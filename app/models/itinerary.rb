@@ -12,7 +12,7 @@ class Itinerary < ApplicationRecord
     [start_address, end_address].join ' '
   end
 
-  # has_many :conversations, as: :conversable, inverse_of: :conversable, dependent: :destroy
+  has_many :conversations, as: :conversable, dependent: :destroy
 
   belongs_to :user
   delegate :name, to: :user, prefix: true
