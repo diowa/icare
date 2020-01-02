@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.96.1
+
+* Fix messages popover on mobile devices
+* Minor style fixes
+* Update dependencies
+
 ## 0.96.0
 
 * Bootstrap 4
