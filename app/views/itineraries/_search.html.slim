@@ -19,6 +19,6 @@
     = f.hidden_field :end_location_lat
     = f.hidden_field :end_location_lng
     .d-flex.align-items-center
-      = f.button :submit, t('.search'), class: 'btn-primary', id: 'itineraries-search', data: { disable_with: t('helpers.disable_with') }
+      = f.button :button, t('.search'), class: 'btn-primary', id: 'itineraries-search', data: { disable_with: t('helpers.disable_with') }
       .spinner-border.text-primary.ml-2.itineraries-spinner#itineraries-spinner-j role='status'
         span.sr-only = t('loading')
