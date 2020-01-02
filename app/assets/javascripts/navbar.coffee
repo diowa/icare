@@ -41,4 +41,3 @@ $(document).on window.initializeOnEvent, ->
       container: $(this)
       template: HandlebarsTemplates['notifications/base'](popoverData)
       title: I18n.t("javascript.notifications.#{notificationsType}.title")
-      trigger: 'focus'
