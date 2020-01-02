@@ -14,3 +14,16 @@
   font-size: $font-size-base;
   border-color: $success;
 }
+
+.img--user-profile {
+  @extend .img-fluid;
+  @extend .mb-2;
+
+  max-width: 50%;
+}
+
+@include media-breakpoint-up(sm) {
+  .img--user-profile {
+    max-width: 100%;
+  }
+}
