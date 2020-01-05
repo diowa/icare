@@ -41,7 +41,7 @@ RSpec.describe 'Itineraries' do
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
     end
 
-    it 'are allowed to create itineraries', js: true, allow_js_failures: APP_CONFIG.google_maps_api_key.blank? do
+    it 'are allowed to create itineraries', js: true, allow_js_errors: APP_CONFIG.google_maps_api_key.blank? do
       pending 'Google Maps API KEY is missing' if APP_CONFIG.google_maps_api_key.blank?
 
       login_as_female
