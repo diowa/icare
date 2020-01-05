@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.97.1
+
+* Remove Font Awesome CSS
+* Fix failing specs
+
 ## 0.97.0
 
 * Use webpacker

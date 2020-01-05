@@ -97,7 +97,7 @@ RSpec.describe 'Itineraries' do
       expect(page).to have_content 'MUSIC VERY LOUD!!!'
     end
 
-    it 'sanitize malicious description', js: true do
+    it 'sanitize malicious description', js: true, allow_js_errors: APP_CONFIG.google_maps_api_key.blank? do
       login_as_male
       malicious_itinerary = create :itinerary, user: male, description: xss_alert
       visit itinerary_path(malicious_itinerary)
