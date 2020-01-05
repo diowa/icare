@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.97.2
+
+* Fix icon animations
+
 ## 0.97.1
 
 * Remove Font Awesome CSS
