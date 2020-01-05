@@ -1,0 +1,106 @@
+// stylelint-disable selector-no-qualifying-type
+.daily-itinerary-table {
+  td {
+    vertical-align: middle;
+  }
+
+  select {
+    margin-bottom: 0;
+  }
+}
+
+.search-form-advanced {
+  font-size: $small-font-size;
+
+  .checkbox {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-top: 2px;
+  }
+}
+// stylelint-enable selector-no-qualifying-type
+
+.itineraries-spinner {
+  display: none;
+  margin-left: 10px;
+}
+
+.itinerary-header {
+  margin-bottom: 20px;
+}
+
+.itinerary-step {
+  margin-bottom: 20px;
+  border-bottom: 1px solid $text-muted;
+
+  h3 {
+    color: $text-muted;
+  }
+
+  &.active,
+  &.active h3 {
+    color: $yiq-text-dark;
+    border-color: $yiq-text-dark;
+  }
+
+  &.done,
+  &.done h3 {
+    color: $success;
+    border-color: $success;
+  }
+}
+
+.itinerary-thumb-stroke {
+  height: .25rem;
+  margin-bottom: .25rem;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+}
+
+.itinerary-title {
+  margin: 0;
+
+  small,
+  span {
+    display: block;
+  }
+
+  small {
+    font-size: $font-size-base * 1.25;
+  }
+
+  span {
+    font-size: $font-size-base * 1.75;
+    line-height: $line-height-lg;
+  }
+}
+
+.profile-picture-cell {
+  width: 55px;
+
+  img {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+  }
+}
+
+.feature-icons {
+  margin-left: -5px;
+}
+
+.feature-icon {
+  margin-left: 5px;
+}
+
+@include media-breakpoint-up(lg) {
+  .itinerary-thumbnail {
+    position: relative;
+    height: 205px;
+    overflow: hidden;
+  }
+}

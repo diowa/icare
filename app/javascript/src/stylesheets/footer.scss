@@ -1,0 +1,39 @@
+.main-footer {
+  @extend .py-3;
+  @extend .mt-4;
+
+  font-size: $font-size-sm;
+  color: $gray-600;
+  border-top: $hr-border-width solid $hr-border-color;
+
+  a,
+  a:hover,
+  a:focus {
+    color: $gray-600;
+  }
+}
+
+.list-footer {
+  @extend .list-inline;
+
+  margin-top: -.5rem;
+
+  li {
+    @extend .list-inline-item;
+
+    display: block;
+    margin-top: .5rem;
+  }
+}
+
+.demo-app {
+  margin: 0;
+}
+
+@include media-breakpoint-up(sm) {
+  .list-footer {
+    li {
+      display: inline-block;
+    }
+  }
+}

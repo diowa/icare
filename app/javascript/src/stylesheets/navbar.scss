@@ -1,0 +1,85 @@
+.main-navbar {
+  @extend .navbar-light;
+  @extend .bg-light;
+  @extend .navbar-expand-md;
+  @extend .fixed-top;
+
+  .navbar-toggler {
+    border-color: transparent;
+  }
+}
+
+.main-navbar-nav {
+  @extend .ml-auto;
+}
+
+.nav-link--profile {
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 7px;
+    width: 26px;
+    height: 26px;
+    border-radius: $border-radius-sm;
+  }
+}
+
+.nav-link__user-name {
+  margin-left: 30px;
+}
+
+.navbar-brand {
+  font-family: Pacifico, $font-family-base; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+
+  > svg {
+    position: relative;
+    top: 4px;
+    width: 38px;
+    height: 15px;
+    vertical-align: top;
+  }
+}
+
+// stylelint-disable selector-no-qualifying-type
+.main-navbar .navbar-nav > li.facebook-link > a {
+  color: #fff;
+  background-color: $brand-facebook;
+
+  &:hover,
+  &:focus {
+    background-color: darken($brand-facebook, 5%);
+  }
+}
+// stylelint-enable selector-no-qualifying-type
+
+.navbar-toggle {
+  .icon-bar {
+    // same duration as bootstrap's collapse
+    transition: all .35s ease-in-out;
+    backface-visibility: hidden;
+  }
+
+  .icon-bar--top {
+    transform: rotate3d(0, 0, 1, 45deg);
+    transform-origin: 17% 200%;
+  }
+
+  .icon-bar--middle {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+
+  .icon-bar--bottom {
+    transform: rotate3d(0, 0, 1, -45deg);
+    transform-origin: 17% -100%;
+  }
+
+  &.collapsed {
+    .icon-bar {
+      transform: rotate3d(0, 0, 0, 0deg);
+    }
+  }
+}

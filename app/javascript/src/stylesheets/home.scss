@@ -1,0 +1,232 @@
+.homepage {
+  padding: 0;
+
+  .alert:not(.alert--advertising) {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1;
+    min-width: 200px;
+  }
+
+  .btn-why-facebook {
+    text-decoration: underline;
+  }
+}
+
+.alert--advertising {
+  top: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.splashscreen {
+  @extend .d-flex;
+  @extend .align-items-center;
+
+  background-color: darken($primary, 30%);
+}
+
+.splashscreen__container {
+  @extend .flex-fill;
+  @extend .flex-grow-1;
+
+  padding: 15px;
+
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 1px fade-out(#000, .1);
+
+  h1,
+  h2,
+  a,
+  small {
+    color: #fff;
+  }
+
+  a:hover,
+  a:focus {
+    color: #fff;
+  }
+
+  h2 {
+    font-family: Pacifico, $font-family-base; // stylelint-disable-line font-family-no-missing-generic-family-keyword
+    font-size: 50px;
+    font-weight: 400;
+    line-height: 34px;
+
+    small {
+      font-size: 30px;
+    }
+  }
+
+  h1 {
+    font-size: $h2-font-size;
+  }
+
+  .btn-why-facebook {
+    text-decoration: underline;
+  }
+
+  .splashscreen-link {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}
+
+.btn-learn-more {
+  margin: 0 auto 15px;
+  color: #fff;
+  background-color: fade-out(#000, .85);
+  border: 2px solid fade-out(#fff, .75);
+
+  &:hover,
+  &:focus {
+    background-color: fade-out(#000, .65);
+    border-color: fade-out(#fff, .6);
+  }
+
+  .fab,
+  .far,
+  .fas {
+    position: relative;
+    margin-left: 5px;
+    transform: translate3d(0, 1px, 0);
+    animation: pulse-down 5s ease-in infinite;
+  }
+}
+
+.btn-why-facebook {
+  font-size: $small-font-size;
+}
+
+.featurette {
+  @extend .d-flex;
+
+  &:nth-child(even) {
+    background-color: $gray-200;
+  }
+}
+
+.featurette__container {
+  @extend .d-flex;
+  @extend .flex-row;
+  @extend .container;
+  @extend .py-4;
+  @extend .align-items-center;
+
+  max-width: map-get($container-max-widths, lg);
+}
+
+.featurette__icon {
+  padding-right: 1rem;
+  font-size: 4em;
+  color: $primary;
+}
+
+.featurette__content {
+  h3 {
+    margin-top: 0;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.learn-more-container {
+  @extend .d-none;
+  @extend .d-sm-block;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.join-us {
+  margin: .5em 0 1em;
+}
+
+@include media-breakpoint-up(sm) {
+  .alert--advertising {
+    position: absolute;
+  }
+
+  .btn-fb {
+    @include button-size($input-btn-padding-y-lg, $input-btn-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
+  }
+
+  .btn-why-facebook {
+    font-size: $font-size-base;
+  }
+
+  .join-us {
+    font-size: $h1-font-size;
+  }
+
+  .splashscreen {
+    min-height: 100vh;
+  }
+
+  .splashscreen-container {
+    padding-bottom: 62px;
+
+    h1 {
+      font-size: 36px;
+      line-height: 46px;
+    }
+
+    h2 {
+      font-size: 70px;
+      line-height: 44px;
+    }
+
+    .btn-why-facebook {
+      font-size: $font-size-base;
+    }
+  }
+
+  .featurette {
+    h3 {
+      font-size: $h1-font-size;
+    }
+
+    p {
+      font-size: 21px;
+      font-weight: 300;
+    }
+
+    .featurette__icon {
+      padding-right: 1.5rem;
+      font-size: 10em;
+    }
+
+    &:nth-child(even) {
+      .featurette__container {
+        @extend .flex-sm-row-reverse;
+      }
+
+      .featurette__icon {
+        padding-right: 0;
+        padding-left: 1.5rem;
+      }
+    }
+  }
+}
+
+
+@keyframes pulse-down {
+  80% { transform: translate3d(0, 1px, 0); }
+
+  85% { transform: translate3d(0, 5px, 0); }
+
+  90% { transform: translate3d(0, 1px, 0); }
+
+  95% { transform: translate3d(0, 5px, 0); }
+
+  100% { transform: translate3d(0, 1px, 0); }
+}

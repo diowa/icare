@@ -69,5 +69,13 @@
     "newrelic",
     "papertrail",
     "redistogo:nano"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/ruby"
+    }
   ]
 }

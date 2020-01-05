@@ -1,5 +1,5 @@
 doctype html
-html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=APP_CONFIG.fuel_currency
+html lang=I18n.locale.to_s data-default-lang=I18n.default_locale data-currency=APP_CONFIG.currency data-fuel-currency=APP_CONFIG.fuel_currency
   head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# #{APP_CONFIG.facebook.namespace}: http://ogp.me/ns/fb/#{APP_CONFIG.facebook.namespace}#"
     meta charset='utf-8'
     meta name='viewport' content='width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, shrink-to-fit=no'
@@ -8,7 +8,8 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
     = csrf_meta_tags
     = yield :head
 
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700|Pacifico', 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700|Pacifico', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.10.2/css/all.css' integrity='sha384-rtJEYb85SiYWgfpCr0jn174XgJTn4rptSOQsMroFBPQSGLdOC5IbubP6lJ35qoM9' crossorigin='anonymous' data-turbolinks-track='reload'
 
     / Webapp
@@ -22,7 +23,9 @@ html lang=I18n.locale.to_s data-currency=APP_CONFIG.currency data-fuel-currency=
     meta name='apple-mobile-web-app-status-bar-style' content='#3d7098'
 
     / Turbolinks require javascript tags inside the head
-    = javascript_include_tag google_maps_api_source, 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag google_maps_api_source, 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 
   body class=('homepage' if action_name == 'home')
     == render 'shared/google_tag_manager' if APP_CONFIG.google_analytics_id.present?
