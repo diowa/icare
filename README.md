@@ -13,11 +13,11 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 **icare** uses the following technologies:
 
 * [Ruby on Rails][1]
-* [CoffeeScript][3]
+* [Webpacker][3]
 * [Handlebars.js][4] (JavaScript semantic templates)
 * [SLIM][5]
 * [Bootstrap][6]
-* [Font Awesome][7] (retina ready vectorial icons)
+* [Font Awesome][7] (vectorial icons)
 * [Mongoid][8] (ODM for MongoDB)
 * [Devise][2]
 * Asynchronous tasks with [Sucker Punch][9]
@@ -31,7 +31,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 
  [1]: https://rubyonrails.org/
  [2]: https://github.com/plataformatec/devise
- [3]: https://coffeescript.org/
+ [3]: https://github.com/rails/webpacker
  [4]: https://handlebarsjs.com/
  [5]: http://slim-lang.com/
  [6]: https://getbootstrap.com

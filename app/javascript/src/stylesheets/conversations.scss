@@ -1,0 +1,45 @@
+.conversation-title {
+  font-size: 24px;
+  font-weight: 400;
+}
+
+// stylelint-disable-next-line selector-no-qualifying-type
+tr.unread td,
+.unread {
+  background-color: theme-color-level("warning", $alert-bg-level) !important; // stylelint-disable-line declaration-no-important
+}
+
+.conversation-message-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.conversation-message {
+  display: table;
+  width: 100%;
+  padding: 12px 0;
+  transition: background 1s ease-out;
+
+  &.alternate {
+    background-color: darken($body-bg, 5%);
+  }
+
+  + .conversation-message {
+    border-top: 1px solid #ccc;
+  }
+}
+
+.conversation-message__avatar,
+.conversation-message__text {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.conversation-message__avatar {
+  width: 60px;
+
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}

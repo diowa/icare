@@ -128,3 +128,11 @@ bower.json
 
 # Ignore sensitive data
 /config/settings/local.rb
+
+# Ignore webpack related files
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

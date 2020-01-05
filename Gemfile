@@ -13,8 +13,11 @@ gem 'rails', '6.0.2.1'
 # Servers
 gem 'puma', '~> 4.3'
 
+# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
+gem 'webpacker', '~> 4.2'
+
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+gem 'bootsnap', '~> 1.4', require: false
 
 # Background jobs within the same process as web application
 gem 'sucker_punch', '~> 2.1'
@@ -63,13 +66,9 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.2'
 
 # Assets
-gem 'autoprefixer-rails', '~> 9.7'
-gem 'bootstrap', '~> 4.4'
-gem 'coffee-rails', '~> 5.0'
 gem 'handlebars_assets', '~> 0.23.7'
 gem 'i18n-js', '~> 3.5'
-gem 'popper_js', '~> 1.14'
-gem 'sassc-rails', '~> 2.1'
+gem 'inline_svg', '~> 1.6'
 gem 'sprockets', '~> 4.0'
 gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
@@ -88,7 +87,6 @@ group :development, :test do
   gem 'rubocop-performance', '~> 1.5', require: false
   gem 'rubocop-rails', '~> 2.4', require: false
   gem 'rubocop-rspec', '~> 1.37', require: false
-  gem 'scss_lint', '~> 0.59.0', require: false
   gem 'slim_lint', '~> 0.20.0', require: false
 end
 
