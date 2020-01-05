@@ -13,16 +13,12 @@ input[type="text"] {
   display: inline-block;
   margin-bottom: 15px;
 
-  .fab,
-  .far,
-  .fas {
+  .icon--collapse {
     transition: all .25s ease-in-out;
   }
 
   &.collapsed {
-    .fab,
-    .far,
-    .fas {
+    .icon--collapse {
       transform: rotateZ(-90deg);
     }
   }
