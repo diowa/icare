@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.97.0
+
+* Use webpacker
+
 ## 0.96.1
 
 * Fix messages popover on mobile devices
