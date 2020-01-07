@@ -335,35 +335,6 @@ en-US:
       write_a_message: Write a message...
       send: Send
 
-  references:
-    common:
-      role: Role
-      driver: Driver
-      passenger: Passenger
-    reference:
-      didnt_write_yet: "%{name} didn't write yet"
-    index:
-      title: References
-    show:
-      title: Reference
-    new:
-      title: New reference
-    snippet:
-      positives:
-        zero: 0 positives
-        one: "%{count} positive"
-        other: "%{count} positives"
-      neutrals:
-        zero: 0 neutrals
-        one: "%{count} neutral"
-        other: "%{count} neutrals"
-      negatives:
-        zero: 0 negatives
-        one: "%{count} negative"
-        other: "%{count} negatives"
-    form:
-      write_a_reference: Write a reference...
-
   javascript:
     no_itineraries_found: No itineraries found
     an_error_occurred: Ops! An error occurred while searching for itineraries.

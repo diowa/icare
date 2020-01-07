@@ -45,18 +45,6 @@ FactoryBot.define do
     body { 'Hello' }
   end
 
-  factory :reference do
-    user
-    itinerary
-    referencing_user_id { itinerary.user.id }
-  end
-
-  factory :outgoing_reference, class: References::Outgoing.model_name do
-    reference
-    rating { 1 }
-    body { 'Positive!' }
-  end
-
   factory :feedback do
     user
     message { 'Generic Feedback' }

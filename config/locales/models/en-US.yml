@@ -4,9 +4,6 @@ en-US:
       user:
         one: User
         other: Users
-      reference:
-        one: Reference
-        other: References
       itinerary:
         one: Itinerary
         other: Itineraries
@@ -41,7 +38,6 @@ en-US:
         time_zone: Time zone
         vehicle_avg_consumption: Fuel cost
         send_email_messages: You receive a message
-        send_email_references: You receive a reference
       feedback:
         type: Type
         status: Status
@@ -67,12 +63,6 @@ en-US:
         return_date: Return date
         driver_gender: Driver's gender
         daily: Daily
-      reference:
-        body: Message
-        rating: Rating
-        rating_negative: Negative
-        rating_neutral: Neutral
-        rating_positive: Positive
       message:
         body: Message
     errors:

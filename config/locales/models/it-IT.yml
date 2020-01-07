@@ -41,7 +41,6 @@ it-IT:
         time_zone: Fuso orario
         vehicle_avg_consumption: Costo carburante
         send_email_messages: Si riceve un messaggio
-        send_email_references: Si riceve una referenza
       feedback:
         type: Tipo
         status: Stato

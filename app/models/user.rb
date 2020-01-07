@@ -59,7 +59,6 @@ class User < ApplicationRecord
   has_many :itineraries, dependent: :destroy
 
   embeds_many :notifications
-  embeds_many :references, cascade_callbacks: true
 
   # Uneditable user info
   field :bio,       type: String
@@ -105,10 +104,6 @@ class User < ApplicationRecord
 
   def unread_conversations_count
     conversations.unread(self).size
-  end
-
-  def unread_references_count
-    references.unread.size
   end
 
   def self.from_omniauth(auth_hash)

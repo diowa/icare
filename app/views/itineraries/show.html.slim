@@ -9,9 +9,6 @@
       = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary mr-2' do
         span.fas.fa-comment<>
         = t('.contact', user: @itinerary.user_first_name)
-      = link_to new_or_show_reference_path(@reference, @itinerary), class: 'btn btn-secondary' do
-        span.fas.fa-thumbs-up<>
-        = t('.send_reference')
       /
         .btn-group
           button.btn.btn-warning
