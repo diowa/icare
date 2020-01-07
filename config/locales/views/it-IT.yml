@@ -213,10 +213,6 @@ it-IT:
         zero: Nessun nuovo messaggio
         one: "%{count} nuovo messaggio"
         other: "%{count} nuovi messaggi"
-      new_notifications:
-        zero: Nessuna notifica
-        one: "%{count} notifica"
-        other: "%{count} notifiche"
       latest_itineraries: Itinerari recenti
       by: di
     calculator:
@@ -327,10 +323,6 @@ it-IT:
       new: Nuovo
       show_fixed: Mostra corretti
 
-  notifications:
-    index:
-      title: Notifiche
-
   conversations:
     index:
       title: Conversazioni
@@ -357,7 +349,3 @@ it-IT:
         title: Messaggi
         see_all: Mostra tutti
         no_new: Non ci sono nuovi messaggi
-      notifications:
-        title: Notifiche
-        see_all: Mostra tutte
-        no_new: Non ci sono nuove notifiche

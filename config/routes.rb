@@ -19,8 +19,6 @@ Rails.application.routes.draw do
     resources :build
   end
 
-  resources :notifications, only: :index
-
   resources :users, only: %i[show update destroy] do
     get :itineraries, on: :member
   end

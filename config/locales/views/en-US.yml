@@ -317,10 +317,6 @@ en-US:
       new: New
       show_fixed: Show fixed
 
-  notifications:
-    index:
-      title: Notifications
-
   conversations:
     index:
       title: Conversations
@@ -345,9 +341,5 @@ en-US:
     notifications:
       conversations:
         title: Messages
-        see_all: See all
-        no_new: No new messages
-      notifications:
-        title: Notifications
         see_all: See all
         no_new: No new messages

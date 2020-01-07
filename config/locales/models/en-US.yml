@@ -10,9 +10,6 @@ en-US:
       feedback:
         one: Feedback
         other: Feedbacks
-      notification:
-        one: Notification
-        other: Notifications
       conversation:
         one: Conversation
         other: Conversations
