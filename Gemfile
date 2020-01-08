@@ -73,6 +73,9 @@ gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
 gem 'uglifier', '~> 4.2'
 
+# Errors reporting
+gem 'airbrake', '~> 10.0'
+
 group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.0'
@@ -108,10 +111,6 @@ group :test do
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.17.1', require: false
   gem 'webmock', '~> 3.7', require: false
-end
-
-group :staging, :production do
-  gem 'airbrake', '~> 9.5'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
