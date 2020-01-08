@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.99.0
+
+* Completely remove sprockets
+* Update dependencies
+
 ## 0.98.2
 
 * Fix JavaScript translations
