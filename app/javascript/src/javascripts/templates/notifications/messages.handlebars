@@ -1,0 +1,21 @@
+<ul class="notification-message-list">
+  {{#each messages}}
+  <li class="notification-message">
+    <a href="{{url}}">
+      <div class="media">
+        <img class="mr-2" src="{{message.sender.image}}" width="50" height="50" alt="">
+        <div class="media-body">
+          <p class="mb-0 font-weight-bold text-truncate">
+            {{message.sender.name}}
+          </p>
+          <p class="mb-0 text-muted text-truncate">
+            {{message.body}}
+          </p>
+          <p class="mb-0 text-muted">
+            <small>{{localize "datetime.formats.message" message.date_sent}}</small>
+          </p>
+        </div>
+      </div>
+  </li>
+  {{/each}}
+</ul>

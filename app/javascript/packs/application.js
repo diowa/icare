@@ -16,7 +16,9 @@ require('src/javascripts/initialize-on-event')
 require('src/bootstrap')
 require('src/fontawesome')
 
-require('src/javascripts/handlebars-helpers')
+require('src/javascripts/vendor/i18n-translations')
+
+require('src/javascripts/handlebars')
 require('src/javascripts/conversations')
 require('src/javascripts/forms')
 require('src/javascripts/maps')
@@ -25,4 +27,5 @@ require('src/javascripts/maps-search')
 require('src/javascripts/navbar')
 require('src/javascripts/pages')
 
-window.$ = $
+// Expose jQuery to window
+window.$ = window.jQuery = $

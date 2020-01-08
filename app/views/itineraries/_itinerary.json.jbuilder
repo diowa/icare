@@ -14,5 +14,5 @@ json.user do
   json.call(itinerary.user, :name, :uid, :to_param, :facebook_verified)
 
   # TODO: move to front-end
-  json.image itinerary.user.image? ? itinerary.user.image : image_path('user.jpg')
+  json.image itinerary.user.image? ? itinerary.user.image : asset_pack_path('media/images/user.jpg')
 end

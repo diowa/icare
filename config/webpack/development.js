@@ -9,8 +9,10 @@ environment.plugins.append(
   })
 )
 
-environment.loaders.get('babel').use.push({
+environment.loaders.insert('standard-loader', {
   loader: 'standard-loader',
+  test: /\.js$/,
+  exclude: /vendor\/.+\.js$/,
   options: {
     error: true,
     globals: [
@@ -24,6 +26,6 @@ environment.loaders.get('babel').use.push({
       'initGoogleMaps'
     ]
   }
-})
+}, { after: 'babel'} )
 
 module.exports = environment.toWebpackConfig()

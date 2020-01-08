@@ -65,13 +65,9 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.2'
 
 # Assets
-gem 'handlebars_assets', '~> 0.23.7'
 gem 'i18n-js', '~> 3.5'
 gem 'inline_svg', '~> 1.6'
-gem 'sprockets', '~> 4.0'
-gem 'sprockets-rails', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
-gem 'uglifier', '~> 4.2'
 
 # Errors reporting
 gem 'airbrake', '~> 10.0'

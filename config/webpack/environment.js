@@ -7,6 +7,11 @@ environment.loaders.get('sass').use.splice(-1, 0, {
   loader: 'resolve-url-loader'
 });
 
+environment.loaders.append('handlebars-loader', {
+  test: /\.handlebars$/,
+  use: 'handlebars-loader'
+})
+
 // Add an additional plugin of your choosing : ProvidePlugin
 environment.plugins.prepend(
   'Provide',
@@ -18,6 +23,9 @@ environment.plugins.prepend(
 
     // Window
     'window.jQuery': 'jquery',
+
+    // I18n
+    'I18n': 'i18n-js',
 
     // Bootstrap dependencies
     Popper: ['popper.js', 'default'],
