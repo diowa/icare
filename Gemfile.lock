@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/diowa/validates_timeliness-mongoid.git
-  revision: f9874114c1607f738a62fff78919a358e9c66360
-  specs:
-    validates_timeliness-mongoid (0.1.0)
-      validates_timeliness (~> 4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,6 +45,9 @@ GEM
     activerecord (6.0.2.1)
       activemodel (= 6.0.2.1)
       activesupport (= 6.0.2.1)
+    activerecord-postgis-adapter (6.0.0)
+      activerecord (~> 6.0)
+      rgeo-activerecord (~> 6.0)
     activestorage (6.0.2.1)
       actionpack (= 6.0.2.1)
       activejob (= 6.0.2.1)
@@ -80,7 +76,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
-    bson (4.7.0)
     builder (3.2.4)
     bullet (6.1.0)
       activesupport (>= 3.0.0)
@@ -140,6 +135,8 @@ GEM
     faraday (1.0.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.3)
+    friendly_id (5.3.0)
+      activerecord (>= 4.0.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     handlebars_assets (0.23.7)
@@ -182,9 +179,6 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-    kaminari-mongoid (1.0.1)
-      kaminari-core (~> 1.0)
-      mongoid
     koala (3.0.0)
       addressable
       faraday
@@ -206,27 +200,6 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.13.0)
-    mongo (2.11.2)
-      bson (>= 4.6.0, < 5.0.0)
-    mongoid (7.0.5)
-      activemodel (>= 5.1, < 6.1)
-      mongo (>= 2.5.1, < 3.0.0)
-    mongoid-compatibility (0.5.1)
-      activesupport
-      mongoid (>= 2.0)
-    mongoid-geospatial (5.1.0)
-      mongoid (>= 4.0.0)
-    mongoid-rspec (4.0.1)
-      activesupport (>= 3.0.0)
-      mongoid (>= 3.1)
-      mongoid-compatibility (>= 0.5.1)
-      rspec (~> 3.3)
-    mongoid-slug (6.0.0)
-      mongoid (>= 3.0)
-      mongoid-compatibility
-      stringex (~> 2.0)
-    mongoid_paranoia (0.4.0)
-      mongoid (~> 7.0)
     msgpack (1.3.1)
     multi_json (1.14.1)
     multi_xml (0.6.0)
@@ -253,6 +226,7 @@ GEM
     parallel (1.19.1)
     parser (2.7.0.1)
       ast (~> 2.4.0)
+    pg (1.2.1)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -306,10 +280,10 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
-    rspec (3.9.0)
-      rspec-core (~> 3.9.0)
-      rspec-expectations (~> 3.9.0)
-      rspec-mocks (~> 3.9.0)
+    rgeo (2.1.1)
+    rgeo-activerecord (6.2.1)
+      activerecord (>= 5.0)
+      rgeo (>= 1.0.0)
     rspec-core (3.9.1)
       rspec-support (~> 3.9.1)
     rspec-expectations (3.9.0)
@@ -380,7 +354,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    stringex (2.8.5)
     sucker_punch (2.1.2)
       concurrent-ruby (~> 1.0)
     sync (0.5.0)
@@ -430,6 +403,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activerecord-postgis-adapter (~> 6.0)
   addressable (~> 2.7)
   airbrake (~> 9.5)
   better_errors (~> 2.5)
@@ -446,6 +420,7 @@ DEPENDENCIES
   email_spec (~> 2.2)
   factory_bot_rails (~> 5.1)
   faker (~> 2.10)
+  friendly_id (~> 5.2)
   handlebars_assets (~> 0.23.7)
   http_accept_language (~> 2.1)
   i18n-js (~> 3.5)
@@ -453,22 +428,18 @@ DEPENDENCIES
   jbuilder (~> 2.9)
   jquery-rails (~> 4.3)
   kaminari (~> 1.1)
-  kaminari-mongoid (~> 1.0)
   koala (~> 3.0)
   launchy (~> 2.4)
   listen (~> 3.2)
-  mongoid (~> 7.0)
-  mongoid-geospatial (~> 5.1)
-  mongoid-rspec (~> 4.0)
-  mongoid-slug (~> 6.0)
-  mongoid_paranoia (~> 0.4.0)
   newrelic_rpm (~> 6.8)
   omniauth-facebook (~> 5.0)
+  pg (~> 1.1)
   pry (~> 0.12.2)
   pry-byebug (~> 3.7)
   pry-rails (~> 0.3.9)
   puma (~> 4.3)
   rails (= 6.0.2.1)
+  rgeo (~> 2.0)
   rspec-rails (~> 3.9)
   rubocop (~> 0.79.0)
   rubocop-performance (~> 1.5)
@@ -491,7 +462,6 @@ DEPENDENCIES
   tzinfo-data (~> 1.2018)
   uglifier (~> 4.2)
   validates_timeliness (~> 4.1)
-  validates_timeliness-mongoid!
   web-console (~> 4.0)
   webmock (~> 3.7)
   webpacker (~> 4.2)

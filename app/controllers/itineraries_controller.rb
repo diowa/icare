@@ -17,8 +17,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-    @conversation = @itinerary.conversations.find_or_initialize_by(user_ids: [current_user.id, @itinerary.user.id]) if current_user
-    @reference = current_user.references.find_or_initialize_by(itinerary_id: @itinerary.id) if current_user
+    @conversation = @itinerary.conversations.find_or_initialize_by(sender: current_user, receiver: @itinerary.user) if current_user
     session[:redirect_to] = itinerary_path(@itinerary) unless user_signed_in?
   end
 
@@ -32,11 +31,11 @@ class ItinerariesController < ApplicationController
   end
 
   def edit
-    @itinerary = current_user.itineraries.find params[:id]
+    @itinerary = current_user.itineraries.friendly.find params[:id]
   end
 
   def update
-    @itinerary = current_user.itineraries.find params[:id]
+    @itinerary = current_user.itineraries.friendly.find params[:id]
     if @itinerary.update itinerary_params
       redirect_to itinerary_path(@itinerary), flash: { success: t('flash.itineraries.success.update') }
     else
@@ -45,7 +44,7 @@ class ItinerariesController < ApplicationController
   end
 
   def destroy
-    @itinerary = current_user.itineraries.find params[:id]
+    @itinerary = current_user.itineraries.friendly.find params[:id]
     @itinerary.destroy
     redirect_to itineraries_user_path(current_user), flash: { success: t('flash.itineraries.success.destroy') }
   end
@@ -59,7 +58,7 @@ class ItinerariesController < ApplicationController
   def check_permissions; end
 
   def set_itinerary
-    @itinerary = Itinerary.find params[:id]
+    @itinerary = Itinerary.friendly.find params[:id]
   end
 
   def itinerary_params

@@ -5,9 +5,11 @@
 
 SimpleConfig.for :application do
   group :itineraries do
-    group :bounds do
-      set :sw, [2, 5]
-      set :ne, [4, 7]
-    end
+    set :bounds, [
+      [5, 4],
+      [7, 4],
+      [2, 7],
+      [2, 5]
+    ]
   end
 end

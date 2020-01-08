@@ -12,7 +12,7 @@
     table.table
       thead
         tr
-          th = Feedback.human_attribute_name(:type)
+          th = Feedback.human_attribute_name(:category)
           th = Feedback.human_attribute_name(:status)
           th = User.model_name.human
           th = Feedback.human_attribute_name(:message)
@@ -21,10 +21,10 @@
       tbody
         - @feedbacks.each do |feedback|
           tr.vertical-align-middle class=('success' if feedback.fixed?)
-            td = feedback.type
+            td = feedback.category.upcase
             td = feedback.status.upcase
             td
-              - if feedback.user?
+              - if feedback.user.present?
                 = link_to feedback.user_name, user_path(feedback.user)
               - else
                 span.text-muted = t('former_user')

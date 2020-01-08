@@ -1,7 +1,6 @@
 language: ruby
 
 services:
-  - mongodb
   - redis-server
 
 rvm:
@@ -9,6 +8,10 @@ rvm:
 
 addons:
   chrome: stable
+  postgresql: 9.6
+  apt:
+    packages:
+      - postgresql-9.6-postgis-2.4
 
 cache:
   bundler: true
@@ -26,4 +29,5 @@ before_install:
   - unzip chromedriver_linux64.zip -d ~/bin
 
 before_script:
-  - bundle exec rake db:mongoid:create_indexes
+  - psql -c 'create database "icare_test";' -U postgres
+  - bundle exec rails g rgeo_supports_geos db:schema:load

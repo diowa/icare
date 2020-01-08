@@ -6,7 +6,7 @@ module Admin
     before_action :prevent_autoban, only: %i[ban unban]
 
     def index
-      @users = User.asc(:name).page params[:page]
+      @users = User.order(:name).page params[:page]
     end
 
     def login_as

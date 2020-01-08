@@ -4,12 +4,11 @@ class ConversationsController < ApplicationController
   after_action :mark_as_read, only: [:show]
 
   def index
-    # NOTE nested eager loading is not available
-    @conversations = current_user.conversations.includes(:users).desc(:updated_at).page params[:page]
+    @conversations = current_user.conversations.order(updated_at: :desc).page params[:page]
   end
 
   def show
-    @conversation = current_user.conversations.includes(:users).find(params[:id])
+    @conversation = current_user.conversations.find(params[:id])
     @itinerary = Itinerary.find(@conversation.conversable_id)
   end
 
@@ -20,7 +19,7 @@ class ConversationsController < ApplicationController
 
   def create
     @itinerary = Itinerary.includes(:user).find(params[:itinerary_id])
-    @conversation = ConversationBuild.new(conversation_params, current_user, @itinerary).conversation
+    @conversation = ConversationBuild.new(current_user, @itinerary.user, @itinerary, conversation_params).conversation
     if @conversation.save
       redirect_to conversation_path(@conversation)
     else
@@ -32,7 +31,7 @@ class ConversationsController < ApplicationController
 
   def update
     @conversation = current_user.conversations.find(params[:id])
-    @conversation.messages.build ConversationBuild.new(conversation_params, current_user, @itinerary).message
+    @conversation.messages.build ConversationBuild.new(current_user, nil, nil, conversation_params).message
     if @conversation.save
       redirect_to conversation_path(@conversation)
     else
@@ -44,10 +43,9 @@ class ConversationsController < ApplicationController
   end
 
   def unread
-    # NOTE nested eager loading is not available
     respond_to do |format|
       format.json do
-        @conversations = current_user.conversations.includes(:users).unread(current_user).desc(:updated_at).limit(5)
+        @conversations = current_user.conversations.unread(current_user).order(updated_at: :desc).limit(5)
       end
       format.html do
         redirect_to :conversations

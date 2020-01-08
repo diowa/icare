@@ -22,7 +22,6 @@ RSpec.describe 'Users' do
 
     expect(page).to have_current_path root_path
     expect(User.count).to be 0
-    expect(User.deleted.count).to be 1
     expect(page).to have_content t('flash.users.success.destroy')
   end
 
@@ -96,47 +95,10 @@ RSpec.describe 'Users' do
                     facebook_verified:  true
     end
 
-    def create_friends_and_refresh(friends)
-      user.update_attribute :facebook_friends, Array.new(friends.to_i) { |i| { 'id' => "90110#{i}", 'name' => "Friend #{i}" } }
-      user.reload
-
-      visit user_path(user)
-    end
-
     before do
       user
       visit user_facebook_omniauth_authorize_path
       visit user_path(user)
-    end
-
-    it 'shows reference tags' do
-      itinerary = create :itinerary, user: user
-
-      passengers = Array.new(6) { |_| create :user }
-
-      # 1 negative reference
-      reference = create :reference, user: passengers.first, itinerary: itinerary
-      build :outgoing_reference, reference: reference, rating: -1, body: 'Negative'
-      reference.save
-
-      # 2 neutral references
-      passengers[1..2].each do |passenger|
-        reference = create :reference, user: passenger, itinerary: itinerary
-        build :outgoing_reference, reference: reference, rating: 0, body: 'Neutral'
-        reference.save
-      end
-
-      # 3 negative references
-      passengers[3..5].each do |passenger|
-        reference = create :reference, user: passenger, itinerary: itinerary
-        build :outgoing_reference, reference: reference
-        reference.save
-      end
-      user.reload
-      visit user_path(user)
-      expect(page).to have_content t('references.snippet.positives', count: user.references.positives.count)
-      expect(page).to have_content t('references.snippet.neutrals', count: user.references.neutrals.count)
-      expect(page).to have_content t('references.snippet.negatives', count: user.references.negatives.count)
     end
 
     it 'highlights common languages' do

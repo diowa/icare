@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ItinerarySearch
-  SPHERE_RADIUS = 5.fdiv Mongoid::Geospatial.earth_radius[:km]
+  SEARCH_RADIUS_METERS = 5000
+  GEO_WHERE_CONDITION = 'ST_DWithin(start_location, Geography(ST_MakePoint(:start_lon, :start_lat)), :search_meters) AND ST_DWithin(end_location, Geography(ST_MakePoint(:end_lon, :end_lat)), :search_meters)'
 
   def initialize(params, user)
     @params = params
@@ -11,19 +12,19 @@ class ItinerarySearch
 
   def itineraries
     # OPTIMIZE
-    a_location = [@params[:start_location_lng].to_f, @params[:start_location_lat].to_f]
-    b_location = [@params[:end_location_lng].to_f, @params[:end_location_lat].to_f]
+    start_location = [@params[:start_location_lng].to_f, @params[:start_location_lat].to_f]
+    end_location = [@params[:end_location_lng].to_f, @params[:end_location_lat].to_f]
 
     # Applying filters
     filters = extract_filters_from_params
     itineraries = Itinerary.includes(:user).where(filters)
 
     # Getting itineraries from A to B
-    from_a_to_b_itineraries = itineraries.where(:start_location.within_spherical_circle => [a_location, SPHERE_RADIUS], :end_location.within_spherical_circle => [b_location, SPHERE_RADIUS], :leave_date.gt => @now)
+    from_a_to_b_itineraries = geographic_filtered_itineraries(itineraries, start_location, end_location).where('leave_date >= ?', @now)
 
     # From B to A, unless passenger searched for a round trip
     # NOTE: Think about it - driver may need a travelmate for the whole trip
-    from_b_to_a_itineraries = filters[:round_trip] ? [] : get_reversed(itineraries, a_location, b_location)
+    from_b_to_a_itineraries = filters[:round_trip] ? [] : geographic_filtered_itineraries(itineraries, end_location, start_location).where('return_date >= ?', @now)
 
     # Sum results
     from_a_to_b_itineraries + from_b_to_a_itineraries
@@ -31,8 +32,8 @@ class ItinerarySearch
 
   private
 
-  def get_reversed(itineraries, a_location, b_location)
-    itineraries.where round_trip: true, :start_location.within_spherical_circle => [b_location, SPHERE_RADIUS], :end_location.within_spherical_circle => [a_location, SPHERE_RADIUS], :return_date.gt => @now
+  def geographic_filtered_itineraries(itineraries, start_location, end_location, search_radius_meters = SEARCH_RADIUS_METERS)
+    itineraries.where GEO_WHERE_CONDITION, start_lon: start_location[0], start_lat: start_location[1], end_lon: end_location[0], end_lat: end_location[1], search_meters: search_radius_meters
   end
 
   def extract_filters_from_params

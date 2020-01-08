@@ -213,14 +213,6 @@ it-IT:
         zero: Nessun nuovo messaggio
         one: "%{count} nuovo messaggio"
         other: "%{count} nuovi messaggi"
-      new_notifications:
-        zero: Nessuna notifica
-        one: "%{count} notifica"
-        other: "%{count} notifiche"
-      new_references:
-        zero: Nessuna nuova referenza
-        one: "%{count} nuova referenza"
-        other: "%{count} nuove referenze"
       latest_itineraries: Itinerari recenti
       by: di
     calculator:
@@ -331,10 +323,6 @@ it-IT:
       new: Nuovo
       show_fixed: Mostra corretti
 
-  notifications:
-    index:
-      title: Notifiche
-
   conversations:
     index:
       title: Conversazioni
@@ -349,35 +337,6 @@ it-IT:
       write_a_message: Scrivi un messaggio...
       send: Invia
 
-  references:
-    common:
-      role: Ruolo
-      driver: Guidatore
-      passenger: Passeggero
-    reference:
-      didnt_write_yet: "%{name} non ha ancora scritto"
-    index:
-      title: Referenze
-    show:
-      title: Referenza
-    new:
-      title: Nuova referenza
-    snippet:
-      positives:
-        zero: 0 positive
-        one: "%{count} positiva"
-        other: "%{count} positive"
-      neutrals:
-        zero: 0 neutrali
-        one: "%{count} neutrale"
-        other: "%{count} neutrali"
-      negatives:
-        zero: 0 negative
-        one: "%{count} negativa"
-        other: "%{count} negative"
-    form:
-      write_a_reference: Scrivi una referenza...
-
   javascript:
     no_itineraries_found: Nessun itinerario trovato
     an_error_occurred: Ops! Si è verificato un errore nella ricerca degli itinerari
@@ -390,7 +349,3 @@ it-IT:
         title: Messaggi
         see_all: Mostra tutti
         no_new: Non ci sono nuovi messaggi
-      notifications:
-        title: Notifiche
-        see_all: Mostra tutte
-        no_new: Non ci sono nuove notifiche

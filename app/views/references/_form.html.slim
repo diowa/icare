@@ -1,9 +1,0 @@
-= simple_form_for [current_user, @reference], validate: true do |f|
-  = hidden_field_tag :itinerary_id, @itinerary.id
-  == render 'shared/error_messages', object: f.object
-  = f.input :body, as: :text, input_html: { rows: 5 }, placeholder: t('.write_a_reference')
-  .form-group
-    label.control-label = Reference.human_attribute_name(:rating)
-    br
-    = reference_radio_buttons(f)
-  = f.button :button, class: 'btn-primary', data: { disable_with: t('helpers.disable_with') }

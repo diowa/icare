@@ -1,5 +1,5 @@
 it-IT:
-  mongoid:
+  activerecord:
     models:
       user:
         one: Utente
@@ -41,9 +41,8 @@ it-IT:
         time_zone: Fuso orario
         vehicle_avg_consumption: Costo carburante
         send_email_messages: Si riceve un messaggio
-        send_email_references: Si riceve una referenza
       feedback:
-        type: Tipo
+        category: Categoria
         status: Stato
         message: Messaggio
         updated_at: Ultima modifica
@@ -89,8 +88,8 @@ it-IT:
               driver_must_be_female: solo le donne possono creare itinerari rosa
         conversation:
           attributes:
-            user_ids:
-              already_exists: hai già una conversazione su questo itinerario
+            receiver:
+              yourself: non puoi iniziare una conversazione con te stesso
         reference:
           attributes:
             user:

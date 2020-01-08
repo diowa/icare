@@ -47,11 +47,16 @@ SimpleConfig.for :application do
   group :itineraries do
     # Enable this option if you want to restrict itineraries inside a geographic area
     set :geo_restricted, false
-    group :bounds do
-      # Island of Ischia
-      set :sw, [40.69205729999999, 13.850980400000026]
-      set :ne, [40.7615088, 13.966879699999936]
-    end
+
+    # Island of Ischia boundaries as Line String, in [lng, lat] format
+    # Create one at https://www.gmapgis.com/
+    set :bounds, [
+      [13.85861, 40.77019],
+      [13.97695, 40.74631],
+      [13.97463, 40.69827],
+      [13.86784, 40.6822],
+      [13.8335, 40.72306]
+    ]
   end
 
   group :mailer do

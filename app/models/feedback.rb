@@ -1,25 +1,22 @@
 # frozen_string_literal: true
 
-class Feedback
-  include Mongoid::Document
-  include Mongoid::Timestamps
+class Feedback < ApplicationRecord
+  enum category: {
+    bug:  'bug',
+    idea: 'idea'
+  }
 
-  TYPE = %w[bug idea].freeze
-  STATUS = ['open', 'fixed', 'in progress', 'not applicable'].freeze
+  enum status: {
+    open:           'open',
+    fixed:          'fixed',
+    in_progress:    'in_progress',
+    not_applicable: 'not_applicable'
+  }
 
   belongs_to :user
   delegate :name, to: :user, prefix: true, allow_nil: true
 
-  field :type, type: String, default: 'bug'
-  field :message, type: String
-  field :url, type: String
-  field :status, type: String, default: 'open'
-
-  validates :type, inclusion: TYPE, presence: true
-  validates :status, inclusion: STATUS, presence: true
+  validates :category, presence: true, inclusion: { in: categories.values }
+  validates :status, presence: true, inclusion: { in: statuses.values }
   validates :message, presence: true
-
-  def fixed?
-    status == 'fixed'
-  end
 end

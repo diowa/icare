@@ -1,42 +1,22 @@
 # frozen_string_literal: true
 
-class Itinerary
-  include Mongoid::Document
-  include Mongoid::MultiParameterAttributes
-  include Mongoid::Paranoia
-  include Mongoid::Slug
-  include Mongoid::Timestamps
-
+class Itinerary < ApplicationRecord
   include GeoItinerary
+  extend FriendlyId
 
   DAYNAME = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday].freeze
+
+  friendly_id :name, use: :slugged
+
+  def name
+    [start_address, end_address].join ' '
+  end
+
+  has_many :conversations, as: :conversable, dependent: :destroy
 
   belongs_to :user
   delegate :name, to: :user, prefix: true
   delegate :first_name, to: :user, prefix: true
-
-  has_many :conversations, as: :conversable, inverse_of: :conversable, dependent: :destroy
-
-  # Details
-  field :description
-  field :num_people, type: Integer
-  field :smoking_allowed, type: Boolean, default: false
-  field :pets_allowed, type: Boolean, default: false
-  field :fuel_cost, type: Integer, default: 0
-  field :tolls, type: Integer, default: 0
-  field :pink, type: Boolean, default: false
-  field :round_trip, type: Boolean, default: false
-  field :leave_date, type: DateTime
-  field :return_date, type: DateTime
-  field :daily, type: Boolean, default: false
-
-  # Cached user details (for filtering purposes)
-  field :driver_gender
-  field :verified
-
-  slug :start_address, :end_address, reserve: %w[new]
-
-  # default_scope -> { any_of({:leave_date.gte => Time.now.utc}, {:return_date.gte => Time.now.utc, round_trip: true}, { daily: true }) }
 
   validates :description, length: { maximum: 1000 }, presence: true
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true

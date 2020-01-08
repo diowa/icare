@@ -3,57 +3,88 @@
 require 'rails_helper'
 
 RSpec.describe Conversation do
-  let(:driver) { create :user }
-  let(:passenger) { create :user }
-  let(:itinerary) { create :itinerary, user: driver }
-  let(:conversation) { create :conversation, users: [driver, passenger], conversable: itinerary }
+  subject(:conversation) { described_class.new sender: sender, receiver: receiver, conversable: itinerary }
 
-  describe '#unread?' do
-    it 'knows if there are unread messages for user' do
-      conversation.messages << build(:message, sender: passenger, body: 'First unread message from Passenger')
-      expect(conversation.unread?(driver)).to be true
-      expect(conversation.unread?(passenger)).to be false
+  let(:receiver) { create :user }
+  let(:sender) { create :user }
+  let(:itinerary) { create :itinerary, user: receiver }
+
+  it 'does not allow conversation between the same user' do
+    invalid_conversation = build :conversation, sender: receiver, receiver: receiver
+    expect(invalid_conversation.valid?).to be false
+    expect(invalid_conversation.errors.messages).to have_key :receiver
+  end
+
+  describe '#participants' do
+    it 'returns an array with sender and receiver' do
+      expect(conversation.participants).to match_array [sender, receiver]
     end
   end
 
-  describe '#users_except' do
-    it 'returns all users except the provided one' do
-      expect(conversation.users_except(driver).size).to be 1
-      expect(conversation.users_except(driver).first).to be passenger
-      expect(conversation.users_except(passenger).size).to be 1
-      expect(conversation.users_except(passenger).first).to be driver
-      expect(conversation.users_except(nil).size).to be 2
-      expect(conversation.users_except(nil).include?(passenger)).to be true
-      expect(conversation.users_except(nil).include?(driver)).to be true
-    end
-  end
+  describe '#participates?' do
+    context 'when user participates to conversation as sender' do
+      subject { conversation.participates?(sender) }
 
-  describe '#mark_as_read!' do
-    it 'marks the conversation as read for provided user' do
-      conversation.mark_as_read!(driver)
-      expect(conversation.unread?(driver)).to be false
+      it { is_expected.to be true }
+    end
+
+    context 'when user participates to conversation as receiver' do
+      subject { conversation.participates?(receiver) }
+
+      it { is_expected.to be true }
+    end
+
+    context 'when user does not participate to conversation' do
+      subject { conversation.participates?(create(:user)) }
+
+      it { is_expected.to be false }
     end
   end
 
   describe '#last_unread_message' do
     it 'returns the last unread message' do
-      conversation.messages << build(:message, sender: passenger, body: 'First unread message from Passenger')
-      expect(conversation.last_unread_message(driver).body).to eq 'First unread message from Passenger'
-      expect(conversation.last_unread_message(passenger)).to be_nil
-      conversation.messages << build(:message, sender: passenger, body: 'Second unread message from Passenger')
-      expect(conversation.last_unread_message(driver).body).to eq 'Second unread message from Passenger'
-      conversation.messages << build(:message, sender: driver, body: 'First unread message from Driver')
-      expect(conversation.last_unread_message(passenger).body).to eq 'First unread message from Driver'
+      conversation.messages << build(:message, sender: sender, body: 'First unread message from sender')
+      conversation.save
+      expect(conversation.last_unread_message(receiver).body).to eq 'First unread message from sender'
+      expect(conversation.last_unread_message(sender)).to be_nil
+
+      conversation.messages << build(:message, sender: sender, body: 'Second unread message from sender')
+      conversation.save
+      expect(conversation.last_unread_message(receiver).body).to eq 'Second unread message from sender'
+      expect(conversation.last_unread_message(sender)).to be_nil
+
+      conversation.messages << build(:message, sender: receiver, body: 'First unread message from receiver')
+      conversation.save
+      expect(conversation.last_unread_message(sender).body).to eq 'First unread message from receiver'
     end
   end
 
-  describe Message do
-    describe '#unread?' do
-      it 'knows when message is unread' do
-        message = build(:message, sender: passenger, body: 'First unread message from Passenger')
-        conversation.messages << message
-        expect(message.unread?).to be true
-      end
+  describe '#mark_as_read!' do
+    it 'marks the conversation as read for provided user' do
+      conversation.mark_as_read!(receiver)
+      expect(conversation.unread?(receiver)).to be false
+    end
+  end
+
+  describe '#unread?' do
+    before do
+      conversation.messages << build(:message, sender: sender, body: 'First unread message from sender')
+      conversation.save
+    end
+
+    it 'knows if there are unread messages for user' do
+      expect(conversation.unread?(receiver)).to be true
+      expect(conversation.unread?(sender)).to be false
+    end
+  end
+
+  describe '#with' do
+    subject(:conversation) { described_class.new sender: sender, receiver: receiver }
+
+    it 'returns the other user' do
+      expect(conversation.with(receiver)).to eq sender
+      expect(conversation.with(sender)).to eq receiver
+      expect(conversation.with(nil)).to eq sender
     end
   end
 end
