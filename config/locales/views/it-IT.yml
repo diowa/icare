@@ -51,6 +51,7 @@ it-IT:
       read_more: Leggi tutto
       show_on_map: Mostra sulla mappa
       facebook_verified: Verificato su Facebook
+    loading: Caricamento...
 
   meta_title: "Piattaforma Open Source di Carpooling"
   meta_description: "%{appname} è una piattaforma open source per il carpooling. Condividi i tuoi itinerari, risparmia soldi e guadagna amici."

@@ -22,5 +22,6 @@
 #
 
 translations:
-  - file: 'app/assets/javascripts/i18n/translations.js'
+  - file: 'app/javascript/src/javascripts/vendor/i18n-translations.js'
+    prefix: "import I18n from 'i18n-js';\nI18n.defaultLocale = document.documentElement.getAttribute('data-default-lang')\nI18n.locale = document.documentElement.lang\n"
     only: ['*.boolean', '*.date', '*.time', '*.datetime', '*.javascript', '*.shared.navbar', '*.templates', '*.activerecord.attributes.itinerary']

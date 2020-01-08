@@ -10,7 +10,7 @@ json.message do
   json.read_at   last_message.read_at
 
   json.sender do
-    json.image last_message.sender&.image || image_path('user.jpg')
+    json.image last_message.sender&.image || asset_pack_path('media/images/user.jpg')
     json.name last_message.sender&.name || 'Former user'
   end
 end
