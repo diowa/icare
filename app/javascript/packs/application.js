@@ -5,9 +5,10 @@
 
 import 'src/application.scss'
 
+import {} from 'jquery-ujs'
+
 require.context('../images', true)
 
-require('@rails/ujs').start()
 require('turbolinks').start()
 
 require('src/javascripts/initialize-on-event')

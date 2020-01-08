@@ -1,9 +1,3 @@
-/*
- * decaffeinate suggestions:
- * DS102: Remove unnecessary code created because of implicit returns
- * DS207: Consider shorter variations of null checks
- * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
- */
 window.icare = window.icare || {}
 const {
   icare
@@ -81,13 +75,13 @@ const drawPath = function (itinerary, strokeColor, strokeOpacity) {
 }
 
 const clearItineraries = () => {
-  if (icare.itineraries != null) {
+  if (icare.itineraries) {
     $(icare.itineraries).each(function () {
-      return this.setMap(null)
+      this.setMap(null)
     })
   }
 
-  if (icare.customMarkers != null) {
+  if (icare.customMarkers) {
     for (const customMarker of Object.keys(icare.customMarkers)) {
       icare.customMarkers[customMarker].setMap(null)
     }
@@ -126,14 +120,12 @@ const initItineraryIndex = function () {
 
   $('#itineraries-search').on('click', function (e) {
     e.preventDefault()
-    const {
-      validators
-    } = $('#new_itineraries_search')[0].ClientSideValidations.settings
+    const validators = $('#new_itineraries_search')[0].ClientSideValidations.settings
     if (!$('#new_itineraries_search').isValid(validators)) { return }
 
     $('#map-error-j').hide()
 
-    return $.when(
+    $.when(
       lookupPosition('from'),
       lookupPosition('to')
     ).then(function (fromResult, toResult) {
@@ -143,31 +135,28 @@ const initItineraryIndex = function () {
       $('#itineraries_search_to').val(toResult.formatted_address)
       $('#itineraries_search_end_location_lat').val(toResult.lat)
       $('#itineraries_search_end_location_lng').val(toResult.lng)
-      return $('#new_itineraries_search').submit()
+      $('#new_itineraries_search').submit()
     })
   })
 
   $('#new_itineraries_search').on('keypress', function (e) {
     if (e && (e.keyCode === 13)) {
       e.preventDefault()
-      return $('#itineraries-search').click()
+      $('#itineraries-search').click()
     }
   })
 
   $('#new_itineraries_search')
-    .on('submit', evt => clearItineraries()).on('ajax:beforeSend', (evt, xhr, settings) => $('#itineraries-spinner-j').show()).on('ajax:complete', (evt, xhr, settings) => $('#itineraries-spinner-j').hide()).on('ajax:error', function (evt, xhr, settings) {
-      $('#itineraries-thumbs').html(`\
-<div class="col-12"><h3 class="error-text no-margin">${I18n.t('javascript.an_error_occurred')}</h3></div>\
-`
-      )
-      return false
-    }).on('ajax:success', function (evt, data, status, xhr) {
+    .on('submit', evt => clearItineraries())
+    .on('ajax:beforeSend', (evt, xhr, settings) => $('#itineraries-spinner-j').show())
+    .on('ajax:complete', (evt, xhr, settings) => $('#itineraries-spinner-j').hide())
+    .on('ajax:error', (evt, xhr, settings) => {
+      $('#itineraries-thumbs').html(`<div class="col-12"><h3 class="error-text no-margin">${I18n.t('javascript.an_error_occurred')}</h3></div>`)
+    })
+    .on('ajax:success', function (evt, data, status, xhr) {
       // FIXME: browser back calls ajax:success multiple times
       if (data.length === 0) {
-        return $('#itineraries-thumbs').html(`\
-<div class="col-12"><h3 class="no-margin">${I18n.t('javascript.no_itineraries_found')}</h3></div>\
-`
-        )
+        $('#itineraries-thumbs').html(`<div class="col-12"><h3 class="no-margin">${I18n.t('javascript.no_itineraries_found')}</h3></div>`)
       } else {
         $('#itineraries-thumbs').html('')
         let index = 0
@@ -176,18 +165,17 @@ const initItineraryIndex = function () {
           const color = routeColoursArray[index++ % routeColoursArray.length]
           drawPath(this, color)
           this.backgroundColor = hexToRgba(color, 0.45) // backgroundColor injection, waiting for proper @data support in handlebars
-          return $('#itineraries-thumbs').append(HandlebarsTemplates['itineraries/thumbnail'](this))
+          $('#itineraries-thumbs').append(HandlebarsTemplates['itineraries/thumbnail'](this))
         })
         icare.map.fitBounds(icare.latLngBounds)
-        return $('.facebook-verified-tooltip').tooltip()
+        $('.facebook-verified-tooltip').tooltip()
       }
     })
 
-  return $(document).on('click', '.show-itinerary-on-map', function (e) {
+  $(document).on('click', '.show-itinerary-on-map', function (e) {
     e.preventDefault()
     google.maps.event.trigger(icare.customMarkers[$(this).closest('.itinerary-thumbnail').data('itineraryId')], 'click')
     $(window).scrollTop('#index-itineraries-map')
-    return false
   })
 }
 
