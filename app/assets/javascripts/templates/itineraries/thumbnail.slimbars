@@ -17,25 +17,25 @@
         | {{#if pink}}
         span.text-pink
           span.fas.fa-lock<>
-          ' {{translate "mongoid.attributes.itinerary.pink"}}
+          ' {{translate "activerecord.attributes.itinerary.pink"}}
         br
         | {{/if}}
         | {{#if daily}}
         br
         span.fas.fa-redo<>
         span.text-muted
-          ' {{translate "mongoid.attributes.itinerary.daily"}}
+          ' {{translate "activerecord.attributes.itinerary.daily"}}
         span.fas.fa-clock<>
         ' {{localize "time.formats.time_only" leave_date}}
         | {{else}}
         span.text-muted<
-          ' {{translate "mongoid.attributes.itinerary.leave_date"}}:
+          ' {{translate "activerecord.attributes.itinerary.leave_date"}}:
         ' {{localize "date.formats.long" leave_date}}
         ' {{localize "time.formats.time_only" leave_date}}
         | {{#if round_trip}}
         br
         span.text-muted
-          ' {{translate "mongoid.attributes.itinerary.return_date"}}:
+          ' {{translate "activerecord.attributes.itinerary.return_date"}}:
         ' {{localize "date.formats.long" return_date}}
         span.fas.fa-clock<>
         | {{localize "time.formats.time_only" return_date}}
@@ -43,11 +43,11 @@
         | {{/if}}
         br
         span.text-muted
-          ' {{translate "mongoid.attributes.itinerary.fuel_cost"}}:
+          ' {{translate "activerecord.attributes.itinerary.fuel_cost"}}:
         ' {{currency fuel_cost}}
         br
         span.text-muted
-          ' {{translate "mongoid.attributes.itinerary.tolls"}}:
+          ' {{translate "activerecord.attributes.itinerary.tolls"}}:
         ' {{currency tolls}}
       a.card-link.show-itinerary-on-map href='#'
         span.fas.fa-map-marker-alt<>
