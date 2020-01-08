@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.98.2
+
+* Fix JavaScript translations
+* Minor front-end fixes
+* Update dependencies
+
 ## 0.98.1
 
 * Fix search
