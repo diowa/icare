@@ -41,9 +41,7 @@ RSpec.describe 'Itineraries' do
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
     end
 
-    it 'are allowed to create itineraries', js: true, allow_js_errors: APP_CONFIG.google_maps_api_key.blank? do
-      pending 'Google Maps API KEY is missing' if APP_CONFIG.google_maps_api_key.blank?
-
+    it 'are allowed to create itineraries', js: true, skip: ENV['CI'] do
       login_as_female
 
       visit new_itinerary_path
@@ -97,14 +95,14 @@ RSpec.describe 'Itineraries' do
       expect(page).to have_content 'MUSIC VERY LOUD!!!'
     end
 
-    it 'sanitize malicious description', js: true, allow_js_errors: APP_CONFIG.google_maps_api_key.blank? do
+    it 'sanitize malicious description', js: true, skip: ENV['CI'] do
       login_as_male
       malicious_itinerary = create :itinerary, user: male, description: xss_alert
       visit itinerary_path(malicious_itinerary)
       expect { page.accept_alert }.to raise_error Capybara::ModalNotFound
     end
 
-    it 'allows users to search them', js: true, allow_js_errors: APP_CONFIG.google_maps_api_key.blank? do
+    it 'allows users to search them', js: true, skip: ENV['CI'] do
       # TODO: fix time zone issues
       login_as_male
 
