@@ -71,7 +71,7 @@ const drawPath = function (itinerary, strokeColor, strokeOpacity) {
   })
   directionsPath.setMap(icare.map)
   icare.customMarkers[itinerary.id] = customMarker
-  return icare.itineraries.push(directionsPath)
+  icare.itineraries.push(directionsPath)
 }
 
 const clearItineraries = () => {
@@ -180,7 +180,7 @@ const initItineraryIndex = function () {
 }
 
 $(document).on(window.initializeOnEvent, function () {
-  if ((typeof google !== 'undefined' && google !== null) && ($('#index-itineraries-map')[0] != null)) {
-    return initItineraryIndex()
+  if ((typeof google !== 'undefined' && google !== null) && ($('#index-itineraries-map')[0] != null) && !icare.map) {
+    initItineraryIndex()
   }
 })

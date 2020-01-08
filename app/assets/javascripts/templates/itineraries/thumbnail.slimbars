@@ -1,6 +1,6 @@
 .col-lg-6
-  .card.mb-2 data-itinerary-id='{{id}}'
-    .itinerary-thumb-stroke style='background-color: {{backgroundColor}}'
+  .card.itinerary-thumbnail.mb-2 data-itinerary-id='{{id}}'
+    .itinerary-thumbnail__stroke style='background-color: {{backgroundColor}}'
     .card-body
       .media
         img.mr-2 src='{{user.image}}' width='50' height='50' alt=''
