@@ -7,10 +7,8 @@ fieldset#single
       = f.text_field :fuel_cost, class: 'form-control text-right'
       .input-group-append
         span.input-group-text = APP_CONFIG.currency
-  .row
-    .col-sm-10.col-sm-offset-2
-      p.form-text#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
-        span#fuel-help-text
+    p.form-text.text-muted.mb-0#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
+      small#fuel-help-text
   = f.input :tolls, wrapper: :horizontal_form do
     .input-group
       = f.text_field :tolls, class: 'form-control text-right'
@@ -20,8 +18,8 @@ fieldset#single
       span.help-inline
         = @itinerary.errors.messages[:tolls].join(', ')
   = f.input :description, as: :text, input_html: { rows: 5 }, hint: t('.description_hint'), wrapper: :horizontal_form
-  .form-group
-    .col-sm-10.col-sm-offset-2
+  .form-group.row
+    .col-sm-9.offset-sm-3
       - if current_user.female?
         = f.input :pink, as: :boolean, hint: t('.pink_hint'), wrapper: false
       = f.input :smoking_allowed, as: :boolean, wrapper: false

@@ -3,7 +3,6 @@
 .container
   == render 'shared/flash_messages'
   == render 'header'
-  hr
   - if user_signed_in?
     - if current_user != @itinerary.user
       = link_to new_or_show_conversation_path(@conversation), class: 'btn btn-primary mr-2' do

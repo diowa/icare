@@ -29,10 +29,6 @@
   margin-left: 10px;
 }
 
-.itinerary-header {
-  margin-bottom: 20px;
-}
-
 .itinerary-step {
   margin-bottom: 20px;
   border-bottom: 1px solid $text-muted;
@@ -54,7 +50,7 @@
   }
 }
 
-.itinerary-thumb-stroke {
+.itinerary-thumbnail__stroke {
   height: .25rem;
   margin-bottom: .25rem;
   border-top-left-radius: $border-radius;
@@ -95,12 +91,4 @@
 
 .feature-icon {
   margin-left: 5px;
-}
-
-@include media-breakpoint-up(lg) {
-  .itinerary-thumbnail {
-    position: relative;
-    height: 205px;
-    overflow: hidden;
-  }
 }
