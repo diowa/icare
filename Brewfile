@@ -1,4 +1,6 @@
 brew 'chromedriver'
-brew 'mongodb'
+brew 'geos'
+brew 'postgres'
+brew 'postgis'
 brew 'node'
 brew 'redis'

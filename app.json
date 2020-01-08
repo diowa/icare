@@ -3,14 +3,15 @@
   "description": "Open Source Carpooling Platform. icare requires a valid Facebook application, check our Wiki for more information.",
   "keywords": [
     "Carpooling",
+    "Ridesharing",
     "Rails",
-    "MongoDB"
+    "PostGIS"
   ],
   "website": "https://icare.diowa.com/",
   "repository": "https://github.com/diowa/icare",
   "success_url": "/",
   "scripts": {
-    "postdeploy": "bundle exec rake db:mongoid:create_indexes"
+    "postdeploy": "bundle exec rake db:migrate"
   },
   "env": {
     "RAILS_ENV": "production",
@@ -65,12 +66,15 @@
     }
   },
   "addons": [
-    "mongolab:sandbox",
+    "heroku-postgresql:hobby-dev",
     "newrelic",
     "papertrail",
     "redistogo:nano"
   ],
   "buildpacks": [
+    {
+      "url": "https://github.com/diowa/heroku-buildpack-vendorbinaries.git"
+    },
     {
       "url": "heroku/nodejs"
     },

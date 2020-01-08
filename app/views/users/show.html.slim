@@ -18,9 +18,6 @@
           br
           span.text-muted = t('.facebook_verified')
       .tag-list
-        .tag.tag-icare = Reference.model_name.human(count: :lot)
-        = reference_tags @user
-        = link_to t('.see_all'), user_references_path(@user), class: 'tag'
         .tag.tag-facebook = t('.basic_info')
         - if @user.birthday?
           .tag = t('.age', count: @user.age)

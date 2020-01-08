@@ -1,21 +1,15 @@
 en-US:
-  mongoid:
+  activerecord:
     models:
       user:
         one: User
         other: Users
-      reference:
-        one: Reference
-        other: References
       itinerary:
         one: Itinerary
         other: Itineraries
       feedback:
         one: Feedback
         other: Feedbacks
-      notification:
-        one: Notification
-        other: Notifications
       conversation:
         one: Conversation
         other: Conversations
@@ -41,9 +35,8 @@ en-US:
         time_zone: Time zone
         vehicle_avg_consumption: Fuel cost
         send_email_messages: You receive a message
-        send_email_references: You receive a reference
       feedback:
-        type: Type
+        category: Category
         status: Status
         message: Message
         updated_at: Last modified
@@ -67,12 +60,6 @@ en-US:
         return_date: Return date
         driver_gender: Driver's gender
         daily: Daily
-      reference:
-        body: Message
-        rating: Rating
-        rating_negative: Negative
-        rating_neutral: Neutral
-        rating_positive: Positive
       message:
         body: Message
     errors:
@@ -89,8 +76,8 @@ en-US:
               driver_must_be_female: only women can create pink itineraries
         conversation:
           attributes:
-            user_ids:
-              already_exists: you already have a conversation about this itinerary
+            receiver:
+              yourself: you cannot start a conversation with yourself
         reference:
           attributes:
             user:

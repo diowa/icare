@@ -10,6 +10,6 @@
       tbody
         - @conversations.each do |conversation|
           tr class=('unread' if conversation.unread?(current_user))
-            td = link_to conversation.users_except(current_user).join(' - '), conversation_path(conversation)
+            td = link_to conversation.with(current_user), conversation_path(conversation)
             td = link_to t('helpers.links.show'), conversation_path(conversation)
   == paginate @conversations

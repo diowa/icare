@@ -10,6 +10,10 @@ end
 ruby '2.7.0'
 gem 'rails', '6.0.2.1'
 
+# Use postgresql as the database for Active Record
+gem 'activerecord-postgis-adapter', '~> 6.0'
+gem 'pg', '~> 1.1'
+
 # Servers
 gem 'puma', '~> 4.3'
 
@@ -34,20 +38,15 @@ gem 'simple_form', '~> 5.0'
 # ODM and related
 gem 'client_side_validations', '~> 16.1'
 gem 'client_side_validations-simple_form', '~> 9.2'
+gem 'friendly_id', '~> 5.2'
 gem 'kaminari', '~> 1.1'
-gem 'kaminari-mongoid', '~> 1.0'
-gem 'mongoid', '~> 7.0'
-gem 'mongoid-geospatial', '~> 5.1'
-gem 'mongoid-slug', '~> 6.0'
-gem 'mongoid_paranoia', '~> 0.4.0'
 gem 'validates_timeliness', '~> 4.1'
-gem 'validates_timeliness-mongoid', github: 'diowa/validates_timeliness-mongoid'
 
 # Authentication framework
 gem 'devise', '~> 4.7'
 
 # Geospatial data library
-# gem 'rgeo', '~> 0.6.0'
+gem 'rgeo', '~> 2.0'
 
 # Facebook integration
 gem 'koala', '~> 3.0'
@@ -106,7 +105,6 @@ group :test do
   gem 'database_cleaner', '~> 1.7'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
-  gem 'mongoid-rspec', '~> 4.0'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.17.1', require: false
   gem 'webmock', '~> 3.7', require: false

@@ -18,7 +18,6 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [SLIM][5]
 * [Bootstrap][6]
 * [Font Awesome][7] (vectorial icons)
-* [Mongoid][8] (ODM for MongoDB)
 * [Devise][2]
 * Asynchronous tasks with [Sucker Punch][9]
 * Facebook Open Graph / Rest API with [Koala][11]
@@ -36,7 +35,6 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [5]: http://slim-lang.com/
  [6]: https://getbootstrap.com
  [7]: https://fontawesome.com
- [8]: https://docs.mongodb.com/ruby-driver/master/mongoid/
  [9]: https://github.com/brandonhilkert/sucker_punch
  [11]: https://github.com/arsduo/koala
  [12]: https://rspec.info/

@@ -1,8 +1,8 @@
 = simple_form_for @feedback, validate: true do |f|
   == render 'shared/error_messages', object: f.object
-  = f.input :type, collection: Feedback::TYPE
+  = f.input :category, collection: Feedback.categories.values
   - if feedback_attributes.include? :status
-    = f.input :status, collection: Feedback::STATUS
+    = f.input :status, collection: Feedback.statuses.values
   = f.input :message, as: :text, input_html: { rows: 8 }
   = f.input :url
   = f.button :button, class: 'btn-primary', data: { disable_with: t('helpers.disable_with') }

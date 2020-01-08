@@ -31,7 +31,6 @@
     fieldset
       legend = t('.send_email')
       = f.input :send_email_messages, as: :boolean
-      = f.input :send_email_references, as: :boolean
       p.form-text
         = t('.send_email_at_address')
         b< = current_user.email

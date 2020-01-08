@@ -1,5 +1,5 @@
 it-IT:
-  mongoid:
+  activerecord:
     errors:
       messages:
         invalid_date: "non è una data valida"

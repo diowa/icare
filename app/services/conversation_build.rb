@@ -1,23 +1,26 @@
 # frozen_string_literal: true
 
 class ConversationBuild
-  def initialize(params, user, itinerary)
+  def initialize(sender, receiver, conversable, params)
     @params = params
-    @user = user
-    @itinerary = itinerary
+    @sender = sender
+    @receiver = receiver
+    @conversable = conversable
   end
 
   def conversation
-    result = @itinerary.conversations.build
-    result.messages.build message
-    result.users = [@user, @itinerary.user]
-    result
+    new_conversation = Conversation.new sender: sender, receiver: receiver, conversable: @conversable
+    new_conversation.messages.build message
+    new_conversation
   rescue
     nil
   end
 
   def message
-    result = @params[:message]
-    result.merge! sender: @user
+    params[:message].merge sender: sender
   end
+
+  private
+
+  attr_reader :sender, :receiver, :params, :conversable
 end

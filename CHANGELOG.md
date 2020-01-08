@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.98.0
+
+* Replace MongoDB with Postgres
+* Remove references
+* Improve boundaries feature
+* Update dependencies
+
 ## 0.97.2
 
 * Fix icon animations
