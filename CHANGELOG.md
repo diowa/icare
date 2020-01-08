@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.98.1
+
+* Fix search
+* Update dependencies
+
 ## 0.98.0
 
 * Replace MongoDB with Postgres
