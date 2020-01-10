@@ -12,8 +12,9 @@ AllCops:
     - 'db/**/*'
     - 'log/**/*'
     - 'node_modules/**/*'
+    - 'public/**/*'
     - 'tmp/**/*'
-    - 'vendor/bundle/**/*'
+    - 'vendor/**/*'
 
 Layout/HashAlignment:
   EnforcedColonStyle: table
