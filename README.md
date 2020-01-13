@@ -106,6 +106,38 @@ Special thanks to all developers of open source libraries used in this project.
 
 
 
+## Docker (Experimental)
+
+Experimental Docker support. Please do not ask for support, PR to improve the
+current implementation are very welcomed.
+
+TODO:
+- [ ] Fix Puma exit status (puma/puma#1673)
+- [ ] Check multi-environment support
+- [ ] Add Sidekiq container
+
+Generate SSL requirements:
+
+```ssh
+openssl req -subj '/CN=localhost' -x509 -newkey rsa:4096 -nodes -keyout docker/nginx/ssl/app_key.pem -out docker/nginx/ssl/app_cert.pem -days 825
+openssl genpkey -genparam -algorithm DH -out docker/nginx/ssl/app_dhparam4096.pem -pkeyopt dh_paramgen_prime_len:4096
+```
+
+Copy `docker/icare/variables.env.example` to `docker/icare/variables.env` and
+run `docker-compose up`
+
+icare will be accessible on `https://localhost:3443`
+
+### Start rails outside of Docker with SSL
+
+After generating the SSL requirements, run:
+
+```sh
+rails s -b 'ssl://0.0.0.0:3443?key=docker/nginx/ssl/app_key.pem&cert=docker/nginx/ssl/app_cert.pem'
+```
+
+icare will be accessible on `https://localhost:3443`
+
 ## Donations
 
 If you like this project or you are considering to use it (or any part of it) for commercial purposes, please make a donation to the authors.

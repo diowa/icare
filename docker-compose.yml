@@ -1,0 +1,55 @@
+version: '3.7'
+
+services:
+  icare:
+    build:
+      context: .
+      dockerfile: ./docker/icare/Dockerfile
+      args:
+        RAILS_ENV: production
+    container_name: icare
+    depends_on:
+      - db
+    env_file:
+      - ./docker/icare/variables.env
+    environment:
+      RAILS_ENV: production
+    networks:
+      - icare
+    ports:
+      - 3000:3000
+    restart: on-failure
+    volumes:
+      - assets:/icare/public
+  db:
+    container_name: db
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    image: postgis/postgis:12-3.0-alpine
+    networks:
+      - icare
+    restart: on-failure
+    volumes:
+      - db-data:/var/lib/postgresql/data
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    container_name: nginx
+    depends_on:
+      - icare
+    networks:
+      - icare
+    ports:
+      - 3080:80
+      - 3443:443
+    restart: on-failure
+    volumes:
+      - assets:/nginx/public:ro
+
+networks:
+  icare:
+
+volumes:
+  assets:
+  db-data:
