@@ -17,7 +17,7 @@
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
     "exports-loader": "^0.7.0",
-    "handlebars": "^4.7.1",
+    "handlebars": "^4.7.2",
     "handlebars-loader": "^1.7.1",
     "i18n-js": "^3.5.1",
     "jquery": "^3.4.1",
