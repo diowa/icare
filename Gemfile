@@ -56,7 +56,7 @@ gem 'omniauth-facebook', '~> 5.0'
 gem 'newrelic_rpm', '~> 6.8'
 
 # Security
-gem 'secure_headers', '~> 6.1'
+gem 'secure_headers', '~> 6.3'
 
 # Miscellanea
 gem 'addressable', '~> 2.7'
