@@ -101,7 +101,7 @@ end
 group :test do
   gem 'capybara', '~> 3.31'
   gem 'coveralls_reborn', '~> 0.14.0', require: false
-  gem 'database_cleaner', '~> 1.7'
+  gem 'database_cleaner', '~> 1.8'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
   gem 'selenium-webdriver', '~> 3.142'
