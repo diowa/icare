@@ -100,12 +100,12 @@ end
 
 group :test do
   gem 'capybara', '~> 3.31'
-  gem 'coveralls_reborn', '~> 0.14.0', require: false
+  gem 'coveralls_reborn', '~> 0.15.0', require: false
   gem 'database_cleaner', '~> 1.8'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '~> 0.17.1', require: false
+  gem 'simplecov', '~> 0.18.1', require: false
   gem 'webmock', '~> 3.8', require: false
 end
 
