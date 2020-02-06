@@ -10,7 +10,7 @@
     "@client-side-validations/client-side-validations": "^0.1.1",
     "@client-side-validations/simple-form": "^0.1.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
-    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
     "@rails/actioncable": "^6.0.2",
     "@rails/activestorage": "^6.0.2",
