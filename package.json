@@ -9,7 +9,7 @@
   "dependencies": {
     "@client-side-validations/client-side-validations": "^0.1.1",
     "@client-side-validations/simple-form": "^0.1.1",
-    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-brands-svg-icons": "^5.12.1",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@rails/actioncable": "^6.0.2",
