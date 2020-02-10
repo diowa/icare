@@ -30,7 +30,7 @@ gem 'sucker_punch', '~> 2.1'
 gem 'simpleconfig', '~> 2.0'
 
 # API
-gem 'jbuilder', '~> 2.9'
+gem 'jbuilder', '~> 2.10'
 
 # Forms
 gem 'simple_form', '~> 5.0'
