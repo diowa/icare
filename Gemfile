@@ -65,7 +65,7 @@ gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.2'
 
 # Assets
-gem 'i18n-js', '~> 3.5'
+gem 'i18n-js', '~> 3.6'
 gem 'inline_svg', '~> 1.6'
 gem 'turbolinks', '~> 5.2'
 
