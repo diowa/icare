@@ -66,7 +66,7 @@ gem 'slim-rails', '~> 3.2'
 
 # Assets
 gem 'i18n-js', '~> 3.6'
-gem 'inline_svg', '~> 1.6'
+gem 'inline_svg', '~> 1.7'
 gem 'turbolinks', '~> 5.2'
 
 # Errors reporting
