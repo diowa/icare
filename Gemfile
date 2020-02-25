@@ -105,7 +105,7 @@ group :test do
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.4'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '~> 0.18.2', require: false
+  gem 'simplecov', '~> 0.18.4', require: false
   gem 'webmock', '~> 3.8', require: false
 end
 
