@@ -12,7 +12,7 @@ gem 'rails', '6.0.2.1'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 6.0'
-gem 'pg', '~> 1.1'
+gem 'pg', '~> 1.2'
 
 # Servers
 gem 'puma', '~> 4.3'
