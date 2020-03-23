@@ -747,10 +747,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@client-side-validations/client-side-validations@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@client-side-validations/client-side-validations/-/client-side-validations-0.1.1.tgz#588488972ad09a5b5e50d2b8e2916bc8b2138c88"
-  integrity sha512-f/5dczipcMzEvxIm+SAWDdKjfQtt/aX8N613BeL+CJymv9VIwT9NNXxzrZ9QJyOfDhpudO1teJ9e3UdxDYts+A==
+"@client-side-validations/client-side-validations@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@client-side-validations/client-side-validations/-/client-side-validations-0.1.2.tgz#dceee3c18aac0f3d38ace3d6391ec8bd30e1b455"
+  integrity sha512-mymU93mQpLftRHELG/blhMHndWfx2uHUf78KWKdNE6i9qP8s5LrO7dBcwumj2IxrhG9uLjbJiykERE/AnA62xw==
 
 "@client-side-validations/simple-form@^0.1.1":
   version "0.1.1"
