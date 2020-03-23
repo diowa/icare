@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_175509) do
+ActiveRecord::Schema.define(version: 2020_03_23_205811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2020_01_02_175509) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["conversable_type", "conversable_id"], name: "index_conversations_on_conversable_type_and_conversable_id"
     t.index ["receiver_id"], name: "index_conversations_on_receiver_id"
-    t.index ["sender_id", "receiver_id"], name: "index_conversations_on_sender_id_and_receiver_id", unique: true
+    t.index ["sender_id", "receiver_id", "conversable_type", "conversable_id"], name: "unique_index_for_sender", unique: true
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
