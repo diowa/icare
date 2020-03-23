@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.100.0
+
+* Rails 6.0.2.2
+* Font Awesome 5.13.0
+* Update dependencies
+
 ## 0.99.0
 
 * Completely remove sprockets
