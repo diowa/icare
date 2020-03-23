@@ -77,7 +77,7 @@ group :development, :test do
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 5.1'
   gem 'faker', '~> 2.10'
-  gem 'pry', '~> 0.12.2'
+  gem 'pry', '~> 0.13.0'
   gem 'pry-byebug', '~> 3.8'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 3.9'
