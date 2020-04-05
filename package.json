@@ -17,7 +17,7 @@
     "@rails/webpacker": "^5.0.1",
     "bootstrap": "^4.4.1",
     "exports-loader": "^0.7.0",
-    "handlebars": "^4.7.5",
+    "handlebars": "^4.7.6",
     "handlebars-loader": "^1.7.1",
     "i18n-js": "^3.5.1",
     "jquery": "^3.4.1",
@@ -29,7 +29,7 @@
   "devDependencies": {
     "standard": "^14.3.3",
     "standard-loader": "^7.0.0",
-    "stylelint": "^13.2.1",
+    "stylelint": "^13.3.0",
     "stylelint-config-recommended-scss": "^4.2.0",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.0.0",
