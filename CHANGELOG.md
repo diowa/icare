@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.101.0
+
+* Ruby 2.7.1
+* Update dependencies
+
 ## 0.100.0
 
 * Rails 6.0.2.2
