@@ -4,7 +4,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRailsVersion: 5.2
+  TargetRailsVersion: 6.0
   TargetRubyVersion: 2.7
   Exclude:
     - Brewfile
@@ -22,6 +22,12 @@ Layout/HashAlignment:
 
 Layout/LineLength:
   Enabled: false
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
 
 Metrics/AbcSize:
   Max: 22.29

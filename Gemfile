@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.7.0'
+ruby '2.7.1'
 gem 'rails', '6.0.2.2'
 
 # Use postgresql as the database for Active Record
@@ -53,7 +53,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 6.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 6.9'
+gem 'newrelic_rpm', '~> 6.10'
 
 # Security
 gem 'secure_headers', '~> 6.3'
@@ -76,12 +76,12 @@ group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 5.1'
-  gem 'faker', '~> 2.10'
+  gem 'faker', '~> 2.11'
   gem 'pry', '~> 0.13.0'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
-  gem 'rspec-rails', '~> 3.9'
-  gem 'rubocop', '~> 0.80.1', require: false
+  gem 'rspec-rails', '~> 4.0'
+  gem 'rubocop', '~> 0.81.0', require: false
   gem 'rubocop-performance', '~> 1.5', require: false
   gem 'rubocop-rails', '~> 2.5', require: false
   gem 'rubocop-rspec', '~> 1.38', require: false
@@ -99,7 +99,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.31'
+  gem 'capybara', '~> 3.32'
   gem 'coveralls_reborn', '~> 0.15.0', require: false
   gem 'database_cleaner', '~> 1.8'
   gem 'email_spec', '~> 2.2'
