@@ -24,7 +24,7 @@ cache:
 before_install:
   - nvm install 14
   - node -v
-  - npm i -g yarn@^1.21.1
+  - npm i -g yarn@^1.19.0
   - yarn
   - LATEST_CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"`
   - curl "https://chromedriver.storage.googleapis.com/${LATEST_CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O

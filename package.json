@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "engines": {
     "node": ">= 12.0.0 < 15",
-    "yarn": "^1.21.1"
+    "yarn": "^1.19.0"
   },
   "dependencies": {
     "@client-side-validations/client-side-validations": "^0.1.3",
