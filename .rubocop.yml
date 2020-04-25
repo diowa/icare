@@ -6,6 +6,7 @@ require:
 AllCops:
   TargetRailsVersion: 6.0
   TargetRubyVersion: 2.7
+  NewCops: enable
   Exclude:
     - Brewfile
     - 'bin/*'
@@ -23,12 +24,6 @@ Layout/HashAlignment:
 Layout/LineLength:
   Enabled: false
 
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
 Metrics/AbcSize:
   Max: 22.29
 
@@ -43,9 +38,6 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*'
-
-Rails:
-  Enabled: true
 
 Rails/HasAndBelongsToMany:
   Exclude:
@@ -75,15 +67,6 @@ RSpec/NestedGroups:
 
 Style/Documentation:
   Enabled: false
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
 
 Style/IfUnlessModifier:
   Enabled: false
