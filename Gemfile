@@ -89,7 +89,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'better_errors', '~> 2.6'
+  gem 'better_errors', '~> 2.7'
   gem 'binding_of_caller', '~> 0.8.0'
   gem 'listen', '~> 3.2'
   gem 'spring', '~> 2.1'
