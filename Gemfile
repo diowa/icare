@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.7.1'
-gem 'rails', '6.0.2.2'
+gem 'rails', '6.0.3'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 6.0'
@@ -18,7 +18,7 @@ gem 'pg', '~> 1.2'
 gem 'puma', '~> 4.3'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.4', require: false
@@ -36,8 +36,8 @@ gem 'jbuilder', '~> 2.10'
 gem 'simple_form', '~> 5.0'
 
 # ODM and related
-gem 'client_side_validations', '~> 16.1'
-gem 'client_side_validations-simple_form', '~> 10.0'
+gem 'client_side_validations', '~> 16.2'
+gem 'client_side_validations-simple_form', '~> 10.1'
 gem 'friendly_id', '~> 5.2'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 4.1'
@@ -75,21 +75,21 @@ gem 'airbrake', '~> 10.0'
 group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
-  gem 'factory_bot_rails', '~> 5.1'
+  gem 'factory_bot_rails', '~> 5.2'
   gem 'faker', '~> 2.11'
-  gem 'pry', '~> 0.13.0'
+  gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 0.81.0', require: false
+  gem 'rubocop', '~> 0.82.0', require: false
   gem 'rubocop-performance', '~> 1.5', require: false
   gem 'rubocop-rails', '~> 2.5', require: false
-  gem 'rubocop-rspec', '~> 1.38', require: false
+  gem 'rubocop-rspec', '~> 1.39', require: false
   gem 'slim_lint', '~> 0.20.0', require: false
 end
 
 group :development do
-  gem 'better_errors', '~> 2.6'
+  gem 'better_errors', '~> 2.7'
   gem 'binding_of_caller', '~> 0.8.0'
   gem 'listen', '~> 3.2'
   gem 'spring', '~> 2.1'
@@ -100,7 +100,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.32'
-  gem 'coveralls_reborn', '~> 0.15.0', require: false
+  gem 'coveralls_reborn', '~> 0.16.0', require: false
   gem 'database_cleaner', '~> 1.8'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
