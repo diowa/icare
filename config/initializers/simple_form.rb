@@ -3,7 +3,7 @@
 #
 # Uncomment this and change the path if necessary to include your own
 # components.
-# See https://github.com/plataformatec/simple_form#custom-components to know
+# See https://github.com/heartcombo/simple_form#custom-components to know
 # more about custom components.
 # Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
 #
@@ -15,7 +15,7 @@ SimpleForm.setup do |config|
   # stack. The options given below are used to wrap the
   # whole input.
   config.wrappers :default, class: :input,
-                            hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
+    hint_class: :field_with_hint, error_class: :field_with_errors, valid_class: :field_without_errors do |b|
     ## Extensions enabled by default
     # Any of these extensions can be disabled for a
     # given input by passing: `f.input EXTENSION_NAME => false`.

@@ -36,8 +36,8 @@ gem 'jbuilder', '~> 2.10'
 gem 'simple_form', '~> 5.0'
 
 # ODM and related
-gem 'client_side_validations', '~> 16.2'
-gem 'client_side_validations-simple_form', '~> 10.1'
+gem 'client_side_validations', '~> 17.0'
+gem 'client_side_validations-simple_form', '~> 11.0'
 gem 'friendly_id', '~> 5.2'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 4.1'
@@ -61,7 +61,6 @@ gem 'secure_headers', '~> 6.3'
 # Miscellanea
 gem 'addressable', '~> 2.7'
 gem 'http_accept_language', '~> 2.1'
-gem 'jquery-rails', '~> 4.3'
 gem 'slim-rails', '~> 3.2'
 
 # Assets
@@ -81,7 +80,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 0.82.0', require: false
+  gem 'rubocop', '~> 0.83.0', require: false
   gem 'rubocop-performance', '~> 1.5', require: false
   gem 'rubocop-rails', '~> 2.5', require: false
   gem 'rubocop-rspec', '~> 1.39', require: false
