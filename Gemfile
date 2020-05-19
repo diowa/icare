@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.7.1'
-gem 'rails', '6.0.3'
+gem 'rails', '6.0.3.1'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 6.0'
