@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.104.0
+
+* Rails 6.0.3.1
+* Update dependencies
+
 ## 0.103.0
 
 * Bootstrap 4.5.0
