@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.105.0
+
+* Fix Facebook login
+* Mitigate CVE-2015-9284
+* Experimental Docker support
+* Update dependencies
+
 ## 0.104.0
 
 * Rails 6.0.3.1
