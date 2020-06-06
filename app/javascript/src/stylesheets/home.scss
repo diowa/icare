@@ -154,7 +154,7 @@
     position: absolute;
   }
 
-  .btn-fb {
+  .btn-fb-lg {
     @include button-size($input-btn-padding-y-lg, $input-btn-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
   }
 

@@ -12,7 +12,7 @@ RSpec.describe 'Application' do
   it 'redirects banned users to the banned page' do
     create :user, banned: true, uid: '123456'
 
-    visit user_facebook_omniauth_authorize_path
+    login_via_facebook
 
     expect(page).to have_current_path banned_path
     [itineraries_path, new_itinerary_path].each do |path|
@@ -37,7 +37,7 @@ RSpec.describe 'Application' do
       it 'fallbacks to en-US' do
         user = create :user, uid: '123456'
 
-        visit user_facebook_omniauth_authorize_path
+        login_via_facebook
         visit itineraries_user_path(user, locale: 'XX-ZZ')
 
         expect(page).to have_content t('users.itineraries.title', locale: 'en-US')
@@ -48,7 +48,7 @@ RSpec.describe 'Application' do
       it 'fallbacks to en-US' do
         user = create :user, uid: '123456'
 
-        visit user_facebook_omniauth_authorize_path
+        login_via_facebook
         visit itineraries_user_path(user, locale: 'en-XX')
 
         expect(page).to have_content t('users.itineraries.title', locale: 'en-US')
@@ -59,7 +59,7 @@ RSpec.describe 'Application' do
       it 'fallbacks to en-US ' do
         user = create :user, uid: '123456', locale: 'en-YY'
 
-        visit user_facebook_omniauth_authorize_path
+        login_via_facebook
         visit itineraries_user_path(user)
 
         expect(page).to have_content t('users.itineraries.title', locale: 'en-US')
@@ -70,7 +70,7 @@ RSpec.describe 'Application' do
       it 'fallbacks to en-US' do
         user = create :user, uid: '123456', locale: 'en-GB'
 
-        visit user_facebook_omniauth_authorize_path
+        login_via_facebook
         visit itineraries_user_path(user, locale: 'en')
 
         expect(page).to have_content t('users.itineraries.title', locale: 'en-US')

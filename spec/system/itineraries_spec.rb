@@ -26,7 +26,7 @@ RSpec.describe 'Itineraries' do
   context 'with registered Users' do
     def login_as_male
       male
-      visit user_facebook_omniauth_authorize_path
+      login_via_facebook
       # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
       expect(page).to have_current_path dashboard_path
     end
@@ -34,7 +34,7 @@ RSpec.describe 'Itineraries' do
     def login_as_female
       female
       OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
-      visit user_facebook_omniauth_authorize_path
+      login_via_facebook
       # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
       expect(page).to have_current_path dashboard_path
     ensure

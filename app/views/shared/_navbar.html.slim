@@ -26,17 +26,18 @@ nav.navbar.main-navbar
               = link_to t('logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
     - else
       .navbar-collapse.collapse#main-navbar-collapse role='navigation'
-        ul.nav.navbar-nav.navbar-right
-          li = link_to t('how_it_works'), :how_it_works
-          li = link_to t('about'), :about
-          li.dropdown
-            = link_to '#', data: { toggle: 'dropdown' }, class: 'dropdown-toggle' do
+        ul.navbar-nav.main-navbar-nav
+          li.nav-item = link_to t('how_it_works'), :how_it_works, class: 'nav-link'
+          li.nav-item = link_to t('about'), :about, class: 'nav-link'
+          li.nav-item.dropdown
+            a.nav-link.dropdown-toggle#main-navbar-lang-dropdown href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
+              span.fas.fa-globe.mr-1 aria-hidden='true'
               = t('lang_native_name')
-              span.caret
-            ul.dropdown-menu
+            .dropdown-menu.dropdown-menu-right aria-labelledby='main-navbar-lang-dropdown'
               - (I18n.available_locales - [I18n.locale]).each do |locale|
-                li = link_to t('lang_native_name', locale: locale), url_for(locale: locale)
-          li.facebook-link
-            = link_to user_facebook_omniauth_authorize_path, data: { turbolinks: false } do
-              span.fab.fa-facebook<>
-              = t('login_with_facebook')
+                = link_to t('lang_native_name', locale: locale), url_for(locale: locale), class: 'dropdown-item'
+          li.nav-item
+            = form_tag user_facebook_omniauth_authorize_path, class: 'inline-form' do
+              = button_tag class: 'btn btn-fb' do
+                span.fab.fa-facebook.mr-1
+                = t('login_with_facebook')
