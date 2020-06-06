@@ -22,3 +22,14 @@ OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider'    => 'facebook',
 
 OmniAuth.config.test_mode = true
 OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+
+module OmniauthMacros
+  def login_via_facebook
+    visit root_path
+    first("form[action=\"#{user_facebook_omniauth_authorize_path}\"] button").click
+  end
+end
+
+RSpec.configure do |config|
+  config.include OmniauthMacros
+end

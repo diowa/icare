@@ -16,7 +16,7 @@ RSpec.describe 'Users' do
   it 'allows to delete account' do
     create :user, uid: '123456'
 
-    visit user_facebook_omniauth_authorize_path
+    login_via_facebook
 
     click_link t('delete_account')
 
@@ -28,7 +28,7 @@ RSpec.describe 'Users' do
   describe 'Settings' do
     it 'allows to edit profile' do
       user = create :user, uid: '123456'
-      visit user_facebook_omniauth_authorize_path
+      login_via_facebook
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
       click_button t('helpers.submit.update', model: User)
@@ -38,7 +38,7 @@ RSpec.describe 'Users' do
 
     it 'recovers from errors' do
       create :user, uid: '123456'
-      visit user_facebook_omniauth_authorize_path
+      login_via_facebook
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
       click_button t('helpers.submit.update', model: User)
@@ -53,7 +53,7 @@ RSpec.describe 'Users' do
       create_list :itinerary, 5
       create :user, uid: '123456'
 
-      visit user_facebook_omniauth_authorize_path
+      login_via_facebook
 
       expect(page).to have_css('.table-itinerary tbody tr', count: 5)
     end
@@ -69,7 +69,7 @@ RSpec.describe 'Users' do
         it 'shows them' do
           create :user, uid: '123456', gender: 'female'
 
-          visit user_facebook_omniauth_authorize_path
+          login_via_facebook
 
           expect(page).to have_css('.table-itinerary tbody tr', count: 6)
         end
@@ -79,7 +79,7 @@ RSpec.describe 'Users' do
         it 'hides them' do
           create :user, uid: '123456', gender: 'male'
 
-          visit user_facebook_omniauth_authorize_path
+          login_via_facebook
 
           expect(page).to have_css('.table-itinerary tbody tr', count: 5)
         end
@@ -88,7 +88,7 @@ RSpec.describe 'Users' do
   end
 
   describe 'Profile' do
-    let(:user) do
+    let!(:user) do
       create :user, uid:                '123456',
                     facebook_favorites: [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }],
                     languages:          [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
@@ -96,8 +96,7 @@ RSpec.describe 'Users' do
     end
 
     before do
-      user
-      visit user_facebook_omniauth_authorize_path
+      login_via_facebook
       visit user_path(user)
     end
 
@@ -117,9 +116,6 @@ RSpec.describe 'Users' do
 
     context 'when user is verified' do
       it 'adds the verified box' do
-        visit user_facebook_omniauth_authorize_path
-        visit user_path(user)
-
         expect(page).to have_css '.facebook-verified'
       end
     end
