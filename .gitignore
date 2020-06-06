@@ -136,3 +136,9 @@ bower.json
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Docker
+variables.env
+
+# SSL
+*.pem
