@@ -136,3 +136,6 @@ bower.json
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# IntelliJ Ide settings
+.idea

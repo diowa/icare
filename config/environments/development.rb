@@ -61,4 +61,5 @@ Rails.application.configure do
   end
 
   config.hosts << /(.+\.)?lvh\.me\z/
+  config.hosts << "a2395ad5fbe8.ngrok.io"
 end
