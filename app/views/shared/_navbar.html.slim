@@ -37,6 +37,7 @@ nav.navbar.main-navbar
               - (I18n.available_locales - [I18n.locale]).each do |locale|
                 = link_to t('lang_native_name', locale: locale), url_for(locale: locale), class: 'dropdown-item'
           li.nav-item
-            = link_to user_facebook_omniauth_authorize_path, data: { turbolinks: false }, class: 'nav-link' do
-              span.fab.fa-facebook.mr-1
-              = t('login_with_facebook')
+            = form_tag user_facebook_omniauth_authorize_path, class: 'inline-form' do
+              = button_tag class: 'btn btn-fb' do
+                span.fab.fa-facebook.mr-1
+                = t('login_with_facebook')

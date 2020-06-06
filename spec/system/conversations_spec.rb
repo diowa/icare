@@ -15,7 +15,7 @@ RSpec.describe 'Conversations' do
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
     conversation.save
 
-    visit user_facebook_omniauth_authorize_path
+    login_via_facebook
     visit conversations_path
 
     expect(page).to have_content 'Message Sender'
@@ -26,7 +26,7 @@ RSpec.describe 'Conversations' do
     message = 'can I come with you?'
     another_message = 'please please please!'
 
-    visit user_facebook_omniauth_authorize_path
+    login_via_facebook
     visit new_conversation_path(itinerary_id: itinerary.id)
 
     fill_in 'conversation_message_body', with: message
@@ -39,7 +39,7 @@ RSpec.describe 'Conversations' do
   end
 
   it 'rescues from creation errors' do
-    visit user_facebook_omniauth_authorize_path
+    login_via_facebook
     visit new_conversation_path(itinerary_id: itinerary.id)
 
     click_button t('conversations.form.send')
@@ -55,7 +55,7 @@ RSpec.describe 'Conversations' do
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
     conversation.save
 
-    visit user_facebook_omniauth_authorize_path
+    login_via_facebook
     visit conversation_path(conversation, itinerary_id: itinerary.id)
 
     click_button t('conversations.form.send')
@@ -71,7 +71,7 @@ RSpec.describe 'Conversations' do
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
     conversation.save
 
-    visit user_facebook_omniauth_authorize_path
+    login_via_facebook
 
     within('.navbar-notifications') do
       expect(page).to have_css '.unread-count'
@@ -87,7 +87,7 @@ RSpec.describe 'Conversations' do
 
   context 'when visiting unread' do
     it 'redirects to conversations path' do
-      visit user_facebook_omniauth_authorize_path
+      login_via_facebook
 
       visit unread_conversations_path
 

@@ -1,6 +1,7 @@
-= link_to user_facebook_omniauth_authorize_path, class: 'btn btn-fb', data: { turbolinks: false } do
-  span.fab.fa-facebook<>
-  = t('login_with_facebook')
+= form_tag user_facebook_omniauth_authorize_path, class: 'd-inline-block' do
+  = button_tag class: 'btn btn-fb btn-fb-lg' do
+    span.fab.fa-facebook.mr-1
+    = t('login_with_facebook')
 = link_to t('why_facebook'), '#why-facebook', class: 'btn btn-link btn-why-facebook', data: { toggle: 'modal' }
 p.mt-4
   b = t('we_will_never_post')
