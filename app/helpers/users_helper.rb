@@ -44,7 +44,7 @@ module UsersHelper
   def render_tags(user_tags, my_tags, opts = {})
     options = { render_common_tags: false }.merge(opts)
     common_tags = get_common_tags(my_tags, user_tags) if options[:render_common_tags]
-    html = content_tag(:div, options[:content], class: options[:class])
+    html = tag.div(options[:content], class: options[:class])
     user_tags.each do |tag|
       html << render_tag(tag['name'], options[:render_common_tags] && common_tags.include?(tag['id']), options[:css_class])
     end
@@ -52,6 +52,6 @@ module UsersHelper
   end
 
   def render_tag(tag_text, common, css_class = nil)
-    content_tag :div, tag_text, class: ['tag', ('tag-common' if common), css_class].compact.join(' ')
+    tag.div tag_text, class: ['tag', ('tag-common' if common), css_class].compact.join(' ')
   end
 end
