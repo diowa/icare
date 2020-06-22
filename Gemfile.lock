@@ -81,7 +81,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
     byebug (11.1.3)
-    capybara (3.32.2)
+    capybara (3.33.0)
       addressable
       mini_mime (>= 0.1.3)
       nokogiri (~> 1.8)
@@ -404,7 +404,7 @@ DEPENDENCIES
   bootsnap (~> 1.4)
   bullet (~> 6.1)
   byebug (~> 11.1)
-  capybara (~> 3.32)
+  capybara (~> 3.33)
   client_side_validations (~> 17.0)
   client_side_validations-simple_form (~> 11.0)
   coveralls_reborn (~> 0.16.0)
