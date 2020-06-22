@@ -74,7 +74,7 @@ gem 'airbrake', '~> 10.0'
 group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
-  gem 'factory_bot_rails', '~> 5.2'
+  gem 'factory_bot_rails', '~> 6.0'
   gem 'faker', '~> 2.12'
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
