@@ -312,7 +312,7 @@ GEM
     ruby-progressbar (1.10.1)
     rubyzip (2.3.0)
     safe_yaml (1.0.5)
-    secure_headers (6.3.0)
+    secure_headers (6.3.1)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
