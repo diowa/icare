@@ -21,9 +21,7 @@ class ApplicationController < ActionController::Base
     redirect_to :banned if current_user.banned?
   end
 
-  def time_zone_from_user
-    Time.use_zone(current_user.time_zone) do
-      yield
-    end
+  def time_zone_from_user(&block)
+    Time.use_zone current_user.time_zone, &block
   end
 end

@@ -13,7 +13,9 @@ module ItinerariesHelper
     status = value ? 'allowed' : 'forbidden'
 
     tag.div class: "tag tag-#{status}" do
-      tag.span(nil, class: "fas fa-#{status == 'allowed' ? 'check' : 'ban'}") + ' ' + t(".#{field}.#{status}")
+      concat tag.span(nil, class: "fas fa-#{status == 'allowed' ? 'check' : 'ban'}")
+      concat ' '
+      concat t(".#{field}.#{status}")
     end
   end
 end
