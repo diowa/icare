@@ -15,14 +15,13 @@ module RouteLocalizer
         http_accept_language.compatible_language_from(I18n.available_locales)
     end
 
-    def localize_route
+    def localize_route(&block)
       locale = available_locale_from(params[:locale],
                                      current_user.try(:locale)) ||
                locale_from_http_request ||
                I18n.default_locale
-      I18n.with_locale locale do
-        yield
-      end
+
+      I18n.with_locale locale, &block
     end
   end
 end
