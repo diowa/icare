@@ -14,7 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@rails/actioncable": "^6.0.3",
     "@rails/activestorage": "^6.0.3",
-    "@rails/webpacker": "^5.2.0",
+    "@rails/webpacker": "^5.2.1",
     "bootstrap": "^4.5.2",
     "exports-loader": "^1.1.0",
     "handlebars": "^4.7.6",
