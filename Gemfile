@@ -99,7 +99,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.33'
-  gem 'coveralls_reborn', '~> 0.17.0', require: false
+  gem 'coveralls_reborn', '~> 0.18.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
