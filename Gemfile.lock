@@ -146,7 +146,7 @@ GEM
     inline_svg (1.7.1)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
-    jbuilder (2.10.0)
+    jbuilder (2.10.1)
       activesupport (>= 5.0.0)
     js_regex (3.5.0)
       character_set (~> 1.4)
@@ -375,7 +375,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.8.3)
+    webmock (3.9.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
@@ -449,7 +449,7 @@ DEPENDENCIES
   tzinfo-data (~> 1.2018)
   validates_timeliness (~> 4.1)
   web-console (~> 4.0)
-  webmock (~> 3.8)
+  webmock (~> 3.9)
   webpacker (~> 5.2)
 
 RUBY VERSION
