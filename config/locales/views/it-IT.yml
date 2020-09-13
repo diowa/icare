@@ -248,7 +248,7 @@ it-IT:
       vehicle_information: Informazioni sul veicolo
       user_profile_details: I dettagli del profilo vengono aggiornati da Facebook dopo ogni accesso.
       vehicle_avg_consumption_help: Utilizza il punto per separare i decimali. Questo valore viene usato nella stima del costo carburante quando si crea un nuovo itinerario.
-      vehicle_avg_consumption_note_html: "Nota: Riporta in questo modulo il valore %{fuel} della tabella %{proportional_costs}"
+      vehicle_avg_consumption_note_html: "Nota: Riporta in questo modulo il valore <u>%{fuel}</u> della tabella <u>%{proportional_costs}</u>"
       fuel: Carburante
       proportional_costs: "COSTI PROPORZIONALI %{fuel_currency}/km"
       km_costs_calculation_link: Calcola il costo chilometrico del tuo veicolo sul sito ACI

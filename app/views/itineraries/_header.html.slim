@@ -20,8 +20,7 @@
     .tag-list
       span.tag.tag-icare = Itinerary.human_attribute_name :end_address
       span.tag = @itinerary.end_address
-    - if @itinerary.daily?
-    - else
+    - unless @itinerary.daily?
       .tag-list
         span.tag.tag-icare = Itinerary.human_attribute_name :leave_date
         span.tag = l(@itinerary.leave_date, format: :long)

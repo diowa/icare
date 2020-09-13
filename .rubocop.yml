@@ -25,7 +25,7 @@ Layout/LineLength:
   Enabled: false
 
 Metrics/AbcSize:
-  Max: 22.29
+  Max: 23.28
 
 Metrics/BlockLength:
   Enabled: false
@@ -60,6 +60,9 @@ RSpec/ExampleLength:
   Max: 42
 
 RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
   Enabled: false
 
 RSpec/NestedGroups:

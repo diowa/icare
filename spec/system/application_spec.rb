@@ -27,7 +27,7 @@ RSpec.describe 'Application' do
 
     visit root_path
 
-    expect(page).to have_css('script[src$="&key=API_KEY"]', visible: false)
+    expect(page).to have_css('script[src$="&key=API_KEY"]', visible: :hidden)
   ensure
     APP_CONFIG.set :google_maps_api_key, old_google_maps_api_key
   end
