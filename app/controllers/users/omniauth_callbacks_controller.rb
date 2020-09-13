@@ -2,12 +2,11 @@
 
 module Users
   class OmniauthCallbacksController < ::Devise::OmniauthCallbacksController
-    def facebook
+    def auth0
       @user = User.from_omniauth(auth_hash)
 
       if @user.persisted?
         @user.update_info_from_auth_hash! auth_hash
-        CacheFacebookDataJob.perform_later @user
         sign_in_and_redirect @user, event: :authentication
       else
         redirect_to root_path, flash: { error: t('flash.sessions.error.create') }

@@ -8,7 +8,6 @@
     - if current_user.female?
       = f.input :filter_pink, as: :boolean, label: Itinerary.human_attribute_name(:pink), hint: t('itineraries.form.pink_hint'), wrapper_class: 'form-group form-group-sm'
     .form-group.form-group-sm
-      = f.input :filter_verified, as: :boolean, label: t('.verified_users'), wrapper: false
       = f.input :filter_round_trip, as: :boolean, label: Itinerary.human_attribute_name(:round_trip), wrapper: false
     - %i[smoking_allowed pets_allowed].each do |boolean_field|
       = f.input "filter_#{boolean_field}".to_sym, collection: boolean_options_for_select, include_blank: true, label: Itinerary.human_attribute_name(boolean_field), wrapper_class: 'form-group form-group-sm'

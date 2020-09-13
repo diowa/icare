@@ -11,7 +11,7 @@ nav.navbar.main-navbar
         ul.navbar-nav.main-navbar-nav
           li.nav-item#navbar-user-info
             = link_to user_path(current_user), class: 'nav-link nav-link--profile' do
-              = user_profile_picture current_user, size: nil, style: nil
+              = user_profile_picture current_user, size: nil, style: 'nav-link__user-image'
               span.nav-link__user-name = current_user
           li.nav-item.dropdown
             a.nav-link#main-navbar-dropdown href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
@@ -37,7 +37,5 @@ nav.navbar.main-navbar
               - (I18n.available_locales - [I18n.locale]).each do |locale|
                 = link_to t('lang_native_name', locale: locale), url_for(locale: locale), class: 'dropdown-item'
           li.nav-item
-            = form_tag user_facebook_omniauth_authorize_path, class: 'inline-form' do
-              = button_tag class: 'btn btn-fb' do
-                span.fab.fa-facebook.mr-1
-                = t('login_with_facebook')
+            = button_to user_auth0_omniauth_authorize_path, form_class: 'inline-form', class: 'btn btn-primary' do
+                = t('login_with_auth0')

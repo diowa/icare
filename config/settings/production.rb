@@ -10,10 +10,10 @@ SimpleConfig.for :application do
   set :google_analytics_id, ENV['GOOGLE_ANALYTICS_ID']
   set :google_maps_api_key, ENV['GOOGLE_MAPS_API_KEY']
 
-  group :facebook do
-    set :namespace, ENV['FACEBOOK_NAMESPACE']
-    set :app_id, ENV['FACEBOOK_APP_ID']
-    set :secret, ENV['FACEBOOK_SECRET']
+  group :auth0 do
+    set :domain, ENV['AUTH0_DOMAIN']
+    set :client_id, ENV['AUTH0_CLIENT_ID']
+    set :client_secret, ENV['AUTH0_CLIENT_SECRET']
   end
 
   group :airbrake do

@@ -47,7 +47,7 @@ class ItinerarySearch
   end
 
   def add_checkbox_filters(filters)
-    %i[round_trip pink verified].each do |checkbox_field|
+    %i[round_trip pink].each do |checkbox_field|
       param = @params["filter_#{checkbox_field}".to_sym]
       filters[checkbox_field] = true if param == '1'
     end

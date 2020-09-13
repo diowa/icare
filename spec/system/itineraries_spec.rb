@@ -26,19 +26,19 @@ RSpec.describe 'Itineraries' do
   context 'with registered Users' do
     def login_as_male
       male
-      login_via_facebook
+      login_via_auth0
       # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
       expect(page).to have_current_path dashboard_path
     end
 
     def login_as_female
       female
-      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
-      login_via_facebook
+      OmniAuth.config.mock_auth[:auth0] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
+      login_via_auth0
       # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
       expect(page).to have_current_path dashboard_path
     ensure
-      OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+      OmniAuth.config.mock_auth[:auth0] = OMNIAUTH_MOCKED_AUTHHASH
     end
 
     it 'are allowed to create itineraries', js: true, skip: ENV['CI'] do
@@ -209,7 +209,7 @@ RSpec.describe 'Itineraries' do
       expect(page).to have_current_path itinerary_path(itinerary)
       expect(page).to have_content itinerary.description
       expect(page).not_to have_content 'John Doe'
-      expect(page).not_to have_css('img[src="http://graph.facebook.com/123456/picture?type=square"]')
+      expect(page).not_to have_css('.nav-link__user-image')
     end
 
     it "doesn't allow guests to see pink itineraries" do

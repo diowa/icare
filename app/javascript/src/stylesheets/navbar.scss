@@ -13,20 +13,22 @@
   @extend .ml-auto;
 }
 
-.nav-link--profile {
-  position: relative;
+.nav-link {
+  &--profile {
+    position: relative;
+  }
 
-  img {
+  &__user-name {
+    margin-left: 46px;
+  }
+
+  &__user-image {
     position: absolute;
-    top: 7px;
-    width: 26px;
-    height: 26px;
+    top: 0;
+    width: 40px;
+    height: 40px;
     border-radius: $border-radius-sm;
   }
-}
-
-.nav-link__user-name {
-  margin-left: 30px;
 }
 
 .navbar-brand {
@@ -43,18 +45,6 @@
     vertical-align: top;
   }
 }
-
-// stylelint-disable selector-no-qualifying-type
-.main-navbar .navbar-nav > li.facebook-link > a {
-  color: #fff;
-  background-color: $brand-facebook;
-
-  &:hover,
-  &:focus {
-    background-color: darken($brand-facebook, 5%);
-  }
-}
-// stylelint-enable selector-no-qualifying-type
 
 .navbar-toggle {
   .icon-bar {

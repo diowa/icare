@@ -50,7 +50,6 @@ it-IT:
     itineraries:
       read_more: Leggi tutto
       show_on_map: Mostra sulla mappa
-      facebook_verified: Verificato su Facebook
     loading: Caricamento...
 
   meta_title: "Piattaforma Open Source di Carpooling"
@@ -58,10 +57,9 @@ it-IT:
 
   loading: Caricamento...
   login: Accedi
-  login_with_facebook: Accedi con Facebook
+  login_with_auth0: Accedi con Auth0
   logout: Esci
-  we_will_never_post: Non posteremo mai nulla senza il tuo esplicito permesso.
-  why_facebook: "Perché Facebook?"
+  why_auth0: "Perché Auth0?"
 
   about: Su di noi
   how_it_works: Come funziona
@@ -232,7 +230,6 @@ it-IT:
     show:
       member_since: "Iscritto da %{date}"
       see_all: Mostra tutte
-      facebook_verified: "Un utente di Facebook viene considerato verificato se esegue una delle seguenti azioni: si registra per i cellulari; conferma il suo account tramite SMS; inserisce un numero di carta di credito valido."
       basic_info: Informazioni di base
       friends: "%{count} amici"
       age: "%{count} anni"
@@ -246,12 +243,10 @@ it-IT:
       account_settings: Impostazioni account
       general_information: Informazioni generali
       vehicle_information: Informazioni sul veicolo
-      user_profile_details: I dettagli del profilo vengono aggiornati da Facebook dopo ogni accesso.
+      user_profile_details: I dettagli del profilo vengono aggiornati da Auth0 dopo ogni accesso.
       vehicle_avg_consumption_help: Utilizza il punto per separare i decimali. Questo valore viene usato nella stima del costo carburante quando si crea un nuovo itinerario.
-      vehicle_avg_consumption_note_html: "Nota: Riporta in questo modulo il valore <u>%{fuel}</u> della tabella <u>%{proportional_costs}</u>"
       fuel: Carburante
       proportional_costs: "COSTI PROPORZIONALI %{fuel_currency}/km"
-      km_costs_calculation_link: Calcola il costo chilometrico del tuo veicolo sul sito ACI
       send_email: Invia e-mail quando
       send_email_at_address: "Invieremo le e-mail al seguente indirizzo:"
       application_settings: Impostazioni dell'applicazione
@@ -264,7 +259,6 @@ it-IT:
       advanced_search: Ricerca avanzata
       the_same: È indifferente
       search: Cerca
-      verified_users: Utenti verificati
     index:
       title: Cerca itinerari
     show:

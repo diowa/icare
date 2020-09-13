@@ -29,14 +29,12 @@
     }
 
     &.tag-clear,
-    &.tag-facebook,
     &.tag-icare {
       clear: left;
     }
 
     &.tag-allowed,
     &.tag-common,
-    &.tag-facebook,
     &.tag-forbidden,
     &.tag-icare,
     &.tag-pink {
@@ -46,10 +44,6 @@
     &.tag-allowed,
     &.tag-common {
       background-color: $success;
-    }
-
-    &.tag-facebook {
-      background-color: $brand-facebook;
     }
 
     &.tag-forbidden {

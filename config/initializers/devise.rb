@@ -259,7 +259,14 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, APP_CONFIG.facebook.app_id, APP_CONFIG.facebook.secret, scope: APP_CONFIG.facebook.scope, secure_image_url: true
+  config.omniauth :auth0,
+                  APP_CONFIG.auth0.client_id,
+                  APP_CONFIG.auth0.client_secret,
+                  APP_CONFIG.auth0.domain,
+                  authorize_params: {
+                    scope:   APP_CONFIG.auth0.scope,
+                    max_age: 3600
+                  }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

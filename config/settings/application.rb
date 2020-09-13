@@ -24,11 +24,11 @@ SimpleConfig.for :application do
   set :google_analytics_id, nil
   set :google_maps_api_key, nil
 
-  group :facebook do
-    set :namespace, 'FACEBOOK_NAMESPACE'
-    set :app_id, 'FACEBOOK_APP_ID'
-    set :secret, 'FACEBOOK_SECRET'
-    set :scope, 'email, public_profile, user_birthday, user_likes'
+  group :auth0 do
+    set :domain, 'AUTH0_DOMAIN'
+    set :client_id, 'AUTH0_CLIENT_ID'
+    set :client_secret, 'AUTH0_CLIENT_SECRET'
+    set :scope, 'openid profile email'
     set :cache_expiry_time, 7.days
   end
 

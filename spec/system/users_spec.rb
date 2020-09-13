@@ -16,7 +16,7 @@ RSpec.describe 'Users' do
   it 'allows to delete account' do
     create :user, uid: '123456'
 
-    login_via_facebook
+    login_via_auth0
 
     click_link t('delete_account')
 
@@ -28,7 +28,7 @@ RSpec.describe 'Users' do
   describe 'Settings' do
     it 'allows to edit profile' do
       user = create :user, uid: '123456'
-      login_via_facebook
+      login_via_auth0
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
       click_button t('helpers.submit.update', model: User)
@@ -38,7 +38,7 @@ RSpec.describe 'Users' do
 
     it 'recovers from errors' do
       create :user, uid: '123456'
-      login_via_facebook
+      login_via_auth0
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
       click_button t('helpers.submit.update', model: User)
@@ -53,7 +53,7 @@ RSpec.describe 'Users' do
       create_list :itinerary, 5
       create :user, uid: '123456'
 
-      login_via_facebook
+      login_via_auth0
 
       expect(page).to have_css('.table-itinerary tbody tr', count: 5)
     end
@@ -69,7 +69,7 @@ RSpec.describe 'Users' do
         it 'shows them' do
           create :user, uid: '123456', gender: 'female'
 
-          login_via_facebook
+          login_via_auth0
 
           expect(page).to have_css('.table-itinerary tbody tr', count: 6)
         end
@@ -79,7 +79,7 @@ RSpec.describe 'Users' do
         it 'hides them' do
           create :user, uid: '123456', gender: 'male'
 
-          login_via_facebook
+          login_via_auth0
 
           expect(page).to have_css('.table-itinerary tbody tr', count: 5)
         end
@@ -89,35 +89,16 @@ RSpec.describe 'Users' do
 
   describe 'Profile' do
     let!(:user) do
-      create :user, uid:                '123456',
-                    facebook_favorites: [{ 'id' => '1900100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }],
-                    languages:          [{ 'id' => '106059522759137', 'name' => 'English' }, { 'id' => '113153272032690', 'name' => 'Italian' }],
-                    facebook_verified:  true
+      create :user, uid: '123457'
     end
 
     before do
-      login_via_facebook
+      login_via_auth0
       visit user_path(user)
     end
 
-    it 'highlights common languages' do
-      user_with_common_languages = create :user, languages: [{ id: '106059522759137', name: 'English' }]
-      visit user_path(user_with_common_languages)
-      expect(page).to have_xpath "//div[@class='tag tag-common' and text()='#{t('users.show.language', language: 'English')}']"
-    end
-
-    it 'highlights common likes' do
-      user_with_mutual_friends = create :user,
-                                        facebook_favorites: [{ 'id' => '1910100', 'name' => 'Not a common like' }, { 'id' => '1900102', 'name' => 'Common like' }]
-      visit user_path(user_with_mutual_friends)
-      expect(page).to have_xpath "//div[@class='tag tag-common tag-sm' and text()='Common like']"
-      expect(page).not_to have_xpath "//div[@class='tag tag-common tag-sm' and text()='Not a common like']"
-    end
-
-    context 'when user is verified' do
-      it 'adds the verified box' do
-        expect(page).to have_css '.facebook-verified'
-      end
+    it 'has user name in title' do
+      expect(page).to have_title user.name
     end
   end
 end

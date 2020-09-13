@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  include FacebookOmniauthable
+  include Auth0Omniauthable
 
   # Include default devise modules. Others available are:
-  devise :omniauthable, omniauth_providers: [:facebook]
+  devise :omniauthable, omniauth_providers: [:auth0]
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # :database_authenticatable, :registerable,
   # :recoverable, :rememberable, :trackable, :validatable

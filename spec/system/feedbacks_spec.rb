@@ -6,7 +6,7 @@ RSpec.describe 'Feedbacks' do
   it 'allows creation from registered users' do
     create :user, uid: '123456'
 
-    login_via_facebook
+    login_via_auth0
 
     click_link Feedback.model_name.human
     click_link t('helpers.links.new')
@@ -20,7 +20,7 @@ RSpec.describe 'Feedbacks' do
     user = create :user, uid: '123456'
     feedback = create :feedback, user: user
 
-    login_via_facebook
+    login_via_auth0
     visit feedback_path(feedback)
 
     click_link t('helpers.links.edit')
@@ -35,7 +35,7 @@ RSpec.describe 'Feedbacks' do
     feedback = create :feedback
     create :user, uid: '123456', admin: true
 
-    login_via_facebook
+    login_via_auth0
     visit feedback_path(feedback)
 
     click_link t('helpers.links.edit')
@@ -50,7 +50,7 @@ RSpec.describe 'Feedbacks' do
     feedback = create :feedback
     create :user, uid: '123456', admin: true
 
-    login_via_facebook
+    login_via_auth0
     visit feedback_path(feedback)
 
     click_link t('helpers.links.edit')
@@ -65,7 +65,7 @@ RSpec.describe 'Feedbacks' do
     user = create :user, uid: '123456'
     feedback = create :feedback, user: user
 
-    login_via_facebook
+    login_via_auth0
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
@@ -78,7 +78,7 @@ RSpec.describe 'Feedbacks' do
     feedback = create :feedback
     create :user, uid: '123456', admin: true
 
-    login_via_facebook
+    login_via_auth0
     visit feedbacks_path
 
     find("a[data-method=\"delete\"][href=\"#{feedback_path(feedback)}\"]").click
@@ -93,7 +93,7 @@ RSpec.describe 'Feedbacks' do
     former_user_feedback = create :feedback
     former_user_feedback.user.destroy
 
-    login_via_facebook
+    login_via_auth0
     visit feedbacks_path
 
     expect(page).to have_content feedback.user
@@ -103,7 +103,7 @@ RSpec.describe 'Feedbacks' do
   it "doesn't fail when creating with wrong parameters" do
     create :user, uid: '123456'
 
-    login_via_facebook
+    login_via_auth0
     visit new_feedback_path
 
     click_button t('helpers.submit.create', model: Feedback)
@@ -114,7 +114,7 @@ RSpec.describe 'Feedbacks' do
     user = create :user, uid: '123456'
     feedback = create :feedback, user: user
 
-    login_via_facebook
+    login_via_auth0
     visit edit_feedback_path(feedback)
     fill_in 'feedback_message', with: ''
     click_button t('helpers.submit.update', model: Feedback)
