@@ -3,10 +3,10 @@
 module GeoItinerary
   extend ActiveSupport::Concern
 
-  included do
-    RGEO_FACTORY = RGeo::Geographic.simple_mercator_factory(buffer_resolution: 4)
-    LINEAR_RING = RGEO_FACTORY.linear_ring(APP_CONFIG.itineraries.bounds.map { |p| RGeo::Geographic.spherical_factory.point(*p) })
+  RGEO_FACTORY = RGeo::Geographic.simple_mercator_factory(buffer_resolution: 4)
+  LINEAR_RING = RGEO_FACTORY.linear_ring(APP_CONFIG.itineraries.bounds.map { |p| RGeo::Geographic.spherical_factory.point(*p) })
 
+  included do
     attr_accessor :route
 
     validates :start_address, presence: true
