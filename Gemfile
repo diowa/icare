@@ -53,7 +53,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 7.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 6.12'
+gem 'newrelic_rpm', '~> 6.13'
 
 # Security
 gem 'secure_headers', '~> 6.3'
