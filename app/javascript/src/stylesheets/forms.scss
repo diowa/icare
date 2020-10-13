@@ -5,7 +5,7 @@ select.date-time {
 }
 
 input[type="text"] {
-  @include text-truncate;
+  @include text-truncate();
 }
 // stylelint-enable selector-no-qualifying-type
 
