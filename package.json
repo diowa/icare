@@ -27,7 +27,7 @@
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
-    "standard": "^15.0.1",
+    "standard": "^16.0.1",
     "standard-loader": "^7.0.0",
     "stylelint": "^13.7.2",
     "stylelint-config-twbs-bootstrap": "^2.1.0",
