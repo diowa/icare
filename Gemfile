@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.10'
 gem 'simple_form', '~> 5.0'
 
 # ODM and related
-gem 'client_side_validations', '~> 17.1'
+gem 'client_side_validations', '~> 17.2'
 gem 'client_side_validations-simple_form', '~> 11.1'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
