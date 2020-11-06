@@ -94,7 +94,7 @@ group :development do
   gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
-  gem 'web-console', '~> 4.0'
+  gem 'web-console', '~> 4.1'
 end
 
 group :test do
