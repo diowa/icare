@@ -9,6 +9,7 @@ RSpec.describe User do
   let(:jack_black) { create :user, name: 'Jack Black' }
   let(:anonymous) { create :user, name: nil }
 
+  # rubocop:disable Naming/VariableNumber
   describe '#age' do
     let(:born_on_1960_10_30) { create :user, birthday: '1960-10-30' }
     let(:born_on_1972_02_29) { create :user, birthday: '1972-02-29' }
@@ -44,6 +45,7 @@ RSpec.describe User do
       expect(unknown_birthday.age).to be_nil
     end
   end
+  # rubocop:enable Naming/VariableNumber
 
   describe '#female?' do
     it 'answers true if user is female' do
