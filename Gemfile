@@ -46,7 +46,7 @@ gem 'validates_timeliness', '~> 4.1'
 gem 'devise', '~> 4.7'
 
 # Geospatial data library
-gem 'rgeo', '~> 2.0'
+gem 'rgeo', '~> 2.2'
 
 # Facebook integration
 gem 'koala', '~> 3.0'
