@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.106.0
+
+* Ruby 2.7.2
+* Rails 6.0.3.4
+* Update dependencies
+
 ## 0.105.0
 
 * Fix Facebook login
