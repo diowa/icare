@@ -6,6 +6,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 environment.plugins.append(
   'StyleLintPlugin',
   new StyleLintPlugin({
+    files: '/app/**/*.(s(c|a)ss|css)'
   })
 )
 

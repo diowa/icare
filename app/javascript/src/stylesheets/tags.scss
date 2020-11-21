@@ -1,7 +1,7 @@
 .tag-list {
   margin-left: -5px;
 
-  @include clearfix;
+  @include clearfix();
 
   .tag {
     display: block;
