@@ -63,7 +63,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     airbrake (11.0.1)
       airbrake-ruby (~> 5.1)
-    airbrake-ruby (5.1.0)
+    airbrake-ruby (5.1.1)
       rbtree3 (~> 0.5)
     ast (2.4.1)
     bcrypt (3.1.16)
@@ -191,7 +191,7 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    newrelic_rpm (6.13.1)
+    newrelic_rpm (6.14.0)
     nio4r (2.5.4)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -422,7 +422,7 @@ DEPENDENCIES
   koala (~> 3.0)
   launchy (~> 2.5)
   listen (~> 3.3)
-  newrelic_rpm (~> 6.13)
+  newrelic_rpm (~> 6.14)
   omniauth-facebook (~> 8.0)
   pg (~> 1.2)
   pry (~> 0.13.1)
@@ -455,7 +455,7 @@ DEPENDENCIES
   webpacker (~> 5.2)
 
 RUBY VERSION
-   ruby 2.7.1p83
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.1.4

@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '2.7.1'
+ruby '2.7.2'
 gem 'rails', '6.0.3.4'
 
 # Use postgresql as the database for Active Record
@@ -53,7 +53,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 8.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 6.13'
+gem 'newrelic_rpm', '~> 6.14'
 
 # Security
 gem 'secure_headers', '~> 6.3'
