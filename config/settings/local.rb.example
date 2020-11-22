@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-# Rename this file to local.rb
-# Since this file is not part of the git repository, you can set here sensitive data for local development.
+# Copy this file to `local.rb`.
+# `local.rb` will not be committed to the git repository, and can be used to
+# store sensitive data or machine-specific configuration for local development.
 
 SimpleConfig.for :application do
   set :google_maps_api_key, 'GOOGLE_MAPS_API_KEY'
