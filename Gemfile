@@ -98,7 +98,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.33'
+  gem 'capybara', '~> 3.34'
   gem 'coveralls_reborn', '~> 0.18.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
