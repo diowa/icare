@@ -8,10 +8,10 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.7.2'
-gem 'rails', '6.0.3.4'
+gem 'rails', '6.1.0'
 
 # Use postgresql as the database for Active Record
-gem 'activerecord-postgis-adapter', '~> 6.0'
+gem 'activerecord-postgis-adapter', github: 'rgeo/activerecord-postgis-adapter', branch: 'ar61' # TODO: Use stable version
 gem 'pg', '~> 1.2'
 
 # Servers
@@ -80,10 +80,10 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 1.5', require: false
+  gem 'rubocop', '~> 1.6', require: false
   gem 'rubocop-performance', '~> 1.9', require: false
   gem 'rubocop-rails', '~> 2.9', require: false
-  gem 'rubocop-rspec', '~> 2.0', require: false
+  gem 'rubocop-rspec', '~> 2.1', require: false
   gem 'slim_lint', '~> 0.20.2', require: false
 end
 
@@ -104,7 +104,7 @@ group :test do
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.20.0', require: false
-  gem 'webmock', '~> 3.10', require: false
+  gem 'webmock', '~> 3.11', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

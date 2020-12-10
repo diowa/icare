@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.107.0
+
+* Rails 6.1
+* Update dependencies
+
 ## 0.106.1
 
 * Fix Travis build
