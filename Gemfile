@@ -15,7 +15,7 @@ gem 'activerecord-postgis-adapter', '~> 6.0'
 gem 'pg', '~> 1.2'
 
 # Servers
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.1'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.2'
@@ -75,14 +75,14 @@ group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 6.1'
-  gem 'faker', '~> 2.14'
+  gem 'faker', '~> 2.15'
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 1.3', require: false
+  gem 'rubocop', '~> 1.5', require: false
   gem 'rubocop-performance', '~> 1.9', require: false
-  gem 'rubocop-rails', '~> 2.8', require: false
+  gem 'rubocop-rails', '~> 2.9', require: false
   gem 'rubocop-rspec', '~> 2.0', require: false
   gem 'slim_lint', '~> 0.20.2', require: false
 end
@@ -98,12 +98,12 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.33'
-  gem 'coveralls_reborn', '~> 0.18.0', require: false
+  gem 'capybara', '~> 3.34'
+  gem 'coveralls_reborn', '~> 0.19.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '~> 0.19.1', require: false
+  gem 'simplecov', '~> 0.20.0', require: false
   gem 'webmock', '~> 3.10', require: false
 end
 
