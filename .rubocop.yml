@@ -4,7 +4,7 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRailsVersion: 6.0
+  TargetRailsVersion: 6.1
   TargetRubyVersion: 2.7
   NewCops: enable
   Exclude:
