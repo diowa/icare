@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/rgeo/activerecord-postgis-adapter.git
-  revision: 1a155471dc85b2888a2257147eea4e717c112c3a
+  revision: 8e899321ccdf8d796da82dad26ba6f3bd00d3ffd
   branch: ar61
   specs:
     activerecord-postgis-adapter (6.0.1)
       activerecord (~> 6.1)
-      rgeo-activerecord (>= 6.2.2)
+      rgeo-activerecord (~> 7.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -140,7 +140,7 @@ GEM
     faraday (1.1.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
-    ffi (1.13.1)
+    ffi (1.14.1)
     friendly_id (5.4.1)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
@@ -267,7 +267,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 1.0)
     rainbow (3.0.0)
-    rake (13.0.1)
+    rake (13.0.2)
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
