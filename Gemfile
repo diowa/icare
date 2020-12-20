@@ -11,7 +11,7 @@ ruby '2.7.2'
 gem 'rails', '6.1.0'
 
 # Use postgresql as the database for Active Record
-gem 'activerecord-postgis-adapter', github: 'rgeo/activerecord-postgis-adapter', branch: 'ar61' # TODO: Use stable version
+gem 'activerecord-postgis-adapter', '~> 7.0', github: 'rgeo/activerecord-postgis-adapter', branch: 'ar61' # TODO: Use stable version
 gem 'pg', '~> 1.2'
 
 # Servers
@@ -37,7 +37,7 @@ gem 'simple_form', '~> 5.0'
 
 # ODM and related
 gem 'client_side_validations', '~> 17.2'
-gem 'client_side_validations-simple_form', '~> 11.1'
+gem 'client_side_validations-simple_form', '~> 11.2'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 4.1'
@@ -89,8 +89,8 @@ end
 
 group :development do
   gem 'better_errors', '~> 2.9'
-  gem 'binding_of_caller', '~> 0.8.0'
-  gem 'listen', '~> 3.3'
+  gem 'binding_of_caller', '~> 1.0'
+  gem 'listen', '~> 3.4'
   gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
