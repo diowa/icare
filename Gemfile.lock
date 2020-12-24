@@ -1,11 +1,11 @@
 GIT
   remote: https://github.com/rgeo/activerecord-postgis-adapter.git
-  revision: 1a155471dc85b2888a2257147eea4e717c112c3a
+  revision: 86e8ad1a129313fff3d148617da96439355a0d1c
   branch: ar61
   specs:
-    activerecord-postgis-adapter (6.0.1)
+    activerecord-postgis-adapter (7.0.0)
       activerecord (~> 6.1)
-      rgeo-activerecord (>= 6.2.2)
+      rgeo-activerecord (~> 7.0.0)
 
 GEM
   remote: https://rubygems.org/
