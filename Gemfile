@@ -18,7 +18,7 @@ gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.1'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.2'
+gem 'webpacker', '~> 5.2', '>= 5.2.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.5', require: false
@@ -33,17 +33,17 @@ gem 'simpleconfig', '~> 2.0'
 gem 'jbuilder', '~> 2.10'
 
 # Forms
-gem 'simple_form', '~> 5.0'
+gem 'simple_form', '~> 5.0', '>= 5.0.3'
 
 # ODM and related
-gem 'client_side_validations', '~> 17.2'
-gem 'client_side_validations-simple_form', '~> 11.2'
+gem 'client_side_validations', '~> 17.2', '>= 17.2.0'
+gem 'client_side_validations-simple_form', '~> 11.2', '>= 11.2.0'
 gem 'friendly_id', '~> 5.4'
-gem 'kaminari', '~> 1.2'
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
 gem 'validates_timeliness', '~> 4.1'
 
 # Authentication framework
-gem 'devise', '~> 4.7'
+gem 'devise', '~> 4.7', '>= 4.7.3'
 
 # Geospatial data library
 gem 'rgeo', '~> 2.2'
@@ -61,11 +61,11 @@ gem 'secure_headers', '~> 6.3'
 # Miscellanea
 gem 'addressable', '~> 2.7'
 gem 'http_accept_language', '~> 2.1'
-gem 'slim-rails', '~> 3.2'
+gem 'slim-rails', '~> 3.2', '>= 3.2.0'
 
 # Assets
 gem 'i18n-js', '~> 3.8'
-gem 'inline_svg', '~> 1.7'
+gem 'inline_svg', '~> 1.7', '>= 1.7.2'
 gem 'turbolinks', '~> 5.2'
 
 # Errors reporting
@@ -74,12 +74,12 @@ gem 'airbrake', '~> 11.0'
 group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
-  gem 'factory_bot_rails', '~> 6.1'
+  gem 'factory_bot_rails', '~> 6.1', '>= 6.1.0'
   gem 'faker', '~> 2.15'
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
-  gem 'rspec-rails', '~> 4.0'
+  gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
   gem 'rubocop', '~> 1.7', require: false
   gem 'rubocop-performance', '~> 1.9', require: false
   gem 'rubocop-rails', '~> 2.9', require: false
@@ -94,11 +94,11 @@ group :development do
   gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
-  gem 'web-console', '~> 4.1'
+  gem 'web-console', '~> 4.1', '>= 4.1.0'
 end
 
 group :test do
-  gem 'capybara', '~> 3.34'
+  gem 'capybara', '~> 3.34', '>= 3.34.0'
   gem 'coveralls_reborn', '~> 0.19.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
