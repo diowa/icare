@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/rgeo/activerecord-postgis-adapter.git
-  revision: 0e4fcfbad73076ad8b6df54ce29c0eb6dca594e3
-  branch: ar61
-  specs:
-    activerecord-postgis-adapter (7.0.0)
-      activerecord (~> 6.1)
-      rgeo-activerecord (~> 7.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -56,6 +47,9 @@ GEM
     activerecord (6.1.0)
       activemodel (= 6.1.0)
       activesupport (= 6.1.0)
+    activerecord-postgis-adapter (7.0.0)
+      activerecord (~> 6.1)
+      rgeo-activerecord (~> 7.0.0)
     activestorage (6.1.0)
       actionpack (= 6.1.0)
       activejob (= 6.1.0)
@@ -152,7 +146,7 @@ GEM
     hashie (4.1.0)
     htmlentities (4.3.4)
     http_accept_language (2.1.1)
-    i18n (1.8.5)
+    i18n (1.8.7)
       concurrent-ruby (~> 1.0)
     i18n-js (3.8.0)
       i18n (>= 0.6.6)
@@ -199,7 +193,7 @@ GEM
     mimemagic (0.3.5)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    minitest (5.14.2)
+    minitest (5.14.3)
     msgpack (1.3.3)
     multi_json (1.15.0)
     multi_xml (0.6.0)
@@ -411,7 +405,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter (~> 7.0)!
+  activerecord-postgis-adapter (~> 7.0)
   addressable (~> 2.7)
   airbrake (~> 11.0)
   better_errors (~> 2.9)
