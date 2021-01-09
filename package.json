@@ -12,8 +12,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
-    "@rails/actioncable": "6.1.0",
-    "@rails/activestorage": "6.1.0",
+    "@rails/actioncable": "6.1.1",
+    "@rails/activestorage": "6.1.1",
     "@rails/webpacker": "^5.2.1",
     "bootstrap": "^4.5.3",
     "exports-loader": "^1.1.1",
@@ -36,6 +36,6 @@
     "stylelint-webpack-plugin": "^2.1.1",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.1"
   }
 }

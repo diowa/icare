@@ -8,10 +8,10 @@ git_source(:github) do |repo_name|
 end
 
 ruby '2.7.2'
-gem 'rails', '6.1.0'
+gem 'rails', '6.1.1'
 
 # Use postgresql as the database for Active Record
-gem 'activerecord-postgis-adapter', github: 'rgeo/activerecord-postgis-adapter', branch: 'ar61' # TODO: Use stable version
+gem 'activerecord-postgis-adapter', '~> 7.0' # TODO: Use stable version
 gem 'pg', '~> 1.2'
 
 # Servers
@@ -37,7 +37,7 @@ gem 'simple_form', '~> 5.0'
 
 # ODM and related
 gem 'client_side_validations', '~> 17.2'
-gem 'client_side_validations-simple_form', '~> 11.1'
+gem 'client_side_validations-simple_form', '~> 11.2'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 4.1'
@@ -80,7 +80,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 1.6', require: false
+  gem 'rubocop', '~> 1.8', require: false
   gem 'rubocop-performance', '~> 1.9', require: false
   gem 'rubocop-rails', '~> 2.9', require: false
   gem 'rubocop-rspec', '~> 2.1', require: false
@@ -89,8 +89,8 @@ end
 
 group :development do
   gem 'better_errors', '~> 2.9'
-  gem 'binding_of_caller', '~> 0.8.0'
-  gem 'listen', '~> 3.3'
+  gem 'binding_of_caller', '~> 1.0'
+  gem 'listen', '~> 3.4'
   gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
@@ -99,11 +99,11 @@ end
 
 group :test do
   gem 'capybara', '~> 3.34'
-  gem 'coveralls_reborn', '~> 0.19.0', require: false
+  gem 'coveralls_reborn', '~> 0.20.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '~> 0.20.0', require: false
+  gem 'simplecov', '~> 0.21.1', require: false
   gem 'webmock', '~> 3.11', require: false
 end
 
