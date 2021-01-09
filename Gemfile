@@ -11,7 +11,7 @@ ruby '3.0.0'
 gem 'rails', '6.1.1'
 
 # Use postgresql as the database for Active Record
-gem 'activerecord-postgis-adapter', '~> 7.0' # TODO: Use stable version
+gem 'activerecord-postgis-adapter', '~> 7.0'
 gem 'pg', '~> 1.2'
 
 # Servers
