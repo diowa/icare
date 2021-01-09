@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.108.0
+
+* Ruby 3.0
+* Rails 6.1.1
+* Update dependencies
+
 ## 0.107.0
 
 * Rails 6.1
