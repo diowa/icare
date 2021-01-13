@@ -50,7 +50,7 @@ gem 'rgeo', '~> 2.2'
 
 # Facebook integration
 gem 'koala', '~> 3.0'
-gem 'omniauth-facebook', '~> 8.0'
+gem 'omniauth-facebook', '~> 8.0', '>= 8.0.0'
 
 # Performance
 gem 'newrelic_rpm', '~> 6.14'
