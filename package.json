@@ -15,7 +15,7 @@
     "@rails/actioncable": "6.1.1",
     "@rails/activestorage": "6.1.1",
     "@rails/webpacker": "^5.2.1",
-    "bootstrap": "^4.5.3",
+    "bootstrap": "^4.6.0",
     "exports-loader": "^1.1.1",
     "handlebars": "^4.7.6",
     "handlebars-loader": "^1.7.1",
