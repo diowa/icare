@@ -44,7 +44,7 @@ gem 'validates_timeliness', '~> 4.1'
 
 # Authentication framework
 gem 'devise', '~> 4.7'
-gem 'omniauth', '~> 1.9' # TODO: wait for devise support of OmniAuth 2.0
+gem 'omniauth', '~> 2.0' # TODO: wait for devise support of OmniAuth 2.0
 
 # Geospatial data library
 gem 'rgeo', '~> 2.2'
