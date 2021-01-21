@@ -99,7 +99,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.34'
+  gem 'capybara', '~> 3.34', github: 'teamcapybara/capybara' # TODO: use stable
   gem 'coveralls_reborn', '~> 0.20.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
