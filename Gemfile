@@ -11,11 +11,11 @@ ruby '3.0.0'
 gem 'rails', '6.1.1'
 
 # Use postgresql as the database for Active Record
-gem 'activerecord-postgis-adapter', '~> 7.0' # TODO: Use stable version
+gem 'activerecord-postgis-adapter', '~> 7.0'
 gem 'pg', '~> 1.2'
 
 # Servers
-gem 'puma', '~> 5.1'
+gem 'puma', '~> 5.2'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.2'
@@ -30,20 +30,21 @@ gem 'sucker_punch', '~> 2.1'
 gem 'simpleconfig', '~> 2.0'
 
 # API
-gem 'jbuilder', '~> 2.10'
+gem 'jbuilder', '~> 2.11'
 
 # Forms
 gem 'simple_form', '~> 5.0'
 
 # ODM and related
 gem 'client_side_validations', '~> 17.2'
-gem 'client_side_validations-simple_form', '~> 11.2'
+gem 'client_side_validations-simple_form', '~> 12.0'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 4.1'
 
 # Authentication framework
 gem 'devise', '~> 4.7'
+gem 'omniauth', '~> 1.9' # TODO: wait for devise support of OmniAuth 2.0
 
 # Geospatial data library
 gem 'rgeo', '~> 2.2'
@@ -53,7 +54,7 @@ gem 'koala', '~> 3.0'
 gem 'omniauth-facebook', '~> 8.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 6.14'
+gem 'newrelic_rpm', '~> 6.15'
 
 # Security
 gem 'secure_headers', '~> 6.3'
@@ -80,7 +81,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 1.8', require: false
+  gem 'rubocop', '~> 1.9', require: false
   gem 'rubocop-performance', '~> 1.9', require: false
   gem 'rubocop-rails', '~> 2.9', require: false
   gem 'rubocop-rspec', '~> 2.1', require: false
@@ -98,12 +99,12 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.34'
+  gem 'capybara', '~> 3.35'
   gem 'coveralls_reborn', '~> 0.20.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
-  gem 'simplecov', '~> 0.21.1', require: false
+  gem 'simplecov', '~> 0.21.2', require: false
   gem 'webmock', '~> 3.11', require: false
 end
 
