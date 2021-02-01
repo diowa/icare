@@ -9,6 +9,39 @@ RSpec.describe User do
   let(:jack_black) { create :user, name: 'Jack Black' }
   let(:anonymous) { create :user, name: nil }
 
+  describe 'after destroy' do
+    let(:demo_mode) { false }
+
+    before do
+      allow(DeleteUserJob).to receive(:perform_later)
+    end
+
+    around do |example|
+      old_demo_mode_value = APP_CONFIG.demo_mode
+      APP_CONFIG.set :demo_mode, demo_mode
+
+      example.run
+    ensure
+      APP_CONFIG.set :demo_mode, old_demo_mode_value
+    end
+
+    it 'does not delete user on provider' do
+      user.destroy
+
+      expect(DeleteUserJob).not_to have_received(:perform_later)
+    end
+
+    context 'when demo mode is enabled' do
+      let(:demo_mode) { true }
+
+      it 'deletes user on provider' do
+        user.destroy
+
+        expect(DeleteUserJob).to have_received(:perform_later).with(user.uid)
+      end
+    end
+  end
+
   # rubocop:disable Naming/VariableNumber
   describe '#age' do
     let(:born_on_1960_10_30) { create :user, birthday: '1960-10-30' }
