@@ -12,7 +12,7 @@
         small demo
     h1.mb-4 = t('.os_carpooling_platform')
 
-    == render 'facebook_login'
+    == render 'auth0_login'
 
     .learn-more-container
       = link_to '#', class: 'btn btn-learn-more' do
@@ -63,5 +63,5 @@
         p = t('.open_source_content_html', appname: APP_CONFIG.app_name, source_code_link: link_to(t('.source_code'), APP_CONFIG.repository_url))
 .container.text-center
   .h2.join-us = t('.join_us_today')
-  == render 'facebook_login'
-== render 'shared/modal_why_facebook'
+== render 'shared/modal_why_auth0'
+  == render 'auth0_login'

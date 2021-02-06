@@ -7,7 +7,7 @@ FactoryBot.define do
   factory :user do
     uid
     email
-    provider { 'facebook' }
+    provider { 'auth0' }
     name { Faker::Name.name }
     gender { 'male' }
     birthday { Faker::Date.birthday(min_age: 18, max_age: 50) }

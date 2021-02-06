@@ -1,6 +1,6 @@
 {
   "name": "icare",
-  "description": "Open Source Carpooling Platform. icare requires a valid Facebook application, check our Wiki for more information.",
+  "description": "Open Source Carpooling Platform. icare requires a valid Auth0 application, check our Wiki for more information.",
   "keywords": [
     "Carpooling",
     "Ridesharing",
@@ -26,14 +26,14 @@
     "GOOGLE_MAPS_API_KEY": {
       "description": "A valid Google Maps JavaScript API key. Check our Wiki for more information."
     },
-    "FACEBOOK_NAMESPACE": {
-      "description": "The namespace of your Facebook application. Check our Wiki for more information."
+    "AUTH0_DOMAIN": {
+      "description": "The Domain of your Auth0 application. Check our Wiki for more information."
     },
-    "FACEBOOK_APP_ID": {
-      "description": "The ID of your Facebook application. Check our Wiki for more information."
+    "AUTH0_CLIENT_ID": {
+      "description": "The Client Secret of your Auth0 application. Check our Wiki for more information."
     },
-    "FACEBOOK_SECRET": {
-      "description": "The secret of your Facebook application. Check our Wiki for more information."
+    "AUTH0_CLIENT_SECRET": {
+      "description": "The secret of your Auth0 application. Check our Wiki for more information."
     },
     "NEW_RELIC_APP_NAME": {
       "description": "Sets the name of your application as it will appear on the New Relic dashboard.",

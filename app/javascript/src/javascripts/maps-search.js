@@ -168,7 +168,6 @@ const initItineraryIndex = function () {
           $('#itineraries-thumbs').append(HandlebarsTemplates['itineraries/thumbnail'](this))
         })
         icare.map.fitBounds(icare.latLngBounds)
-        $('.facebook-verified-tooltip').tooltip()
       }
     })
 

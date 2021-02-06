@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider'    => 'facebook',
+OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider'    => 'auth0',
                                                   'uid'         => '123456',
                                                   'info'        => {
                                                     'email' => 'test@example.com',
                                                     'name'  => 'John Doe',
-                                                    'image' => 'http://graph.facebook.com/123456/picture'
+                                                    'image' => 'https://s.gravatar.com/avatar/123456?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fta.png'
                                                   },
                                                   'credentials' => {
                                                     'token'      => 'token',
@@ -21,12 +21,12 @@ OMNIAUTH_MOCKED_AUTHHASH = OmniAuth::AuthHash.new('provider'    => 'facebook',
                                                   })
 
 OmniAuth.config.test_mode = true
-OmniAuth.config.mock_auth[:facebook] = OMNIAUTH_MOCKED_AUTHHASH
+OmniAuth.config.mock_auth[:auth0] = OMNIAUTH_MOCKED_AUTHHASH
 
 module OmniauthMacros
-  def login_via_facebook
+  def login_via_auth0
     visit root_path
-    first("form[action=\"#{user_facebook_omniauth_authorize_path}\"] button").click
+    first("form[action=\"#{user_auth0_omniauth_authorize_path}\"] button").click
   end
 end
 

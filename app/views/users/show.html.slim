@@ -10,18 +10,3 @@
       - if @user.bio?
         blockquote.user-blockquote
           p = @user.bio
-      - if @user.facebook_verified?
-        blockquote.facebook-verified-blockquote
-          span.facebook-verified
-            span.fas.fa-check<>
-            = User.human_attribute_name(:facebook_verified)
-          br
-          span.text-muted = t('.facebook_verified')
-      .tag-list
-        .tag.tag-facebook = t('.basic_info')
-        - if @user.birthday?
-          .tag = t('.age', count: @user.age)
-        - if @user.gender?
-          .tag = User.human_attribute_name "gender_#{@user.gender}"
-        = language_tags @user
-        = favorite_tags @user, @user.facebook_favorites

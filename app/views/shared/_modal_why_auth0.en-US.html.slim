@@ -1,0 +1,12 @@
+#why-auth0.modal.fade tabindex='-1' role='dialog' aria-labelledby=t('why_auth0') aria-hidden=true
+  .modal-dialog role='document'
+    .modal-content
+      .modal-header
+        h3.modal-title = t('why_auth0')
+        button.close type='button' data-dismiss='modal' aria-label=t('close') aria-hidden=true &times;
+      .modal-body
+        p
+          ' We want to show how it is possible to integrate this application with an existing
+          | OAuth provider
+      .modal-footer
+        = link_to t('close'), '#', 'aria-hidden' => true, data: { dismiss: 'modal' }, class: 'btn btn-primary'

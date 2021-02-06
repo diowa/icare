@@ -1,10 +1,7 @@
-= form_tag user_facebook_omniauth_authorize_path, class: 'd-inline-block' do
-  = button_tag class: 'btn btn-fb btn-fb-lg' do
-    span.fab.fa-facebook.mr-1
-    = t('login_with_facebook')
-= link_to t('why_facebook'), '#why-facebook', class: 'btn btn-link btn-why-facebook', data: { toggle: 'modal' }
+= button_to user_auth0_omniauth_authorize_path, form_class: 'd-inline-block', class: 'btn btn-primary btn-lg' do
+  = t('login_with_auth0')
+= link_to t('why_auth0'), '#why-auth0', class: 'btn btn-link btn-why-auth0', data: { toggle: 'modal' }
 p.mt-4
-  b = t('we_will_never_post')
   br
   - if APP_CONFIG.demo_mode
     = t('pages.home.demo_mode_html', demo_terms_link: link_to(t('demo_terms'), :demo_terms, class: 'splashscreen-link'))

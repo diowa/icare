@@ -8,11 +8,10 @@ RSpec.describe Itinerary do
   let(:itinerary) { create :itinerary }
 
   describe 'before_create' do
-    it 'caches driver gender and verification status' do
-      female_verified_user = create :user, gender: 'female', facebook_verified: true
-      itinerary = create :itinerary, user: female_verified_user
+    it 'caches driver gender' do
+      female_user = create :user, gender: 'female'
+      itinerary = create :itinerary, user: female_user
       expect(itinerary.driver_gender).to eq 'female'
-      expect(itinerary.verified).to be true
     end
   end
 

@@ -9,7 +9,7 @@
     min-width: 200px;
   }
 
-  .btn-why-facebook {
+  .btn-why-auth0 {
     text-decoration: underline;
   }
 }
@@ -67,7 +67,7 @@
     font-size: $h2-font-size;
   }
 
-  .btn-why-facebook {
+  .btn-why-auth0 {
     text-decoration: underline;
   }
 
@@ -97,7 +97,7 @@
   }
 }
 
-.btn-why-facebook {
+.btn-why-auth0 {
   font-size: $small-font-size;
 }
 
@@ -154,11 +154,7 @@
     position: absolute;
   }
 
-  .btn-fb-lg {
-    @include button-size($input-btn-padding-y-lg, $input-btn-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
-  }
-
-  .btn-why-facebook {
+  .btn-why-auth0 {
     font-size: $font-size-base;
   }
 
@@ -183,7 +179,7 @@
       line-height: 44px;
     }
 
-    .btn-why-facebook {
+    .btn-why-auth0 {
       font-size: $font-size-base;
     }
   }

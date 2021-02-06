@@ -7,7 +7,7 @@ class Feedback < ApplicationRecord
   }
 
   enum status: {
-    open:           'open',
+    normal:         'normal',
     fixed:          'fixed',
     in_progress:    'in_progress',
     not_applicable: 'not_applicable'

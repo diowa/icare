@@ -42,7 +42,6 @@ class Itinerary < ApplicationRecord
 
   before_create do
     self.driver_gender = user.gender
-    self.verified = user.facebook_verified
     true
   end
 
