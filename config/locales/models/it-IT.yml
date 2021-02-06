@@ -28,7 +28,6 @@ it-IT:
       user:
         email: E-mail
         name: Nome
-        facebook_verified: Verificato su Facebook
         about: Su di te
         gender: Sesso
         age: Età

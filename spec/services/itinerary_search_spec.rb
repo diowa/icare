@@ -78,14 +78,6 @@ RSpec.describe ItinerarySearch do
       expect(itineraries.count).to be 1
     end
 
-    it 'manages verified filter' do
-      verified_user = create :user, facebook_verified: true
-      create :itinerary, start_location: [0, 0], end_location: [1, 1]
-      create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], user: verified_user
-      itineraries = described_class.new(search_params.merge(filter_verified: '1'), female_user).itineraries
-      expect(itineraries.count).to be 2
-    end
-
     it 'manages smoking filter' do
       create :itinerary, start_location: [0, 0], end_location: [1, 1]
       create_list :itinerary, 2, start_location: [0, 0], end_location: [1, 1], smoking_allowed: true

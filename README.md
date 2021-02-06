@@ -20,7 +20,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [Font Awesome][7] (vectorial icons)
 * [Devise][2]
 * Asynchronous tasks with [Sucker Punch][9]
-* Facebook Open Graph / Rest API with [Koala][11]
+* OAuth login with [Auth0][11]
 * Google Maps API
 * [RSpec][12]
 * [Heroku][14] Cloud Application Platform
@@ -36,7 +36,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [6]: https://getbootstrap.com
  [7]: https://fontawesome.com
  [9]: https://github.com/brandonhilkert/sucker_punch
- [11]: https://github.com/arsduo/koala
+ [11]: https://auth0.com/
  [12]: https://rspec.info/
  [13]: https://newrelic.com/
  [14]: https://www.heroku.com/

@@ -50,7 +50,6 @@ en-US:
     itineraries:
       read_more: Read more
       show_on_map: Show on map
-      facebook_verified: Verified on Facebook
     loading: Loading
 
   meta_title: "Open Source Carpooling Platform"
@@ -58,10 +57,9 @@ en-US:
 
   loading: Loading...
   login: Log in
-  login_with_facebook: Login with Facebook
+  login_with_auth0: Login with Auth0
   logout: Log Out
-  we_will_never_post: We will never post anything without your explicit consent.
-  why_facebook: "Why Facebook?"
+  why_auth0: "Why Auth0?"
 
   about: About us
   how_it_works: How it works
@@ -228,7 +226,6 @@ en-US:
     show:
       member_since: "Member since %{date}"
       see_all: See All
-      facebook_verified: "A Facebook user is considered verified if he takes any of the following actions: registers for mobile; confirms his account via SMS; enters a valid credit card."
       basic_info: Basic info
       friends: "%{count} friends"
       age: "%{count} years"
@@ -242,12 +239,10 @@ en-US:
       account_settings: Account Settings
       general_information: General info
       vehicle_information: Vehicle info
-      user_profile_details: Profile details are updated from Facebook after each login.
+      user_profile_details: Profile details are updated from Auth0 after each login.
       vehicle_avg_consumption_help: Use a point to separate decimals. This value is used in the fuel cost estimate when creating a new itinerary.
-      vehicle_avg_consumption_note_html: "Note: Write in this field the <u>%{fuel}</u> value of <u>%{proportional_costs}</u> table"
       fuel: Fuel
       proportional_costs: "PROPORTIONAL COSTS %{fuel_currency}/km"
-      km_costs_calculation_link: Calculate the kilometrical cost of your vehicle on the ACI website (Italian)
       send_email: Send an email when
       send_email_at_address: "We will send emails at the following address:"
       application_settings: Application settings
@@ -260,7 +255,6 @@ en-US:
       advanced_search: Advanced search
       the_same: Not specified
       search: Search
-      verified_users: Verified users
     index:
       title: Search itineraries
     show:

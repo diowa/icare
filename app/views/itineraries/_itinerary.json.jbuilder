@@ -11,7 +11,7 @@ json.end_location lat: itinerary.end_location.lat, lng: itinerary.end_location.l
 json.url itinerary_url(itinerary)
 
 json.user do
-  json.call(itinerary.user, :name, :uid, :to_param, :facebook_verified)
+  json.call(itinerary.user, :name, :uid, :to_param)
 
   # TODO: move to front-end
   json.image itinerary.user.image? ? itinerary.user.image : asset_pack_path('media/images/user.jpg')

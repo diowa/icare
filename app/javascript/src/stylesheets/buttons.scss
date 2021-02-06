@@ -2,10 +2,6 @@
   transition: .25s all ease-in-out;
 }
 
-.btn-fb {
-  @include button-variant($brand-facebook, darken($brand-facebook, 5%));
-}
-
 .btn-pink {
   @include button-variant($pink, darken($pink, 5%));
 }

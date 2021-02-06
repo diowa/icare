@@ -6,7 +6,7 @@ RSpec.describe 'Admin' do
   let!(:admin) { create :user, admin: true, uid: '123456' }
 
   before do
-    login_via_facebook
+    login_via_auth0
   end
 
   #   it "sees reports" do
