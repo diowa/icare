@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.109.0
+
+* Replace Facebook with Auth0
+* Bootstrap 4.6.0
+* Font Awesome 5.15.2
+* Update dependencies
+
 ## 0.108.0
 
 * Ruby 3.0
