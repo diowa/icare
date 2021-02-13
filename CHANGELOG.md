@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.110.0
+
+* Rails 6.1.2.1
+* GEOS 3.9.1
+* Update dependencies
+
 ## 0.109.0
 
 * Replace Facebook with Auth0
