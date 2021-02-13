@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '3.0.0'
-gem 'rails', '6.1.1'
+gem 'rails', '6.1.2.1'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 7.0'
@@ -33,7 +33,7 @@ gem 'simpleconfig', '~> 2.0'
 gem 'jbuilder', '~> 2.11'
 
 # Forms
-gem 'simple_form', '~> 5.0'
+gem 'simple_form', '~> 5.1'
 
 # ODM and related
 gem 'client_side_validations', '~> 17.2'
@@ -77,7 +77,7 @@ group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 6.1'
-  gem 'faker', '~> 2.15'
+  gem 'faker', '~> 2.16'
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
