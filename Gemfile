@@ -24,7 +24,7 @@ gem 'webpacker', '~> 5.2'
 gem 'bootsnap', '~> 1.7', require: false
 
 # Background jobs within the same process as web application
-gem 'sucker_punch', '~> 2.1'
+gem 'sucker_punch', '~> 3.0'
 
 # Multi-environment configuration
 gem 'simpleconfig', '~> 2.0'
