@@ -29,7 +29,7 @@
   "devDependencies": {
     "standard": "^16.0.3",
     "standard-loader": "^7.0.0",
-    "stylelint": "^13.10.0",
+    "stylelint": "^13.11.0",
     "stylelint-config-twbs-bootstrap": "^2.1.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.19.0",
