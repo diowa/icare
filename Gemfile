@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '3.0.0'
-gem 'rails', '6.1.2.1'
+gem 'rails', '6.1.3'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 7.0'
@@ -24,7 +24,7 @@ gem 'webpacker', '~> 5.2'
 gem 'bootsnap', '~> 1.7', require: false
 
 # Background jobs within the same process as web application
-gem 'sucker_punch', '~> 2.1'
+gem 'sucker_punch', '~> 3.0'
 
 # Multi-environment configuration
 gem 'simpleconfig', '~> 2.0'
@@ -82,7 +82,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 1.9', require: false
+  gem 'rubocop', '~> 1.10', require: false
   gem 'rubocop-performance', '~> 1.9', require: false
   gem 'rubocop-rails', '~> 2.9', require: false
   gem 'rubocop-rspec', '~> 2.2', require: false
