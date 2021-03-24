@@ -92,7 +92,7 @@ end
 group :development do
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
-  gem 'listen', '~> 3.4'
+  gem 'listen', '~> 3.5'
   gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
