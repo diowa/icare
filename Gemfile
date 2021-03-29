@@ -37,7 +37,7 @@ gem 'simple_form', '~> 5.1'
 
 # ODM and related
 gem 'client_side_validations', '~> 18.0'
-gem 'client_side_validations-simple_form', '~> 12.1'
+gem 'client_side_validations-simple_form', '~> 13.0'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 4.1'
