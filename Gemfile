@@ -40,7 +40,7 @@ gem 'client_side_validations', '~> 18.0'
 gem 'client_side_validations-simple_form', '~> 13.0'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
-gem 'validates_timeliness', '~> 4.1'
+gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 # Authentication framework
 gem 'devise', '~> 4.7'
