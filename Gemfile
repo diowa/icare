@@ -7,11 +7,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.0.0'
-gem 'rails', '6.1.3'
+ruby '3.0.1'
+gem 'rails', '6.1.3.1'
 
 # Use postgresql as the database for Active Record
-gem 'activerecord-postgis-adapter', '~> 7.0'
+gem 'activerecord-postgis-adapter', '~> 7.1'
 gem 'pg', '~> 1.2'
 
 # Servers
@@ -37,10 +37,10 @@ gem 'simple_form', '~> 5.1'
 
 # ODM and related
 gem 'client_side_validations', '~> 18.0'
-gem 'client_side_validations-simple_form', '~> 12.1'
+gem 'client_side_validations-simple_form', '~> 13.0'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
-gem 'validates_timeliness', '~> 4.1'
+gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 # Authentication framework
 gem 'devise', '~> 4.7'
@@ -49,7 +49,7 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 
 # OAuth Provider
 gem 'auth0', '~> 5.0'
-gem 'omniauth-auth0', '~> 2.3'
+gem 'omniauth-auth0', '~> 2.6'
 
 # Geospatial data library
 gem 'rgeo', '~> 2.2'
@@ -77,13 +77,13 @@ group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 6.1'
-  gem 'faker', '~> 2.16'
+  gem 'faker', '~> 2.17'
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
-  gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 1.10', require: false
-  gem 'rubocop-performance', '~> 1.9', require: false
+  gem 'rspec-rails', '~> 5.0'
+  gem 'rubocop', '~> 1.12', require: false
+  gem 'rubocop-performance', '~> 1.10', require: false
   gem 'rubocop-rails', '~> 2.9', require: false
   gem 'rubocop-rspec', '~> 2.2', require: false
   gem 'slim_lint', '~> 0.20.2', require: false
@@ -92,7 +92,7 @@ end
 group :development do
   gem 'better_errors', '~> 2.9'
   gem 'binding_of_caller', '~> 1.0'
-  gem 'listen', '~> 3.4'
+  gem 'listen', '~> 3.5'
   gem 'spring', '~> 2.1'
   gem 'spring-commands-rspec', '~> 1.0'
   gem 'spring-watcher-listen', '~> 2.0'
@@ -101,12 +101,12 @@ end
 
 group :test do
   gem 'capybara', '~> 3.35'
-  gem 'coveralls_reborn', '~> 0.20.0', require: false
+  gem 'coveralls_reborn', '~> 0.21.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.21.2', require: false
-  gem 'webmock', '~> 3.11', require: false
+  gem 'webmock', '~> 3.12', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
