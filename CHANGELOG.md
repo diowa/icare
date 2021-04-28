@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.111.0
+
+* Ruby 3.0.1
+* Rails 6.1.3.1
+* Font Awesome 5.15.3
+* Update dependencies
+
 ## 0.110.0
 
 * Rails 6.1.2.1

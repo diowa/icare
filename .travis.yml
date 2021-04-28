@@ -6,7 +6,7 @@ services:
   - redis
 
 rvm:
-  - 3.0.0
+  - 3.0.1
 
 addons:
   chrome: stable

@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.0.0'
+ruby '3.0.1'
 gem 'rails', '6.1.3.1'
 
 # Use postgresql as the database for Active Record
@@ -18,7 +18,7 @@ gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.2'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.2'
+gem 'webpacker', '~> 5.3'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.7', require: false
@@ -40,16 +40,16 @@ gem 'client_side_validations', '~> 18.0'
 gem 'client_side_validations-simple_form', '~> 13.0'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
-gem 'validates_timeliness', '~> 4.1'
+gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 # Authentication framework
-gem 'devise', '~> 4.7'
-gem 'omniauth', '~> 1.9' # TODO: wait for devise/auth0 of OmniAuth 2.0
-gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
+gem 'devise', '~> 4.7', github: 'heartcombo/devise', branch: 'master'
+gem 'omniauth', '~> 2.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # OAuth Provider
 gem 'auth0', '~> 5.1'
-gem 'omniauth-auth0', '~> 2.6'
+gem 'omniauth-auth0', '~> 3.0'
 
 # Geospatial data library
 gem 'rgeo', '~> 2.2'
@@ -82,10 +82,10 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 5.0'
-  gem 'rubocop', '~> 1.12', require: false
-  gem 'rubocop-performance', '~> 1.10', require: false
+  gem 'rubocop', '~> 1.13', require: false
+  gem 'rubocop-performance', '~> 1.11', require: false
   gem 'rubocop-rails', '~> 2.9', require: false
-  gem 'rubocop-rspec', '~> 2.2', require: false
+  gem 'rubocop-rspec', '~> 2.3', require: false
   gem 'slim_lint', '~> 0.20.2', require: false
 end
 
