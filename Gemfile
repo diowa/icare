@@ -43,7 +43,7 @@ gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 # Authentication framework
-gem 'devise', '~> 4.7', github: 'heartcombo/devise', branch: 'master'
+gem 'devise', '~> 4.8', github: 'heartcombo/devise', branch: 'master'
 gem 'omniauth', '~> 2.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
