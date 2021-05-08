@@ -23,14 +23,14 @@
     "jquery": "^3.6.0",
     "jquery-ujs": "^1.2.2",
     "popper.js": "^1.16.1",
-    "resolve-url-loader": "^3.1.2",
+    "resolve-url-loader": "^4.0.0",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
     "standard": "^16.0.3",
     "standard-loader": "^7.0.0",
-    "stylelint": "^13.13.0",
-    "stylelint-config-twbs-bootstrap": "^2.1.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-twbs-bootstrap": "^2.2.0",
     "stylelint-order": "^4.1.0",
     "stylelint-scss": "^3.19.0",
     "stylelint-webpack-plugin": "^2.1.1",
