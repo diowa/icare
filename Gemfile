@@ -43,7 +43,7 @@ gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 # Authentication framework
-gem 'devise', '~> 4.7', github: 'heartcombo/devise', branch: 'master'
+gem 'devise', '~> 4.8'
 gem 'omniauth', '~> 2.0'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
@@ -101,7 +101,7 @@ end
 
 group :test do
   gem 'capybara', '~> 3.35'
-  gem 'coveralls_reborn', '~> 0.21.0', require: false
+  gem 'coveralls_reborn', '~> 0.22.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
