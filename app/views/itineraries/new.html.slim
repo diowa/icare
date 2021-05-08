@@ -1,9 +1,8 @@
 - title t('.title')
 .container
   - if @itinerary.errors.any?
-    .alert.alert-danger.alert-dismissable.fade.show
-      button type='button' class='close' data-dismiss='alert' aria-label=t('close')
-        span aria-hidden='true' &times;
+    .alert.alert-dismissible.alert-danger.fade.show
+      button.btn-close type='button' data-bs-dismiss='alert' aria-label=t('close')
       h5.alert-heading = t('errors.template.header', model: Itinerary.model_name.human, count: @itinerary.errors.size)
       = t('errors.template.body')
       ul
@@ -25,15 +24,15 @@
           .col-sm-4
             = image_tag transparent_gif_image_data, class: 'img-fluid google-static-map', id: 'itinerary-preview-image', alt: '', data: { google_maps_api_key: APP_CONFIG.google_maps_api_key }
           .col-sm-8
-            h1.itinerary-title
-              small = Itinerary.human_attribute_name :start_address
-              span#itinerary-preview-from
-              small = Itinerary.human_attribute_name :end_address
-              span#itinerary-preview-to
+            h1.m-0
+              small.h5.d-block.mb-0 = Itinerary.human_attribute_name :start_address
+              span.h3.d-block.itinerary-from-j
+              small.h5.d-block.mb-0 = Itinerary.human_attribute_name :end_address
+              span.h3.d-block.itinerary-to-j
         .form-horizontal == render 'form', f: f
     .form-group.text-center
       = f.hidden_field :route
       = f.hidden_field :via_waypoints
-      = button_tag t('.previous_step'), type: 'button', class: 'btn btn-secondary d-none-soft mr-2', name: 'back_button', id: 'wizard-prev-step-button-j', disabled: true
-      = f.submit t('.next_step'), type: 'button', class: 'btn btn-primary mr-2', name: 'next_button', id: 'wizard-next-step-button', disabled: false
+      = button_tag t('.previous_step'), type: 'button', class: 'btn btn-secondary d-none-soft me-2', name: 'back_button', id: 'wizard-prev-step-button-j', disabled: true
+      = f.submit t('.next_step'), type: 'button', class: 'btn btn-primary me-2', name: 'next_button', id: 'wizard-next-step-button', disabled: false
       = f.submit t('.confirm_and_share'), class: 'btn btn-primary d-none-soft', id: 'new_itinerary_submit-j', disabled: true, data: { disable_with: t('helpers.disable_with') }

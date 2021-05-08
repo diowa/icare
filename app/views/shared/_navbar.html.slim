@@ -3,21 +3,21 @@ nav.navbar.main-navbar
     = link_to user_signed_in? ? :dashboard : root_path, class: 'navbar-brand' do
       = inline_svg_pack_tag 'media/images/logo.svg', aria: true, title: APP_CONFIG.app_name
       span.hidden-xs = APP_CONFIG.app_name
-    button.navbar-toggler.navbar-toggler-right type='button' data-toggle='collapse' data-target='#main-navbar-collapse' aria-controls='main-navbar-collapse' aria-expanded='false' aria-label=t('.toggle_navigation')
+    button.navbar-toggler type='button' data-bs-toggle='collapse' data-bs-target='#main-navbar-collapse' aria-controls='main-navbar-collapse' aria-expanded='false' aria-label=t('.toggle_navigation')
       span.navbar-toggler-icon
     - if user_signed_in?
       == render 'shared/notifications'
       #main-navbar-collapse.collapse.navbar-collapse
-        ul.navbar-nav.main-navbar-nav
+        ul.navbar-nav.main-navbar-nav.ms-auto
           li.nav-item#navbar-user-info
             = link_to user_path(current_user), class: 'nav-link nav-link--profile' do
               = user_profile_picture current_user, size: nil, style: 'nav-link__user-image'
               span.nav-link__user-name = current_user
           li.nav-item.dropdown
-            a.nav-link#main-navbar-dropdown href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
+            a.nav-link#main-navbar-dropdown href='#' role='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
               span.fa.fa-cog aria-hidden='true'
               span.sr-only = t('.settings')
-            .dropdown-menu.dropdown-menu-right aria-labelledby='main-navbar-dropdown'
+            .dropdown-menu.dropdown-menu-end aria-labelledby='main-navbar-dropdown'
               = link_to t('.account_settings'), :settings, class: 'dropdown-item'
               - if current_user.admin?
                 .dropdown-divider
@@ -26,14 +26,14 @@ nav.navbar.main-navbar
               = link_to t('logout'), destroy_user_session_path, method: :delete, class: 'dropdown-item'
     - else
       .navbar-collapse.collapse#main-navbar-collapse role='navigation'
-        ul.navbar-nav.main-navbar-nav
+        ul.navbar-nav.main-navbar-nav.ms-auto
           li.nav-item = link_to t('how_it_works'), :how_it_works, class: 'nav-link'
           li.nav-item = link_to t('about'), :about, class: 'nav-link'
           li.nav-item.dropdown
-            a.nav-link.dropdown-toggle#main-navbar-lang-dropdown href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
-              span.fas.fa-globe.mr-1 aria-hidden='true'
+            a.nav-link.dropdown-toggle#main-navbar-lang-dropdown href='#' role='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
+              span.fas.fa-globe.me-1 aria-hidden='true'
               = t('lang_native_name')
-            .dropdown-menu.dropdown-menu-right aria-labelledby='main-navbar-lang-dropdown'
+            .dropdown-menu.dropdown-menu-end aria-labelledby='main-navbar-lang-dropdown'
               - (I18n.available_locales - [I18n.locale]).each do |locale|
                 = link_to t('lang_native_name', locale: locale), url_for(locale: locale), class: 'dropdown-item'
           li.nav-item

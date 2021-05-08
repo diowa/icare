@@ -1,7 +1,6 @@
 - if object.errors.full_messages.any?
-  .alert.alert-block.alert-danger.fade.show
-    button type='button' class='close' data-dismiss='alert' aria-label=t('close')
-      span aria-hidden='true' &times;
+  .alert.alert-dismissible.alert-danger.fade.show
+    button.btn-close type='button' data-bs-dismiss='alert' aria-label=t('close')
     h5 = t('helpers.form.error')
     - object.errors.full_messages.each do |msg|
       = msg

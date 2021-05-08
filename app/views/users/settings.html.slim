@@ -13,9 +13,8 @@
       legend = t('.vehicle_information')
       = f.input :vehicle_avg_consumption do
         .input-group
-          = f.text_field :vehicle_avg_consumption, class: 'form-control text-right'
-          .input-group-append
-            span.input-group-text = "#{APP_CONFIG.fuel_currency}/km"
+          = f.text_field :vehicle_avg_consumption, class: 'form-control text-end'
+          span.input-group-text = "#{APP_CONFIG.fuel_currency}/km"
       p.form-text
         = t('.vehicle_avg_consumption_help')
 

@@ -2,9 +2,11 @@
   {{#each messages}}
   <li class="notification-message">
     <a href="{{url}}">
-      <div class="media">
-        <img class="mr-2" src="{{message.sender.image}}" width="50" height="50" alt="">
-        <div class="media-body">
+      <div class="d-flex">
+        <div class="flex-shrink-0">
+          <img class="me-2" src="{{message.sender.image}}" width="50" height="50" alt="">
+        </div>
+        <div class="flex-grow-1">
           <p class="mb-0 font-weight-bold text-truncate">
             {{message.sender.name}}
           </p>
