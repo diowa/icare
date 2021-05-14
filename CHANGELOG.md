@@ -3,6 +3,8 @@
 ## 0.112.0
 
 * Rails 6.1.3.2
+* Bootstrap 5
+* Update dependencies
 
 ## 0.111.0
 
