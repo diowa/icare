@@ -23,8 +23,8 @@ const setItinerary = function (route) {
   // NOTE server side is limited to 2.500 requests per day, so we create routes on client
 
   // Set visible fields at first
-  $('#from-helper, #itinerary-preview-from').text(route.legs[0].start_address)
-  $('#to-helper, #itinerary-preview-to').text(route.legs[0].end_address)
+  $('.itinerary-from-j').text(route.legs[0].start_address)
+  $('.itinerary-to-j').text(route.legs[0].end_address)
   $('#distance').text(route.legs[0].distance.text)
   $('#duration').text(route.legs[0].duration.text)
   $('#copyrights').text(route.copyrights)
@@ -179,7 +179,7 @@ const calculateRoute = function (dr, ds) {
   $('#copyrights').text('')
   $('#distance').text('')
   $('#duration').text('')
-  return ds.route({
+  ds.route({
     origin: $('#itinerary_start_address').val(),
     destination: $('#itinerary_end_address').val(),
     travelMode: 'DRIVING', // $("#mode").val()
@@ -190,7 +190,7 @@ const calculateRoute = function (dr, ds) {
   , function (result, status) {
     $('#itineraries-spinner-j').hide()
     if (status === google.maps.DirectionsStatus.OK) {
-      return setRoute(dr, result)
+      setRoute(dr, result)
     } else {
       let message
       switch (status) {
@@ -203,7 +203,7 @@ const calculateRoute = function (dr, ds) {
         default:
           message = status
       }
-      return $('#map-error-j').text(message).show()
+      $('#map-error-j').text(message).show()
     }
   })
 }

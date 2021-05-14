@@ -8,20 +8,6 @@
     margin-bottom: 0;
   }
 }
-
-.search-form-advanced {
-  font-size: $small-font-size;
-
-  .checkbox {
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-
-  input[type="radio"],
-  input[type="checkbox"] {
-    margin-top: 2px;
-  }
-}
 // stylelint-enable selector-no-qualifying-type
 
 .itineraries-spinner {
@@ -39,8 +25,8 @@
 
   &.active,
   &.active h3 {
-    color: $yiq-text-dark;
-    border-color: $yiq-text-dark;
+    color: $color-contrast-dark;
+    border-color: $color-contrast-dark;
   }
 
   &.done,
@@ -55,24 +41,6 @@
   margin-bottom: .25rem;
   border-top-left-radius: $border-radius;
   border-top-right-radius: $border-radius;
-}
-
-.itinerary-title {
-  margin: 0;
-
-  small,
-  span {
-    display: block;
-  }
-
-  small {
-    font-size: $font-size-base * 1.25;
-  }
-
-  span {
-    font-size: $font-size-base * 1.75;
-    line-height: $line-height-lg;
-  }
 }
 
 .profile-picture-cell {

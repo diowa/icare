@@ -1,17 +1,16 @@
 = simple_form_for Itineraries::Search.new, url: search_itineraries_path, method: :post, validate: true, remote: true do |f|
   = f.input :from, label: Itinerary.human_attribute_name(:start_address)
   = f.input :to, label: Itinerary.human_attribute_name(:end_address)
-  a.collapse-link.collapsed role='button' data-toggle='collapse' href='#search-form-advanced-j' aria-expanded='false' aria-controls='search-form-advanced-j'
+  a.collapse-link.collapsed role='button' data-bs-toggle='collapse' href='#search-form-advanced-j' aria-expanded='false' aria-controls='search-form-advanced-j'
     span.fas.fa-chevron-down.icon--collapse<> aria-hidden='true'
     = t('.advanced_search')
   #search-form-advanced-j.search-form-advanced.collapse role='navigation'
     - if current_user.female?
-      = f.input :filter_pink, as: :boolean, label: Itinerary.human_attribute_name(:pink), hint: t('itineraries.form.pink_hint'), wrapper_class: 'form-group form-group-sm'
-    .form-group.form-group-sm
-      = f.input :filter_round_trip, as: :boolean, label: Itinerary.human_attribute_name(:round_trip), wrapper: false
+      = f.input :filter_pink, as: :boolean, label: Itinerary.human_attribute_name(:pink), hint: t('itineraries.form.pink_hint')
+    = f.input :filter_round_trip, as: :boolean, label: Itinerary.human_attribute_name(:round_trip), wrapper_class: 'mb-2'
     - %i[smoking_allowed pets_allowed].each do |boolean_field|
-      = f.input "filter_#{boolean_field}".to_sym, collection: boolean_options_for_select, include_blank: true, label: Itinerary.human_attribute_name(boolean_field), wrapper_class: 'form-group form-group-sm'
-    = f.input :filter_driver_gender, collection: options_for_array_collection(User, :gender), include_blank: true, label: Itinerary.human_attribute_name(:driver_gender), wrapper_class: 'form-group form-group-sm'
+      = f.input "filter_#{boolean_field}".to_sym, collection: boolean_options_for_select, include_blank: true, label: Itinerary.human_attribute_name(boolean_field), input_html: { class: 'form-select-sm' }, wrapper_class: 'mb-2'
+    = f.input :filter_driver_gender, collection: options_for_array_collection(User, :gender), include_blank: true, label: Itinerary.human_attribute_name(:driver_gender), input_html: { class: 'form-select-sm' }
   .form-group
     = f.hidden_field :start_location_lat
     = f.hidden_field :start_location_lng
@@ -19,5 +18,5 @@
     = f.hidden_field :end_location_lng
     .d-flex.align-items-center
       = f.button :button, t('.search'), class: 'btn-primary', id: 'itineraries-search', data: { disable_with: t('helpers.disable_with') }
-      .spinner-border.text-primary.ml-2.itineraries-spinner#itineraries-spinner-j role='status'
+      .spinner-border.text-primary.ms-2.itineraries-spinner#itineraries-spinner-j role='status'
         span.sr-only = t('loading')

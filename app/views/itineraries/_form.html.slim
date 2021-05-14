@@ -3,17 +3,15 @@ fieldset#single
   = f.input :round_trip, as: :boolean, wrapper: :horizontal_boolean
   = f.input :return_date, as: :datetime, default: default_leave_date, start_year: Time.current.year, end_year: 1.year.from_now.year, minute_step: 10, ampm: t('time.ampm'), input_html: { class: 'date-time' }, disabled: !@itinerary.round_trip, wrapper: :horizontal_form
   = f.input :fuel_cost, wrapper: :horizontal_form do
-    .input-group.text-right
-      = f.text_field :fuel_cost, class: 'form-control text-right'
-      .input-group-append
-        span.input-group-text = APP_CONFIG.currency
+    .input-group
+      = f.text_field :fuel_cost, class: 'form-control text-end form-control--short'
+      span.input-group-text = APP_CONFIG.currency
     p.form-text.text-muted.mb-0#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
       small#fuel-help-text
   = f.input :tolls, wrapper: :horizontal_form do
     .input-group
-      = f.text_field :tolls, class: 'form-control text-right'
-      .input-group-append
-        span.input-group-text = APP_CONFIG.currency
+      = f.text_field :tolls, class: 'form-control text-end form-control--short'
+      span.input-group-text = APP_CONFIG.currency
     - if @itinerary.errors.include?(:tolls)
       span.help-inline
         = @itinerary.errors.messages[:tolls].join(', ')
@@ -21,8 +19,8 @@ fieldset#single
   .form-group.row
     .col-sm-9.offset-sm-3
       - if current_user.female?
-        = f.input :pink, as: :boolean, hint: t('.pink_hint'), wrapper: false
-      = f.input :smoking_allowed, as: :boolean, wrapper: false
+        = f.input :pink, as: :boolean, hint: t('.pink_hint'), wrapper: false, form_check_wrapper_html: { class: 'mb-2' }
+      = f.input :smoking_allowed, as: :boolean, wrapper_class: false, form_check_wrapper_html: { class: 'mb-2' }
       = f.input :pets_allowed, as: :boolean, wrapper: false
 
 /

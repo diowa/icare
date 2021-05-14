@@ -1,6 +1,6 @@
 = button_to user_auth0_omniauth_authorize_path, form_class: 'd-inline-block', class: 'btn btn-primary btn-lg' do
   = t('login_with_auth0')
-= link_to t('why_auth0'), '#why-auth0', class: 'btn btn-link btn-why-auth0', data: { toggle: 'modal' }
+= link_to t('why_auth0'), '#why-auth0', class: 'btn btn-link btn-why-auth0 ms-2', data: { bs_toggle: 'modal' }
 p.mt-4
   br
   - if APP_CONFIG.demo_mode

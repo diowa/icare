@@ -4,10 +4,11 @@
   .col-sm-6
     = image_tag @itinerary.static_map, class: 'google-static-map img-fluid', alt: ''
   .col-sm-6
-    .media
-      = link_to user_path(@itinerary.user), class: 'mr-2' do
-        = user_profile_picture @itinerary.user, style: 'media-object'
-      .media-body
+    .d-flex
+      .flex-shrink-0
+        = link_to user_path(@itinerary.user), class: 'me-2' do
+          = user_profile_picture @itinerary.user
+      .flex-grow-1
         h5.m-0
           - if user_signed_in?
             = link_to @itinerary.user, user_path(@itinerary.user)
@@ -34,7 +35,7 @@
       span.tag #{Itinerary.human_attribute_name(:tolls)}: #{@itinerary.tolls}#{APP_CONFIG.currency}
     .tag-list
       - if @itinerary.pink?
-        span.tag.tag-pink data-toggle='tooltip' title=t('itineraries.form.pink_hint')
+        span.tag.tag-pink data-bs-toggle='tooltip' title=t('itineraries.form.pink_hint')
           span.fas.fa-lock<>
           = Itinerary.human_attribute_name(:pink)
       = boolean_tag @itinerary.smoking_allowed?, 'smoking'

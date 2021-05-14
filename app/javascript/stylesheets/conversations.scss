@@ -6,7 +6,7 @@
 // stylelint-disable-next-line selector-no-qualifying-type
 tr.unread td,
 .unread {
-  background-color: theme-color-level("warning", $alert-bg-level) !important; // stylelint-disable-line declaration-no-important
+  background-color: shift-color($warning, $alert-bg-scale) !important; // stylelint-disable-line declaration-no-important
 }
 
 .conversation-message-list {

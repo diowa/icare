@@ -1,6 +1,6 @@
 .modal.d-none-soft#fuel-cost-calculator
   .modal-header
-    btn.close type='button' data-dismiss='modal' &times;
+    btn.btn-close type='button' data-bs-dismiss='modal' aria-label=t('close')
     h3 Calcola consumi
   .modal-body
     = form_tag 'consumption-calculator-form', class: 'form-horizontal' do
@@ -16,14 +16,14 @@
         = label_tag :fuel_price, t('.fuel_price'), class: 'control-label'
         .controls
           .input-append
-            = text_field_tag :fuel_price, nil, class: 'input-mini text-right'
+            = text_field_tag :fuel_price, nil, class: 'input-mini text-end'
             span.add-on
               = t('.100_km')
       .control-group
         = label_tag :fuel_price, t('.fuel_price'), class: 'control-label'
         .controls
           .input-append
-            = text_field_tag :fuel_price, nil, class: 'input-mini text-right'
+            = text_field_tag :fuel_price, nil, class: 'input-mini text-end'
             span.add-on
               | &euro;
               = t('.per_liter')
@@ -36,5 +36,5 @@
             span#fuel-cost
             span &euro; / km
   .modal-footer
-    = link_to t('save'), '#', data: { dismiss: 'modal' }, id: 'save-fuel-cost', class: 'btn btn-primary'
-    = link_to t('close'), '#', data: { dismiss: 'modal' }, class: 'btn'
+    = link_to t('save'), '#', data: { bs_dismiss: 'modal' }, id: 'save-fuel-cost', class: 'btn btn-primary'
+    = link_to t('close'), '#', data: { bs_dismiss: 'modal' }, class: 'btn'
