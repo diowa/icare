@@ -47,7 +47,7 @@ const drawPath = function (itinerary, strokeColor, strokeOpacity) {
   google.maps.event.addListener(customMarker, 'click', function () {
     icare.infoWindow.setContent(customMarker.options.infoWindowContent)
     icare.infoWindow.setPosition(customMarker.position)
-    return icare.infoWindow.open(icare.map)
+    icare.infoWindow.open(icare.map)
   })
   const directionsPath = new google.maps.Polyline({
     clickable: false,
@@ -151,21 +151,21 @@ const initItineraryIndex = function () {
     .on('ajax:beforeSend', (evt, xhr, settings) => $('#itineraries-spinner-j').show())
     .on('ajax:complete', (evt, xhr, settings) => $('#itineraries-spinner-j').hide())
     .on('ajax:error', (evt, xhr, settings) => {
-      $('#itineraries-thumbs').html(`<div class="col-12"><h3 class="error-text no-margin">${I18n.t('javascript.an_error_occurred')}</h3></div>`)
+      $('#itineraries-thumbs-j').html(`<div class="col-12"><h3 class="error-text m-0">${I18n.t('javascript.an_error_occurred')}</h3></div>`)
     })
     .on('ajax:success', function (evt, data, status, xhr) {
       // FIXME: browser back calls ajax:success multiple times
       if (data.length === 0) {
-        $('#itineraries-thumbs').html(`<div class="col-12"><h3 class="no-margin">${I18n.t('javascript.no_itineraries_found')}</h3></div>`)
+        $('#itineraries-thumbs-j').html(`<div class="col-12"><h3 class="m-0">${I18n.t('javascript.no_itineraries_found')}</h3></div>`)
       } else {
-        $('#itineraries-thumbs').html('')
+        $('#itineraries-thumbs-j').html('')
         let index = 0
         icare.latLngBounds = new google.maps.LatLngBounds()
         $(data).each(function () {
           const color = routeColoursArray[index++ % routeColoursArray.length]
           drawPath(this, color)
           this.backgroundColor = hexToRgba(color, 0.45) // backgroundColor injection, waiting for proper @data support in handlebars
-          $('#itineraries-thumbs').append(HandlebarsTemplates['itineraries/thumbnail'](this))
+          $('#itineraries-thumbs-j').append(HandlebarsTemplates['itineraries/thumbnail'](this))
         })
         icare.map.fitBounds(icare.latLngBounds)
       }

@@ -8,7 +8,7 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = current_user.conversations.find(params[:id])
+    @conversation = current_user.conversations.includes(messages: :sender).find(params[:id])
     @itinerary = Itinerary.find(@conversation.conversable_id)
   end
 

@@ -24,7 +24,7 @@
                 = link_to ban_admin_user_path(user.id), method: :post, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-warning' do
                   span.fas.fa-ban<>
                   = t('helpers.links.user.ban')
-                = link_to login_as_admin_user_path(user.id), method: :get, class: 'btn btn-sm btn-secondary ml-2' do
+                = link_to login_as_admin_user_path(user.id), method: :get, class: 'btn btn-sm btn-secondary ms-2' do
                   span.fas.fa-sign-in-alt<>
                   = t('.login_as')
   == paginate @users

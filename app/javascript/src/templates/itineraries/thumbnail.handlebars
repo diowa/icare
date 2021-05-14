@@ -2,8 +2,11 @@
   <div class="card itinerary-thumbnail mb-2" data-itinerary-id="{{id}}">
     <div class="itinerary-thumbnail__stroke" style="background-color: {{backgroundColor}}"></div>
     <div class="card-body">
-      <div class="media"><img alt="" class="mr-2" height="50" src="{{user.image}}" width="50">
-        <div class="media-body">
+      <div class="d-flex">
+        <div class="flex-shrink-0">
+          <img alt="" class="me-2" height="50" src="{{user.image}}" width="50">
+        </div>
+        <div class="flex-grow-1">
           <h5 class="mb-0"><a class="pre-line" href="{{url}}">{{title}}</a></h5>
           <p>{{user.name}}</p>
         </div>

@@ -28,9 +28,9 @@ module ApplicationHelper
 
   def twitterized_type(type)
     case type
-    when 'alert' then 'warning'
-    when 'error' then 'danger'
-    when 'notice' then 'info'
+    when 'alert' then 'alert-warning'
+    when 'error' then 'alert-danger'
+    when 'notice' then 'alert-info'
     else type
     end
   end

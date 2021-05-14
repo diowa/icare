@@ -6,7 +6,7 @@
         th = Itinerary.human_attribute_name(:end_address)
         th
           span.d-block.d-sm-none
-            span.fas.fa-info-circle data-toggle='tooltip' title=t('itineraries.common.features')
+            span.fas.fa-info-circle data-bs-toggle='tooltip' title=t('itineraries.common.features')
           span.d-none.d-sm-block = t('itineraries.common.features')
         - if edit
           th = t('helpers.actions')
@@ -21,18 +21,18 @@
           td
             .feature-icons
               - if itinerary.pink?
-                span.fas.fa-lock.feature-icon.text-pink data-toggle='tooltip' title=Itinerary.human_attribute_name(:pink)
+                span.fas.fa-lock.feature-icon.fa-fw.text-pink data-bs-toggle='tooltip' title=Itinerary.human_attribute_name(:pink)
               - if itinerary.daily?
-                span.fas.fa-redo.feature-icon data-toggle='tooltip' title=Itinerary.human_attribute_name(:daily)
+                span.fas.fa-redo.feature-icon.fa-fw data-bs-toggle='tooltip' title=Itinerary.human_attribute_name(:daily)
               - if itinerary.round_trip?
-                span.fas.fa-exchange-alt.feature-icon data-toggle='tooltip' title=Itinerary.human_attribute_name(:round_trip)
+                span.fas.fa-exchange-alt.feature-icon.fa-fw data-bs-toggle='tooltip' title=Itinerary.human_attribute_name(:round_trip)
               - if itinerary.pets_allowed?
-                span.fas.fa-paw.feature-icon data-toggle='tooltip' title=Itinerary.human_attribute_name(:pets_allowed)
+                span.fas.fa-paw.feature-icon.fa-fw data-bs-toggle='tooltip' title=Itinerary.human_attribute_name(:pets_allowed)
               - if itinerary.smoking_allowed?
-                span.fas.fa-smoking.feature-icon data-toggle='tooltip' title=Itinerary.human_attribute_name(:smoking_allowed)
+                span.fas.fa-smoking.feature-icon.fa-fw data-bs-toggle='tooltip' title=Itinerary.human_attribute_name(:smoking_allowed)
           - if edit
             td
-              = link_to edit_itinerary_path(itinerary), class: 'btn btn-sm btn-secondary mr-2' do
+              = link_to edit_itinerary_path(itinerary), class: 'btn btn-sm btn-secondary me-2' do
                 span.fas.fa-pencil-alt<>
                 = t('helpers.links.edit')
               = link_to itinerary_path(itinerary), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-danger' do

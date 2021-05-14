@@ -6,7 +6,7 @@ module ConversationsHelper
   end
 
   def message_timestamp(message)
-    tag.small(title: I18n.l(message.created_at.in_time_zone(current_user.time_zone), format: :long), class: 'pull-right text-muted') do
+    tag.small(title: I18n.l(message.created_at.in_time_zone(current_user.time_zone), format: :long), class: 'float-end text-muted') do
       I18n.t('conversations.messages.time_ago', time: distance_of_time_in_words(message.created_at, Time.now.utc, include_seconds: true))
     end
   end

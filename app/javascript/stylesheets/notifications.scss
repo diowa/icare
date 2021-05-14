@@ -76,7 +76,7 @@ $background: lighten($success, 5%) !default;
   background-color: $background;
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   .navbar-notifications {
     position: absolute;
     top: 15px;

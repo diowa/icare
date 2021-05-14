@@ -3,7 +3,7 @@
   == render 'shared/flash_messages'
   .page-header
     h1 = yield :title
-    = link_to t('helpers.links.new'), new_feedback_path, class: 'btn btn-primary mr-2'
+    = link_to t('helpers.links.new'), new_feedback_path, class: 'btn btn-primary me-2'
     - if params[:hide_fixed]
       = link_to t('.show_fixed'), feedbacks_path, class: 'btn btn-secondary'
     - else
@@ -32,7 +32,7 @@
             td = l feedback.updated_at, format: :long
             td
               - if current_user == feedback.user || current_user.admin?
-                = link_to edit_feedback_path(feedback), class: 'btn btn-sm btn-secondary mr-2' do
+                = link_to edit_feedback_path(feedback), class: 'btn btn-sm btn-secondary me-2' do
                   span.fas.fa-pencil-alt<>
                   = t('helpers.links.edit')
                 = link_to feedback_path(feedback), method: :delete, data: { confirm: t('helpers.links.confirm') }, class: 'btn btn-sm btn-danger' do

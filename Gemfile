@@ -8,14 +8,14 @@ git_source(:github) do |repo_name|
 end
 
 ruby '3.0.1'
-gem 'rails', '6.1.3.1'
+gem 'rails', '6.1.3.2'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 7.1'
 gem 'pg', '~> 1.2'
 
 # Servers
-gem 'puma', '~> 5.2'
+gem 'puma', '~> 5.3'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.3'
@@ -76,17 +76,17 @@ gem 'airbrake', '~> 11.0'
 group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
-  gem 'factory_bot_rails', '~> 6.1'
+  gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.17'
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 5.0'
-  gem 'rubocop', '~> 1.13', require: false
+  gem 'rubocop', '~> 1.14', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
-  gem 'rubocop-rails', '~> 2.9', require: false
+  gem 'rubocop-rails', '~> 2.10', require: false
   gem 'rubocop-rspec', '~> 2.3', require: false
-  gem 'slim_lint', '~> 0.20.2', require: false
+  gem 'slim_lint', '~> 0.21.0', require: false
 end
 
 group :development do
@@ -106,7 +106,7 @@ group :test do
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.21.2', require: false
-  gem 'webmock', '~> 3.12', require: false
+  gem 'webmock', '~> 3.13', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

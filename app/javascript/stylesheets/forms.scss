@@ -11,7 +11,7 @@ input[type="text"] {
 
 .collapse-link {
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: $spacer;
 
   .icon--collapse {
     transition: all .25s ease-in-out;
@@ -22,4 +22,12 @@ input[type="text"] {
       transform: rotateZ(-90deg);
     }
   }
+}
+
+.form-group {
+  @extend .mb-3;
+}
+
+.form-control--short {
+  width: 200px;
 }
