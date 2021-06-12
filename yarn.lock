@@ -7971,10 +7971,10 @@ stylelint-config-standard@^22.0.0:
   dependencies:
     stylelint-config-recommended "^5.0.0"
 
-stylelint-config-twbs-bootstrap@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-2.2.0.tgz#3bd87e05cad8ded1e00081534c9b651372698fc2"
-  integrity sha512-AS//TE90rK2bi0Xv3xdDelD8xwLfcr8+esZLwYVbzKfo8BbfVrOZM6J3W9eGH0FWrLH1ohsDJ3mS8onkESL0jg==
+stylelint-config-twbs-bootstrap@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-2.2.1.tgz#d38fea21a5e13523fa21912296e5b26a2cb6b909"
+  integrity sha512-Z84komE0vtmtrEAhk1w6rB6HXsxLcOnRPlAWNRXete/zSfk0/zoD/6SjwgKXzfg2kpwUDfVmcFaolhjQK2tPXw==
   dependencies:
     stylelint-config-recommended-scss "^4.2.0"
     stylelint-config-standard "^22.0.0"
