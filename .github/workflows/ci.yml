@@ -1,11 +1,5 @@
 name: CI
 
-# TODO: Don't do this! Use GitHub's encrypted secrets and set the value of the
-# variable as ${{ secrets.RAILS_MASTER_KEY }}
-# Ref: https://docs.github.com/en/actions/reference/encrypted-secrets
-env:
-  RAILS_MASTER_KEY: 02a9ea770b4985659e8ce92699f218dc
-
 on:
   push:
     branches: [ main, develop ]

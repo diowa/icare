@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.113.0
+
+* Rails 6.1.4
+* Bootstrap 5.0.2
+* Update dependencies
+* GitHub Actions
+
 ## 0.112.0
 
 * Rails 6.1.3.2
