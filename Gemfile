@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '3.0.1'
-gem 'rails', '6.1.3.2'
+gem 'rails', '6.1.4'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 7.1'
@@ -84,7 +84,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 5.0'
   gem 'rubocop', '~> 1.17', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
-  gem 'rubocop-rails', '~> 2.10', require: false
+  gem 'rubocop-rails', '~> 2.11', require: false
   gem 'rubocop-rspec', '~> 2.4', require: false
   gem 'slim_lint', '~> 0.21.1', require: false
 end
@@ -101,11 +101,11 @@ end
 
 group :test do
   gem 'capybara', '~> 3.35'
-  gem 'coveralls_reborn', '~> 0.22.0', require: false
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 3.142'
   gem 'simplecov', '~> 0.21.2', require: false
+  gem 'simplecov-lcov', '~> 0.8.0', require: false
   gem 'webmock', '~> 3.13', require: false
 end
 
