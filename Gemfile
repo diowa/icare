@@ -18,7 +18,7 @@ gem 'pg', '~> 1.2'
 gem 'puma', '~> 5.3'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.3'
+gem 'webpacker', '~> 5.4'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.7', require: false
@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.11'
 gem 'simple_form', '~> 5.1'
 
 # ODM and related
-gem 'client_side_validations', '~> 18.0'
+gem 'client_side_validations', '~> 18.1'
 gem 'client_side_validations-simple_form', '~> 13.0'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
@@ -55,7 +55,7 @@ gem 'omniauth-auth0', '~> 3.0'
 gem 'rgeo', '~> 2.2'
 
 # Performance
-gem 'newrelic_rpm', '~> 7.0'
+gem 'newrelic_rpm', '~> 7.1'
 
 # Security
 gem 'secure_headers', '~> 6.3'
@@ -77,16 +77,16 @@ group :development, :test do
   gem 'bullet', '~> 6.1'
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 6.2'
-  gem 'faker', '~> 2.17'
+  gem 'faker', '~> 2.18'
   gem 'pry', '~> 0.13.1'
   gem 'pry-byebug', '~> 3.9'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 5.0'
-  gem 'rubocop', '~> 1.14', require: false
+  gem 'rubocop', '~> 1.17', require: false
   gem 'rubocop-performance', '~> 1.11', require: false
   gem 'rubocop-rails', '~> 2.10', require: false
-  gem 'rubocop-rspec', '~> 2.3', require: false
-  gem 'slim_lint', '~> 0.21.0', require: false
+  gem 'rubocop-rspec', '~> 2.4', require: false
+  gem 'slim_lint', '~> 0.21.1', require: false
 end
 
 group :development do
