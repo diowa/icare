@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 desc 'Run all available code linters'
-task lint: :environment
+task :lint
 
-task(:default).prerequisites.unshift :lint
+task(:default).prerequisites.unshift task(:lint)

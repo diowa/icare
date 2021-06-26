@@ -6,6 +6,7 @@ const StyleLintPlugin = require('stylelint-webpack-plugin')
 environment.plugins.append(
   'StyleLintPlugin',
   new StyleLintPlugin({
+    emitWarning: true,
     files: '/app/**/*.(s(c|a)ss|css)'
   })
 )
@@ -15,7 +16,6 @@ environment.loaders.insert('standard-loader', {
   test: /\.js$/,
   exclude: /vendor\/.+\.js$/,
   options: {
-    error: true,
     globals: [
       '$',
       'ClientSideValidations',
