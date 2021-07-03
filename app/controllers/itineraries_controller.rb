@@ -66,12 +66,12 @@ class ItinerariesController < ApplicationController
   end
 
   def itinerary_attributes
-    whitelist = %i[start_address end_address description num_people smoking_allowed pets_allowed fuel_cost tolls
+    allowlist = %i[start_address end_address description num_people smoking_allowed pets_allowed fuel_cost tolls
                    avoid_highways avoid_tolls
                    round_trip leave_date return_date daily
                    route]
-    whitelist << :pink if current_user&.female?
-    whitelist
+    allowlist << :pink if current_user&.female?
+    allowlist
   end
 
   def check_female
