@@ -53,9 +53,9 @@ class FeedbacksController < ApplicationController
   end
 
   def feedback_attributes
-    whitelist = %i[category message url]
-    whitelist << :status if current_user&.admin?
-    whitelist
+    allowlist = %i[category message url]
+    allowlist << :status if current_user&.admin?
+    allowlist
   end
 
   def check_owner_or_admin
