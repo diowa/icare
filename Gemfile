@@ -61,7 +61,7 @@ gem 'newrelic_rpm', '~> 7.2'
 gem 'secure_headers', '~> 6.3'
 
 # Miscellanea
-gem 'addressable', '~> 2.7'
+gem 'addressable', '~> 2.8'
 gem 'http_accept_language', '~> 2.1'
 gem 'slim-rails', '~> 3.2'
 
