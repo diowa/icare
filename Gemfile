@@ -63,7 +63,7 @@ gem 'secure_headers', '~> 6.3'
 # Miscellanea
 gem 'addressable', '~> 2.8'
 gem 'http_accept_language', '~> 2.1'
-gem 'slim-rails', '~> 3.2'
+gem 'slim-rails', '~> 3.3'
 
 # Assets
 gem 'i18n-js', '~> 3.8'
