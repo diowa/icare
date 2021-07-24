@@ -7819,17 +7819,12 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylelint-config-recommended-scss@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-4.2.0.tgz#3ad3fc858215cfd16a0f90aecf1ac0ea8a3e6971"
-  integrity sha512-4bI5BYbabo/GCQ6LbRZx/ZlVkK65a1jivNNsD+ix/Lw0U3iAch+jQcvliGnnAX8SUPaZ0UqzNVNNAF3urswa7g==
+stylelint-config-recommended-scss@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-4.3.0.tgz#717dc253b4cab246da654cee208e499c5c797ae4"
+  integrity sha512-/noGjXlO8pJTr/Z3qGMoaRFK8n1BFfOqmAbX1RjTIcl4Yalr+LUb1zb9iQ7pRx1GsEBXOAm4g2z5/jou/pfMPg==
   dependencies:
-    stylelint-config-recommended "^3.0.0"
-
-stylelint-config-recommended@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
-  integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
+    stylelint-config-recommended "^5.0.0"
 
 stylelint-config-recommended@^5.0.0:
   version "5.0.0"
@@ -7843,15 +7838,15 @@ stylelint-config-standard@^22.0.0:
   dependencies:
     stylelint-config-recommended "^5.0.0"
 
-stylelint-config-twbs-bootstrap@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-2.2.1.tgz#d38fea21a5e13523fa21912296e5b26a2cb6b909"
-  integrity sha512-Z84komE0vtmtrEAhk1w6rB6HXsxLcOnRPlAWNRXete/zSfk0/zoD/6SjwgKXzfg2kpwUDfVmcFaolhjQK2tPXw==
+stylelint-config-twbs-bootstrap@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-2.2.3.tgz#e62ac651fd6b61ac660e0f5e67ed2f9e0ea17e08"
+  integrity sha512-E/tvUSYV4bz7a2mG29j56I/MRtUGaZRj5zi3nWC+BmeAz7ZIKbuI/dsNXQNYe7tQL72VZoj7de4z8Yv8vefojw==
   dependencies:
-    stylelint-config-recommended-scss "^4.2.0"
+    stylelint-config-recommended-scss "^4.3.0"
     stylelint-config-standard "^22.0.0"
     stylelint-order "^4.1.0"
-    stylelint-scss "^3.19.0"
+    stylelint-scss "^3.20.1"
 
 stylelint-order@^4.1.0:
   version "4.1.0"
