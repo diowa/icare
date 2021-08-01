@@ -3,6 +3,7 @@
 ## main /unreleased
 
 * Ruby 3.0.2
+* Allow Node 16
 * Update dependencies
 
 ## 0.113.0
