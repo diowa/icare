@@ -138,7 +138,7 @@ const wizardNextStep = function () {
   })
 }
 
-var lastStepInit = function () {
+const lastStepInit = function () {
   const {
     route
   } = window.icare

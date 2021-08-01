@@ -30,7 +30,7 @@ if (typeof google !== 'undefined' && google !== null) {
           div.setAttribute('class', `${this.options.cssClasses} arrow-box`)
           div.style.width = '29px'
           div.style.height = '29px'
-          var img = document.createElement('img')
+          let img = document.createElement('img')
           img.setAttribute('width', '25px')
           img.setAttribute('height', '25px')
           img.setAttribute('alt', '')
