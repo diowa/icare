@@ -1,5 +1,10 @@
 # Changelog
 
+## main /unreleased
+
+* Ruby 3.0.2
+* Update dependencies
+
 ## 0.113.0
 
 * Rails 6.1.4
