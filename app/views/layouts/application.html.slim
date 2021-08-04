@@ -28,7 +28,6 @@ html lang=I18n.locale.to_s data-default-lang=I18n.default_locale data-currency=A
   body class=('homepage' if action_name == 'home')
     == render 'shared/google_tag_manager' if APP_CONFIG.google_analytics_id.present?
     == render 'shared/navbar' unless action_name == 'home'
-    == render 'shared/advertising' if action_name == 'home' && APP_CONFIG.advertising
 
     = yield
 
