@@ -289,7 +289,7 @@ en-US:
       distance: Distance
       duration: Duration
       hint_privacy_title: "A little bit of privacy"
-      hint_privacy_content: "Are you concerned of your privacy? Do not be too specific in setting the path. Select major streets near the point of departure and the point of destination."
+      hint_privacy_content: "Be generic when setting the route. Select major streets near the point of departure and the point of destination."
       hint_customize_title: "Customize your itinerary"
       hint_customize_content: "You use an alternative route because you have to go to your mother-in-law? Drag the path to achieve the desired route."
       hint_search_before_title: "Search before"

@@ -295,7 +295,7 @@ it-IT:
       duration: Durata
       itinerary_hints: Consigli per un percorso ottimale
       hint_privacy_title: "Un po' di privacy"
-      hint_privacy_content: "Temi sguardi indiscreti? Non essere troppo specifico nell'impostare il percorso. Indica le strade più importanti vicino al punto di partenza e a quello di arrivo."
+      hint_privacy_content: "Sii generico quando imposti il percorso. Indica le strade più importanti vicino al punto di partenza e a quello di arrivo."
       hint_customize_title: "Personalizza il percorso"
       hint_customize_content: "Utilizzi una strada alternativa perché devi passare da tua suocera? Trascina il percorso per ottenere l'itinerario desiderato."
       hint_search_before_title: "Cerca prima"
