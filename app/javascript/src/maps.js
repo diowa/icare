@@ -26,17 +26,18 @@ if (typeof google !== 'undefined' && google !== null) {
       div.style.position = 'absolute'
 
       switch (this.options.type) {
-        case 'user_profile_picture':
+        case 'user_profile_picture': {
           div.setAttribute('class', `${this.options.cssClasses} arrow-box`)
           div.style.width = '29px'
           div.style.height = '29px'
-          let img = document.createElement('img')
+          const img = document.createElement('img')
           img.setAttribute('width', '25px')
           img.setAttribute('height', '25px')
           img.setAttribute('alt', '')
           img.src = this.options.image
           div.appendChild(img)
           break
+        }
         case 'sprite':
           div.setAttribute('class', this.options.cssClasses)
           div.style.border = 'none'
