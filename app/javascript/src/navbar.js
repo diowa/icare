@@ -16,15 +16,12 @@ $(document).on('shown.bs.popover', '.notifications', function (e) {
   if ($target.data('remote')) {
     return $.ajax({
       url: $target.data('remote'),
-      beforeSend () {
-        return $('.popover-body').html($('.popover-body-loading').html())
-      },
       success (messages) {
         $target.data('unread', messages.length).find('span.unread-count').text(messages.length > 0 ? messages.length : '')
         if (messages.length > 0) {
-          return $('.popover-body').html(HandlebarsTemplates['notifications/messages']({ messages }))
+          $popover.find('.popover-body').html(HandlebarsTemplates['notifications/messages']({ messages }))
         } else {
-          return $popover.find('.popover-body').text(I18n.t(`javascript.notifications.${$target.data('notificationsType')}.no_new`))
+          $popover.find('.popover-body').text(I18n.t(`javascript.notifications.${$target.data('notificationsType')}.no_new`))
         }
       }
     })
@@ -42,15 +39,17 @@ $(document).on(window.initializeOnEvent, () => $('.notifications').each(function
     no_notifications_text: I18n.t(`javascript.notifications.${notificationsType}.no_new`),
     footer_link_text: I18n.t(`javascript.notifications.${notificationsType}.see_all`)
   }
+  const popoverTemplate = HandlebarsTemplates['notifications/base'](popoverData)
 
-  return $target.on('click', function (e) {
+  $target.on('click', function (e) {
     e.preventDefault()
     return false
   }).popover({
     placement: 'bottom',
     html: true,
     container: $(this),
-    template: HandlebarsTemplates['notifications/base'](popoverData),
+    content: $(popoverTemplate).find('.popover-body-loading').html(),
+    template: popoverTemplate,
     title: I18n.t(`javascript.notifications.${notificationsType}.title`)
   })
 }))
