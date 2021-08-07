@@ -420,8 +420,8 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    webmock (3.13.0)
-      addressable (>= 2.3.6)
+    webmock (3.14.0)
+      addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
     webpacker (5.4.0)
@@ -497,7 +497,7 @@ DEPENDENCIES
   tzinfo-data (~> 1.2018)
   validates_timeliness (~> 6.0.0.alpha1)
   web-console (~> 4.1)
-  webmock (~> 3.13)
+  webmock (~> 3.14)
   webpacker (~> 5.4)
 
 RUBY VERSION
