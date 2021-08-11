@@ -50,7 +50,7 @@ class ItinerariesController < ApplicationController
   end
 
   def search
-    @itineraries = ItinerarySearch.new(params[:itineraries_search], current_user).itineraries
+    @itineraries = ItinerarySearch.call(params[:itineraries_search], current_user).itineraries
   end
 
   protected
