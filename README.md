@@ -133,7 +133,7 @@ icare will be accessible on `https://localhost:3443`
 After generating the SSL requirements, run:
 
 ```sh
-rails s -b 'ssl://0.0.0.0:3443?key=docker/nginx/ssl/app_key.pem&cert=docker/nginx/ssl/app_cert.pem'
+rails s -b "ssl://0.0.0.0:3443?key=docker/nginx/ssl/app_key.pem&cert=docker/nginx/ssl/app_cert.pem"
 ```
 
 icare will be accessible on `https://localhost:3443`
