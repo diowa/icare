@@ -11,7 +11,7 @@
   "repository": "https://github.com/diowa/icare",
   "success_url": "/",
   "scripts": {
-    "postdeploy": "bundle exec rake db:migrate"
+    "postdeploy": "bundle exec rails db:schema:load db:seed"
   },
   "env": {
     "RAILS_ENV": "production",
