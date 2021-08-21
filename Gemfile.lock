@@ -47,7 +47,7 @@ GEM
     activerecord (6.1.4)
       activemodel (= 6.1.4)
       activesupport (= 6.1.4)
-    activerecord-postgis-adapter (7.1.0)
+    activerecord-postgis-adapter (7.1.1)
       activerecord (~> 6.1)
       rgeo-activerecord (~> 7.0.0)
     activestorage (6.1.4)
