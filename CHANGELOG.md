@@ -4,7 +4,7 @@
 
 * Ruby 3.0.2
 * Allow Node 16
-* Bootstrap 5.1.0
+* Bootstrap 5.1.1
 * Font Awesome 5.15.4
 * Update dependencies
 
