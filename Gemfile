@@ -15,7 +15,7 @@ gem 'activerecord-postgis-adapter', '~> 7.1'
 gem 'pg', '~> 1.2'
 
 # Servers
-gem 'puma', '~> 5.4'
+gem 'puma', '~> 5.5'
 
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.4'
