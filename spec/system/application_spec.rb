@@ -56,7 +56,7 @@ RSpec.describe 'Application' do
     end
 
     context 'when user is coming from Auth0 with a compatible locale' do
-      it 'fallbacks to en-US ' do
+      it 'fallbacks to en-US' do
         user = create :user, uid: '123456', locale: 'en-YY'
 
         login_via_auth0
