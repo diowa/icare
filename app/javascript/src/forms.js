@@ -1,5 +1,4 @@
-require('@client-side-validations/client-side-validations')
-require('@client-side-validations/simple-form/dist/simple-form.bootstrap4')
+require('@client-side-validations/simple-form/src/index.bootstrap4')
 
 ClientSideValidations.callbacks.form.fail = ($form, eventData) => {
   const settings = $form[0].ClientSideValidations.settings
