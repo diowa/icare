@@ -7916,15 +7916,15 @@ stylelint-config-standard@^22.0.0:
   dependencies:
     stylelint-config-recommended "^5.0.0"
 
-stylelint-config-twbs-bootstrap@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-2.2.3.tgz#e62ac651fd6b61ac660e0f5e67ed2f9e0ea17e08"
-  integrity sha512-E/tvUSYV4bz7a2mG29j56I/MRtUGaZRj5zi3nWC+BmeAz7ZIKbuI/dsNXQNYe7tQL72VZoj7de4z8Yv8vefojw==
+stylelint-config-twbs-bootstrap@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-2.2.4.tgz#e52dc27988ee08a6c40a3a061f7624fc4a08ee97"
+  integrity sha512-CN8w9wXGaw65dw+fVRzK4610m/sBFv9tQnUYYu3vcVATe/di/DNpjGBEmQMvzORNXQBvPU5AZKom7crcFWGM2g==
   dependencies:
     stylelint-config-recommended-scss "^4.3.0"
     stylelint-config-standard "^22.0.0"
     stylelint-order "^4.1.0"
-    stylelint-scss "^3.20.1"
+    stylelint-scss "^3.21.0"
 
 stylelint-order@^4.1.0:
   version "4.1.0"
@@ -7935,10 +7935,10 @@ stylelint-order@^4.1.0:
     postcss "^7.0.31"
     postcss-sorting "^5.0.1"
 
-stylelint-scss@^3.20.1:
-  version "3.20.1"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.20.1.tgz#88f175d9cfe1c81a72858bd0d3550cf61530e212"
-  integrity sha512-OTd55O1TTAC5nGKkVmUDLpz53LlK39R3MImv1CfuvsK7/qugktqiZAeQLuuC4UBhzxCnsc7fp9u/gfRZwFAIkA==
+stylelint-scss@^3.20.1, stylelint-scss@^3.21.0:
+  version "3.21.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.21.0.tgz#9f50898691b16b1c1ca3945837381d98c5b22331"
+  integrity sha512-CMI2wSHL+XVlNExpauy/+DbUcB/oUZLARDtMIXkpV/5yd8nthzylYd1cdHeDMJVBXeYHldsnebUX6MoV5zPW4A==
   dependencies:
     lodash "^4.17.15"
     postcss-media-query-parser "^0.2.3"
