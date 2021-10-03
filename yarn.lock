@@ -963,15 +963,15 @@
     "@babel/helper-validator-identifier" "^7.14.9"
     to-fast-properties "^2.0.0"
 
-"@client-side-validations/client-side-validations@^0.1.5":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@client-side-validations/client-side-validations/-/client-side-validations-0.1.5.tgz#64862187f640c07361cb1bbe3e501018543c335b"
-  integrity sha512-DSi69S1BlU3KE+DxiehDDqqeOH561+BJhEMkl7vbu2DgR3XynaWm/Wg1DdyP+CMUOm1UfbAHGCeiIr2dhMnPfA==
-
-"@client-side-validations/simple-form@^0.2.0":
+"@client-side-validations/client-side-validations@^0.2.0":
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@client-side-validations/simple-form/-/simple-form-0.2.0.tgz#5ad72d51775715f038bdc7913504dbe0c2ba7f23"
-  integrity sha512-Knnd1pLvNtQkMGsZNkS8kJ/TNCFR2vhO5ZvoDumdrCVCXNnVMkNgdckwQIopMlHSalI45VVlZVay5V8pvX3XiQ==
+  resolved "https://registry.yarnpkg.com/@client-side-validations/client-side-validations/-/client-side-validations-0.2.0.tgz#f6026b1d450d8af16b20c1285edbb45c8bc75fe7"
+  integrity sha512-TGuAFVAWJIxESxZvI7hGFrnY9OD6U8z0lgxp7xskrCIiMQnwcyvsP0acUh6U5Zhen7P6ObNkQBTgsYEVXTrChQ==
+
+"@client-side-validations/simple-form@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@client-side-validations/simple-form/-/simple-form-0.3.0.tgz#79d85d39c970d0127cd0f378c449bd62b1042270"
+  integrity sha512-gNSKFh8OPIPBNai5a2x2Bnm/Q5yzBRu6kARStxDhZ3/IF7UOinDGgWoyZDS72dbBDYU0wClMGi/WqmRxRBnA5Q==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
