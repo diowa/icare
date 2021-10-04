@@ -1,6 +1,6 @@
 # Changelog
 
-## main /unreleased
+## 0.114.0
 
 * Ruby 3.0.2
 * Allow Node 16
