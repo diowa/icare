@@ -9,6 +9,7 @@
   @extend .mb-2;
 
   max-width: 50%;
+  border-radius: $border-radius;
 }
 
 @include media-breakpoint-up(sm) {

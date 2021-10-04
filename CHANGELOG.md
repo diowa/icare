@@ -6,6 +6,7 @@
 * Allow Node 16
 * Bootstrap 5.1.1
 * Font Awesome 5.15.4
+* Fix user profile picture helper
 * Update dependencies
 
 ## 0.113.0

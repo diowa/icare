@@ -1,6 +1,6 @@
 li.conversation-message class=message_classes(alternate, message, current_user)
   .conversation-message__avatar
-    .img-outset = user_profile_picture message.sender, style: nil
+    .img-outset = user_profile_picture message.sender, options: { class: '' }
   .conversation-message__text
     .float-end.me-2 = message_timestamp message
     p.mb-0.font-weight-bold = link_to_if message.sender != current_user, message.sender, user_path(message.sender)
