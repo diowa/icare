@@ -13,7 +13,7 @@
         th = t('helpers.actions')
       tbody
         - @users.each do |user|
-          tr.vertical-align-middle
+          tr.align-middle
             td = link_to user, user_path(user)
             td = user.email
             td

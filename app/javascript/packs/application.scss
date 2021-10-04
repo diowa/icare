@@ -57,10 +57,6 @@ body {
   vertical-align: middle;
 }
 
-.vertical-align-middle td {
-  vertical-align: middle !important; // stylelint-disable-line declaration-no-important
-}
-
 .pre-line {
   word-break: break-all;
   word-wrap: break-word;

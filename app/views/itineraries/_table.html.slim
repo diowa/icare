@@ -15,7 +15,7 @@
           th = Itinerary.human_attribute_name(:leave_date)
     tbody
       - itineraries.each do |itinerary|
-        tr.vertical-align-middle
+        tr.align-middle
           td = link_to itinerary.start_address, itinerary_path(itinerary)
           td = link_to itinerary.end_address, itinerary_path(itinerary)
           td
