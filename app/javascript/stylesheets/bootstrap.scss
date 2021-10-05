@@ -4,21 +4,6 @@
 @import "~bootstrap/scss/functions";
 @import "bootstrap-variables";
 @import "~bootstrap/scss/mixins";
-
-// WORKAROUND FOR twbs/bootstrap#35011
-// TODO: remove when twbs/bootstrap35033 is merged and released
-@mixin make-row($gutter: $grid-gutter-width) {
-  --#{$variable-prefix}gutter-x: #{$gutter};
-  --#{$variable-prefix}gutter-y: 0;
-
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--#{$variable-prefix}gutter-y)); // stylelint-disable-line function-disallowed-list
-  margin-right: calc(-.5 * var(--#{$variable-prefix}gutter-x)); // stylelint-disable-line function-disallowed-list
-  margin-left: calc(-.5 * var(--#{$variable-prefix}gutter-x)); // stylelint-disable-line function-disallowed-list
-}
-
-
 @import "~bootstrap/scss/utilities";
 
 // Layout & components
