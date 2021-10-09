@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@client-side-validations/client-side-validations": "^0.3.0",
-    "@client-side-validations/simple-form": "^0.3.0",
+    "@client-side-validations/simple-form": "^0.3.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",

@@ -885,10 +885,10 @@
   resolved "https://registry.yarnpkg.com/@client-side-validations/client-side-validations/-/client-side-validations-0.3.0.tgz#0cdfe1ddd3e4388c38a48efde1aa70d3e646c28d"
   integrity sha512-UVCpiqU8YDO/jPkNFEzyDpyCatoMZfo43RrzATFe4JERnirONODuFqdaN6y5CfjeaxU5sMjLIdpcensR1zhLCA==
 
-"@client-side-validations/simple-form@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@client-side-validations/simple-form/-/simple-form-0.3.0.tgz#79d85d39c970d0127cd0f378c449bd62b1042270"
-  integrity sha512-gNSKFh8OPIPBNai5a2x2Bnm/Q5yzBRu6kARStxDhZ3/IF7UOinDGgWoyZDS72dbBDYU0wClMGi/WqmRxRBnA5Q==
+"@client-side-validations/simple-form@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@client-side-validations/simple-form/-/simple-form-0.3.1.tgz#6b24086d02fac82a118efbc47830f4ebb88b0b06"
+  integrity sha512-XvLLbaZR2pmjfWC4kSyDu9Q//FBsMy5wbxHUV6CsK73Nv6+9Uo6x8k5UORvHe2coopQec5/UTs6TsePWSup2Pw==
 
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
