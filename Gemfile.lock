@@ -355,7 +355,7 @@ GEM
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     secure_headers (6.3.3)
-    selenium-webdriver (4.0.0)
+    selenium-webdriver (4.0.3)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2)
