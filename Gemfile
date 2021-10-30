@@ -57,7 +57,7 @@ gem 'omniauth-auth0', '~> 3.0'
 gem 'rgeo', '~> 2.2'
 
 # Performance
-gem 'newrelic_rpm', '~> 8.0'
+gem 'newrelic_rpm', '~> 8.1'
 
 # Security
 gem 'secure_headers', '~> 6.3'
