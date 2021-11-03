@@ -7,10 +7,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.0.2'
+ruby '3.0.3'
 gem 'rails', '6.1.4.1'
-
-gem 'ostruct', '>= 0.4.0' # TODO: remove when a new stable version of Ruby is released
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 7.1'
