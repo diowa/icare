@@ -103,7 +103,7 @@ GEM
     character_set (1.4.1)
       sorted_set (~> 1.0)
     childprocess (4.1.0)
-    client_side_validations (19.1.0)
+    client_side_validations (19.1.1)
       js_regex (~> 3.1)
       rails (>= 5.2, < 7.0)
     client_side_validations-simple_form (14.0.1)
