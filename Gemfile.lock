@@ -175,7 +175,7 @@ GEM
     inline_svg (1.7.2)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
-    jbuilder (2.11.2)
+    jbuilder (2.11.3)
       activesupport (>= 5.0.0)
     js_regex (3.7.0)
       character_set (~> 1.4)
