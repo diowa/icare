@@ -420,7 +420,7 @@ GEM
       timeliness (>= 0.3.10, < 1)
     warden (1.2.9)
       rack (>= 2.0.9)
-    web-console (4.1.0)
+    web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
@@ -502,7 +502,7 @@ DEPENDENCIES
   turbolinks (~> 5.2)
   tzinfo-data (~> 1.2018)
   validates_timeliness (~> 6.0.0.alpha1)
-  web-console (~> 4.1)
+  web-console (~> 4.2)
   webmock (~> 3.14)
   webpacker (~> 5.4)
 
