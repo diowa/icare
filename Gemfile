@@ -52,7 +52,7 @@ gem 'auth0', '~> 5.6'
 gem 'omniauth-auth0', '~> 3.0'
 
 # Geospatial data library
-gem 'rgeo', '~> 2.2'
+gem 'rgeo', '~> 2.3'
 
 # Performance
 gem 'newrelic_rpm', '~> 8.1'
