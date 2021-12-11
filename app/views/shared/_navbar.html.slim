@@ -16,7 +16,7 @@ nav.navbar.main-navbar
           li.nav-item.dropdown
             a.nav-link#main-navbar-dropdown href='#' role='button' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'
               span.fa.fa-cog aria-hidden='true'
-              span.sr-only = t('.settings')
+              span.visually-hidden = t('.settings')
             .dropdown-menu.dropdown-menu-end aria-labelledby='main-navbar-dropdown'
               = link_to t('.account_settings'), :settings, class: 'dropdown-item'
               - if current_user.admin?

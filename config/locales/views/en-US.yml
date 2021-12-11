@@ -39,7 +39,7 @@ en-US:
 
   views:
     pagination:
-      first_html: "&laquo; <span class=\"sr-only d-sm-block\">First</span>"
+      first_html: "&laquo; <span class=\"visually-hidden d-sm-block\">First</span>"
       last_html: "Last &raquo;"
       page_navigation: Page Navigation
       previous_html: "&lsaquo; Previous"

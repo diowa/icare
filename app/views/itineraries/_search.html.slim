@@ -19,4 +19,4 @@
     .d-flex.align-items-center
       = f.button :button, t('.search'), class: 'btn-primary', id: 'itineraries-search', data: { disable_with: t('helpers.disable_with') }
       .spinner-border.text-primary.ms-2.itineraries-spinner#itineraries-spinner-j role='status'
-        span.sr-only = t('loading')
+        span.visually-hidden = t('loading')

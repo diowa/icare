@@ -9,7 +9,7 @@
       .d-flex.align-items-center
         = f.button :button, t('.get_route'), class: 'btn-primary', type: 'button', id: 'get-route'
         .spinner-border.text-primary.ms-2.itineraries-spinner#itineraries-spinner-j role='status'
-          span.sr-only = t('loading')
+          span.visually-hidden = t('loading')
     #map-error-j.d-none-soft.alert.alert-danger
     #map-result-j.d-none-soft.alert.alert-info
       = t('.distance')

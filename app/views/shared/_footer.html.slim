@@ -11,7 +11,7 @@ footer.main-footer
           li = link_to t('terms'), :terms
       li
         span.fab.fa-github<> aria-hidden='true'
-        span.sr-only = t('.github_repository')
+        span.visually-hidden = t('.github_repository')
         = link_to 'diowa/icare', APP_CONFIG.repository_url
       - if user_signed_in?
         li
