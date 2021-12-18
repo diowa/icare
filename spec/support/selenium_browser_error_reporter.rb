@@ -27,7 +27,7 @@ class SeleniumBrowserErrorReporter
   end
 
   def logs
-    @logs ||= page.driver.browser.manage.logs.get(:browser)
+    @logs ||= page.driver.browser.logs.get(:browser)
   end
 
   def severe_errors
