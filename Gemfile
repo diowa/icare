@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '3.0.3'
-gem 'rails', '6.1.4.1'
+gem 'rails', '6.1.4.4'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 7.1'
@@ -36,8 +36,8 @@ gem 'jbuilder', '~> 2.11'
 gem 'simple_form', '~> 5.1'
 
 # ODM and related
-gem 'client_side_validations', '~> 19.1'
-gem 'client_side_validations-simple_form', '~> 14.0'
+gem 'client_side_validations', '~> 20.0'
+gem 'client_side_validations-simple_form', '~> 14.1'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 6.0.0.beta2'
