@@ -1,5 +1,11 @@
 # Changelog
 
+## unreleased
+
+* Ruby 3.0.3
+* Rails 6.1.4.4
+* Bootstrap 5.1.3
+
 ## 0.114.0
 
 * Ruby 3.0.2
