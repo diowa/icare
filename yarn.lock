@@ -3270,6 +3270,14 @@ exports-loader@^1.1.1:
     schema-utils "^3.0.0"
     source-map "^0.6.1"
 
+expose-loader@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/expose-loader/-/expose-loader-1.0.3.tgz#5686d3b78cac8831c4af11c3dc361563deb8a9c0"
+  integrity sha512-gP6hs3vYeWIqyoVfsApGQcgCEpbcI1xe+celwI31zeDhXz2q03ycBC1+75IlQUGaYvj6rAloFIe/NIBnEElLsQ==
+  dependencies:
+    loader-utils "^2.0.0"
+    schema-utils "^3.0.0"
+
 express@^4.17.1:
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.17.2.tgz#c18369f265297319beed4e5558753cc8c1364cb3"

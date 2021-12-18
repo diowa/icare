@@ -29,5 +29,15 @@ environment.plugins.prepend(
   })
 )
 
+environment.loaders.prepend('expose', {
+  test: require.resolve('jquery'),
+  use: {
+    loader: 'expose-loader',
+    options: {
+      exposes: ['$', 'jQuery']
+    }
+  }
+})
+
 // export the updated config
 module.exports = environment

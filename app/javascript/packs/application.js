@@ -24,6 +24,3 @@ require('src/maps-new')
 require('src/maps-search')
 require('src/navbar')
 require('src/pages')
-
-// Expose jQuery to window
-window.$ = window.jQuery = $
