@@ -8,8 +8,8 @@ html lang=I18n.locale.to_s data-default-lang=I18n.default_locale data-currency=A
     = csrf_meta_tags
     = yield :head
 
-    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700|Pacifico', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700|Pacifico', media: 'all', 'data-turbo-track': 'reload'
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbo-track': 'reload'
 
     / Webapp
     link rel='manifest' href='/manifest.json'
@@ -22,8 +22,8 @@ html lang=I18n.locale.to_s data-default-lang=I18n.default_locale data-currency=A
     meta name='apple-mobile-web-app-status-bar-style' content='#3d7098'
 
     / Turbolinks require javascript tags inside the head
-    = javascript_include_tag google_maps_api_source, 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag google_maps_api_source, 'data-turbo-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbo-track': 'reload'
 
   body class=('homepage' if action_name == 'home')
     == render 'shared/google_tag_manager' if APP_CONFIG.google_analytics_id.present?

@@ -3,24 +3,24 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
+import '@hotwired/turbo-rails'
+
 import {} from 'jquery-ujs'
 
+import 'src/initialize-on-event'
+
+import 'src/bootstrap'
+import 'src/fontawesome'
+
+import 'src/vendor/i18n-translations'
+
+import 'src/handlebars'
+import 'src/conversations'
+import 'src/forms'
+import 'src/maps'
+import 'src/maps-new'
+import 'src/maps-search'
+import 'src/navbar'
+import 'src/pages'
+
 require.context('../images', true)
-
-require('turbolinks').start()
-
-require('src/initialize-on-event')
-
-require('src/bootstrap')
-require('src/fontawesome')
-
-require('src/vendor/i18n-translations')
-
-require('src/handlebars')
-require('src/conversations')
-require('src/forms')
-require('src/maps')
-require('src/maps-new')
-require('src/maps-search')
-require('src/navbar')
-require('src/pages')

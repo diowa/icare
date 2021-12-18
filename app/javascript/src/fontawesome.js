@@ -44,7 +44,7 @@ import {
   faGithub
 } from '@fortawesome/free-brands-svg-icons'
 
-// Prevents flicker when using Turbolinks
+// Prevents flicker when using Turbo
 // Ref: https://github.com/FortAwesome/Font-Awesome/issues/11924
 config.mutateApproach = 'sync'
 

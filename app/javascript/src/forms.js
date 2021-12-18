@@ -1,4 +1,4 @@
-require('@client-side-validations/simple-form/src/index.bootstrap4')
+import '@client-side-validations/simple-form/src/index.bootstrap4'
 
 ClientSideValidations.callbacks.form.fail = ($form, eventData) => {
   const settings = $form[0].ClientSideValidations.settings

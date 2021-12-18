@@ -1,4 +1,4 @@
 window.initializeOnEvent =
-  (window.Turbolinks != null) && window.Turbolinks.supported
-    ? 'turbolinks:load'
+  (window.Turbo != null)
+    ? 'turbo:load'
     : 'ready'

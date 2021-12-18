@@ -68,7 +68,9 @@ gem 'slim-rails', '~> 3.3'
 # Assets
 gem 'i18n-js', '~> 3.9'
 gem 'inline_svg', '~> 1.7'
-gem 'turbolinks', '~> 5.2'
+
+# Turbo makes navigating your web application faster. Read more: https://github.com/hotwired/turbo-rails
+gem 'turbo-rails', '~> 0.9.0'
 
 # Errors reporting
 gem 'airbrake', '~> 12.0'

@@ -27,6 +27,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 * [Multi-Environment configuration][15]
 * [Airbrake][16] Exception Notification
 * [New Relic][13] Application Performance Management service
+* [Redis][17]
 
  [1]: https://rubyonrails.org/
  [2]: https://github.com/plataformatec/devise
@@ -42,6 +43,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [14]: https://www.heroku.com/
  [15]: https://github.com/lukeredpath/simpleconfig
  [16]: https://github.com/airbrake/airbrake
+ [17]: https://redis.io/
 
 A working demo is available at https://icare.diowa.com/
 
