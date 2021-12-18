@@ -74,7 +74,7 @@ gem 'turbolinks', '~> 5.2'
 gem 'airbrake', '~> 12.0'
 
 group :development, :test do
-  gem 'bullet', '~> 6.1'
+  gem 'bullet', '~> 7.0'
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 6.2'
   gem 'faker', '~> 2.19'
