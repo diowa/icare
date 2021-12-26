@@ -16,7 +16,7 @@ RSpec.describe Itinerary do
   end
 
   describe '#return_date_validator' do
-    let(:invalid_itinerary) { build :itinerary, leave_date: Time.current + 1.day, return_date: Time.current - 1.day, round_trip: true }
+    let(:invalid_itinerary) { build :itinerary, leave_date: 1.day.from_now, return_date: 1.day.ago, round_trip: true }
 
     it "adds an error on the return_date field if it's before leave_date" do
       expect(invalid_itinerary.valid?).to be false
@@ -25,7 +25,7 @@ RSpec.describe Itinerary do
     end
 
     it "adds an error on the return_date field if it's blank" do
-      nil_return_date_itinerary = build :itinerary, leave_date: Time.current + 1.day, return_date: nil, round_trip: true
+      nil_return_date_itinerary = build :itinerary, leave_date: 1.day.from_now, return_date: nil, round_trip: true
       expect(nil_return_date_itinerary.valid?).to be false
       expect(nil_return_date_itinerary.errors.size).to be 1
       expect(nil_return_date_itinerary.errors.messages).to have_key :return_date
