@@ -9,8 +9,11 @@ namespace :yarn do
       valid_node_envs.include?(Rails.env) ? Rails.env : 'production'
     end
 
-    system({ 'NODE_ENV' => node_env }, Rails.root.join("bin/yarn #{args[:command]}").to_s)
-    abort if $CHILD_STATUS.exitstatus.nonzero?
+    system(
+      { 'NODE_ENV' => node_env },
+      "#{RbConfig.ruby} \"#{Rails.root}/bin/yarn\" #{args[:command]}",
+      exception: true
+    )
   rescue Errno::ENOENT
     warn 'bin/yarn was not found.'
     exit 1
@@ -18,7 +21,7 @@ namespace :yarn do
 
   desc 'Run `bin/yarn stylelint app/**/*.scss`'
   task :stylelint do
-    Rake::Task['yarn:run'].execute(command: 'stylelint app/**/*.scss')
+    Rake::Task['yarn:run'].execute(command: "stylelint #{Dir.glob('app/**/*.scss').join(' ')}")
   end
 
   desc 'Run `bin/yarn standard`'
