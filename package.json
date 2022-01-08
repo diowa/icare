@@ -14,7 +14,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@popperjs/core": "^2.11.2",
     "@rails/actioncable": "6.1.4",
-    "@rails/activestorage": "6.1.4",
+    "@rails/activestorage": "7.0.1",
     "@rails/webpacker": "^5.4.3",
     "bootstrap": "^5.1.3",
     "exports-loader": "^1.1.1",
