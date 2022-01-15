@@ -1108,14 +1108,6 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
   integrity sha512-L28j2FcJfSZOnL1WBjDYp2vUHCeIFlyYI/53EwD/rKUBQ7MtUUfbQWiyKJGpcnv4/WgrhWsFKrcPstcAt/J0tQ==
 
-"@types/stylelint@^13.13.3":
-  version "13.13.3"
-  resolved "https://registry.yarnpkg.com/@types/stylelint/-/stylelint-13.13.3.tgz#29ba9b7179e5632b12853252da191443607d32fc"
-  integrity sha512-xvYwobi9L69FXbJTimKYRNHyMwtmcJxMd1woI3U822rkW/f7wcZ6fsV1DqYPT+sNaO0qUtngiBhTQfMeItUvUA==
-  dependencies:
-    globby "11.x.x"
-    postcss "7.x.x"
-
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -3728,7 +3720,7 @@ globals@^12.1.0:
   dependencies:
     type-fest "^0.8.1"
 
-globby@11.x.x, globby@^11.0.4:
+globby@^11.0.4:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/globby/-/globby-11.0.4.tgz#2cbaff77c2f2a62e71e9b2813a67b97a3a3001a5"
   integrity sha512-9O4MVG9ioZJ08ffbcyVYyLOJLk5JQ688pJ4eMGLpdWLHq/Wr1D9BlriLQyL0E+jbkuePVZXYFj47QM/v093wHg==
@@ -6434,7 +6426,7 @@ postcss-values-parser@^2.0.0, postcss-values-parser@^2.0.1:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
-postcss@7.x.x, postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.5, postcss@^7.0.6:
+postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.17, postcss@^7.0.2, postcss@^7.0.26, postcss@^7.0.27, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0.5, postcss@^7.0.6:
   version "7.0.39"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.39.tgz#9624375d965630e2e1f2c02a935c82a59cb48309"
   integrity sha512-yioayjNbHn6z1/Bywyb2Y4s3yvDAeXGOyxqD+LnVOinq6Mdmd++SW2wUNVzavyyHxd6+DxzWGIuosg6P1Rj8uA==
@@ -7714,12 +7706,11 @@ stylelint-scss@^4.0.0, stylelint-scss@^4.0.1, stylelint-scss@^4.1.0:
     postcss-selector-parser "^6.0.6"
     postcss-value-parser "^4.1.0"
 
-stylelint-webpack-plugin@^2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-2.3.1.tgz#a97da69333cf1784b64d6e543c9c9d06ea1ac975"
-  integrity sha512-IPNQ0MJpNfTK/eQbkaiktYVYPN0m2tS/p/yCRdVbHpaebtzmMbmvuLtM7B08Wb3nbTOKL8+g1uQul9HVdOKTJQ==
+stylelint-webpack-plugin@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-2.3.2.tgz#edb849250fb829349ddb41bc07d343c39d3391ce"
+  integrity sha512-gjerWQ7nY+4JdebL3LTDPp80DV10O1OOWtM+v+W29+ThzLsKGz3UptEVd0jVdFpWEohEXVilbnan2b/YXxakqA==
   dependencies:
-    "@types/stylelint" "^13.13.3"
     arrify "^2.0.1"
     globby "^11.0.4"
     jest-worker "^27.3.1"
