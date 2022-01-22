@@ -71,7 +71,7 @@ gem 'inline_svg', '~> 1.8'
 gem 'turbolinks', '~> 5.2'
 
 # Errors reporting
-gem 'airbrake', '~> 12.0'
+gem 'airbrake', '~> 13.0'
 
 group :development, :test do
   gem 'bullet', '~> 7.0'
