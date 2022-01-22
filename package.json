@@ -25,7 +25,7 @@
     "jquery": "^3.6.0",
     "jquery-ujs": "^1.2.3",
     "postcss": "^8.4.5",
-    "resolve-url-loader": "^4.0.0",
+    "resolve-url-loader": "^5.0.0",
     "turbolinks": "^5.2.0"
   },
   "devDependencies": {
