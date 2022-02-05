@@ -24,7 +24,7 @@
     "i18n-js": "^3.8.0",
     "jquery": "^3.6.0",
     "jquery-ujs": "^1.2.3",
-    "postcss": "^8.4.5",
+    "postcss": "^8.4.6",
     "resolve-url-loader": "^5.0.0",
     "turbolinks": "^5.2.0"
   },
