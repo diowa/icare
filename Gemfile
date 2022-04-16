@@ -44,7 +44,7 @@ gem 'validates_timeliness', '~> 6.0.0.beta2'
 
 # Authentication framework
 gem 'devise', '~> 4.8'
-gem 'omniauth', '~> 2.0'
+gem 'omniauth', '~> 2.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # OAuth Provider
