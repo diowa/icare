@@ -1,12 +1,9 @@
 window.icare = window.icare || {}
 
 if (typeof google !== 'undefined' && google !== null) {
-  class CustomMarker {
-    static initClass () {
-      this.prototype = new google.maps.OverlayView()
-    }
-
+  class CustomMarker extends google.maps.OverlayView {
     constructor (position, map, opts) {
+      super()
       this.position = position
       this._div = null
       this.setMap(map)
@@ -72,7 +69,6 @@ if (typeof google !== 'undefined' && google !== null) {
       }
     }
   }
-  CustomMarker.initClass()
 
   const initGoogleMaps = function (id) {
     const styleArray = [{
