@@ -71,6 +71,11 @@ RSpec/NestedGroups:
 Style/Documentation:
   Enabled: false
 
+Style/FetchEnvVar:
+  Exclude:
+    - spec/**/*
+    - config/settings/*
+
 Style/IfUnlessModifier:
   Enabled: false
 
