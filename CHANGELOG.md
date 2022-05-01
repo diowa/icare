@@ -2,9 +2,10 @@
 
 ## unreleased
 
-* Ruby 3.0.3
-* Rails 6.1.4.4
+* Ruby 3.0.4
+* Rails 6.1.5.1
 * Bootstrap 5.1.3
+* Font Awesome 6.1.1
 
 ## 0.114.0
 

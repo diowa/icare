@@ -5,7 +5,7 @@ require:
 
 AllCops:
   TargetRailsVersion: 6.1
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
   NewCops: enable
   Exclude:
     - Brewfile
