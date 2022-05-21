@@ -4570,10 +4570,10 @@ jest-worker@^26.5.0:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest-worker@^27.3.1:
-  version "27.5.1"
-  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-27.5.1.tgz#8d146f0900e8973b106b6f73cc1e9a8cb86f8db0"
-  integrity sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==
+jest-worker@^28.1.0:
+  version "28.1.0"
+  resolved "https://registry.yarnpkg.com/jest-worker/-/jest-worker-28.1.0.tgz#ced54757a035e87591e1208253a6e3aac1a855e5"
+  integrity sha512-ZHwM6mNwaWBR52Snff8ZvsCTqQsvhCxP/bT1I6T6DAnb6ygkshsyLQIMxFwHpYxht0HOoqt23JlC01viI7T03A==
   dependencies:
     "@types/node" "*"
     merge-stream "^2.0.0"
@@ -7782,15 +7782,15 @@ stylelint-scss@^4.0.0, stylelint-scss@^4.1.0, stylelint-scss@^4.2.0:
     postcss-selector-parser "^6.0.6"
     postcss-value-parser "^4.1.0"
 
-stylelint-webpack-plugin@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-2.3.2.tgz#edb849250fb829349ddb41bc07d343c39d3391ce"
-  integrity sha512-gjerWQ7nY+4JdebL3LTDPp80DV10O1OOWtM+v+W29+ThzLsKGz3UptEVd0jVdFpWEohEXVilbnan2b/YXxakqA==
+stylelint-webpack-plugin@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-2.4.0.tgz#04d96096e6a5d146b32b2fb66b0464a9118b81e5"
+  integrity sha512-MhXDqd8HPXdY51nGeDeUEXToximoIbc0Z5TQC1M0ApR0ejrOwj9dRZKiL/00MDRrQfuAGkjcJ6sOVvc4gRzbgQ==
   dependencies:
     arrify "^2.0.1"
     globby "^11.0.4"
-    jest-worker "^27.3.1"
-    micromatch "^4.0.4"
+    jest-worker "^28.1.0"
+    micromatch "^4.0.5"
     normalize-path "^3.0.0"
     schema-utils "^3.1.1"
 
