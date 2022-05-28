@@ -103,7 +103,7 @@ group :test do
   gem 'capybara', '~> 3.37'
   gem 'email_spec', '~> 2.2'
   gem 'launchy', '~> 2.5'
-  gem 'selenium-webdriver', '~> 4.1'
+  gem 'selenium-webdriver', '~> 4.2'
   gem 'simplecov', '~> 0.21.2', require: false
   gem 'simplecov-lcov', '~> 0.8.0', require: false
   gem 'webmock', '~> 3.14', require: false
