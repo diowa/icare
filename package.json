@@ -32,7 +32,7 @@
     "standard": "^16.0.4",
     "standard-loader": "^7.0.0",
     "stylelint": "^14.8.5",
-    "stylelint-config-twbs-bootstrap": "^3.0.1",
+    "stylelint-config-twbs-bootstrap": "^3.1.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.2.0",
     "stylelint-webpack-plugin": "^2.4.0",
