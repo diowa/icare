@@ -34,7 +34,7 @@
     "stylelint": "^14.9.1",
     "stylelint-config-twbs-bootstrap": "^4.0.0",
     "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.2.0",
+    "stylelint-scss": "^4.3.0",
     "stylelint-webpack-plugin": "^2.4.0",
     "webpack": "^4.46.0",
     "webpack-cli": "^3.3.12",
