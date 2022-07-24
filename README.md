@@ -13,7 +13,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 **icare** uses the following technologies:
 
 * [Ruby on Rails][1]
-* [Webpacker][3]
+* [Shakapacker][3]
 * [Handlebars.js][4] (JavaScript semantic templates)
 * [SLIM][5]
 * [Bootstrap][6]
@@ -30,7 +30,7 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 
  [1]: https://rubyonrails.org/
  [2]: https://github.com/plataformatec/devise
- [3]: https://github.com/rails/webpacker
+ [3]: https://github.com/shakacode/shakapacker
  [4]: https://handlebarsjs.com/
  [5]: http://slim-lang.com/
  [6]: https://getbootstrap.com

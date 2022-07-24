@@ -20,7 +20,7 @@
           th = t '.actions', default: t('helpers.actions')
       tbody
         - @feedbacks.each do |feedback|
-          tr.align-middle class=('success' if feedback.fixed?)
+          tr.align-middle class=('table-success' if feedback.fixed?)
             td = feedback.category.upcase
             td = feedback.status.upcase
             td

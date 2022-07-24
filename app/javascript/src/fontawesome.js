@@ -20,7 +20,6 @@ import {
   faLeaf,
   faLock,
   faLongArrowAltDown,
-  faMagic,
   faMeh,
   faMapMarkerAlt,
   faPaw,
@@ -37,6 +36,7 @@ import {
   faTimes,
   faUsers,
   faUserSecret,
+  faWandMagicSparkles,
   faWrench
 } from '@fortawesome/free-solid-svg-icons'
 
@@ -68,7 +68,6 @@ library.add(
   faLeaf,
   faLock,
   faLongArrowAltDown,
-  faMagic,
   faMeh,
   faMapMarkerAlt,
   faPaw,
@@ -85,6 +84,7 @@ library.add(
   faTimes,
   faUsers,
   faUserSecret,
+  faWandMagicSparkles,
   faWrench,
 
   faGithub

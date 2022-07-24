@@ -5,7 +5,7 @@
 
 import {} from 'jquery-ujs'
 
-require.context('../images', true)
+require.context('images', true)
 
 require('turbolinks').start()
 

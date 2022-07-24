@@ -1,3 +1,4 @@
 - flash.each do |type, message|
-  .alert.fade.show class=twitterized_type(type)
+  .alert.alert-dismissible.fade.show class=twitterized_type(type)
+    button.btn-close type='button' data-bs-dismiss='alert' aria-label=t('close')
     = message

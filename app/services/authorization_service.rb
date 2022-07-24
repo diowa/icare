@@ -1,22 +1,18 @@
 # frozen_string_literal: true
 
 module AuthorizationService
-  class << self
-    private
+  extend self
 
-    def auth0_client
-      @auth0_client ||= Auth0Client.new(
-        client_id:     APP_CONFIG.auth0.client_id,
-        client_secret: APP_CONFIG.auth0.client_secret,
-        domain:        APP_CONFIG.auth0.domain,
-        api_version:   2
-      )
-    end
-  end
+  delegate :delete_user, to: :auth0_client
 
-  module_function
+  private
 
-  def delete_user(user_uid)
-    auth0_client.delete_user user_uid
+  def auth0_client
+    @auth0_client ||= Auth0Client.new(
+      client_id:     APP_CONFIG.auth0.client_id,
+      client_secret: APP_CONFIG.auth0.client_secret,
+      domain:        APP_CONFIG.auth0.domain,
+      api_version:   2
+    )
   end
 end
