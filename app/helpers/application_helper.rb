@@ -31,6 +31,7 @@ module ApplicationHelper
     when 'alert' then 'alert-warning'
     when 'error' then 'alert-danger'
     when 'notice' then 'alert-info'
+    when 'success' then 'alert-success'
     else type
     end
   end

@@ -7,7 +7,7 @@ module UsersHelper
     if user_signed_in? && user.image?
       "#{user.image}?type=#{type}"
     else
-      asset_pack_path('media/images/user.jpg')
+      asset_pack_path('static/user.jpg')
     end
   end
 
