@@ -1,5 +1,5 @@
 /* Copied from the source code of Bootstrap: */
-/* https://github.com/twbs/bootstrap/blob/v5.0.0/js/index.umd.js */
+/* https://github.com/twbs/bootstrap/blob/v5.2.0/js/index.umd.js */
 
 import Alert from 'bootstrap/js/src/alert'
 import Button from 'bootstrap/js/src/button'
