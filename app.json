@@ -67,9 +67,9 @@
   },
   "addons": [
     "heroku-postgresql:hobby-dev",
+    "heroku-redis:hobby-dev",
     "newrelic",
-    "papertrail",
-    "redistogo:nano"
+    "papertrail"
   ],
   "buildpacks": [
     {

@@ -38,6 +38,6 @@ SimpleConfig.for :application do
   end
 
   group :redis do
-    set :url, ENV['REDISTOGO_URL']
+    set :url, ENV['REDIS_URL']
   end
 end
