@@ -21,7 +21,7 @@ gem 'puma', '~> 5.6'
 gem 'shakapacker', '~> 6.5'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '~> 1.12', require: false
+gem 'bootsnap', '~> 1.13', require: false
 
 # Background jobs within the same process as web application
 gem 'sucker_punch', '~> 3.0'
