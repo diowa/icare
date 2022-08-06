@@ -33,7 +33,7 @@
     "jquery": "^3.6.0",
     "jquery-ujs": "^1.2.3",
     "mini-css-extract-plugin": "^2.6.1",
-    "postcss": "^8.4.14",
+    "postcss": "^8.4.16",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^14.1.0",
     "postcss-loader": "^7.0.1",
