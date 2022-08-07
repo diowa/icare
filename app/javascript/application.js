@@ -14,8 +14,6 @@ require('src/initialize-on-event')
 require('src/bootstrap')
 require('src/fontawesome')
 
-require('src/vendor/i18n-translations')
-
 require('src/handlebars')
 require('src/conversations')
 require('src/forms')
