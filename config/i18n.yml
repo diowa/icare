@@ -1,0 +1,11 @@
+translations:
+  - file: app/javascript/src/locales/translations.json
+    patterns:
+      - "*.boolean"
+      - "*.date"
+      - "*.time"
+      - "*.datetime"
+      - "*.javascript"
+      - "*.shared.navbar"
+      - "*.templates"
+      - "*.activerecord.attributes.itinerary"

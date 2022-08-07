@@ -14,6 +14,8 @@ Itineraries
 
 // From https://google-developers.appspot.com/maps/customize_ae458c7692ac994187feb6f58834b6af.frame
 
+import i18n from './i18n'
+
 window.icare = window.icare || {}
 const {
   icare
@@ -31,7 +33,7 @@ const setItinerary = function (route) {
   $('#map-result-j').show()
   const routeKm = (Number)(route.legs[0].distance.value / 1000)
   const routeGasoline = routeKm * (Number)($('#fuel-help').data('avg-consumption'))
-  $('#fuel-help-text').text(I18n.t('javascript.fuel_help_text', { km: routeKm.toFixed(2), est: Math.ceil(routeGasoline), avg_consumption: $('#fuel-help').data('avg-consumption'), fuel_currency: $('html').data('fuelCurrency'), currency: $('html').data('currency') }))
+  $('#fuel-help-text').text(i18n.t('javascript.fuel_help_text', { km: routeKm.toFixed(2), est: Math.ceil(routeGasoline), avg_consumption: $('#fuel-help').data('avg-consumption'), fuel_currency: $('html').data('fuelCurrency'), currency: $('html').data('currency') }))
   $('#fuel-help').show()
   $('#itinerary_fuel_cost').val(Math.ceil(routeGasoline))
 
@@ -92,7 +94,7 @@ const wizardPrevStep = function () {
 const wizardNextStep = function () {
   // Run validations
   if ($('#itinerary_route').val() === '') {
-    $('#map-error-j').text(I18n.t('javascript.setup_route_first')).show()
+    $('#map-error-j').text(i18n.t('javascript.setup_route_first')).show()
     return false
   }
 
@@ -195,10 +197,10 @@ const calculateRoute = function (dr, ds) {
       let message
       switch (status) {
         case 'NOT_FOUND':
-          message = I18n.t('javascript.not_found')
+          message = i18n.t('javascript.not_found')
           break
         case 'ZERO_RESULTS':
-          message = I18n.t('javascript.zero_results')
+          message = i18n.t('javascript.zero_results')
           break
         default:
           message = status

@@ -144,6 +144,7 @@ GEM
     ffi (1.15.5)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
+    glob (0.3.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashdiff (1.0.1)
@@ -155,8 +156,9 @@ GEM
     http_accept_language (2.1.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    i18n-js (3.9.2)
-      i18n (>= 0.6.6)
+    i18n-js (4.0.0)
+      glob
+      i18n
     inline_svg (1.8.0)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
@@ -456,7 +458,7 @@ DEPENDENCIES
   faker (~> 2.22)
   friendly_id (~> 5.4)
   http_accept_language (~> 2.1)
-  i18n-js (~> 3.9)
+  i18n-js (~> 4.0)
   inline_svg (~> 1.8)
   jbuilder (~> 2.11)
   kaminari (~> 1.2)

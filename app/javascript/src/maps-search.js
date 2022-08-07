@@ -1,3 +1,5 @@
+import i18n from './i18n'
+
 window.icare = window.icare || {}
 const {
   icare
@@ -151,12 +153,12 @@ const initItineraryIndex = function () {
     .on('ajax:beforeSend', (evt, xhr, settings) => $('#itineraries-spinner-j').show())
     .on('ajax:complete', (evt, xhr, settings) => $('#itineraries-spinner-j').hide())
     .on('ajax:error', (evt, xhr, settings) => {
-      $('#itineraries-thumbs-j').html(`<div class="col-12"><h3 class="error-text m-0">${I18n.t('javascript.an_error_occurred')}</h3></div>`)
+      $('#itineraries-thumbs-j').html(`<div class="col-12"><h3 class="error-text m-0">${i18n.t('javascript.an_error_occurred')}</h3></div>`)
     })
     .on('ajax:success', function (evt, data, status, xhr) {
       // FIXME: browser back calls ajax:success multiple times
       if (data.length === 0) {
-        $('#itineraries-thumbs-j').html(`<div class="col-12"><h3 class="m-0">${I18n.t('javascript.no_itineraries_found')}</h3></div>`)
+        $('#itineraries-thumbs-j').html(`<div class="col-12"><h3 class="m-0">${i18n.t('javascript.no_itineraries_found')}</h3></div>`)
       } else {
         $('#itineraries-thumbs-j').html('')
         let index = 0

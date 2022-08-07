@@ -15,7 +15,6 @@ module.exports = {
               'google',
               'Handlebars',
               'HandlebarsTemplates',
-              'I18n',
               'InfoBox',
               'initGoogleMaps'
             ]

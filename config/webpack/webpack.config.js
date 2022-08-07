@@ -37,10 +37,7 @@ let customConfig = {
       jquery: 'jquery',
 
       // Window
-      'window.jQuery': 'jquery',
-
-      // I18n
-      'I18n': 'i18n-js'
+      'window.jQuery': 'jquery'
     })
   ]
 }

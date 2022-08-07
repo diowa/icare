@@ -3,6 +3,8 @@
  * DS102: Remove unnecessary code created because of implicit returns
  * Full docs: https://github.com/decaffeinate/decaffeinate/blob/master/docs/suggestions.md
  */
+import i18n from './i18n'
+
 $(document).on('show.bs.popover', '.notifications', function (e) {
   const $notifications = $(e.target).closest('.notifications').addClass('active')
   return $('.notifications').not($notifications).removeClass('active').find('a').popover('hide')
@@ -21,7 +23,7 @@ $(document).on('shown.bs.popover', '.notifications', function (e) {
         if (messages.length > 0) {
           $popover.find('.popover-body').html(HandlebarsTemplates['notifications/messages']({ messages }))
         } else {
-          $popover.find('.popover-body').text(I18n.t(`javascript.notifications.${$target.data('notificationsType')}.no_new`))
+          $popover.find('.popover-body').text(i18n.t(`javascript.notifications.${$target.data('notificationsType')}.no_new`))
         }
       }
     })
@@ -36,8 +38,8 @@ $(document).on(window.initializeOnEvent, () => $('.notifications').each(function
   const notificationsType = $target.data('notificationsType')
   const popoverData = {
     footer_url: $target.attr('href'),
-    no_notifications_text: I18n.t(`javascript.notifications.${notificationsType}.no_new`),
-    footer_link_text: I18n.t(`javascript.notifications.${notificationsType}.see_all`)
+    no_notifications_text: i18n.t(`javascript.notifications.${notificationsType}.no_new`),
+    footer_link_text: i18n.t(`javascript.notifications.${notificationsType}.see_all`)
   }
   const popoverTemplate = HandlebarsTemplates['notifications/base'](popoverData)
 
@@ -50,6 +52,6 @@ $(document).on(window.initializeOnEvent, () => $('.notifications').each(function
     container: $(this),
     content: $(popoverTemplate).find('.popover-body-loading').html(),
     template: popoverTemplate,
-    title: I18n.t(`javascript.notifications.${notificationsType}.title`)
+    title: i18n.t(`javascript.notifications.${notificationsType}.title`)
   })
 }))
