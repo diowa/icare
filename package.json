@@ -16,7 +16,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-brands-svg-icons": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
-    "@popperjs/core": "^2.11.5",
+    "@popperjs/core": "^2.11.6",
     "@rails/actioncable": "6.1.5",
     "@rails/activestorage": "6.1.5",
     "babel-loader": "^8.2.5",
