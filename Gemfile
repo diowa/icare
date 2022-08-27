@@ -48,7 +48,7 @@ gem 'omniauth', '~> 2.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # OAuth Provider
-gem 'auth0', '~> 5.8'
+gem 'auth0', '~> 5.9'
 gem 'omniauth-auth0', '~> 3.0'
 
 # Geospatial data library
