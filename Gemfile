@@ -24,7 +24,7 @@ gem 'shakapacker', '~> 6.5'
 gem 'bootsnap', '~> 1.13', require: false
 
 # Background jobs within the same process as web application
-gem 'sucker_punch', '~> 3.0'
+gem 'sucker_punch', '~> 3.1'
 
 # Multi-environment configuration
 gem 'simpleconfig', '~> 2.0'
