@@ -33,7 +33,7 @@ RSpec.describe 'Users' do
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
       click_button t('helpers.submit.update', model: User)
       expect(user.reload.vehicle_avg_consumption).to eq 0.29
-      expect(find('#user_vehicle_avg_consumption').value).to eq '0.29'
+      expect(find_by_id('user_vehicle_avg_consumption').value).to eq '0.29'
     end
 
     it 'recovers from errors' do
