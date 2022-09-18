@@ -1,11 +1,11 @@
 # Changelog
 
-## unreleased
+## 0.115.0
 
-* Ruby 3.0.4
-* Rails 6.1.5.1
-* Bootstrap 5.1.3
-* Font Awesome 6.1.1
+* Ruby 3.1.2
+* Rails 7.0.4
+* Bootstrap 5.2.1
+* Font Awesome 6.2.0
 
 ## 0.114.0
 
