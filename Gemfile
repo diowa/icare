@@ -36,8 +36,8 @@ gem 'jbuilder', '~> 2.11'
 gem 'simple_form', '~> 5.1'
 
 # ODM and related
-gem 'client_side_validations', '~> 20.0'
-gem 'client_side_validations-simple_form', '~> 14.1'
+gem 'client_side_validations', '~> 21.0'
+gem 'client_side_validations-simple_form', '~> 15.0'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 6.0.0.beta2'
@@ -85,7 +85,7 @@ group :development, :test do
   gem 'rubocop', '~> 1.36', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
   gem 'rubocop-rails', '~> 2.16', require: false
-  gem 'rubocop-rspec', '~> 2.12', require: false
+  gem 'rubocop-rspec', '~> 2.13', require: false
   gem 'slim_lint', '~> 0.22.1', require: false
 end
 

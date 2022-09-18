@@ -182,7 +182,7 @@ RSpec.describe 'Itineraries' do
 
       visit new_itinerary_path
 
-      find('#new_itinerary_submit-j').click
+      find_by_id('new_itinerary_submit-j').click
       expect(page).to have_css '.alert-danger'
     end
 
