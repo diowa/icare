@@ -7,11 +7,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.0.4'
-gem 'rails', '6.1.7'
+ruby '3.1.2'
+gem 'rails', '7.0.4'
 
 # Use postgresql as the database for Active Record
-gem 'activerecord-postgis-adapter', '~> 7.1'
+gem 'activerecord-postgis-adapter', '~> 8.0'
 gem 'pg', '~> 1.4'
 
 # Servers
@@ -19,6 +19,9 @@ gem 'puma', '~> 5.6'
 
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
 gem 'shakapacker', '6.5.2'
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '~> 1.13', require: false
@@ -40,7 +43,7 @@ gem 'client_side_validations', '~> 21.0'
 gem 'client_side_validations-simple_form', '~> 15.0'
 gem 'friendly_id', '~> 5.4'
 gem 'kaminari', '~> 1.2'
-gem 'validates_timeliness', '~> 6.0.0.beta2'
+gem 'validates_timeliness', github: 'tagliala/validates_timeliness', branch: 'rails-70'
 
 # Authentication framework
 gem 'devise', '~> 4.8'
@@ -90,12 +93,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'better_errors', '~> 2.9'
-  gem 'binding_of_caller', '~> 1.0'
-  gem 'listen', '~> 3.7'
-  gem 'spring', '~> 2.1'
-  gem 'spring-commands-rspec', '~> 1.0'
-  gem 'spring-watcher-listen', '~> 2.0'
   gem 'web-console', '~> 4.2'
 end
 
@@ -108,6 +105,3 @@ group :test do
   gem 'simplecov-lcov', '~> 0.8.0', require: false
   gem 'webmock', '~> 3.18', require: false
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', '~> 1.2018', platforms: %i[mingw mswin x64_mingw jruby]

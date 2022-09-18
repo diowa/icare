@@ -42,13 +42,13 @@ jobs:
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.0.4'
+        ruby-version: '3.1.2'
         bundler-cache: true
         cache-version: 1
     - name: Set up Node
       uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: '16'
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run:

@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :vehicle_avg_consumption, numericality: { greater_than: 0, less_than: 10 }, presence: true
 
   def age
-    ((Time.current.to_s(:number).to_i - birthday.at_midnight.to_s(:number).to_i) / 1e10.to_i) if birthday?
+    ((Time.current.to_fs(:number).to_i - birthday.at_midnight.to_fs(:number).to_i) / 1e10.to_i) if birthday?
   end
 
   def female?

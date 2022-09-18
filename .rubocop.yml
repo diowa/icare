@@ -4,8 +4,8 @@ require:
   - rubocop-rspec
 
 AllCops:
-  TargetRailsVersion: 6.1
-  TargetRubyVersion: 3.0
+  TargetRailsVersion: 7.0
+  TargetRubyVersion: 3.1
   NewCops: enable
   Exclude:
     - Brewfile
@@ -38,6 +38,9 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*'
+
+Naming/BlockForwarding:
+  Enabled: false
 
 Rails/HasAndBelongsToMany:
   Exclude:
@@ -75,6 +78,9 @@ Style/FetchEnvVar:
   Exclude:
     - spec/**/*
     - config/settings/*
+
+Style/HashSyntax:
+  Enabled: false
 
 Style/IfUnlessModifier:
   Enabled: false
