@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/tagliala/validates_timeliness.git
-  revision: 652836f4e521a7141ad7fa06a4cd664f45761756
+  revision: 6404f49380d0a362cf35d5818b4aadc5a5bafe0f
   branch: rails-70
   specs:
-    validates_timeliness (6.0.0.beta2)
+    validates_timeliness (7.0.0.alpha1)
       activemodel (>= 7.0.0, < 8)
       timeliness (>= 0.3.10, < 1)
 
