@@ -80,7 +80,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.1)
       public_suffix (>= 2.0.2, < 6.0)
-    airbrake (13.0.2)
+    airbrake (13.0.3)
       airbrake-ruby (~> 6.0)
     airbrake-ruby (6.2.0)
       rbtree3 (~> 0.5)
@@ -355,7 +355,7 @@ GEM
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
-    rubocop-rspec (2.13.1)
+    rubocop-rspec (2.13.2)
       rubocop (~> 1.33)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
@@ -394,9 +394,9 @@ GEM
     slim_lint (0.22.1)
       rubocop (>= 0.78.0)
       slim (>= 3.0, < 5.0)
-    snaky_hash (2.0.0)
+    snaky_hash (2.0.1)
       hashie
-      version_gem (~> 1.1)
+      version_gem (~> 1.1, >= 1.1.1)
     sorted_set (1.0.3)
       rbtree
       set (~> 1.0)
@@ -418,7 +418,7 @@ GEM
     unf_ext (0.0.8.2)
     unicode-display_width (2.3.0)
     uniform_notifier (1.16.0)
-    version_gem (1.1.0)
+    version_gem (1.1.1)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -500,4 +500,4 @@ RUBY VERSION
    ruby 3.1.2p20
 
 BUNDLED WITH
-   2.3.6
+   2.3.12
