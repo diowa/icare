@@ -224,7 +224,7 @@ GEM
       net-protocol
       timeout
     netrc (0.11.0)
-    newrelic_rpm (8.10.1)
+    newrelic_rpm (8.11.0)
     nio4r (2.5.8)
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
@@ -464,7 +464,7 @@ DEPENDENCIES
   jbuilder (~> 2.11)
   kaminari (~> 1.2)
   launchy (~> 2.5)
-  newrelic_rpm (~> 8.10)
+  newrelic_rpm (~> 8.11)
   omniauth (~> 2.1)
   omniauth-auth0 (~> 3.0)
   omniauth-rails_csrf_protection (~> 1.0)
