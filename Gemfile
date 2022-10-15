@@ -15,7 +15,7 @@ gem 'activerecord-postgis-adapter', '~> 8.0'
 gem 'pg', '~> 1.4'
 
 # Servers
-gem 'puma', '~> 5.6'
+gem 'puma', '~> 6.0'
 
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
 gem 'shakapacker', '6.5.2'
