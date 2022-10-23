@@ -8,10 +8,6 @@ class ItinerariesController < ApplicationController
 
   before_action :check_permissions
 
-  def new
-    @itinerary = Itinerary.new
-  end
-
   def index
     # @itineraries = Itinerary.includes(:user).all
   end
@@ -21,6 +17,14 @@ class ItinerariesController < ApplicationController
     session[:redirect_to] = itinerary_path(@itinerary) unless user_signed_in?
   end
 
+  def new
+    @itinerary = Itinerary.new
+  end
+
+  def edit
+    @itinerary = current_user.itineraries.friendly.find params[:id]
+  end
+
   def create
     @itinerary = current_user.itineraries.new(itinerary_params)
     if @itinerary.save
@@ -28,10 +32,6 @@ class ItinerariesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-    @itinerary = current_user.itineraries.friendly.find params[:id]
   end
 
   def update

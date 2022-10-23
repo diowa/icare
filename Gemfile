@@ -85,9 +85,9 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 6.0'
-  gem 'rubocop', '~> 1.36', require: false
+  gem 'rubocop', '~> 1.37', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
-  gem 'rubocop-rails', '~> 2.16', require: false
+  gem 'rubocop-rails', '~> 2.17', require: false
   gem 'rubocop-rspec', '~> 2.13', require: false
   gem 'slim_lint', '~> 0.22.1', require: false
 end
@@ -99,7 +99,6 @@ end
 group :test do
   gem 'capybara', '~> 3.37'
   gem 'email_spec', '~> 2.2'
-  gem 'launchy', '~> 2.5'
   gem 'selenium-webdriver', '~> 4.5'
   gem 'simplecov', '~> 0.21.2', require: false
   gem 'simplecov-lcov', '~> 0.8.0', require: false
