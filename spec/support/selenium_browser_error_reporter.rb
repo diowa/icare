@@ -7,12 +7,20 @@ class SeleniumBrowserErrorReporter
     new(page).report!
   end
 
+  def self.clear_error_logs!(page)
+    new(page).clear_error_logs!
+  end
+
   def initialize(page)
     self.page = page
   end
 
   def report!
     raise error_messages if severe_errors.any?
+  end
+
+  def clear_error_logs!
+    logs.clear
   end
 
   private

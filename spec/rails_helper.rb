@@ -1,31 +1,16 @@
 # frozen_string_literal: true
 
-require 'simplecov'
-
-SimpleCov.start 'rails' do
-  if ENV['CI']
-    require 'simplecov-lcov'
-
-    SimpleCov::Formatter::LcovFormatter.config do |c|
-      c.report_with_single_file = true
-      c.single_report_path = 'coverage/lcov.info'
-    end
-
-    formatter SimpleCov::Formatter::LcovFormatter
-  end
-end
-
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
+require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require 'capybara/rspec'
 require 'webmock/rspec'
 
-Capybara.server = :puma, { Silent: true }
 WebMock.disable_net_connect! allow: %w[localhost 127.0.0.1 *.lvh.me lvh.me]
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -48,8 +33,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
-  puts e.to_s.strip
-  exit 1
+  abort e.to_s.strip
 end
 RSpec.configure do |config|
   # Allow to use `t` instead of `I18n.t` in specs
@@ -94,6 +78,7 @@ RSpec.configure do |config|
 
   config.before(:each, type: :system, js: true) do
     driven_by :selenium, using: ENV['UI'] ? :chrome : :headless_chrome
+    SeleniumBrowserErrorReporter.clear_error_logs!(page)
   end
 
   config.after(:each, type: :system, js: true) do |spec|
