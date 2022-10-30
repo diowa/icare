@@ -61,7 +61,7 @@ gem 'rgeo', '~> 2.4'
 gem 'newrelic_rpm', '~> 8.11'
 
 # Security
-gem 'secure_headers', '~> 6.4'
+gem 'secure_headers', '~> 6.5'
 
 # Miscellanea
 gem 'addressable', '~> 2.8'
