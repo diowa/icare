@@ -18,7 +18,7 @@ RSpec.describe 'Sessions' do
   end
 
   it 'redirect to itinerary viewed by guests' do
-    itinerary = create :itinerary
+    itinerary = create(:itinerary)
 
     visit itinerary_path(itinerary)
 
@@ -29,7 +29,7 @@ RSpec.describe 'Sessions' do
 
   context 'when authorization succeed' do
     it 'saves some user information from auth hash' do
-      user = create :user, uid: '123456'
+      user = create(:user, uid: '123456')
 
       login_via_auth0
 
@@ -46,7 +46,7 @@ RSpec.describe 'Sessions' do
   context 'when authorization fails' do
     it 'redirects to root path' do
       OmniAuth.config.mock_auth[:auth0] = :invalid_credentials
-      create :user, uid: '123456', name: 'Duncan MacLeod'
+      create(:user, uid: '123456', name: 'Duncan MacLeod')
 
       login_via_auth0
 

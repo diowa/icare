@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin' do
-  let!(:admin) { create :user, admin: true, uid: '123456' }
+  let!(:admin) { create(:user, admin: true, uid: '123456') }
 
   before do
     login_via_auth0
@@ -20,7 +20,7 @@ RSpec.describe 'Admin' do
   end
 
   it 'is able to ban other users' do
-    user_to_ban = create :user
+    user_to_ban = create(:user)
 
     visit admin_users_path
 
@@ -39,7 +39,7 @@ RSpec.describe 'Admin' do
   end
 
   it 'is not able to unban banned users' do
-    banned_user = create :user, banned: true
+    banned_user = create(:user, banned: true)
 
     visit admin_users_path
 
@@ -50,7 +50,7 @@ RSpec.describe 'Admin' do
   end
 
   it 'could login as another user' do
-    regular_user = create :user, name: 'act_as_me'
+    regular_user = create(:user, name: 'act_as_me')
 
     visit login_as_admin_user_path(regular_user.id)
 

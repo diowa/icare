@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe ConversationBuild do
-  let(:sender) { create :user }
-  let(:receiver) { create :user }
-  let(:conversable) { create :itinerary, user: sender }
+  let(:sender) { create(:user) }
+  let(:receiver) { create(:user) }
+  let(:conversable) { create(:itinerary, user: sender) }
   let(:params) { { message: { body: 'Test' } } }
 
   describe '#conversation' do

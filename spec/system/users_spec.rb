@@ -14,7 +14,7 @@ RSpec.describe 'Users' do
   end
 
   it 'allows to delete account' do
-    create :user, uid: '123456'
+    create(:user, uid: '123456')
 
     login_via_auth0
 
@@ -27,7 +27,7 @@ RSpec.describe 'Users' do
 
   describe 'Settings' do
     it 'allows to edit profile' do
-      user = create :user, uid: '123456'
+      user = create(:user, uid: '123456')
       login_via_auth0
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
@@ -37,7 +37,7 @@ RSpec.describe 'Users' do
     end
 
     it 'recovers from errors' do
-      create :user, uid: '123456'
+      create(:user, uid: '123456')
       login_via_auth0
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
@@ -48,10 +48,10 @@ RSpec.describe 'Users' do
 
   describe 'Dashboard' do
     it 'shows latest itineraries' do
-      female_user = create :user, gender: 'female'
-      create :itinerary, pink: true, user: female_user
-      create_list :itinerary, 5
-      create :user, uid: '123456'
+      female_user = create(:user, gender: 'female')
+      create(:itinerary, pink: true, user: female_user)
+      create_list(:itinerary, 5)
+      create(:user, uid: '123456')
 
       login_via_auth0
 
@@ -60,14 +60,14 @@ RSpec.describe 'Users' do
 
     context 'with pink itineraries' do
       before do
-        female_driver = create :user, gender: 'female'
-        create_list :itinerary, 5
-        create :itinerary, pink: true, user: female_driver
+        female_driver = create(:user, gender: 'female')
+        create_list(:itinerary, 5)
+        create(:itinerary, pink: true, user: female_driver)
       end
 
       context 'when user is female' do
         it 'shows them' do
-          create :user, uid: '123456', gender: 'female'
+          create(:user, uid: '123456', gender: 'female')
 
           login_via_auth0
 
@@ -77,7 +77,7 @@ RSpec.describe 'Users' do
 
       context 'when user is not female' do
         it 'hides them' do
-          create :user, uid: '123456', gender: 'male'
+          create(:user, uid: '123456', gender: 'male')
 
           login_via_auth0
 
@@ -89,7 +89,7 @@ RSpec.describe 'Users' do
 
   describe 'Profile' do
     let!(:user) do
-      create :user, uid: '123457'
+      create(:user, uid: '123457')
     end
 
     before do

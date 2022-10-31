@@ -3,15 +3,15 @@
 require 'rails_helper'
 
 RSpec.describe 'Conversations' do
-  let(:driver) { create :user }
-  let(:passenger) { create :user, uid: '123456' }
-  let(:itinerary) { create :itinerary, user: driver }
+  let(:driver) { create(:user) }
+  let(:passenger) { create(:user, uid: '123456') }
+  let(:itinerary) { create(:itinerary, user: driver) }
 
   it 'allows to see own notifications' do
-    receiver = create :user, uid: '123456'
-    sender = create :user, name: 'Message Sender'
-    itinerary = create :itinerary, user: receiver
-    conversation = create :conversation, sender: sender, receiver: receiver, conversable: itinerary
+    receiver = create(:user, uid: '123456')
+    sender = create(:user, name: 'Message Sender')
+    itinerary = create(:itinerary, user: receiver)
+    conversation = create(:conversation, sender: sender, receiver: receiver, conversable: itinerary)
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
     conversation.save
 
@@ -48,10 +48,10 @@ RSpec.describe 'Conversations' do
   end
 
   it 'rescues from update errors' do
-    receiver = create :user, uid: '123456'
-    sender = create :user
-    itinerary = create :itinerary, user: receiver
-    conversation = create :conversation, sender: sender, receiver: receiver, conversable: itinerary
+    receiver = create(:user, uid: '123456')
+    sender = create(:user)
+    itinerary = create(:itinerary, user: receiver)
+    conversation = create(:conversation, sender: sender, receiver: receiver, conversable: itinerary)
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
     conversation.save
 
@@ -64,10 +64,10 @@ RSpec.describe 'Conversations' do
   end
 
   it 'displays unread messages in the navbar', js: true, skip: ENV['CI'] do
-    receiver = create :user, uid: '123456'
-    sender = create :user
-    itinerary = create :itinerary, user: receiver
-    conversation = create :conversation, sender: sender, receiver: receiver, conversable: itinerary
+    receiver = create(:user, uid: '123456')
+    sender = create(:user)
+    itinerary = create(:itinerary, user: receiver)
+    conversation = create(:conversation, sender: sender, receiver: receiver, conversable: itinerary)
     conversation.messages << build(:message, sender: sender, body: "<script>alert('toasty!);</script>")
     conversation.save
 

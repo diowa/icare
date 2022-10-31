@@ -3,20 +3,20 @@
 require 'rails_helper'
 
 RSpec.describe Itinerary do
-  let(:male_user) { create :user, gender: 'male' }
-  let(:female_user) { create :user, gender: 'female' }
-  let(:itinerary) { create :itinerary }
+  let(:male_user) { create(:user, gender: 'male') }
+  let(:female_user) { create(:user, gender: 'female') }
+  let(:itinerary) { create(:itinerary) }
 
   describe 'before_create' do
     it 'caches driver gender' do
-      female_user = create :user, gender: 'female'
-      itinerary = create :itinerary, user: female_user
+      female_user = create(:user, gender: 'female')
+      itinerary = create(:itinerary, user: female_user)
       expect(itinerary.driver_gender).to eq 'female'
     end
   end
 
   describe '#return_date_validator' do
-    let(:invalid_itinerary) { build :itinerary, leave_date: 1.day.from_now, return_date: 1.day.ago, round_trip: true }
+    let(:invalid_itinerary) { build(:itinerary, leave_date: 1.day.from_now, return_date: 1.day.ago, round_trip: true) }
 
     it "adds an error on the return_date field if it's before leave_date" do
       expect(invalid_itinerary.valid?).to be false
@@ -25,7 +25,7 @@ RSpec.describe Itinerary do
     end
 
     it "adds an error on the return_date field if it's blank" do
-      nil_return_date_itinerary = build :itinerary, leave_date: 1.day.from_now, return_date: nil, round_trip: true
+      nil_return_date_itinerary = build(:itinerary, leave_date: 1.day.from_now, return_date: nil, round_trip: true)
       expect(nil_return_date_itinerary.valid?).to be false
       expect(nil_return_date_itinerary.errors.size).to be 1
       expect(nil_return_date_itinerary.errors.messages).to have_key :return_date
@@ -33,8 +33,8 @@ RSpec.describe Itinerary do
   end
 
   describe '#driver_is_female' do
-    let(:invalid_pink_itinerary) { build :itinerary, user: male_user, pink: true }
-    let(:valid_pink_itinerary) { build :itinerary, user: female_user, pink: true }
+    let(:invalid_pink_itinerary) { build(:itinerary, user: male_user, pink: true) }
+    let(:valid_pink_itinerary) { build(:itinerary, user: female_user, pink: true) }
 
     it 'adds an error on the pink field if the user is male' do
       expect(invalid_pink_itinerary.valid?).to be false
@@ -100,24 +100,24 @@ RSpec.describe Itinerary do
       end
 
       let(:start_end_outside_bounds_itinerary) do
-        build :itinerary,
+        build(:itinerary,
               start_location: [6, 1],
-              end_location:   [9, 5]
+              end_location:   [9, 5])
       end
       let(:start_outside_bounds_itinerary) do
-        build :itinerary,
+        build(:itinerary,
               start_location: [6, 1],
-              end_location:   [3, 6]
+              end_location:   [3, 6])
       end
       let(:end_outside_bounds_itinerary) do
-        build :itinerary,
+        build(:itinerary,
               start_location: [6, 6],
-              end_location:   [3, 9]
+              end_location:   [3, 9])
       end
       let(:inside_bounds_itinerary) do
-        build :itinerary,
+        build(:itinerary,
               start_location: [2, 6],
-              end_location:   [2, 5]
+              end_location:   [2, 5])
       end
 
       it 'adds an error on the base objects if both start_position and end_position are outside bounds' do

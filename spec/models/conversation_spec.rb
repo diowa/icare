@@ -5,12 +5,12 @@ require 'rails_helper'
 RSpec.describe Conversation do
   subject(:conversation) { described_class.new sender: sender, receiver: receiver, conversable: itinerary }
 
-  let(:receiver) { create :user }
-  let(:sender) { create :user }
-  let(:itinerary) { create :itinerary, user: receiver }
+  let(:receiver) { create(:user) }
+  let(:sender) { create(:user) }
+  let(:itinerary) { create(:itinerary, user: receiver) }
 
   it 'does not allow conversation between the same user' do
-    invalid_conversation = build :conversation, sender: receiver, receiver: receiver
+    invalid_conversation = build(:conversation, sender: receiver, receiver: receiver)
     expect(invalid_conversation.valid?).to be false
     expect(invalid_conversation.errors.messages).to have_key :receiver
   end

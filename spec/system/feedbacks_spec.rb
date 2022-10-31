@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Feedbacks' do
   it 'allows creation from registered users' do
-    create :user, uid: '123456'
+    create(:user, uid: '123456')
 
     login_via_auth0
 
@@ -17,8 +17,8 @@ RSpec.describe 'Feedbacks' do
   end
 
   it 'allows editing by owners' do
-    user = create :user, uid: '123456'
-    feedback = create :feedback, user: user
+    user = create(:user, uid: '123456')
+    feedback = create(:feedback, user: user)
 
     login_via_auth0
     visit feedback_path(feedback)
@@ -32,8 +32,8 @@ RSpec.describe 'Feedbacks' do
   end
 
   it 'allows editing by admins' do
-    feedback = create :feedback
-    create :user, uid: '123456', admin: true
+    feedback = create(:feedback)
+    create(:user, uid: '123456', admin: true)
 
     login_via_auth0
     visit feedback_path(feedback)
@@ -47,8 +47,8 @@ RSpec.describe 'Feedbacks' do
   end
 
   it 'allows closing by admins' do
-    feedback = create :feedback
-    create :user, uid: '123456', admin: true
+    feedback = create(:feedback)
+    create(:user, uid: '123456', admin: true)
 
     login_via_auth0
     visit feedback_path(feedback)
@@ -62,8 +62,8 @@ RSpec.describe 'Feedbacks' do
   end
 
   it 'allows deletion by owners' do
-    user = create :user, uid: '123456'
-    feedback = create :feedback, user: user
+    user = create(:user, uid: '123456')
+    feedback = create(:feedback, user: user)
 
     login_via_auth0
     visit feedbacks_path
@@ -75,8 +75,8 @@ RSpec.describe 'Feedbacks' do
   end
 
   it 'allows deletion by admins' do
-    feedback = create :feedback
-    create :user, uid: '123456', admin: true
+    feedback = create(:feedback)
+    create(:user, uid: '123456', admin: true)
 
     login_via_auth0
     visit feedbacks_path
@@ -88,9 +88,9 @@ RSpec.describe 'Feedbacks' do
   end
 
   it "doesn't fail when user deletes their account" do
-    create :user, uid: '123456'
-    feedback = create :feedback
-    former_user_feedback = create :feedback
+    create(:user, uid: '123456')
+    feedback = create(:feedback)
+    former_user_feedback = create(:feedback)
     former_user_feedback.user.destroy
 
     login_via_auth0
@@ -101,7 +101,7 @@ RSpec.describe 'Feedbacks' do
   end
 
   it "doesn't fail when creating with wrong parameters" do
-    create :user, uid: '123456'
+    create(:user, uid: '123456')
 
     login_via_auth0
     visit new_feedback_path
@@ -111,8 +111,8 @@ RSpec.describe 'Feedbacks' do
   end
 
   it "doesn't fail when updating with wrong parameters" do
-    user = create :user, uid: '123456'
-    feedback = create :feedback, user: user
+    user = create(:user, uid: '123456')
+    feedback = create(:feedback, user: user)
 
     login_via_auth0
     visit edit_feedback_path(feedback)

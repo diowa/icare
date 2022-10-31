@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Itineraries' do
-  let(:male) { create :user, uid: '123456', gender: 'male' }
-  let(:female) { create :user, uid: '123456', gender: 'female' }
+  let(:male) { create(:user, uid: '123456', gender: 'male') }
+  let(:female) { create(:user, uid: '123456', gender: 'female') }
 
   let(:xss_alert) { "<script>alert('toasty!);</script>" }
 
@@ -12,7 +12,7 @@ RSpec.describe 'Itineraries' do
     options.each do |feature, icon|
       it "shows #{feature} icon" do
         login_as_female
-        create :itinerary, user: female, "#{feature}": true
+        create(:itinerary, user: female, "#{feature}": true)
 
         visit itineraries_user_path(female)
 
@@ -97,7 +97,7 @@ RSpec.describe 'Itineraries' do
 
     it 'sanitize malicious description', js: true, skip: ENV['CI'] do
       login_as_male
-      malicious_itinerary = create :itinerary, user: male, description: xss_alert
+      malicious_itinerary = create(:itinerary, user: male, description: xss_alert)
       visit itinerary_path(malicious_itinerary)
       expect { page.accept_alert }.to raise_error Capybara::ModalNotFound
     end
@@ -106,8 +106,8 @@ RSpec.describe 'Itineraries' do
       # TODO: fix time zone issues
       login_as_male
 
-      itinerary = create :itinerary, round_trip: true, leave_date: 1.day.from_now.utc
-      create :itinerary, leave_date: 2.days.from_now
+      itinerary = create(:itinerary, round_trip: true, leave_date: 1.day.from_now.utc)
+      create(:itinerary, leave_date: 2.days.from_now)
 
       visit itineraries_path
 
@@ -128,7 +128,7 @@ RSpec.describe 'Itineraries' do
 
     it 'allows users to view their own ones' do
       login_as_female
-      create_list :itinerary, 2, user: female
+      create_list(:itinerary, 2, user: female)
 
       visit itineraries_user_path(female)
 
@@ -143,7 +143,7 @@ RSpec.describe 'Itineraries' do
 
     it 'allows users to delete their own ones' do
       login_as_male
-      itinerary = create :itinerary, user: male
+      itinerary = create(:itinerary, user: male)
 
       visit itineraries_user_path(male)
 
@@ -155,7 +155,7 @@ RSpec.describe 'Itineraries' do
 
     it 'allows users to edit their own ones' do
       login_as_male
-      itinerary = create :itinerary, user: male, description: 'Old description'
+      itinerary = create(:itinerary, user: male, description: 'Old description')
 
       visit itineraries_user_path(male)
 
@@ -168,8 +168,8 @@ RSpec.describe 'Itineraries' do
 
     it "doesn't allow male users to see pink itineraries" do
       login_as_male
-      female_user = create :user, gender: 'female'
-      pink_itinerary = create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
+      female_user = create(:user, gender: 'female')
+      pink_itinerary = create(:itinerary, user: female_user, description: 'Pink itinerary', pink: true)
 
       visit itinerary_path(pink_itinerary)
 
@@ -188,7 +188,7 @@ RSpec.describe 'Itineraries' do
 
     it 'does not fail when updating with wrong parameters' do
       login_as_male
-      itinerary = create :itinerary, user: male, description: 'Old description'
+      itinerary = create(:itinerary, user: male, description: 'Old description')
 
       visit itineraries_user_path(male)
 
@@ -201,8 +201,8 @@ RSpec.describe 'Itineraries' do
 
   context 'with guests' do
     it 'allows guests to see itineraries' do
-      user = create :user, name: 'John Doe', uid: '123456'
-      itinerary = create :itinerary, description: 'Itinerary for guest users', user: user
+      user = create(:user, name: 'John Doe', uid: '123456')
+      itinerary = create(:itinerary, description: 'Itinerary for guest users', user: user)
 
       visit itinerary_path(itinerary)
 
@@ -213,8 +213,8 @@ RSpec.describe 'Itineraries' do
     end
 
     it "doesn't allow guests to see pink itineraries" do
-      female_user = create :user, gender: 'female'
-      pink_itinerary = create :itinerary, user: female_user, description: 'Pink itinerary', pink: true
+      female_user = create(:user, gender: 'female')
+      pink_itinerary = create(:itinerary, user: female_user, description: 'Pink itinerary', pink: true)
 
       visit itinerary_path(pink_itinerary)
 

@@ -10,7 +10,7 @@ RSpec.describe 'Application' do
   end
 
   it 'redirects banned users to the banned page' do
-    create :user, banned: true, uid: '123456'
+    create(:user, banned: true, uid: '123456')
 
     login_via_auth0
 
@@ -35,7 +35,7 @@ RSpec.describe 'Application' do
   context 'with locale' do
     context 'when user is passing an unknown locale param' do
       it 'fallbacks to en-US' do
-        user = create :user, uid: '123456'
+        user = create(:user, uid: '123456')
 
         login_via_auth0
         visit itineraries_user_path(user, locale: 'XX-ZZ')
@@ -46,7 +46,7 @@ RSpec.describe 'Application' do
 
     context 'when user is passing a compatible locale param' do
       it 'fallbacks to en-US' do
-        user = create :user, uid: '123456'
+        user = create(:user, uid: '123456')
 
         login_via_auth0
         visit itineraries_user_path(user, locale: 'en-XX')
@@ -57,7 +57,7 @@ RSpec.describe 'Application' do
 
     context 'when user is coming from Auth0 with a compatible locale' do
       it 'fallbacks to en-US' do
-        user = create :user, uid: '123456', locale: 'en-YY'
+        user = create(:user, uid: '123456', locale: 'en-YY')
 
         login_via_auth0
         visit itineraries_user_path(user)
@@ -68,7 +68,7 @@ RSpec.describe 'Application' do
 
     context 'when user is using en-XX locale' do
       it 'fallbacks to en-US' do
-        user = create :user, uid: '123456', locale: 'en-GB'
+        user = create(:user, uid: '123456', locale: 'en-GB')
 
         login_via_auth0
         visit itineraries_user_path(user, locale: 'en')

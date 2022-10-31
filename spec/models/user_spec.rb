@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  let(:user) { create :user }
-  let(:male_user) { create :user, gender: 'male' }
-  let(:female_user) { create :user, gender: 'female' }
-  let(:jack_black) { create :user, name: 'Jack Black' }
-  let(:anonymous) { create :user, name: nil }
+  let(:user) { create(:user) }
+  let(:male_user) { create(:user, gender: 'male') }
+  let(:female_user) { create(:user, gender: 'female') }
+  let(:jack_black) { create(:user, name: 'Jack Black') }
+  let(:anonymous) { create(:user, name: nil) }
 
   describe 'after destroy' do
     let(:demo_mode) { false }
@@ -44,9 +44,9 @@ RSpec.describe User do
 
   # rubocop:disable Naming/VariableNumber
   describe '#age' do
-    let(:born_on_1960_10_30) { create :user, birthday: '1960-10-30' }
-    let(:born_on_1972_02_29) { create :user, birthday: '1972-02-29' }
-    let(:unknown_birthday) { create :user, birthday: nil }
+    let(:born_on_1960_10_30) { create(:user, birthday: '1960-10-30') }
+    let(:born_on_1972_02_29) { create(:user, birthday: '1972-02-29') }
+    let(:unknown_birthday) { create(:user, birthday: nil) }
 
     it "returns user's age" do
       travel_to '2011-02-28 12:00' do
@@ -109,10 +109,10 @@ RSpec.describe User do
 
   describe '#unread_conversations_count' do
     it 'returns the number of unread conversations' do
-      driver = create :user
-      passenger = create :user
-      itinerary = create :itinerary, user: driver
-      conversation = create :conversation, sender: passenger, receiver: driver, conversable: itinerary
+      driver = create(:user)
+      passenger = create(:user)
+      itinerary = create(:itinerary, user: driver)
+      conversation = create(:conversation, sender: passenger, receiver: driver, conversable: itinerary)
       conversation.messages << build(:message, sender: driver, body: 'First unread message from Driver')
       conversation.save
 
