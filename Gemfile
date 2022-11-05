@@ -18,7 +18,7 @@ gem 'pg', '~> 1.4'
 gem 'puma', '~> 5.6'
 
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
-gem 'shakapacker', '6.5.2'
+gem 'shakapacker', '6.5.4'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
