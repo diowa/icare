@@ -10,7 +10,7 @@
     "@babel/core": "^7.19.6",
     "@babel/plugin-transform-runtime": "^7.19.6",
     "@babel/preset-env": "^7.19.4",
-    "@babel/runtime": "^7.20.0",
+    "@babel/runtime": "^7.20.1",
     "@client-side-validations/client-side-validations": "^0.3.0",
     "@client-side-validations/simple-form": "^0.3.1",
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
