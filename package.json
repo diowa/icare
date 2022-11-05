@@ -9,7 +9,7 @@
   "dependencies": {
     "@babel/core": "^7.19.6",
     "@babel/plugin-transform-runtime": "^7.19.6",
-    "@babel/preset-env": "^7.19.4",
+    "@babel/preset-env": "^7.20.2",
     "@babel/runtime": "^7.20.0",
     "@client-side-validations/client-side-validations": "^0.3.0",
     "@client-side-validations/simple-form": "^0.3.1",
