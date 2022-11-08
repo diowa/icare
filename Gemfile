@@ -15,10 +15,10 @@ gem 'activerecord-postgis-adapter', '~> 8.0'
 gem 'pg', '~> 1.4'
 
 # Servers
-gem 'puma', '~> 5.6'
+gem 'puma', '~> 6.0'
 
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
-gem 'shakapacker', '6.5.2'
+gem 'shakapacker', '6.5.4'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -80,15 +80,15 @@ group :development, :test do
   gem 'bullet', '~> 7.0'
   gem 'byebug', '~> 11.1'
   gem 'factory_bot_rails', '~> 6.2'
-  gem 'faker', '~> 2.23'
+  gem 'faker', '~> 3.0'
   gem 'pry', '~> 0.14.1'
   gem 'pry-byebug', '~> 3.10'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 6.0'
-  gem 'rubocop', '~> 1.37', require: false
+  gem 'rubocop', '~> 1.38', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
   gem 'rubocop-rails', '~> 2.17', require: false
-  gem 'rubocop-rspec', '~> 2.14', require: false
+  gem 'rubocop-rspec', '~> 2.15', require: false
   gem 'slim_lint', '~> 0.22.1', require: false
 end
 
@@ -97,9 +97,9 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.37'
+  gem 'capybara', '~> 3.38'
   gem 'email_spec', '~> 2.2'
-  gem 'selenium-webdriver', '~> 4.5'
+  gem 'selenium-webdriver', '~> 4.6'
   gem 'simplecov', '~> 0.21.2', require: false
   gem 'simplecov-lcov', '~> 0.8.0', require: false
   gem 'webmock', '~> 3.18', require: false
