@@ -41,7 +41,7 @@ gem 'simple_form', '~> 5.1'
 # ODM and related
 gem 'client_side_validations', '~> 21.0'
 gem 'client_side_validations-simple_form', '~> 15.0'
-gem 'friendly_id', '~> 5.4'
+gem 'friendly_id', '~> 5.5'
 gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', github: 'tagliala/validates_timeliness', branch: 'rails-70'
 
@@ -58,7 +58,7 @@ gem 'omniauth-auth0', '~> 3.0'
 gem 'rgeo', '~> 2.4'
 
 # Performance
-gem 'newrelic_rpm', '~> 8.12'
+gem 'newrelic_rpm', '~> 8.13'
 
 # Security
 gem 'secure_headers', '~> 6.5'
@@ -85,7 +85,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 6.0'
-  gem 'rubocop', '~> 1.38', require: false
+  gem 'rubocop', '~> 1.39', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
   gem 'rubocop-rails', '~> 2.17', require: false
   gem 'rubocop-rspec', '~> 2.15', require: false
