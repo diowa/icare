@@ -1,12 +1,3 @@
-GIT
-  remote: https://github.com/tagliala/validates_timeliness.git
-  revision: 6404f49380d0a362cf35d5818b4aadc5a5bafe0f
-  branch: rails-70
-  specs:
-    validates_timeliness (7.0.0.alpha1)
-      activemodel (>= 7.0.0, < 8)
-      timeliness (>= 0.3.10, < 1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -145,7 +136,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.0.0)
       i18n (>= 1.8.11, < 2)
-    faraday (2.7.0)
+    faraday (2.7.1)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
@@ -217,7 +208,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     netrc (0.11.0)
-    newrelic_rpm (8.13.0)
+    newrelic_rpm (8.13.1)
     nio4r (2.5.8)
     nokogiri (1.13.9)
       mini_portile2 (~> 2.8.0)
@@ -344,7 +335,7 @@ GEM
     rubocop-performance (1.15.1)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.17.2)
+    rubocop-rails (2.17.3)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
@@ -410,6 +401,9 @@ GEM
     unf_ext (0.0.8.2)
     unicode-display_width (2.3.0)
     uniform_notifier (1.16.0)
+    validates_timeliness (7.0.0.beta1)
+      activemodel (>= 7.0.0, < 8)
+      timeliness (>= 0.3.10, < 1)
     version_gem (1.1.1)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -483,7 +477,7 @@ DEPENDENCIES
   sucker_punch (~> 3.1)
   turbolinks (~> 5.2)
   tzinfo-data
-  validates_timeliness!
+  validates_timeliness (~> 7.0.0.beta1)
   web-console (~> 4.2)
   webmock (~> 3.18)
 
