@@ -84,7 +84,7 @@ GEM
       zache (~> 0.12)
     bcrypt (3.1.18)
     bindex (0.8.1)
-    bootsnap (1.14.0)
+    bootsnap (1.15.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     bullet (7.0.3)
@@ -235,7 +235,7 @@ GEM
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
     parallel (1.22.1)
-    parser (3.1.2.1)
+    parser (3.1.3.0)
       ast (~> 2.4.1)
     pg (1.4.5)
     pry (0.14.1)
@@ -251,7 +251,7 @@ GEM
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.4)
-    rack-protection (3.0.3)
+    rack-protection (3.0.4)
       rack
     rack-proxy (0.7.4)
       rack
@@ -433,7 +433,7 @@ DEPENDENCIES
   addressable (~> 2.8)
   airbrake (~> 13.0)
   auth0 (~> 5.10)
-  bootsnap (~> 1.14)
+  bootsnap (~> 1.15)
   bullet (~> 7.0)
   byebug (~> 11.1)
   capybara (~> 3.38)
@@ -482,7 +482,7 @@ DEPENDENCIES
   webmock (~> 3.18)
 
 RUBY VERSION
-   ruby 3.1.2p20
+   ruby 3.1.3p185
 
 BUNDLED WITH
    2.3.12
