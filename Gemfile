@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.1.2'
+ruby '3.1.3'
 gem 'rails', '7.0.4'
 
 # Use postgresql as the database for Active Record
@@ -24,7 +24,7 @@ gem 'shakapacker', '6.5.4'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '~> 1.14', require: false
+gem 'bootsnap', '~> 1.15', require: false
 
 # Background jobs within the same process as web application
 gem 'sucker_punch', '~> 3.1'
