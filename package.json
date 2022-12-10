@@ -32,7 +32,7 @@
     "i18n-js": "^4.2.0",
     "jquery": "^3.6.1",
     "jquery-ujs": "^1.2.3",
-    "mini-css-extract-plugin": "^2.7.1",
+    "mini-css-extract-plugin": "^2.7.2",
     "postcss": "^8.4.19",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
