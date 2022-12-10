@@ -69,7 +69,7 @@ gem 'http_accept_language', '~> 2.1'
 gem 'slim-rails', '~> 3.5'
 
 # Assets
-gem 'i18n-js', '~> 4.0'
+gem 'i18n-js', '~> 4.1'
 gem 'inline_svg', '~> 1.8'
 gem 'turbolinks', '~> 5.2'
 

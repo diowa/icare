@@ -141,7 +141,7 @@ GEM
     faraday-net_http (3.0.2)
     friendly_id (5.5.0)
       activerecord (>= 4.0.0)
-    glob (0.3.1)
+    glob (0.4.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     hashdiff (1.0.1)
@@ -153,8 +153,8 @@ GEM
     http_accept_language (2.1.1)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    i18n-js (4.0.1)
-      glob
+    i18n-js (4.1.0)
+      glob (>= 0.4.0)
       i18n
     inline_svg (1.8.0)
       activesupport (>= 3.0)
@@ -443,7 +443,7 @@ DEPENDENCIES
   faker (~> 3.0)
   friendly_id (~> 5.5)
   http_accept_language (~> 2.1)
-  i18n-js (~> 4.0)
+  i18n-js (~> 4.1)
   inline_svg (~> 1.8)
   jbuilder (~> 2.11)
   kaminari (~> 1.2)
