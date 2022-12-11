@@ -69,7 +69,7 @@ gem 'http_accept_language', '~> 2.1'
 gem 'slim-rails', '~> 3.5'
 
 # Assets
-gem 'i18n-js', '~> 4.1'
+gem 'i18n-js', '~> 4.2'
 gem 'inline_svg', '~> 1.8'
 gem 'turbolinks', '~> 5.2'
 
@@ -85,7 +85,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 6.0'
-  gem 'rubocop', '~> 1.39', require: false
+  gem 'rubocop', '~> 1.40', require: false
   gem 'rubocop-performance', '~> 1.15', require: false
   gem 'rubocop-rails', '~> 2.17', require: false
   gem 'rubocop-rspec', '~> 2.15', require: false
