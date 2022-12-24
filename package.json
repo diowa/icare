@@ -30,7 +30,7 @@
     "handlebars": "^4.7.7",
     "handlebars-loader": "^1.7.3",
     "i18n-js": "^4.2.2",
-    "jquery": "^3.6.2",
+    "jquery": "^3.6.3",
     "jquery-ujs": "^1.2.3",
     "mini-css-extract-plugin": "^2.7.2",
     "postcss": "^8.4.20",
