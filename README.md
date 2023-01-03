@@ -45,26 +45,18 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 
 A working demo is available at https://icare.diowa.com/
 
-
-
 ## Name and logo
 
 **icare** name and logo are temporary. **icare** is a portmanteau of "I care", "Car" and "Environment". No copyright violation is intended.
-
-
 
 ## Roadmap
 
 Immediate: Check out our [To Do](https://github.com/diowa/icare/wiki/To-Do) list.
 Long-term: TODO
 
-
-
 ## Internationalization (i18n)
 
 **icare** uses standard [Rails Internationalization (I18n) API](https://guides.rubyonrails.org/i18n.html). If you translated **icare** in your own language, make a pull request.
-
-
 
 ## Contributing
 
@@ -75,8 +67,6 @@ More over, if your pull request contains patches or features, you must include r
 Editor preferences are available in the [editor config](.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org>.
 
 If you are interested in feature development, we have priorities. Check out our [To Do](https://github.com/diowa/icare/wiki/To-Do) list.
-
-
 
 ## Authors
 
@@ -90,21 +80,15 @@ If you are interested in feature development, we have priorities. Check out our 
 + https://github.com/cesidio
 + https://twitter.com/cesid
 
-
-
 ## Copyright and license
 
 **icare** is licensed under the BSD 2-Clause License
 
 Check the LICENSE file for more information
 
-
-
 ## Thanks
 
 Special thanks to all developers of open source libraries used in this project.
-
-
 
 ## Docker (Experimental)
 
