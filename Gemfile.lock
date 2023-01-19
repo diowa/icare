@@ -143,7 +143,7 @@ GEM
     friendly_id (5.5.0)
       activerecord (>= 4.0.0)
     glob (0.4.0)
-    globalid (1.0.0)
+    globalid (1.0.1)
       activesupport (>= 5.0)
     hashdiff (1.0.1)
     hashie (5.0.0)
