@@ -24,7 +24,7 @@ gem 'shakapacker', '6.5.5'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '~> 1.15', require: false
+gem 'bootsnap', '~> 1.16', require: false
 
 # Background jobs within the same process as web application
 gem 'sucker_punch', '~> 3.1'
