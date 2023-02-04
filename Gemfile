@@ -36,7 +36,7 @@ gem 'simpleconfig', '~> 2.0'
 gem 'jbuilder', '~> 2.11'
 
 # Forms
-gem 'simple_form', '~> 5.1'
+gem 'simple_form', '~> 5.2'
 
 # ODM and related
 gem 'client_side_validations', '~> 21.0'
