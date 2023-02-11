@@ -59,7 +59,7 @@
     "standard-loader": "^7.0.0",
     "stylelint": "^14.16.1",
     "stylelint-config-twbs-bootstrap": "^7.0.0",
-    "stylelint-order": "^6.0.1",
+    "stylelint-order": "^6.0.2",
     "stylelint-scss": "^4.3.0",
     "stylelint-webpack-plugin": "^4.0.0",
     "webpack-dev-server": "^4.11.1"
