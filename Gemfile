@@ -46,7 +46,7 @@ gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 7.0.0.beta1'
 
 # Authentication framework
-gem 'devise', '~> 4.8'
+gem 'devise', '~> 4.9'
 gem 'omniauth', '~> 2.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
