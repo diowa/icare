@@ -43,8 +43,6 @@ By having more people using one vehicle, carpooling reduces each person’s trav
  [15]: https://github.com/lukeredpath/simpleconfig
  [16]: https://github.com/airbrake/airbrake
 
-A working demo is available at https://icare.diowa.com/
-
 ## Name and logo
 
 **icare** name and logo are temporary. **icare** is a portmanteau of "I care", "Car" and "Environment". No copyright violation is intended.

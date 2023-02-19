@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.1.3'
+ruby '3.2.1'
 gem 'rails', '7.0.4.2'
 
 # Use postgresql as the database for Active Record
@@ -46,7 +46,7 @@ gem 'kaminari', '~> 1.2'
 gem 'validates_timeliness', '~> 7.0.0.beta1'
 
 # Authentication framework
-gem 'devise', '~> 4.8'
+gem 'devise', '~> 4.9'
 gem 'omniauth', '~> 2.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 

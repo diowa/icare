@@ -22,8 +22,8 @@ html lang=I18n.locale.to_s data-default-locale=I18n.default_locale data-currency
     meta name='apple-mobile-web-app-status-bar-style' content='#3d7098'
 
     / Turbolinks require javascript tags inside the head
-    = javascript_include_tag google_maps_api_source, 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag google_maps_api_source, 'data-turbolinks-track': 'reload', defer: true
 
   body class=('homepage' if action_name == 'home')
     == render 'shared/google_tag_manager' if APP_CONFIG.google_analytics_id.present?

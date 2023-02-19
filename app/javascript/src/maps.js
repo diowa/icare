@@ -1,6 +1,6 @@
 window.icare = window.icare || {}
 
-if (typeof google !== 'undefined' && google !== null) {
+window.initMap = function () {
   class CustomMarker extends google.maps.OverlayView {
     constructor (position, map, opts) {
       super()
