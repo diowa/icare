@@ -3,9 +3,9 @@
 module ApplicationHelper
   def google_maps_api_source
     if APP_CONFIG.google_maps_api_key
-      "https://maps.googleapis.com/maps/api/js?libraries=geometry&key=#{APP_CONFIG.google_maps_api_key}"
+      "https://maps.googleapis.com/maps/api/js?libraries=geometry&callback=initMap&key=#{APP_CONFIG.google_maps_api_key}"
     else
-      'https://maps.googleapis.com/maps/api/js?libraries=geometry'
+      'https://maps.googleapis.com/maps/api/js?libraries=geometry&callback=initMap'
     end
   end
 
