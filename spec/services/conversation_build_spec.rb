@@ -26,7 +26,7 @@ RSpec.describe ConversationBuild do
       sender.reload
       receiver.reload
       expect(conversation.valid?).to be true
-      expect(conversation.participants).to match_array [sender, receiver]
+      expect(conversation.participants).to contain_exactly(sender, receiver)
       expect(sender.conversations).to include(conversation)
       expect(receiver.conversations).to include(conversation)
     end

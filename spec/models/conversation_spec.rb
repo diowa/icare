@@ -17,7 +17,7 @@ RSpec.describe Conversation do
 
   describe '#participants' do
     it 'returns an array with sender and receiver' do
-      expect(conversation.participants).to match_array [sender, receiver]
+      expect(conversation.participants).to contain_exactly(sender, receiver)
     end
   end
 
