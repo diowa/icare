@@ -18,7 +18,7 @@ gem 'pg', '~> 1.4'
 gem 'puma', '~> 6.1'
 
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
-gem 'shakapacker', '6.5.6'
+gem 'shakapacker', '6.6.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -85,10 +85,10 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 6.0'
-  gem 'rubocop', '~> 1.46', require: false
+  gem 'rubocop', '~> 1.48', require: false
   gem 'rubocop-performance', '~> 1.16', require: false
   gem 'rubocop-rails', '~> 2.18', require: false
-  gem 'rubocop-rspec', '~> 2.18', require: false
+  gem 'rubocop-rspec', '~> 2.19', require: false
   gem 'slim_lint', '~> 0.24.0', require: false
 end
 
