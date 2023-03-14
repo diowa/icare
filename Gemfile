@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 ruby '3.2.1'
-gem 'rails', '7.0.4.2'
+gem 'rails', '7.0.4.3'
 
 # Use postgresql as the database for Active Record
 gem 'activerecord-postgis-adapter', '~> 8.0'
@@ -51,7 +51,7 @@ gem 'omniauth', '~> 2.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # OAuth Provider
-gem 'auth0', '~> 5.11'
+gem 'auth0', '~> 5.12'
 gem 'omniauth-auth0', '~> 3.1'
 
 # Geospatial data library
