@@ -157,7 +157,7 @@ GEM
     i18n-js (4.2.2)
       glob (>= 0.4.0)
       i18n
-    inline_svg (1.8.0)
+    inline_svg (1.9.0)
       activesupport (>= 3.0)
       nokogiri (>= 1.6)
     jbuilder (2.11.5)
@@ -452,7 +452,7 @@ DEPENDENCIES
   friendly_id (~> 5.5)
   http_accept_language (~> 2.1)
   i18n-js (~> 4.2)
-  inline_svg (~> 1.8)
+  inline_svg (~> 1.9)
   jbuilder (~> 2.11)
   kaminari (~> 1.2)
   newrelic_rpm (~> 9.0)
