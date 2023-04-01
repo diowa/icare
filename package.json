@@ -24,7 +24,7 @@
     "bootstrap": "^5.2.3",
     "compression-webpack-plugin": "^10.0.0",
     "css-loader": "^6.7.3",
-    "css-minimizer-webpack-plugin": "^4.2.2",
+    "css-minimizer-webpack-plugin": "^5.0.0",
     "exports-loader": "^4.0.0",
     "expose-loader": "^4.1.0",
     "handlebars": "^4.7.7",
