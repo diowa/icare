@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.2.1'
+ruby '3.2.2'
 gem 'rails', '7.0.4.3'
 
 # Use postgresql as the database for Active Record
@@ -15,7 +15,7 @@ gem 'activerecord-postgis-adapter', '~> 8.0'
 gem 'pg', '~> 1.4'
 
 # Servers
-gem 'puma', '~> 6.1'
+gem 'puma', '~> 6.2'
 
 # Transpile app-like JavaScript. Read more: https://github.com/shakacode/shakapacker
 gem 'shakapacker', '6.6.0'
@@ -58,7 +58,7 @@ gem 'omniauth-auth0', '~> 3.1'
 gem 'rgeo', '~> 3.0'
 
 # Performance
-gem 'newrelic_rpm', '~> 9.0'
+gem 'newrelic_rpm', '~> 9.1'
 
 # Security
 gem 'secure_headers', '~> 6.5'
@@ -70,7 +70,7 @@ gem 'slim-rails', '~> 3.6'
 
 # Assets
 gem 'i18n-js', '~> 4.2'
-gem 'inline_svg', '~> 1.8'
+gem 'inline_svg', '~> 1.9'
 gem 'turbolinks', '~> 5.2'
 
 # Errors reporting
@@ -85,7 +85,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10'
   gem 'pry-rails', '~> 0.3.9'
   gem 'rspec-rails', '~> 6.0'
-  gem 'rubocop', '~> 1.48', require: false
+  gem 'rubocop', '~> 1.49', require: false
   gem 'rubocop-performance', '~> 1.16', require: false
   gem 'rubocop-rails', '~> 2.18', require: false
   gem 'rubocop-rspec', '~> 2.19', require: false
@@ -97,7 +97,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '~> 3.38'
+  gem 'capybara', '~> 3.39'
   gem 'email_spec', '~> 2.2'
   gem 'selenium-webdriver', '~> 4.8'
   gem 'simplecov', '~> 0.22.0', require: false
