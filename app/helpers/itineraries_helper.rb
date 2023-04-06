@@ -9,11 +9,11 @@ module ItinerariesHelper
     @default_leave_date ||= Time.current.change(min: (Time.current.min / 10) * 10) + 10.minutes
   end
 
-  def boolean_tag(value, field)
+  def boolean_tag(value, field, allowed_icon: 'check', forbidden_icon: 'ban')
     status = value ? 'allowed' : 'forbidden'
 
     tag.div class: "tag tag-#{status}" do
-      concat tag.span(nil, class: "fas fa-#{status == 'allowed' ? 'check' : 'ban'}")
+      concat tag.span(nil, class: "fas fa-#{status == 'allowed' ? allowed_icon : forbidden_icon}")
       concat ' '
       concat t(".#{field}.#{status}")
     end

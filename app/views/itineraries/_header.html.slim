@@ -38,5 +38,5 @@
         span.tag.tag-pink data-bs-toggle='tooltip' title=t('itineraries.form.pink_hint')
           span.fas.fa-lock<>
           = Itinerary.human_attribute_name(:pink)
-      = boolean_tag @itinerary.smoking_allowed?, 'smoking'
+      = boolean_tag @itinerary.smoking_allowed?, 'smoking', forbidden_icon: 'ban-smoking'
       = boolean_tag @itinerary.pets_allowed?, 'pets'
