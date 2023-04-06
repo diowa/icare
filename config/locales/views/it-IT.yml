@@ -269,6 +269,7 @@ it-IT:
     header:
       app_user: "Un utente di %{appname}"
       expenses_to_share: Costi da dividere
+      
       smoking:
         allowed: Si fuma a bordo
         forbidden: Vietato fumare

@@ -55,8 +55,8 @@ it-IT:
         end_location: Punto di arrivo
         title: Titolo
         description: Descrizione
-        smoking_allowed: Si fuma a bordo
-        pets_allowed: Animali a bordo
+        smoking_allowed: Si può fumare a bordo
+        pets_allowed: Si possono portare animali a bordo
         fuel_cost: Costo carburante
         tolls: Pedaggi
         pink: Itinerario rosa

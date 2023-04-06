@@ -55,7 +55,7 @@ module GeoItinerary
     end
 
     def static_map(width = 640, height = 360)
-      Addressable::URI.encode [
+      URI::DEFAULT_PARSER.escape [
         "https://maps.googleapis.com/maps/api/staticmap?size=#{width}x#{height}",
         'scale=2',
         "markers=color:green|label:B|#{end_location.coordinates.reverse.join(',')}",
