@@ -10,7 +10,7 @@
       "except": ["after-same-name", "first-nested"],
       "ignore": ["after-comment"]
     }],
-    "block-closing-brace-empty-line-before": "never",
+    "stylistic/block-closing-brace-empty-line-before": "never",
     "declaration-empty-line-before": ["always", {
       "except": ["first-nested"],
       "ignore": ["after-comment", "after-declaration"]
