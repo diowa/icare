@@ -65,6 +65,9 @@ RSpec/DescribeClass:
 RSpec/ExampleLength:
   Max: 42
 
+RSpec/IndexedLet:
+  Enabled: false
+
 RSpec/MultipleExpectations:
   Enabled: false
 
