@@ -6219,6 +6219,16 @@ stylelint-scss@^4.6.0, stylelint-scss@^4.7.0:
     postcss-selector-parser "^6.0.11"
     postcss-value-parser "^4.2.0"
 
+stylelint-scss@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-5.0.0.tgz#2ec6323bac8003fa64871f3fbb75108270e99b83"
+  integrity sha512-5Ee5kG3JIcP2jk2PMoFMiNmW/815V+wK5o37X5ke90ihWMpPXI9iyqeA6zEWipWSRXeQc0kqbd7hKqiR+wPKNA==
+  dependencies:
+    postcss-media-query-parser "^0.2.3"
+    postcss-resolve-nested-selector "^0.1.1"
+    postcss-selector-parser "^6.0.11"
+    postcss-value-parser "^4.2.0"
+
 stylelint-stylistic@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/stylelint-stylistic/-/stylelint-stylistic-0.4.0.tgz#c99a92715cd161d8d0ba1277d2300797f41c194c"
