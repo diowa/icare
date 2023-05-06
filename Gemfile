@@ -87,7 +87,7 @@ group :development, :test do
   gem 'rubocop', '~> 1.50', require: false
   gem 'rubocop-performance', '~> 1.17', require: false
   gem 'rubocop-rails', '~> 2.19', require: false
-  gem 'rubocop-rspec', '~> 2.19', require: false
+  gem 'rubocop-rspec', '~> 2.22', require: false
   gem 'slim_lint', '~> 0.24.0', require: false
 end
 
