@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :message do
-    association :sender, factory: :user
+    sender factory: %i[user]
     body { 'Hello' }
   end
 end
