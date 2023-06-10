@@ -36,7 +36,7 @@
     "postcss": "^8.4.24",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^15.1.0",
-    "postcss-loader": "^7.3.2",
+    "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^8.4.2",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.63.3",
