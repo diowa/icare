@@ -98,7 +98,7 @@ end
 group :test do
   gem 'capybara', '~> 3.39'
   gem 'email_spec', '~> 2.2'
-  gem 'selenium-webdriver', '~> 4.9'
+  gem 'selenium-webdriver', '~> 4.10'
   gem 'simplecov', '~> 0.22.0', require: false
   gem 'simplecov-lcov', '~> 0.8.0', require: false
   gem 'webmock', '~> 3.18', require: false
