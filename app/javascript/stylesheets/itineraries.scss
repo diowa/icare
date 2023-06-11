@@ -17,22 +17,22 @@
 
 .itinerary-step {
   margin-bottom: 20px;
-  border-bottom: 1px solid $text-muted;
+  border-bottom: 1px solid var(--bs-tertiary-color);
 
   h3 {
-    color: $text-muted;
+    color: var(--bs-tertiary-color);
   }
 
   &.active,
   &.active h3 {
-    color: $color-contrast-dark;
-    border-color: $color-contrast-dark;
+    color: var(--bs-body-color);
+    border-color: var(--bs-body-color);
   }
 
   &.done,
   &.done h3 {
-    color: $success;
-    border-color: $success;
+    color: var(--bs-success-text-emphasis);
+    border-color: var(--bs-success-text-emphasis);
   }
 }
 

@@ -2,7 +2,7 @@
 .container
   .page-header
     h1 = yield :title
-    h5.text-muted = t('last_modified', date: l(Date.parse('2017-02-16'), format: :long))
+    h5.text-body-secondary = t('last_modified', date: l(Date.parse('2017-02-16'), format: :long))
 
   h3 Welcome to #{APP_CONFIG.app_name}
   p

@@ -6,7 +6,7 @@ fieldset#single
     .input-group
       = f.text_field :fuel_cost, class: 'form-control text-end form-control--short'
       span.input-group-text = APP_CONFIG.currency
-    p.form-text.text-muted.mb-0#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
+    p.form-text.text-body-secondary.mb-0#fuel-help data-avg-consumption=current_user.vehicle_avg_consumption
       small#fuel-help-text
   = f.input :tolls, wrapper: :horizontal_form do
     .input-group

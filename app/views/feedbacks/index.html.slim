@@ -27,7 +27,7 @@
               - if feedback.user.present?
                 = link_to feedback.user_name, user_path(feedback.user)
               - else
-                span.text-muted = t('former_user')
+                span.text-body-secondary = t('former_user')
             td = link_to feedback.message.truncate(100), feedback_path(feedback)
             td = l feedback.updated_at, format: :long
             td

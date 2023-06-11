@@ -1,5 +1,5 @@
 /* Copied from the source code of Bootstrap: */
-/* https://github.com/twbs/bootstrap/blob/v5.2.0/js/index.umd.js */
+/* https://github.com/twbs/bootstrap/blob/v5.3.0/js/index.umd.js */
 
 import Alert from 'bootstrap/js/src/alert'
 import Button from 'bootstrap/js/src/button'
@@ -17,10 +17,15 @@ import Tooltip from 'bootstrap/js/src/tooltip'
 export default {
   Alert,
   Button,
+  // Carousel,
   Collapse,
   Dropdown,
   Modal,
+  // Offcanvas,
   Popover,
+  // ScrollSpy,
+  // Tab,
+  // Toast,
   Tooltip
 }
 
