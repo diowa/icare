@@ -4,11 +4,12 @@
   @include clearfix();
 
   .tag {
+    @extend .text-bg-secondary;
+
     display: block;
     float: left;
     padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
     margin: 0 0 12px 5px;
-    background-color: $gray-200;
 
     &.tag-sm {
       padding: $input-btn-padding-y-sm $input-btn-padding-x-sm;
@@ -34,24 +35,16 @@
     }
 
     &.tag-allowed,
-    &.tag-common,
-    &.tag-forbidden,
-    &.tag-icare,
-    &.tag-pink {
-      color: #fff;
-    }
-
-    &.tag-allowed,
     &.tag-common {
-      background-color: $success;
+      @extend .text-bg-success;
     }
 
     &.tag-forbidden {
-      background-color: $danger;
+      @extend .text-bg-danger;
     }
 
     &.tag-icare {
-      background-color: $info;
+      @extend .text-bg-info;
     }
 
     &.tag-pink {

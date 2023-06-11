@@ -105,7 +105,7 @@
   @extend .d-flex;
 
   &:nth-child(even) {
-    background-color: $gray-200;
+    background-color: var(--bs-tertiary-bg);
   }
 }
 

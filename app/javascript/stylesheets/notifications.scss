@@ -64,7 +64,7 @@ $background: lighten($success, 5%) !default;
   padding: 8px 14px;
   line-height: 18px;
   text-align: center;
-  border-top: 1px solid darken($popover-header-bg, 5%);
+  border-top: 1px solid $popover-border-color;
   border-radius: 0 0 ($border-radius-lg) ($border-radius-lg);
 }
 

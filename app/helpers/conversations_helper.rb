@@ -6,13 +6,13 @@ module ConversationsHelper
   end
 
   def message_timestamp(message)
-    tag.small(title: I18n.l(message.created_at.in_time_zone(current_user.time_zone), format: :long), class: 'float-end text-muted') do
+    tag.small(title: I18n.l(message.created_at.in_time_zone(current_user.time_zone), format: :long), class: 'float-end text-body-secondary') do
       I18n.t('conversations.messages.time_ago', time: distance_of_time_in_words(message.created_at, Time.now.utc, include_seconds: true))
     end
   end
 
   def message_readat(message)
-    tag.small(class: 'text-muted') do
+    tag.small(class: 'text-body-secondary') do
       concat tag.span(nil, class: 'fa fa-check')
       concat ' '
       concat I18n.t('conversations.messages.seen', date: l(message.read_at.in_time_zone(current_user.time_zone), format: :short))

@@ -21,11 +21,11 @@ tr.unread td,
   transition: background 1s ease-out;
 
   &.alternate {
-    background-color: darken($body-bg, 5%);
+    background-color: var(--bs-tertiary-bg);
   }
 
   + .conversation-message {
-    border-top: 1px solid #ccc;
+    border-top: 1px solid var(--bs-border-color);
   }
 }
 
