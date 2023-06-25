@@ -14,5 +14,5 @@ json.user do
   json.call(itinerary.user, :name, :uid, :to_param)
 
   # TODO: move to front-end
-  json.image itinerary.user.image? ? itinerary.user.image : asset_pack_path('static/user.jpg')
+  json.image itinerary.user.image? ? itinerary.user.image : asset_pack_path('static/images/user.jpg')
 end
