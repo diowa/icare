@@ -82,7 +82,7 @@ GEM
       rest-client (~> 2.1)
       retryable (~> 3.0)
       zache (~> 0.12)
-    bcrypt (3.1.18)
+    bcrypt (3.1.19)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
@@ -135,7 +135,7 @@ GEM
       railties (>= 5.0.0)
     faker (3.2.0)
       i18n (>= 1.8.11, < 2)
-    faraday (2.7.6)
+    faraday (2.7.7)
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
@@ -345,7 +345,7 @@ GEM
     rubocop-performance (1.18.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.19.1)
+    rubocop-rails (2.20.2)
       activesupport (>= 4.2.0)
       rack (>= 1.1)
       rubocop (>= 1.33.0, < 2.0)
@@ -362,7 +362,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
-    shakapacker (6.6.0)
+    shakapacker (7.0.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -397,7 +397,7 @@ GEM
     thor (1.2.2)
     tilt (2.2.0)
     timeliness (0.4.5)
-    timeout (0.3.2)
+    timeout (0.4.0)
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -440,15 +440,15 @@ DEPENDENCIES
   airbrake (~> 13.0)
   auth0 (~> 5.13)
   bootsnap (~> 1.16)
-  bullet (~> 7.0)
-  byebug (~> 11.1)
-  capybara (~> 3.39)
+  bullet
+  byebug
+  capybara
   client_side_validations (~> 21.0)
   client_side_validations-simple_form (~> 15.0)
   devise (~> 4.9)
-  email_spec (~> 2.2)
-  factory_bot_rails (~> 6.2)
-  faker (~> 3.2)
+  email_spec
+  factory_bot_rails
+  faker
   friendly_id (~> 5.5)
   http_accept_language (~> 2.1)
   i18n-js (~> 4.2)
@@ -460,32 +460,32 @@ DEPENDENCIES
   omniauth-auth0 (~> 3.1)
   omniauth-rails_csrf_protection (~> 1.0)
   pg (~> 1.5)
-  pry (~> 0.14.2)
-  pry-byebug (~> 3.10)
-  pry-rails (~> 0.3.9)
+  pry
+  pry-byebug
+  pry-rails
   puma (~> 6.3)
   rails (= 7.0.5)
   rgeo (~> 3.0)
-  rspec-rails (~> 6.0)
-  rubocop (~> 1.53)
-  rubocop-performance (~> 1.18)
-  rubocop-rails (~> 2.19)
-  rubocop-rspec (~> 2.22)
+  rspec-rails
+  rubocop
+  rubocop-performance
+  rubocop-rails
+  rubocop-rspec
   secure_headers (~> 6.5)
-  selenium-webdriver (~> 4.10)
-  shakapacker (= 6.6.0)
+  selenium-webdriver
+  shakapacker (= 7.0.0)
   simple_form (~> 5.2)
   simpleconfig (~> 2.0)
-  simplecov (~> 0.22.0)
-  simplecov-lcov (~> 0.8.0)
+  simplecov
+  simplecov-lcov
   slim-rails (~> 3.6)
-  slim_lint (~> 0.24.0)
+  slim_lint
   sucker_punch (~> 3.1)
   turbolinks (~> 5.2)
   tzinfo-data
   validates_timeliness (~> 7.0.0.beta2)
-  web-console (~> 4.2)
-  webmock (~> 3.18)
+  web-console
+  webmock
 
 RUBY VERSION
    ruby 3.2.2p53
