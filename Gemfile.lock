@@ -76,9 +76,9 @@ GEM
     airbrake-ruby (6.2.1)
       rbtree3 (~> 0.6)
     ast (2.4.2)
-    auth0 (5.13.0)
+    auth0 (5.14.0)
       addressable (~> 2.8)
-      jwt (~> 2.5)
+      jwt (~> 2.7)
       rest-client (~> 2.1)
       retryable (~> 3.0)
       zache (~> 0.12)
@@ -251,7 +251,7 @@ GEM
       pry (>= 0.13, < 0.15)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    public_suffix (5.0.1)
+    public_suffix (5.0.3)
     puma (6.3.0)
       nio4r (~> 2.0)
     racc (1.7.1)
@@ -439,7 +439,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-postgis-adapter (~> 8.0)
   airbrake (~> 13.0)
-  auth0 (~> 5.13)
+  auth0 (~> 5.14)
   bootsnap (~> 1.16)
   bullet
   byebug
