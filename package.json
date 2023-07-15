@@ -58,7 +58,7 @@
     "standard": "^16.0.3",
     "standard-loader": "^7.0.0",
     "stylelint": "^15.9.0",
-    "stylelint-config-twbs-bootstrap": "^11.0.0",
+    "stylelint-config-twbs-bootstrap": "^11.0.1",
     "stylelint-order": "^6.0.3",
     "stylelint-scss": "^5.0.1",
     "stylelint-webpack-plugin": "^4.1.1",

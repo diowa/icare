@@ -6300,16 +6300,16 @@ stylelint-config-standard@^33.0.0:
   dependencies:
     stylelint-config-recommended "^12.0.0"
 
-stylelint-config-twbs-bootstrap@^11.0.0:
-  version "11.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-11.0.0.tgz#351131050987d9ceda89911cae4028e1ec5b48ee"
-  integrity sha512-9ZWfOFatophSU2Dyv58mqwsWrLz9GldoiVMQ00NVEt/sqDNC53c/sX38vTD/4C4E+9eFaPxe+z0/0bpkWR1kFQ==
+stylelint-config-twbs-bootstrap@^11.0.1:
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/stylelint-config-twbs-bootstrap/-/stylelint-config-twbs-bootstrap-11.0.1.tgz#8a12aee33a7acaa6236547af6136298428ddf54f"
+  integrity sha512-kEdVrghfOi1jVr9yE78JKLIh+/jC4GVUsoZceXQH3/A71rcSbNw8zME2tauTrs0je/67Y61iZgwDXpuNRv6L2Q==
   dependencies:
     stylelint-config-recess-order "^4.2.0"
     stylelint-config-standard "^33.0.0"
     stylelint-config-standard-scss "^10.0.0"
     stylelint-scss "^5.0.1"
-    stylelint-stylistic "^0.4.2"
+    stylelint-stylistic "^0.4.3"
 
 stylelint-order@6.x, stylelint-order@^6.0.3:
   version "6.0.3"
@@ -6329,11 +6329,12 @@ stylelint-scss@^5.0.0, stylelint-scss@^5.0.1:
     postcss-selector-parser "^6.0.13"
     postcss-value-parser "^4.2.0"
 
-stylelint-stylistic@^0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/stylelint-stylistic/-/stylelint-stylistic-0.4.2.tgz#a868213f76535523664c0ac926c89981b1ba4fdd"
-  integrity sha512-WF/fLvotTklG8LZ+fO0nxhu5swVENHhSat2l5ckrmtXpij1P9ybYa56XivOg/E02CH+Ygui5pd2hQrlli3NCDQ==
+stylelint-stylistic@^0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/stylelint-stylistic/-/stylelint-stylistic-0.4.3.tgz#41f89dbade2028de0c30ad6cc1495bc5d7d1d5f0"
+  integrity sha512-WphmneK3MRrm5ixvRPWy7+c9+EQUh0FPvNMXW/N9VD85vyqtpxUejpD+mxubVVht0fRgidcqBxtW3s3tU2Ujhw==
   dependencies:
+    is-plain-object "^5.0.0"
     postcss "^8.4.21"
     postcss-media-query-parser "^0.2.3"
     postcss-value-parser "^4.2.0"
