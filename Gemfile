@@ -13,7 +13,7 @@ gem 'rails', '7.0.6'
 
 gem 'activerecord-postgis-adapter', '~> 8.0'
 gem 'airbrake', '~> 13.0'
-gem 'auth0', '~> 5.13'
+gem 'auth0', '~> 5.14'
 gem 'bootsnap', '~> 1.16', require: false
 gem 'client_side_validations', '~> 21.0'
 gem 'client_side_validations-simple_form', '~> 15.0'
