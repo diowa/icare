@@ -76,7 +76,7 @@ GEM
     airbrake-ruby (6.2.1)
       rbtree3 (~> 0.6)
     ast (2.4.2)
-    auth0 (5.14.0)
+    auth0 (5.14.1)
       addressable (~> 2.8)
       jwt (~> 2.7)
       rest-client (~> 2.1)
