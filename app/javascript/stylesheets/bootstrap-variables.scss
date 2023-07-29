@@ -1,16 +1,17 @@
 // New variables
 
-$brand-icare: #3d7098 !default;
-$pink: #c3325f !default;
+$brand-icare: #3d7098;
+$pink: #c3325f;
 
 // Overrides
 
-$enable-gradients: true !default;
-$enable-validation-icons: false !default;
-$link-decoration: none !default;
+$color-mode-type: media-query;
+$enable-gradients: true;
+$enable-validation-icons: false;
+$link-decoration: none;
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif: Lato, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-sans-serif: Lato, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 // stylelint-enable value-keyword-case
 
 @import "bootstrap/scss/variables";

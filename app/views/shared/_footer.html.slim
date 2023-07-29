@@ -3,7 +3,7 @@ footer.main-footer
     ul.list-footer
       li
         = link_to 'https://diowa.com' do
-          = inline_svg_pack_tag 'static/diowa.svg', class: 'diowa-logo', aria: true, title: 'diowa'
+          = inline_svg_pack_tag 'static/images/diowa.svg', class: 'diowa-logo', aria: true, title: 'diowa'
       - if user_signed_in?
         li = link_to t('about'), :about
         li = link_to t('how_it_works'), :how_it_works
