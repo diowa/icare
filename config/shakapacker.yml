@@ -1,15 +1,17 @@
 # Note: You must restart bin/shakapacker-dev-server for changes to take effect
+# This file contains the defaults used by shakapacker.
 
 default: &default
   source_path: app/javascript
 
   # You can have a subdirectory of the source_path, like 'packs' (recommended).
   # Alternatively, you can use '/' to use the whole source_path directory.
-  source_entry_path: /
+  # Notice that this is a relative path to source_path
+  source_entry_path: packs
 
   # If nested_entries is true, then we'll pick up subdirectories within the source_entry_path.
   # You cannot set this option to true if you set source_entry_path to '/'
-  nested_entries: false
+  nested_entries: true
 
   #  While using a File-System-based automated bundle generation feature, miscellaneous warnings suggesting css order
   #  conflicts may arise due to the mini-css-extract-plugin. For projects where css ordering has been mitigated through
@@ -43,6 +45,11 @@ default: &default
   # Select whether the compiler will use SHA digest ('digest' option) or most most recent modified timestamp ('mtime') to determine freshness
   compiler_strategy: digest
 
+  # Select whether the compiler will always use a content hash and not just in production
+  # Don't use contentHash except for production for performance
+  # https://webpack.js.org/guides/build-performance/#avoid-production-specific-tooling
+  useContentHash: false
+
 development:
   <<: *default
   compile: true
@@ -51,7 +58,11 @@ development:
   # Reference: https://webpack.js.org/configuration/dev-server/
   # Keys not described there are documented inline and in https://github.com/shakacode/shakapacker/
   dev_server:
-    https: false
+    # For running dev server with https, set `server: https`.
+    # You may use `https: true` instead but notice that it is deprecated in favor of `server: https`
+    # Ensure only one of these entries is set.
+    # server: https
+
     host: localhost
     port: 3035
     # Hot Module Replacement updates modules while the application is running without a full reload
@@ -78,7 +89,7 @@ development:
     # Should we use gzip compression?
     compress: true
     # Note that apps that do not check the host are vulnerable to DNS rebinding attacks
-    allowed_hosts: 'all'
+    allowed_hosts: 'auto'
     # Shows progress and colorizes output of bin/shakapacker[-dev-server]
     pretty: true
     headers:
@@ -99,6 +110,9 @@ production:
 
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
+
+  # Use content hash for naming assets. Cannot be overridden by for production.
+  useContentHash: true
 
   # Cache manifest.json for performance
   cache_manifest: true
