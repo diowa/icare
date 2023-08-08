@@ -1,4 +1,3 @@
-brew 'chromedriver'
 brew 'geos'
 brew 'postgres'
 brew 'postgis'
