@@ -12,36 +12,22 @@ By having more people using one vehicle, carpooling reduces each person’s trav
 
 **icare** uses the following technologies:
 
-* [Ruby on Rails][1]
-* [Shakapacker][3]
-* [Handlebars.js][4] (JavaScript semantic templates)
-* [SLIM][5]
-* [Bootstrap][6]
-* [Font Awesome][7] (vectorial icons)
-* [Devise][2]
-* Asynchronous tasks with [Sucker Punch][9]
-* OAuth login with [Auth0][11]
+* [Ruby on Rails][:rails_url]
+* [PostgreSQL][:postgresql]
+* [Shakapacker][:shakapacker_url]
+* [Handlebars.js][:handlebarsjs_url] (JavaScript semantic templates)
+* [SLIM][:slim_url]
+* [Bootstrap][:bootstrap_url]
+* [Font Awesome][:fa_url] (vectorial icons)
+* [Devise][:devise_url]
+* Asynchronous tasks with [Sucker Punch][:sucker_punch_url]
+* OAuth login with [Auth0][:auth0_url]
 * Google Maps API
-* [RSpec][12]
-* [Heroku][14] Cloud Application Platform
-* [Multi-Environment configuration][15]
-* [Airbrake][16] Exception Notification
-* [New Relic][13] Application Performance Management service
-
- [1]: https://rubyonrails.org/
- [2]: https://github.com/plataformatec/devise
- [3]: https://github.com/shakacode/shakapacker
- [4]: https://handlebarsjs.com/
- [5]: http://slim-lang.com/
- [6]: https://getbootstrap.com
- [7]: https://fontawesome.com
- [9]: https://github.com/brandonhilkert/sucker_punch
- [11]: https://auth0.com/
- [12]: https://rspec.info/
- [13]: https://newrelic.com/
- [14]: https://www.heroku.com/
- [15]: https://github.com/lukeredpath/simpleconfig
- [16]: https://github.com/airbrake/airbrake
+* [RSpec][:rspec_url]
+* [Heroku][:heroku_url] Cloud Application Platform
+* [Multi-Environment configuration][:simpleconfig_url]
+* [Airbrake][:airbrake_url] Exception Notification
+* [New Relic][:newrelic_url] Application Performance Management service
 
 ## Name and logo
 
@@ -125,3 +111,19 @@ icare will be accessible on `https://localhost:3443`
 If you like this project or you are considering to use it (or any part of it) for commercial purposes, please make a donation to the authors.
 
 [![Donate once-off to this project using Bitcoin](https://img.shields.io/badge/bitcoin-donate-blue.svg)](bitcoin:1L6sqoG8xXhYziH9NGjPzgR1dEP2SbJrfM)
+
+[:airbrake_url]: https://github.com/airbrake/airbrake
+[:auth0_url]: https://auth0.com/
+[:bootstrap_url]: https://getbootstrap.com
+[:devise_url]: https://github.com/plataformatec/devise
+[:fa_url]: https://fontawesome.com
+[:handlebarsjs_url]: https://handlebarsjs.com/
+[:heroku_url]: https://www.heroku.com/
+[:newrelic_url]: https://newrelic.com/
+[:postgresql]: https://www.postgresql.org/
+[:rails_url]: https://rubyonrails.org/
+[:rspec_url]: https://rspec.info/
+[:shakapacker_url]: https://github.com/shakacode/shakapacker
+[:simpleconfig_url]: https://github.com/lukeredpath/simpleconfig
+[:slim_url]: https://slim-template.github.io/
+[:sucker_punch_url]: https://github.com/brandonhilkert/sucker_punch
