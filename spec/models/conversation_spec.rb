@@ -11,7 +11,7 @@ RSpec.describe Conversation do
 
   it 'does not allow conversation between the same user' do
     invalid_conversation = build(:conversation, sender: receiver, receiver: receiver)
-    expect(invalid_conversation.valid?).to be false
+    expect(invalid_conversation).not_to be_valid
     expect(invalid_conversation.errors.messages).to have_key :receiver
   end
 

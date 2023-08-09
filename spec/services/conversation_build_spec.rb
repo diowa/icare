@@ -16,7 +16,7 @@ RSpec.describe ConversationBuild do
                                      described_class.new(sender, receiver, conversable, conversable_id: conversable.id, conversation: { sender: sender })]
       invalid_conversation_builds.each do |invalid_conversation_build|
         expect { invalid_conversation_build.conversation }.not_to raise_error
-        expect(invalid_conversation_build.conversation.valid?).to be false if invalid_conversation_build.conversation
+        expect(invalid_conversation_build.conversation).not_to be_valid if invalid_conversation_build.conversation
       end
     end
 
@@ -25,7 +25,7 @@ RSpec.describe ConversationBuild do
       conversation.save
       sender.reload
       receiver.reload
-      expect(conversation.valid?).to be true
+      expect(conversation).to be_valid
       expect(conversation.participants).to contain_exactly(sender, receiver)
       expect(sender.conversations).to include(conversation)
       expect(receiver.conversations).to include(conversation)

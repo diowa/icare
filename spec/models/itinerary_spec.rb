@@ -19,16 +19,16 @@ RSpec.describe Itinerary do
     let(:invalid_itinerary) { build(:itinerary, leave_date: 1.day.from_now, return_date: 1.day.ago, round_trip: true) }
 
     it "adds an error on the return_date field if it's before leave_date" do
-      expect(invalid_itinerary.valid?).to be false
+      expect(invalid_itinerary).not_to be_valid
       expect(invalid_itinerary.errors.size).to be 1
       expect(invalid_itinerary.errors.messages).to have_key :return_date
     end
 
-    it "adds an error on the return_date field if it's blank" do
-      nil_return_date_itinerary = build(:itinerary, leave_date: 1.day.from_now, return_date: nil, round_trip: true)
-      expect(nil_return_date_itinerary.valid?).to be false
-      expect(nil_return_date_itinerary.errors.size).to be 1
-      expect(nil_return_date_itinerary.errors.messages).to have_key :return_date
+    it "adds two errors on the return_date field if it's blank" do
+      nil_return_date_itinerary = build(:itinerary, leave_date: nil, return_date: nil, round_trip: true)
+      expect(nil_return_date_itinerary).not_to be_valid
+      expect(nil_return_date_itinerary.errors.size).to be 2
+      expect(nil_return_date_itinerary.errors.messages).to have_key(:return_date)
     end
   end
 
@@ -37,13 +37,13 @@ RSpec.describe Itinerary do
     let(:valid_pink_itinerary) { build(:itinerary, user: female_user, pink: true) }
 
     it 'adds an error on the pink field if the user is male' do
-      expect(invalid_pink_itinerary.valid?).to be false
+      expect(invalid_pink_itinerary).not_to be_valid
       expect(invalid_pink_itinerary.errors.size).to be 1
       expect(invalid_pink_itinerary.errors.messages).to have_key :pink
     end
 
     it 'does not add errors if the user is female' do
-      expect(valid_pink_itinerary.valid?).to be true
+      expect(valid_pink_itinerary).to be_valid
     end
   end
 
@@ -68,7 +68,7 @@ RSpec.describe Itinerary do
                              build(:itinerary, start_location: nil, end_location: nil, route: { bad: 'guy' }),
                              build(:itinerary, start_location: nil, end_location: nil, route: { start_location: 'bad' })]
       invalid_itineraries.each do |invalid_itinerary|
-        expect(invalid_itinerary.valid?).to be false
+        expect(invalid_itinerary).not_to be_valid
         expect(invalid_itinerary.errors.messages).to have_key :start_location
         expect(invalid_itinerary.errors.messages).to have_key :end_location
       end
@@ -121,25 +121,25 @@ RSpec.describe Itinerary do
       end
 
       it 'adds an error on the base objects if both start_position and end_position are outside bounds' do
-        expect(start_end_outside_bounds_itinerary.valid?).to be false
+        expect(start_end_outside_bounds_itinerary).not_to be_valid
         expect(start_end_outside_bounds_itinerary.errors.size).to be 1
         expect(start_end_outside_bounds_itinerary.errors.messages).to have_key :base
       end
 
       it 'adds an error on the base objects if start_position is outside bounds' do
-        expect(start_outside_bounds_itinerary.valid?).to be false
+        expect(start_outside_bounds_itinerary).not_to be_valid
         expect(start_outside_bounds_itinerary.errors.size).to be 1
         expect(start_outside_bounds_itinerary.errors.messages).to have_key :base
       end
 
       it 'adds an error on the base objects if end_position is outside bounds' do
-        expect(end_outside_bounds_itinerary.valid?).to be false
+        expect(end_outside_bounds_itinerary).not_to be_valid
         expect(end_outside_bounds_itinerary.errors.size).to be 1
         expect(end_outside_bounds_itinerary.errors.messages).to have_key :base
       end
 
       it 'does not add errors if the itinerary is inside bounds' do
-        expect(inside_bounds_itinerary.valid?).to be true
+        expect(inside_bounds_itinerary).to be_valid
       end
     end
 
