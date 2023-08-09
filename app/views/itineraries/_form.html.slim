@@ -15,7 +15,7 @@ fieldset#single
     - if @itinerary.errors.include?(:tolls)
       span.help-inline
         = @itinerary.errors.messages[:tolls].join(', ')
-  = f.input :description, as: :text, input_html: { rows: 5 }, hint: t('.description_hint'), wrapper: :horizontal_form
+  = f.input :description, as: :text, input_html: { rows: 5, maxlength: Itinerary::MAX_DESCRIPTION_LENGTH }, hint: t('.description_hint'), wrapper: :horizontal_form
   .form-group.row
     .col-sm-9.offset-sm-3
       - if current_user.female?

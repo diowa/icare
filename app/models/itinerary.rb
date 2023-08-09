@@ -5,6 +5,7 @@ class Itinerary < ApplicationRecord
   extend FriendlyId
 
   DAYNAME = %w[Sunday Monday Tuesday Wednesday Thursday Friday Saturday].freeze
+  MAX_DESCRIPTION_LENGTH = 1000
 
   friendly_id :name, use: :slugged
 
@@ -18,23 +19,14 @@ class Itinerary < ApplicationRecord
   delegate :name, to: :user, prefix: true
   delegate :first_name, to: :user, prefix: true
 
-  validates :description, length: { maximum: 1000 }, presence: true
+  validates :description, length: { maximum: MAX_DESCRIPTION_LENGTH }, presence: true
   validates :num_people, numericality: { only_integer: true, greater_than: 0, less_than: 10 }, allow_blank: true
   validates :fuel_cost, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10_000 }
   validates :tolls, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 10_000 }
-  validates :leave_date, timeliness: { on_or_after: -> { Time.current } }, on: :create
-  validates :return_date, presence: true, if: -> { round_trip }
+  validates :leave_date, timeliness: { on_or_after: -> { Time.current } }, if: :will_save_change_to_leave_date?
+  validates :return_date, presence: true, timeliness: { on_or_after: :leave_date }, if: :round_trip?
 
   validate :driver_is_female, if: -> { pink }
-  validate :return_date_validator, if: -> { round_trip }
-
-  def return_date_validator
-    return unless return_date && return_date <= leave_date
-
-    errors.add(:return_date,
-               I18n.t('mongoid.errors.messages.after',
-                      restriction: leave_date.strftime(I18n.t('validates_timeliness.error_value_formats.datetime'))))
-  end
 
   def driver_is_female
     errors.add(:pink, :driver_must_be_female) unless user.female?

@@ -24,11 +24,11 @@ RSpec.describe Itinerary do
       expect(invalid_itinerary.errors.messages).to have_key :return_date
     end
 
-    it "adds an error on the return_date field if it's blank" do
-      nil_return_date_itinerary = build(:itinerary, leave_date: 1.day.from_now, return_date: nil, round_trip: true)
+    it "adds two errors on the return_date field if it's blank" do
+      nil_return_date_itinerary = build(:itinerary, leave_date: nil, return_date: nil, round_trip: true)
       expect(nil_return_date_itinerary.valid?).to be false
-      expect(nil_return_date_itinerary.errors.size).to be 1
-      expect(nil_return_date_itinerary.errors.messages).to have_key :return_date
+      expect(nil_return_date_itinerary.errors.size).to be 2
+      expect(nil_return_date_itinerary.errors.messages).to have_key(:return_date)
     end
   end
 
