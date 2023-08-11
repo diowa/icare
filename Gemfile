@@ -9,7 +9,7 @@ end
 
 ruby '3.2.2'
 
-gem 'rails', '7.0.6'
+gem 'rails', '7.0.7'
 
 gem 'activerecord-postgis-adapter', '~> 8.0'
 gem 'airbrake', '~> 13.0'
