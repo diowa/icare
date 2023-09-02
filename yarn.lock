@@ -960,15 +960,15 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     to-fast-properties "^2.0.0"
 
-"@client-side-validations/client-side-validations@^0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@client-side-validations/client-side-validations/-/client-side-validations-0.3.0.tgz#0cdfe1ddd3e4388c38a48efde1aa70d3e646c28d"
-  integrity sha512-UVCpiqU8YDO/jPkNFEzyDpyCatoMZfo43RrzATFe4JERnirONODuFqdaN6y5CfjeaxU5sMjLIdpcensR1zhLCA==
+"@client-side-validations/client-side-validations@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@client-side-validations/client-side-validations/-/client-side-validations-0.4.0.tgz#631aa5667e30afb01e2e393a1c46a62af57e8e4b"
+  integrity sha512-+349chE4AZipgEEsrrsQLQh2vAGlh/F3+6XIPHoeaBZEEQepoOg9DqoWxQoNR2Cad8HIMRKCxktTZ7S3aG4New==
 
-"@client-side-validations/simple-form@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@client-side-validations/simple-form/-/simple-form-0.3.1.tgz#6b24086d02fac82a118efbc47830f4ebb88b0b06"
-  integrity sha512-XvLLbaZR2pmjfWC4kSyDu9Q//FBsMy5wbxHUV6CsK73Nv6+9Uo6x8k5UORvHe2coopQec5/UTs6TsePWSup2Pw==
+"@client-side-validations/simple-form@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@client-side-validations/simple-form/-/simple-form-0.4.0.tgz#c4aa52632d926c02ae883d4fd72a75c85edf7adf"
+  integrity sha512-NEkuXNreW1dFor5pcUb/QKaKE8nkA3w6kaHoivsXyxT554WEx8DION15P2t985EyCSmrPRTMnkky6bCYl3A2Fg==
 
 "@csstools/cascade-layer-name-parser@^1.0.3", "@csstools/cascade-layer-name-parser@^1.0.4":
   version "1.0.4"
