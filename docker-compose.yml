@@ -1,43 +1,49 @@
-version: '3.7'
-
 services:
-  icare:
+  app:
     build:
       context: .
       dockerfile: ./docker/icare/Dockerfile
-      args:
-        RAILS_ENV: production
-    container_name: icare
+    container_name: icare.app
     depends_on:
-      - db
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     env_file:
       - ./docker/icare/variables.env
-    environment:
-      RAILS_ENV: production
     networks:
       - icare
     ports:
       - 3000:3000
     restart: on-failure
+    healthcheck:
+      test: curl -Ik localhost:3000
+      interval: 5s
     volumes:
-      - assets:/icare/public
+      - assets:/rails/public
   db:
-    container_name: db
+    container_name: icare.db
     environment:
       POSTGRES_HOST_AUTH_METHOD: trust
-    image: postgis/postgis:12-3.0-alpine
+    platform: linux/amd64
+    image: postgis/postgis:12-3.4-alpine
     networks:
       - icare
     restart: on-failure
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 5s
+      retries: 30
     volumes:
       - db-data:/var/lib/postgresql/data
   nginx:
     build:
       context: .
       dockerfile: ./docker/nginx/Dockerfile
-    container_name: nginx
+    container_name: icare.nginx
     depends_on:
-      - icare
+      app:
+        condition: service_healthy
     networks:
       - icare
     ports:
@@ -46,6 +52,18 @@ services:
     restart: on-failure
     volumes:
       - assets:/nginx/public:ro
+  redis:
+    container_name: icare.redis
+    image: redis:7.2.0-alpine
+    networks:
+      - icare
+    restart: on-failure
+    healthcheck:
+      test: redis-cli ping
+      interval: 3s
+      retries: 30
+    volumes:
+      - redis-data:/data
 
 networks:
   icare:
@@ -53,3 +71,4 @@ networks:
 volumes:
   assets:
   db-data:
+  redis-data:

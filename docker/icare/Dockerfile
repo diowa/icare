@@ -1,78 +1,76 @@
-FROM ruby:2.7.1-alpine
+# syntax = docker/dockerfile:1
 
-RUN apk add --no-cache --update \
-  build-base \
-  libxml2-dev \
-  libxslt-dev \
-  nodejs \
-  postgis \
-  postgresql-dev \
-  tzdata \
-  yarn
+# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
+ARG RUBY_VERSION=3.2.2
+FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 
-ENV APP_DIR /icare
+# Rails app lives here
+WORKDIR /rails
 
+# Set production environment
+ENV RAILS_ENV="production" \
+    BUNDLE_DEPLOYMENT="1" \
+    BUNDLE_PATH="/usr/local/bundle" \
+    BUNDLE_WITHOUT="development"
+
+
+# Throw-away build stage to reduce size of final image
+FROM base as build
+
+# Install packages needed to build gems and node modules
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential curl git libpq-dev libvips node-gyp pkg-config python-is-python3
+
+# Install JavaScript dependencies
+ARG NODE_VERSION=18.17.1
+ARG YARN_VERSION=1.22.19
+ENV PATH=/usr/local/node/bin:$PATH
+RUN curl -sL https://github.com/nodenv/node-build/archive/master.tar.gz | tar xz -C /tmp/ && \
+    /tmp/node-build-master/bin/node-build "${NODE_VERSION}" /usr/local/node && \
+    npm install -g yarn@$YARN_VERSION && \
+    rm -rf /tmp/node-build-master
+
+# Install application gems
+COPY Gemfile Gemfile.lock ./
+RUN bundle install && \
+    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
+    bundle exec bootsnap precompile --gemfile
+
+
+# Install node modules
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+# Copy application code
+COPY . .
+
+# Precompile bootsnap code for faster boot times
+RUN bundle exec bootsnap precompile app/ lib/
+
+# Precompiling assets for production without requiring secret RAILS_MASTER_KEY
+RUN SECRET_KEY_BASE=dummy DATABASE_URL=postgis:dummy ./bin/rails assets:clean assets:precompile
+
+
+# Final stage for app image
+FROM base
+
+# Install packages needed for deployment
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y curl libpq-dev libvips && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Copy built artifacts: gems, application
+COPY --from=build /usr/local/bundle /usr/local/bundle
+COPY --from=build /rails /rails
+
+# Run and own only the runtime files as a non-root user for security
+RUN useradd rails --create-home --shell /bin/bash && \
+    chown -R rails:rails db log tmp
+USER rails:rails
+
+# Entrypoint prepares the database.
+ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
+# Start the server by default, this can be overwritten at runtime
 EXPOSE 3000
-
-WORKDIR $APP_DIR
-
-# Create application user and add permissions
-RUN addgroup icare && \
-    adduser -D icare -G icare && \
-    chown -R icare:icare $APP_DIR && \
-    chmod -R 755 $APP_DIR
-
-# Switch to application user
-USER icare
-
-RUN mkdir -p log
-RUN mkdir -p tmp/pids
-
-ARG RAILS_ENV
-ENV RAILS_ENV=${RAILS_ENV:-production}
-ENV RACK_ENV=${RAILS_ENV:-production}
-
-RUN mkdir -p log
-RUN mkdir -p tmp/pids
-
-RUN gem install bundler --version "2.1.2"
-
-# Copy command always runs as root
-COPY --chown=icare:icare Gemfile Gemfile
-COPY --chown=icare:icare Gemfile.lock Gemfile.lock
-
-RUN echo $RAILS_ENV
-RUN \
-  if [ "$RAILS_ENV" = "development" ] || [ "$RAILS_ENV" = "test" ]; then \
-    bundle install --retry 10; \
-  else \
-    bundle config set deployment 'true' && bundle --retry 10; \
-  fi
-
-COPY --chown=icare:icare package.json package.json
-COPY --chown=icare:icare yarn.lock yarn.lock
-
-RUN yarn
-
-COPY --chown=icare:icare app ./app
-COPY --chown=icare:icare bin ./bin
-COPY --chown=icare:icare config ./config
-COPY --chown=icare:icare db ./db
-COPY --chown=icare:icare lib ./lib
-COPY --chown=icare:icare public ./public
-COPY --chown=icare:icare spec ./spec
-COPY --chown=icare:icare .browserslistrc .
-COPY --chown=icare:icare .postcssrc.yml .
-COPY --chown=icare:icare babel.config.js .
-COPY --chown=icare:icare config.ru .
-COPY --chown=icare:icare postcss.config.js .
-COPY --chown=icare:icare Rakefile .
-
-RUN SECRET_KEY_BASE=dummy DATABASE_URL=postgis:dummy bundle exec rails assets:precompile
-
-COPY --chown=icare:icare docker/icare/docker-entrypoint.sh ./bin
-RUN chmod +x ./bin/docker-entrypoint.sh
-
-ENTRYPOINT ["/icare/bin/docker-entrypoint.sh"]
-
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+CMD ["./bin/rails", "server"]
