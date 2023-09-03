@@ -1,7 +1,7 @@
 nav.navbar.main-navbar
   .container
     = link_to user_signed_in? ? :dashboard : root_path, class: 'navbar-brand' do
-      = inline_svg_pack_tag 'static/logo.svg', aria: true, title: APP_CONFIG.app_name
+      = inline_svg_pack_tag 'static/images/logo.svg', aria: true, title: APP_CONFIG.app_name
       span.hidden-xs = APP_CONFIG.app_name
     button.navbar-toggler type='button' data-bs-toggle='collapse' data-bs-target='#main-navbar-collapse' aria-controls='main-navbar-collapse' aria-expanded='false' aria-label=t('.toggle_navigation')
       span.navbar-toggler-icon
