@@ -1,4 +1,4 @@
-FROM nginx:1.17.9-alpine
+FROM nginx:mainline-alpine3.18-slim
 
 RUN apk add --update apache2-utils
 

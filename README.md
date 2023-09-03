@@ -81,7 +81,7 @@ current implementation are very welcomed.
 
 TODO:
 - [ ] Fix Puma exit status (puma/puma#1673)
-- [ ] Check multi-environment support
+- [ ] Multi-environment support
 - [ ] Add Sidekiq container
 
 Generate SSL requirements:
@@ -92,11 +92,11 @@ openssl genpkey -genparam -algorithm DH -out docker/nginx/ssl/app_dhparam4096.pe
 ```
 
 Copy `docker/icare/variables.env.example` to `docker/icare/variables.env` and
-run `docker-compose up`
+run `docker compose up`
 
 icare will be accessible on `https://localhost:3443`
 
-### Start rails outside of Docker with SSL
+### Start Rails outside of Docker with SSL
 
 After generating the SSL requirements, run:
 
