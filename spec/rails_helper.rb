@@ -76,13 +76,13 @@ RSpec.configure do |config|
     driven_by :rack_test
   end
 
-  config.before(:each, js: true, type: :system) do
+  config.before(:each, :js, type: :system) do
     driver = ActiveModel::Type::Boolean::FALSE_VALUES.include?(ENV['HEADLESS']) ? :chrome : :headless_chrome
     driven_by :selenium, using: driver
     SeleniumBrowserErrorReporter.clear_error_logs!(page)
   end
 
-  config.after(:each, js: true, type: :system) do |spec|
+  config.after(:each, :js, type: :system) do |spec|
     SeleniumBrowserErrorReporter.call(page) unless spec.metadata.fetch(:allow_js_errors, false)
   end
 end
