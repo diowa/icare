@@ -253,7 +253,7 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (5.0.3)
-    puma (6.3.1)
+    puma (6.4.0)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -466,7 +466,7 @@ DEPENDENCIES
   pry
   pry-byebug
   pry-rails
-  puma (~> 6.3)
+  puma (~> 6.4)
   rails (= 7.0.8)
   rgeo (~> 3.0)
   rspec-rails
