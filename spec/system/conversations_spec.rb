@@ -63,7 +63,7 @@ RSpec.describe 'Conversations' do
     expect(page).to have_css '.alert-danger'
   end
 
-  it 'displays unread messages in the navbar', js: true, skip: ENV['CI'] do
+  it 'displays unread messages in the navbar', :js, skip: ENV['CI'] do
     receiver = create(:user, uid: '123456')
     sender = create(:user)
     itinerary = create(:itinerary, user: receiver)
