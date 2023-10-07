@@ -102,9 +102,9 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     character_set (1.7.0)
-    client_side_validations (22.0.0)
+    client_side_validations (22.1.0)
       js_regex (~> 3.7)
-      rails (>= 6.1, < 7.1)
+      rails (>= 6.1, < 7.2)
     client_side_validations-simple_form (16.0.0)
       client_side_validations (~> 22.0)
       simple_form (~> 5.2)
@@ -203,14 +203,14 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     multi_xml (0.6.0)
-    net-imap (0.3.7)
+    net-imap (0.4.0)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
     net-protocol (0.2.1)
       timeout
-    net-smtp (0.3.3)
+    net-smtp (0.4.0)
       net-protocol
     netrc (0.11.0)
     newrelic_rpm (9.5.0)
@@ -433,7 +433,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zache (0.13.1)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   ruby
@@ -446,7 +446,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara
-  client_side_validations (~> 22.0)
+  client_side_validations (~> 22.1)
   client_side_validations-simple_form (~> 16.0)
   devise (~> 4.9)
   email_spec
