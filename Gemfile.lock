@@ -365,7 +365,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
-    shakapacker (7.0.3)
+    shakapacker (7.1.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
@@ -433,7 +433,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zache (0.13.1)
-    zeitwerk (2.6.11)
+    zeitwerk (2.6.12)
 
 PLATFORMS
   ruby
@@ -476,7 +476,7 @@ DEPENDENCIES
   rubocop-rspec
   secure_headers (~> 6.5)
   selenium-webdriver
-  shakapacker (= 7.0.3)
+  shakapacker (= 7.1.0)
   simple_form (~> 5.2)
   simpleconfig (~> 2.0)
   simplecov
