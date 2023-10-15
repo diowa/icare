@@ -12,12 +12,10 @@ module UsersHelper
   end
 
   def user_profile_picture(user, size: DEFAULT_USER_PROFILE_SIZE, type: :square, options: {})
-    tag.img(**{
-      width:  size,
-      height: size,
-      src:    auth0_profile_picture(user, type),
-      alt:    '',
-      class:  'img-fluid'
-    }.merge(options))
+    tag.img(width:  size,
+            height: size,
+            src:    auth0_profile_picture(user, type),
+            alt:    '',
+            class:  'img-fluid', **options)
   end
 end
