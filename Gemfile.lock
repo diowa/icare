@@ -76,7 +76,7 @@ GEM
     airbrake-ruby (6.2.2)
       rbtree3 (~> 0.6)
     ast (2.4.2)
-    auth0 (5.14.2)
+    auth0 (5.15.0)
       addressable (~> 2.8)
       jwt (~> 2.7)
       rest-client (~> 2.1)
@@ -85,7 +85,7 @@ GEM
     base64 (0.1.1)
     bcrypt (3.1.19)
     bindex (0.8.1)
-    bootsnap (1.16.0)
+    bootsnap (1.17.0)
       msgpack (~> 1.2)
     builder (3.2.4)
     bullet (7.1.2)
@@ -204,7 +204,7 @@ GEM
     minitest (5.20.0)
     msgpack (1.7.2)
     multi_xml (0.6.0)
-    net-imap (0.4.2)
+    net-imap (0.4.3)
       date
       net-protocol
     net-pop (0.1.2)
@@ -214,7 +214,8 @@ GEM
     net-smtp (0.4.0)
       net-protocol
     netrc (0.11.0)
-    newrelic_rpm (9.5.0)
+    newrelic_rpm (9.6.0)
+      base64
     nio4r (2.5.9)
     nokogiri (1.15.4)
       mini_portile2 (~> 2.8.2)
@@ -256,7 +257,7 @@ GEM
     public_suffix (5.0.3)
     puma (6.4.0)
       nio4r (~> 2.0)
-    racc (1.7.1)
+    racc (1.7.2)
     rack (2.2.8)
     rack-protection (3.1.0)
       rack (~> 2.2, >= 2.2.4)
@@ -441,8 +442,8 @@ PLATFORMS
 DEPENDENCIES
   activerecord-postgis-adapter (~> 8.0)
   airbrake (~> 13.0)
-  auth0 (~> 5.14)
-  bootsnap (~> 1.16)
+  auth0 (~> 5.15)
+  bootsnap (~> 1.17)
   bullet
   byebug
   capybara
@@ -458,7 +459,7 @@ DEPENDENCIES
   inline_svg (~> 1.9)
   jbuilder (~> 2.11)
   kaminari (~> 1.2)
-  newrelic_rpm (~> 9.5)
+  newrelic_rpm (~> 9.6)
   omniauth (~> 2.1)
   omniauth-auth0 (~> 3.1)
   omniauth-rails_csrf_protection (~> 1.0)
