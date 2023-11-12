@@ -14,7 +14,7 @@ class Conversation < ApplicationRecord
     joins(:messages).where(messages: { read_at: nil }).where.not(messages: { sender: user })
   }
 
-  validates :sender, uniqueness: { scope: %i[conversable_id conversable_type receiver_id], message: :already_exists }
+  validates :sender, uniqueness: { scope: %i[conversable_id conversable_type receiver_id] }
   validate :no_self_conversation
 
   def last_unread_message(user)

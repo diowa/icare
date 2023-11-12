@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   around_action :localize_route
   around_action :time_zone_from_user, if: -> { user_signed_in? && current_user.time_zone? }
 
+  def banned; end
+
   private
 
   def after_sign_in_path_for(_resource_or_scope)
