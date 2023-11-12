@@ -69,7 +69,7 @@ en-US:
               invalid: is not a valid email
         itinerary:
           attributes:
-            route:
+            base:
               out_of_boundaries: is not included within the authorized geographic area.
             pink:
               driver_must_be_female: only women can create pink itineraries
