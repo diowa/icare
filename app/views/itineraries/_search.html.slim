@@ -9,7 +9,7 @@
       = f.input :filter_pink, as: :boolean, label: Itinerary.human_attribute_name(:pink), hint: t('itineraries.form.pink_hint')
     = f.input :filter_round_trip, as: :boolean, label: Itinerary.human_attribute_name(:round_trip), wrapper_class: 'mb-2'
     - %i[smoking_allowed pets_allowed].each do |boolean_field|
-      = f.input "filter_#{boolean_field}".to_sym, collection: boolean_options_for_select, include_blank: true, label: Itinerary.human_attribute_name(boolean_field), input_html: { class: 'form-select-sm' }, wrapper_class: 'mb-2'
+      = f.input :"filter_#{boolean_field}", collection: boolean_options_for_select, include_blank: true, label: Itinerary.human_attribute_name(boolean_field), input_html: { class: 'form-select-sm' }, wrapper_class: 'mb-2'
     = f.input :filter_driver_gender, collection: options_for_array_collection(User, :gender), include_blank: true, label: Itinerary.human_attribute_name(:driver_gender), input_html: { class: 'form-select-sm' }
   .form-group
     = f.hidden_field :start_location_lat
