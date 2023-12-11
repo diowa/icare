@@ -20,18 +20,18 @@ module GeoItinerary
     %i[start_location end_location].each do |geo_field|
       define_method :"#{geo_field}=" do |value|
         value = "POINT(#{value.join ' '})" if value.is_a?(Array)
-        super value
+        super(value)
       end
     end
 
     def overview_path=(value)
       value = "LINESTRING(#{value.map { |p| p.join(' ') }.join(', ')})" if value.is_a?(Array) && value.all?(Array)
-      super value
+      super(value)
     end
 
     def via_waypoints=(value)
       value = "MULTIPOINT(#{value.map { |p| p.join(' ') }.join(', ')})" if value.is_a?(Array) && value.all?(Array)
-      super value
+      super(value)
     end
 
     def inside_bounds
