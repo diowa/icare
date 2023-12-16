@@ -426,7 +426,7 @@ GEM
       hashie
       version_gem (~> 1.1, >= 1.1.1)
     stringio (3.0.9)
-    sucker_punch (3.1.0)
+    sucker_punch (3.2.0)
       concurrent-ruby (~> 1.0)
     temple (0.10.3)
     thor (1.3.0)
@@ -513,7 +513,7 @@ DEPENDENCIES
   simplecov-lcov
   slim-rails (~> 3.6)
   slim_lint
-  sucker_punch (~> 3.1)
+  sucker_punch (~> 3.2)
   turbolinks (~> 5.2)
   tzinfo-data
   validates_timeliness (~> 7.0.0.beta2)
