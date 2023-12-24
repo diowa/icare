@@ -79,8 +79,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each, :js, type: :system) do
-    driver = ActiveModel::Type::Boolean::FALSE_VALUES.include?(ENV['HEADLESS']) ? :chrome : :headless_chrome
-    driven_by :selenium, using: driver
+    driven_by :custom_chrome
     SeleniumBrowserErrorReporter.clear_error_logs!(page)
   end
 
