@@ -1,31 +1,36 @@
 version: 2
 updates:
-- package-ecosystem: bundler
-  directory: "/"
-  schedule:
-    interval: weekly
-    day: "saturday"
-  open-pull-requests-limit: 10
-  groups:
-    rubocop:
-      patterns:
-        - "rubocop*"
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: weekly
-    day: "saturday"
-  open-pull-requests-limit: 10
-  groups:
-    babel:
-      patterns:
-        - "@babel/*"
-    fontawesome:
-      patterns:
-        - "@fortawesome/*"
-    rails:
-      patterns:
-        - "@rails/*"
-    webpack:
-      patterns:
-        - "webpack*"
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: "saturday"
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: "saturday"
+    open-pull-requests-limit: 10
+    groups:
+      rubocop:
+        patterns:
+          - "rubocop*"
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+      day: "saturday"
+    open-pull-requests-limit: 10
+    groups:
+      babel:
+        patterns:
+          - "@babel/*"
+      fontawesome:
+        patterns:
+          - "@fortawesome/*"
+      rails:
+        patterns:
+          - "@rails/*"
+      webpack:
+        patterns:
+          - "webpack*"
