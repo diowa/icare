@@ -48,7 +48,7 @@ jobs:
         bundler-cache: true
         cache-version: 1
     - name: Set up Node
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '18'
         cache: 'yarn'
