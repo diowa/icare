@@ -1,28 +1,14 @@
+const ESLintPlugin = require('eslint-webpack-plugin')
 const StyleLintPlugin = require('stylelint-webpack-plugin')
 
 module.exports = {
   envSpecificConfig: {
-    module: {
-      rules: [
-        {
-          test: /\.js$/,
-          exclude: /vendor\/.+\.js$/,
-          loader: 'standard-loader',
-          options: {
-            globals: [
-              '$',
-              'ClientSideValidations',
-              'google',
-              'Handlebars',
-              'HandlebarsTemplates',
-              'InfoBox',
-              'initGoogleMaps'
-            ]
-          }
-        }
-      ]
-    },
     plugins: [
+      new ESLintPlugin({
+        failOnError: false,
+        files: 'app/javascript/**/*.js',
+        exclude: 'app/javascript/**/vendor/*.js'
+      }),
       new StyleLintPlugin({
         failOnError: false,
         files: 'app/javascript/**/*.(s(c|a)ss|css)'
