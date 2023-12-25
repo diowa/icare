@@ -11,7 +11,7 @@ namespace :yarn do
 
     system(
       { 'NODE_ENV' => node_env },
-      "#{RbConfig.ruby} \"#{Rails.root.join("bin/yarn\" #{args[:command]}")}",
+      "#{RbConfig.ruby} \"#{Rails.root.join('bin/yarn')}\" #{args[:command]}",
       exception: true
     )
   rescue Errno::ENOENT
@@ -19,9 +19,9 @@ namespace :yarn do
     exit 1
   end
 
-  desc 'Run `bin/yarn stylelint app/**/*.scss`'
+  desc 'Run `bin/yarn stylelint app/**/*.{scss,css}`'
   task :stylelint do
-    Rake::Task['yarn:run'].execute(command: "stylelint #{Dir.glob('app/**/*.scss').join(' ')}")
+    Rake::Task['yarn:run'].execute(command: "stylelint #{Dir.glob('app/**/*.{scss,css}').join(' ')}")
   end
 
   desc 'Run `bin/yarn eslint`'
