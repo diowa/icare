@@ -24,12 +24,12 @@ namespace :yarn do
     Rake::Task['yarn:run'].execute(command: "stylelint #{Dir.glob('app/**/*.scss').join(' ')}")
   end
 
-  desc 'Run `bin/yarn standard`'
-  task :standard do
-    Rake::Task['yarn:run'].execute(command: 'standard')
+  desc 'Run `bin/yarn eslint`'
+  task :eslint do
+    Rake::Task['yarn:run'].execute(command: 'eslint app/**/*.js')
   end
   # rubocop:enable Rails/RakeEnvironment
 end
 
 task(:lint).sources.push 'yarn:stylelint'
-task(:lint).sources.push 'yarn:standard'
+task(:lint).sources.push 'yarn:eslint'
