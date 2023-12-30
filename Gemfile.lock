@@ -234,7 +234,7 @@ GEM
     newrelic_rpm (9.6.0)
       base64
     nio4r (2.7.0)
-    nokogiri (1.15.5)
+    nokogiri (1.16.0)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     oauth2 (2.0.9)
@@ -258,6 +258,7 @@ GEM
       actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
+    package_json (0.1.0)
     parallel (1.24.0)
     parser (3.2.2.4)
       ast (~> 2.4.1)
@@ -396,8 +397,9 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
-    shakapacker (7.1.0)
+    shakapacker (7.2.0)
       activesupport (>= 5.2)
+      package_json
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
@@ -506,7 +508,7 @@ DEPENDENCIES
   rubocop-rspec
   secure_headers (~> 6.5)
   selenium-webdriver
-  shakapacker (= 7.1.0)
+  shakapacker (= 7.2.0)
   simple_form (~> 5.3)
   simpleconfig (~> 2.0)
   simplecov
