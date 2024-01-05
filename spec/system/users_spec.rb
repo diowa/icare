@@ -4,13 +4,13 @@ require 'rails_helper'
 
 RSpec.describe 'Users' do
   it 'does not see reports' do
-    expect(page).not_to have_css('#navbar-notifications-reports')
+    expect(page).to have_no_css('#navbar-notifications-reports')
   end
 
   it 'does not see users index' do
     visit admin_users_path
 
-    expect(page).not_to have_current_path admin_users_path
+    expect(page).to have_no_current_path admin_users_path
   end
 
   it 'allows to delete account' do
@@ -18,7 +18,7 @@ RSpec.describe 'Users' do
 
     login_via_auth0
 
-    click_link t('delete_account')
+    click_on t('delete_account')
 
     expect(page).to have_current_path root_path
     expect(User.count).to be 0
@@ -31,7 +31,7 @@ RSpec.describe 'Users' do
       login_via_auth0
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: '0.29'
-      click_button t('helpers.submit.update', model: User)
+      click_on t('helpers.submit.update', model: User)
       expect(user.reload.vehicle_avg_consumption).to eq 0.29
       expect(find_by_id('user_vehicle_avg_consumption').value).to eq '0.29'
     end
@@ -41,7 +41,7 @@ RSpec.describe 'Users' do
       login_via_auth0
       visit settings_path
       fill_in 'user_vehicle_avg_consumption', with: nil
-      click_button t('helpers.submit.update', model: User)
+      click_on t('helpers.submit.update', model: User)
       expect(page).to have_css '.alert.alert-danger'
     end
   end

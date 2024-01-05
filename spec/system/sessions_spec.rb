@@ -13,7 +13,7 @@ RSpec.describe 'Sessions' do
   it 'allows users to logout' do
     login_via_auth0
 
-    click_link t('logout')
+    click_on t('logout')
     expect(page).to have_content t('login_with_auth0')
   end
 

@@ -8,10 +8,10 @@ RSpec.describe 'Feedbacks' do
 
     login_via_auth0
 
-    click_link Feedback.model_name.human
-    click_link t('helpers.links.new')
+    click_on Feedback.model_name.human
+    click_on t('helpers.links.new')
     fill_in 'feedback_message', with: 'This is a new feedback'
-    click_button t('helpers.submit.create', model: Feedback)
+    click_on t('helpers.submit.create', model: Feedback)
     expect(page).to have_current_path feedbacks_path
     expect(page).to have_content t('flash.feedbacks.success.create')
   end
@@ -23,9 +23,9 @@ RSpec.describe 'Feedbacks' do
     login_via_auth0
     visit feedback_path(feedback)
 
-    click_link t('helpers.links.edit')
+    click_on t('helpers.links.edit')
     fill_in 'feedback_message', with: 'This is a modified message'
-    click_button t('helpers.submit.update', model: Feedback)
+    click_on t('helpers.submit.update', model: Feedback)
     expect(page).to have_current_path feedbacks_path
     expect(page).to have_content t('flash.feedbacks.success.update')
     expect(feedback.reload.message).to eq 'This is a modified message'
@@ -38,9 +38,9 @@ RSpec.describe 'Feedbacks' do
     login_via_auth0
     visit feedback_path(feedback)
 
-    click_link t('helpers.links.edit')
+    click_on t('helpers.links.edit')
     fill_in 'feedback_message', with: 'This is a modified message'
-    click_button t('helpers.submit.update', model: Feedback)
+    click_on t('helpers.submit.update', model: Feedback)
     expect(page).to have_current_path feedbacks_path
     expect(page).to have_content t('flash.feedbacks.success.update')
     expect(feedback.reload.message).to eq 'This is a modified message'
@@ -53,9 +53,9 @@ RSpec.describe 'Feedbacks' do
     login_via_auth0
     visit feedback_path(feedback)
 
-    click_link t('helpers.links.edit')
+    click_on t('helpers.links.edit')
     select 'fixed', from: 'feedback_status'
-    click_button t('helpers.submit.update', model: Feedback)
+    click_on t('helpers.submit.update', model: Feedback)
     expect(page).to have_current_path feedbacks_path
     expect(page).to have_content t('flash.feedbacks.success.update')
     expect(feedback.reload.fixed?).to be true
@@ -106,7 +106,7 @@ RSpec.describe 'Feedbacks' do
     login_via_auth0
     visit new_feedback_path
 
-    click_button t('helpers.submit.create', model: Feedback)
+    click_on t('helpers.submit.create', model: Feedback)
     expect(page).to have_css '.alert-danger'
   end
 
@@ -117,7 +117,7 @@ RSpec.describe 'Feedbacks' do
     login_via_auth0
     visit edit_feedback_path(feedback)
     fill_in 'feedback_message', with: ''
-    click_button t('helpers.submit.update', model: Feedback)
+    click_on t('helpers.submit.update', model: Feedback)
     expect(page).to have_css '.alert-danger'
   end
 end

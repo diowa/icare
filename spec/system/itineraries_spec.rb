@@ -48,13 +48,13 @@ RSpec.describe 'Itineraries' do
 
       fill_in 'itinerary_start_address', with: 'Milan'
       fill_in 'itinerary_end_address', with: 'Turin'
-      click_button 'get-route'
+      click_on 'get-route'
 
       Timeout.timeout(5) do
         sleep(0.1) until page.evaluate_script('$("#map-result-j #distance").text().trim()') != ''
       end
 
-      click_button 'wizard-next-step-button'
+      click_on 'wizard-next-step-button'
 
       leave_date = Time.zone.parse("#{10.days.from_now.to_date} 8:30")
       select leave_date.day.to_s, from: 'itinerary_leave_date_3i'
@@ -65,7 +65,7 @@ RSpec.describe 'Itineraries' do
 
       expect(page).to have_css('#itinerary_return_date_3i[disabled]')
       check 'itinerary_round_trip'
-      expect(page).not_to have_css('#itinerary_return_date_3i[disabled]')
+      expect(page).to have_no_css('#itinerary_return_date_3i[disabled]')
 
       return_date = Time.zone.parse("#{35.days.from_now.to_date} 9:10")
       select return_date.day.to_s, from: 'itinerary_return_date_3i'
@@ -80,7 +80,7 @@ RSpec.describe 'Itineraries' do
       fill_in 'itinerary_description', with: 'MUSIC VERY LOUD!!!'
       find('label[for="itinerary_pink"]').click
       find('label[for="itinerary_pets_allowed"]').click
-      click_button 'new_itinerary_submit-j'
+      click_on 'new_itinerary_submit-j'
 
       expect(page).to have_content t('flash.itineraries.success.create')
       expect(page).to have_content 'Milan'
@@ -113,7 +113,7 @@ RSpec.describe 'Itineraries' do
 
       fill_in 'itineraries_search_from', with: 'Milan'
       fill_in 'itineraries_search_to', with: 'Turin'
-      click_button 'itineraries-search'
+      click_on 'itineraries-search'
       expect(page).to have_css('.itinerary-thumbnail', count: 2)
       within(".itinerary-thumbnail[data-itinerary-id=\"#{itinerary.id}\"]") do
         expect(page).to have_content itinerary.title
@@ -150,7 +150,7 @@ RSpec.describe 'Itineraries' do
       find("a[data-method=\"delete\"][href=\"#{itinerary_path(itinerary)}\"]").click
 
       expect(page).to have_content t('flash.itineraries.success.destroy')
-      expect(page).not_to have_content itinerary.title
+      expect(page).to have_no_content itinerary.title
     end
 
     it 'allows users to edit their own ones' do
@@ -161,7 +161,7 @@ RSpec.describe 'Itineraries' do
 
       find("a[href=\"#{edit_itinerary_path(itinerary)}\"]").click
       fill_in 'itinerary_description', with: 'New Description'
-      click_button t('helpers.submit.update', model: Itinerary.model_name.human)
+      click_on t('helpers.submit.update', model: Itinerary.model_name.human)
       expect(page).to have_content t('flash.itineraries.success.update')
       expect(page).to have_content 'New Description'
     end
@@ -194,7 +194,7 @@ RSpec.describe 'Itineraries' do
 
       find("a[href=\"#{edit_itinerary_path(itinerary)}\"]").click
       fill_in 'itinerary_description', with: ''
-      click_button t('helpers.submit.update', model: Itinerary.model_name.human)
+      click_on t('helpers.submit.update', model: Itinerary.model_name.human)
       expect(page).to have_css '.alert-danger'
     end
   end
@@ -208,8 +208,8 @@ RSpec.describe 'Itineraries' do
 
       expect(page).to have_current_path itinerary_path(itinerary)
       expect(page).to have_content itinerary.description
-      expect(page).not_to have_content 'John Doe'
-      expect(page).not_to have_css('.nav-link__user-image')
+      expect(page).to have_no_content 'John Doe'
+      expect(page).to have_no_css('.nav-link__user-image')
     end
 
     it "doesn't allow guests to see pink itineraries" do
