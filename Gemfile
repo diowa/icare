@@ -39,7 +39,6 @@ gem 'slim-rails', '~> 3.6'
 gem 'sucker_punch', '~> 3.2'
 gem 'turbolinks', '~> 5.2'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-gem 'validates_timeliness', '~> 7.0.0.beta2'
 
 group :development, :test do
   gem 'bullet'

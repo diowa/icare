@@ -30,10 +30,10 @@ RSpec.describe 'Conversations' do
     visit new_conversation_path(itinerary_id: itinerary.id)
 
     fill_in 'conversation_message_body', with: message
-    click_button t('conversations.form.send')
+    click_on t('conversations.form.send')
     expect(page).to have_content message
     fill_in 'conversation_message_body', with: another_message
-    click_button t('conversations.form.send')
+    click_on t('conversations.form.send')
     expect(page).to have_content message
     expect(page).to have_content another_message
   end
@@ -42,7 +42,7 @@ RSpec.describe 'Conversations' do
     login_via_auth0
     visit new_conversation_path(itinerary_id: itinerary.id)
 
-    click_button t('conversations.form.send')
+    click_on t('conversations.form.send')
 
     expect(page).to have_css '.alert-danger'
   end
@@ -58,7 +58,7 @@ RSpec.describe 'Conversations' do
     login_via_auth0
     visit conversation_path(conversation, itinerary_id: itinerary.id)
 
-    click_button t('conversations.form.send')
+    click_on t('conversations.form.send')
 
     expect(page).to have_css '.alert-danger'
   end
