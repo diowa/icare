@@ -41,7 +41,7 @@
     "resolve-url-loader": "^5.0.0",
     "sass": "~1.69.7",
     "sass-loader": "^13.3.3",
-    "shakapacker": "7.2.1",
+    "shakapacker": "7.2.2",
     "style-loader": "^3.3.4",
     "terser-webpack-plugin": "^5.3.10",
     "turbolinks": "^5.2.0",
