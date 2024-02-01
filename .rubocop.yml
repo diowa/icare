@@ -57,12 +57,6 @@ Rails/HelperInstanceVariable:
 Rails/SkipsModelValidations:
   Enabled: false
 
-RSpec/DescribeClass:
-  Exclude:
-    - spec/features/**/*
-    - spec/requests/**/*
-    - spec/system/**/*
-
 RSpec/ExampleLength:
   Max: 42
 
