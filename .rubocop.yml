@@ -78,6 +78,9 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/NestedGroups:
   Max: 4
 
+Style/ArgumentsForwarding:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
