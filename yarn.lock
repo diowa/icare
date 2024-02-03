@@ -6044,16 +6044,16 @@ stylelint-stylistic@^0.4.3:
     postcss-value-parser "^4.2.0"
     style-search "^0.1.0"
 
-stylelint-webpack-plugin@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-4.1.1.tgz#d7f13f2f8610757ee23a510eca3a6b6bcb1a54e8"
-  integrity sha512-yOyd2AfrxfawxKDememazGVJX2vMq9o11E6HvBu4+SKvgK3ZulkjpYdI1muBTxItwoxH2UmfIZzQM+/M5V3kTQ==
+stylelint-webpack-plugin@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-webpack-plugin/-/stylelint-webpack-plugin-5.0.0.tgz#6315ee028c20d92be60ef2cedba6091c8107735d"
+  integrity sha512-f56OmfvIYfZpL5+TKg3LZ+Ehzoar5GAwytUtsdti+W6WhR3UpQC36vmXHsKxx9ibj7dKXCIKea6w0U+LdVSBmg==
   dependencies:
     globby "^11.1.0"
-    jest-worker "^29.5.0"
+    jest-worker "^29.7.0"
     micromatch "^4.0.5"
     normalize-path "^3.0.0"
-    schema-utils "^4.0.0"
+    schema-utils "^4.2.0"
 
 stylelint@^15.11.0:
   version "15.11.0"
