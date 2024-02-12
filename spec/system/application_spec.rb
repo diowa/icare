@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Application' do
-  it 'protects pages from guest users' do
+  it 'protects pages from guest users', js: true do
     visit dashboard_path
 
     expect(page).to have_content t('devise.failure.unauthenticated')
