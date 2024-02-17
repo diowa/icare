@@ -65,7 +65,7 @@
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.1.0",
     "stylelint-webpack-plugin": "^5.0.0",
-    "webpack-dev-server": "^4.15.1"
+    "webpack-dev-server": "^5.0.2"
   },
   "babel": {
     "presets": [
