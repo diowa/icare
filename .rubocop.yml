@@ -13,6 +13,7 @@ AllCops:
   ExtraDetails: true
   Exclude:
     - Brewfile
+    - '.git/**/*'
     - 'bin/*'
     - 'db/**/*'
     - 'log/**/*'
