@@ -42,7 +42,7 @@
     "sass": "^1.71.1",
     "sass-loader": "^14.1.1",
     "shakapacker": "7.2.3",
-    "style-loader": "^3.3.4",
+    "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.10",
     "turbolinks": "^5.2.0",
     "webpack": "^5.90.3",
