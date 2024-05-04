@@ -34,3 +34,6 @@ updates:
       webpack:
         patterns:
           - "webpack*"
+    ignore:
+      - dependency-name: eslint
+        versions: ">= 9" # FIXME: diowa/ruby3-rails7-bootstrap-heroku#843
