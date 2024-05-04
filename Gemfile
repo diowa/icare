@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.3.0'
+ruby '3.3.1'
 
 gem 'rails', '7.1.3.2'
 
@@ -22,7 +22,7 @@ gem 'friendly_id', '~> 5.5'
 gem 'http_accept_language', '~> 2.1'
 gem 'i18n-js', '~> 4.2'
 gem 'inline_svg', '~> 1.9'
-gem 'jbuilder', '~> 2.11'
+gem 'jbuilder', '~> 2.12'
 gem 'kaminari', '~> 1.2'
 gem 'newrelic_rpm', '~> 9.9'
 gem 'omniauth', '~> 2.1'
