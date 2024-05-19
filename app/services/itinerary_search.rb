@@ -23,11 +23,11 @@ class ItinerarySearch
     itineraries = Itinerary.includes(:user).where(filters)
 
     # Get itineraries from A to B
-    from_a_to_b_itineraries = itineraries.where(*geographic_conditions(start_location, end_location)).where('leave_date >= ?', now)
+    from_a_to_b_itineraries = itineraries.where(*geographic_conditions(start_location, end_location)).where(leave_date: now..)
 
     # Get itineraries from B to A, unless passenger searched for a round trip
     # NOTE: Think about it - driver may need a travelmate for the whole trip
-    from_b_to_a_itineraries = filters[:round_trip] ? itineraries.none : itineraries.where(*geographic_conditions(end_location, start_location)).where('return_date >= ?', now)
+    from_b_to_a_itineraries = filters[:round_trip] ? itineraries.none : itineraries.where(*geographic_conditions(end_location, start_location)).where(return_date: now..)
 
     from_a_to_b_itineraries.or(from_b_to_a_itineraries)
   end
