@@ -39,7 +39,7 @@
     "postcss-loader": "^8.1.1",
     "postcss-preset-env": "^9.5.13",
     "resolve-url-loader": "^5.0.0",
-    "sass": "^1.76.0",
+    "sass": "^1.77.2",
     "sass-loader": "^14.2.1",
     "shakapacker": "7.2.3",
     "style-loader": "^4.0.0",
