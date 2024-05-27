@@ -26,12 +26,12 @@ module GeoItinerary
 
     def overview_path=(value)
       value = "LINESTRING(#{value.map { |p| p.join(' ') }.join(', ')})" if value.is_a?(Array) && value.all?(Array)
-      super(value)
+      super
     end
 
     def via_waypoints=(value)
       value = "MULTIPOINT(#{value.map { |p| p.join(' ') }.join(', ')})" if value.is_a?(Array) && value.all?(Array)
-      super(value)
+      super
     end
 
     def inside_bounds
