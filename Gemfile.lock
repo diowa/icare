@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/tagliala/inline_svg.git
+  revision: 3aa0e487be2bd280f3d0c22b7a9e93df4370018e
+  branch: feat/support-shakapacker
+  specs:
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -170,9 +179,6 @@ GEM
     i18n-js (4.2.3)
       glob (>= 0.4.0)
       i18n
-    inline_svg (1.9.0)
-      activesupport (>= 3.0)
-      nokogiri (>= 1.6)
     io-console (0.7.2)
     irb (1.14.0)
       rdoc (>= 4.0.0)
@@ -496,7 +502,7 @@ DEPENDENCIES
   friendly_id (~> 5.5)
   http_accept_language (~> 2.1)
   i18n-js (~> 4.2)
-  inline_svg (~> 1.9)
+  inline_svg!
   jbuilder (~> 2.12)
   kaminari (~> 1.2)
   newrelic_rpm (~> 9.11)
