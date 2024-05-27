@@ -325,10 +325,10 @@ GEM
     rainbow (3.1.1)
     rake (13.2.1)
     rbtree3 (0.7.1)
-    rdoc (6.6.3.1)
+    rdoc (6.7.0)
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
-    regexp_property_values (1.5.1)
+    regexp_property_values (1.5.2)
     reline (0.5.7)
       io-console (~> 0.5)
     responders (3.1.1)
@@ -363,7 +363,7 @@ GEM
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
     rspec-support (3.13.1)
-    rubocop (1.63.5)
+    rubocop (1.64.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -470,7 +470,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zache (0.13.1)
-    zeitwerk (2.6.14)
+    zeitwerk (2.6.15)
 
 PLATFORMS
   ruby
