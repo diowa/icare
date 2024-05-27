@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/tagliala/inline_svg.git
+  revision: 770434c2adac1dc8fc395667d0a5f682bdd8a9d3
+  branch: feat/support-shakapacker
+  specs:
+    inline_svg (1.9.0)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -169,9 +178,6 @@ GEM
     i18n-js (4.2.3)
       glob (>= 0.4.0)
       i18n
-    inline_svg (1.9.0)
-      activesupport (>= 3.0)
-      nokogiri (>= 1.6)
     io-console (0.7.2)
     irb (1.13.1)
       rdoc (>= 4.0.0)
@@ -404,7 +410,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
-    shakapacker (7.2.3)
+    shakapacker (8.0.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -492,7 +498,7 @@ DEPENDENCIES
   friendly_id (~> 5.5)
   http_accept_language (~> 2.1)
   i18n-js (~> 4.2)
-  inline_svg (~> 1.9)
+  inline_svg!
   jbuilder (~> 2.12)
   kaminari (~> 1.2)
   newrelic_rpm (~> 9.9)
@@ -513,7 +519,7 @@ DEPENDENCIES
   rubocop-rspec
   secure_headers (~> 6.5)
   selenium-webdriver
-  shakapacker (= 7.2.3)
+  shakapacker (= 8.0.0)
   simple_form (~> 5.3)
   simpleconfig (~> 2.0)
   simplecov
