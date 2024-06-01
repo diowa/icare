@@ -234,7 +234,7 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     netrc (0.11.0)
-    newrelic_rpm (9.9.0)
+    newrelic_rpm (9.10.0)
     nio4r (2.7.3)
     nokogiri (1.16.5)
       mini_portile2 (~> 2.8.2)
@@ -495,7 +495,7 @@ DEPENDENCIES
   inline_svg (~> 1.9)
   jbuilder (~> 2.12)
   kaminari (~> 1.2)
-  newrelic_rpm (~> 9.9)
+  newrelic_rpm (~> 9.10)
   omniauth (~> 2.1)
   omniauth-auth0 (~> 3.1)
   omniauth-rails_csrf_protection (~> 1.0)
