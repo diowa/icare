@@ -85,7 +85,7 @@ GEM
     airbrake-ruby (6.2.2)
       rbtree3 (~> 0.6)
     ast (2.4.2)
-    auth0 (5.16.0)
+    auth0 (5.17.0)
       addressable (~> 2.8)
       jwt (~> 2.7)
       rest-client (~> 2.1)
@@ -161,7 +161,7 @@ GEM
     hashie (5.0.0)
     htmlentities (4.3.4)
     http-accept (1.7.0)
-    http-cookie (1.0.5)
+    http-cookie (1.0.6)
       domain_name (~> 0.5)
     http_accept_language (2.1.1)
     i18n (1.14.5)
@@ -478,7 +478,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-postgis-adapter (~> 9.0)
   airbrake (~> 13.0)
-  auth0 (~> 5.16)
+  auth0 (~> 5.17)
   bootsnap (~> 1.18)
   bullet
   byebug
