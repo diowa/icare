@@ -112,9 +112,9 @@ GEM
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
     character_set (1.8.0)
-    client_side_validations (22.1.1)
+    client_side_validations (22.2.0)
       js_regex (~> 3.7)
-      rails (>= 6.1, < 7.2)
+      rails (>= 6.1, < 8.0)
     client_side_validations-simple_form (16.0.0)
       client_side_validations (~> 22.0)
       simple_form (~> 5.2)
@@ -216,7 +216,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2024.0507)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.6)
+    mini_portile2 (2.8.7)
     minitest (5.23.1)
     msgpack (1.7.2)
     multi_xml (0.7.1)
@@ -224,7 +224,7 @@ GEM
     mutex_m (0.2.0)
     net-http (0.4.1)
       uri
-    net-imap (0.4.11)
+    net-imap (0.4.12)
       date
       net-protocol
     net-pop (0.1.2)
@@ -329,7 +329,7 @@ GEM
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
     regexp_property_values (1.5.2)
-    reline (0.5.7)
+    reline (0.5.8)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -483,7 +483,7 @@ DEPENDENCIES
   bullet
   byebug
   capybara
-  client_side_validations (~> 22.1)
+  client_side_validations (~> 22.2)
   client_side_validations-simple_form (~> 16.0)
   devise (~> 4.9)
   email_spec
