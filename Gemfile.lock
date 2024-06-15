@@ -140,7 +140,7 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (~> 2.1)
       mail (~> 2.7)
-    erubi (1.12.0)
+    erubi (1.13.0)
     factory_bot (6.4.6)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.3)
@@ -236,7 +236,7 @@ GEM
     netrc (0.11.0)
     newrelic_rpm (9.10.2)
     nio4r (2.7.3)
-    nokogiri (1.16.5)
+    nokogiri (1.16.6)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     oauth2 (2.0.9)
@@ -262,7 +262,7 @@ GEM
     orm_adapter (0.5.0)
     package_json (0.1.0)
     parallel (1.25.1)
-    parser (3.3.2.0)
+    parser (3.3.3.0)
       ast (~> 2.4.1)
       racc
     pg (1.5.6)
@@ -329,7 +329,7 @@ GEM
       psych (>= 4.0.0)
     regexp_parser (2.9.2)
     regexp_property_values (1.5.2)
-    reline (0.5.8)
+    reline (0.5.9)
       io-console (~> 0.5)
     responders (3.1.1)
       actionpack (>= 5.2)
@@ -348,7 +348,7 @@ GEM
       rgeo (>= 1.0.0)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
-    rspec-expectations (3.13.0)
+    rspec-expectations (3.13.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-mocks (3.13.1)
@@ -432,7 +432,7 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    stringio (3.1.0)
+    stringio (3.1.1)
     strscan (3.1.0)
     sucker_punch (3.2.0)
       concurrent-ruby (~> 1.0)
@@ -468,7 +468,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zache (0.13.1)
-    zeitwerk (2.6.15)
+    zeitwerk (2.6.16)
 
 PLATFORMS
   ruby
@@ -530,4 +530,4 @@ RUBY VERSION
    ruby 3.3.2p78
 
 BUNDLED WITH
-   2.5.11
+   2.5.13
