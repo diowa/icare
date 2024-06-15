@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "engines": {
     "node": ">= 20.0",
-    "yarn": "^1.19.0"
+    "yarn": "^1.22.21"
   },
+  "packageManager": "yarn@1.22.21",
   "dependencies": {
     "@babel/core": "^7.24.7",
     "@babel/plugin-transform-runtime": "^7.24.7",
@@ -41,7 +42,7 @@
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.77.5",
     "sass-loader": "^14.2.1",
-    "shakapacker": "7.2.3",
+    "shakapacker": "8.0.0",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.10",
     "turbolinks": "^5.2.0",
