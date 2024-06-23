@@ -7,7 +7,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.3.2'
+ruby '3.3.3'
+
+# Needed until Ruby 3.3.4 is released https://github.com/ruby/ruby/pull/11006
+gem 'net-pop', github: 'ruby/net-pop'
 
 gem 'rails', '7.1.3.4'
 
@@ -24,7 +27,7 @@ gem 'i18n-js', '~> 4.2'
 gem 'inline_svg', '~> 1.9'
 gem 'jbuilder', '~> 2.12'
 gem 'kaminari', '~> 1.2'
-gem 'newrelic_rpm', '~> 9.10'
+gem 'newrelic_rpm', '~> 9.11'
 gem 'omniauth', '~> 2.1'
 gem 'omniauth-auth0', '~> 3.1'
 gem 'omniauth-rails_csrf_protection', '~> 1.0'
