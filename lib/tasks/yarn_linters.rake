@@ -11,7 +11,7 @@ namespace :yarn do
 
     system(
       { 'NODE_ENV' => node_env },
-      "#{RbConfig.ruby} \"#{Rails.root.join('bin/yarn')}\" #{args[:command]}",
+      "yarn #{args[:command]}",
       exception: true
     )
   rescue Errno::ENOENT
