@@ -346,7 +346,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     retryable (3.0.5)
-    rexml (3.3.2)
+    rexml (3.3.3)
       strscan
     rgeo (3.0.1)
     rgeo-activerecord (7.0.1)
