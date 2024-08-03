@@ -8,9 +8,9 @@
   },
   "packageManager": "yarn@1.22.22",
   "dependencies": {
-    "@babel/core": "^7.24.9",
+    "@babel/core": "^7.25.2",
     "@babel/plugin-transform-runtime": "^7.24.7",
-    "@babel/preset-env": "^7.25.0",
+    "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
     "@client-side-validations/client-side-validations": "^0.4.0",
     "@client-side-validations/simple-form": "^0.4.0",
@@ -52,7 +52,7 @@
     "webpack-merge": "^5.10.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.25.0",
+    "@babel/eslint-parser": "^7.25.1",
     "@types/express": "^4.17.21",
     "@webpack-cli/serve": "^2.0.5",
     "eslint": "^8.57.0",
@@ -61,7 +61,7 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.6.0",
     "eslint-webpack-plugin": "^4.2.0",
-    "stylelint": "^16.7.0",
+    "stylelint": "^16.8.1",
     "stylelint-config-twbs-bootstrap": "^14.2.0",
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.4.1",
