@@ -64,7 +64,7 @@
     "stylelint": "^16.8.1",
     "stylelint-config-twbs-bootstrap": "^14.2.0",
     "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^6.4.1",
+    "stylelint-scss": "^6.5.0",
     "stylelint-webpack-plugin": "^5.0.1",
     "webpack-dev-server": "^5.0.4"
   },
