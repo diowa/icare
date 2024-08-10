@@ -401,7 +401,7 @@ GEM
       rubocop-rspec (~> 3, >= 3.0.1)
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
-    secure_headers (6.5.0)
+    secure_headers (6.7.0)
     selenium-webdriver (4.23.0)
       base64 (~> 0.2)
       logger (~> 1.4)
@@ -519,7 +519,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   rubocop-rspec_rails
-  secure_headers (~> 6.5)
+  secure_headers (~> 6.7)
   selenium-webdriver
   shakapacker (= 7.2.3)
   simple_form (~> 5.3)
