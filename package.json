@@ -34,7 +34,7 @@
     "jquery": "^3.7.1",
     "jquery-ujs": "^1.2.3",
     "mini-css-extract-plugin": "^2.9.0",
-    "postcss": "^8.4.40",
+    "postcss": "^8.4.41",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-import": "^16.1.0",
     "postcss-loader": "^8.1.1",
@@ -64,7 +64,7 @@
     "stylelint": "^16.8.1",
     "stylelint-config-twbs-bootstrap": "^14.2.0",
     "stylelint-order": "^6.0.4",
-    "stylelint-scss": "^6.4.1",
+    "stylelint-scss": "^6.5.0",
     "stylelint-webpack-plugin": "^5.0.1",
     "webpack-dev-server": "^5.0.4"
   },
