@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 class Feedback < ApplicationRecord
-  enum category: {
+  enum :category, {
     bug:  'bug',
     idea: 'idea'
   }
 
-  enum status: {
+  enum :status, {
     normal:         'normal',
     fixed:          'fixed',
     in_progress:    'in_progress',
