@@ -59,7 +59,7 @@
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.6.0",
+    "eslint-plugin-promise": "^7.1.0",
     "eslint-webpack-plugin": "^4.2.0",
     "stylelint": "^16.9.0",
     "stylelint-config-twbs-bootstrap": "^15.0.0",
