@@ -5234,7 +5234,7 @@ postcss-replace-overflow-wrap@^4.0.0:
   resolved "https://registry.yarnpkg.com/postcss-replace-overflow-wrap/-/postcss-replace-overflow-wrap-4.0.0.tgz#d2df6bed10b477bf9c52fab28c568b4b29ca4319"
   integrity sha512-KmF7SBPphT4gPPcKZc7aDkweHiKEEO8cla/GjcBK+ckKxiZslIu3C4GCRW3DNfL0o7yW7kMQu9xlZ1kXRXLXtw==
 
-postcss-resolve-nested-selector@^0.1.4, postcss-resolve-nested-selector@^0.1.6:
+postcss-resolve-nested-selector@^0.1.6:
   version "0.1.6"
   resolved "https://registry.yarnpkg.com/postcss-resolve-nested-selector/-/postcss-resolve-nested-selector-0.1.6.tgz#3d84dec809f34de020372c41b039956966896686"
   integrity sha512-0sglIs9Wmkzbr8lQwEyIzlDOOC9bGmfVKcJTaxv3vMmd3uo4o4DerC3En0bnmgceeql9BfC8hRkp7cg0fjdVqw==
@@ -5256,7 +5256,7 @@ postcss-selector-not@^8.0.0:
   dependencies:
     postcss-selector-parser "^6.1.0"
 
-postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.1.0, postcss-selector-parser@^6.1.1, postcss-selector-parser@^6.1.2:
+postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4, postcss-selector-parser@^6.1.0, postcss-selector-parser@^6.1.2:
   version "6.1.2"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.1.2.tgz#27ecb41fb0e3b6ba7a1ec84fff347f734c7929de"
   integrity sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==
@@ -5990,17 +5990,17 @@ stylelint-order@^6.0.4:
     postcss "^8.4.32"
     postcss-sorting "^8.0.2"
 
-stylelint-scss@^6.4.0, stylelint-scss@^6.5.1:
-  version "6.5.1"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-6.5.1.tgz#bcb6a4ada71a0adbf181e155548e5f25ee4aeece"
-  integrity sha512-ZLqdqihm6uDYkrsOeD6YWb+stZI8Wn92kUNDhE4M+g9g1aCnRv0JlOrttFiAJJwaNzpdQgX3YJb5vDQXVuO9Ww==
+stylelint-scss@^6.4.0, stylelint-scss@^6.5.1, stylelint-scss@^6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-6.6.0.tgz#065626b152466df0167d09ee45b85f7ca4076f15"
+  integrity sha512-aK2Rdt41Jt9Gv/ClMN5BYhP7xR3IEoRMDKpJkIDI9frZQ6KkxeLishusxs2JtEGZdJWXvPoBOhswNxj3gx8L/g==
   dependencies:
     css-tree "2.3.1"
     is-plain-object "5.0.0"
     known-css-properties "^0.34.0"
     postcss-media-query-parser "^0.2.3"
-    postcss-resolve-nested-selector "^0.1.4"
-    postcss-selector-parser "^6.1.1"
+    postcss-resolve-nested-selector "^0.1.6"
+    postcss-selector-parser "^6.1.2"
     postcss-value-parser "^4.2.0"
 
 stylelint-webpack-plugin@^5.0.1:
