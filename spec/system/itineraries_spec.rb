@@ -50,9 +50,7 @@ RSpec.describe 'Itineraries' do
       fill_in 'itinerary_end_address', with: 'Turin'
       click_on 'get-route'
 
-      Timeout.timeout(5) do
-        sleep(0.1) until page.evaluate_script('$("#map-result-j #distance").text().trim()') != ''
-      end
+      expect(page).to have_css('#map-result-j:not(:empty)')
 
       click_on 'wizard-next-step-button'
 
