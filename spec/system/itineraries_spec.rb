@@ -27,7 +27,7 @@ RSpec.describe 'Itineraries' do
     def login_as_male
       male
       login_via_auth0
-      # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
+      # NOTE: without the below line, the first test will fail, like it didn't visit the authentication link
       expect(page).to have_current_path dashboard_path
     end
 
@@ -35,7 +35,7 @@ RSpec.describe 'Itineraries' do
       female
       OmniAuth.config.mock_auth[:auth0] = OMNIAUTH_MOCKED_AUTHHASH.merge info: { name: 'Johanna Doe' }, extra: { raw_info: { gender: 'female' } }
       login_via_auth0
-      # NOTE: without the below line, the first test will fail, like it didn't vist the authentication link
+      # NOTE: without the below line, the first test will fail, like it didn't visit the authentication link
       expect(page).to have_current_path dashboard_path
     ensure
       OmniAuth.config.mock_auth[:auth0] = OMNIAUTH_MOCKED_AUTHHASH
