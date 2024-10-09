@@ -57,6 +57,11 @@ jobs:
         run: pnpm install
       - name: Set up Database
         run: bundle exec rails db:prepare
+      - name: Force reinstall of RGeo with native extensions # Ref: diowa/icare#1783
+        run: |
+          bundle show rgeo
+          rm -rf `bundle show rgeo`
+          bundle
       - name: Check GEOS support
         run: bundle exec rails rgeo_supports_geos
       - name: Run specs
