@@ -21,12 +21,13 @@ jobs:
       with:
         ruby-version: '3.3.5'
         bundler-cache: true
+    - uses: pnpm/action-setup@v4
     - name: Set up Node
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-        cache: 'yarn'
-    - name: Yarn
-      run:  yarn
+        cache: 'pnpm'
+    - name: Install node dependencies
+      run: pnpm install
     - name: Run lints
       run: bundle exec rake lint
