@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "engines": {
     "node": ">= 20.0",
-    "yarn": "^1.22.22"
+    "pnpm": "^9.12.1"
   },
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "pnpm@^9.12.1",
   "dependencies": {
     "@babel/core": "^7.25.7",
     "@babel/plugin-transform-runtime": "^7.25.7",
