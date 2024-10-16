@@ -10,24 +10,104 @@ permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Lint
+  rubocop:
+    name: RuboCop
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+    - uses: tj-actions/changed-files@v45
+      id: changed-files
+      with:
+        files: |
+          .github/workflows/lint.yml
+          .rubocop.yml
+          **.rb
+          **.rake
+          Gemfile*
+          Rakefile
     - name: Set up Ruby
+      if: steps.changed-files.outputs.any_changed == 'true'
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.3.5'
         bundler-cache: true
+    - name: Run RuboCop
+      if: steps.changed-files.outputs.any_changed == 'true'
+      run: bundle exec rubocop --format github
+
+  slimlint:
+    name: Slim-Lint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: tj-actions/changed-files@v45
+      id: changed-files
+      with:
+        files: |
+          .github/workflows/lint.yml
+          .slim-lint.yml
+          **.slim
+    - name: Set up Ruby
+      if: steps.changed-files.outputs.any_changed == 'true'
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.3.5'
+        bundler-cache: true
+    - name: Run Slim-Lint
+      if: steps.changed-files.outputs.any_changed == 'true'
+      run: bundle exec slim-lint . -r github
+
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: tj-actions/changed-files@v45
+      id: changed-files
+      with:
+        files: |
+          .eslintignore
+          .eslintrc.cjs
+          .github/workflows/lint.yml
+          app/**/*.js
     - uses: pnpm/action-setup@v4
     - name: Set up Node
+      if: steps.changed-files.outputs.any_changed == 'true'
       uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'pnpm'
     - name: Install node dependencies
       run: pnpm install
-    - name: Run lints
-      run: bundle exec rake lint
+    - name: Run ESLint
+      if: steps.changed-files.outputs.any_changed == 'true'
+      run: pnpm eslint app/**/*.js
+
+  stylelint:
+    name: Stylelint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: tj-actions/changed-files@v45
+      id: changed-files
+      with:
+        files: |
+          .github/workflows/lint.yml
+          .stylelintrc
+          app/**/*.{scss,css}
+    - uses: pnpm/action-setup@v4
+    - name: Set up Node
+      if: steps.changed-files.outputs.any_changed == 'true'
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'pnpm'
+    - name: Install node dependencies
+      run: pnpm install
+    - name: Run Stylelint
+      if: steps.changed-files.outputs.any_changed == 'true'
+      run: pnpm stylelint app/**/*.{scss,css} --formatter=github
