@@ -401,7 +401,7 @@ GEM
     ruby-progressbar (1.13.0)
     rubyzip (2.3.2)
     secure_headers (7.0.0)
-    selenium-webdriver (4.25.0)
+    selenium-webdriver (4.26.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
