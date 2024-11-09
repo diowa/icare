@@ -30,7 +30,7 @@ jobs:
       if: steps.changed-files.outputs.any_changed == 'true'
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.3.5'
+        ruby-version: '3.3.6'
         bundler-cache: true
     - name: Run RuboCop
       if: steps.changed-files.outputs.any_changed == 'true'
@@ -53,7 +53,7 @@ jobs:
       if: steps.changed-files.outputs.any_changed == 'true'
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '3.3.5'
+        ruby-version: '3.3.6'
         bundler-cache: true
     - name: Run Slim-Lint
       if: steps.changed-files.outputs.any_changed == 'true'
@@ -108,6 +108,8 @@ jobs:
         cache: 'pnpm'
     - name: Install node dependencies
       run: pnpm install
+    - name: Install stylelint GitHub formatter
+      run: pnpm install @csstools/stylelint-formatter-github
     - name: Run Stylelint
       if: steps.changed-files.outputs.any_changed == 'true'
-      run: pnpm stylelint app/**/*.{scss,css} --formatter=github
+      run: pnpm stylelint app/**/*.{scss,css} --custom-formatter @csstools/stylelint-formatter-github
