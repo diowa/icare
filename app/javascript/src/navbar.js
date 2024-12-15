@@ -25,7 +25,7 @@ $(document).on('shown.bs.popover', '.notifications', function (e) {
         } else {
           $popover.find('.popover-body').text(i18n.t(`javascript.notifications.${$target.data('notificationsType')}.no_new`))
         }
-      }
+      },
     })
   }
 })
@@ -39,7 +39,7 @@ $(document).on(window.initializeOnEvent, () => $('.notifications').each(function
   const popoverData = {
     footer_url: $target.attr('href'),
     no_notifications_text: i18n.t(`javascript.notifications.${notificationsType}.no_new`),
-    footer_link_text: i18n.t(`javascript.notifications.${notificationsType}.see_all`)
+    footer_link_text: i18n.t(`javascript.notifications.${notificationsType}.see_all`),
   }
   const popoverTemplate = HandlebarsTemplates['notifications/base'](popoverData)
 
@@ -52,6 +52,6 @@ $(document).on(window.initializeOnEvent, () => $('.notifications').each(function
     container: $(this),
     content: $(popoverTemplate).find('.popover-body-loading').html(),
     template: popoverTemplate,
-    title: i18n.t(`javascript.notifications.${notificationsType}.title`)
+    title: i18n.t(`javascript.notifications.${notificationsType}.title`),
   })
 }))

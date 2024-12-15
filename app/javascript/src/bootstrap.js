@@ -26,7 +26,7 @@ export default {
   // ScrollSpy,
   // Tab,
   // Toast,
-  Tooltip
+  Tooltip,
 }
 
 $(document).on(window.initializeOnEvent, () => $('[data-bs-toggle="tooltip"]').tooltip())

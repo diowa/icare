@@ -2,7 +2,7 @@ import i18n from './i18n'
 
 window.icare = window.icare || {}
 const {
-  icare
+  icare,
 } = window
 
 const routeColoursArray = ['#0000ff', '#ff0000', '#00ffff', '#ff00ff', '#ffff00']
@@ -21,8 +21,8 @@ const indexItinerariesMapInit = function (id) {
     maxWidth: 400,
     pixelOffset: {
       width: 0,
-      height: -35
-    }
+      height: -35,
+    },
   })
 }
 
@@ -37,13 +37,13 @@ const drawPath = function (itinerary, strokeColor, strokeOpacity) {
     infoWindowContent: HandlebarsTemplates.gmaps_popup({
       user: {
         image: itinerary.user.image,
-        name: itinerary.user.name
+        name: itinerary.user.name,
       },
       url: itinerary.url,
-      content: itinerary.description
+      content: itinerary.description,
     }),
     type: 'user_profile_picture',
-    image: itinerary.user.image
+    image: itinerary.user.image,
   }
   )
   google.maps.event.addListener(customMarker, 'click', function () {
@@ -59,17 +59,17 @@ const drawPath = function (itinerary, strokeColor, strokeOpacity) {
     strokeWeight: 5,
     icons: [{
       icon: {
-        path: google.maps.SymbolPath.CIRCLE
+        path: google.maps.SymbolPath.CIRCLE,
       },
-      offset: '0%'
+      offset: '0%',
     },
     {
       icon: {
-        path: google.maps.SymbolPath.CIRCLE
+        path: google.maps.SymbolPath.CIRCLE,
       },
-      offet: '100%'
-    }
-    ]
+      offet: '100%',
+    },
+    ],
   })
   directionsPath.setMap(icare.map)
   icare.customMarkers[itinerary.id] = customMarker
@@ -105,7 +105,7 @@ const lookupPosition = function (searchField) {
         return deferred.resolve({
           formatted_address: firstResult.formatted_address,
           lat: firstResult.geometry.location.lat(),
-          lng: firstResult.geometry.location.lng()
+          lng: firstResult.geometry.location.lng(),
         })
       } else {
         return deferred.reject(status)

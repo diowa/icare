@@ -18,7 +18,7 @@ import i18n from './i18n'
 
 window.icare = window.icare || {}
 const {
-  icare
+  icare,
 } = window
 
 const setItinerary = function (route) {
@@ -44,7 +44,7 @@ const setItinerary = function (route) {
     end_location: [rleg.end_location.lng(), rleg.end_location.lat()],
     via_waypoints: [],
     overview_path: [],
-    overview_polyline: route.overview_polyline
+    overview_polyline: route.overview_polyline,
   }
 
   for (const waypoint of Array.from(rleg.via_waypoints)) {
@@ -101,7 +101,7 @@ const wizardNextStep = function () {
   let valid = true
   $('#new_itinerary [data-validate]:input:visible').each(function () {
     const {
-      validators
+      validators,
     } = this.form.ClientSideValidations.settings
     if (!$(this).isValid(validators)) { valid = false }
   })
@@ -142,7 +142,7 @@ const wizardNextStep = function () {
 
 const lastStepInit = function () {
   const {
-    route
+    route,
   } = window.icare
   const $itineraryPreviewImage = $('#itinerary-preview-image')
   const googleMapsApiKey = $itineraryPreviewImage.data('googleMapsApiKey')
@@ -155,8 +155,8 @@ const setRoute = function (dr, result) {
     polylineOptions: {
       strokeColor: '#0000ff',
       strokeWeight: 5,
-      strokeOpacity: 0.45
-    }
+      strokeOpacity: 0.45,
+    },
   })
   return dr.map.fitBounds(dr.directions.routes[0].bounds)
 }
@@ -187,7 +187,7 @@ const calculateRoute = function (dr, ds) {
     travelMode: 'DRIVING', // $("#mode").val()
     avoidHighways: $('#itinerary_avoid_highways').prop('checked'),
     avoidTolls: $('#itinerary_avoid_tolls').prop('checked'),
-    waypoints: getWaypoints()
+    waypoints: getWaypoints(),
   }
   , function (result, status) {
     $('#itineraries-spinner-j').hide()
@@ -216,7 +216,7 @@ const createRouteMapInit = function (id) {
   const dr = new google.maps.DirectionsRenderer({
     map,
     draggable: true,
-    preserveViewport: true
+    preserveViewport: true,
   })
 
   const ds = new google.maps.DirectionsService()
@@ -241,7 +241,7 @@ const createRouteMapInit = function (id) {
     let valid = true
     $('[data-validate]:input:visible').each(function () {
       const {
-        validators
+        validators,
       } = this.form.ClientSideValidations.settings
       if (!$(this).isValid(validators)) { valid = false }
     })
