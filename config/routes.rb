@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: [:index] do
       get :login_as, on: :member
-      post :ban, :unban, on: :member
+      post :ban, on: :member
+      post :unban, on: :member
     end
   end
 
