@@ -8,7 +8,7 @@ require:
 
 AllCops:
   TargetRailsVersion: 7.1
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
   NewCops: enable
   DisplayStyleGuide: true
   ExtraDetails: true
