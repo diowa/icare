@@ -118,7 +118,7 @@ GEM
     character_set (1.8.0)
     childprocess (5.1.0)
       logger (~> 1.5)
-    client_side_validations (22.3.0)
+    client_side_validations (22.3.1)
       js_regex (~> 3.7)
       rails (>= 6.1)
     client_side_validations-simple_form (16.0.0)
@@ -245,6 +245,7 @@ GEM
     net-protocol (0.2.2)
       timeout
     net-smtp (0.5.0)
+      net-protocol
     netrc (0.11.0)
     newrelic_rpm (9.17.0)
     nio4r (2.7.4)
@@ -296,7 +297,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.8)
+    rack (3.1.9)
     rack-protection (4.1.1)
       base64 (>= 0.1.0)
       logger (>= 1.6.0)
