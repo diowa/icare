@@ -9,9 +9,9 @@ end
 
 ruby '3.4.1'
 
-gem 'rails', '7.1.5.1'
+gem 'rails', '8.0.1'
 
-gem 'activerecord-postgis-adapter', '~> 9.0'
+gem 'activerecord-postgis-adapter', '~> 11.0'
 gem 'airbrake', '~> 13.0'
 gem 'auth0', '~> 5.18'
 gem 'bootsnap', '~> 1.18', require: false
