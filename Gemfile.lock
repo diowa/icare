@@ -192,7 +192,7 @@ GEM
       character_set (~> 1.4)
       regexp_parser (~> 2.10)
       regexp_property_values (~> 1.0)
-    json (2.10.1)
+    json (2.10.2)
     jwt (2.10.1)
       base64
     kaminari (1.2.2)
