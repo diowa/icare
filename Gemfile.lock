@@ -231,7 +231,7 @@ GEM
     mime-types-data (3.2025.0107)
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
-    minitest (5.25.4)
+    minitest (5.25.5)
     msgpack (1.7.5)
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
@@ -250,7 +250,7 @@ GEM
     netrc (0.11.0)
     newrelic_rpm (9.17.0)
     nio4r (2.7.4)
-    nokogiri (1.18.3)
+    nokogiri (1.18.4)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     oauth2 (2.0.9)
@@ -298,7 +298,7 @@ GEM
     puma (6.6.0)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.1.10)
+    rack (3.1.12)
     rack-protection (4.1.1)
       base64 (>= 0.1.0)
       logger (>= 1.6.0)
@@ -344,7 +344,7 @@ GEM
     rainbow (3.1.1)
     rake (13.2.1)
     rbtree3 (0.7.1)
-    rdoc (6.11.0)
+    rdoc (6.12.0)
       psych (>= 4.0.0)
     regexp_parser (2.10.0)
     regexp_property_values (1.5.2)
@@ -425,7 +425,7 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.1.0)
-    shakapacker (8.1.0)
+    shakapacker (8.2.0)
       activesupport (>= 5.2)
       package_json
       rack-proxy (>= 0.6.1)
@@ -456,7 +456,7 @@ GEM
     snaky_hash (2.0.1)
       hashie
       version_gem (~> 1.1, >= 1.1.1)
-    stringio (3.1.2)
+    stringio (3.1.5)
     sucker_punch (3.2.0)
       concurrent-ruby (~> 1.0)
     temple (0.10.3)
@@ -493,7 +493,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zache (0.13.2)
-    zeitwerk (2.7.1)
+    zeitwerk (2.7.2)
 
 PLATFORMS
   ruby
@@ -538,7 +538,7 @@ DEPENDENCIES
   rubocop-rspec_rails
   secure_headers (~> 7.1)
   selenium-webdriver
-  shakapacker (= 8.1.0)
+  shakapacker (= 8.2.0)
   simple_form (~> 5.3)
   simpleconfig (~> 2.0)
   simplecov
