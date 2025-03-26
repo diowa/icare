@@ -45,7 +45,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.1'
+          ruby-version: .ruby-version
           bundler-cache: true
       - uses: pnpm/action-setup@v4
       - name: Set up Node
