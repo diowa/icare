@@ -10,7 +10,7 @@ RSpec.describe 'Users' do
   it 'does not see users index' do
     visit admin_users_path
 
-    expect(page).to have_no_current_path admin_users_path
+    expect(page).to have_current_path root_path
   end
 
   it 'allows to delete account' do

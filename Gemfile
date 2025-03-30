@@ -7,8 +7,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.4.1'
-
 gem 'rails', '7.1.5.1'
 
 gem 'activerecord-postgis-adapter', '~> 9.0'
@@ -32,7 +30,7 @@ gem 'pg', '~> 1.5'
 gem 'puma', '~> 6.5'
 gem 'rgeo', '~> 3.0'
 gem 'secure_headers', '~> 7.1'
-gem 'shakapacker', '8.1.0'
+gem 'shakapacker', '8.2.0'
 gem 'simpleconfig', '~> 2.0'
 gem 'simple_form', '~> 5.3'
 gem 'slim-rails', '~> 3.7'
