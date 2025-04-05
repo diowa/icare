@@ -4,9 +4,9 @@
   "version": "1.0.0",
   "engines": {
     "node": ">= 22.0",
-    "pnpm": "^9.12.1"
+    "pnpm": "^10.7.0"
   },
-  "packageManager": "pnpm@^9.12.1",
+  "packageManager": "pnpm@^10.7.0",
   "dependencies": {
     "@babel/core": "^7.26.10",
     "@babel/plugin-transform-runtime": "^7.26.10",
@@ -22,7 +22,7 @@
     "@rails/activestorage": "7.1.501",
     "babel-loader": "^9.2.1",
     "babel-plugin-macros": "^3.1.0",
-    "bootstrap": "~5.3.3",
+    "bootstrap": "~5.3.5",
     "compression-webpack-plugin": "^11.1.0",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
@@ -61,12 +61,12 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.6.0",
     "eslint-webpack-plugin": "^4.2.0",
-    "stylelint": "^16.16.0",
+    "stylelint": "^16.17.0",
     "stylelint-config-twbs-bootstrap": "^15.1.0",
     "stylelint-order": "^6.0.4",
     "stylelint-scss": "^6.11.1",
     "stylelint-webpack-plugin": "^5.0.1",
-    "webpack-dev-server": "^5.2.0"
+    "webpack-dev-server": "^5.2.1"
   },
   "babel": {
     "presets": [
