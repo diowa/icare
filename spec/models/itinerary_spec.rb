@@ -59,7 +59,7 @@ RSpec.describe Itinerary do
         end_location:      itinerary.end_location.coordinates,
         via_waypoints:     itinerary.via_waypoints,
         overview_path:     itinerary.overview_path,
-        overview_polyline: itinerary.overview_polyline }.to_json.to_s
+        overview_polyline: itinerary.overview_polyline }.to_json
     end
 
     it 'does not fail if route json object is empty or malformed' do
