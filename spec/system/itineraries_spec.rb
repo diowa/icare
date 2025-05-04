@@ -133,11 +133,11 @@ RSpec.describe 'Itineraries' do
       expect(page).to have_css('tbody > tr', count: 2)
     end
 
-    include_examples 'feature icons', daily:           '.fa-redo',
-                                      pets_allowed:    '.fa-paw',
-                                      pink:            '.fa-lock',
-                                      round_trip:      '.fa-exchange-alt',
-                                      smoking_allowed: '.fa-smoking'
+    it_behaves_like 'feature icons', daily:           '.fa-redo',
+                                     pets_allowed:    '.fa-paw',
+                                     pink:            '.fa-lock',
+                                     round_trip:      '.fa-exchange-alt',
+                                     smoking_allowed: '.fa-smoking'
 
     it 'allows users to delete their own ones' do
       login_as_male
