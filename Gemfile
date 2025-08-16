@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '7.1.5.1'
+gem 'rails', '7.1.5.2'
 
 gem 'activerecord-postgis-adapter', '~> 9.0'
 gem 'airbrake', '~> 13.0'
