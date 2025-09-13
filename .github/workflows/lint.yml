@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
-    - uses: tj-actions/changed-files@v46
+    - uses: tj-actions/changed-files@v47
       id: changed-files
       with:
         files: |
@@ -42,7 +42,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
-    - uses: tj-actions/changed-files@v46
+    - uses: tj-actions/changed-files@v47
       id: changed-files
       with:
         files: |
@@ -65,7 +65,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
-    - uses: tj-actions/changed-files@v46
+    - uses: tj-actions/changed-files@v47
       id: changed-files
       with:
         files: |
@@ -92,7 +92,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
-    - uses: tj-actions/changed-files@v46
+    - uses: tj-actions/changed-files@v47
       id: changed-files
       with:
         files: |
