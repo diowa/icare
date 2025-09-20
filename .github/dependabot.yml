@@ -4,12 +4,12 @@ updates:
     directory: /
     schedule:
       interval: weekly
-      day: "saturday"
+      day: "tuesday"
   - package-ecosystem: bundler
     directory: "/"
     schedule:
       interval: weekly
-      day: "saturday"
+      day: "tuesday"
     open-pull-requests-limit: 10
     groups:
       rubocop:
