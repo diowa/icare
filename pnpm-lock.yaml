@@ -39,11 +39,11 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@rails/actioncable':
-        specifier: 7.1.501
-        version: 7.1.501
+        specifier: 8.0.300
+        version: 8.0.300
       '@rails/activestorage':
-        specifier: 7.1.501
-        version: 7.1.501
+        specifier: 8.0.300
+        version: 8.0.300
       babel-loader:
         specifier: ^9.2.1
         version: 9.2.1(@babel/core@7.28.4)(webpack@5.101.3)
@@ -1140,11 +1140,11 @@ packages:
   '@popperjs/core@2.11.8':
     resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
-  '@rails/actioncable@7.1.501':
-    resolution: {integrity: sha512-oQOkHNemn+xPdtOgO/nae2S/GSvuII560pb5BGjTXfOd70JJ4yw9LLp2geDth45we5PaGw2BSIY0ImaG71NPNQ==}
+  '@rails/actioncable@8.0.300':
+    resolution: {integrity: sha512-X+jxLnyYciTciEeM9crFFsR6DCodCsnoQIzv4hEST6Lx1rEBEjNQbBopnyDT4gr7lBeHJNfb6fEcvZuWFxUSQg==}
 
-  '@rails/activestorage@7.1.501':
-    resolution: {integrity: sha512-1EgcX5Phfg3KJkk2F5t7JohXIDau0T0soqYzRG5WUDvxDsXQW4FGB+t1PnbeEXHmy/N9scL8IFevEt4RtLrnkA==}
+  '@rails/activestorage@8.0.300':
+    resolution: {integrity: sha512-vgugHjdH0wLM1+ajWdoiNNFphDsZrd349iJvfyVPC21IkMdJOnaBpF4eaV847cDqP/7mxxDZ4nkhc7dgQjGa4A==}
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -5410,9 +5410,9 @@ snapshots:
 
   '@popperjs/core@2.11.8': {}
 
-  '@rails/actioncable@7.1.501': {}
+  '@rails/actioncable@8.0.300': {}
 
-  '@rails/activestorage@7.1.501':
+  '@rails/activestorage@8.0.300':
     dependencies:
       spark-md5: 3.0.2
 
