@@ -60,7 +60,7 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.6.0",
-    "eslint-webpack-plugin": "^4.2.0",
+    "eslint-webpack-plugin": "^5.0.2",
     "stylelint": "^16.25.0",
     "stylelint-config-twbs-bootstrap": "^15.1.0",
     "stylelint-order": "^6.0.4",
