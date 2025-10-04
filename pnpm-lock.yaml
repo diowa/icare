@@ -169,8 +169,8 @@ importers:
         specifier: ^15.1.0
         version: 15.1.0(postcss@8.5.6)(stylelint@16.25.0)
       stylelint-order:
-        specifier: ^6.0.4
-        version: 6.0.4(stylelint@16.25.0)
+        specifier: ^7.0.0
+        version: 7.0.0(stylelint@16.25.0)
       stylelint-scss:
         specifier: ^6.12.1
         version: 6.12.1(stylelint@16.25.0)
@@ -3459,6 +3459,11 @@ packages:
     peerDependencies:
       postcss: ^8.4.20
 
+  postcss-sorting@9.1.0:
+    resolution: {integrity: sha512-Mn8KJ45HNNG6JBpBizXcyf6LqY/qyqetGcou/nprDnFwBFBLGj0j/sNKV2lj2KMOVOwdXu14aEzqJv8CIV6e8g==}
+    peerDependencies:
+      postcss: ^8.4.20
+
   postcss-svgo@7.1.0:
     resolution: {integrity: sha512-KnAlfmhtoLz6IuU3Sij2ycusNs4jPW+QoFE5kuuUOK8awR6tMxZQrs5Ey3BUz7nFCzT3eqyFgqkyrHiaU2xx3w==}
     engines: {node: ^18.12.0 || ^20.9.0 || >= 18}
@@ -3922,6 +3927,12 @@ packages:
     resolution: {integrity: sha512-0UuKo4+s1hgQ/uAxlYU4h0o0HS4NiQDud0NAUNI0aa8FJdmYHA5ZZTFHiV5FpmE3071e9pZx5j0QpVJW5zOCUA==}
     peerDependencies:
       stylelint: ^14.0.0 || ^15.0.0 || ^16.0.1
+
+  stylelint-order@7.0.0:
+    resolution: {integrity: sha512-rSWxx0KscYfxU02wEskKXES9lkRzuuONMMNkZ7SUc6uiF3tDKm7e+sE0Ax/SBlG4TUf1sp1R6f3/SlsPGmzthg==}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      stylelint: ^16.18.0
 
   stylelint-scss@6.12.1:
     resolution: {integrity: sha512-UJUfBFIvXfly8WKIgmqfmkGKPilKB4L5j38JfsDd+OCg2GBdU0vGUV08Uw82tsRZzd4TbsUURVVNGeOhJVF7pA==}
@@ -7920,6 +7931,10 @@ snapshots:
     dependencies:
       postcss: 8.5.6
 
+  postcss-sorting@9.1.0(postcss@8.5.6):
+    dependencies:
+      postcss: 8.5.6
+
   postcss-svgo@7.1.0(postcss@8.5.6):
     dependencies:
       postcss: 8.5.6
@@ -8435,6 +8450,12 @@ snapshots:
     dependencies:
       postcss: 8.5.6
       postcss-sorting: 8.0.2(postcss@8.5.6)
+      stylelint: 16.25.0
+
+  stylelint-order@7.0.0(stylelint@16.25.0):
+    dependencies:
+      postcss: 8.5.6
+      postcss-sorting: 9.1.0(postcss@8.5.6)
       stylelint: 16.25.0
 
   stylelint-scss@6.12.1(stylelint@16.25.0):
