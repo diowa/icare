@@ -20,7 +20,7 @@
     "@popperjs/core": "^2.11.8",
     "@rails/actioncable": "7.1.501",
     "@rails/activestorage": "7.1.501",
-    "babel-loader": "^9.2.1",
+    "babel-loader": "^10.0.0",
     "babel-plugin-macros": "^3.1.0",
     "bootstrap": "~5.3.8",
     "compression-webpack-plugin": "^11.1.0",
