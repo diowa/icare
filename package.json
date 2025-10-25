@@ -63,7 +63,7 @@
     "eslint-webpack-plugin": "^4.2.0",
     "stylelint": "^16.25.0",
     "stylelint-config-twbs-bootstrap": "^15.1.0",
-    "stylelint-order": "^6.0.4",
+    "stylelint-order": "^7.0.0",
     "stylelint-scss": "^6.12.1",
     "stylelint-webpack-plugin": "^5.0.1",
     "webpack-dev-server": "^5.2.2"
